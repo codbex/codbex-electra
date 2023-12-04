@@ -28,25 +28,6 @@
             <fd-fieldset class="fd-margin--md" ng-form="formFieldset">
                 <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm">
                     <fd-form-item horizontal="false">
-                        <fd-form-label for="idName" dg-required="false" dg-colon="true">Name</fd-form-label>
-                        <fd-form-input-message-group dg-inactive="{{ formErrors.Name ? false : true }}">
-                            <fd-input id="idName"
-                                name="Name"
-                                state="{{ formErrors.Name ? 'error' : '' }}"
-								ng-required="false"
-                                ng-change="isValid(formFieldset['Name'].$valid, 'Name')"
-                                ng-model="entity.Name"
-                                ng-readonly="action === 'select'"
-                                ng-minlength="0.0 || 0"
-                                ng-maxlength="20.0 || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
-                                placeholder="Enter Name">
-                            </fd-input>
-                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-                        </fd-form-input-message-group>
-                    </fd-form-item>
-                    <fd-form-item horizontal="false">
                         <fd-form-label for="idModel" dg-required="false" dg-colon="true">Model</fd-form-label>
                         <fd-form-input-message-group dg-inactive="{{ formErrors.Model ? false : true }}">
                             <fd-input id="idModel"
@@ -57,7 +38,7 @@
                                 ng-model="entity.Model"
                                 ng-readonly="action === 'select'"
                                 ng-minlength="0.0 || 0"
-                                ng-maxlength="20.0 || -1"
+                                ng-maxlength="64.0 || -1"
                                 dg-input-rules="{ patterns: [''] }"
                                 type="text"
                                 placeholder="Enter Model">
@@ -66,115 +47,115 @@
                         </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
-                        <fd-form-label for="idSku" dg-required="false" dg-colon="true">Sku</fd-form-label>
-                        <fd-form-input-message-group dg-inactive="{{ formErrors.Sku ? false : true }}">
-                            <fd-input id="idSku"
-                                name="Sku"
-                                state="{{ formErrors.Sku ? 'error' : '' }}"
+                        <fd-form-label for="idSKU" dg-required="false" dg-colon="true">SKU</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.SKU ? false : true }}">
+                            <fd-input id="idSKU"
+                                name="SKU"
+                                state="{{ formErrors.SKU ? 'error' : '' }}"
 								ng-required="false"
-                                ng-change="isValid(formFieldset['Sku'].$valid, 'Sku')"
-                                ng-model="entity.Sku"
+                                ng-change="isValid(formFieldset['SKU'].$valid, 'SKU')"
+                                ng-model="entity.SKU"
+                                ng-readonly="action === 'select'"
+                                ng-minlength="0.0 || 0"
+                                ng-maxlength="64.0 || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter SKU">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idUPC" dg-required="false" dg-colon="true">UPC</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.UPC ? false : true }}">
+                            <fd-input id="idUPC"
+                                name="UPC"
+                                state="{{ formErrors.UPC ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['UPC'].$valid, 'UPC')"
+                                ng-model="entity.UPC"
                                 ng-readonly="action === 'select'"
                                 ng-minlength="0.0 || 0"
                                 ng-maxlength="20.0 || -1"
                                 dg-input-rules="{ patterns: [''] }"
                                 type="text"
-                                placeholder="Enter Sku">
+                                placeholder="Enter UPC">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
-                        <fd-form-label for="idUpc" dg-required="false" dg-colon="true">Upc</fd-form-label>
-                        <fd-form-input-message-group dg-inactive="{{ formErrors.Upc ? false : true }}">
-                            <fd-input id="idUpc"
-                                name="Upc"
-                                state="{{ formErrors.Upc ? 'error' : '' }}"
+                        <fd-form-label for="idEAN" dg-required="false" dg-colon="true">EAN</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.EAN ? false : true }}">
+                            <fd-input id="idEAN"
+                                name="EAN"
+                                state="{{ formErrors.EAN ? 'error' : '' }}"
 								ng-required="false"
-                                ng-change="isValid(formFieldset['Upc'].$valid, 'Upc')"
-                                ng-model="entity.Upc"
+                                ng-change="isValid(formFieldset['EAN'].$valid, 'EAN')"
+                                ng-model="entity.EAN"
                                 ng-readonly="action === 'select'"
                                 ng-minlength="0.0 || 0"
                                 ng-maxlength="20.0 || -1"
                                 dg-input-rules="{ patterns: [''] }"
                                 type="text"
-                                placeholder="Enter Upc">
+                                placeholder="Enter EAN">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
-                        <fd-form-label for="idEan" dg-required="false" dg-colon="true">Ean</fd-form-label>
-                        <fd-form-input-message-group dg-inactive="{{ formErrors.Ean ? false : true }}">
-                            <fd-input id="idEan"
-                                name="Ean"
-                                state="{{ formErrors.Ean ? 'error' : '' }}"
+                        <fd-form-label for="idJAN" dg-required="false" dg-colon="true">JAN</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.JAN ? false : true }}">
+                            <fd-input id="idJAN"
+                                name="JAN"
+                                state="{{ formErrors.JAN ? 'error' : '' }}"
 								ng-required="false"
-                                ng-change="isValid(formFieldset['Ean'].$valid, 'Ean')"
-                                ng-model="entity.Ean"
+                                ng-change="isValid(formFieldset['JAN'].$valid, 'JAN')"
+                                ng-model="entity.JAN"
                                 ng-readonly="action === 'select'"
                                 ng-minlength="0.0 || 0"
                                 ng-maxlength="20.0 || -1"
                                 dg-input-rules="{ patterns: [''] }"
                                 type="text"
-                                placeholder="Enter Ean">
+                                placeholder="Enter JAN">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
-                        <fd-form-label for="idJan" dg-required="false" dg-colon="true">Jan</fd-form-label>
-                        <fd-form-input-message-group dg-inactive="{{ formErrors.Jan ? false : true }}">
-                            <fd-input id="idJan"
-                                name="Jan"
-                                state="{{ formErrors.Jan ? 'error' : '' }}"
+                        <fd-form-label for="idISBN" dg-required="false" dg-colon="true">ISBN</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.ISBN ? false : true }}">
+                            <fd-input id="idISBN"
+                                name="ISBN"
+                                state="{{ formErrors.ISBN ? 'error' : '' }}"
 								ng-required="false"
-                                ng-change="isValid(formFieldset['Jan'].$valid, 'Jan')"
-                                ng-model="entity.Jan"
+                                ng-change="isValid(formFieldset['ISBN'].$valid, 'ISBN')"
+                                ng-model="entity.ISBN"
                                 ng-readonly="action === 'select'"
                                 ng-minlength="0.0 || 0"
                                 ng-maxlength="20.0 || -1"
                                 dg-input-rules="{ patterns: [''] }"
                                 type="text"
-                                placeholder="Enter Jan">
+                                placeholder="Enter ISBN">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
-                        <fd-form-label for="idQuantity" dg-required="false" dg-colon="true">Quantity</fd-form-label>
-                        <fd-form-input-message-group dg-inactive="{{ formErrors.Quantity ? false : true }}">
-                            <fd-input id="idQuantity"
-                                name="Quantity"
-                                state="{{ formErrors.Quantity ? 'error' : '' }}"
+                        <fd-form-label for="idMPN" dg-required="false" dg-colon="true">MPN</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.MPN ? false : true }}">
+                            <fd-input id="idMPN"
+                                name="MPN"
+                                state="{{ formErrors.MPN ? 'error' : '' }}"
 								ng-required="false"
-                                ng-change="isValid(formFieldset['Quantity'].$valid, 'Quantity')"
-                                ng-model="entity.Quantity"
+                                ng-change="isValid(formFieldset['MPN'].$valid, 'MPN')"
+                                ng-model="entity.MPN"
                                 ng-readonly="action === 'select'"
-                                ng-minlength="${property.minLength} || 0"
-                                ng-maxlength="${property.maxLength} || -1"
+                                ng-minlength="0.0 || 0"
+                                ng-maxlength="64.0 || -1"
                                 dg-input-rules="{ patterns: [''] }"
                                 type="text"
-                                placeholder="Enter Quantity">
-                            </fd-input>
-                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-                        </fd-form-input-message-group>
-                    </fd-form-item>
-                    <fd-form-item horizontal="false">
-                        <fd-form-label for="idPrice" dg-required="false" dg-colon="true">Price</fd-form-label>
-                        <fd-form-input-message-group dg-inactive="{{ formErrors.Price ? false : true }}">
-                            <fd-input id="idPrice"
-                                name="Price"
-                                state="{{ formErrors.Price ? 'error' : '' }}"
-								ng-required="false"
-                                ng-change="isValid(formFieldset['Price'].$valid, 'Price')"
-                                ng-model="entity.Price"
-                                ng-readonly="action === 'select'"
-                                ng-minlength="${property.minLength} || 0"
-                                ng-maxlength="${property.maxLength} || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
-                                placeholder="Enter Price">
+                                placeholder="Enter MPN">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
@@ -199,6 +180,76 @@
                         </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
+                        <fd-form-label for="idVariant" dg-required="false" dg-colon="true">Variant</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.Variant ? false : true }}">
+                            <fd-input id="idVariant"
+                                name="Variant"
+                                state="{{ formErrors.Variant ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['Variant'].$valid, 'Variant')"
+                                ng-model="entity.Variant"
+                                ng-readonly="action === 'select'"
+                                ng-minlength="0.0 || 0"
+                                ng-maxlength="20.0 || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter Variant">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idOverride" dg-required="false" dg-colon="true">Override</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.Override ? false : true }}">
+                            <fd-input id="idOverride"
+                                name="Override"
+                                state="{{ formErrors.Override ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['Override'].$valid, 'Override')"
+                                ng-model="entity.Override"
+                                ng-readonly="action === 'select'"
+                                ng-minlength="0.0 || 0"
+                                ng-maxlength="20.0 || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter Override">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idQuantity" dg-required="false" dg-colon="true">Quantity</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.Quantity ? false : true }}">
+                            <fd-input id="idQuantity"
+                                name="Quantity"
+                                state="{{ formErrors.Quantity ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['Quantity'].$valid, 'Quantity')"
+                                ng-model="entity.Quantity"
+                                ng-readonly="action === 'select'"
+                                ng-minlength="${property.minLength} || 0"
+                                ng-maxlength="${property.maxLength} || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter Quantity">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idStockStatus" dg-required="false" dg-colon="true">StockStatus</fd-form-label>
+                        <fd-combobox-input id="idStockStatus"
+                            name="StockStatus"
+                            state="{{ formErrors.StockStatus ? 'error' : '' }}"
+                            ng-required="true"
+                            ng-change="isValid(formFieldset['StockStatus'].$valid, 'StockStatus')"
+                            ng-model="entity.StockStatus"
+                            dg-disabled="action === 'select'"
+                            dropdown-items="optionsStockStatus"
+                            dg-placeholder="Search StockStatus ...">
+                        </fd-combobox-input>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
                         <fd-form-label for="idImage" dg-required="false" dg-colon="true">Image</fd-form-label>
                         <fd-form-input-message-group dg-inactive="{{ formErrors.Image ? false : true }}">
                             <fd-input id="idImage"
@@ -209,10 +260,95 @@
                                 ng-model="entity.Image"
                                 ng-readonly="action === 'select'"
                                 ng-minlength="0.0 || 0"
-                                ng-maxlength="20.0 || -1"
+                                ng-maxlength="255.0 || -1"
                                 dg-input-rules="{ patterns: [''] }"
                                 type="text"
                                 placeholder="Enter Image">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idManifacturer" dg-required="false" dg-colon="true">Manifacturer</fd-form-label>
+                        <fd-combobox-input id="idManifacturer"
+                            name="Manifacturer"
+                            state="{{ formErrors.Manifacturer ? 'error' : '' }}"
+                            ng-required="true"
+                            ng-change="isValid(formFieldset['Manifacturer'].$valid, 'Manifacturer')"
+                            ng-model="entity.Manifacturer"
+                            dg-disabled="action === 'select'"
+                            dropdown-items="optionsManifacturer"
+                            dg-placeholder="Search Manifacturer ...">
+                        </fd-combobox-input>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idShipping" dg-required="false" dg-colon="true">Shipping</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.Shipping ? false : true }}">
+                            <fd-input id="idShipping"
+                                name="Shipping"
+                                state="{{ formErrors.Shipping ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['Shipping'].$valid, 'Shipping')"
+                                ng-model="entity.Shipping"
+                                ng-readonly="action === 'select'"
+                                ng-minlength="${property.minLength} || 0"
+                                ng-maxlength="${property.maxLength} || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter Shipping">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idPrice" dg-required="false" dg-colon="true">Price</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.Price ? false : true }}">
+                            <fd-input id="idPrice"
+                                name="Price"
+                                state="{{ formErrors.Price ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['Price'].$valid, 'Price')"
+                                ng-model="entity.Price"
+                                ng-readonly="action === 'select'"
+                                ng-minlength="${property.minLength} || 0"
+                                ng-maxlength="${property.maxLength} || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter Price">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idPoints" dg-required="false" dg-colon="true">Points</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.Points ? false : true }}">
+                            <fd-input id="idPoints"
+                                name="Points"
+                                state="{{ formErrors.Points ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['Points'].$valid, 'Points')"
+                                ng-model="entity.Points"
+                                ng-readonly="action === 'select'"
+                                ng-minlength="${property.minLength} || 0"
+                                ng-maxlength="${property.maxLength} || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter Points">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idDateAvailable" dg-required="false" dg-colon="true">DateAvailable</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.DateAvailable ? false : true }}">
+                            <fd-input id="idDateAvailable"
+                                name="DateAvailable"
+                                state="{{ formErrors.DateAvailable ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['DateAvailable'].$valid, 'DateAvailable')"
+                                ng-model="entity.DateAvailable"
+                                ng-readonly="action === 'select'"
+                                type="date">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
@@ -294,6 +430,57 @@
                         </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
+                        <fd-form-label for="idSubtract" dg-required="false" dg-colon="true">Subtract</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.Subtract ? false : true }}">
+                            <fd-input id="idSubtract"
+                                name="Subtract"
+                                state="{{ formErrors.Subtract ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['Subtract'].$valid, 'Subtract')"
+                                ng-model="entity.Subtract"
+                                ng-readonly="action === 'select'"
+                                ng-minlength="${property.minLength} || 0"
+                                ng-maxlength="${property.maxLength} || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter Subtract">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idMinimum" dg-required="false" dg-colon="true">Minimum</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.Minimum ? false : true }}">
+                            <fd-input id="idMinimum"
+                                name="Minimum"
+                                state="{{ formErrors.Minimum ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['Minimum'].$valid, 'Minimum')"
+                                ng-model="entity.Minimum"
+                                ng-readonly="action === 'select'"
+                                ng-minlength="${property.minLength} || 0"
+                                ng-maxlength="${property.maxLength} || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter Minimum">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idStatus" dg-required="false" dg-colon="true">Status</fd-form-label>
+                        <fd-combobox-input id="idStatus"
+                            name="Status"
+                            state="{{ formErrors.Status ? 'error' : '' }}"
+                            ng-required="true"
+                            ng-change="isValid(formFieldset['Status'].$valid, 'Status')"
+                            ng-model="entity.Status"
+                            dg-disabled="action === 'select'"
+                            dropdown-items="optionsStatus"
+                            dg-placeholder="Search Status ...">
+                        </fd-combobox-input>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
                         <fd-form-label for="idDateAdded" dg-required="false" dg-colon="true">DateAdded</fd-form-label>
                         <fd-form-input-message-group dg-inactive="{{ formErrors.DateAdded ? false : true }}">
                             <fd-input id="idDateAdded"
@@ -303,11 +490,7 @@
                                 ng-change="isValid(formFieldset['DateAdded'].$valid, 'DateAdded')"
                                 ng-model="entity.DateAdded"
                                 ng-readonly="action === 'select'"
-                                ng-minlength="0.0 || 0"
-                                ng-maxlength="20.0 || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
-                                placeholder="Enter DateAdded">
+                                type="date">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
@@ -322,27 +505,10 @@
                                 ng-change="isValid(formFieldset['DateModified'].$valid, 'DateModified')"
                                 ng-model="entity.DateModified"
                                 ng-readonly="action === 'select'"
-                                ng-minlength="0.0 || 0"
-                                ng-maxlength="20.0 || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
-                                placeholder="Enter DateModified">
+                                type="date">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
-                    </fd-form-item>
-                    <fd-form-item horizontal="false">
-                        <fd-form-label for="idProductStatus" dg-required="false" dg-colon="true">ProductStatus</fd-form-label>
-                        <fd-combobox-input id="idProductStatus"
-                            name="ProductStatus"
-                            state="{{ formErrors.ProductStatus ? 'error' : '' }}"
-                            ng-required="true"
-                            ng-change="isValid(formFieldset['ProductStatus'].$valid, 'ProductStatus')"
-                            ng-model="entity.ProductStatus"
-                            dg-disabled="action === 'select'"
-                            dropdown-items="optionsProductStatus"
-                            dg-placeholder="Search ProductStatus ...">
-                        </fd-combobox-input>
                     </fd-form-item>
             </fd-fieldset>
         </fd-scrollbar>

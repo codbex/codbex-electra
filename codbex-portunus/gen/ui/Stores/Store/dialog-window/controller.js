@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-portunus.Stores.Store';
+		messageHubProvider.eventIdPrefix = 'new-portunus.Stores.Store';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-portunus/gen/api/Stores/Store.js";
+		entityApiProvider.baseUrl = "/services/js/new-portunus/gen/api/Stores/Store.js";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 

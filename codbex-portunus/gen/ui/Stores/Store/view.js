@@ -8,7 +8,7 @@ const viewData = {
     label: "Store",
     factory: "frame",
     region: "center",
-    link: "/services/web/codbex-portunus/gen/ui/Stores/Store/index.html",
+    link: "/services/web/new-portunus/gen/ui/Stores/Store/index.html",
     perspectiveName: "Stores"
 };
 

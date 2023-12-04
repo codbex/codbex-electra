@@ -1,4 +1,4 @@
 {
-    "name": "codbex-portunus-dialog-window",
-    "description": "codbex-portunus - Extension Point for the Application Dialog Window Providers"
+    "name": "new-portunus-dialog-window",
+    "description": "new-portunus - Extension Point for the Application Dialog Window Providers"
 }

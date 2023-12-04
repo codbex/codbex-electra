@@ -7,10 +7,10 @@ exports.getTile = function () {
     return {
         group: "Products",
         name: "Product",
-        caption: "Manage entity Products",
-        tooltip: "Products",
+        caption: "Manage entity Product",
+        tooltip: "Product",
         // icon: "file-o",
-        location: "/services/web/codbex-portunus/gen/ui/Products/index.html",
+        location: "/services/web/new-portunus/gen/ui/Products/index.html",
         order: "100",
         groupOrder: "200"
     };

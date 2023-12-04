@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-portunus.Products.Product';
+		messageHubProvider.eventIdPrefix = 'new-portunus.Products.Product';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-portunus/gen/api/Products/Product.js";
+		entityApiProvider.baseUrl = "/services/js/new-portunus/gen/api/Products/Product.js";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 
@@ -25,10 +25,21 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					$scope.formErrors = {
 					};
 				}
+				if (params.entity.DateAvailable) {
+					params.entity.DateAvailable = new Date(params.entity.DateAvailable);
+				}
+				if (params.entity.DateAdded) {
+					params.entity.DateAdded = new Date(params.entity.DateAdded);
+				}
+				if (params.entity.DateModified) {
+					params.entity.DateModified = new Date(params.entity.DateModified);
+				}
 				$scope.entity = params.entity;
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
-				$scope.optionsProductStatus = params.optionsProductStatus;
+				$scope.optionsStockStatus = params.optionsStockStatus;
+				$scope.optionsManifacturer = params.optionsManifacturer;
+				$scope.optionsStatus = params.optionsStatus;
 			}
 		}
 

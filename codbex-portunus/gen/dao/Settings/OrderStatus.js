@@ -90,7 +90,7 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(data) {
-	let triggerExtensions = extensions.getExtensions("codbex-portunus/Settings/OrderStatus");
+	let triggerExtensions = extensions.getExtensions("new-portunus/Settings/OrderStatus");
 	try {
 		for (let i=0; i < triggerExtensions.length; i++) {
 			let module = triggerExtensions[i];
@@ -104,5 +104,5 @@ function triggerEvent(data) {
 	} catch (error) {
 		console.error(error);
 	}
-	producer.queue("codbex-portunus/Settings/OrderStatus").send(JSON.stringify(data));
+	producer.queue("new-portunus/Settings/OrderStatus").send(JSON.stringify(data));
 }

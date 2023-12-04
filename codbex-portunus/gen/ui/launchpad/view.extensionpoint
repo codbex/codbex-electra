@@ -1,4 +1,4 @@
 {
-    "name": "codbex-portunus-view",
-    "description": "codbex-portunus - Extension Point for the Application View Providers"
+    "name": "new-portunus-view",
+    "description": "new-portunus - Extension Point for the Application View Providers"
 }

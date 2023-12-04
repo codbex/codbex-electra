@@ -4,11 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "codbex-portunus-home-launchpad",
+    id: "new-portunus-home-launchpad",
     label: "Home Launchpad",
     factory: "frame",
     region: "center",
-    link: "/services/web/codbex-portunus/gen/ui/launchpad/Home/index.html",
+    link: "/services/web/new-portunus/gen/ui/launchpad/Home/index.html",
     isLaunchpad: true,
 };
 

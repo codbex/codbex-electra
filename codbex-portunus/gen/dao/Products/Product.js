@@ -2,122 +2,185 @@ const query = require("db/query");
 const producer = require("messaging/producer");
 const extensions = require('extensions/extensions');
 const daoApi = require("db/dao");
+const EntityUtils = require("new-portunus/gen/dao/utils/EntityUtils");
 
 let dao = daoApi.create({
-	table: "CODBEX_PRODUCTS",
+	table: "CODBEX_PRODUCT",
 	properties: [
 		{
 			name: "Id",
-			column: "PRODUCTS_ID",
+			column: "PRODUCT_ID",
 			type: "INTEGER",
 			id: true,
 			autoIncrement: true,
 		},
  {
-			name: "Name",
-			column: "PRODUCTS_NAME",
-			type: "VARCHAR",
-		},
- {
 			name: "Model",
-			column: "PRODUCTS_MODEL",
+			column: "PRODUCT_MODEL",
 			type: "VARCHAR",
 		},
  {
-			name: "Sku",
-			column: "PRODUCTS_SKU",
+			name: "SKU",
+			column: "PRODUCT_SKU",
 			type: "VARCHAR",
 		},
  {
-			name: "Upc",
-			column: "PRODUCTS_UPC",
+			name: "UPC",
+			column: "PRODUCT_UPC",
 			type: "VARCHAR",
 		},
  {
-			name: "Ean",
-			column: "PRODUCTS_EAN",
+			name: "EAN",
+			column: "PRODUCT_EAN",
 			type: "VARCHAR",
 		},
  {
-			name: "Jan",
-			column: "PRODUCTS_JAN",
+			name: "JAN",
+			column: "PRODUCT_JAN",
+			type: "VARCHAR",
+		},
+ {
+			name: "ISBN",
+			column: "PRODUCT_ISBN",
+			type: "VARCHAR",
+		},
+ {
+			name: "MPN",
+			column: "PRODUCT_MPN",
+			type: "VARCHAR",
+		},
+ {
+			name: "Location",
+			column: "PRODUCT_LOCATION",
+			type: "VARCHAR",
+		},
+ {
+			name: "Variant",
+			column: "PRODUCT_VARIANT",
+			type: "VARCHAR",
+		},
+ {
+			name: "Override",
+			column: "PRODUCT_OVERRIDE",
 			type: "VARCHAR",
 		},
  {
 			name: "Quantity",
-			column: "PRODUCTS_QUANTITY",
+			column: "PRODUCT_QUANTITY",
 			type: "INTEGER",
 		},
  {
-			name: "Price",
-			column: "PRODUCTS_PRICE",
-			type: "DECIMAL",
-		},
- {
-			name: "Location",
-			column: "PRODUCTS_LOCATION",
-			type: "VARCHAR",
+			name: "StockStatus",
+			column: "PRODUCT_STOCKSTATUS",
+			type: "INTEGER",
 		},
  {
 			name: "Image",
-			column: "PRODUCTS_IMAGE",
+			column: "PRODUCT_IMAGE",
 			type: "VARCHAR",
 		},
  {
+			name: "Manifacturer",
+			column: "PRODUCT_MANIFACTURER",
+			type: "INTEGER",
+		},
+ {
+			name: "Shipping",
+			column: "PRODUCT_SHIPPING",
+			type: "TINYINT",
+		},
+ {
+			name: "Price",
+			column: "PRODUCT_PRICE",
+			type: "DECIMAL",
+		},
+ {
+			name: "Points",
+			column: "PRODUCT_POINTS",
+			type: "INTEGER",
+		},
+ {
+			name: "DateAvailable",
+			column: "PRODUCT_DATEAVAILABLE",
+			type: "DATE",
+		},
+ {
 			name: "Weight",
-			column: "PRODUCTS_WEIGHT",
+			column: "PRODUCT_WEIGHT",
 			type: "DECIMAL",
 		},
  {
 			name: "Length",
-			column: "PRODUCTS_LENGTH",
+			column: "PRODUCT_LENGTH",
 			type: "DECIMAL",
 		},
  {
 			name: "Width",
-			column: "PRODUCTS_WIDTH",
+			column: "PRODUCT_WIDTH",
 			type: "DECIMAL",
 		},
  {
 			name: "Height",
-			column: "PRODUCTS_HEIGHT",
+			column: "PRODUCT_HEIGHT",
 			type: "DECIMAL",
 		},
  {
+			name: "Subtract",
+			column: "PRODUCT_SUBTRACT",
+			type: "TINYINT",
+		},
+ {
+			name: "Minimum",
+			column: "PRODUCT_MINIMUM",
+			type: "INTEGER",
+		},
+ {
+			name: "Status",
+			column: "PRODUCT_STATUS",
+			type: "INTEGER",
+		},
+ {
 			name: "DateAdded",
-			column: "PRODUCTS_DATEADDED",
-			type: "VARCHAR",
+			column: "PRODUCT_DATEADDED",
+			type: "DATE",
 		},
  {
 			name: "DateModified",
-			column: "PRODUCTS_DATEMODIFIED",
-			type: "VARCHAR",
-		},
- {
-			name: "ProductStatus",
-			column: "PRODUCTS_PRODUCTSTATUS",
-			type: "INTEGER",
+			column: "PRODUCT_DATEMODIFIED",
+			type: "DATE",
 		}
 ]
 });
 
 exports.list = function(settings) {
-	return dao.list(settings);
+	return dao.list(settings).map(function(e) {
+		EntityUtils.setDate(e, "DateAvailable");
+		EntityUtils.setDate(e, "DateAdded");
+		EntityUtils.setDate(e, "DateModified");
+		return e;
+	});
 };
 
 exports.get = function(id) {
-	return dao.find(id);
+	let entity = dao.find(id);
+	EntityUtils.setDate(entity, "DateAvailable");
+	EntityUtils.setDate(entity, "DateAdded");
+	EntityUtils.setDate(entity, "DateModified");
+	return entity;
 };
 
 exports.create = function(entity) {
+	EntityUtils.setLocalDate(entity, "DateAvailable");
+	EntityUtils.setLocalDate(entity, "DateAdded");
+	EntityUtils.setLocalDate(entity, "DateModified");
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
-		table: "CODBEX_PRODUCTS",
+		table: "CODBEX_PRODUCT",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "PRODUCTS_ID",
+			column: "PRODUCT_ID",
 			value: id
 		}
 	});
@@ -125,14 +188,17 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
+	// EntityUtils.setLocalDate(entity, "DateAvailable");
+	// EntityUtils.setLocalDate(entity, "DateAdded");
+	// EntityUtils.setLocalDate(entity, "DateModified");
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",
-		table: "CODBEX_PRODUCTS",
+		table: "CODBEX_PRODUCT",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "PRODUCTS_ID",
+			column: "PRODUCT_ID",
 			value: entity.Id
 		}
 	});
@@ -143,11 +209,11 @@ exports.delete = function(id) {
 	dao.remove(id);
 	triggerEvent({
 		operation: "delete",
-		table: "CODBEX_PRODUCTS",
+		table: "CODBEX_PRODUCT",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "PRODUCTS_ID",
+			column: "PRODUCT_ID",
 			value: id
 		}
 	});
@@ -158,7 +224,7 @@ exports.count = function() {
 };
 
 exports.customDataCount = function() {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PRODUCTS"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PRODUCT"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;
@@ -170,7 +236,7 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(data) {
-	let triggerExtensions = extensions.getExtensions("codbex-portunus/Products/Product");
+	let triggerExtensions = extensions.getExtensions("new-portunus/Products/Product");
 	try {
 		for (let i=0; i < triggerExtensions.length; i++) {
 			let module = triggerExtensions[i];
@@ -184,5 +250,5 @@ function triggerEvent(data) {
 	} catch (error) {
 		console.error(error);
 	}
-	producer.queue("codbex-portunus/Products/Product").send(JSON.stringify(data));
+	producer.queue("new-portunus/Products/Product").send(JSON.stringify(data));
 }

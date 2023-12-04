@@ -5,10 +5,10 @@
  */
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-portunus.launchpad.Home';
+		messageHubProvider.eventIdPrefix = 'new-portunus.launchpad.Home';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-portunus/gen/ui/launchpad/Home/tiles.js";
+		entityApiProvider.baseUrl = "/services/js/new-portunus/gen/ui/launchpad/Home/tiles.js";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 

@@ -1,0 +1,5 @@
+{
+    "module": "new-portunus/gen/ui/entities/${masterEntity}/Bank/view.js",
+    "extensionPoint": "new-portunus-view",
+    "description": "new-portunus - Application View - Details"
+}

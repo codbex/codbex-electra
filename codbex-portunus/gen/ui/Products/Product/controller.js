@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-portunus.Products.Product';
+		messageHubProvider.eventIdPrefix = 'new-portunus.Products.Product';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-portunus/gen/api/Products/Product.js";
+		entityApiProvider.baseUrl = "/services/js/new-portunus/gen/api/Products/Product.js";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -39,6 +39,19 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 						messageHub.showAlertError("Product", `Unable to list Product: '${response.message}'`);
 						return;
 					}
+
+					response.data.forEach(e => {
+						if (e.DateAvailable) {
+							e.DateAvailable = new Date(e.DateAvailable);
+						}
+						if (e.DateAdded) {
+							e.DateAdded = new Date(e.DateAdded);
+						}
+						if (e.DateModified) {
+							e.DateModified = new Date(e.DateModified);
+						}
+					});
+
 					$scope.data = response.data;
 				});
 			});
@@ -54,7 +67,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Product-details", {
 				action: "select",
 				entity: entity,
-				optionsProductStatus: $scope.optionsProductStatus,
+				optionsStockStatus: $scope.optionsStockStatus,
+				optionsManifacturer: $scope.optionsManifacturer,
+				optionsStatus: $scope.optionsStatus,
 			});
 		};
 
@@ -63,7 +78,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Product-details", {
 				action: "create",
 				entity: {},
-				optionsProductStatus: $scope.optionsProductStatus,
+				optionsStockStatus: $scope.optionsStockStatus,
+				optionsManifacturer: $scope.optionsManifacturer,
+				optionsStatus: $scope.optionsStatus,
 			}, null, false);
 		};
 
@@ -71,7 +88,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Product-details", {
 				action: "update",
 				entity: entity,
-				optionsProductStatus: $scope.optionsProductStatus,
+				optionsStockStatus: $scope.optionsStockStatus,
+				optionsManifacturer: $scope.optionsManifacturer,
+				optionsStatus: $scope.optionsStatus,
 			}, null, false);
 		};
 
@@ -105,20 +124,56 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsProductStatus = [];
+		$scope.optionsStockStatus = [];
+		$scope.optionsManifacturer = [];
+		$scope.optionsStatus = [];
 
-		$http.get("/services/js/codbex-portunus/gen/api/Settings/ProductStatus.js").then(function (response) {
-			$scope.optionsProductStatus = response.data.map(e => {
+		$http.get("/services/js/new-portunus/gen/api/Settings/StockStatus.js").then(function (response) {
+			$scope.optionsStockStatus = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
 				}
 			});
 		});
-		$scope.optionsProductStatusValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsProductStatus.length; i++) {
-				if ($scope.optionsProductStatus[i].value === optionKey) {
-					return $scope.optionsProductStatus[i].text;
+
+		$http.get("/services/js/new-portunus/gen/api/Manufacturers/Manifacturer.js").then(function (response) {
+			$scope.optionsManifacturer = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/js/new-portunus/gen/api/Settings/ProductStatus.js").then(function (response) {
+			$scope.optionsStatus = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+		$scope.optionsStockStatusValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsStockStatus.length; i++) {
+				if ($scope.optionsStockStatus[i].value === optionKey) {
+					return $scope.optionsStockStatus[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsManifacturerValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsManifacturer.length; i++) {
+				if ($scope.optionsManifacturer[i].value === optionKey) {
+					return $scope.optionsManifacturer[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsStatusValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsStatus.length; i++) {
+				if ($scope.optionsStatus[i].value === optionKey) {
+					return $scope.optionsStatus[i].text;
 				}
 			}
 			return null;
