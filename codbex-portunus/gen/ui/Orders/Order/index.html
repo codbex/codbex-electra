@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="page" ng-controller="PageController">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="data:;base64,iVBORw0KGgo=" dg-brand-icon />
+		<title dg-brand-title></title>
+		<theme></theme>
+		<script type="text/javascript"
+			src="/services/js/resources-core/services/loader.js?id=application-view-js"></script>
+		<link type="text/css" rel="stylesheet"
+			href="/services/js/resources-core/services/loader.js?id=application-view-css" />
+		<script type="text/javascript" src="controller.js"></script>
+	</head>
+
+	<body class="dg-vbox">
+		<fd-toolbar has-title="true">
+			<fd-toolbar-title>Items ({{dataCount}})</fd-toolbar-title>
+			<fd-toolbar-spacer></fd-toolbar-spacer>
+			<fd-button compact="true" dg-type="transparent" dg-label="Create" ng-click="createEntity()"></fd-button>
+		</fd-toolbar>
+
+		<fd-scrollbar class="dg-full-height" ng-hide="data == null">
+			<table fd-table display-mode="compact" inner-borders="top" outer-borders="none">
+				<thead fd-table-header sticky="true">
+					<tr fd-table-row>
+						<th fd-table-header-cell>TransactionId</th>
+						<th fd-table-header-cell>InvoiceNumber</th>
+						<th fd-table-header-cell>InvoicePrefix</th>
+						<th fd-table-header-cell>CustomerId</th>
+						<th fd-table-header-cell>OrderStatus</th>
+						<th fd-table-header-cell>CustomerId</th>
+						<th fd-table-header-cell>CurrenciesId</th>
+						<th fd-table-header-cell>StoreId</th>
+						<th fd-table-header-cell>PaymentFirstName</th>
+						<th fd-table-header-cell>PaymentLastName</th>
+						<th fd-table-header-cell>PaymentCompany</th>
+						<th fd-table-header-cell>PaymentAddress1</th>
+						<th fd-table-header-cell>PaymentAddress2</th>
+						<th fd-table-header-cell>PaymentCity</th>
+						<th fd-table-header-cell>PaymentPostcode</th>
+						<th fd-table-header-cell>PaymentCountry</th>
+						<th fd-table-header-cell>PaymentMethod</th>
+						<th fd-table-header-cell>ShippingFirstName</th>
+						<th fd-table-header-cell>ShippingLastName</th>
+						<th fd-table-header-cell>ShippingCompany</th>
+						<th fd-table-header-cell>ShippingAddress1</th>
+						<th fd-table-header-cell>ShippingAddress2</th>
+						<th fd-table-header-cell>ShippingCity</th>
+						<th fd-table-header-cell>ShippingPostcode</th>
+						<th fd-table-header-cell>ShippingCountry</th>
+						<th fd-table-header-cell>ShippingMethod</th>
+						<th fd-table-header-cell>Comment</th>
+						<th fd-table-header-cell>Total</th>
+						<th fd-table-header-cell>Tracking</th>
+						<th fd-table-header-cell></th>
+					</tr>
+				</thead>
+				<tbody fd-table-body>
+					<tr fd-table-row hoverable="true" ng-show="data.length == 0">
+						<td fd-table-cell no-data="true">No data available.</td>
+					</tr>
+					<tr fd-table-row hoverable="true" ng-repeat="next in data"
+						dg-selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.TransactionId}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.InvoiceNumber}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.InvoicePrefix}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							{{optionsCustomerIdValue(next.CustomerId)}}
+						</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							{{optionsOrderStatusValue(next.OrderStatus)}}
+						</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.CustomerId}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.CurrenciesId}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							{{optionsStoreIdValue(next.StoreId)}}
+						</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.PaymentFirstName}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.PaymentLastName}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.PaymentCompany}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.PaymentAddress1}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.PaymentAddress2}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.PaymentCity}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.PaymentPostcode}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.PaymentCountry}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.PaymentMethod}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.ShippingFirstName}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.ShippingLastName}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.ShippingCompany}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.ShippingAddress1}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.ShippingAddress2}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.ShippingCity}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.ShippingPostcode}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.ShippingCountry}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.ShippingMethod}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Comment}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Total}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Tracking}}</td>
+						<td fd-table-cell fit-content="true">
+							<fd-popover>
+								<fd-popover-control>
+									<fd-button compact="true" glyph="sap-icon--overflow" dg-type="transparent"
+										aria-label="Table Row Menu Button" ng-click="setTristate()">
+									</fd-button>
+								</fd-popover-control>
+								<fd-popover-body dg-align="bottom-right">
+									<fd-menu aria-label="Table Row Menu" no-backdrop="true" no-shadow="true">
+										<fd-menu-item title="View Details" ng-click="openDetails(next)"></fd-menu-item>
+										<fd-menu-item title="Edit" ng-click="updateEntity(next)"></fd-menu-item>
+										<fd-menu-item title="Delete" ng-click="deleteEntity(next)"></fd-menu-item>
+									</fd-menu>
+								</fd-popover-body>
+							</fd-popover>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</fd-scrollbar>
+
+		<fd-pagination total-items="dataCount" items-per-page="dataLimit"
+			items-per-page-options="[10, 20, 50]" page-change="loadPage(pageNumber)"
+			items-per-page-change="loadPage(pageNumber)" items-per-page-placement="top-start" compact="true"
+			display-total-items="true" ng-hide="dataCount == 0">
+		</fd-pagination>
+	</body>
+
+</html>
