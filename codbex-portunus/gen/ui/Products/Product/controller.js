@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'new-portunus.Products.Product';
+		messageHubProvider.eventIdPrefix = 'codbex-portunus.Products.Product';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/new-portunus/gen/api/Products/Product.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-portunus/gen/api/Products/Product.js";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -128,7 +128,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsManifacturer = [];
 		$scope.optionsStatus = [];
 
-		$http.get("/services/js/new-portunus/gen/api/Settings/StockStatus.js").then(function (response) {
+		$http.get("/services/js/codbex-portunus/gen/api/Settings/StockStatus.js").then(function (response) {
 			$scope.optionsStockStatus = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -137,7 +137,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/new-portunus/gen/api/Manufacturers/Manifacturer.js").then(function (response) {
+		$http.get("/services/js/codbex-portunus/gen/api/Manufacturers/Manifacturer.js").then(function (response) {
 			$scope.optionsManifacturer = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -146,7 +146,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/new-portunus/gen/api/Settings/ProductStatus.js").then(function (response) {
+		$http.get("/services/js/codbex-portunus/gen/api/Settings/ProductStatus.js").then(function (response) {
 			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,

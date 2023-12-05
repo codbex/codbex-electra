@@ -95,7 +95,7 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(data) {
-	let triggerExtensions = extensions.getExtensions("new-portunus/Manufacturers/Manifacturer");
+	let triggerExtensions = extensions.getExtensions("codbex-portunus/Manufacturers/Manifacturer");
 	try {
 		for (let i=0; i < triggerExtensions.length; i++) {
 			let module = triggerExtensions[i];
@@ -109,5 +109,5 @@ function triggerEvent(data) {
 	} catch (error) {
 		console.error(error);
 	}
-	producer.queue("new-portunus/Manufacturers/Manifacturer").send(JSON.stringify(data));
+	producer.queue("codbex-portunus/Manufacturers/Manifacturer").send(JSON.stringify(data));
 }

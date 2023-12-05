@@ -6,7 +6,7 @@
 const viewData = {
     id: "ZoneStatus-details",
     label: "ZoneStatus",
-    link: "/services/web/new-portunus/gen/ui/Settings/ZoneStatus/dialog-window/index.html",
+    link: "/services/web/codbex-portunus/gen/ui/Settings/ZoneStatus/dialog-window/index.html",
     perspectiveName: "Settings"
 };
 

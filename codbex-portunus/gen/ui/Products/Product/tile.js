@@ -10,7 +10,7 @@ exports.getTile = function () {
         caption: "Manage entity Product",
         tooltip: "Product",
         // icon: "file-o",
-        location: "/services/web/new-portunus/gen/ui/Products/index.html",
+        location: "/services/web/codbex-portunus/gen/ui/Products/index.html",
         order: "100",
         groupOrder: "200"
     };

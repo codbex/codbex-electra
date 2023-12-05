@@ -6,7 +6,7 @@
 const viewData = {
     id: "Bank-details",
     label: "Bank",
-    link: "/services/web/new-portunus/gen/ui/entities/${masterEntity}/Bank/dialog-window/index.html",
+    link: "/services/web/codbex-portunus/gen/ui/entities/${masterEntity}/Bank/dialog-window/index.html",
     perspectiveName: "entities"
 };
 

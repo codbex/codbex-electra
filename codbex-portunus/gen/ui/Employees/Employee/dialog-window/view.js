@@ -6,7 +6,7 @@
 const viewData = {
     id: "Employee-details",
     label: "Employee",
-    link: "/services/web/new-portunus/gen/ui/Employees/Employee/dialog-window/index.html",
+    link: "/services/web/codbex-portunus/gen/ui/Employees/Employee/dialog-window/index.html",
     perspectiveName: "Employees"
 };
 

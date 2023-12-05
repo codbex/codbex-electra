@@ -77,6 +77,11 @@ let dao = daoApi.create({
 			name: "Code",
 			column: "SALESORDERPAYMENT_CODE",
 			type: "VARCHAR",
+		},
+ {
+			name: "SalesOrder",
+			column: "SALESORDERPAYMENT_SALESORDER",
+			type: "INTEGER",
 		}
 ]
 });
@@ -133,8 +138,8 @@ exports.delete = function(id) {
 	});
 };
 
-exports.count = function () {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDERPAYMENT" WHERE  = ?', []);
+exports.count = function (SalesOrder) {
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDERPAYMENT" WHERE "SALESORDERPAYMENT_SALESORDER" = ?', [SalesOrder]);
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;
@@ -158,7 +163,7 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(data) {
-	let triggerExtensions = extensions.getExtensions("new-portunus/SalesOrders/SalesOrderPayment");
+	let triggerExtensions = extensions.getExtensions("codbex-portunus/SalesOrders/SalesOrderPayment");
 	try {
 		for (let i=0; i < triggerExtensions.length; i++) {
 			let module = triggerExtensions[i];
@@ -172,5 +177,5 @@ function triggerEvent(data) {
 	} catch (error) {
 		console.error(error);
 	}
-	producer.queue("new-portunus/SalesOrders/SalesOrderPayment").send(JSON.stringify(data));
+	producer.queue("codbex-portunus/SalesOrders/SalesOrderPayment").send(JSON.stringify(data));
 }

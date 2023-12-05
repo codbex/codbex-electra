@@ -8,7 +8,7 @@ const extensions = dirigibleRequire("extensions/extensions");
 
 let tiles = {};
 
-let tileExtensions = extensions.getExtensions("new-portunus-tile");
+let tileExtensions = extensions.getExtensions("codbex-portunus-tile");
 for (let i = 0; tileExtensions !== null && i < tileExtensions.length; i++) {
     let tileExtension = dirigibleRequire(tileExtensions[i]);
     if (typeof tileExtension.getTile !== "function") {

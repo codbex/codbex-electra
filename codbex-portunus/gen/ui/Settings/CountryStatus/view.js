@@ -8,7 +8,7 @@ const viewData = {
     label: "CountryStatus",
     factory: "frame",
     region: "center",
-    link: "/services/web/new-portunus/gen/ui/Settings/CountryStatus/index.html",
+    link: "/services/web/codbex-portunus/gen/ui/Settings/CountryStatus/index.html",
     perspectiveName: "Settings"
 };
 

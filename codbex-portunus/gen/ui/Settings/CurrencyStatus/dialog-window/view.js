@@ -6,7 +6,7 @@
 const viewData = {
     id: "CurrencyStatus-details",
     label: "CurrencyStatus",
-    link: "/services/web/new-portunus/gen/ui/Settings/CurrencyStatus/dialog-window/index.html",
+    link: "/services/web/codbex-portunus/gen/ui/Settings/CurrencyStatus/dialog-window/index.html",
     perspectiveName: "Settings"
 };
 

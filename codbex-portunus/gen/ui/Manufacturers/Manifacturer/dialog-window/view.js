@@ -6,7 +6,7 @@
 const viewData = {
     id: "Manifacturer-details",
     label: "Manifacturer",
-    link: "/services/web/new-portunus/gen/ui/Manufacturers/Manifacturer/dialog-window/index.html",
+    link: "/services/web/codbex-portunus/gen/ui/Manufacturers/Manifacturer/dialog-window/index.html",
     perspectiveName: "Manufacturers"
 };
 

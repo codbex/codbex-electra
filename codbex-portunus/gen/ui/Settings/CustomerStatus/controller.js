@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'new-portunus.Settings.CustomerStatus';
+		messageHubProvider.eventIdPrefix = 'codbex-portunus.Settings.CustomerStatus';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/new-portunus/gen/api/Settings/CustomerStatus.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-portunus/gen/api/Settings/CustomerStatus.js";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -107,7 +107,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsName = [];
 
-		$http.get("/services/js/new-portunus/gen/api/${property.relationshipEntityPerspectiveName}/${property.relationshipEntityName}.js").then(function (response) {
+		$http.get("/services/js/codbex-portunus/gen/api/${property.relationshipEntityPerspectiveName}/${property.relationshipEntityName}.js").then(function (response) {
 			$scope.optionsName = response.data.map(e => {
 				return {
 					value: e.Id,

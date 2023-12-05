@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'new-portunus.entities.Bank';
+		messageHubProvider.eventIdPrefix = 'codbex-portunus.entities.Bank';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/new-portunus/gen/api/entities/Bank.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-portunus/gen/api/entities/Bank.js";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 
@@ -15,13 +15,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		resetPagination();
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("new-portunus.entities.${masterEntity}.entitySelected", function (msg) {
+		messageHub.onDidReceiveMessage("codbex-portunus.entities.${masterEntity}.entitySelected", function (msg) {
 			resetPagination();
 			$scope.selectedMainEntityId = msg.data.selectedMainEntityId;
 			$scope.loadPage($scope.dataPage);
 		}, true);
 
-		messageHub.onDidReceiveMessage("new-portunus.entities.${masterEntity}.clearDetails", function (msg) {
+		messageHub.onDidReceiveMessage("codbex-portunus.entities.${masterEntity}.clearDetails", function (msg) {
 			$scope.$apply(function () {
 				resetPagination();
 				$scope.selectedMainEntityId = null;

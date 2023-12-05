@@ -1,6 +1,6 @@
 const rs = require("http/rs");
-const dao = require("new-portunus/gen/dao/Currencies/Currency");
-const http = require("new-portunus/gen/api/utils/http");
+const dao = require("codbex-portunus/gen/dao/Currencies/Currency");
+const http = require("codbex-portunus/gen/api/utils/http");
 
 rs.service()
 	.resource("")
@@ -60,7 +60,7 @@ rs.service()
 		.post(function(ctx, request, response) {
 			let entity = request.getJSON();
 			entity.Id = dao.create(entity);
-			response.setHeader("Content-Location", "/services/js/new-portunus/gen/api/Currency.js/" + entity.Id);
+			response.setHeader("Content-Location", "/services/js/codbex-portunus/gen/api/Currency.js/" + entity.Id);
 			http.sendResponseCreated(entity);
 		})
 		.produces(["application/json"])

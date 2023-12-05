@@ -6,7 +6,7 @@
 const perspectiveData = {
 	id: "UserGroups",
 	name: "UserGroups",
-	link: "/services/web/new-portunus/gen/ui/UserGroups/index.html",
+	link: "/services/web/codbex-portunus/gen/ui/UserGroups/index.html",
 	order: "500",
 	icon: "/services/web/resources/unicons/users-alt.svg",
 };

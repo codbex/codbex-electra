@@ -10,7 +10,7 @@ exports.getTile = function () {
         caption: "Manage entity Currency",
         tooltip: "Currency",
         // icon: "file-o",
-        location: "/services/web/new-portunus/gen/ui/Currencies/index.html",
+        location: "/services/web/codbex-portunus/gen/ui/Currencies/index.html",
         order: "100",
         groupOrder: "400"
     };

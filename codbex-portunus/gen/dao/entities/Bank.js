@@ -118,7 +118,7 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(data) {
-	let triggerExtensions = extensions.getExtensions("new-portunus/entities/Bank");
+	let triggerExtensions = extensions.getExtensions("codbex-portunus/entities/Bank");
 	try {
 		for (let i=0; i < triggerExtensions.length; i++) {
 			let module = triggerExtensions[i];
@@ -132,5 +132,5 @@ function triggerEvent(data) {
 	} catch (error) {
 		console.error(error);
 	}
-	producer.queue("new-portunus/entities/Bank").send(JSON.stringify(data));
+	producer.queue("codbex-portunus/entities/Bank").send(JSON.stringify(data));
 }

@@ -8,7 +8,7 @@ const viewData = {
     label: "LanguageStatus",
     factory: "frame",
     region: "center",
-    link: "/services/web/new-portunus/gen/ui/Settings/LanguageStatus/index.html",
+    link: "/services/web/codbex-portunus/gen/ui/Settings/LanguageStatus/index.html",
     perspectiveName: "Settings"
 };
 

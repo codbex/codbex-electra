@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'new-portunus.Settings.Language';
+		messageHubProvider.eventIdPrefix = 'codbex-portunus.Settings.Language';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/new-portunus/gen/api/Settings/Language.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-portunus/gen/api/Settings/Language.js";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -107,7 +107,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsStatus = [];
 
-		$http.get("/services/js/new-portunus/gen/api/Settings/LanguageStatus.js").then(function (response) {
+		$http.get("/services/js/codbex-portunus/gen/api/Settings/LanguageStatus.js").then(function (response) {
 			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,

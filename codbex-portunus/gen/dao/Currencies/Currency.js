@@ -2,7 +2,7 @@ const query = require("db/query");
 const producer = require("messaging/producer");
 const extensions = require('extensions/extensions');
 const daoApi = require("db/dao");
-const EntityUtils = require("new-portunus/gen/dao/utils/EntityUtils");
+const EntityUtils = require("codbex-portunus/gen/dao/utils/EntityUtils");
 
 let dao = daoApi.create({
 	table: "CODBEX_CURRENCY",
@@ -133,7 +133,7 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(data) {
-	let triggerExtensions = extensions.getExtensions("new-portunus/Currencies/Currency");
+	let triggerExtensions = extensions.getExtensions("codbex-portunus/Currencies/Currency");
 	try {
 		for (let i=0; i < triggerExtensions.length; i++) {
 			let module = triggerExtensions[i];
@@ -147,5 +147,5 @@ function triggerEvent(data) {
 	} catch (error) {
 		console.error(error);
 	}
-	producer.queue("new-portunus/Currencies/Currency").send(JSON.stringify(data));
+	producer.queue("codbex-portunus/Currencies/Currency").send(JSON.stringify(data));
 }

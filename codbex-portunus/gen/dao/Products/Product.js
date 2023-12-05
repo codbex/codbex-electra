@@ -2,7 +2,7 @@ const query = require("db/query");
 const producer = require("messaging/producer");
 const extensions = require('extensions/extensions');
 const daoApi = require("db/dao");
-const EntityUtils = require("new-portunus/gen/dao/utils/EntityUtils");
+const EntityUtils = require("codbex-portunus/gen/dao/utils/EntityUtils");
 
 let dao = daoApi.create({
 	table: "CODBEX_PRODUCT",
@@ -236,7 +236,7 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(data) {
-	let triggerExtensions = extensions.getExtensions("new-portunus/Products/Product");
+	let triggerExtensions = extensions.getExtensions("codbex-portunus/Products/Product");
 	try {
 		for (let i=0; i < triggerExtensions.length; i++) {
 			let module = triggerExtensions[i];
@@ -250,5 +250,5 @@ function triggerEvent(data) {
 	} catch (error) {
 		console.error(error);
 	}
-	producer.queue("new-portunus/Products/Product").send(JSON.stringify(data));
+	producer.queue("codbex-portunus/Products/Product").send(JSON.stringify(data));
 }

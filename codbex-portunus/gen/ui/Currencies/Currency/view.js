@@ -8,7 +8,7 @@ const viewData = {
     label: "Currency",
     factory: "frame",
     region: "center",
-    link: "/services/web/new-portunus/gen/ui/Currencies/Currency/index.html",
+    link: "/services/web/codbex-portunus/gen/ui/Currencies/Currency/index.html",
     perspectiveName: "Currencies"
 };
 

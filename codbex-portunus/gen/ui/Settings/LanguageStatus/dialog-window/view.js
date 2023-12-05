@@ -6,7 +6,7 @@
 const viewData = {
     id: "LanguageStatus-details",
     label: "LanguageStatus",
-    link: "/services/web/new-portunus/gen/ui/Settings/LanguageStatus/dialog-window/index.html",
+    link: "/services/web/codbex-portunus/gen/ui/Settings/LanguageStatus/dialog-window/index.html",
     perspectiveName: "Settings"
 };
 

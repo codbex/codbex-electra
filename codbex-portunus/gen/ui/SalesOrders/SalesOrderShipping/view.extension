@@ -1,5 +1,0 @@
-{
-    "module": "new-portunus/gen/ui/SalesOrders/${masterEntity}/SalesOrderShipping/view.js",
-    "extensionPoint": "new-portunus-view",
-    "description": "new-portunus - Application View - Details"
-}

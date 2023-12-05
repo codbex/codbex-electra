@@ -95,7 +95,7 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(data) {
-	let triggerExtensions = extensions.getExtensions("new-portunus/UserGroups/EmployeeGroup");
+	let triggerExtensions = extensions.getExtensions("codbex-portunus/UserGroups/EmployeeGroup");
 	try {
 		for (let i=0; i < triggerExtensions.length; i++) {
 			let module = triggerExtensions[i];
@@ -109,5 +109,5 @@ function triggerEvent(data) {
 	} catch (error) {
 		console.error(error);
 	}
-	producer.queue("new-portunus/UserGroups/EmployeeGroup").send(JSON.stringify(data));
+	producer.queue("codbex-portunus/UserGroups/EmployeeGroup").send(JSON.stringify(data));
 }

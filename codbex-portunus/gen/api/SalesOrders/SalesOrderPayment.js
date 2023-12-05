@@ -1,6 +1,6 @@
 const rs = require("http/rs");
-const dao = require("new-portunus/gen/dao/SalesOrders/SalesOrderPayment");
-const http = require("new-portunus/gen/api/utils/http");
+const dao = require("codbex-portunus/gen/dao/SalesOrders/SalesOrderPayment");
+const http = require("codbex-portunus/gen/api/utils/http");
 
 rs.service()
 	.resource("")
@@ -23,11 +23,11 @@ rs.service()
 				http.sendInternalServerError(error.message);
 			}
         })
-	.resource("count/{${masterEntityId}}")
+	.resource("count/{SalesOrder}")
 		.get(function(ctx, request) {
-			let ${masterEntityId} = parseInt(ctx.pathParameters.${masterEntityId});
-			${masterEntityId} = isNaN(${masterEntityId}) ? ctx.pathParameters.${masterEntityId} : ${masterEntityId};
-			http.sendResponseOk("" + dao.count(${masterEntityId}));
+			let SalesOrder = parseInt(ctx.pathParameters.SalesOrder);
+			SalesOrder = isNaN(SalesOrder) ? ctx.pathParameters.SalesOrder : SalesOrder;
+			http.sendResponseOk("" + dao.count(SalesOrder));
 		})
 		.catch(function(ctx, error) {
             if (error.name === "ForbiddenError") {
@@ -62,7 +62,7 @@ rs.service()
 		.post(function(ctx, request, response) {
 			let entity = request.getJSON();
 			entity.Id = dao.create(entity);
-			response.setHeader("Content-Location", "/services/js/new-portunus/gen/api/SalesOrderPayment.js/" + entity.Id);
+			response.setHeader("Content-Location", "/services/js/codbex-portunus/gen/api/SalesOrderPayment.js/" + entity.Id);
 			http.sendResponseCreated(entity);
 		})
 		.produces(["application/json"])

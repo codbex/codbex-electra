@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'new-portunus.Settings.CurrencyStatus';
+		messageHubProvider.eventIdPrefix = 'codbex-portunus.Settings.CurrencyStatus';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/new-portunus/gen/api/Settings/CurrencyStatus.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-portunus/gen/api/Settings/CurrencyStatus.js";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 
@@ -73,7 +73,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		$scope.deleteEntity = function (entity) {
-			let id = entity.Order;
+			let id = entity.Id;
 			messageHub.showDialogAsync(
 				'Delete CurrencyStatus?',
 				`Are you sure you want to delete CurrencyStatus? This action cannot be undone.`,

@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'new-portunus.Currencies.Currency';
+		messageHubProvider.eventIdPrefix = 'codbex-portunus.Currencies.Currency';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/new-portunus/gen/api/Currencies/Currency.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-portunus/gen/api/Currencies/Currency.js";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -114,7 +114,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsStatus = [];
 
-		$http.get("/services/js/new-portunus/gen/api/Settings/CurrencyStatus.js").then(function (response) {
+		$http.get("/services/js/codbex-portunus/gen/api/Settings/CurrencyStatus.js").then(function (response) {
 			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,

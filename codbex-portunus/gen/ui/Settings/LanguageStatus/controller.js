@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'new-portunus.Settings.LanguageStatus';
+		messageHubProvider.eventIdPrefix = 'codbex-portunus.Settings.LanguageStatus';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/new-portunus/gen/api/Settings/LanguageStatus.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-portunus/gen/api/Settings/LanguageStatus.js";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 

@@ -7,8 +7,8 @@ let dao = daoApi.create({
 	table: "CODBEX_CURRENCYSTATUS",
 	properties: [
 		{
-			name: "Order",
-			column: "ORDERS",
+			name: "Id",
+			column: "CURRENCYSTATUS_ID",
 			type: "INTEGER",
 			id: true,
 			autoIncrement: true,
@@ -36,8 +36,8 @@ exports.create = function(entity) {
 		table: "CODBEX_CURRENCYSTATUS",
 		entity: entity,
 		key: {
-			name: "Order",
-			column: "ORDERS",
+			name: "Id",
+			column: "CURRENCYSTATUS_ID",
 			value: id
 		}
 	});
@@ -51,9 +51,9 @@ exports.update = function(entity) {
 		table: "CODBEX_CURRENCYSTATUS",
 		entity: entity,
 		key: {
-			name: "Order",
-			column: "ORDERS",
-			value: entity.Order
+			name: "Id",
+			column: "CURRENCYSTATUS_ID",
+			value: entity.Id
 		}
 	});
 };
@@ -66,8 +66,8 @@ exports.delete = function(id) {
 		table: "CODBEX_CURRENCYSTATUS",
 		entity: entity,
 		key: {
-			name: "Order",
-			column: "ORDERS",
+			name: "Id",
+			column: "CURRENCYSTATUS_ID",
 			value: id
 		}
 	});
@@ -90,7 +90,7 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(data) {
-	let triggerExtensions = extensions.getExtensions("new-portunus/Settings/CurrencyStatus");
+	let triggerExtensions = extensions.getExtensions("codbex-portunus/Settings/CurrencyStatus");
 	try {
 		for (let i=0; i < triggerExtensions.length; i++) {
 			let module = triggerExtensions[i];
@@ -104,5 +104,5 @@ function triggerEvent(data) {
 	} catch (error) {
 		console.error(error);
 	}
-	producer.queue("new-portunus/Settings/CurrencyStatus").send(JSON.stringify(data));
+	producer.queue("codbex-portunus/Settings/CurrencyStatus").send(JSON.stringify(data));
 }

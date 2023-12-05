@@ -1,5 +1,5 @@
 {
-    "module": "new-portunus/gen/ui/entities/${masterEntity}/Bank/view.js",
-    "extensionPoint": "new-portunus-view",
-    "description": "new-portunus - Application View - Details"
+    "module": "codbex-portunus/gen/ui/entities/${masterEntity}/Bank/view.js",
+    "extensionPoint": "codbex-portunus-view",
+    "description": "codbex-portunus - Application View - Details"
 }

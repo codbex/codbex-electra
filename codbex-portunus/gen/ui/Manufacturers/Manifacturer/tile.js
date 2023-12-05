@@ -10,7 +10,7 @@ exports.getTile = function () {
         caption: "Manage entity Manifacturer",
         tooltip: "Manifacturer",
         // icon: "file-o",
-        location: "/services/web/new-portunus/gen/ui/Manufacturers/index.html",
+        location: "/services/web/codbex-portunus/gen/ui/Manufacturers/index.html",
         order: "100",
         groupOrder: "700"
     };

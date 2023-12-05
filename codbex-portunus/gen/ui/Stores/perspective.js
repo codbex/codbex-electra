@@ -6,7 +6,7 @@
 const perspectiveData = {
 	id: "Stores",
 	name: "Stores",
-	link: "/services/web/new-portunus/gen/ui/Stores/index.html",
+	link: "/services/web/codbex-portunus/gen/ui/Stores/index.html",
 	order: "300",
 	icon: "/services/web/resources/unicons/store.svg",
 };

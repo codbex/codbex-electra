@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'new-portunus.Employees.Employee';
+		messageHubProvider.eventIdPrefix = 'codbex-portunus.Employees.Employee';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/new-portunus/gen/api/Employees/Employee.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-portunus/gen/api/Employees/Employee.js";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -107,7 +107,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsEmployeeGroup = [];
 
-		$http.get("/services/js/new-portunus/gen/api/UserGroups/EmployeeGroup.js").then(function (response) {
+		$http.get("/services/js/codbex-portunus/gen/api/UserGroups/EmployeeGroup.js").then(function (response) {
 			$scope.optionsEmployeeGroup = response.data.map(e => {
 				return {
 					value: e.Id,

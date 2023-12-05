@@ -6,7 +6,7 @@
 const perspectiveData = {
 	id: "Employees",
 	name: "Employees",
-	link: "/services/web/new-portunus/gen/ui/Employees/index.html",
+	link: "/services/web/codbex-portunus/gen/ui/Employees/index.html",
 	order: "600",
 	icon: "/services/web/resources/unicons/hard-hat.svg",
 };

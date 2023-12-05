@@ -8,7 +8,7 @@ const viewData = {
     label: "Bank",
     factory: "frame",
     region: "bottom",
-    link: "/services/web/new-portunus/gen/ui/entities/${masterEntity}/Bank/index.html",
+    link: "/services/web/codbex-portunus/gen/ui/entities/${masterEntity}/Bank/index.html",
     perspectiveName: "entities"
 };
 

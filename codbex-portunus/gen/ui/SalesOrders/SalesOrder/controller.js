@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'new-portunus.SalesOrders.SalesOrder';
+		messageHubProvider.eventIdPrefix = 'codbex-portunus.SalesOrders.SalesOrder';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/new-portunus/gen/api/SalesOrders/SalesOrder.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-portunus/gen/api/SalesOrders/SalesOrder.js";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -158,7 +158,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsLanguage = [];
 		$scope.optionsCurrency = [];
 
-		$http.get("/services/js/new-portunus/gen/api/Stores/Store.js").then(function (response) {
+		$http.get("/services/js/codbex-portunus/gen/api/Stores/Store.js").then(function (response) {
 			$scope.optionsStore = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -167,7 +167,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/new-portunus/gen/api/entities/Customer.js").then(function (response) {
+		$http.get("/services/js/codbex-portunus/gen/api/Customer/Customer.js").then(function (response) {
 			$scope.optionsCustomer = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -176,7 +176,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/new-portunus/gen/api/Settings/OrderStatus.js").then(function (response) {
+		$http.get("/services/js/codbex-portunus/gen/api/Settings/OrderStatus.js").then(function (response) {
 			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -185,7 +185,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/new-portunus/gen/api/entities/Affiliate.js").then(function (response) {
+		$http.get("/services/js/codbex-portunus/gen/api/Customer/Affiliate.js").then(function (response) {
 			$scope.optionsAffiliate = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -194,7 +194,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/new-portunus/gen/api/Settings/Language.js").then(function (response) {
+		$http.get("/services/js/codbex-portunus/gen/api/Settings/Language.js").then(function (response) {
 			$scope.optionsLanguage = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -203,7 +203,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/new-portunus/gen/api/Currencies/Currency.js").then(function (response) {
+		$http.get("/services/js/codbex-portunus/gen/api/Currencies/Currency.js").then(function (response) {
 			$scope.optionsCurrency = response.data.map(e => {
 				return {
 					value: e.Id,

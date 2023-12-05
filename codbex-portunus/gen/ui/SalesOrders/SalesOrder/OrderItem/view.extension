@@ -1,5 +1,0 @@
-{
-    "module": "new-portunus/gen/ui/SalesOrders/SalesOrder/OrderItem/view.js",
-    "extensionPoint": "new-portunus-view",
-    "description": "new-portunus - Application View - Details"
-}

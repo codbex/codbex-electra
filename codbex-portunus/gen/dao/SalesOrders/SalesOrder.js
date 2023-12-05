@@ -2,14 +2,14 @@ const query = require("db/query");
 const producer = require("messaging/producer");
 const extensions = require('extensions/extensions');
 const daoApi = require("db/dao");
-const EntityUtils = require("new-portunus/gen/dao/utils/EntityUtils");
+const EntityUtils = require("codbex-portunus/gen/dao/utils/EntityUtils");
 
 let dao = daoApi.create({
 	table: "CODBEX_SALESORDER",
 	properties: [
 		{
 			name: "Id",
-			column: "SALES_ORDER_ID",
+			column: "SALESORDER_ID",
 			type: "INTEGER",
 			id: true,
 			autoIncrement: true,
@@ -37,16 +37,6 @@ let dao = daoApi.create({
  {
 			name: "Customer",
 			column: "SALESORDER_CUSTOMER",
-			type: "INTEGER",
-		},
- {
-			name: "Payment",
-			column: "SALESORDER_PAYMENT",
-			type: "INTEGER",
-		},
- {
-			name: "Shipping",
-			column: "SALESORDER_SHIPPING",
 			type: "INTEGER",
 		},
  {
@@ -127,7 +117,7 @@ exports.create = function(entity) {
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "SALES_ORDER_ID",
+			column: "SALESORDER_ID",
 			value: id
 		}
 	});
@@ -144,7 +134,7 @@ exports.update = function(entity) {
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "SALES_ORDER_ID",
+			column: "SALESORDER_ID",
 			value: entity.Id
 		}
 	});
@@ -159,7 +149,7 @@ exports.delete = function(id) {
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "SALES_ORDER_ID",
+			column: "SALESORDER_ID",
 			value: id
 		}
 	});
@@ -182,7 +172,7 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(data) {
-	let triggerExtensions = extensions.getExtensions("new-portunus/SalesOrders/SalesOrder");
+	let triggerExtensions = extensions.getExtensions("codbex-portunus/SalesOrders/SalesOrder");
 	try {
 		for (let i=0; i < triggerExtensions.length; i++) {
 			let module = triggerExtensions[i];
@@ -196,5 +186,5 @@ function triggerEvent(data) {
 	} catch (error) {
 		console.error(error);
 	}
-	producer.queue("new-portunus/SalesOrders/SalesOrder").send(JSON.stringify(data));
+	producer.queue("codbex-portunus/SalesOrders/SalesOrder").send(JSON.stringify(data));
 }

@@ -6,7 +6,7 @@
 const viewData = {
     id: "CountryStatus-details",
     label: "CountryStatus",
-    link: "/services/web/new-portunus/gen/ui/Settings/CountryStatus/dialog-window/index.html",
+    link: "/services/web/codbex-portunus/gen/ui/Settings/CountryStatus/dialog-window/index.html",
     perspectiveName: "Settings"
 };
 

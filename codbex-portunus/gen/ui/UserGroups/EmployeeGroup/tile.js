@@ -10,7 +10,7 @@ exports.getTile = function () {
         caption: "Manage entity EmployeeGroup",
         tooltip: "EmployeeGroup",
         // icon: "file-o",
-        location: "/services/web/new-portunus/gen/ui/UserGroups/index.html",
+        location: "/services/web/codbex-portunus/gen/ui/UserGroups/index.html",
         order: "100",
         groupOrder: "500"
     };
