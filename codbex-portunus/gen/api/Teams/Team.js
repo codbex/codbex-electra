@@ -1,5 +1,5 @@
 const rs = require("http/rs");
-const dao = require("codbex-portunus/gen/dao/Customer/Affiliate");
+const dao = require("codbex-portunus/gen/dao/Teams/Team");
 const http = require("codbex-portunus/gen/api/utils/http");
 
 rs.service()
@@ -23,11 +23,9 @@ rs.service()
 				http.sendInternalServerError(error.message);
 			}
         })
-	.resource("count/{Customer}")
+	.resource("count")
 		.get(function(ctx, request) {
-			let Customer = parseInt(ctx.pathParameters.Customer);
-			Customer = isNaN(Customer) ? ctx.pathParameters.Customer : Customer;
-			http.sendResponseOk("" + dao.count(Customer));
+			http.sendResponseOk("" + dao.count());
 		})
 		.catch(function(ctx, error) {
             if (error.name === "ForbiddenError") {
@@ -45,7 +43,7 @@ rs.service()
 			if (entity) {
 			    http.sendResponseOk(entity);
 			} else {
-				http.sendResponseNotFound("Affiliate not found");
+				http.sendResponseNotFound("Team not found");
 			}
 		})
 		.produces(["application/json"])
@@ -62,7 +60,7 @@ rs.service()
 		.post(function(ctx, request, response) {
 			let entity = request.getJSON();
 			entity.Id = dao.create(entity);
-			response.setHeader("Content-Location", "/services/js/codbex-portunus/gen/api/Affiliate.js/" + entity.Id);
+			response.setHeader("Content-Location", "/services/js/codbex-portunus/gen/api/Team.js/" + entity.Id);
 			http.sendResponseCreated(entity);
 		})
 		.produces(["application/json"])
@@ -100,7 +98,7 @@ rs.service()
 				dao.delete(id);
 				http.sendResponseNoContent();
 			} else {
-				http.sendResponseNotFound("Affiliate not found");
+				http.sendResponseNotFound("Team not found");
 			}
 		})
 		.catch(function(ctx, error) {

@@ -59,11 +59,6 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
-			name: "Bank",
-			column: "AFFILIATE_BANK",
-			type: "INTEGER",
-		},
- {
 			name: "CustomField",
 			column: "AFFILIATE_CUSTOMFIELD",
 			type: "VARCHAR",
@@ -76,6 +71,31 @@ let dao = daoApi.create({
  {
 			name: "DateAdded",
 			column: "AFFILIATE_DATEADDED",
+			type: "VARCHAR",
+		},
+ {
+			name: "BankName",
+			column: "AFFILIATE_BANKNAME",
+			type: "VARCHAR",
+		},
+ {
+			name: "BankBranchNumber",
+			column: "AFFILIATE_BANKBRANCHNUMBER",
+			type: "VARCHAR",
+		},
+ {
+			name: "BankSwiftCode",
+			column: "AFFILIATE_BANKSWIFTCODE",
+			type: "VARCHAR",
+		},
+ {
+			name: "BankAccountName",
+			column: "AFFILIATE_BANKACCOUNTNAME",
+			type: "VARCHAR",
+		},
+ {
+			name: "BankAccountNumber",
+			column: "AFFILIATE_BANKACCOUNTNUMBER",
 			type: "VARCHAR",
 		}
 ]
@@ -133,8 +153,16 @@ exports.delete = function(id) {
 	});
 };
 
-exports.count = function() {
-	return dao.count();
+exports.count = function (Customer) {
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_AFFILIATE" WHERE "AFFILIATE_CUSTOMER" = ?', [Customer]);
+	if (resultSet !== null && resultSet[0] !== null) {
+		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
+			return resultSet[0].COUNT;
+		} else if (resultSet[0].count !== undefined && resultSet[0].count !== null) {
+			return resultSet[0].count;
+		}
+	}
+	return 0;
 };
 
 exports.customDataCount = function() {

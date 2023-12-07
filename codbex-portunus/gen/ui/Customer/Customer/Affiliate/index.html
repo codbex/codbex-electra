@@ -16,24 +16,36 @@
 	</head>
 
 	<body class="dg-vbox">
-		<fd-toolbar has-title="true">
+		<fd-message-page glyph="sap-icon--hint" ng-show="data == null">
+			<fd-message-page-title>Select a record to get a list of it's details.</fd-message-page-title>
+		</fd-message-page>
+
+		<fd-toolbar has-title="true" ng-hide="data == null">
 			<fd-toolbar-title>Items ({{dataCount}})</fd-toolbar-title>
 			<fd-toolbar-spacer></fd-toolbar-spacer>
-			<fd-button compact="true" dg-type="transparent" dg-label="Create" ng-click="createEntity()"></fd-button>
+			<fd-button compact="true" dg-type="transparent" dg-label="Create" ng-click="createEntity()"
+				state="{{selectedMainEntityId == null ? 'disabled' : ''}}"></fd-button>
 		</fd-toolbar>
-
 		<fd-scrollbar class="dg-full-height" ng-hide="data == null">
 			<table fd-table display-mode="compact" inner-borders="top" outer-borders="none">
 				<thead fd-table-header sticky="true">
 					<tr fd-table-row>
-						<th fd-table-header-cell>FirstName</th>
-						<th fd-table-header-cell>LastName</th>
-						<th fd-table-header-cell>Email</th>
-						<th fd-table-header-cell>Image</th>
-						<th fd-table-header-cell>Code</th>
+						<th fd-table-header-cell>Company</th>
+						<th fd-table-header-cell>Website</th>
+						<th fd-table-header-cell>Tracking</th>
+						<th fd-table-header-cell>Commission</th>
+						<th fd-table-header-cell>Tax</th>
+						<th fd-table-header-cell>Payment</th>
+						<th fd-table-header-cell>Cheque</th>
+						<th fd-table-header-cell>Paypal</th>
+						<th fd-table-header-cell>CustomField</th>
 						<th fd-table-header-cell>Status</th>
 						<th fd-table-header-cell>DateAdded</th>
-						<th fd-table-header-cell>Team</th>
+						<th fd-table-header-cell>BankName</th>
+						<th fd-table-header-cell>BankBranchNumber</th>
+						<th fd-table-header-cell>BankSwiftCode</th>
+						<th fd-table-header-cell>BankAccountName</th>
+						<th fd-table-header-cell>BankAccountNumber</th>
 						<th fd-table-header-cell></th>
 					</tr>
 				</thead>
@@ -43,14 +55,24 @@
 					</tr>
 					<tr fd-table-row hoverable="true" ng-repeat="next in data"
 						dg-selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.FirstName}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.LastName}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Email}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Image}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Code}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Status}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Company}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Website}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Tracking}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Commission}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Tax}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Payment}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Cheque}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Paypal}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.CustomField}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							{{optionsStatusValue(next.Status)}}
+						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.DateAdded}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Team}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.BankName}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.BankBranchNumber}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.BankSwiftCode}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.BankAccountName}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.BankAccountNumber}}</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>
 								<fd-popover-control>

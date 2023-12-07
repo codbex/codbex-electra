@@ -574,14 +574,6 @@
                         "name": "AFFILIATE_PAYPAL"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "AFFILIATE_BANK"
-                    },
-                    {
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
@@ -600,20 +592,6 @@
                         "length": 20,
                         "nullable": true,
                         "name": "AFFILIATE_DATEADDED"
-                    }
-                ]
-            },
-            {
-                "name": "CODBEX_BANK",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "BANK_ID"
                     },
                     {
                         "type": "VARCHAR",
@@ -621,7 +599,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "BANK_NAME"
+                        "name": "AFFILIATE_BANKNAME"
                     },
                     {
                         "type": "VARCHAR",
@@ -629,7 +607,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "BANK_BRANCHNUMBER"
+                        "name": "AFFILIATE_BANKBRANCHNUMBER"
                     },
                     {
                         "type": "VARCHAR",
@@ -637,7 +615,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "BANK_SWIFTCODE"
+                        "name": "AFFILIATE_BANKSWIFTCODE"
                     },
                     {
                         "type": "VARCHAR",
@@ -645,15 +623,14 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "BANK_ACCOUNTNAME"
+                        "name": "AFFILIATE_BANKACCOUNTNAME"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 64,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "BANK_ACCOUNTNUMBER"
+                        "name": "AFFILIATE_BANKACCOUNTNUMBER"
                     }
                 ]
             },
@@ -1150,14 +1127,6 @@
                         "name": "EMPLOYEE_ID"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "EMPLOYEE_EMPLOYEEGROUP"
-                    },
-                    {
                         "type": "VARCHAR",
                         "length": 32,
                         "precision": "NaN",
@@ -1208,32 +1177,12 @@
                         "length": 20,
                         "nullable": true,
                         "name": "EMPLOYEE_DATEADDED"
-                    }
-                ]
-            },
-            {
-                "name": "CODBEX_EMPLOYEEGROUP",
-                "type": "TABLE",
-                "columns": [
+                    },
                     {
                         "type": "INTEGER",
                         "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
                         "nullable": true,
-                        "name": "EMPLOYEEGROUP_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "EMPLOYEEGROUP_NAME"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "EMPLOYEEGROUP_PERMISSION"
+                        "name": "EMPLOYEE_TEAM"
                     }
                 ]
             },
@@ -1526,6 +1475,36 @@
                 ]
             },
             {
+                "name": "CODBEX_TEAM",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "TEAM_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 64,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "TEAM_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "TEAM_PERMISSION"
+                    }
+                ]
+            },
+            {
                 "name": "Currency_CurrencyStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_CURRENCY",
@@ -1652,15 +1631,6 @@
                 "referencedColumns": "CUSTOMER_ID"
             },
             {
-                "name": "Affiliate_Bank",
-                "type": "foreignKey",
-                "table": "CODBEX_AFFILIATE",
-                "constraintName": "Affiliate_Bank",
-                "columns": "AFFILIATE_BANK",
-                "referencedTable": "CODBEX_BANK",
-                "referencedColumns": "BANK_ID"
-            },
-            {
                 "name": "Affiliate_AffiliateStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_AFFILIATE",
@@ -1733,15 +1703,6 @@
                 "referencedColumns": "LANGUAGE_ID"
             },
             {
-                "name": "Employee_EmployeeGroup",
-                "type": "foreignKey",
-                "table": "CODBEX_EMPLOYEE",
-                "constraintName": "Employee_EmployeeGroup",
-                "columns": "EMPLOYEE_EMPLOYEEGROUP",
-                "referencedTable": "CODBEX_EMPLOYEEGROUP",
-                "referencedColumns": "EMPLOYEEGROUP_ID"
-            },
-            {
                 "name": "Employee_EmployeeStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_EMPLOYEE",
@@ -1749,6 +1710,15 @@
                 "columns": "EMPLOYEE_STATUS",
                 "referencedTable": "CODBEX_EMPLOYEESTATUS",
                 "referencedColumns": "EMPLOYEESTATUS_ID"
+            },
+            {
+                "name": "Employee_Team",
+                "type": "foreignKey",
+                "table": "CODBEX_EMPLOYEE",
+                "constraintName": "Employee_Team",
+                "columns": "EMPLOYEE_TEAM",
+                "referencedTable": "CODBEX_TEAM",
+                "referencedColumns": "TEAM_ID"
             },
             {
                 "name": "SalesOrderPayment_Country",

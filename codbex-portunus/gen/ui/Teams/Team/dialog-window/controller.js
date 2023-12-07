@@ -1,17 +1,17 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-portunus.Employees.Employee';
+		messageHubProvider.eventIdPrefix = 'codbex-portunus.Teams.Team';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-portunus/gen/api/Employees/Employee.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-portunus/gen/api/Teams/Team.js";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 
 		$scope.entity = {};
 		$scope.formHeaders = {
-			select: "Employee Details",
-			create: "Create Employee",
-			update: "Update Employee"
+			select: "Team Details",
+			create: "Create Team",
+			update: "Update Team"
 		};
 		$scope.formErrors = {};
 		$scope.action = 'select';
@@ -47,12 +47,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			entityApi.create(entity).then(function (response) {
 				if (response.status != 201) {
-					$scope.errorMessage = `Unable to create Employee: '${response.message}'`;
+					$scope.errorMessage = `Unable to create Team: '${response.message}'`;
 					return;
 				}
 				messageHub.postMessage("entityCreated", response.data);
 				$scope.cancel();
-				messageHub.showAlertSuccess("Employee", "Employee successfully created");
+				messageHub.showAlertSuccess("Team", "Team successfully created");
 			});
 		};
 
@@ -62,19 +62,19 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			entityApi.update(id, entity).then(function (response) {
 				if (response.status != 200) {
-					$scope.errorMessage = `Unable to update Employee: '${response.message}'`;
+					$scope.errorMessage = `Unable to update Team: '${response.message}'`;
 					return;
 				}
 				messageHub.postMessage("entityUpdated", response.data);
 				$scope.cancel();
-				messageHub.showAlertSuccess("Employee", "Employee successfully updated");
+				messageHub.showAlertSuccess("Team", "Team successfully updated");
 			});
 		};
 
 		$scope.cancel = function () {
 			$scope.entity = {};
 			$scope.action = 'select';
-			messageHub.closeDialogWindow("Employee-details");
+			messageHub.closeDialogWindow("Team-details");
 		};
 
 		$scope.clearErrorMessage = function () {

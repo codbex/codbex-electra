@@ -1,0 +1,5 @@
+{
+    "module": "codbex-portunus/gen/ui/Customer/Customer/Affiliate/view.js",
+    "extensionPoint": "codbex-portunus-view",
+    "description": "codbex-portunus - Application View - Details"
+}

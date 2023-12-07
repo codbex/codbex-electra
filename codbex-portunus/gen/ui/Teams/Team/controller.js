@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-portunus.Employees.Employee';
+		messageHubProvider.eventIdPrefix = 'codbex-portunus.Teams.Team';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-portunus/gen/api/Employees/Employee.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-portunus/gen/api/Teams/Team.js";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 
@@ -28,7 +28,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.dataPage = pageNumber;
 			entityApi.count().then(function (response) {
 				if (response.status != 200) {
-					messageHub.showAlertError("Employee", `Unable to count Employee: '${response.message}'`);
+					messageHub.showAlertError("Team", `Unable to count Team: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
@@ -36,7 +36,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				let limit = $scope.dataLimit;
 				entityApi.list(offset, limit).then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("Employee", `Unable to list Employee: '${response.message}'`);
+						messageHub.showAlertError("Team", `Unable to list Team: '${response.message}'`);
 						return;
 					}
 					$scope.data = response.data;
@@ -51,7 +51,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.openDetails = function (entity) {
 			$scope.selectedEntity = entity;
-			messageHub.showDialogWindow("Employee-details", {
+			messageHub.showDialogWindow("Team-details", {
 				action: "select",
 				entity: entity,
 			});
@@ -59,14 +59,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.createEntity = function () {
 			$scope.selectedEntity = null;
-			messageHub.showDialogWindow("Employee-details", {
+			messageHub.showDialogWindow("Team-details", {
 				action: "create",
 				entity: {},
 			}, null, false);
 		};
 
 		$scope.updateEntity = function (entity) {
-			messageHub.showDialogWindow("Employee-details", {
+			messageHub.showDialogWindow("Team-details", {
 				action: "update",
 				entity: entity,
 			}, null, false);
@@ -75,8 +75,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.deleteEntity = function (entity) {
 			let id = entity.Id;
 			messageHub.showDialogAsync(
-				'Delete Employee?',
-				`Are you sure you want to delete Employee? This action cannot be undone.`,
+				'Delete Team?',
+				`Are you sure you want to delete Team? This action cannot be undone.`,
 				[{
 					id: "delete-btn-yes",
 					type: "emphasized",
@@ -91,7 +91,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (msg.data === "delete-btn-yes") {
 					entityApi.delete(id).then(function (response) {
 						if (response.status != 204) {
-							messageHub.showAlertError("Employee", `Unable to delete Employee: '${response.message}'`);
+							messageHub.showAlertError("Team", `Unable to delete Team: '${response.message}'`);
 							return;
 						}
 						$scope.loadPage($scope.dataPage);
