@@ -45,6 +45,10 @@ Warehouse Management
 
 ![customers](images/portunus-customers.png)
 
+##### Attributes
+
+![attributes](images/portunus-attributes.png)
+
 ##### Settings
 
 ![settings](images/portunus-settings.png)
