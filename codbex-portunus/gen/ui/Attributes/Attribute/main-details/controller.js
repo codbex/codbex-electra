@@ -1,17 +1,17 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-portunus.SalesOrders.SalesOrder';
+		messageHubProvider.eventIdPrefix = 'codbex-portunus.Attributes.Attribute';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-portunus/gen/api/SalesOrders/SalesOrder.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-portunus/gen/api/Attributes/Attribute.js";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 
 		$scope.entity = {};
 		$scope.formHeaders = {
-			select: "SalesOrder Details",
-			create: "Create SalesOrder",
-			update: "Update SalesOrder"
+			select: "Attribute Details",
+			create: "Create Attribute",
+			update: "Update Attribute"
 		};
 		$scope.formErrors = {};
 		$scope.action = 'select';
@@ -21,29 +21,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.$apply(function () {
 				$scope.entity = {};
 				$scope.formErrors = {};
-				$scope.optionsStore = [];
-				$scope.optionsCustomer = [];
-				$scope.optionsStatus = [];
-				$scope.optionsLanguage = [];
-				$scope.optionsCurrency = [];
 				$scope.action = 'select';
 			});
 		});
 
 		messageHub.onDidReceiveMessage("entitySelected", function (msg) {
 			$scope.$apply(function () {
-				if (msg.data.entity.DateAdded) {
-					msg.data.entity.DateAdded = new Date(msg.data.entity.DateAdded);
-				}
-				if (msg.data.entity.DateModified) {
-					msg.data.entity.DateModified = new Date(msg.data.entity.DateModified);
-				}
 				$scope.entity = msg.data.entity;
-				$scope.optionsStore = msg.data.optionsStore;
-				$scope.optionsCustomer = msg.data.optionsCustomer;
-				$scope.optionsStatus = msg.data.optionsStatus;
-				$scope.optionsLanguage = msg.data.optionsLanguage;
-				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.action = 'select';
 			});
 		});
@@ -51,11 +35,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("createEntity", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
-				$scope.optionsStore = msg.data.optionsStore;
-				$scope.optionsCustomer = msg.data.optionsCustomer;
-				$scope.optionsStatus = msg.data.optionsStatus;
-				$scope.optionsLanguage = msg.data.optionsLanguage;
-				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.action = 'create';
 				// Set Errors for required fields only
 				$scope.formErrors = {
@@ -65,18 +44,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		messageHub.onDidReceiveMessage("updateEntity", function (msg) {
 			$scope.$apply(function () {
-				if (msg.data.entity.DateAdded) {
-					msg.data.entity.DateAdded = new Date(msg.data.entity.DateAdded);
-				}
-				if (msg.data.entity.DateModified) {
-					msg.data.entity.DateModified = new Date(msg.data.entity.DateModified);
-				}
 				$scope.entity = msg.data.entity;
-				$scope.optionsStore = msg.data.optionsStore;
-				$scope.optionsCustomer = msg.data.optionsCustomer;
-				$scope.optionsStatus = msg.data.optionsStatus;
-				$scope.optionsLanguage = msg.data.optionsLanguage;
-				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.action = 'update';
 			});
 		});
@@ -96,24 +64,24 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.create = function () {
 			entityApi.create($scope.entity).then(function (response) {
 				if (response.status != 201) {
-					messageHub.showAlertError("SalesOrder", `Unable to create SalesOrder: '${response.message}'`);
+					messageHub.showAlertError("Attribute", `Unable to create Attribute: '${response.message}'`);
 					return;
 				}
 				messageHub.postMessage("entityCreated", response.data);
 				messageHub.postMessage("clearDetails", response.data);
-				messageHub.showAlertSuccess("SalesOrder", "SalesOrder successfully created");
+				messageHub.showAlertSuccess("Attribute", "Attribute successfully created");
 			});
 		};
 
 		$scope.update = function () {
 			entityApi.update($scope.entity.Id, $scope.entity).then(function (response) {
 				if (response.status != 200) {
-					messageHub.showAlertError("SalesOrder", `Unable to update SalesOrder: '${response.message}'`);
+					messageHub.showAlertError("Attribute", `Unable to update Attribute: '${response.message}'`);
 					return;
 				}
 				messageHub.postMessage("entityUpdated", response.data);
 				messageHub.postMessage("clearDetails", response.data);
-				messageHub.showAlertSuccess("SalesOrder", "SalesOrder successfully updated");
+				messageHub.showAlertSuccess("Attribute", "Attribute successfully updated");
 			});
 		};
 

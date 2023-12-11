@@ -87,7 +87,7 @@ let dao = daoApi.create({
  {
 			name: "Shipping",
 			column: "PRODUCT_SHIPPING",
-			type: "TINYINT",
+			type: "BOOLEAN",
 		},
  {
 			name: "Price",
@@ -127,7 +127,7 @@ let dao = daoApi.create({
  {
 			name: "Subtract",
 			column: "PRODUCT_SUBTRACT",
-			type: "TINYINT",
+			type: "BOOLEAN",
 		},
  {
 			name: "Minimum",
@@ -154,7 +154,9 @@ let dao = daoApi.create({
 
 exports.list = function(settings) {
 	return dao.list(settings).map(function(e) {
+		EntityUtils.setBoolean(e, "Shipping");
 		EntityUtils.setDate(e, "DateAvailable");
+		EntityUtils.setBoolean(e, "Subtract");
 		EntityUtils.setDate(e, "DateAdded");
 		EntityUtils.setDate(e, "DateModified");
 		return e;
@@ -163,14 +165,18 @@ exports.list = function(settings) {
 
 exports.get = function(id) {
 	let entity = dao.find(id);
+	EntityUtils.setBoolean(entity, "Shipping");
 	EntityUtils.setDate(entity, "DateAvailable");
+	EntityUtils.setBoolean(entity, "Subtract");
 	EntityUtils.setDate(entity, "DateAdded");
 	EntityUtils.setDate(entity, "DateModified");
 	return entity;
 };
 
 exports.create = function(entity) {
+	EntityUtils.setBoolean(entity, "Shipping");
 	EntityUtils.setLocalDate(entity, "DateAvailable");
+	EntityUtils.setBoolean(entity, "Subtract");
 	EntityUtils.setLocalDate(entity, "DateAdded");
 	EntityUtils.setLocalDate(entity, "DateModified");
 	let id = dao.insert(entity);
@@ -188,7 +194,9 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
+	EntityUtils.setBoolean(entity, "Shipping");
 	// EntityUtils.setLocalDate(entity, "DateAvailable");
+	EntityUtils.setBoolean(entity, "Subtract");
 	// EntityUtils.setLocalDate(entity, "DateAdded");
 	// EntityUtils.setLocalDate(entity, "DateModified");
 	dao.update(entity);

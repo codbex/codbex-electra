@@ -55,11 +55,6 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
-			name: "Affiliate",
-			column: "SALESORDER_AFFILIATE",
-			type: "INTEGER",
-		},
- {
 			name: "Tracking",
 			column: "SALESORDER_TRACKING",
 			type: "VARCHAR",

@@ -135,7 +135,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 256,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -156,14 +156,6 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "SALESORDER_STATUS"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "SALESORDER_AFFILIATE"
                     },
                     {
                         "type": "VARCHAR",
@@ -490,171 +482,6 @@
                 ]
             },
             {
-                "name": "CODBEX_AFFILIATE",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "AFFILIATE_ID"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "AFFILIATE_CUSTOMER"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 60,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "AFFILIATE_COMPANY"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 255,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "AFFILIATE_WEBSITE"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 64,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "AFFILIATE_TRACKING"
-                    },
-                    {
-                        "type": "DECIMAL",
-                        "length": 6,
-                        "precision": "4",
-                        "scale": "2",
-                        "nullable": true,
-                        "name": "AFFILIATE_COMMISSION"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 64,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "AFFILIATE_TAX"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 6,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "AFFILIATE_PAYMENT"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 64,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "AFFILIATE_CHEQUE"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 64,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "AFFILIATE_PAYPAL"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "AFFILIATE_CUSTOMFIELD"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "AFFILIATE_STATUS"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "AFFILIATE_DATEADDED"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 64,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "AFFILIATE_BANKNAME"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 64,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "AFFILIATE_BANKBRANCHNUMBER"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 64,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "AFFILIATE_BANKSWIFTCODE"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 64,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "AFFILIATE_BANKACCOUNTNAME"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "AFFILIATE_BANKACCOUNTNUMBER"
-                    }
-                ]
-            },
-            {
-                "name": "CODBEX_AFFILIATESTATUS",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "AFFILIATESTATUS_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "AFFILIATESTATUS_NAME"
-                    }
-                ]
-            },
-            {
                 "name": "CODBEX_LANGUAGE",
                 "type": "TABLE",
                 "columns": [
@@ -935,7 +762,7 @@
                         "name": "PRODUCT_MANIFACTURER"
                     },
                     {
-                        "type": "TINYINT",
+                        "type": "BOOLEAN",
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -999,7 +826,7 @@
                         "name": "PRODUCT_HEIGHT"
                     },
                     {
-                        "type": "TINYINT",
+                        "type": "BOOLEAN",
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -1505,6 +1332,78 @@
                 ]
             },
             {
+                "name": "CODBEX_ATTRIBUTE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "ATTRIBUTE_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "ATTRIBUTE_NAME"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "ATTRIBUTE_GROUP"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_PRODUCTATTRIBUTE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "PRODUCTATTRIBUTE_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "PRODUCTATTRIBUTE_ATTTRIBUTE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "PRODUCTATTRIBUTE_PRODUCT"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_ATTRIBUTEGROUP",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "ATTRIBUTEGROUP_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "ATTRIBUTEGROUP_NAME"
+                    }
+                ]
+            },
+            {
                 "name": "Currency_CurrencyStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_CURRENCY",
@@ -1539,15 +1438,6 @@
                 "columns": "SALESORDER_STATUS",
                 "referencedTable": "CODBEX_ORDERSTATUS",
                 "referencedColumns": "ORDERSTATUS_ID"
-            },
-            {
-                "name": "SalesOrder_Affiliate",
-                "type": "foreignKey",
-                "table": "CODBEX_SALESORDER",
-                "constraintName": "SalesOrder_Affiliate",
-                "columns": "SALESORDER_AFFILIATE",
-                "referencedTable": "CODBEX_AFFILIATE",
-                "referencedColumns": "AFFILIATE_ID"
             },
             {
                 "name": "SalesOrder_Language",
@@ -1620,24 +1510,6 @@
                 "columns": "ZONE_STATUS",
                 "referencedTable": "CODBEX_ZONESTATUS",
                 "referencedColumns": "ZONESTATUS_ID"
-            },
-            {
-                "name": "Affiliate_Customer",
-                "type": "foreignKey",
-                "table": "CODBEX_AFFILIATE",
-                "constraintName": "Affiliate_Customer",
-                "columns": "AFFILIATE_CUSTOMER",
-                "referencedTable": "CODBEX_CUSTOMER",
-                "referencedColumns": "CUSTOMER_ID"
-            },
-            {
-                "name": "Affiliate_AffiliateStatus",
-                "type": "foreignKey",
-                "table": "CODBEX_AFFILIATE",
-                "constraintName": "Affiliate_AffiliateStatus",
-                "columns": "AFFILIATE_STATUS",
-                "referencedTable": "CODBEX_AFFILIATESTATUS",
-                "referencedColumns": "AFFILIATESTATUS_ID"
             },
             {
                 "name": "Language_LanguageStatus",
@@ -1773,6 +1645,33 @@
                 "columns": "SALESORDERSHIPPING_SALESORDER",
                 "referencedTable": "CODBEX_SALESORDER",
                 "referencedColumns": "SALESORDER_ID"
+            },
+            {
+                "name": "Attribute_AttributeGroup",
+                "type": "foreignKey",
+                "table": "CODBEX_ATTRIBUTE",
+                "constraintName": "Attribute_AttributeGroup",
+                "columns": "ATTRIBUTE_GROUP",
+                "referencedTable": "CODBEX_ATTRIBUTEGROUP",
+                "referencedColumns": "ATTRIBUTEGROUP_ID"
+            },
+            {
+                "name": "ProductAttribute_Attribute",
+                "type": "foreignKey",
+                "table": "CODBEX_PRODUCTATTRIBUTE",
+                "constraintName": "ProductAttribute_Attribute",
+                "columns": "PRODUCTATTRIBUTE_ATTTRIBUTE",
+                "referencedTable": "CODBEX_ATTRIBUTE",
+                "referencedColumns": "ATTRIBUTE_ID"
+            },
+            {
+                "name": "ProductAttribute_Product",
+                "type": "foreignKey",
+                "table": "CODBEX_PRODUCTATTRIBUTE",
+                "constraintName": "ProductAttribute_Product",
+                "columns": "PRODUCTATTRIBUTE_PRODUCT",
+                "referencedTable": "CODBEX_PRODUCT",
+                "referencedColumns": "PRODUCT_ID"
             }
         ]
     }

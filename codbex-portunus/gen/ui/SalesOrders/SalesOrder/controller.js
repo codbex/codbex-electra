@@ -86,7 +86,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsStore: $scope.optionsStore,
 				optionsCustomer: $scope.optionsCustomer,
 				optionsStatus: $scope.optionsStatus,
-				optionsAffiliate: $scope.optionsAffiliate,
 				optionsLanguage: $scope.optionsLanguage,
 				optionsCurrency: $scope.optionsCurrency,
 			});
@@ -101,7 +100,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsStore: $scope.optionsStore,
 				optionsCustomer: $scope.optionsCustomer,
 				optionsStatus: $scope.optionsStatus,
-				optionsAffiliate: $scope.optionsAffiliate,
 				optionsLanguage: $scope.optionsLanguage,
 				optionsCurrency: $scope.optionsCurrency,
 			});
@@ -114,7 +112,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsStore: $scope.optionsStore,
 				optionsCustomer: $scope.optionsCustomer,
 				optionsStatus: $scope.optionsStatus,
-				optionsAffiliate: $scope.optionsAffiliate,
 				optionsLanguage: $scope.optionsLanguage,
 				optionsCurrency: $scope.optionsCurrency,
 			});
@@ -154,7 +151,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsStore = [];
 		$scope.optionsCustomer = [];
 		$scope.optionsStatus = [];
-		$scope.optionsAffiliate = [];
 		$scope.optionsLanguage = [];
 		$scope.optionsCurrency = [];
 
@@ -181,15 +177,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				return {
 					value: e.Id,
 					text: e.Name
-				}
-			});
-		});
-
-		$http.get("/services/js/codbex-portunus/gen/api/Customer/Affiliate.js").then(function (response) {
-			$scope.optionsAffiliate = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Company
 				}
 			});
 		});
@@ -231,14 +218,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			for (let i = 0; i < $scope.optionsStatus.length; i++) {
 				if ($scope.optionsStatus[i].value === optionKey) {
 					return $scope.optionsStatus[i].text;
-				}
-			}
-			return null;
-		};
-		$scope.optionsAffiliateValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsAffiliate.length; i++) {
-				if ($scope.optionsAffiliate[i].value === optionKey) {
-					return $scope.optionsAffiliate[i].text;
 				}
 			}
 			return null;
