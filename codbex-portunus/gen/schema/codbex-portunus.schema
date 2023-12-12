@@ -221,13 +221,17 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 256,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "STORE_NAME"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 128,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "STORE_URL"
                     }

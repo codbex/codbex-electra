@@ -38,7 +38,7 @@
                                 ng-model="entity.Name"
                                 ng-readonly="action === 'select'"
                                 ng-minlength="0.0 || 0"
-                                ng-maxlength="20.0 || -1"
+                                ng-maxlength="256.0 || -1"
                                 dg-input-rules="{ patterns: [''] }"
                                 type="text"
                                 placeholder="Enter Name">
@@ -57,9 +57,9 @@
                                 ng-model="entity.Url"
                                 ng-readonly="action === 'select'"
                                 ng-minlength="0.0 || 0"
-                                ng-maxlength="20.0 || -1"
+                                ng-maxlength="128.0 || -1"
                                 dg-input-rules="{ patterns: [''] }"
-                                type="text"
+                                type="url"
                                 placeholder="Enter Url">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
