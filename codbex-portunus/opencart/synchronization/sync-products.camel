@@ -4,9 +4,14 @@
       uri: cron:TriggerProductsReplication
       id: trigger-products-replication-cron
       parameters:
-        schedule: '*/10 * * ? * *'
+        schedule: '*/30 * * ? * *'
       description: Trigger Products Replication
       steps:
+        - log:
+            message: Replicating products from OpenCart DB...
+            id: log-9ae3
+            logName: OpenCartProductsReplication
+            loggingLevel: INFO
         - setBody:
             id: create-select-statement
             expression:
@@ -77,4 +82,9 @@
                   uri: spring-jdbc:DefaultDB
                   id: merge-product
                   description: Merge product
+        - log:
+            message: Successfully replicated products from OpenCart DB
+            id: log-88a6
+            logName: OpenCartProductsReplication
+            loggingLevel: INFO
     description: Sync products from OpenCart
