@@ -1,0 +1,76 @@
+- route:
+    id: orders-sync-route
+    from:
+      uri: cron:TriggerOrdersReplication
+      id: trigger-orders-replication-cron
+      parameters:
+        schedule: '*/30 * * ? * *'
+      description: Trigger Orders Replication
+      steps:
+        - log:
+            message: Replicating orders from OpenCart DB...
+            id: log-about-to-start-orders-replication
+            logName: OpenCartOrdersReplication
+            loggingLevel: INFO
+        - setBody:
+            id: create-order-select-statement
+            expression:
+              constant:
+                expression: SELECT * FROM oc_order
+                id: constant-e9a5-324
+            description: Create orders SELECT statement
+        - to:
+            uri: spring-jdbc:OpenCartDB
+            id: execute-get-orders
+            description: Get all orders
+        - split:
+            id: split-to-single-order
+            expression:
+              simple:
+                expression: ${body}
+                id: simple-099e-dwadwa
+            description: Split to single order
+            steps:
+              - setBody:
+                  id: create-order-merge-statement
+                  expression:
+                    simple:
+                      expression: |-
+                        MERGE INTO CODBEX_SALESORDER 
+                            (
+                                SALESORDER_ID, SALESORDER_INVOICENUMBER,
+                                SALESORDER_INVOICEPREFIX, SALESORDER_STORE, SALESORDER_CUSTOMER,
+                                SALESORDER_COMMENT, SALESORDER_TOTAL, SALESORDER_STATUS,
+                                SALESORDER_TRACKING, SALESORDER_LANGUAGE, SALESORDER_CURRENCY,
+                                SALESORDER_ACCEPTLANGUAGE, SALESORDER_DATEADDED, SALESORDER_DATEMODIFIED 
+                            ) 
+                            KEY(SALESORDER_ID)
+                            VALUES 
+                            (
+                                ${body['order_id']},
+                                ${body['invoice_no']},
+                                '${body['invoice_prefix']}',
+                                ${body['store_id']},
+                                ${body['customer_id']},
+                                '${body['comment']}',
+                                ${body['total']},
+                                ${body['order_status_id']},
+                                '${body['tracking']}',
+                                ${body['language_id']},
+                                ${body['currency_id']},
+                                '${body['accept_language']}',
+                                '${body['date_added']}',
+                                '${body['date_modified']}'
+                            )
+                      id: simple-b426-324
+                  description: Create MERGE statement
+              - to:
+                  uri: spring-jdbc:DefaultDB
+                  id: merge-order
+                  description: Merge order
+        - log:
+            message: Successfully replicated orders from OpenCart DB
+            id: log-orders-replication-completed
+            logName: OpenCartOrdersReplication
+            loggingLevel: INFO
+    description: Sync orders from OpenCart

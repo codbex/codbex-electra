@@ -94,15 +94,7 @@
                         "name": "SALESORDER_ID"
                     },
                     {
-                        "type": "VARCHAR",
-                        "length": 100,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "SALESORDER_TRANSACTIONID"
-                    },
-                    {
-                        "type": "VARCHAR",
+                        "type": "INTEGER",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -111,7 +103,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 26,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -135,7 +127,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 256,
+                        "length": 2000,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -183,14 +175,14 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 255,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
                         "name": "SALESORDER_ACCEPTLANGUAGE"
                     },
                     {
-                        "type": "DATE",
+                        "type": "TIMESTAMP",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -198,7 +190,7 @@
                         "name": "SALESORDER_DATEADDED"
                     },
                     {
-                        "type": "DATE",
+                        "type": "TIMESTAMP",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -479,7 +471,9 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 32,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "ORDERSTATUS_NAME"
                     }

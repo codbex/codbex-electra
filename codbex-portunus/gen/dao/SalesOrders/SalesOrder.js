@@ -2,7 +2,6 @@ const query = require("db/query");
 const producer = require("messaging/producer");
 const extensions = require('extensions/extensions');
 const daoApi = require("db/dao");
-const EntityUtils = require("codbex-portunus/gen/dao/utils/EntityUtils");
 
 let dao = daoApi.create({
 	table: "CODBEX_SALESORDER",
@@ -15,14 +14,9 @@ let dao = daoApi.create({
 			autoIncrement: true,
 		},
  {
-			name: "TransactionId",
-			column: "SALESORDER_TRANSACTIONID",
-			type: "VARCHAR",
-		},
- {
 			name: "InvoiceNumber",
 			column: "SALESORDER_INVOICENUMBER",
-			type: "VARCHAR",
+			type: "INTEGER",
 		},
  {
 			name: "InvoicePrefix",
@@ -77,34 +71,25 @@ let dao = daoApi.create({
  {
 			name: "DateAdded",
 			column: "SALESORDER_DATEADDED",
-			type: "DATE",
+			type: "TIMESTAMP",
 		},
  {
 			name: "DateModified",
 			column: "SALESORDER_DATEMODIFIED",
-			type: "DATE",
+			type: "TIMESTAMP",
 		}
 ]
 });
 
 exports.list = function(settings) {
-	return dao.list(settings).map(function(e) {
-		EntityUtils.setDate(e, "DateAdded");
-		EntityUtils.setDate(e, "DateModified");
-		return e;
-	});
+	return dao.list(settings);
 };
 
 exports.get = function(id) {
-	let entity = dao.find(id);
-	EntityUtils.setDate(entity, "DateAdded");
-	EntityUtils.setDate(entity, "DateModified");
-	return entity;
+	return dao.find(id);
 };
 
 exports.create = function(entity) {
-	EntityUtils.setLocalDate(entity, "DateAdded");
-	EntityUtils.setLocalDate(entity, "DateModified");
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
@@ -120,8 +105,6 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
-	// EntityUtils.setLocalDate(entity, "DateAdded");
-	// EntityUtils.setLocalDate(entity, "DateModified");
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",
