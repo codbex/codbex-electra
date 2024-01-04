@@ -5,7 +5,7 @@ Warehouse Management
 
 ![model](images/portunus-model.png)
 
-## Desing
+## Design
 ![design](design/portunus.svg)
 
 ### Application 
