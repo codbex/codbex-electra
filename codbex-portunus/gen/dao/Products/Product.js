@@ -55,16 +55,6 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
-			name: "Variant",
-			column: "PRODUCT_VARIANT",
-			type: "VARCHAR",
-		},
- {
-			name: "Override",
-			column: "PRODUCT_OVERRIDE",
-			type: "VARCHAR",
-		},
- {
 			name: "Quantity",
 			column: "PRODUCT_QUANTITY",
 			type: "INTEGER",
@@ -87,7 +77,7 @@ let dao = daoApi.create({
  {
 			name: "Shipping",
 			column: "PRODUCT_SHIPPING",
-			type: "BOOLEAN",
+			type: "TINYINT",
 		},
  {
 			name: "Price",
@@ -127,7 +117,7 @@ let dao = daoApi.create({
  {
 			name: "Subtract",
 			column: "PRODUCT_SUBTRACT",
-			type: "BOOLEAN",
+			type: "TINYINT",
 		},
  {
 			name: "Minimum",
@@ -137,48 +127,36 @@ let dao = daoApi.create({
  {
 			name: "Status",
 			column: "PRODUCT_STATUS",
-			type: "INTEGER",
+			type: "TINYINT",
 		},
  {
 			name: "DateAdded",
 			column: "PRODUCT_DATEADDED",
-			type: "DATE",
+			type: "TIMESTAMP",
 		},
  {
 			name: "DateModified",
 			column: "PRODUCT_DATEMODIFIED",
-			type: "DATE",
+			type: "TIMESTAMP",
 		}
 ]
 });
 
 exports.list = function(settings) {
 	return dao.list(settings).map(function(e) {
-		EntityUtils.setBoolean(e, "Shipping");
 		EntityUtils.setDate(e, "DateAvailable");
-		EntityUtils.setBoolean(e, "Subtract");
-		EntityUtils.setDate(e, "DateAdded");
-		EntityUtils.setDate(e, "DateModified");
 		return e;
 	});
 };
 
 exports.get = function(id) {
 	let entity = dao.find(id);
-	EntityUtils.setBoolean(entity, "Shipping");
 	EntityUtils.setDate(entity, "DateAvailable");
-	EntityUtils.setBoolean(entity, "Subtract");
-	EntityUtils.setDate(entity, "DateAdded");
-	EntityUtils.setDate(entity, "DateModified");
 	return entity;
 };
 
 exports.create = function(entity) {
-	EntityUtils.setBoolean(entity, "Shipping");
 	EntityUtils.setLocalDate(entity, "DateAvailable");
-	EntityUtils.setBoolean(entity, "Subtract");
-	EntityUtils.setLocalDate(entity, "DateAdded");
-	EntityUtils.setLocalDate(entity, "DateModified");
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
@@ -194,11 +172,7 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
-	EntityUtils.setBoolean(entity, "Shipping");
 	// EntityUtils.setLocalDate(entity, "DateAvailable");
-	EntityUtils.setBoolean(entity, "Subtract");
-	// EntityUtils.setLocalDate(entity, "DateAdded");
-	// EntityUtils.setLocalDate(entity, "DateModified");
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",

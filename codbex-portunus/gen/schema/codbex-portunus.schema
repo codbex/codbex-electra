@@ -722,18 +722,6 @@
                         "name": "PRODUCT_LOCATION"
                     },
                     {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "PRODUCT_VARIANT"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "PRODUCT_OVERRIDE"
-                    },
-                    {
                         "type": "INTEGER",
                         "length": 4,
                         "precision": "NaN",
@@ -766,7 +754,7 @@
                         "name": "PRODUCT_MANIFACTURER"
                     },
                     {
-                        "type": "BOOLEAN",
+                        "type": "TINYINT",
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -830,7 +818,7 @@
                         "name": "PRODUCT_HEIGHT"
                     },
                     {
-                        "type": "BOOLEAN",
+                        "type": "TINYINT",
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -846,7 +834,7 @@
                         "name": "PRODUCT_MINIMUM"
                     },
                     {
-                        "type": "INTEGER",
+                        "type": "TINYINT",
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -854,7 +842,7 @@
                         "name": "PRODUCT_STATUS"
                     },
                     {
-                        "type": "DATE",
+                        "type": "TIMESTAMP",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -862,7 +850,7 @@
                         "name": "PRODUCT_DATEADDED"
                     },
                     {
-                        "type": "DATE",
+                        "type": "TIMESTAMP",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
