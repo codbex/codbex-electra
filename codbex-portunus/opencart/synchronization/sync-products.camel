@@ -9,7 +9,7 @@
       steps:
         - log:
             message: Replicating products from OpenCart DB...
-            id: log-9ae3
+            id: log-about-to-start-products-replication
             logName: OpenCartProductsReplication
             loggingLevel: INFO
         - setBody:
@@ -84,7 +84,7 @@
                   description: Merge product
         - log:
             message: Successfully replicated products from OpenCart DB
-            id: log-88a6
+            id: log-products-replication-completed
             logName: OpenCartProductsReplication
             loggingLevel: INFO
     description: Sync products from OpenCart
