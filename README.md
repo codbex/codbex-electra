@@ -1,5 +1,6 @@
 # codbex-portunus
-Warehouse Management
+
+e-Commerce Backoffice Management
 
 ## Model
 
