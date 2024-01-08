@@ -7,6 +7,35 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
+		//-----------------Custom Actions-------------------//
+		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=codbex-portunus-custom-action").then(function (response) {
+			$scope.pageActions = response.data.filter(e => e.perspective === "SalesOrders" && e.view === "SalesOrderPayment" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.data.filter(e => e.perspective === "SalesOrders" && e.view === "SalesOrderPayment" && e.type === "entity");
+		});
+
+		$scope.triggerPageAction = function (actionId) {
+			for (const next of $scope.pageActions) {
+				if (next.id === actionId) {
+					messageHub.showDialogWindow("codbex-portunus-custom-action", {
+						src: next.link,
+					});
+					break;
+				}
+			}
+		};
+
+		$scope.triggerEntityAction = function (actionId, selectedEntity) {
+			for (const next of $scope.entityActions) {
+				if (next.id === actionId) {
+					messageHub.showDialogWindow("codbex-portunus-custom-action", {
+						src: `${next.link}?id=${selectedEntity.Id}`,
+					});
+					break;
+				}
+			}
+		};
+		//-----------------Custom Actions-------------------//
+
 		function resetPagination() {
 			$scope.dataPage = 1;
 			$scope.dataCount = 0;
@@ -76,8 +105,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("SalesOrderPayment-details", {
 				action: "select",
 				entity: entity,
-				optionsCountry: $scope.optionsCountry,
 				optionsZone: $scope.optionsZone,
+				optionsCountry: $scope.optionsCountry,
 			});
 		};
 
@@ -88,8 +117,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: {},
 				selectedMainEntityKey: "SalesOrder",
 				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsCountry: $scope.optionsCountry,
 				optionsZone: $scope.optionsZone,
+				optionsCountry: $scope.optionsCountry,
 			}, null, false);
 		};
 
@@ -99,8 +128,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: entity,
 				selectedMainEntityKey: "SalesOrder",
 				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsCountry: $scope.optionsCountry,
 				optionsZone: $scope.optionsZone,
+				optionsCountry: $scope.optionsCountry,
 			}, null, false);
 		};
 
@@ -134,17 +163,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsCountry = [];
 		$scope.optionsZone = [];
-
-		$http.get("/services/js/codbex-portunus/gen/api/Settings/Country.js").then(function (response) {
-			$scope.optionsCountry = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
+		$scope.optionsCountry = [];
 
 		$http.get("/services/js/codbex-portunus/gen/api/Settings/Zone.js").then(function (response) {
 			$scope.optionsZone = response.data.map(e => {
@@ -154,18 +174,27 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
-		$scope.optionsCountryValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsCountry.length; i++) {
-				if ($scope.optionsCountry[i].value === optionKey) {
-					return $scope.optionsCountry[i].text;
+
+		$http.get("/services/js/codbex-portunus/gen/api/Settings/Country.js").then(function (response) {
+			$scope.optionsCountry = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
 				}
-			}
-			return null;
-		};
+			});
+		});
 		$scope.optionsZoneValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsZone.length; i++) {
 				if ($scope.optionsZone[i].value === optionKey) {
 					return $scope.optionsZone[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsCountryValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsCountry.length; i++) {
+				if ($scope.optionsCountry[i].value === optionKey) {
+					return $scope.optionsCountry[i].text;
 				}
 			}
 			return null;

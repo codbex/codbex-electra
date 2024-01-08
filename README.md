@@ -2,6 +2,18 @@
 
 e-Commerce Backoffice Management
 
+## Run
+The following Dirigible conifgurations should be available:
+
+| Name | Example value |
+|--|--|
+| PORTUNUS_OPENCART_DB_HOST | localhost |
+| PORTUNUS_OPENCART_DB_PORT | 3306 |
+| PORTUNUS_OPENCART_DB_NAME | bitnami_opencart |
+| PORTUNUS_OPENCART_DB_USER | bn_opencart |
+| PORTUNUS_OPENCART_DB_PASS | mypass |
+[Here](https://www.dirigible.io/help/setup/setup-environment-variables/) is described how you can provide dirigbile configurations.
+
 ## Model
 
 ![model](images/portunus-model.png)

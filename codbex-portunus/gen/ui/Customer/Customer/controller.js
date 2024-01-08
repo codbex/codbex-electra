@@ -13,6 +13,23 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.dataLimit = 10;
 		$scope.action = "select";
 
+		//-----------------Custom Actions-------------------//
+		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=codbex-portunus-custom-action").then(function (response) {
+			$scope.pageActions = response.data.filter(e => e.perspective === "Customer" && e.view === "Customer" && (e.type === "page" || e.type === undefined));
+		});
+
+		$scope.triggerPageAction = function (actionId) {
+			for (const next of $scope.pageActions) {
+				if (next.id === actionId) {
+					messageHub.showDialogWindow("codbex-portunus-custom-action", {
+						src: next.link,
+					});
+					break;
+				}
+			}
+		};
+		//-----------------Custom Actions-------------------//
+
 		function refreshData() {
 			$scope.dataReset = true;
 			$scope.dataPage--;
@@ -81,8 +98,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: entity,
 				selectedMainEntityId: entity.Id,
 				optionsStore: $scope.optionsStore,
-				optionsLanguage: $scope.optionsLanguage,
 				optionsStatus: $scope.optionsStatus,
+				optionsLanguage: $scope.optionsLanguage,
 			});
 		};
 
@@ -93,8 +110,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("createEntity", {
 				entity: {},
 				optionsStore: $scope.optionsStore,
-				optionsLanguage: $scope.optionsLanguage,
 				optionsStatus: $scope.optionsStatus,
+				optionsLanguage: $scope.optionsLanguage,
 			});
 		};
 
@@ -103,8 +120,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("updateEntity", {
 				entity: $scope.selectedEntity,
 				optionsStore: $scope.optionsStore,
-				optionsLanguage: $scope.optionsLanguage,
 				optionsStatus: $scope.optionsStatus,
+				optionsLanguage: $scope.optionsLanguage,
 			});
 		};
 
@@ -140,20 +157,11 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsStore = [];
-		$scope.optionsLanguage = [];
 		$scope.optionsStatus = [];
+		$scope.optionsLanguage = [];
 
 		$http.get("/services/js/codbex-portunus/gen/api/Stores/Store.js").then(function (response) {
 			$scope.optionsStore = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-
-		$http.get("/services/js/codbex-portunus/gen/api/Settings/Language.js").then(function (response) {
-			$scope.optionsLanguage = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -169,6 +177,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
+		$http.get("/services/js/codbex-portunus/gen/api/Settings/Language.js").then(function (response) {
+			$scope.optionsLanguage = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
 		$scope.optionsStoreValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsStore.length; i++) {
 				if ($scope.optionsStore[i].value === optionKey) {
@@ -177,18 +194,18 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsLanguageValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsLanguage.length; i++) {
-				if ($scope.optionsLanguage[i].value === optionKey) {
-					return $scope.optionsLanguage[i].text;
-				}
-			}
-			return null;
-		};
 		$scope.optionsStatusValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsStatus.length; i++) {
 				if ($scope.optionsStatus[i].value === optionKey) {
 					return $scope.optionsStatus[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsLanguageValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsLanguage.length; i++) {
+				if ($scope.optionsLanguage[i].value === optionKey) {
+					return $scope.optionsLanguage[i].text;
 				}
 			}
 			return null;

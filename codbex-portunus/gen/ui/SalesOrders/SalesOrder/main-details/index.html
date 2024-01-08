@@ -20,23 +20,17 @@
             <fd-fieldset class="fd-margin--md" ng-form="formFieldset">
                 <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm">
                     <fd-form-item horizontal="false">
-                        <fd-form-label for="idTransactionId" dg-required="false" dg-colon="true">TransactionId</fd-form-label>
-                        <fd-form-input-message-group dg-inactive="{{ formErrors.TransactionId ? false : true }}">
-                            <fd-input id="idTransactionId"
-                                name="TransactionId"
-                                state="{{ formErrors.TransactionId ? 'error' : '' }}"
-								ng-required="false"
-                                ng-change="isValid(formFieldset['TransactionId'].$valid, 'TransactionId')"
-                                ng-model="entity.TransactionId"
-                                ng-readonly="action === 'select'"
-                                ng-minlength="0.0 || 0"
-                                ng-maxlength="100.0 || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
-                                placeholder="Enter TransactionId">
-                            </fd-input>
-                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-                        </fd-form-input-message-group>
+                        <fd-form-label for="idStore" dg-required="false" dg-colon="true">Store</fd-form-label>
+                        <fd-combobox-input id="idStore"
+                            name="Store"
+                            state="{{ formErrors.Store ? 'error' : '' }}"
+                            ng-required="true"
+                            ng-change="isValid(formFieldset['Store'].$valid, 'Store')"
+                            ng-model="entity.Store"
+                            dg-disabled="action === 'select'"
+                            dropdown-items="optionsStore"
+                            dg-placeholder="Search Store ...">
+                        </fd-combobox-input>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
                         <fd-form-label for="idInvoiceNumber" dg-required="false" dg-colon="true">InvoiceNumber</fd-form-label>
@@ -48,8 +42,8 @@
                                 ng-change="isValid(formFieldset['InvoiceNumber'].$valid, 'InvoiceNumber')"
                                 ng-model="entity.InvoiceNumber"
                                 ng-readonly="action === 'select'"
-                                ng-minlength="0.0 || 0"
-                                ng-maxlength="20.0 || -1"
+                                ng-minlength="${property.minLength} || 0"
+                                ng-maxlength="${property.maxLength} || -1"
                                 dg-input-rules="{ patterns: [''] }"
                                 type="text"
                                 placeholder="Enter InvoiceNumber">
@@ -75,32 +69,6 @@
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
-                    </fd-form-item>
-                    <fd-form-item horizontal="false">
-                        <fd-form-label for="idStore" dg-required="false" dg-colon="true">Store</fd-form-label>
-                        <fd-combobox-input id="idStore"
-                            name="Store"
-                            state="{{ formErrors.Store ? 'error' : '' }}"
-                            ng-required="true"
-                            ng-change="isValid(formFieldset['Store'].$valid, 'Store')"
-                            ng-model="entity.Store"
-                            dg-disabled="action === 'select'"
-                            dropdown-items="optionsStore"
-                            dg-placeholder="Search Store ...">
-                        </fd-combobox-input>
-                    </fd-form-item>
-                    <fd-form-item horizontal="false">
-                        <fd-form-label for="idCustomer" dg-required="false" dg-colon="true">Customer</fd-form-label>
-                        <fd-combobox-input id="idCustomer"
-                            name="Customer"
-                            state="{{ formErrors.Customer ? 'error' : '' }}"
-                            ng-required="true"
-                            ng-change="isValid(formFieldset['Customer'].$valid, 'Customer')"
-                            ng-model="entity.Customer"
-                            dg-disabled="action === 'select'"
-                            dropdown-items="optionsCustomer"
-                            dg-placeholder="Search Customer ...">
-                        </fd-combobox-input>
                     </fd-form-item>
 					<fd-form-item horizontal="false">
 						<fd-form-label for="idComment" dg-required="false" dg-colon="true">Comment</fd-form-label>
@@ -138,6 +106,19 @@
                         </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
+                        <fd-form-label for="idCustomer" dg-required="false" dg-colon="true">Customer</fd-form-label>
+                        <fd-combobox-input id="idCustomer"
+                            name="Customer"
+                            state="{{ formErrors.Customer ? 'error' : '' }}"
+                            ng-required="true"
+                            ng-change="isValid(formFieldset['Customer'].$valid, 'Customer')"
+                            ng-model="entity.Customer"
+                            dg-disabled="action === 'select'"
+                            dropdown-items="optionsCustomer"
+                            dg-placeholder="Search Customer ...">
+                        </fd-combobox-input>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
                         <fd-form-label for="idStatus" dg-required="false" dg-colon="true">Status</fd-form-label>
                         <fd-combobox-input id="idStatus"
                             name="Status"
@@ -168,32 +149,6 @@
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
-                    </fd-form-item>
-                    <fd-form-item horizontal="false">
-                        <fd-form-label for="idLanguage" dg-required="false" dg-colon="true">Language</fd-form-label>
-                        <fd-combobox-input id="idLanguage"
-                            name="Language"
-                            state="{{ formErrors.Language ? 'error' : '' }}"
-                            ng-required="true"
-                            ng-change="isValid(formFieldset['Language'].$valid, 'Language')"
-                            ng-model="entity.Language"
-                            dg-disabled="action === 'select'"
-                            dropdown-items="optionsLanguage"
-                            dg-placeholder="Search Language ...">
-                        </fd-combobox-input>
-                    </fd-form-item>
-                    <fd-form-item horizontal="false">
-                        <fd-form-label for="idCurrency" dg-required="false" dg-colon="true">Currency</fd-form-label>
-                        <fd-combobox-input id="idCurrency"
-                            name="Currency"
-                            state="{{ formErrors.Currency ? 'error' : '' }}"
-                            ng-required="true"
-                            ng-change="isValid(formFieldset['Currency'].$valid, 'Currency')"
-                            ng-model="entity.Currency"
-                            dg-disabled="action === 'select'"
-                            dropdown-items="optionsCurrency"
-                            dg-placeholder="Search Currency ...">
-                        </fd-combobox-input>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
                         <fd-form-label for="idAcceptLanguage" dg-required="false" dg-colon="true">AcceptLanguage</fd-form-label>
@@ -244,6 +199,32 @@
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
                     </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idCurrency" dg-required="false" dg-colon="true">Currency</fd-form-label>
+                        <fd-combobox-input id="idCurrency"
+                            name="Currency"
+                            state="{{ formErrors.Currency ? 'error' : '' }}"
+                            ng-required="true"
+                            ng-change="isValid(formFieldset['Currency'].$valid, 'Currency')"
+                            ng-model="entity.Currency"
+                            dg-disabled="action === 'select'"
+                            dropdown-items="optionsCurrency"
+                            dg-placeholder="Search Currency ...">
+                        </fd-combobox-input>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idLanguage" dg-required="false" dg-colon="true">Language</fd-form-label>
+                        <fd-combobox-input id="idLanguage"
+                            name="Language"
+                            state="{{ formErrors.Language ? 'error' : '' }}"
+                            ng-required="true"
+                            ng-change="isValid(formFieldset['Language'].$valid, 'Language')"
+                            ng-model="entity.Language"
+                            dg-disabled="action === 'select'"
+                            dropdown-items="optionsLanguage"
+                            dg-placeholder="Search Language ...">
+                        </fd-combobox-input>
+                    </fd-form-item>
 
                 </fd-form-group>
             </fd-fieldset>
@@ -257,6 +238,12 @@
                 </fd-button>
                 <fd-button class="fd-dialog__decisive-button" compact="true" dg-type="transparent" dg-label="Cancel"
                     ng-click="cancel()"></fd-button>
+            </div>
+        </footer>
+        <footer class="fd-dialog__footer fd-bar fd-bar--footer" ng-show="action === 'select' && entityActions.length && entity.Id">
+            <div class="fd-bar__right">
+                <fd-button ng-repeat="action in entityActions" class="fd-dialog__decisive-button" compact="true" dg-type="emphasized" dg-label="{{action.label}}"
+                    ng-click="triggerEntityAction(action.id, next)"></fd-button>
             </div>
         </footer>
     </body>

@@ -25,6 +25,11 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
+			name: "Status",
+			column: "PRODUCT_STATUS",
+			type: "TINYINT",
+		},
+ {
 			name: "UPC",
 			column: "PRODUCT_UPC",
 			type: "VARCHAR",
@@ -50,18 +55,13 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
+			name: "Manifacturer",
+			column: "PRODUCT_MANIFACTURER",
+			type: "INTEGER",
+		},
+ {
 			name: "Location",
 			column: "PRODUCT_LOCATION",
-			type: "VARCHAR",
-		},
- {
-			name: "Variant",
-			column: "PRODUCT_VARIANT",
-			type: "VARCHAR",
-		},
- {
-			name: "Override",
-			column: "PRODUCT_OVERRIDE",
 			type: "VARCHAR",
 		},
  {
@@ -70,24 +70,14 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
-			name: "StockStatus",
-			column: "PRODUCT_STOCKSTATUS",
-			type: "INTEGER",
-		},
- {
 			name: "Image",
 			column: "PRODUCT_IMAGE",
 			type: "VARCHAR",
 		},
  {
-			name: "Manifacturer",
-			column: "PRODUCT_MANIFACTURER",
-			type: "INTEGER",
-		},
- {
 			name: "Shipping",
 			column: "PRODUCT_SHIPPING",
-			type: "BOOLEAN",
+			type: "TINYINT",
 		},
  {
 			name: "Price",
@@ -127,7 +117,7 @@ let dao = daoApi.create({
  {
 			name: "Subtract",
 			column: "PRODUCT_SUBTRACT",
-			type: "BOOLEAN",
+			type: "TINYINT",
 		},
  {
 			name: "Minimum",
@@ -135,50 +125,38 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
-			name: "Status",
-			column: "PRODUCT_STATUS",
-			type: "INTEGER",
-		},
- {
 			name: "DateAdded",
 			column: "PRODUCT_DATEADDED",
-			type: "DATE",
+			type: "TIMESTAMP",
 		},
  {
 			name: "DateModified",
 			column: "PRODUCT_DATEMODIFIED",
-			type: "DATE",
+			type: "TIMESTAMP",
+		},
+ {
+			name: "StockStatus",
+			column: "PRODUCT_STOCKSTATUS",
+			type: "INTEGER",
 		}
 ]
 });
 
 exports.list = function(settings) {
 	return dao.list(settings).map(function(e) {
-		EntityUtils.setBoolean(e, "Shipping");
 		EntityUtils.setDate(e, "DateAvailable");
-		EntityUtils.setBoolean(e, "Subtract");
-		EntityUtils.setDate(e, "DateAdded");
-		EntityUtils.setDate(e, "DateModified");
 		return e;
 	});
 };
 
 exports.get = function(id) {
 	let entity = dao.find(id);
-	EntityUtils.setBoolean(entity, "Shipping");
 	EntityUtils.setDate(entity, "DateAvailable");
-	EntityUtils.setBoolean(entity, "Subtract");
-	EntityUtils.setDate(entity, "DateAdded");
-	EntityUtils.setDate(entity, "DateModified");
 	return entity;
 };
 
 exports.create = function(entity) {
-	EntityUtils.setBoolean(entity, "Shipping");
 	EntityUtils.setLocalDate(entity, "DateAvailable");
-	EntityUtils.setBoolean(entity, "Subtract");
-	EntityUtils.setLocalDate(entity, "DateAdded");
-	EntityUtils.setLocalDate(entity, "DateModified");
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
@@ -194,11 +172,7 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
-	EntityUtils.setBoolean(entity, "Shipping");
 	// EntityUtils.setLocalDate(entity, "DateAvailable");
-	EntityUtils.setBoolean(entity, "Subtract");
-	// EntityUtils.setLocalDate(entity, "DateAdded");
-	// EntityUtils.setLocalDate(entity, "DateModified");
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",

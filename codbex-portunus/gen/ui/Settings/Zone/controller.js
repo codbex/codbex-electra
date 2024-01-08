@@ -7,6 +7,35 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
+		//-----------------Custom Actions-------------------//
+		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=codbex-portunus-custom-action").then(function (response) {
+			$scope.pageActions = response.data.filter(e => e.perspective === "Settings" && e.view === "Zone" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.data.filter(e => e.perspective === "Settings" && e.view === "Zone" && e.type === "entity");
+		});
+
+		$scope.triggerPageAction = function (actionId) {
+			for (const next of $scope.pageActions) {
+				if (next.id === actionId) {
+					messageHub.showDialogWindow("codbex-portunus-custom-action", {
+						src: next.link,
+					});
+					break;
+				}
+			}
+		};
+
+		$scope.triggerEntityAction = function (actionId, selectedEntity) {
+			for (const next of $scope.entityActions) {
+				if (next.id === actionId) {
+					messageHub.showDialogWindow("codbex-portunus-custom-action", {
+						src: `${next.link}?id=${selectedEntity.Id}`,
+					});
+					break;
+				}
+			}
+		};
+		//-----------------Custom Actions-------------------//
+
 		function resetPagination() {
 			$scope.dataPage = 1;
 			$scope.dataCount = 0;
@@ -54,8 +83,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Zone-details", {
 				action: "select",
 				entity: entity,
-				optionsCountry: $scope.optionsCountry,
 				optionsStatus: $scope.optionsStatus,
+				optionsCountry: $scope.optionsCountry,
 			});
 		};
 
@@ -64,8 +93,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Zone-details", {
 				action: "create",
 				entity: {},
-				optionsCountry: $scope.optionsCountry,
 				optionsStatus: $scope.optionsStatus,
+				optionsCountry: $scope.optionsCountry,
 			}, null, false);
 		};
 
@@ -73,8 +102,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Zone-details", {
 				action: "update",
 				entity: entity,
-				optionsCountry: $scope.optionsCountry,
 				optionsStatus: $scope.optionsStatus,
+				optionsCountry: $scope.optionsCountry,
 			}, null, false);
 		};
 
@@ -108,17 +137,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsCountry = [];
 		$scope.optionsStatus = [];
-
-		$http.get("/services/js/codbex-portunus/gen/api/Settings/Country.js").then(function (response) {
-			$scope.optionsCountry = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
+		$scope.optionsCountry = [];
 
 		$http.get("/services/js/codbex-portunus/gen/api/Settings/ZoneStatus.js").then(function (response) {
 			$scope.optionsStatus = response.data.map(e => {
@@ -128,18 +148,27 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
-		$scope.optionsCountryValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsCountry.length; i++) {
-				if ($scope.optionsCountry[i].value === optionKey) {
-					return $scope.optionsCountry[i].text;
+
+		$http.get("/services/js/codbex-portunus/gen/api/Settings/Country.js").then(function (response) {
+			$scope.optionsCountry = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
 				}
-			}
-			return null;
-		};
+			});
+		});
 		$scope.optionsStatusValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsStatus.length; i++) {
 				if ($scope.optionsStatus[i].value === optionKey) {
 					return $scope.optionsStatus[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsCountryValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsCountry.length; i++) {
+				if ($scope.optionsCountry[i].value === optionKey) {
+					return $scope.optionsCountry[i].text;
 				}
 			}
 			return null;

@@ -94,30 +94,6 @@
                         "name": "SALESORDER_ID"
                     },
                     {
-                        "type": "VARCHAR",
-                        "length": 100,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "SALESORDER_TRANSACTIONID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "SALESORDER_INVOICENUMBER"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "SALESORDER_INVOICEPREFIX"
-                    },
-                    {
                         "type": "INTEGER",
                         "length": 0,
                         "precision": "NaN",
@@ -127,15 +103,23 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
+                        "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "SALESORDER_CUSTOMER"
+                        "name": "SALESORDER_INVOICENUMBER"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 256,
+                        "length": 26,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDER_INVOICEPREFIX"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 2000,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -155,6 +139,14 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
+                        "name": "SALESORDER_CUSTOMER"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
                         "name": "SALESORDER_STATUS"
                     },
                     {
@@ -166,12 +158,28 @@
                         "name": "SALESORDER_TRACKING"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
+                        "type": "VARCHAR",
+                        "length": 255,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "SALESORDER_LANGUAGE"
+                        "name": "SALESORDER_ACCEPTLANGUAGE"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDER_DATEADDED"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDER_DATEMODIFIED"
                     },
                     {
                         "type": "INTEGER",
@@ -182,28 +190,12 @@
                         "name": "SALESORDER_CURRENCY"
                     },
                     {
-                        "type": "VARCHAR",
-                        "length": 20,
+                        "type": "INTEGER",
+                        "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "SALESORDER_ACCEPTLANGUAGE"
-                    },
-                    {
-                        "type": "DATE",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "SALESORDER_DATEADDED"
-                    },
-                    {
-                        "type": "DATE",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "SALESORDER_DATEMODIFIED"
+                        "name": "SALESORDER_LANGUAGE"
                     }
                 ]
             },
@@ -256,14 +248,6 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "CUSTOMER_STORE"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CUSTOMER_LANGUAGE"
                     },
                     {
                         "type": "VARCHAR",
@@ -326,6 +310,14 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "CUSTOMER_PROPERTY10"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CUSTOMER_LANGUAGE"
                     }
                 ]
             },
@@ -416,14 +408,6 @@
                         "name": "ZONE_ID"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "ZONE_COUNTRY"
-                    },
-                    {
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
@@ -442,6 +426,14 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "ZONE_STATUS"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "ZONE_COUNTRY"
                     }
                 ]
             },
@@ -479,7 +471,9 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 32,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "ORDERSTATUS_NAME"
                     }
@@ -595,7 +589,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_ORDER"
+                        "name": "ORDERITEM_PRODUCT"
                     },
                     {
                         "type": "INTEGER",
@@ -603,7 +597,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_PRODUCT"
+                        "name": "ORDERITEM_ORDER"
                     },
                     {
                         "type": "VARCHAR",
@@ -684,6 +678,14 @@
                         "name": "PRODUCT_SKU"
                     },
                     {
+                        "type": "TINYINT",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PRODUCT_STATUS"
+                    },
+                    {
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
@@ -716,22 +718,18 @@
                         "name": "PRODUCT_MPN"
                     },
                     {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PRODUCT_MANIFACTURER"
+                    },
+                    {
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
                         "name": "PRODUCT_LOCATION"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "PRODUCT_VARIANT"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "PRODUCT_OVERRIDE"
                     },
                     {
                         "type": "INTEGER",
@@ -742,14 +740,6 @@
                         "name": "PRODUCT_QUANTITY"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCT_STOCKSTATUS"
-                    },
-                    {
                         "type": "VARCHAR",
                         "length": 255,
                         "precision": "NaN",
@@ -758,15 +748,7 @@
                         "name": "PRODUCT_IMAGE"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCT_MANIFACTURER"
-                    },
-                    {
-                        "type": "BOOLEAN",
+                        "type": "TINYINT",
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -830,7 +812,7 @@
                         "name": "PRODUCT_HEIGHT"
                     },
                     {
-                        "type": "BOOLEAN",
+                        "type": "TINYINT",
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -846,15 +828,7 @@
                         "name": "PRODUCT_MINIMUM"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCT_STATUS"
-                    },
-                    {
-                        "type": "DATE",
+                        "type": "TIMESTAMP",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -862,12 +836,20 @@
                         "name": "PRODUCT_DATEADDED"
                     },
                     {
-                        "type": "DATE",
+                        "type": "TIMESTAMP",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
                         "name": "PRODUCT_DATEMODIFIED"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PRODUCT_STOCKSTATUS"
                     }
                 ]
             },
@@ -1066,6 +1048,14 @@
                         "name": "SALESORDERPAYMENT_LASTNAME"
                     },
                     {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDERPAYMENT_ZONE"
+                    },
+                    {
                         "type": "VARCHAR",
                         "length": 60,
                         "precision": "NaN",
@@ -1112,14 +1102,6 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "SALESORDERPAYMENT_COUNTRY"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "SALESORDERPAYMENT_ZONE"
                     },
                     {
                         "type": "VARCHAR",
@@ -1172,6 +1154,14 @@
                         "identity": true,
                         "nullable": true,
                         "name": "SALESORDERSHIPPING_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDERSHIPPING_ZONE"
                     },
                     {
                         "type": "VARCHAR",
@@ -1236,14 +1226,6 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "SALESORDERSHIPPING_COUNTRY"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "SALESORDERSHIPPING_ZONE"
                     },
                     {
                         "type": "VARCHAR",
@@ -1444,15 +1426,6 @@
                 "referencedColumns": "ORDERSTATUS_ID"
             },
             {
-                "name": "SalesOrder_Language",
-                "type": "foreignKey",
-                "table": "CODBEX_SALESORDER",
-                "constraintName": "SalesOrder_Language",
-                "columns": "SALESORDER_LANGUAGE",
-                "referencedTable": "CODBEX_LANGUAGE",
-                "referencedColumns": "LANGUAGE_ID"
-            },
-            {
                 "name": "SalesOrder_Currency",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDER",
@@ -1460,6 +1433,15 @@
                 "columns": "SALESORDER_CURRENCY",
                 "referencedTable": "CODBEX_CURRENCY",
                 "referencedColumns": "CURRENCY_ID"
+            },
+            {
+                "name": "SalesOrder_Language",
+                "type": "foreignKey",
+                "table": "CODBEX_SALESORDER",
+                "constraintName": "SalesOrder_Language",
+                "columns": "SALESORDER_LANGUAGE",
+                "referencedTable": "CODBEX_LANGUAGE",
+                "referencedColumns": "LANGUAGE_ID"
             },
             {
                 "name": "Customer_Store",
@@ -1471,15 +1453,6 @@
                 "referencedColumns": "STORE_ID"
             },
             {
-                "name": "Customer_Language",
-                "type": "foreignKey",
-                "table": "CODBEX_CUSTOMER",
-                "constraintName": "Customer_Language",
-                "columns": "CUSTOMER_LANGUAGE",
-                "referencedTable": "CODBEX_LANGUAGE",
-                "referencedColumns": "LANGUAGE_ID"
-            },
-            {
                 "name": "Customer_CustomerStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_CUSTOMER",
@@ -1487,6 +1460,15 @@
                 "columns": "CUSTOMER_STATUS",
                 "referencedTable": "CODBEX_CUSTOMERSTATUS",
                 "referencedColumns": "CUSTOMERSTATUS_ID"
+            },
+            {
+                "name": "Customer_Language",
+                "type": "foreignKey",
+                "table": "CODBEX_CUSTOMER",
+                "constraintName": "Customer_Language",
+                "columns": "CUSTOMER_LANGUAGE",
+                "referencedTable": "CODBEX_LANGUAGE",
+                "referencedColumns": "LANGUAGE_ID"
             },
             {
                 "name": "Country_CountryStatus",
@@ -1498,15 +1480,6 @@
                 "referencedColumns": "COUNTRYSTATUS_ID"
             },
             {
-                "name": "Zone_Country",
-                "type": "foreignKey",
-                "table": "CODBEX_ZONE",
-                "constraintName": "Zone_Country",
-                "columns": "ZONE_COUNTRY",
-                "referencedTable": "CODBEX_COUNTRY",
-                "referencedColumns": "COUNTRY_ID"
-            },
-            {
                 "name": "Zone_ZoneStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_ZONE",
@@ -1514,6 +1487,15 @@
                 "columns": "ZONE_STATUS",
                 "referencedTable": "CODBEX_ZONESTATUS",
                 "referencedColumns": "ZONESTATUS_ID"
+            },
+            {
+                "name": "Zone_Country",
+                "type": "foreignKey",
+                "table": "CODBEX_ZONE",
+                "constraintName": "Zone_Country",
+                "columns": "ZONE_COUNTRY",
+                "referencedTable": "CODBEX_COUNTRY",
+                "referencedColumns": "COUNTRY_ID"
             },
             {
                 "name": "Language_LanguageStatus",
@@ -1525,15 +1507,6 @@
                 "referencedColumns": "LANGUAGESTATUS_ID"
             },
             {
-                "name": "SalesOrderItem_SalesOrder",
-                "type": "foreignKey",
-                "table": "CODBEX_SALESORDERITEM",
-                "constraintName": "SalesOrderItem_SalesOrder",
-                "columns": "ORDERITEM_ORDER",
-                "referencedTable": "CODBEX_SALESORDER",
-                "referencedColumns": "SALESORDER_ID"
-            },
-            {
                 "name": "SalesOrderItem_Product",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDERITEM",
@@ -1543,13 +1516,22 @@
                 "referencedColumns": "PRODUCT_ID"
             },
             {
-                "name": "Product_StockStatus",
+                "name": "SalesOrderItem_SalesOrder",
+                "type": "foreignKey",
+                "table": "CODBEX_SALESORDERITEM",
+                "constraintName": "SalesOrderItem_SalesOrder",
+                "columns": "ORDERITEM_ORDER",
+                "referencedTable": "CODBEX_SALESORDER",
+                "referencedColumns": "SALESORDER_ID"
+            },
+            {
+                "name": "Product_ProductStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_PRODUCT",
-                "constraintName": "Product_StockStatus",
-                "columns": "PRODUCT_STOCKSTATUS",
-                "referencedTable": "CODBEX_STOCKSTATUS",
-                "referencedColumns": "STOCKSTATUS_ID"
+                "constraintName": "Product_ProductStatus",
+                "columns": "PRODUCT_STATUS",
+                "referencedTable": "CODBEX_PRODUCTSTATUS",
+                "referencedColumns": "PRODUCTSTATUS_ID"
             },
             {
                 "name": "Product_Manifacturer",
@@ -1561,13 +1543,13 @@
                 "referencedColumns": "MANIFACTURER_ID"
             },
             {
-                "name": "Product_ProductStatus",
+                "name": "Product_StockStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_PRODUCT",
-                "constraintName": "Product_ProductStatus",
-                "columns": "PRODUCT_STATUS",
-                "referencedTable": "CODBEX_PRODUCTSTATUS",
-                "referencedColumns": "PRODUCTSTATUS_ID"
+                "constraintName": "Product_StockStatus",
+                "columns": "PRODUCT_STOCKSTATUS",
+                "referencedTable": "CODBEX_STOCKSTATUS",
+                "referencedColumns": "STOCKSTATUS_ID"
             },
             {
                 "name": "StockStatus_Language",
@@ -1597,15 +1579,6 @@
                 "referencedColumns": "TEAM_ID"
             },
             {
-                "name": "SalesOrderPayment_Country",
-                "type": "foreignKey",
-                "table": "CODBEX_SALESORDERPAYMENT",
-                "constraintName": "SalesOrderPayment_Country",
-                "columns": "SALESORDERPAYMENT_COUNTRY",
-                "referencedTable": "CODBEX_COUNTRY",
-                "referencedColumns": "COUNTRY_ID"
-            },
-            {
                 "name": "SalesOrderPayment_Zone",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDERPAYMENT",
@@ -1613,6 +1586,15 @@
                 "columns": "SALESORDERPAYMENT_ZONE",
                 "referencedTable": "CODBEX_ZONE",
                 "referencedColumns": "ZONE_ID"
+            },
+            {
+                "name": "SalesOrderPayment_Country",
+                "type": "foreignKey",
+                "table": "CODBEX_SALESORDERPAYMENT",
+                "constraintName": "SalesOrderPayment_Country",
+                "columns": "SALESORDERPAYMENT_COUNTRY",
+                "referencedTable": "CODBEX_COUNTRY",
+                "referencedColumns": "COUNTRY_ID"
             },
             {
                 "name": "SalesOrderPayment_SalesOrder",
@@ -1624,15 +1606,6 @@
                 "referencedColumns": "SALESORDER_ID"
             },
             {
-                "name": "SalesOrderShipping_Country",
-                "type": "foreignKey",
-                "table": "CODBEX_SALESORDERSHIPPING",
-                "constraintName": "SalesOrderShipping_Country",
-                "columns": "SALESORDERSHIPPING_COUNTRY",
-                "referencedTable": "CODBEX_COUNTRY",
-                "referencedColumns": "COUNTRY_ID"
-            },
-            {
                 "name": "SalesOrderShipping_Zone",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDERSHIPPING",
@@ -1640,6 +1613,15 @@
                 "columns": "SALESORDERSHIPPING_ZONE",
                 "referencedTable": "CODBEX_ZONE",
                 "referencedColumns": "ZONE_ID"
+            },
+            {
+                "name": "SalesOrderShipping_Country",
+                "type": "foreignKey",
+                "table": "CODBEX_SALESORDERSHIPPING",
+                "constraintName": "SalesOrderShipping_Country",
+                "columns": "SALESORDERSHIPPING_COUNTRY",
+                "referencedTable": "CODBEX_COUNTRY",
+                "referencedColumns": "COUNTRY_ID"
             },
             {
                 "name": "SalesOrderShipping_SalesOrder",

@@ -1,0 +1,58 @@
+- route:
+    id: order-status-sync-route
+    from:
+      uri: cron:TriggerOrderStatusReplication
+      id: trigger-order-status-replication-cron
+      parameters:
+        schedule: '*/30 * * ? * *'
+      description: Trigger Order Status Replication
+      steps:
+        - log:
+            message: Replicating order status from OpenCart DB...
+            id: log-about-to-start-order-status-replication
+            logName: OpenCartOrderStatusReplication
+            loggingLevel: INFO
+        - setBody:
+            id: create-order-status-select-statement
+            expression:
+              constant:
+                expression: SELECT * FROM oc_order_status
+                id: constant-e9a5
+            description: Create order status SELECT statement
+        - to:
+            uri: spring-jdbc:OpenCartDB
+            id: execute-get-order-status
+            description: Get all order status
+        - split:
+            id: split-to-single-order-status
+            expression:
+              simple:
+                expression: ${body}
+                id: simple-099e-213
+            description: Split to single order status
+            steps:
+              - setBody:
+                  id: create-order-status-merge-statement
+                  expression:
+                    simple:
+                      expression: |-
+                        MERGE INTO CODBEX_ORDERSTATUS
+                            (ORDERSTATUS_ID, ORDERSTATUS_NAME) 
+                        KEY(ORDERSTATUS_ID)
+                        VALUES 
+                            (
+                                ${body['order_status_id']},
+                                '${body['name']}'
+                            )
+                      id: simple-b426-213
+                  description: Create MERGE statement
+              - to:
+                  uri: spring-jdbc:DefaultDB
+                  id: merge-order-status
+                  description: Merge order status
+        - log:
+            message: Successfully replicated order status from OpenCart DB
+            id: log-order-status-replication-completed
+            logName: OpenCartOrderStatusReplication
+            loggingLevel: INFO
+    description: Sync order status from OpenCart

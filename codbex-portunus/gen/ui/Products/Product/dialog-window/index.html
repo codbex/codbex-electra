@@ -66,6 +66,19 @@
                         </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
+                        <fd-form-label for="idStatus" dg-required="false" dg-colon="true">Status</fd-form-label>
+                        <fd-combobox-input id="idStatus"
+                            name="Status"
+                            state="{{ formErrors.Status ? 'error' : '' }}"
+                            ng-required="true"
+                            ng-change="isValid(formFieldset['Status'].$valid, 'Status')"
+                            ng-model="entity.Status"
+                            dg-disabled="action === 'select'"
+                            dropdown-items="optionsStatus"
+                            dg-placeholder="Search Status ...">
+                        </fd-combobox-input>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
                         <fd-form-label for="idUPC" dg-required="false" dg-colon="true">UPC</fd-form-label>
                         <fd-form-input-message-group dg-inactive="{{ formErrors.UPC ? false : true }}">
                             <fd-input id="idUPC"
@@ -161,6 +174,19 @@
                         </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
+                        <fd-form-label for="idManifacturer" dg-required="false" dg-colon="true">Manifacturer</fd-form-label>
+                        <fd-combobox-input id="idManifacturer"
+                            name="Manifacturer"
+                            state="{{ formErrors.Manifacturer ? 'error' : '' }}"
+                            ng-required="true"
+                            ng-change="isValid(formFieldset['Manifacturer'].$valid, 'Manifacturer')"
+                            ng-model="entity.Manifacturer"
+                            dg-disabled="action === 'select'"
+                            dropdown-items="optionsManifacturer"
+                            dg-placeholder="Search Manifacturer ...">
+                        </fd-combobox-input>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
                         <fd-form-label for="idLocation" dg-required="false" dg-colon="true">Location</fd-form-label>
                         <fd-form-input-message-group dg-inactive="{{ formErrors.Location ? false : true }}">
                             <fd-input id="idLocation"
@@ -175,44 +201,6 @@
                                 dg-input-rules="{ patterns: [''] }"
                                 type="text"
                                 placeholder="Enter Location">
-                            </fd-input>
-                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-                        </fd-form-input-message-group>
-                    </fd-form-item>
-                    <fd-form-item horizontal="false">
-                        <fd-form-label for="idVariant" dg-required="false" dg-colon="true">Variant</fd-form-label>
-                        <fd-form-input-message-group dg-inactive="{{ formErrors.Variant ? false : true }}">
-                            <fd-input id="idVariant"
-                                name="Variant"
-                                state="{{ formErrors.Variant ? 'error' : '' }}"
-								ng-required="false"
-                                ng-change="isValid(formFieldset['Variant'].$valid, 'Variant')"
-                                ng-model="entity.Variant"
-                                ng-readonly="action === 'select'"
-                                ng-minlength="0.0 || 0"
-                                ng-maxlength="20.0 || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
-                                placeholder="Enter Variant">
-                            </fd-input>
-                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-                        </fd-form-input-message-group>
-                    </fd-form-item>
-                    <fd-form-item horizontal="false">
-                        <fd-form-label for="idOverride" dg-required="false" dg-colon="true">Override</fd-form-label>
-                        <fd-form-input-message-group dg-inactive="{{ formErrors.Override ? false : true }}">
-                            <fd-input id="idOverride"
-                                name="Override"
-                                state="{{ formErrors.Override ? 'error' : '' }}"
-								ng-required="false"
-                                ng-change="isValid(formFieldset['Override'].$valid, 'Override')"
-                                ng-model="entity.Override"
-                                ng-readonly="action === 'select'"
-                                ng-minlength="0.0 || 0"
-                                ng-maxlength="20.0 || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
-                                placeholder="Enter Override">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
@@ -237,19 +225,6 @@
                         </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
-                        <fd-form-label for="idStockStatus" dg-required="false" dg-colon="true">StockStatus</fd-form-label>
-                        <fd-combobox-input id="idStockStatus"
-                            name="StockStatus"
-                            state="{{ formErrors.StockStatus ? 'error' : '' }}"
-                            ng-required="true"
-                            ng-change="isValid(formFieldset['StockStatus'].$valid, 'StockStatus')"
-                            ng-model="entity.StockStatus"
-                            dg-disabled="action === 'select'"
-                            dropdown-items="optionsStockStatus"
-                            dg-placeholder="Search StockStatus ...">
-                        </fd-combobox-input>
-                    </fd-form-item>
-                    <fd-form-item horizontal="false">
                         <fd-form-label for="idImage" dg-required="false" dg-colon="true">Image</fd-form-label>
                         <fd-form-input-message-group dg-inactive="{{ formErrors.Image ? false : true }}">
                             <fd-input id="idImage"
@@ -267,19 +242,6 @@
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
-                    </fd-form-item>
-                    <fd-form-item horizontal="false">
-                        <fd-form-label for="idManifacturer" dg-required="false" dg-colon="true">Manifacturer</fd-form-label>
-                        <fd-combobox-input id="idManifacturer"
-                            name="Manifacturer"
-                            state="{{ formErrors.Manifacturer ? 'error' : '' }}"
-                            ng-required="true"
-                            ng-change="isValid(formFieldset['Manifacturer'].$valid, 'Manifacturer')"
-                            ng-model="entity.Manifacturer"
-                            dg-disabled="action === 'select'"
-                            dropdown-items="optionsManifacturer"
-                            dg-placeholder="Search Manifacturer ...">
-                        </fd-combobox-input>
                     </fd-form-item>
                     <fd-form-item>
                         <fd-checkbox id="idShipping"
@@ -448,19 +410,6 @@
                         </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
-                        <fd-form-label for="idStatus" dg-required="false" dg-colon="true">Status</fd-form-label>
-                        <fd-combobox-input id="idStatus"
-                            name="Status"
-                            state="{{ formErrors.Status ? 'error' : '' }}"
-                            ng-required="true"
-                            ng-change="isValid(formFieldset['Status'].$valid, 'Status')"
-                            ng-model="entity.Status"
-                            dg-disabled="action === 'select'"
-                            dropdown-items="optionsStatus"
-                            dg-placeholder="Search Status ...">
-                        </fd-combobox-input>
-                    </fd-form-item>
-                    <fd-form-item horizontal="false">
                         <fd-form-label for="idDateAdded" dg-required="false" dg-colon="true">DateAdded</fd-form-label>
                         <fd-form-input-message-group dg-inactive="{{ formErrors.DateAdded ? false : true }}">
                             <fd-input id="idDateAdded"
@@ -489,6 +438,19 @@
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idStockStatus" dg-required="false" dg-colon="true">StockStatus</fd-form-label>
+                        <fd-combobox-input id="idStockStatus"
+                            name="StockStatus"
+                            state="{{ formErrors.StockStatus ? 'error' : '' }}"
+                            ng-required="true"
+                            ng-change="isValid(formFieldset['StockStatus'].$valid, 'StockStatus')"
+                            ng-model="entity.StockStatus"
+                            dg-disabled="action === 'select'"
+                            dropdown-items="optionsStockStatus"
+                            dg-placeholder="Search StockStatus ...">
+                        </fd-combobox-input>
                     </fd-form-item>
             </fd-fieldset>
         </fd-scrollbar>

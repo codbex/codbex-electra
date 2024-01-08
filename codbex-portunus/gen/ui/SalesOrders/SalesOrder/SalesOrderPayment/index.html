@@ -22,6 +22,7 @@
 
 		<fd-toolbar has-title="true" ng-hide="data == null">
 			<fd-toolbar-title>Items ({{dataCount}})</fd-toolbar-title>
+			<fd-button ng-repeat="action in pageActions" compact="true" dg-type="transparent" dg-label="{{action.label}}" ng-click="triggerPageAction(action.id)"></fd-button>
 			<fd-toolbar-spacer></fd-toolbar-spacer>
 			<fd-button compact="true" dg-type="transparent" dg-label="Create" ng-click="createEntity()"
 				state="{{selectedMainEntityId == null ? 'disabled' : ''}}"></fd-button>
@@ -32,13 +33,13 @@
 					<tr fd-table-row>
 						<th fd-table-header-cell>FirstName</th>
 						<th fd-table-header-cell>LastName</th>
+						<th fd-table-header-cell>Zone</th>
 						<th fd-table-header-cell>Company</th>
 						<th fd-table-header-cell>Address1</th>
 						<th fd-table-header-cell>Address2</th>
 						<th fd-table-header-cell>City</th>
 						<th fd-table-header-cell>Postcode</th>
 						<th fd-table-header-cell>Country</th>
-						<th fd-table-header-cell>Zone</th>
 						<th fd-table-header-cell>AddressFormat</th>
 						<th fd-table-header-cell>CustomField</th>
 						<th fd-table-header-cell>Method</th>
@@ -54,6 +55,9 @@
 						dg-selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.FirstName}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.LastName}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							{{optionsZoneValue(next.Zone)}}
+						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Company}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Address1}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Address2}}</td>
@@ -61,9 +65,6 @@
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Postcode}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsCountryValue(next.Country)}}
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsZoneValue(next.Zone)}}
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.AddressFormat}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.CustomField}}</td>
@@ -78,6 +79,7 @@
 								</fd-popover-control>
 								<fd-popover-body dg-align="bottom-right">
 									<fd-menu aria-label="Table Row Menu" no-backdrop="true" no-shadow="true">
+										<fd-menu-item ng-repeat="action in entityActions" title="{{action.label}}" ng-click="triggerEntityAction(action.id, next)"></fd-menu-item>
 										<fd-menu-item title="View Details" ng-click="openDetails(next)"></fd-menu-item>
 										<fd-menu-item title="Edit" ng-click="updateEntity(next)"></fd-menu-item>
 										<fd-menu-item title="Delete" ng-click="deleteEntity(next)"></fd-menu-item>

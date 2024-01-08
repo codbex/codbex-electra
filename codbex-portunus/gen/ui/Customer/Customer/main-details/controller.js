@@ -5,7 +5,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/js/codbex-portunus/gen/api/Customer/Customer.js";
 	}])
-	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
+	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
 		$scope.entity = {};
 		$scope.formHeaders = {
@@ -16,14 +16,31 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.formErrors = {};
 		$scope.action = 'select';
 
+		//-----------------Custom Actions-------------------//
+		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=codbex-portunus-custom-action").then(function (response) {
+			$scope.entityActions = response.data.filter(e => e.perspective === "Customer" && e.view === "Customer" && e.type === "entity");
+		});
+
+		$scope.triggerEntityAction = function (actionId, selectedEntity) {
+			for (const next of $scope.entityActions) {
+				if (next.id === actionId) {
+					messageHub.showDialogWindow("codbex-portunus-custom-action", {
+						src: `${next.link}?id=${$scope.entity.Id}`,
+					});
+					break;
+				}
+			}
+		};
+		//-----------------Custom Actions-------------------//
+
 		//-----------------Events-------------------//
 		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
 				$scope.formErrors = {};
 				$scope.optionsStore = [];
-				$scope.optionsLanguage = [];
 				$scope.optionsStatus = [];
+				$scope.optionsLanguage = [];
 				$scope.action = 'select';
 			});
 		});
@@ -35,8 +52,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsStore = msg.data.optionsStore;
-				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.optionsStatus = msg.data.optionsStatus;
+				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.action = 'select';
 			});
 		});
@@ -45,8 +62,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.$apply(function () {
 				$scope.entity = {};
 				$scope.optionsStore = msg.data.optionsStore;
-				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.optionsStatus = msg.data.optionsStatus;
+				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.action = 'create';
 				// Set Errors for required fields only
 				$scope.formErrors = {
@@ -61,8 +78,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsStore = msg.data.optionsStore;
-				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.optionsStatus = msg.data.optionsStatus;
+				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.action = 'update';
 			});
 		});

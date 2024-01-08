@@ -2,7 +2,6 @@ const query = require("db/query");
 const producer = require("messaging/producer");
 const extensions = require('extensions/extensions');
 const daoApi = require("db/dao");
-const EntityUtils = require("codbex-portunus/gen/dao/utils/EntityUtils");
 
 let dao = daoApi.create({
 	table: "CODBEX_SALESORDER",
@@ -15,29 +14,19 @@ let dao = daoApi.create({
 			autoIncrement: true,
 		},
  {
-			name: "TransactionId",
-			column: "SALESORDER_TRANSACTIONID",
-			type: "VARCHAR",
-		},
- {
-			name: "InvoiceNumber",
-			column: "SALESORDER_INVOICENUMBER",
-			type: "VARCHAR",
-		},
- {
-			name: "InvoicePrefix",
-			column: "SALESORDER_INVOICEPREFIX",
-			type: "VARCHAR",
-		},
- {
 			name: "Store",
 			column: "SALESORDER_STORE",
 			type: "INTEGER",
 		},
  {
-			name: "Customer",
-			column: "SALESORDER_CUSTOMER",
+			name: "InvoiceNumber",
+			column: "SALESORDER_INVOICENUMBER",
 			type: "INTEGER",
+		},
+ {
+			name: "InvoicePrefix",
+			column: "SALESORDER_INVOICEPREFIX",
+			type: "VARCHAR",
 		},
  {
 			name: "Comment",
@@ -50,6 +39,11 @@ let dao = daoApi.create({
 			type: "DECIMAL",
 		},
  {
+			name: "Customer",
+			column: "SALESORDER_CUSTOMER",
+			type: "INTEGER",
+		},
+ {
 			name: "Status",
 			column: "SALESORDER_STATUS",
 			type: "INTEGER",
@@ -60,16 +54,6 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
-			name: "Language",
-			column: "SALESORDER_LANGUAGE",
-			type: "INTEGER",
-		},
- {
-			name: "Currency",
-			column: "SALESORDER_CURRENCY",
-			type: "INTEGER",
-		},
- {
 			name: "AcceptLanguage",
 			column: "SALESORDER_ACCEPTLANGUAGE",
 			type: "VARCHAR",
@@ -77,34 +61,35 @@ let dao = daoApi.create({
  {
 			name: "DateAdded",
 			column: "SALESORDER_DATEADDED",
-			type: "DATE",
+			type: "TIMESTAMP",
 		},
  {
 			name: "DateModified",
 			column: "SALESORDER_DATEMODIFIED",
-			type: "DATE",
+			type: "TIMESTAMP",
+		},
+ {
+			name: "Currency",
+			column: "SALESORDER_CURRENCY",
+			type: "INTEGER",
+		},
+ {
+			name: "Language",
+			column: "SALESORDER_LANGUAGE",
+			type: "INTEGER",
 		}
 ]
 });
 
 exports.list = function(settings) {
-	return dao.list(settings).map(function(e) {
-		EntityUtils.setDate(e, "DateAdded");
-		EntityUtils.setDate(e, "DateModified");
-		return e;
-	});
+	return dao.list(settings);
 };
 
 exports.get = function(id) {
-	let entity = dao.find(id);
-	EntityUtils.setDate(entity, "DateAdded");
-	EntityUtils.setDate(entity, "DateModified");
-	return entity;
+	return dao.find(id);
 };
 
 exports.create = function(entity) {
-	EntityUtils.setLocalDate(entity, "DateAdded");
-	EntityUtils.setLocalDate(entity, "DateModified");
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
@@ -120,8 +105,6 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
-	// EntityUtils.setLocalDate(entity, "DateAdded");
-	// EntityUtils.setLocalDate(entity, "DateModified");
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",

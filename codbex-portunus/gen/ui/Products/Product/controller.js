@@ -7,6 +7,35 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
+		//-----------------Custom Actions-------------------//
+		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=codbex-portunus-custom-action").then(function (response) {
+			$scope.pageActions = response.data.filter(e => e.perspective === "Products" && e.view === "Product" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.data.filter(e => e.perspective === "Products" && e.view === "Product" && e.type === "entity");
+		});
+
+		$scope.triggerPageAction = function (actionId) {
+			for (const next of $scope.pageActions) {
+				if (next.id === actionId) {
+					messageHub.showDialogWindow("codbex-portunus-custom-action", {
+						src: next.link,
+					});
+					break;
+				}
+			}
+		};
+
+		$scope.triggerEntityAction = function (actionId, selectedEntity) {
+			for (const next of $scope.entityActions) {
+				if (next.id === actionId) {
+					messageHub.showDialogWindow("codbex-portunus-custom-action", {
+						src: `${next.link}?id=${selectedEntity.Id}`,
+					});
+					break;
+				}
+			}
+		};
+		//-----------------Custom Actions-------------------//
+
 		function resetPagination() {
 			$scope.dataPage = 1;
 			$scope.dataCount = 0;
@@ -67,9 +96,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Product-details", {
 				action: "select",
 				entity: entity,
-				optionsStockStatus: $scope.optionsStockStatus,
-				optionsManifacturer: $scope.optionsManifacturer,
 				optionsStatus: $scope.optionsStatus,
+				optionsManifacturer: $scope.optionsManifacturer,
+				optionsStockStatus: $scope.optionsStockStatus,
 			});
 		};
 
@@ -78,9 +107,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Product-details", {
 				action: "create",
 				entity: {},
-				optionsStockStatus: $scope.optionsStockStatus,
-				optionsManifacturer: $scope.optionsManifacturer,
 				optionsStatus: $scope.optionsStatus,
+				optionsManifacturer: $scope.optionsManifacturer,
+				optionsStockStatus: $scope.optionsStockStatus,
 			}, null, false);
 		};
 
@@ -88,9 +117,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Product-details", {
 				action: "update",
 				entity: entity,
-				optionsStockStatus: $scope.optionsStockStatus,
-				optionsManifacturer: $scope.optionsManifacturer,
 				optionsStatus: $scope.optionsStatus,
+				optionsManifacturer: $scope.optionsManifacturer,
+				optionsStockStatus: $scope.optionsStockStatus,
 			}, null, false);
 		};
 
@@ -124,12 +153,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsStockStatus = [];
-		$scope.optionsManifacturer = [];
 		$scope.optionsStatus = [];
+		$scope.optionsManifacturer = [];
+		$scope.optionsStockStatus = [];
 
-		$http.get("/services/js/codbex-portunus/gen/api/Settings/StockStatus.js").then(function (response) {
-			$scope.optionsStockStatus = response.data.map(e => {
+		$http.get("/services/js/codbex-portunus/gen/api/Settings/ProductStatus.js").then(function (response) {
+			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -146,18 +175,18 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-portunus/gen/api/Settings/ProductStatus.js").then(function (response) {
-			$scope.optionsStatus = response.data.map(e => {
+		$http.get("/services/js/codbex-portunus/gen/api/Settings/StockStatus.js").then(function (response) {
+			$scope.optionsStockStatus = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
 				}
 			});
 		});
-		$scope.optionsStockStatusValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsStockStatus.length; i++) {
-				if ($scope.optionsStockStatus[i].value === optionKey) {
-					return $scope.optionsStockStatus[i].text;
+		$scope.optionsStatusValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsStatus.length; i++) {
+				if ($scope.optionsStatus[i].value === optionKey) {
+					return $scope.optionsStatus[i].text;
 				}
 			}
 			return null;
@@ -170,10 +199,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsStatusValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsStatus.length; i++) {
-				if ($scope.optionsStatus[i].value === optionKey) {
-					return $scope.optionsStatus[i].text;
+		$scope.optionsStockStatusValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsStockStatus.length; i++) {
+				if ($scope.optionsStockStatus[i].value === optionKey) {
+					return $scope.optionsStockStatus[i].text;
 				}
 			}
 			return null;

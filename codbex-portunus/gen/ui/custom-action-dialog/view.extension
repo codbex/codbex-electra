@@ -1,0 +1,5 @@
+{
+    "module": "codbex-portunus/gen/ui/custom-action-dialog/view.js",
+    "extensionPoint": "codbex-portunus-dialog-window",
+    "description": "codbex-portunus - Custom Action Dialog Window"
+}
