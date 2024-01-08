@@ -1,5 +1,6 @@
 # codbex-portunus
-Warehouse Management
+
+e-Commerce Backoffice Management
 
 ## Run
 The following Dirigible conifgurations should be available:
@@ -17,7 +18,7 @@ The following Dirigible conifgurations should be available:
 
 ![model](images/portunus-model.png)
 
-## Desing
+## Design
 ![design](design/portunus.svg)
 
 ### Application 
