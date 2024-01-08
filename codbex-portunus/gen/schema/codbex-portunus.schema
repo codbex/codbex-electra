@@ -62,7 +62,7 @@
                         "name": "CURRENCY_VALUE"
                     },
                     {
-                        "type": "DATE",
+                        "type": "TIMESTAMP",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",

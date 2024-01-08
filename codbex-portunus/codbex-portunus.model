@@ -129,7 +129,7 @@
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
-                        "dataType": "DATE",
+                        "dataType": "TIMESTAMP",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
                         "name": "DateModified",
