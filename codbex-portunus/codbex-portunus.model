@@ -1213,21 +1213,6 @@
                     {
                         "calculatedPropertyExpression": "",
                         "dataAutoIncrement": "false",
-                        "dataLength": "20",
-                        "dataName": "LANGUAGE_EXTENSION",
-                        "dataNullable": "true",
-                        "dataPrimaryKey": "false",
-                        "dataType": "VARCHAR",
-                        "dataUnique": "false",
-                        "isCalculatedProperty": "false",
-                        "name": "Extension",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetType": "TEXTBOX"
-                    },
-                    {
-                        "calculatedPropertyExpression": "",
-                        "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "LANGUAGE_STATUS",
                         "dataNullable": "true",

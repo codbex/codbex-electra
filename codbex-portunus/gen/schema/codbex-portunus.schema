@@ -516,12 +516,6 @@
                         "name": "LANGUAGE_LOCALE"
                     },
                     {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "LANGUAGE_EXTENSION"
-                    },
-                    {
                         "type": "INTEGER",
                         "length": 0,
                         "precision": "NaN",
