@@ -43,7 +43,7 @@
               - to:
                   uri: >-
                     class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
-                  id: to-invoker
+                  id: invoke-js-country-processor
                   description: Invoke JS
               - setBody:
                   id: create-country-merge-statement
