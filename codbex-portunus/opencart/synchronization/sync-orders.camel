@@ -44,8 +44,8 @@
                                 SALESORDER_TRACKING, SALESORDER_LANGUAGE, SALESORDER_CURRENCY,
                                 SALESORDER_ACCEPTLANGUAGE, SALESORDER_DATEADDED, SALESORDER_DATEMODIFIED 
                             ) 
-                            KEY(SALESORDER_ID)
-                            VALUES 
+                        KEY(SALESORDER_ID)
+                        VALUES 
                             (
                                 ${body['order_id']},
                                 ${body['invoice_no']},

@@ -37,18 +37,20 @@
                     simple:
                       expression: |-
                         MERGE INTO CODBEX_PRODUCT 
-                            (PRODUCT_ID, PRODUCT_MODEL, PRODUCT_SKU, PRODUCT_UPC, PRODUCT_EAN,
-                             PRODUCT_JAN, PRODUCT_ISBN, PRODUCT_MPN, PRODUCT_LOCATION,
-                             PRODUCT_QUANTITY, 
-                             PRODUCT_STOCKSTATUS, PRODUCT_IMAGE, PRODUCT_MANIFACTURER, 
-                             PRODUCT_SHIPPING, PRODUCT_PRICE, PRODUCT_POINTS, 
-                             PRODUCT_DATEAVAILABLE, PRODUCT_WEIGHT, PRODUCT_LENGTH,
-                             PRODUCT_WIDTH, PRODUCT_HEIGHT, PRODUCT_SUBTRACT,
-                             PRODUCT_MINIMUM, PRODUCT_STATUS, PRODUCT_DATEADDED,
-                             PRODUCT_DATEMODIFIED
+                            (
+                                PRODUCT_ID, PRODUCT_MODEL, PRODUCT_SKU, PRODUCT_UPC, PRODUCT_EAN,
+                                PRODUCT_JAN, PRODUCT_ISBN, PRODUCT_MPN, PRODUCT_LOCATION,
+                                PRODUCT_QUANTITY, 
+                                PRODUCT_STOCKSTATUS, PRODUCT_IMAGE, PRODUCT_MANIFACTURER, 
+                                PRODUCT_SHIPPING, PRODUCT_PRICE, PRODUCT_POINTS, 
+                                PRODUCT_DATEAVAILABLE, PRODUCT_WEIGHT, PRODUCT_LENGTH,
+                                PRODUCT_WIDTH, PRODUCT_HEIGHT, PRODUCT_SUBTRACT,
+                                PRODUCT_MINIMUM, PRODUCT_STATUS, PRODUCT_DATEADDED,
+                                PRODUCT_DATEMODIFIED
                             ) 
-                            KEY(PRODUCT_ID)
-                            VALUES (
+                        KEY(PRODUCT_ID)
+                        VALUES 
+                            (
                                 ${body['product_id']},
                                 '${body['model']}',
                                 '${body['sku']}',

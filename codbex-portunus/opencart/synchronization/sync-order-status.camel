@@ -38,8 +38,8 @@
                       expression: |-
                         MERGE INTO CODBEX_ORDERSTATUS
                             (ORDERSTATUS_ID, ORDERSTATUS_NAME) 
-                            KEY(ORDERSTATUS_ID)
-                            VALUES 
+                        KEY(ORDERSTATUS_ID)
+                        VALUES 
                             (
                                 ${body['order_status_id']},
                                 '${body['name']}'
