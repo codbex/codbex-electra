@@ -1,0 +1,59 @@
+- route:
+    id: manufacturers-sync-route
+    from:
+      uri: cron:TriggerManufacturersReplication
+      id: trigger-manufacturers-replication-cron
+      parameters:
+        schedule: '*/30 * * ? * *'
+      description: Trigger Manufacturers Replication
+      steps:
+        - log:
+            message: Replicating manufacturers from OpenCart DB...
+            id: log-about-to-start-manufacturers-replication
+            logName: OpenCartManufacturersReplication
+            loggingLevel: INFO
+        - setBody:
+            id: create-select-statement
+            expression:
+              constant:
+                expression: SELECT * FROM oc_manufacturer
+                id: constant-e9a5
+            description: Create manufacturers SELECT statement
+        - to:
+            uri: spring-jdbc:OpenCartDB
+            id: execute-get-manufacturers
+            description: Get all manufacturers
+        - split:
+            id: split-to-single-manufacturer
+            expression:
+              simple:
+                expression: ${body}
+                id: simple-099e
+            description: Split to single manufacturer
+            steps:
+              - setBody:
+                  id: create-merge-statement
+                  expression:
+                    simple:
+                      expression: |-
+                        MERGE INTO CODBEX_MANUFACTURER
+                          (MANIFACTURER_ID, MANIFACTURER_NAME, MANIFACTURER_IMAGE) 
+                        KEY(MANIFACTURER_ID)
+                        VALUES 
+                          (
+                              ${body['manufacturer_id']},
+                              '${body['name']}',
+                              '${body['MANIFACTURER_IMAGE']}'
+                          )
+                      id: simple-b426
+                  description: Create MERGE statement
+              - to:
+                  uri: spring-jdbc:DefaultDB
+                  id: merge-manufacturer
+                  description: Merge manufacturer
+        - log:
+            message: Successfully replicated manufacturers from OpenCart DB
+            id: log-manufacturers-replication-completed
+            logName: OpenCartManufacturersReplication
+            loggingLevel: INFO
+    description: Sync manufacturers from OpenCart

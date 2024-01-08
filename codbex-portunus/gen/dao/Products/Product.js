@@ -55,8 +55,8 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
-			name: "Manifacturer",
-			column: "PRODUCT_MANIFACTURER",
+			name: "Manufacturer",
+			column: "PRODUCT_MANUFACTURER",
 			type: "INTEGER",
 		},
  {

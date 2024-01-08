@@ -19,14 +19,14 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
-			name: "Code",
-			column: "ZONE_CODE",
-			type: "VARCHAR",
-		},
- {
 			name: "Status",
 			column: "ZONE_STATUS",
 			type: "INTEGER",
+		},
+ {
+			name: "Code",
+			column: "ZONE_CODE",
+			type: "VARCHAR",
 		},
  {
 			name: "Country",

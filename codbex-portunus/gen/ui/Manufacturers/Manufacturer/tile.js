@@ -6,8 +6,8 @@
 exports.getTile = function () {
     return {
         group: "Manufacturers",
-        name: "Manifacturer",
-        caption: "Manage entity Manifacturer",
+        name: "Manufacturer",
+        caption: "Manage entity Manufacturer",
         tooltip: "Manifacturer",
         // icon: "file-o",
         location: "/services/web/codbex-portunus/gen/ui/Manufacturers/index.html",
