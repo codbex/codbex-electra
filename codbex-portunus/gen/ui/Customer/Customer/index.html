@@ -49,7 +49,6 @@
 						<fd-list-content
 							item-title="{{optionsStoreValue(next.Store)}}">
 							<fd-list-byline dg-align="left">
-								{{optionsLanguageValue(next.Language)}} |
 								{{next.FirstName}} |
 								{{next.LastName}} |
 								{{next.Email}} |
@@ -57,7 +56,8 @@
 								{{next.CustomField}} |
 								{{optionsStatusValue(next.Status)}} |
 								{{next.Code}} |
-								{{next.DateAdded | date: "dd/MMM/yyyy"}}
+								{{next.DateAdded | date: "dd/MMM/yyyy"}} |
+								{{optionsLanguageValue(next.Language)}}
 							</fd-list-byline>
 						</fd-list-content>
 					</fd-list-link>

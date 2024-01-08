@@ -41,8 +41,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsStore = [];
 				$scope.optionsCustomer = [];
 				$scope.optionsStatus = [];
-				$scope.optionsLanguage = [];
 				$scope.optionsCurrency = [];
+				$scope.optionsLanguage = [];
 				$scope.action = 'select';
 			});
 		});
@@ -59,8 +59,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsStore = msg.data.optionsStore;
 				$scope.optionsCustomer = msg.data.optionsCustomer;
 				$scope.optionsStatus = msg.data.optionsStatus;
-				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
+				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.action = 'select';
 			});
 		});
@@ -71,8 +71,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsStore = msg.data.optionsStore;
 				$scope.optionsCustomer = msg.data.optionsCustomer;
 				$scope.optionsStatus = msg.data.optionsStatus;
-				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
+				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.action = 'create';
 				// Set Errors for required fields only
 				$scope.formErrors = {
@@ -92,8 +92,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsStore = msg.data.optionsStore;
 				$scope.optionsCustomer = msg.data.optionsCustomer;
 				$scope.optionsStatus = msg.data.optionsStatus;
-				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
+				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.action = 'update';
 			});
 		});

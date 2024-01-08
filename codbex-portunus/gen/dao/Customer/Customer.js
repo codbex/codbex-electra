@@ -20,11 +20,6 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
-			name: "Language",
-			column: "CUSTOMER_LANGUAGE",
-			type: "INTEGER",
-		},
- {
 			name: "FirstName",
 			column: "CUSTOMER_FIRSTNAME",
 			type: "VARCHAR",
@@ -63,6 +58,11 @@ let dao = daoApi.create({
 			name: "DateAdded",
 			column: "CUSTOMER_PROPERTY10",
 			type: "DATE",
+		},
+ {
+			name: "Language",
+			column: "CUSTOMER_LANGUAGE",
+			type: "INTEGER",
 		}
 ]
 });

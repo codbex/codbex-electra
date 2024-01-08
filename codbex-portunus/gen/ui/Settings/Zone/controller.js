@@ -83,8 +83,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Zone-details", {
 				action: "select",
 				entity: entity,
-				optionsCountry: $scope.optionsCountry,
 				optionsStatus: $scope.optionsStatus,
+				optionsCountry: $scope.optionsCountry,
 			});
 		};
 
@@ -93,8 +93,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Zone-details", {
 				action: "create",
 				entity: {},
-				optionsCountry: $scope.optionsCountry,
 				optionsStatus: $scope.optionsStatus,
+				optionsCountry: $scope.optionsCountry,
 			}, null, false);
 		};
 
@@ -102,8 +102,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Zone-details", {
 				action: "update",
 				entity: entity,
-				optionsCountry: $scope.optionsCountry,
 				optionsStatus: $scope.optionsStatus,
+				optionsCountry: $scope.optionsCountry,
 			}, null, false);
 		};
 
@@ -137,17 +137,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsCountry = [];
 		$scope.optionsStatus = [];
-
-		$http.get("/services/js/codbex-portunus/gen/api/Settings/Country.js").then(function (response) {
-			$scope.optionsCountry = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
+		$scope.optionsCountry = [];
 
 		$http.get("/services/js/codbex-portunus/gen/api/Settings/ZoneStatus.js").then(function (response) {
 			$scope.optionsStatus = response.data.map(e => {
@@ -157,18 +148,27 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
-		$scope.optionsCountryValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsCountry.length; i++) {
-				if ($scope.optionsCountry[i].value === optionKey) {
-					return $scope.optionsCountry[i].text;
+
+		$http.get("/services/js/codbex-portunus/gen/api/Settings/Country.js").then(function (response) {
+			$scope.optionsCountry = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
 				}
-			}
-			return null;
-		};
+			});
+		});
 		$scope.optionsStatusValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsStatus.length; i++) {
 				if ($scope.optionsStatus[i].value === optionKey) {
 					return $scope.optionsStatus[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsCountryValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsCountry.length; i++) {
+				if ($scope.optionsCountry[i].value === optionKey) {
+					return $scope.optionsCountry[i].text;
 				}
 			}
 			return null;

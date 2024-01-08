@@ -14,6 +14,11 @@ let dao = daoApi.create({
 			autoIncrement: true,
 		},
  {
+			name: "Store",
+			column: "SALESORDER_STORE",
+			type: "INTEGER",
+		},
+ {
 			name: "InvoiceNumber",
 			column: "SALESORDER_INVOICENUMBER",
 			type: "INTEGER",
@@ -22,16 +27,6 @@ let dao = daoApi.create({
 			name: "InvoicePrefix",
 			column: "SALESORDER_INVOICEPREFIX",
 			type: "VARCHAR",
-		},
- {
-			name: "Store",
-			column: "SALESORDER_STORE",
-			type: "INTEGER",
-		},
- {
-			name: "Customer",
-			column: "SALESORDER_CUSTOMER",
-			type: "INTEGER",
 		},
  {
 			name: "Comment",
@@ -44,6 +39,11 @@ let dao = daoApi.create({
 			type: "DECIMAL",
 		},
  {
+			name: "Customer",
+			column: "SALESORDER_CUSTOMER",
+			type: "INTEGER",
+		},
+ {
 			name: "Status",
 			column: "SALESORDER_STATUS",
 			type: "INTEGER",
@@ -52,16 +52,6 @@ let dao = daoApi.create({
 			name: "Tracking",
 			column: "SALESORDER_TRACKING",
 			type: "VARCHAR",
-		},
- {
-			name: "Language",
-			column: "SALESORDER_LANGUAGE",
-			type: "INTEGER",
-		},
- {
-			name: "Currency",
-			column: "SALESORDER_CURRENCY",
-			type: "INTEGER",
 		},
  {
 			name: "AcceptLanguage",
@@ -77,6 +67,16 @@ let dao = daoApi.create({
 			name: "DateModified",
 			column: "SALESORDER_DATEMODIFIED",
 			type: "TIMESTAMP",
+		},
+ {
+			name: "Currency",
+			column: "SALESORDER_CURRENCY",
+			type: "INTEGER",
+		},
+ {
+			name: "Language",
+			column: "SALESORDER_LANGUAGE",
+			type: "INTEGER",
 		}
 ]
 });

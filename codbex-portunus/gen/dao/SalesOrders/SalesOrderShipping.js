@@ -14,6 +14,11 @@ let dao = daoApi.create({
 			autoIncrement: true,
 		},
  {
+			name: "Zone",
+			column: "SALESORDERSHIPPING_ZONE",
+			type: "INTEGER",
+		},
+ {
 			name: "FirstName",
 			column: "SALESORDERSHIPPING_FIRSTNAME",
 			type: "VARCHAR",
@@ -51,11 +56,6 @@ let dao = daoApi.create({
  {
 			name: "Country",
 			column: "SALESORDERSHIPPING_COUNTRY",
-			type: "INTEGER",
-		},
- {
-			name: "Zone",
-			column: "SALESORDERSHIPPING_ZONE",
 			type: "INTEGER",
 		},
  {

@@ -29,16 +29,16 @@
 					<tr fd-table-row>
 						<th fd-table-header-cell>Model</th>
 						<th fd-table-header-cell>SKU</th>
+						<th fd-table-header-cell>Status</th>
 						<th fd-table-header-cell>UPC</th>
 						<th fd-table-header-cell>EAN</th>
 						<th fd-table-header-cell>JAN</th>
 						<th fd-table-header-cell>ISBN</th>
 						<th fd-table-header-cell>MPN</th>
+						<th fd-table-header-cell>Manifacturer</th>
 						<th fd-table-header-cell>Location</th>
 						<th fd-table-header-cell>Quantity</th>
-						<th fd-table-header-cell>StockStatus</th>
 						<th fd-table-header-cell>Image</th>
-						<th fd-table-header-cell>Manifacturer</th>
 						<th fd-table-header-cell>Shipping</th>
 						<th fd-table-header-cell>Price</th>
 						<th fd-table-header-cell>Points</th>
@@ -49,9 +49,9 @@
 						<th fd-table-header-cell>Height</th>
 						<th fd-table-header-cell>Subtract</th>
 						<th fd-table-header-cell>Minimum</th>
-						<th fd-table-header-cell>Status</th>
 						<th fd-table-header-cell>DateAdded</th>
 						<th fd-table-header-cell>DateModified</th>
+						<th fd-table-header-cell>StockStatus</th>
 						<th fd-table-header-cell></th>
 					</tr>
 				</thead>
@@ -63,20 +63,20 @@
 						dg-selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Model}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.SKU}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							{{optionsStatusValue(next.Status)}}
+						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.UPC}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.EAN}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.JAN}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.ISBN}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.MPN}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Location}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Quantity}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsStockStatusValue(next.StockStatus)}}
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Image}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsManifacturerValue(next.Manifacturer)}}
 						</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Location}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Quantity}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Image}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							<fd-checkbox id="idShipping" compact="false" ng-disabled="true" ng-model="next.Shipping"></fd-checkbox>
 							<fd-checkbox-label for="idShipping"></fd-checkbox-label>
@@ -96,13 +96,13 @@
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Minimum}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsStatusValue(next.Status)}}
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							<fd-input type="date" ng-model="next.DateAdded" ng-readonly="true"></fd-input>
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							<fd-input type="date" ng-model="next.DateModified" ng-readonly="true"></fd-input>
+						</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							{{optionsStockStatusValue(next.StockStatus)}}
 						</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>

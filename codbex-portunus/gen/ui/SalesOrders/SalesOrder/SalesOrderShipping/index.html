@@ -31,6 +31,7 @@
 			<table fd-table display-mode="compact" inner-borders="top" outer-borders="none">
 				<thead fd-table-header sticky="true">
 					<tr fd-table-row>
+						<th fd-table-header-cell>Zone</th>
 						<th fd-table-header-cell>FirstName</th>
 						<th fd-table-header-cell>LastName</th>
 						<th fd-table-header-cell>Company</th>
@@ -39,7 +40,6 @@
 						<th fd-table-header-cell>City</th>
 						<th fd-table-header-cell>Postcode</th>
 						<th fd-table-header-cell>Country</th>
-						<th fd-table-header-cell>Zone</th>
 						<th fd-table-header-cell>AddressFormat</th>
 						<th fd-table-header-cell>CustomField</th>
 						<th fd-table-header-cell>Method</th>
@@ -53,6 +53,9 @@
 					</tr>
 					<tr fd-table-row hoverable="true" ng-repeat="next in data"
 						dg-selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							{{optionsZoneValue(next.Zone)}}
+						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.FirstName}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.LastName}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Company}}</td>
@@ -62,9 +65,6 @@
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Postcode}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsCountryValue(next.Country)}}
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsZoneValue(next.Zone)}}
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.AddressFormat}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.CustomField}}</td>

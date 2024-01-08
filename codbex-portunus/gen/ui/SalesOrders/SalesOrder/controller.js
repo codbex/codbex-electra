@@ -103,8 +103,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsStore: $scope.optionsStore,
 				optionsCustomer: $scope.optionsCustomer,
 				optionsStatus: $scope.optionsStatus,
-				optionsLanguage: $scope.optionsLanguage,
 				optionsCurrency: $scope.optionsCurrency,
+				optionsLanguage: $scope.optionsLanguage,
 			});
 		};
 
@@ -117,8 +117,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsStore: $scope.optionsStore,
 				optionsCustomer: $scope.optionsCustomer,
 				optionsStatus: $scope.optionsStatus,
-				optionsLanguage: $scope.optionsLanguage,
 				optionsCurrency: $scope.optionsCurrency,
+				optionsLanguage: $scope.optionsLanguage,
 			});
 		};
 
@@ -129,8 +129,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsStore: $scope.optionsStore,
 				optionsCustomer: $scope.optionsCustomer,
 				optionsStatus: $scope.optionsStatus,
-				optionsLanguage: $scope.optionsLanguage,
 				optionsCurrency: $scope.optionsCurrency,
+				optionsLanguage: $scope.optionsLanguage,
 			});
 		};
 
@@ -168,8 +168,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsStore = [];
 		$scope.optionsCustomer = [];
 		$scope.optionsStatus = [];
-		$scope.optionsLanguage = [];
 		$scope.optionsCurrency = [];
+		$scope.optionsLanguage = [];
 
 		$http.get("/services/js/codbex-portunus/gen/api/Stores/Store.js").then(function (response) {
 			$scope.optionsStore = response.data.map(e => {
@@ -198,20 +198,20 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-portunus/gen/api/Settings/Language.js").then(function (response) {
-			$scope.optionsLanguage = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-
 		$http.get("/services/js/codbex-portunus/gen/api/Currencies/Currency.js").then(function (response) {
 			$scope.optionsCurrency = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Title
+				}
+			});
+		});
+
+		$http.get("/services/js/codbex-portunus/gen/api/Settings/Language.js").then(function (response) {
+			$scope.optionsLanguage = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
 				}
 			});
 		});
@@ -239,18 +239,18 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsLanguageValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsLanguage.length; i++) {
-				if ($scope.optionsLanguage[i].value === optionKey) {
-					return $scope.optionsLanguage[i].text;
-				}
-			}
-			return null;
-		};
 		$scope.optionsCurrencyValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsCurrency.length; i++) {
 				if ($scope.optionsCurrency[i].value === optionKey) {
 					return $scope.optionsCurrency[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsLanguageValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsLanguage.length; i++) {
+				if ($scope.optionsLanguage[i].value === optionKey) {
+					return $scope.optionsLanguage[i].text;
 				}
 			}
 			return null;

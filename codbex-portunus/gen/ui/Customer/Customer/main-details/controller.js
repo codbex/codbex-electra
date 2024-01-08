@@ -39,8 +39,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = {};
 				$scope.formErrors = {};
 				$scope.optionsStore = [];
-				$scope.optionsLanguage = [];
 				$scope.optionsStatus = [];
+				$scope.optionsLanguage = [];
 				$scope.action = 'select';
 			});
 		});
@@ -52,8 +52,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsStore = msg.data.optionsStore;
-				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.optionsStatus = msg.data.optionsStatus;
+				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.action = 'select';
 			});
 		});
@@ -62,8 +62,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.$apply(function () {
 				$scope.entity = {};
 				$scope.optionsStore = msg.data.optionsStore;
-				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.optionsStatus = msg.data.optionsStatus;
+				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.action = 'create';
 				// Set Errors for required fields only
 				$scope.formErrors = {
@@ -78,8 +78,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsStore = msg.data.optionsStore;
-				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.optionsStatus = msg.data.optionsStatus;
+				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.action = 'update';
 			});
 		});

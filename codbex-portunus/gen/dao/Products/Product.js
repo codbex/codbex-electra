@@ -25,6 +25,11 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
+			name: "Status",
+			column: "PRODUCT_STATUS",
+			type: "TINYINT",
+		},
+ {
 			name: "UPC",
 			column: "PRODUCT_UPC",
 			type: "VARCHAR",
@@ -50,6 +55,11 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
+			name: "Manifacturer",
+			column: "PRODUCT_MANIFACTURER",
+			type: "INTEGER",
+		},
+ {
 			name: "Location",
 			column: "PRODUCT_LOCATION",
 			type: "VARCHAR",
@@ -60,19 +70,9 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
-			name: "StockStatus",
-			column: "PRODUCT_STOCKSTATUS",
-			type: "INTEGER",
-		},
- {
 			name: "Image",
 			column: "PRODUCT_IMAGE",
 			type: "VARCHAR",
-		},
- {
-			name: "Manifacturer",
-			column: "PRODUCT_MANIFACTURER",
-			type: "INTEGER",
 		},
  {
 			name: "Shipping",
@@ -125,11 +125,6 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
-			name: "Status",
-			column: "PRODUCT_STATUS",
-			type: "TINYINT",
-		},
- {
 			name: "DateAdded",
 			column: "PRODUCT_DATEADDED",
 			type: "TIMESTAMP",
@@ -138,6 +133,11 @@ let dao = daoApi.create({
 			name: "DateModified",
 			column: "PRODUCT_DATEMODIFIED",
 			type: "TIMESTAMP",
+		},
+ {
+			name: "StockStatus",
+			column: "PRODUCT_STOCKSTATUS",
+			type: "INTEGER",
 		}
 ]
 });

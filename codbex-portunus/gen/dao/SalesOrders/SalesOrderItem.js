@@ -14,13 +14,13 @@ let dao = daoApi.create({
 			autoIncrement: true,
 		},
  {
-			name: "Order",
-			column: "ORDERITEM_ORDER",
+			name: "Product",
+			column: "ORDERITEM_PRODUCT",
 			type: "INTEGER",
 		},
  {
-			name: "Product",
-			column: "ORDERITEM_PRODUCT",
+			name: "Order",
+			column: "ORDERITEM_ORDER",
 			type: "INTEGER",
 		},
  {

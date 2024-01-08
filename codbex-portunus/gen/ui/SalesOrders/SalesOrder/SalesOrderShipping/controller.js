@@ -105,8 +105,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("SalesOrderShipping-details", {
 				action: "select",
 				entity: entity,
-				optionsCountry: $scope.optionsCountry,
 				optionsZone: $scope.optionsZone,
+				optionsCountry: $scope.optionsCountry,
 			});
 		};
 
@@ -117,8 +117,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: {},
 				selectedMainEntityKey: "SalesOrder",
 				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsCountry: $scope.optionsCountry,
 				optionsZone: $scope.optionsZone,
+				optionsCountry: $scope.optionsCountry,
 			}, null, false);
 		};
 
@@ -128,8 +128,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: entity,
 				selectedMainEntityKey: "SalesOrder",
 				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsCountry: $scope.optionsCountry,
 				optionsZone: $scope.optionsZone,
+				optionsCountry: $scope.optionsCountry,
 			}, null, false);
 		};
 
@@ -163,17 +163,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsCountry = [];
 		$scope.optionsZone = [];
-
-		$http.get("/services/js/codbex-portunus/gen/api/Settings/Country.js").then(function (response) {
-			$scope.optionsCountry = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
+		$scope.optionsCountry = [];
 
 		$http.get("/services/js/codbex-portunus/gen/api/Settings/Zone.js").then(function (response) {
 			$scope.optionsZone = response.data.map(e => {
@@ -183,18 +174,27 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
-		$scope.optionsCountryValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsCountry.length; i++) {
-				if ($scope.optionsCountry[i].value === optionKey) {
-					return $scope.optionsCountry[i].text;
+
+		$http.get("/services/js/codbex-portunus/gen/api/Settings/Country.js").then(function (response) {
+			$scope.optionsCountry = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
 				}
-			}
-			return null;
-		};
+			});
+		});
 		$scope.optionsZoneValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsZone.length; i++) {
 				if ($scope.optionsZone[i].value === optionKey) {
 					return $scope.optionsZone[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsCountryValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsCountry.length; i++) {
+				if ($scope.optionsCountry[i].value === optionKey) {
+					return $scope.optionsCountry[i].text;
 				}
 			}
 			return null;
