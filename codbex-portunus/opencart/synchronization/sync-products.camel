@@ -41,7 +41,7 @@
                                 PRODUCT_ID, PRODUCT_MODEL, PRODUCT_SKU, PRODUCT_UPC, PRODUCT_EAN,
                                 PRODUCT_JAN, PRODUCT_ISBN, PRODUCT_MPN, PRODUCT_LOCATION,
                                 PRODUCT_QUANTITY, 
-                                PRODUCT_STOCKSTATUS, PRODUCT_IMAGE, PRODUCT_MANIFACTURER, 
+                                PRODUCT_STOCKSTATUS, PRODUCT_IMAGE, PRODUCT_MANUFACTURER, 
                                 PRODUCT_SHIPPING, PRODUCT_PRICE, PRODUCT_POINTS, 
                                 PRODUCT_DATEAVAILABLE, PRODUCT_WEIGHT, PRODUCT_LENGTH,
                                 PRODUCT_WIDTH, PRODUCT_HEIGHT, PRODUCT_SUBTRACT,

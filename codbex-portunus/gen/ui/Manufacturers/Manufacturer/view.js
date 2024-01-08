@@ -4,14 +4,16 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "Manifacturer-details",
-    label: "Manifacturer",
-    link: "/services/web/codbex-portunus/gen/ui/Manufacturers/Manifacturer/dialog-window/index.html",
+    id: "Manufacturer",
+    label: "Manufacturer",
+    factory: "frame",
+    region: "center",
+    link: "/services/web/codbex-portunus/gen/ui/Manufacturers/Manufacturer/index.html",
     perspectiveName: "Manufacturers"
 };
 
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
+    exports.getView = function () {
         return viewData;
     }
 }

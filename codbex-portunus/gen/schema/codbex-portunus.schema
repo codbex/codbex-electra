@@ -414,18 +414,18 @@
                         "name": "ZONE_NAME"
                     },
                     {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "ZONE_CODE"
-                    },
-                    {
                         "type": "INTEGER",
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
                         "name": "ZONE_STATUS"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "ZONE_CODE"
                     },
                     {
                         "type": "INTEGER",
@@ -723,7 +723,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PRODUCT_MANIFACTURER"
+                        "name": "PRODUCT_MANUFACTURER"
                     },
                     {
                         "type": "VARCHAR",
@@ -882,7 +882,7 @@
                 ]
             },
             {
-                "name": "CODBEX_MANIFACTURER",
+                "name": "CODBEX_MANUFACTURER",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -1534,12 +1534,12 @@
                 "referencedColumns": "PRODUCTSTATUS_ID"
             },
             {
-                "name": "Product_Manifacturer",
+                "name": "Product_Manufacturer",
                 "type": "foreignKey",
                 "table": "CODBEX_PRODUCT",
-                "constraintName": "Product_Manifacturer",
-                "columns": "PRODUCT_MANIFACTURER",
-                "referencedTable": "CODBEX_MANIFACTURER",
+                "constraintName": "Product_Manufacturer",
+                "columns": "PRODUCT_MANUFACTURER",
+                "referencedTable": "CODBEX_MANUFACTURER",
                 "referencedColumns": "MANIFACTURER_ID"
             },
             {
