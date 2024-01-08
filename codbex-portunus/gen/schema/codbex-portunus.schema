@@ -300,16 +300,18 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
-                        "name": "CUSTOMER_PROPERTY9"
+                        "name": "CUSTOMER_CODE"
                     },
                     {
-                        "type": "DATE",
+                        "type": "TIMESTAMP",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "CUSTOMER_PROPERTY10"
+                        "name": "CUSTOMER_DATE_ADDED"
                     },
                     {
                         "type": "INTEGER",
