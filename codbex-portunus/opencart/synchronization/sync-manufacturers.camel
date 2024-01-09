@@ -4,7 +4,7 @@
       uri: cron:TriggerManufacturersReplication
       id: trigger-manufacturers-replication-cron
       parameters:
-        schedule: '*/30 * * ? * *'
+        schedule: 0 * * ? * *
       description: Trigger Manufacturers Replication
       steps:
         - log:
