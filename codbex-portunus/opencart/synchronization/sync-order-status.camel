@@ -17,7 +17,7 @@
             expression:
               constant:
                 expression: SELECT * FROM oc_order_status
-                id: constant-e9a5
+                id: constant-5555
             description: Create order status SELECT statement
         - to:
             uri: spring-jdbc:OpenCartDB
@@ -28,7 +28,7 @@
             expression:
               simple:
                 expression: ${body}
-                id: simple-099e-213
+                id: simple-099e-555
             description: Split to single order status
             steps:
               - setBody:
@@ -44,7 +44,7 @@
                                 ${body['order_status_id']},
                                 '${body['name']}'
                             )
-                      id: simple-b426-213
+                      id: simple-b426-555
                   description: Create MERGE statement
               - to:
                   uri: spring-jdbc:DefaultDB

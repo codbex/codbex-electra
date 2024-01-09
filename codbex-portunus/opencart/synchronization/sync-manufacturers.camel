@@ -17,7 +17,7 @@
             expression:
               constant:
                 expression: SELECT * FROM oc_manufacturer
-                id: constant-e9a5
+                id: constant-777
             description: Create manufacturers SELECT statement
         - to:
             uri: spring-jdbc:OpenCartDB
@@ -28,7 +28,7 @@
             expression:
               simple:
                 expression: ${body}
-                id: simple-099e
+                id: simple-777
             description: Split to single manufacturer
             steps:
               - setBody:
@@ -45,7 +45,7 @@
                               '${body['name']}',
                               '${body['MANIFACTURER_IMAGE']}'
                           )
-                      id: simple-b426
+                      id: simple-777
                   description: Create MERGE statement
               - to:
                   uri: spring-jdbc:DefaultDB

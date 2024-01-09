@@ -17,7 +17,7 @@
             expression:
               constant:
                 expression: SELECT * FROM oc_country
-                id: constant-e9a5-324
+                id: constant-e9a5-1313
             description: Create countries SELECT statement
         - to:
             uri: spring-jdbc:OpenCartDB
@@ -38,7 +38,7 @@
                     constant:
                       expression: >-
                         codbex-portunus/opencart/synchronization/country-entry-processor.js
-                      id: constant-9da5
+                      id: constant-1313
                   description: Set resource property
               - to:
                   uri: >-
@@ -65,7 +65,7 @@
                                 ${body['postcode_required']},
                                 ${body['status']}
                             )
-                      id: simple-b426-324
+                      id: simple-b426-131313
                   description: Create MERGE statement
               - to:
                   uri: spring-jdbc:DefaultDB

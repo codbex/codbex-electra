@@ -17,7 +17,7 @@
             expression:
               constant:
                 expression: SELECT * FROM oc_customer
-                id: constant-e9a5
+                id: constant-999
             description: Create customers SELECT statement
         - to:
             uri: spring-jdbc:OpenCartDB
@@ -28,7 +28,7 @@
             expression:
               simple:
                 expression: ${body}
-                id: simple-099e
+                id: simple-099e-999
             description: Split to single customer
             steps:
               - setBody:
@@ -59,7 +59,7 @@
                             '${body['code']}',
                             '${body['date_added']}'
                         )
-                      id: simple-b426
+                      id: simple-999
                   description: Create MERGE statement
               - to:
                   uri: spring-jdbc:DefaultDB

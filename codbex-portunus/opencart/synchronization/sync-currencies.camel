@@ -17,7 +17,7 @@
             expression:
               constant:
                 expression: SELECT * FROM oc_currency
-                id: constant-e9a5-324
+                id: constant-e9a5-1212
             description: Create currencies SELECT statement
         - to:
             uri: spring-jdbc:OpenCartDB
@@ -56,7 +56,7 @@
                                 '${body['date_modified']}',
                                 ${body['status']}
                             )
-                      id: simple-b426-324
+                      id: simple-b426-1212
                   description: Create MERGE statement
               - to:
                   uri: spring-jdbc:DefaultDB

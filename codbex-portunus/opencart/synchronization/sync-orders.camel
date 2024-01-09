@@ -17,7 +17,7 @@
             expression:
               constant:
                 expression: SELECT * FROM oc_order
-                id: constant-e9a5-324
+                id: constant-e9a5-4444
             description: Create orders SELECT statement
         - to:
             uri: spring-jdbc:OpenCartDB
@@ -28,7 +28,7 @@
             expression:
               simple:
                 expression: ${body}
-                id: simple-099e-dwadwa
+                id: simple-099e-4444
             description: Split to single order
             steps:
               - setBody:
@@ -62,7 +62,7 @@
                                 '${body['date_added']}',
                                 '${body['date_modified']}'
                             )
-                      id: simple-b426-324
+                      id: simple-b426-4444
                   description: Create MERGE statement
               - to:
                   uri: spring-jdbc:DefaultDB
