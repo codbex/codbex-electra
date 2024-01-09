@@ -2,16 +2,21 @@
 
 e-Commerce Backoffice Management
 
+- [Trial](#trial)
 - [Build and Run](#build-and-run)
 - [Architecture](#architecture)
 	- [Design overview](#design-overview)
 	- [DB Model](#db-model)
 - [User interface](#user-interface)
 
+## Trial
+You can try the Portunus [here](https://dev.portunus.eu1.codbex.com/services/web/codbex-portunus/gen/index.html).<br>
+It is conifgured to use a [demo OpenCart instance](https://dev.opencart-demo.eu1.codbex.com/).
+
 ## Build and Run
 
 ### Prerequisites
-The following Dirigible configurations should be available:
+The following Eclipse Dirigible configurations should be available:
 
 | Name | Example value |
 |--|--|
@@ -25,8 +30,8 @@ The following Dirigible configurations should be available:
 
 ### Steps
 To deploy and run the Portunus, you have to follow the steps described bellow.
-- Get Eclipse Dirigible up and running by following the steps described in [here](https://github.com/eclipse/dirigible?tab=readme-ov-file#get-started)
-- Clone the Portunus project using the git perspective
+- Get [Eclipse Dirigible](https://github.com/eclipse/dirigible) up and running by following the steps described in [here](https://github.com/eclipse/dirigible?tab=readme-ov-file#get-started)
+- Clone the Portunus project `https://github.com/codbex/codbex-portunus.git` using the git perspective.
     ![git-clone](misc/images/portunus-git-clone.png)
     ![git-clone-url](misc/images/portunus-git-clone-url.png)
 
