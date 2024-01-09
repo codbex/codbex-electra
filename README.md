@@ -10,8 +10,8 @@ e-Commerce Backoffice Management
 - [User interface](#user-interface)
 
 ## Demo instance
-You can try the Portunus [here](https://dev.portunus.eu1.codbex.com/services/web/codbex-portunus/gen/index.html).<br>
-It is conifgured to use a [demo OpenCart instance](https://dev.opencart-demo.eu1.codbex.com/).
+You can try the Portunus [here](https://dev.portunus.eu1.codbex.com).<br>
+It is conifgured to use a [demo OpenCart instance](https://dev.opencart-demo.eu1.codbex.com).
 
 ## Build and Run
 
