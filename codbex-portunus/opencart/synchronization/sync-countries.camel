@@ -1,0 +1,79 @@
+- route:
+    id: countries-sync-route
+    from:
+      uri: cron:TriggerCountriesReplication
+      id: trigger-countries-replication-cron
+      parameters:
+        schedule: 0 30 * ? * *
+      description: Trigger Countries Replication
+      steps:
+        - log:
+            message: Replicating countries from OpenCart DB...
+            id: log-about-to-start-countries-replication
+            logName: OpenCartCountriesReplication
+            loggingLevel: INFO
+        - setBody:
+            id: create-country-select-statement
+            expression:
+              constant:
+                expression: SELECT * FROM oc_country
+                id: constant-e9a5-1313
+            description: Create countries SELECT statement
+        - to:
+            uri: spring-jdbc:OpenCartDB
+            id: execute-get-countries
+            description: Get all countries
+        - split:
+            id: split-to-single-country
+            expression:
+              simple:
+                expression: ${body}
+                id: simple-099e-dwadwa
+            description: Split to single country
+            steps:
+              - setProperty:
+                  name: resource
+                  id: set-resource-property-countries
+                  expression:
+                    constant:
+                      expression: >-
+                        codbex-portunus/opencart/synchronization/country-entry-processor.js
+                      id: constant-1313
+                  description: Set resource property
+              - to:
+                  uri: >-
+                    class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+                  id: invoke-js-country-processor
+                  description: Invoke JS
+              - setBody:
+                  id: create-country-merge-statement
+                  expression:
+                    simple:
+                      expression: |-
+                        MERGE INTO CODBEX_COUNTRY
+                            (
+                                COUNTRY_ID, COUNTRY_NAME, COUNTRY_ISOCODE2,
+                                COUNTRY_ISOCODE3, COUNTRY_POSTCODEREQUIRED, COUNTRY_STATUS
+                            ) 
+                        KEY(COUNTRY_ID)
+                        VALUES 
+                            (
+                                ${body['country_id']},
+                                '${body['name']}',
+                                '${body['iso_code_2']}',
+                                '${body['iso_code_3']}',
+                                ${body['postcode_required']},
+                                ${body['status']}
+                            )
+                      id: simple-b426-131313
+                  description: Create MERGE statement
+              - to:
+                  uri: spring-jdbc:DefaultDB
+                  id: merge-country
+                  description: Merge country
+        - log:
+            message: Successfully replicated countries from OpenCart DB
+            id: log-countries-replication-completed
+            logName: OpenCartCountriesReplication
+            loggingLevel: INFO
+    description: Sync countries from OpenCart

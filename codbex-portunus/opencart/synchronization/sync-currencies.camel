@@ -1,0 +1,70 @@
+- route:
+    id: currencies-sync-route
+    from:
+      uri: cron:TriggerCurrenciesReplication
+      id: trigger-currencies-replication-cron
+      parameters:
+        schedule: 1 30 * ? * *
+      description: Trigger Currencies Replication
+      steps:
+        - log:
+            message: Replicating currencies from OpenCart DB...
+            id: log-about-to-start-currencies-replication
+            logName: OpenCartCurrenciesReplication
+            loggingLevel: INFO
+        - setBody:
+            id: create-currency-select-statement
+            expression:
+              constant:
+                expression: SELECT * FROM oc_currency
+                id: constant-e9a5-1212
+            description: Create currencies SELECT statement
+        - to:
+            uri: spring-jdbc:OpenCartDB
+            id: execute-get-currencies
+            description: Get all currencies
+        - split:
+            id: split-to-single-currency
+            expression:
+              simple:
+                expression: ${body}
+                id: simple-099e-dwadwa
+            description: Split to single currency
+            steps:
+              - setBody:
+                  id: create-currency-merge-statement
+                  expression:
+                    simple:
+                      expression: |-
+                        MERGE INTO CODBEX_CURRENCY
+                            (
+                                CURRENCY_ID, CURRENCY_TITLE, CURRENCY_CODE, 
+                                CURRENCY_SYMBOLLEFT, CURRENCY_SYMBOLRIGHT, 
+                                CURRENCY_DECIMALPLACE, CURRENCY_VALUE, 
+                                CURRENCY_DATEMODIFIED, CURRENCY_STATUS
+                            ) 
+                        KEY(CURRENCY_ID)
+                        VALUES 
+                            (
+                                ${body['currency_id']},
+                                '${body['title']}',
+                                '${body['code']}',
+                                '${body['symbol_left']}',
+                                '${body['symbol_right']}',
+                                '${body['decimal_place']}',
+                                ${body['value']},
+                                '${body['date_modified']}',
+                                ${body['status']}
+                            )
+                      id: simple-b426-1212
+                  description: Create MERGE statement
+              - to:
+                  uri: spring-jdbc:DefaultDB
+                  id: merge-currency
+                  description: Merge currency
+        - log:
+            message: Successfully replicated currencies from OpenCart DB
+            id: log-currencies-replication-completed
+            logName: OpenCartCurrenciesReplication
+            loggingLevel: INFO
+    description: Sync currencies from OpenCart

@@ -4,7 +4,7 @@
       uri: cron:TriggerOrderItemsReplication
       id: trigger-order-items-replication-cron
       parameters:
-        schedule: '*/30 * * ? * *'
+        schedule: 0 * * ? * *
       description: Trigger Order Items Replication
       steps:
         - log:
@@ -17,7 +17,7 @@
             expression:
               constant:
                 expression: SELECT * FROM oc_order_product
-                id: constant-e9a5-324
+                id: constant-e9a5-666
             description: Create order items SELECT statement
         - to:
             uri: spring-jdbc:OpenCartDB
@@ -28,7 +28,7 @@
             expression:
               simple:
                 expression: ${body}
-                id: simple-099e-dwadwa
+                id: simple-099e-666
             description: Split to single order item
             steps:
               - setBody:
@@ -55,7 +55,7 @@
                                 ${body['total']},
                                 ${body['tax']}
                             )
-                      id: simple-b426-324
+                      id: simple-b426-666
                   description: Create MERGE statement
               - to:
                   uri: spring-jdbc:DefaultDB

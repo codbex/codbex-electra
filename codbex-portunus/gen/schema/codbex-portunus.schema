@@ -62,7 +62,7 @@
                         "name": "CURRENCY_VALUE"
                     },
                     {
-                        "type": "DATE",
+                        "type": "TIMESTAMP",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -411,7 +411,9 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 128,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "ZONE_NAME"
                     },
@@ -425,7 +427,9 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 32,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "ZONE_CODE"
                     },
@@ -514,12 +518,6 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "LANGUAGE_LOCALE"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "LANGUAGE_EXTENSION"
                     },
                     {
                         "type": "INTEGER",

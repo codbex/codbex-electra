@@ -29,11 +29,6 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
-			name: "Extension",
-			column: "LANGUAGE_EXTENSION",
-			type: "VARCHAR",
-		},
- {
 			name: "Status",
 			column: "LANGUAGE_STATUS",
 			type: "INTEGER",

@@ -4,7 +4,7 @@
       uri: cron:TriggerProductsReplication
       id: trigger-products-replication-cron
       parameters:
-        schedule: '*/30 * * ? * *'
+        schedule: 1 * * ? * *
       description: Trigger Products Replication
       steps:
         - log:
@@ -17,7 +17,7 @@
             expression:
               constant:
                 expression: SELECT * FROM oc_product
-                id: constant-e9a5
+                id: constant-3333
             description: Create products SELECT statement
         - to:
             uri: spring-jdbc:OpenCartDB
@@ -28,7 +28,7 @@
             expression:
               simple:
                 expression: ${body}
-                id: simple-099e
+                id: simple-333
             description: Split to single product
             steps:
               - setBody:
@@ -78,7 +78,7 @@
                                 '${body['date_added']}',
                                 '${body['date_modified']}'
                             )
-                      id: simple-b426
+                      id: simple-333
                   description: Create MERGE statement
               - to:
                   uri: spring-jdbc:DefaultDB
