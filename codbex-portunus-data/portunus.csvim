@@ -1,5 +1,16 @@
 {
   "files": [
+        {
+      "table": "CODBEX_STORE",
+      "schema": "PUBLIC",
+      "file": "/codbex-portunus-data/stores.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    },
     {
       "table": "CODBEX_COUNTRYSTATUS",
       "schema": "PUBLIC",
@@ -25,7 +36,7 @@
     {
       "table": "CODBEX_CUSTOMERSTATUSES",
       "schema": "PUBLIC",
-      "file": "/codbex-portunus-data/currency-statuses.csv",
+      "file": "/codbex-portunus-data/customer-statuses.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
