@@ -56,17 +56,6 @@
       "version": "1.0"
     },
     {
-      "table": "CODBEX_ORDERSTATUS",
-      "schema": "PUBLIC",
-      "file": "/codbex-portunus-data/order-statuses.csv",
-      "header": true,
-      "useHeaderNames": true,
-      "delimField": ",",
-      "delimEnclosing": "\"",
-      "distinguishEmptyFromNull": true,
-      "version": "1.0"
-    },
-    {
       "table": "CODBEX_PRODUCTSTATUS",
       "schema": "PUBLIC",
       "file": "/codbex-portunus-data/product-statuses.csv",
