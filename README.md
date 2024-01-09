@@ -20,6 +20,7 @@ The following Eclipse Dirigible configurations should be available:
 
 | Name | Example value |
 |--|--|
+| DIRIGIBLE_HOME_URL | /services/web/codbex-portunus/gen/index.html |
 | PORTUNUS_OPENCART_DB_HOST | localhost |
 | PORTUNUS_OPENCART_DB_PORT | 3306 |
 | PORTUNUS_OPENCART_DB_NAME | bitnami_opencart |
