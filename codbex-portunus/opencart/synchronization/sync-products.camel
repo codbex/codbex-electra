@@ -4,7 +4,7 @@
       uri: cron:TriggerProductsReplication
       id: trigger-products-replication-cron
       parameters:
-        schedule: 0 * * ? * *
+        schedule: 1 * * ? * *
       description: Trigger Products Replication
       steps:
         - log:

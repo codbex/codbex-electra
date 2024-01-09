@@ -4,7 +4,7 @@
       uri: cron:TriggerCustomersReplication
       id: trigger-customers-replication-cron
       parameters:
-        schedule: 0 * * ? * *
+        schedule: 5 * * ? * *
       description: Trigger Customers Replication
       steps:
         - log:
