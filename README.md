@@ -11,7 +11,8 @@ e-Commerce Backoffice Management
 
 ## Demo instance
 You can try the Portunus [here](https://dev.portunus.eu1.codbex.com).<br>
-It is conifgured to use a [demo OpenCart instance](https://dev.opencart-demo.eu1.codbex.com).
+It is conifgured to use a [demo OpenCart instance](https://dev.opencart-demo.eu1.codbex.com).<br>
+Details about the configured OpenCart instance could be found [here](https://github.com/codbex/products-documentation/blob/main/opencart/README.md#opencart-303-8).
 
 ## Build and Run
 
