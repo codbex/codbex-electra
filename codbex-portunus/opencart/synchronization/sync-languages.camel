@@ -4,7 +4,7 @@
       uri: cron:TriggerLanguagesReplication
       id: trigger-languages-replication-cron
       parameters:
-        schedule: '*/10 * * ? * *'
+        schedule: '*/30 * * * *'
       description: Trigger Languages Replication
       steps:
         - log:
