@@ -50,10 +50,10 @@ To deploy and run the Electra, you have to follow the steps described bellow.
 
 ### Design overview
 ![design-overview](misc/design/electra.svg)
-
+---
 ### DB Model
 ![model](misc/images/arch/db-model.png)
-
+---
 ### Data synchronization
 
 #### Data replication from OpenCart to Electra
