@@ -7,6 +7,7 @@ e-Commerce Backoffice Management
 - [Architecture](#architecture)
 	- [Design overview](#design-overview)
 	- [DB Model](#db-model)
+    - [Data synchronization](#data-synchronization)
 - [User interface](#user-interface)
 
 ## Demo instance
@@ -57,23 +58,27 @@ To deploy and run the Electra, you have to follow the steps described bellow.
 
 #### Data replication from OpenCart to Electra
 Since OpenCart UI is used by the shop customers to purchase goods, create account and so on, and the products are managed (added, updated, deleted) in the OpenCart admin UI, we have to replicate data from OpenCart to Electra DB. This is done by synchronizers implemented as `*.camel` files which are located [here](codbex-electra/opencart/synchronization/).<br>
+
 In the following table you can find more details about tables mapping.
-| OpenCart Table | Electra Table | Synch frequency | Details |
-|--|--|--|--|
-| oc_product | CODBEX_PRODUCT | every minute | [here](codbex-electra/opencart/synchronization/sync-products.camel) |
-| oc_manufacturer | CODBEX_MANUFACTURER | every minute | [here](codbex-electra/opencart/synchronization/sync-manufacturers.camel) |
-| oc_order | CODBEX_SALESORDER | every minute | [here](codbex-electra/opencart/synchronization/sync-orders.camel) |
-| oc_order | CODBEX_SALESORDERPAYMENT | every minute | [here](codbex-electra/opencart/synchronization/sync-orders.camel) |
-| oc_order | CODBEX_SALESORDERSHIPPING | every minute | [here](codbex-electra/opencart/synchronization/sync-orders.camel) |
-| oc_order_product | CODBEX_SALESORDERITEM | every minute | [here](codbex-electra/opencart/synchronization/sync-order-items.camel) |
-| oc_customer | CODBEX_CUSTOMER | every minute | [here](codbex-electra/opencart/synchronization/sync-customers.camel) |
-| oc_order_status | CODBEX_SALESORDERITEM | every 30 minutes | [here](codbex-electra/opencart/synchronization/sync-order-status.camel) |
-| oc_country | CODBEX_COUNTRY | every 30 minutes | [here](codbex-electra/opencart/synchronization/sync-countries.camel) |
-| oc_currency | CODBEX_CURRENCY | every 30 minutes | [here](codbex-electra/opencart/synchronization/sync-currencies.camel) |
-| oc_language | CODBEX_LANGUAGE | every 30 minutes | [here](codbex-electra/opencart/synchronization/sync-languages.camel) |
-| oc_stock_status | CODBEX_STOCKSTATUS | every 30 minutes | [here](codbex-electra/opencart/synchronization/sync-stock-statuses.camel) |
-| oc_store | CODBEX_STORE | every 30 minutes | [here](codbex-electra/opencart/synchronization/sync-stores.camel) |
-| oc_zone | CODBEX_ZONE | every 30 minutes | [here](codbex-electra/opencart/synchronization/sync-zones.camel) |
+
+| OpenCart Table | Electra Table | Synch frequency | Details | Example execution |
+|--|--|--|--|--|
+| oc_order_product | CODBEX_SALESORDERITEM | every minute | [here](codbex-electra/opencart/synchronization/sync-order-items.camel) | 2024-01-10 Wed 12:00:00<br>2024-01-10 Wed 12:01:00<br>2024-01-10 Wed 12:02:00 |
+| oc_product | CODBEX_PRODUCT | every minute | [here](codbex-electra/opencart/synchronization/sync-products.camel) | 2024-01-10 Wed 12:00:01<br>2024-01-10 Wed 12:01:01<br>2024-01-10 Wed 12:02:01 |
+| oc_manufacturer | CODBEX_MANUFACTURER | every minute | [here](codbex-electra/opencart/synchronization/sync-manufacturers.camel) | 2024-01-10 Wed 12:00:02<br>2024-01-10 Wed 12:01:02<br>2024-01-10 Wed 12:02:02 |
+| oc_order | CODBEX_SALESORDER | every minute | [here](codbex-electra/opencart/synchronization/sync-orders.camel) | 2024-01-10 Wed 12:00:03<br>2024-01-10 Wed 12:01:03<br>2024-01-10 Wed 12:02:03 |
+| oc_order | CODBEX_SALESORDERPAYMENT | every minute | [here](codbex-electra/opencart/synchronization/sync-orders.camel) | - |
+| oc_order | CODBEX_SALESORDERSHIPPING | every minute | [here](codbex-electra/opencart/synchronization/sync-orders.camel) | - |
+| oc_customer | CODBEX_CUSTOMER | every minute | [here](codbex-electra/opencart/synchronization/sync-customers.camel) | 2024-01-10 Wed 12:00:05<br>2024-01-10 Wed 12:01:05<br>2024-01-10 Wed 12:02:05 |
+| oc_country | CODBEX_COUNTRY | hourly | [here](codbex-electra/opencart/synchronization/sync-countries.camel) | 2024-01-10 Wed 12:30:00<br>2024-01-10 Wed 13:30:00<br>2024-01-10 Wed 14:30:00 |
+| oc_currency | CODBEX_CURRENCY | hourly | [here](codbex-electra/opencart/synchronization/sync-currencies.camel) | 2024-01-10 Wed 12:30:01<br>2024-01-10 Wed 13:30:01<br>2024-01-10 Wed 14:30:01 |
+| oc_language | CODBEX_LANGUAGE | hourly | [here](codbex-electra/opencart/synchronization/sync-languages.camel) | 2024-01-10 Wed 12:30:02<br>2024-01-10 Wed 13:30:02<br>2024-01-10 Wed 14:30:02 |
+| oc_stock_status | CODBEX_STOCKSTATUS | hourly | [here](codbex-electra/opencart/synchronization/sync-stock-statuses.camel) | 2024-01-10 Wed 12:30:03<br>2024-01-10 Wed 13:30:03<br>2024-01-10 Wed 14:30:03 |
+| oc_store | CODBEX_STORE | hourly | [here](codbex-electra/opencart/synchronization/sync-stores.camel) | 2024-01-10 Wed 12:30:04<br>2024-01-10 Wed 13:30:04<br>2024-01-10 Wed 14:30:04 |
+| oc_zone | CODBEX_ZONE | hourly | [here](codbex-electra/opencart/synchronization/sync-zones.camel) | 2024-01-10 Wed 12:30:05<br>2024-01-10 Wed 13:30:05<br>2024-01-10 Wed 14:30:05 |
+| oc_order_status | CODBEX_SALESORDERITEM | hourly | [here](codbex-electra/opencart/synchronization/sync-order-status.camel) | 2024-01-10 Wed 12:30:07<br>2024-01-10 Wed 13:30:07<br>2024-01-10 Wed 14:30:07 |
+
+OpenCart DB model could be found [here](https://github.com/opencart/opencart/blob/3.0.3.8/upload/install/opencart.sql).
 
 ## User interface
 
