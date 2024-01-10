@@ -998,12 +998,6 @@
                         "name": "EMPLOYEE_CODE"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "nullable": true,
-                        "name": "EMPLOYEE_STATUS"
-                    },
-                    {
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
@@ -1014,6 +1008,12 @@
                         "length": 0,
                         "nullable": true,
                         "name": "EMPLOYEE_TEAM"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "EMPLOYEE_STATUS"
                     }
                 ]
             },
@@ -1579,15 +1579,6 @@
                 "referencedColumns": "LANGUAGE_ID"
             },
             {
-                "name": "Employee_EmployeeStatus",
-                "type": "foreignKey",
-                "table": "CODBEX_EMPLOYEE",
-                "constraintName": "Employee_EmployeeStatus",
-                "columns": "EMPLOYEE_STATUS",
-                "referencedTable": "CODBEX_EMPLOYEESTATUS",
-                "referencedColumns": "EMPLOYEESTATUS_ID"
-            },
-            {
                 "name": "Employee_Team",
                 "type": "foreignKey",
                 "table": "CODBEX_EMPLOYEE",
@@ -1595,6 +1586,15 @@
                 "columns": "EMPLOYEE_TEAM",
                 "referencedTable": "CODBEX_TEAM",
                 "referencedColumns": "TEAM_ID"
+            },
+            {
+                "name": "Employee_EmployeeStatus",
+                "type": "foreignKey",
+                "table": "CODBEX_EMPLOYEE",
+                "constraintName": "Employee_EmployeeStatus",
+                "columns": "EMPLOYEE_STATUS",
+                "referencedTable": "CODBEX_EMPLOYEESTATUS",
+                "referencedColumns": "EMPLOYEESTATUS_ID"
             },
             {
                 "name": "SalesOrderPayment_Zone",

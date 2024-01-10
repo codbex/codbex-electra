@@ -39,11 +39,6 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
-			name: "Status",
-			column: "EMPLOYEE_STATUS",
-			type: "INTEGER",
-		},
- {
 			name: "DateAdded",
 			column: "EMPLOYEE_DATEADDED",
 			type: "VARCHAR",
@@ -51,6 +46,11 @@ let dao = daoApi.create({
  {
 			name: "Team",
 			column: "EMPLOYEE_TEAM",
+			type: "INTEGER",
+		},
+ {
+			name: "Status",
+			column: "EMPLOYEE_STATUS",
 			type: "INTEGER",
 		}
 ]
