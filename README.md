@@ -34,11 +34,11 @@ The following Eclipse Dirigible configurations should be available:
 To deploy and run the Electra, you have to follow the steps described bellow.
 - Get [Eclipse Dirigible](https://github.com/eclipse/dirigible) up and running by following the steps described in [here](https://github.com/eclipse/dirigible?tab=readme-ov-file#get-started)
 - Clone the Electra project `https://github.com/codbex/codbex-electra.git` using the git perspective.
-    ![git-clone](misc/images/electra-git-clone.png)
-    ![git-clone-url](misc/images/electra-git-clone-url.png)
+    ![git-clone](misc/images/git-clone.png)
+    ![git-clone-url](misc/images/git-clone-url.png)
 
 - Publish the Electra project
-    ![publish-all](misc/images/electra-publish-all.png)
+    ![publish-all](misc/images/publish-all.png)
 
 - After a few seconds, the Electra should be available on the following path `/services/web/codbex-electra/gen/index.html`. If the Dirigible is hosted on `localhost`, the URL will be  [http://localhost:8080/services/web/codbex-electra/gen/index.html](http://localhost:8080/services/web/codbex-electra/gen/index.html)
 
@@ -53,36 +53,36 @@ To deploy and run the Electra, you have to follow the steps described bellow.
 ## User interface
 
 ### Launchpad
-![application](misc/images/electra-application.png)
+![application](misc/images/user-interface/launchpad.png)
 
 ### Management
 
 #### Sales Orders
-![salesorders](misc/images/electra-salesorders.png)
+![salesorders](misc/images/user-interface/sales-orders.png)
 
 #### Products
-![products](misc/images/electra-products.png)
+![products](misc/images/user-interface/products.png)
 
 #### Stores
-![stores](misc/images/electra-stores.png)
+![stores](misc/images/user-interface/stores.png)
 
 #### Currencies
-![currencies](misc/images/electra-currencies.png)
+![currencies](misc/images/user-interface/currencies.png)
 
 #### Employee Groups
-![employeegroups](misc/images/electra-employeegroups.png)
+![employeegroups](misc/images/user-interface/teams.png)
 
 #### Employees
-![employees](misc/images/electra-employees.png)
+![employees](misc/images/user-interface/employees.png)
 
 #### Manufacturers
-![manifacturers](misc/images/electra-manufacturers.png)
+![manifacturers](misc/images/user-interface/manufacturers.png)
 
 #### Customers/Affiliates
-![customers](misc/images/electra-customers.png)
+![customers](misc/images/user-interface/customers.png)
 
 #### Attributes
-![attributes](misc/images/electra-attributes.png)
+![attributes](misc/images/user-interface/attributes.png)
 
 #### Settings
-![settings](misc/images/electra-settings.png)
+![settings](misc/images/user-interface/settings.png)
