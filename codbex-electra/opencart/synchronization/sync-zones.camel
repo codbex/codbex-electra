@@ -1,0 +1,78 @@
+- route:
+    id: zones-sync-route
+    from:
+      uri: cron:TriggerZonesReplication
+      id: trigger-zones-replication-cron
+      parameters:
+        schedule: 5 30 * ? * *
+      description: Trigger Zones Replication
+      steps:
+        - log:
+            message: Replicating zones from OpenCart DB...
+            id: log-about-to-start-zones-replication
+            logName: OpenCartZonesReplication
+            loggingLevel: INFO
+        - setBody:
+            id: create-zone-select-statement
+            expression:
+              constant:
+                expression: SELECT * FROM oc_zone
+                id: constant-e9a5-111
+            description: Create zones SELECT statement
+        - to:
+            uri: spring-jdbc:OpenCartDB
+            id: execute-get-zones
+            description: Get all zones
+        - split:
+            id: split-to-single-zone
+            expression:
+              simple:
+                expression: ${body}
+                id: simple-099e-111
+            description: Split to single zone
+            steps:
+              - setProperty:
+                  name: resource
+                  id: set-resource-property-zones
+                  expression:
+                    constant:
+                      expression: >-
+                        codbex-electra/opencart/synchronization/zone-entry-processor.js
+                      id: constant-1111
+                  description: Set resource property
+              - to:
+                  uri: >-
+                    class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+                  id: invoke-js-zone-processor
+                  description: Invoke JS
+              - setBody:
+                  id: create-zone-merge-statement
+                  expression:
+                    simple:
+                      expression: |-
+                        MERGE INTO CODBEX_ZONE
+                            (
+                                ZONE_ID, ZONE_NAME, ZONE_STATUS,
+                                ZONE_CODE, ZONE_COUNTRY
+                            ) 
+                        KEY(ZONE_ID)
+                        VALUES 
+                            (
+                                ${body['zone_id']},
+                                '${body['name']}',
+                                ${body['status']},
+                                '${body['code']}',
+                                ${body['country_id']}
+                            )
+                      id: simple-b426-111
+                  description: Create MERGE statement
+              - to:
+                  uri: spring-jdbc:DefaultDB
+                  id: merge-zone
+                  description: Merge zone
+        - log:
+            message: Successfully replicated zones from OpenCart DB
+            id: log-zones-replication-completed
+            logName: OpenCartZonesReplication
+            loggingLevel: INFO
+    description: Sync zones from OpenCart

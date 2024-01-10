@@ -1,5 +1,0 @@
-{
-    "module": "codbex-portunus/gen/ui/SalesOrders/SalesOrder/SalesOrderPayment/dialog-window/view.js",
-    "extensionPoint": "codbex-portunus-dialog-window",
-    "description": "codbex-portunus - Application Dialog Window"
-}

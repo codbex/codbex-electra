@@ -1,0 +1,9 @@
+{
+    "guid": "codbex-electra",
+    "repository": {
+        "type": "git",
+        "branch": "main",
+        "url": "https://github.com/codbex/codbex-electra.git"
+    },
+    "dependencies": []
+}

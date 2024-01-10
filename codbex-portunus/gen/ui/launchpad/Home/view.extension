@@ -1,5 +1,0 @@
-{
-    "module": "codbex-portunus/gen/ui/launchpad/Home/view.js",
-    "extensionPoint": "codbex-portunus-view",
-    "description": "codbex-portunus - Application View"
-}

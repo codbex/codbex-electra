@@ -1,5 +1,0 @@
-{
-    "module": "codbex-portunus/gen/ui/SalesOrders/SalesOrder/SalesOrderItem/view.js",
-    "extensionPoint": "codbex-portunus-view",
-    "description": "codbex-portunus - Application View - Details"
-}
