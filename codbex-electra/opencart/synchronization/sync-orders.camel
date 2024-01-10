@@ -35,7 +35,7 @@
                   id: create-order-merge-statement
                   expression:
                     simple:
-                      expression: |-
+                      expression: |+
                         MERGE INTO CODBEX_SALESORDER 
                             (
                                 SALESORDER_ID, SALESORDER_INVOICENUMBER,
@@ -61,7 +61,72 @@
                                 '${body['accept_language']}',
                                 '${body['date_added']}',
                                 '${body['date_modified']}'
-                            )
+                            );
+
+                        MERGE INTO CODBEX_SALESORDERPAYMENT
+                            (
+                                SALESORDERPAYMENT_ID, SALESORDERPAYMENT_FIRSTNAME, 
+                                SALESORDERPAYMENT_LASTNAME, SALESORDERPAYMENT_ZONE, 
+                                SALESORDERPAYMENT_COMPANY, SALESORDERPAYMENT_ADDRESS1, 
+                                SALESORDERPAYMENT_ADDRESS2, SALESORDERPAYMENT_CITY, 
+                                SALESORDERPAYMENT_POSTCODE, SALESORDERPAYMENT_COUNTRY, 
+                                SALESORDERPAYMENT_ADDRESSFORMAT, SALESORDERPAYMENT_CUSTOMFIELD, 
+                                SALESORDERPAYMENT_METHOD, SALESORDERPAYMENT_CODE, 
+                                SALESORDERPAYMENT_SALESORDER
+
+                            ) 
+                        KEY(SALESORDERPAYMENT_ID)
+                        VALUES 
+                            (
+                                ${body['order_id']},
+                                '${body['payment_firstname']}',
+                                '${body['payment_lastname']}',
+                                ${body['payment_zone_id']},
+                                '${body['payment_company']}',
+                                '${body['payment_address_1']}',
+                                '${body['payment_address_2']}',
+                                '${body['payment_city']}',
+                                '${body['payment_postcode']}',
+                                ${body['payment_country_id']},
+                                '${body['payment_address_format']}',
+                                '${body['payment_custom_field']}',
+                                '${body['payment_method']}',
+                                '${body['payment_code']}',
+                                ${body['order_id']}
+                            );
+
+                        MERGE INTO CODBEX_SALESORDERSHIPPING
+                            (
+                                SALESORDERSHIPPING_ID, SALESORDERSHIPPING_ZONE, 
+                                SALESORDERSHIPPING_FIRSTNAME, SALESORDERSHIPPING_LASTNAME, 
+                                SALESORDERSHIPPING_COMPANY, SALESORDERSHIPPING_ADDRESS1, 
+                                SALESORDERSHIPPING_ADDRESS2, SALESORDERSHIPPING_CITY, 
+                                SALESORDERSHIPPING_POSTCODE, SALESORDERSHIPPING_COUNTRY, 
+                                SALESORDERSHIPPING_ADDRESSFORMAT, SALESORDERSHIPPING_CUSTOMFIELD, 
+                                SALESORDERSHIPPING_METHOD, SALESORDERSHIPPING_CODE, 
+                                SALESORDERSHIPPING_SALESORDER
+
+                            ) 
+                        KEY(SALESORDERSHIPPING_ID)
+                        VALUES 
+                            (
+                                ${body['order_id']},
+                                ${body['shipping_zone_id']},
+                                '${body['shipping_firstname']}',
+                                '${body['shipping_lastname']}',
+                                '${body['shipping_company']}',
+                                '${body['shipping_address_1']}',
+                                '${body['shipping_address_2']}',
+                                '${body['shipping_city']}',
+                                '${body['shipping_postcode']}',
+                                ${body['shipping_country_id']},
+                                '${body['shipping_address_format']}',
+                                '${body['shipping_custom_field']}',
+                                '${body['shipping_method']}',
+                                '${body['shipping_code']}',
+                                ${body['order_id']}
+                            );
+
                       id: simple-b426-4444
                   description: Create MERGE statement
               - to:
