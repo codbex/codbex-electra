@@ -48,7 +48,7 @@ To deploy and run the Electra, you have to follow the steps described bellow.
 ![design-overview](misc/design/electra.svg)
 
 ### DB Model
-![model](misc/images/electra-model.png)
+![model](misc/images/arch/db-model.png)
 
 ## User interface
 
