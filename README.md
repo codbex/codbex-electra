@@ -53,6 +53,28 @@ To deploy and run the Electra, you have to follow the steps described bellow.
 ### DB Model
 ![model](misc/images/arch/db-model.png)
 
+### Data synchronization
+
+#### Data replication from OpenCart to Electra
+Since OpenCart UI is used by the shop customers to purchase goods, create account and so on, and the products are managed (added, updated, deleted) in the OpenCart admin UI, we have to replicate data from OpenCart to Electra DB. This is done by synchronizers implemented as `*.camel` files which are located [here](codbex-electra/opencart/synchronization/).<br>
+In the following table you can find more details about tables mapping.
+| OpenCart Table | Electra Table | Synch frequency | Details |
+|--|--|--|--|
+| oc_product | CODBEX_PRODUCT | every minute | [here](codbex-electra/opencart/synchronization/sync-products.camel) |
+| oc_manufacturer | CODBEX_MANUFACTURER | every minute | [here](codbex-electra/opencart/synchronization/sync-manufacturers.camel) |
+| oc_order | CODBEX_SALESORDER | every minute | [here](codbex-electra/opencart/synchronization/sync-orders.camel) |
+| oc_order | CODBEX_SALESORDERPAYMENT | every minute | [here](codbex-electra/opencart/synchronization/sync-orders.camel) |
+| oc_order | CODBEX_SALESORDERSHIPPING | every minute | [here](codbex-electra/opencart/synchronization/sync-orders.camel) |
+| oc_order_product | CODBEX_SALESORDERITEM | every minute | [here](codbex-electra/opencart/synchronization/sync-order-items.camel) |
+| oc_customer | CODBEX_CUSTOMER | every minute | [here](codbex-electra/opencart/synchronization/sync-customers.camel) |
+| oc_order_status | CODBEX_SALESORDERITEM | every 30 minutes | [here](codbex-electra/opencart/synchronization/sync-order-status.camel) |
+| oc_country | CODBEX_COUNTRY | every 30 minutes | [here](codbex-electra/opencart/synchronization/sync-countries.camel) |
+| oc_currency | CODBEX_CURRENCY | every 30 minutes | [here](codbex-electra/opencart/synchronization/sync-currencies.camel) |
+| oc_language | CODBEX_LANGUAGE | every 30 minutes | [here](codbex-electra/opencart/synchronization/sync-languages.camel) |
+| oc_stock_status | CODBEX_STOCKSTATUS | every 30 minutes | [here](codbex-electra/opencart/synchronization/sync-stock-statuses.camel) |
+| oc_store | CODBEX_STORE | every 30 minutes | [here](codbex-electra/opencart/synchronization/sync-stores.camel) |
+| oc_zone | CODBEX_ZONE | every 30 minutes | [here](codbex-electra/opencart/synchronization/sync-zones.camel) |
+
 ## User interface
 
 ### Launchpad
