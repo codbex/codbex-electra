@@ -303,12 +303,12 @@
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "15",
+          "dataLength": "23",
           "dataName": "CURRENCY_VALUE",
           "dataNullable": true,
-          "dataPrecision": "8",
+          "dataPrecision": "15",
           "dataPrimaryKey": false,
-          "dataScale": "NaN",
+          "dataScale": "8",
           "dataType": "DOUBLE",
           "dataUnique": false,
           "isCalculatedProperty": false,
@@ -441,7 +441,7 @@
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "20",
+          "dataLength": "11",
           "dataName": "SALESORDER_INVOICENUMBER",
           "dataNullable": true,
           "dataPrecision": "NaN",
@@ -760,7 +760,7 @@
           {
             "calculatedPropertyExpression": "",
             "dataAutoIncrement": false,
-            "dataLength": "20",
+            "dataLength": "11",
             "dataName": "SALESORDER_INVOICENUMBER",
             "dataNullable": true,
             "dataPrecision": "NaN",
@@ -1055,7 +1055,7 @@
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "256",
+          "dataLength": "64",
           "dataName": "STORE_NAME",
           "dataNullable": true,
           "dataPrecision": "NaN",
@@ -1071,13 +1071,13 @@
           "dataNotNull": false,
           "widgetLabel": "Name",
           "minLength": 0,
-          "maxLength": 256,
+          "maxLength": 64,
           "inputRule": ""
         },
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "128",
+          "dataLength": "255",
           "dataName": "STORE_URL",
           "dataNullable": true,
           "dataPrecision": "NaN",
@@ -1211,7 +1211,7 @@
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "255",
+          "dataLength": "96",
           "dataName": "CUSTOMER_EMAIL",
           "dataNullable": true,
           "dataPrecision": "NaN",
@@ -1227,7 +1227,7 @@
           "dataNotNull": false,
           "widgetLabel": "Email",
           "minLength": 0,
-          "maxLength": 255,
+          "maxLength": 96,
           "inputRule": ""
         },
         {
@@ -1255,7 +1255,7 @@
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "255",
+          "dataLength": "2000",
           "dataName": "CUSTOMER_CUSTOMFIELD",
           "dataNullable": true,
           "dataPrecision": "NaN",
@@ -1302,7 +1302,7 @@
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "20",
+          "dataLength": "40",
           "dataName": "CUSTOMER_CODE",
           "dataNullable": true,
           "dataPrecision": "NaN",
@@ -1463,7 +1463,7 @@
           {
             "calculatedPropertyExpression": "",
             "dataAutoIncrement": false,
-            "dataLength": "255",
+            "dataLength": "96",
             "dataName": "CUSTOMER_EMAIL",
             "dataNullable": true,
             "dataPrecision": "NaN",
@@ -1479,7 +1479,7 @@
             "dataNotNull": false,
             "widgetLabel": "Email",
             "minLength": 0,
-            "maxLength": 255,
+            "maxLength": 96,
             "inputRule": ""
           },
           {
@@ -1507,7 +1507,7 @@
           {
             "calculatedPropertyExpression": "",
             "dataAutoIncrement": false,
-            "dataLength": "255",
+            "dataLength": "2000",
             "dataName": "CUSTOMER_CUSTOMFIELD",
             "dataNullable": true,
             "dataPrecision": "NaN",
@@ -1554,7 +1554,7 @@
           {
             "calculatedPropertyExpression": "",
             "dataAutoIncrement": false,
-            "dataLength": "20",
+            "dataLength": "40",
             "dataName": "CUSTOMER_CODE",
             "dataNullable": true,
             "dataPrecision": "NaN",
@@ -2153,10 +2153,12 @@
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "20",
+          "dataLength": "5",
           "dataName": "LANGUAGE_CODE",
           "dataNullable": true,
+          "dataPrecision": "NaN",
           "dataPrimaryKey": false,
+          "dataScale": "NaN",
           "dataType": "VARCHAR",
           "dataUnique": false,
           "isCalculatedProperty": false,
@@ -2167,7 +2169,7 @@
           "dataNotNull": false,
           "widgetLabel": "Code",
           "minLength": 0,
-          "maxLength": 20,
+          "maxLength": 5,
           "inputRule": ""
         },
         {
@@ -2659,7 +2661,7 @@
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "0",
+          "dataLength": "1",
           "dataName": "PRODUCT_STATUS",
           "dataNullable": true,
           "dataPrecision": "NaN",
@@ -2684,10 +2686,12 @@
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "20",
+          "dataLength": "12",
           "dataName": "PRODUCT_UPC",
           "dataNullable": true,
+          "dataPrecision": "NaN",
           "dataPrimaryKey": false,
+          "dataScale": "NaN",
           "dataType": "VARCHAR",
           "dataUnique": false,
           "isCalculatedProperty": false,
@@ -2698,16 +2702,18 @@
           "dataNotNull": false,
           "widgetLabel": "UPC",
           "minLength": 0,
-          "maxLength": 20,
+          "maxLength": 12,
           "inputRule": ""
         },
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "20",
+          "dataLength": "14",
           "dataName": "PRODUCT_EAN",
           "dataNullable": true,
+          "dataPrecision": "NaN",
           "dataPrimaryKey": false,
+          "dataScale": "NaN",
           "dataType": "VARCHAR",
           "dataUnique": false,
           "isCalculatedProperty": false,
@@ -2718,16 +2724,18 @@
           "dataNotNull": false,
           "widgetLabel": "EAN",
           "minLength": 0,
-          "maxLength": 20,
+          "maxLength": 14,
           "inputRule": ""
         },
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "20",
+          "dataLength": "13",
           "dataName": "PRODUCT_JAN",
           "dataNullable": true,
+          "dataPrecision": "NaN",
           "dataPrimaryKey": false,
+          "dataScale": "NaN",
           "dataType": "VARCHAR",
           "dataUnique": false,
           "isCalculatedProperty": false,
@@ -2738,16 +2746,18 @@
           "dataNotNull": false,
           "widgetLabel": "JAN",
           "minLength": 0,
-          "maxLength": 20,
+          "maxLength": 13,
           "inputRule": ""
         },
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "20",
+          "dataLength": "17",
           "dataName": "PRODUCT_ISBN",
           "dataNullable": true,
+          "dataPrecision": "NaN",
           "dataPrimaryKey": false,
+          "dataScale": "NaN",
           "dataType": "VARCHAR",
           "dataUnique": false,
           "isCalculatedProperty": false,
@@ -2758,7 +2768,7 @@
           "dataNotNull": false,
           "widgetLabel": "ISBN",
           "minLength": 0,
-          "maxLength": 20,
+          "maxLength": 17,
           "inputRule": ""
         },
         {
@@ -2811,10 +2821,12 @@
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "20",
+          "dataLength": "128",
           "dataName": "PRODUCT_LOCATION",
           "dataNullable": true,
+          "dataPrecision": "NaN",
           "dataPrimaryKey": false,
+          "dataScale": "NaN",
           "dataType": "VARCHAR",
           "dataUnique": false,
           "isCalculatedProperty": false,
@@ -3211,10 +3223,12 @@
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "20",
+          "dataLength": "32",
           "dataName": "STOCKSTATUS_NAME",
           "dataNullable": true,
+          "dataPrecision": "NaN",
           "dataPrimaryKey": false,
+          "dataScale": "NaN",
           "dataType": "VARCHAR",
           "dataUnique": false,
           "isCalculatedProperty": false,
@@ -3275,10 +3289,12 @@
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "20",
+          "dataLength": "64",
           "dataName": "MANIFACTURER_NAME",
           "dataNullable": true,
+          "dataPrecision": "NaN",
           "dataPrimaryKey": false,
+          "dataScale": "NaN",
           "dataType": "VARCHAR",
           "dataUnique": false,
           "isCalculatedProperty": false,
@@ -3295,10 +3311,12 @@
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "20",
+          "dataLength": "255",
           "dataName": "MANIFACTURER_IMAGE",
           "dataNullable": true,
+          "dataPrecision": "NaN",
           "dataPrimaryKey": false,
+          "dataScale": "NaN",
           "dataType": "VARCHAR",
           "dataUnique": false,
           "isCalculatedProperty": false,
@@ -3903,7 +3921,7 @@
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "128",
+          "dataLength": "2000",
           "dataName": "SALESORDERPAYMENT_ADDRESSFORMAT",
           "dataNullable": true,
           "dataPrecision": "NaN",
@@ -3925,7 +3943,7 @@
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "128",
+          "dataLength": "2000",
           "dataName": "SALESORDERPAYMENT_CUSTOMFIELD",
           "dataNullable": true,
           "dataPrecision": "NaN",
@@ -4129,7 +4147,7 @@
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "60",
+          "dataLength": "40",
           "dataName": "SALESORDERSHIPPING_COMPANY",
           "dataNullable": true,
           "dataPrecision": "NaN",
@@ -4145,7 +4163,7 @@
           "dataNotNull": false,
           "widgetLabel": "Company",
           "minLength": 0,
-          "maxLength": 60,
+          "maxLength": 40,
           "inputRule": ""
         },
         {
@@ -4264,7 +4282,7 @@
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "128",
+          "dataLength": "2000",
           "dataName": "SALESORDERSHIPPING_ADDRESSFORMAT",
           "dataNullable": true,
           "dataPrecision": "NaN",
@@ -4286,7 +4304,7 @@
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "128",
+          "dataLength": "2000",
           "dataName": "SALESORDERSHIPPING_CUSTOMFIELD",
           "dataNullable": true,
           "dataPrecision": "NaN",

@@ -55,9 +55,9 @@
                     },
                     {
                         "type": "DOUBLE",
-                        "length": 15,
-                        "precision": "8",
-                        "scale": "NaN",
+                        "length": 23,
+                        "precision": "15",
+                        "scale": "8",
                         "nullable": true,
                         "name": "CURRENCY_VALUE"
                     },
@@ -103,7 +103,7 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 20,
+                        "length": 11,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -213,7 +213,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 256,
+                        "length": 64,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -221,7 +221,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 128,
+                        "length": 255,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -267,7 +267,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 255,
+                        "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -283,7 +283,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 255,
+                        "length": 2000,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -299,7 +299,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 40,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -507,7 +507,9 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 5,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "LANGUAGE_CODE"
                     },
@@ -679,7 +681,7 @@
                     },
                     {
                         "type": "TINYINT",
-                        "length": 0,
+                        "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -687,25 +689,33 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 12,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "PRODUCT_UPC"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 14,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "PRODUCT_EAN"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 13,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "PRODUCT_JAN"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 17,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "PRODUCT_ISBN"
                     },
@@ -727,7 +737,9 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 128,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "PRODUCT_LOCATION"
                     },
@@ -875,7 +887,9 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 32,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "STOCKSTATUS_NAME"
                     }
@@ -895,13 +909,17 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 64,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "MANIFACTURER_NAME"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 255,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "MANIFACTURER_IMAGE"
                     }
@@ -1105,7 +1123,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 128,
+                        "length": 2000,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -1113,7 +1131,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 128,
+                        "length": 2000,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -1181,7 +1199,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 60,
+                        "length": 40,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -1229,7 +1247,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 128,
+                        "length": 2000,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -1237,7 +1255,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 128,
+                        "length": 2000,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
