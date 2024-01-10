@@ -1,4 +1,4 @@
-# codbex-portunus
+# codbex-electra
 
 e-Commerce Backoffice Management
 
@@ -10,7 +10,7 @@ e-Commerce Backoffice Management
 - [User interface](#user-interface)
 
 ## Demo instance
-You can try the Portunus [here](https://dev.portunus.eu1.codbex.com).<br>
+You can try the Electra [here](https://dev.electra.eu1.codbex.com).<br>
 It is conifgured to use a [demo OpenCart instance](https://dev.opencart-demo.eu1.codbex.com).<br>
 Details about the configured OpenCart instance could be found [here](https://github.com/codbex/products-documentation/blob/main/opencart/README.md#opencart-303-8).
 
@@ -21,68 +21,68 @@ The following Eclipse Dirigible configurations should be available:
 
 | Name | Example value |
 |--|--|
-| DIRIGIBLE_HOME_URL | /services/web/codbex-portunus/gen/index.html |
-| PORTUNUS_OPENCART_DB_HOST | localhost |
-| PORTUNUS_OPENCART_DB_PORT | 3306 |
-| PORTUNUS_OPENCART_DB_NAME | bitnami_opencart |
-| PORTUNUS_OPENCART_DB_USER | bn_opencart |
-| PORTUNUS_OPENCART_DB_PASS | mypass |
+| DIRIGIBLE_HOME_URL | /services/web/codbex-electra/gen/index.html |
+| ELECTRA_OPENCART_DB_HOST | localhost |
+| ELECTRA_OPENCART_DB_PORT | 3306 |
+| ELECTRA_OPENCART_DB_NAME | bitnami_opencart |
+| ELECTRA_OPENCART_DB_USER | bn_opencart |
+| ELECTRA_OPENCART_DB_PASS | mypass |
 
 [Here](https://www.dirigible.io/help/setup/setup-environment-variables/) is described how you can provide dirigbile configurations.
 
 ### Steps
-To deploy and run the Portunus, you have to follow the steps described bellow.
+To deploy and run the Electra, you have to follow the steps described bellow.
 - Get [Eclipse Dirigible](https://github.com/eclipse/dirigible) up and running by following the steps described in [here](https://github.com/eclipse/dirigible?tab=readme-ov-file#get-started)
-- Clone the Portunus project `https://github.com/codbex/codbex-portunus.git` using the git perspective.
-    ![git-clone](misc/images/portunus-git-clone.png)
-    ![git-clone-url](misc/images/portunus-git-clone-url.png)
+- Clone the Electra project `https://github.com/codbex/codbex-electra.git` using the git perspective.
+    ![git-clone](misc/images/electra-git-clone.png)
+    ![git-clone-url](misc/images/electra-git-clone-url.png)
 
-- Publish the Portunus project
-    ![publish-all](misc/images/portunus-publish-all.png)
+- Publish the Electra project
+    ![publish-all](misc/images/electra-publish-all.png)
 
-- After a few seconds, the Portunus should be available on the following path `/services/web/codbex-portunus/gen/index.html`. If the Dirigible is hosted on `localhost`, the URL will be  [http://localhost:8080/services/web/codbex-portunus/gen/index.html](http://localhost:8080/services/web/codbex-portunus/gen/index.html)
+- After a few seconds, the Electra should be available on the following path `/services/web/codbex-electra/gen/index.html`. If the Dirigible is hosted on `localhost`, the URL will be  [http://localhost:8080/services/web/codbex-electra/gen/index.html](http://localhost:8080/services/web/codbex-electra/gen/index.html)
 
 ## Architecture
 
 ### Design overview
-![design-overview](misc/design/portunus.svg)
+![design-overview](misc/design/electra.svg)
 
 ### DB Model
-![model](misc/images/portunus-model.png)
+![model](misc/images/electra-model.png)
 
 ## User interface
 
 ### Launchpad
-![application](misc/images/portunus-application.png)
+![application](misc/images/electra-application.png)
 
 ### Management
 
 #### Sales Orders
-![salesorders](misc/images/portunus-salesorders.png)
+![salesorders](misc/images/electra-salesorders.png)
 
 #### Products
-![products](misc/images/portunus-products.png)
+![products](misc/images/electra-products.png)
 
 #### Stores
-![stores](misc/images/portunus-stores.png)
+![stores](misc/images/electra-stores.png)
 
 #### Currencies
-![currencies](misc/images/portunus-currencies.png)
+![currencies](misc/images/electra-currencies.png)
 
 #### Employee Groups
-![employeegroups](misc/images/portunus-employeegroups.png)
+![employeegroups](misc/images/electra-employeegroups.png)
 
 #### Employees
-![employees](misc/images/portunus-employees.png)
+![employees](misc/images/electra-employees.png)
 
 #### Manufacturers
-![manifacturers](misc/images/portunus-manufacturers.png)
+![manifacturers](misc/images/electra-manufacturers.png)
 
 #### Customers/Affiliates
-![customers](misc/images/portunus-customers.png)
+![customers](misc/images/electra-customers.png)
 
 #### Attributes
-![attributes](misc/images/portunus-attributes.png)
+![attributes](misc/images/electra-attributes.png)
 
 #### Settings
-![settings](misc/images/portunus-settings.png)
+![settings](misc/images/electra-settings.png)

@@ -14,22 +14,22 @@ jobs:
   main:
     uses: codbex/codbex-infra/.github/workflows/application-release.yaml@main
     with:
-      application-name: codbex-portunus
+      application-name: codbex-electra
       release-version: ${{ inputs.release-version }}
       release-content: |
-        ## codbex-portunus - ${{ inputs.release-version }}
+        ## codbex-electra - ${{ inputs.release-version }}
   
         Warehouse Management Application
   
         ## Deployment
   
         ```
-        docker run --name codbex-portunus \
+        docker run --name codbex-electra \
         --rm -p 80:80 -p 8081:8081 \
-        ghcr.io/codbex/codbex-portunus:${{ inputs.release-version }}
+        ghcr.io/codbex/codbex-electra:${{ inputs.release-version }}
         ```
   
         ## Access points:
   
-        - [/services/web/codbex-portunus/gen/](http://localhost:8080/services/web/codbex-portunus/gen/) - Admin Panel
+        - [/services/web/codbex-electra/gen/](http://localhost:8080/services/web/codbex-electra/gen/) - Admin Panel
     secrets: inherit

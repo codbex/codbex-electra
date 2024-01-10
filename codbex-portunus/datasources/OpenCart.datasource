@@ -1,8 +1,0 @@
-{
-    "location": "/codbex-portunus/datasources/OpenCart.datasource",
-    "name": "OpenCartDB",
-    "driver": "org.mariadb.jdbc.Driver",
-    "url": "jdbc:mariadb://${PORTUNUS_OPENCART_DB_HOST}:${PORTUNUS_OPENCART_DB_PORT}/${PORTUNUS_OPENCART_DB_NAME}",
-    "username": "${PORTUNUS_OPENCART_DB_USER}",
-    "password": "${PORTUNUS_OPENCART_DB_PASS}" 
-}
