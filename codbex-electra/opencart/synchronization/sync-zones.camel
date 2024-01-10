@@ -4,7 +4,7 @@
       uri: cron:TriggerZonesReplication
       id: trigger-zones-replication-cron
       parameters:
-        schedule: 5 30 * ? * *
+        schedule: 5 * * ? * *
       description: Trigger Zones Replication
       steps:
         - log:
