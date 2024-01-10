@@ -34,10 +34,13 @@ The following Eclipse Dirigible configurations should be available:
 To deploy and run the Electra, you have to follow the steps described bellow.
 - Get [Eclipse Dirigible](https://github.com/eclipse/dirigible) up and running by following the steps described in [here](https://github.com/eclipse/dirigible?tab=readme-ov-file#get-started)
 - Clone the Electra project `https://github.com/codbex/codbex-electra.git` using the git perspective.
+
     ![git-clone](misc/images/git-clone.png)
+
     ![git-clone-url](misc/images/git-clone-url.png)
 
 - Publish the Electra project
+
     ![publish-all](misc/images/publish-all.png)
 
 - After a few seconds, the Electra should be available on the following path `/services/web/codbex-electra/gen/index.html`. If the Dirigible is hosted on `localhost`, the URL will be  [http://localhost:8080/services/web/codbex-electra/gen/index.html](http://localhost:8080/services/web/codbex-electra/gen/index.html)
