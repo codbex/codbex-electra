@@ -1,6 +1,6 @@
 {
   "files": [
-        {
+    {
       "table": "CODBEX_STORE",
       "schema": "PUBLIC",
       "file": "/codbex-electra-data/stores.csv",
@@ -34,7 +34,7 @@
       "version": "1.0"
     },
     {
-      "table": "CODBEX_CUSTOMERSTATUSES",
+      "table": "CODBEX_CUSTOMERSTATUS",
       "schema": "PUBLIC",
       "file": "/codbex-electra-data/customer-statuses.csv",
       "header": true,
