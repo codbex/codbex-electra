@@ -30,10 +30,15 @@ export function onMessage(messageString) {
 	const message = JSON.parse(messageString);
 	const operation = message.operation;
 
-	if (operation === 'update') {
-		handleUpdate(message.entity);
-	} else {
-		logger.debug("Message [{}] will not be handled.", messageString);
+	switch (operation) {
+		case 'update':
+			handleUpdate(message.entity);
+			break;
+		case 'delete':
+			handleDelete(message.entity);
+			break;
+		default:
+			logger.debug("Message [{}] will not be handled.", messageString);
 	}
 };
 
@@ -70,6 +75,12 @@ function handleUpdate(salesOrder) {
 	} finally {
 		closeResources(resultSet, statement, connection);
 	}
+}
+
+
+function handleDelete(salesOrder) {
+	logger.info("Deleting [{}]", salesOrder);
+	// TODO
 }
 
 function closeResources(...resources) {
