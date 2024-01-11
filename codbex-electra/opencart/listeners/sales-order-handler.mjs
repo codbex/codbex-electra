@@ -1,5 +1,5 @@
 import { database } from "@dirigible/db";
-import { getLogger } from "../..//util/loggerUtil.mjs";
+import { getLogger } from "/codbex-electra/util/loggerUtil.mjs"
 
 const Timestamp = Java.type('java.sql.Timestamp');
 
