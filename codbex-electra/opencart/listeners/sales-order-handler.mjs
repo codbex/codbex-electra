@@ -1,8 +1,10 @@
 import { database } from "@dirigible/db";
 import { logging } from "@dirigible/log";
 
+const Timestamp = Java.type('java.sql.Timestamp');
+
 const updateStatement = `
-	UPDATE oc_order 
+	UPDATE oc_order
 	SET
 		invoice_no = ?,
 		invoice_prefix = ?,
@@ -21,7 +23,7 @@ const updateStatement = `
 
 const logger = logging.getLogger("codbex-electra.opencart.listeners.sales-order-handler.js");
 
-exports.onMessage = function (messageString) {
+export function onMessage(messageString) {
 	logger.info("Processing sales order message [{}]", messageString);
 
 	const message = JSON.parse(messageString);
@@ -53,7 +55,6 @@ function handleUpdate(salesOrder) {
 		statement.setInt(10, salesOrder.Currency);
 		statement.setString(11, salesOrder.AcceptLanguage);
 
-		const Timestamp = Java.type('java.sql.Timestamp');
 		const dateModified = new Timestamp(Date.now());
 		statement.setTimestamp(12, dateModified);
 
@@ -72,13 +73,13 @@ function handleUpdate(salesOrder) {
 
 function closeResources(...resources) {
 	resources.forEach(r => {
-		if (r != undefined) {
+		if (r) {
 			r.close();
 		}
 	}
 	);
 }
 
-exports.onError = function (err) {
-	console.error("Failed to handle sales-order message: " + err);
+export function onError(err) {
+	logger.error('Failed to handle sales-order message. \nError: [{}]', err.message);
 };
