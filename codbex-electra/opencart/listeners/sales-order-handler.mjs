@@ -21,7 +21,7 @@ const updateStatement = `
 	WHERE order_id = ?
 `;
 
-const logger = logging.getLogger("codbex-electra.opencart.listeners.sales-order-handler.js");
+const logger = logging.getLogger("codbex-electra.opencart.listeners.sales-order-handler.mjs");
 
 export function onMessage(messageString) {
 	logger.info("Processing sales order message [{}]", messageString);
@@ -76,8 +76,7 @@ function closeResources(...resources) {
 		if (r) {
 			r.close();
 		}
-	}
-	);
+	});
 }
 
 export function onError(err) {
