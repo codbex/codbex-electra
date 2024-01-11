@@ -1,7 +1,9 @@
 import { database } from "@dirigible/db";
-import { logging } from "@dirigible/log";
+import { getLogger } from "../..//util/loggerUtil.mjs";
 
 const Timestamp = Java.type('java.sql.Timestamp');
+
+const logger = getLogger(import.meta.url);
 
 const updateStatement = `
 	UPDATE oc_order
@@ -21,7 +23,6 @@ const updateStatement = `
 	WHERE order_id = ?
 `;
 
-const logger = logging.getLogger("codbex-electra.opencart.listeners.sales-order-handler.mjs");
 
 export function onMessage(messageString) {
 	logger.info("Processing sales order message [{}]", messageString);
