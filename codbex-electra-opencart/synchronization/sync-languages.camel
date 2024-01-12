@@ -37,7 +37,7 @@
                   expression:
                     constant:
                       expression: >-
-                        codbex-electra/opencart/synchronization/language-entry-processor.js
+                        codbex-electra-opencart/synchronization/language-entry-processor.js
                       id: constant-888
                   description: Set resource property
               - to:

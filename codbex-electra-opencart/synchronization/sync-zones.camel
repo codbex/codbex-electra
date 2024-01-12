@@ -37,7 +37,7 @@
                   expression:
                     constant:
                       expression: >-
-                        codbex-electra/opencart/synchronization/zone-entry-processor.js
+                        codbex-electra-opencart/synchronization/zone-entry-processor.js
                       id: constant-1111
                   description: Set resource property
               - to:
