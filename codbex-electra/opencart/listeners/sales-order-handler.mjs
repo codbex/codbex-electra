@@ -1,5 +1,8 @@
 import { database } from "@dirigible/db";
-import { getLogger } from "/codbex-electra/util/loggerUtil.mjs"
+import { getLogger } from "/codbex-electra/util/logger-util.mjs";
+import { closeResources } from "/codbex-electra/util/db-util.mjs";
+
+const salesOrderItemDAO = require("codbex-electra/gen/dao/SalesOrders/SalesOrderItem");
 
 const Timestamp = Java.type('java.sql.Timestamp');
 
@@ -23,19 +26,24 @@ const updateStatement = `
 	WHERE order_id = ?
 `;
 
+const deleteStatement = `
+	DELETE from oc_order
+	WHERE order_id = ?
+`;
 
 export function onMessage(messageString) {
-	logger.info("Processing sales order message [{}]", messageString);
+	logger.info("Processing sales order message [{}]...", messageString);
 
 	const message = JSON.parse(messageString);
 	const operation = message.operation;
 
+	const salesOrder = message.entity;
 	switch (operation) {
 		case 'update':
-			handleUpdate(message.entity);
+			handleUpdate(salesOrder);
 			break;
 		case 'delete':
-			handleDelete(message.entity);
+			handleDelete(salesOrder);
 			break;
 		default:
 			logger.debug("Message [{}] will not be handled.", messageString);
@@ -43,6 +51,8 @@ export function onMessage(messageString) {
 };
 
 function handleUpdate(salesOrder) {
+	logger.info("Updating order [{}] in OpenCart DB...", salesOrder);
+
 	const connection = database.getConnection("OpenCartDB");
 	let statement;
 	let resultSet;
@@ -64,31 +74,55 @@ function handleUpdate(salesOrder) {
 		const dateModified = new Timestamp(Date.now());
 		statement.setTimestamp(12, dateModified);
 
-		const id = parseInt(salesOrder.Id);
-		statement.setInt(13, id);
+		const salesOrderId = parseInt(salesOrder.Id);
+		statement.setInt(13, salesOrderId);
 
 		const updatedRows = statement.executeUpdate();
-		logger.info("[{}] rows updated", updatedRows);
+		logger.info("[{}] order(s) updated in OpenCart DB.", updatedRows);
 	} catch (err) {
-		logger.error('Failed to update SalesOrder in OpenCart DB. \nError: [{}]', err.message);
+		logger.error('Failed to update SalesOrder [{}] in OpenCart DB. \nError: [{}]', salesOrder, err.message);
 		throw err;
 	} finally {
 		closeResources(resultSet, statement, connection);
 	}
 }
 
-
 function handleDelete(salesOrder) {
-	logger.info("Deleting [{}]", salesOrder);
-	// TODO
+	const salesOrderId = parseInt(salesOrder.Id);
+
+	deleteSalesOrderItems(salesOrderId);
+	deleteOpenCartSalesOrder(salesOrderId);
+
 }
 
-function closeResources(...resources) {
-	resources.forEach(r => {
-		if (r) {
-			r.close();
-		}
+function deleteSalesOrderItems(salesOrderId) {
+	const querySettings = {
+		"Order": salesOrderId
+	};
+	const items = salesOrderItemDAO.list(querySettings)
+	items.forEach(i => {
+		salesOrderItemDAO.delete(i.Id);
 	});
+}
+
+function deleteOpenCartSalesOrder(salesOrderId) {
+	logger.info("Deleting order with id [{}] from OpenCart DB...", salesOrderId);
+
+	const connection = database.getConnection("OpenCartDB");
+	let statement;
+	let resultSet;
+	try {
+		statement = connection.prepareStatement(deleteStatement);
+		statement.setInt(1, salesOrderId);
+
+		const deletedRows = statement.executeUpdate();
+		logger.info("[{}] orders deleted from OpenCart DB", deletedRows);
+	} catch (err) {
+		logger.error('Failed to delete SalesOrder with id [{}] from OpenCart DB. \nError: [{}]', salesOrderId, err.message);
+		throw err;
+	} finally {
+		closeResources(resultSet, statement, connection);
+	}
 }
 
 export function onError(err) {
