@@ -2,5 +2,5 @@
     "name": "codbex-electra/SalesOrders/SalesOrderItem",
     "kind": "Q",
     "handler": "codbex-electra-opencart/listeners/sales-order-item-handler.mjs",
-    "description": "Listener for SalesOrder events"
+    "description": "Listener for SalesOrderItem events"
 }

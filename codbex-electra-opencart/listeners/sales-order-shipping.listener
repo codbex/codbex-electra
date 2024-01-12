@@ -1,0 +1,6 @@
+{
+    "name": "codbex-electra/SalesOrders/SalesOrderShipping",
+    "kind": "Q",
+    "handler": "codbex-electra-opencart/listeners/sales-order-shipping-handler.mjs",
+    "description": "Listener for SalesOrderShipping events"
+}
