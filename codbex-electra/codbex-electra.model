@@ -135,7 +135,7 @@
                         "name": "DateModified",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetType": "DATE"
+                        "widgetType": "DATETIME-LOCAL"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -380,7 +380,7 @@
                         "name": "DateAdded",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetType": "DATE"
+                        "widgetType": "DATETIME-LOCAL"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -397,7 +397,7 @@
                         "name": "DateModified",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetType": "DATE"
+                        "widgetType": "DATETIME-LOCAL"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -710,7 +710,7 @@
                         "name": "DateAdded",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetType": "DATE"
+                        "widgetType": "DATETIME-LOCAL"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1961,7 +1961,7 @@
                         "name": "DateAdded",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetType": "DATE"
+                        "widgetType": "DATETIME-LOCAL"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1978,7 +1978,7 @@
                         "name": "DateModified",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetType": "DATE"
+                        "widgetType": "DATETIME-LOCAL"
                     },
                     {
                         "calculatedPropertyExpression": "",

@@ -96,10 +96,10 @@
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Minimum}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-input type="date" ng-model="next.DateAdded" ng-readonly="true"></fd-input>
+							<fd-input type="datetime-local" ng-model="next.DateAdded" ng-readonly="true"></fd-input>
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-input type="date" ng-model="next.DateModified" ng-readonly="true"></fd-input>
+							<fd-input type="datetime-local" ng-model="next.DateModified" ng-readonly="true"></fd-input>
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsStockStatusValue(next.StockStatus)}}

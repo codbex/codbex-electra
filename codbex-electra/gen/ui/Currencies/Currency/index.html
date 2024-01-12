@@ -51,7 +51,7 @@
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.DecimalPlace}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Value}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-input type="date" ng-model="next.DateModified" ng-readonly="true"></fd-input>
+							<fd-input type="datetime-local" ng-model="next.DateModified" ng-readonly="true"></fd-input>
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsStatusValue(next.Status)}}
