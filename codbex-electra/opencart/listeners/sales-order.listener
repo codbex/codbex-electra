@@ -1,0 +1,6 @@
+{
+    "name": "codbex-electra/SalesOrders/SalesOrder",
+    "kind": "Q",
+    "handler": "codbex-electra/opencart/listeners/sales-order-handler.mjs",
+    "description": "Listener for SalesOrder events"
+}
