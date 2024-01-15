@@ -3,8 +3,16 @@ import { getLogger } from "/codbex-electra/util/logger-util.mjs";
 import { closeResources } from "/codbex-electra/util/db-util.mjs";
 
 const Timestamp = Java.type('java.sql.Timestamp');
-
 const logger = getLogger(import.meta.url);
+const updateStatement = `
+	UPDATE oc_product
+	SET
+		quantity = ?,
+		stock_status_id = ?,
+		status = ?,
+		date_modified = ?
+	WHERE product_id = ?
+`;
 
 export function onMessage(messageString) {
 	logger.info("Processing product message [{}]...", messageString);
@@ -21,16 +29,6 @@ export function onMessage(messageString) {
 			logger.debug("Message [{}] will not be handled.", messageString);
 	}
 };
-
-const updateStatement = `
-	UPDATE oc_product
-	SET
-		quantity = ?,
-		stock_status_id = ?,
-		status = ?,
-		date_modified = ?
-	WHERE product_id = ?
-`;
 
 function handleUpdate(product) {
 	logger.info("Updating order [{}] in OpenCart DB...", product);

@@ -3,7 +3,6 @@ import { getLogger } from "/codbex-electra/util/logger-util.mjs";
 import { closeResources } from "/codbex-electra/util/db-util.mjs";
 
 const logger = getLogger(import.meta.url);
-
 const deleteStatement = `
 	DELETE from oc_order_product
 	WHERE order_product_id = ?

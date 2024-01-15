@@ -3,11 +3,8 @@ import { getLogger } from "/codbex-electra/util/logger-util.mjs";
 import { closeResources } from "/codbex-electra/util/db-util.mjs";
 
 const salesOrderItemDAO = require("codbex-electra/gen/dao/SalesOrders/SalesOrderItem");
-
 const Timestamp = Java.type('java.sql.Timestamp');
-
 const logger = getLogger(import.meta.url);
-
 const updateStatement = `
 	UPDATE oc_order
 	SET

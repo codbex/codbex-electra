@@ -3,25 +3,7 @@ import { getLogger } from "/codbex-electra/util/logger-util.mjs";
 import { closeResources } from "/codbex-electra/util/db-util.mjs";
 
 const Timestamp = Java.type('java.sql.Timestamp');
-
 const logger = getLogger(import.meta.url);
-
-export function onMessage(messageString) {
-	logger.info("Processing sales order shipping message [{}]...", messageString);
-
-	const message = JSON.parse(messageString);
-	const operation = message.operation;
-
-	const salesOrderShipping = message.entity;
-	switch (operation) {
-		case 'update':
-			handleUpdate(salesOrderShipping);
-			break;
-		default:
-			logger.debug("Message [{}] will not be handled.", messageString);
-	}
-};
-
 const updateStatement = `
 	UPDATE oc_order
 	SET
@@ -41,6 +23,22 @@ const updateStatement = `
 		date_modified = ?
 	WHERE order_id = ?
 `;
+
+export function onMessage(messageString) {
+	logger.info("Processing sales order shipping message [{}]...", messageString);
+
+	const message = JSON.parse(messageString);
+	const operation = message.operation;
+
+	const salesOrderShipping = message.entity;
+	switch (operation) {
+		case 'update':
+			handleUpdate(salesOrderShipping);
+			break;
+		default:
+			logger.debug("Message [{}] will not be handled.", messageString);
+	}
+};
 
 function handleUpdate(salesOrderShipping) {
 	logger.info("Updating order [{}] in OpenCart DB...", salesOrderShipping);

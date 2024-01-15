@@ -80,6 +80,19 @@ In the following table you can find more details about tables mapping.
 
 OpenCart DB model could be found [here](https://github.com/opencart/opencart/blob/3.0.3.8/upload/install/opencart.sql).
 
+#### Data replication from Electra to OpenCart
+Some of the actions which are made in the Electra, must be applied to the OpenCart DB as well. This is done by listeners implemented as `*.listener` files which are located [here](codbex-electra-opencart/listeners/).<br>
+
+In the following table you can find more details about the actions which have effect in the OpenCart DB as well.
+
+| Electra entity| Action | OpenCart table | Affected Columns | Details |
+|--|--|--|--|--|
+| Product | update | oc_product | quantity <br /> stock_status_id <br /> status <br /> date_modified | [here](codbex-electra-opencart/listeners/product-handler.mjs)
+| SalesOrder | update | oc_order | invoice_no <br /> invoice_prefix <br /> store_id <br /> customer_id <br /> comment <br /> total <br /> order_status_id <br /> tracking, language_id <br /> currency_id <br /> accept_language <br /> date_modified | [here](codbex-electra-opencart/listeners/sales-order-handler.mjs)
+| SalesOrder | delete | oc_order | n/a | [here](codbex-electra-opencart/listeners/sales-order-handler.mjs)
+| SalesOrderItem | delete | oc_order_product | n/a | [here](codbex-electra-opencart/listeners/sales-order-item-handler.mjs)
+| SalesOrderShipping | update | oc_order | shipping_firstname <br /> shipping_lastname <br /> shipping_company <br /> shipping_address_1 <br /> shipping_address_2 <br /> shipping_city <br /> shipping_postcode <br /> shipping_country_id <br /> shipping_zone_id <br /> shipping_address_format <br /> shipping_custom_field <br /> shipping_method <br /> shipping_code <br /> date_modified | [here](codbex-electra-opencart/listeners/sales-order-shipping-handler.mjs)
+
 ## User interface
 
 ### Launchpad
