@@ -3,13 +3,31 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>Electra - Print Sales Order shipping label</title>
+        <title>Electra - Print shipping label</title>
     </head>
 
     <body>
-        <div>
-            <b>Hello</b>
+        <div class="invoice-box" ng-app="templateApp" ng-controller="templateContoller">
+            <b> SalesOrder Id: {{SalesOrder.Id}}</b><br>
+            <b> SalesOrder Total: {{SalesOrder.Total}}</b><br>
+            <b> SalesOrder Id: {{SalesOrder.Id}}</b><br>
+            <b> SalesOrder DateAdded: {{SalesOrder.DateAdded}}</b><br>
         </div>
+        <script src="/services/web/angularjs/1.8.2/angular.min.js"></script>
+        <script>
+            var app = angular.module('templateApp', []);
+            app.controller('templateContoller', function($scope, $http) {
+                let url_string = (window.location.href).toLowerCase();
+                let url = new URL(url_string);
+                let salesOrderId = url.searchParams.get("id");
+                var getSalesOrderURL = "/services/js/codbex-electra/gen/api/SalesOrders/SalesOrder.js/" + salesOrderId;
+                $http.get(getSalesOrderURL)
+                .then(function(response) {
+                    $scope.SalesOrder = response.data;
+                    console.log("SalesOrder: " + JSON.stringify(response.data));
+                });
+            });
+        </script>
     </body>
 
 </html>
