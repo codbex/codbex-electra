@@ -1,0 +1,6 @@
+{
+    "name": "codbex-electra/Products/Product",
+    "kind": "Q",
+    "handler": "codbex-electra-opencart/listeners/product-handler.mjs",
+    "description": "Listener for Product events"
+}
