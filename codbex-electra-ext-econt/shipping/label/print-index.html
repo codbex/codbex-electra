@@ -4,29 +4,77 @@
     <head>
         <meta charset="utf-8" />
         <title>Electra - Print shipping label</title>
+        <style>
+            .print-shipping-label-iframe {
+                width: 100%;
+                height: 100%;
+                min-height: 700px;
+                min-width: 500px;
+            }
+
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     </head>
 
     <body>
-        <div class="invoice-box" ng-app="templateApp" ng-controller="templateContoller">
-            <b> SalesOrder Id: {{SalesOrder.Id}}</b><br>
-            <b> SalesOrder Total: {{SalesOrder.Total}}</b><br>
-            <b> SalesOrder Id: {{SalesOrder.Id}}</b><br>
-            <b> SalesOrder DateAdded: {{SalesOrder.DateAdded}}</b><br>
+        <div ng-app="templateApp" ng-controller="templateContoller">
+            <div id="econt-delivery-create-label-modal" class="modal fade in" role="dialog" style="display: block;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <iframe class="print-shipping-label-iframe"
+                                src="https://delivery.econt.com/create_label.php?order_number=35&token=111">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <b> SalesOrder Id: {{SalesOrder.Id}}</b><br> -->
         </div>
+        <script>
+            $(function ($) {
+            const empty__ = function (thingy) {
+                return thingy == 0 || !thingy || (typeof (thingy) === 'object' && $.isEmptyObject(thingy));
+            }
+
+            $(window).on('message', function (event) {
+                if (event['originalEvent']['origin'] != 'https://delivery.econt.com') return;
+
+                const messageData = event['originalEvent']['data'];
+                if (!messageData) return;
+
+                const eventType = messageData['event'];
+                console.log("Event: " + eventType + " Message data: " + JSON.stringify(messageData));
+                switch (eventType) {
+                    case 'cancel':
+                        $createLabelWindow.modal('hide');
+                        break;
+                    case 'confirm':
+                        if (messageData['printPdf'] === true && !empty__(messageData['shipmentStatus']['pdfURL'])) {
+                            window.open(messageData['shipmentStatus']['pdfURL'], '_blank');
+                        }
+
+                        break;
+                }
+            });
+        });
+        </script>
         <script src="/services/web/angularjs/1.8.2/angular.min.js"></script>
         <script>
-            var app = angular.module('templateApp', []);
-            app.controller('templateContoller', function($scope, $http) {
-                let url_string = (window.location.href).toLowerCase();
-                let url = new URL(url_string);
-                let salesOrderId = url.searchParams.get("id");
-                var getSalesOrderURL = "/services/js/codbex-electra/gen/api/SalesOrders/SalesOrder.js/" + salesOrderId;
-                $http.get(getSalesOrderURL)
-                .then(function(response) {
+            const app = angular.module('templateApp', []);
+            app.controller('templateContoller', function ($scope, $http) {
+            const url_string = (window.location.href).toLowerCase();
+            const url = new URL(url_string);
+
+            const salesOrderId = url.searchParams.get("id");
+            var getSalesOrderURL = "/services/js/codbex-electra/gen/api/SalesOrders/SalesOrder.js/" + salesOrderId;
+
+            $http.get(getSalesOrderURL)
+                .then(function (response) {
                     $scope.SalesOrder = response.data;
                     console.log("SalesOrder: " + JSON.stringify(response.data));
                 });
-            });
+        });
         </script>
     </body>
 
