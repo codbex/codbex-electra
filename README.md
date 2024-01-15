@@ -8,6 +8,8 @@ e-Commerce Backoffice Management
 	- [Design overview](#design-overview)
 	- [DB Model](#db-model)
     - [Data synchronization](#data-synchronization)
+        - [Inbound synchronization](#inbound-synchronization---data-replication-from-opencart-to-electra)
+        - [Outbound synchronization](#outbound-synchronization---data-replication-from-electra-to-opencart)
 - [User interface](#user-interface)
 
 ## Demo instance
@@ -56,7 +58,7 @@ To deploy and run the Electra, you have to follow the steps described bellow.
 ---
 ### Data synchronization
 
-#### Data replication from OpenCart to Electra
+#### Inbound synchronization - data replication from OpenCart to Electra
 Since OpenCart UI is used by the shop customers to purchase goods, create account and so on, and the products are managed (added, updated, deleted) in the OpenCart admin UI, we have to replicate data from OpenCart to Electra DB. This is done by synchronizers implemented as `*.camel` files which are located [here](codbex-electra-opencart/synchronization/).<br>
 
 In the following table you can find more details about tables mapping.
@@ -80,7 +82,7 @@ In the following table you can find more details about tables mapping.
 
 OpenCart DB model could be found [here](https://github.com/opencart/opencart/blob/3.0.3.8/upload/install/opencart.sql).
 
-#### Data replication from Electra to OpenCart
+#### Outbound synchronization - data replication from Electra to OpenCart
 Some of the actions which are made in the Electra, must be applied to the OpenCart DB as well. This is done by listeners implemented as `*.listener` files which are located [here](codbex-electra-opencart/listeners/).<br>
 
 In the following table you can find more details about the actions which have effect in the OpenCart DB as well.
