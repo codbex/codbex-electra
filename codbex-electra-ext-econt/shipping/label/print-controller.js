@@ -57,10 +57,11 @@ $(function ($) {
         const eventType = messageData['event'];
         switch (eventType) {
             case 'confirm':
-                handleShippingLabelConfirmed(messageData);
                 if (messageData['printPdf'] === true && !empty__(messageData['shipmentStatus']['pdfURL'])) {
                     window.open(messageData['shipmentStatus']['pdfURL'], '_blank');
                 }
+
+                handleShippingLabelConfirmed(messageData);
                 break;
         }
     });
