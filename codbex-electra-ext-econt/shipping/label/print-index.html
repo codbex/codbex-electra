@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Electra - Print shipping label</title>
+        <link rel="stylesheet" href="/services/web/codbex-electra-ext-econt/shipping/label/print.css">
+        <script src="/services/web/jquery/3.6.0/jquery.min.js"></script>
+        <script src="/services/web/angularjs/1.8.2/angular.min.js"></script>
+        <script src="/services/web/codbex-electra-ext-econt/shipping/label/print-controller.js"></script>
+    </head>
+
+    <body>
+        <div ng-app="templateApp" ng-controller="templateContoller">
+            <iframe class="print-shipping-label-iframe" ng-src="{{shippingLabelURL}}"></iframe>
+        </div>
+    </body>
+
+</html>

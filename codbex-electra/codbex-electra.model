@@ -334,7 +334,7 @@
                     {
                         "calculatedPropertyExpression": "",
                         "dataAutoIncrement": "false",
-                        "dataLength": "64",
+                        "dataLength": "255",
                         "dataName": "SALESORDER_TRACKING",
                         "dataNullable": "true",
                         "dataPrecision": "NaN",
@@ -345,8 +345,8 @@
                         "isCalculatedProperty": "false",
                         "name": "Tracking",
                         "widgetIsMajor": "true",
-                        "widgetLength": "64",
-                        "widgetType": "TEXTBOX"
+                        "widgetLength": "128",
+                        "widgetType": "URL"
                     },
                     {
                         "calculatedPropertyExpression": "",
