@@ -1,12 +1,13 @@
-const rs = require("http/rs");
 const http = require("codbex-electra/gen/api/utils/http");
-const configurations = require("core/configurations");
-const logging = require("log/logging");
+import { rs } from '@dirigible/http'
+import { configurations } from '@dirigible/core'
+import { logging } from '@dirigible/log'
 
 const logger = logging.getLogger("api.SalesOrders.js");
 
 const SHOP_SECRET_CFG_NAME = "ELECTRA_ECONT_SHOP_SECRET";
 const ECONT_DELIVERY_URL_CFG_NAME = "ELECTRA_ECONT_DELIVERY_URL";
+const ECONT_DELIVERY_DEFAULT_URL = "https://delivery.econt.com";
 
 function getMandatoryCfg(configName) {
 	const configValue = configurations.get(configName);
@@ -22,7 +23,7 @@ rs.service()
 	.get(function (ctx) {
 		const salesOrderId = ctx.pathParameters.salesOrderId;
 
-		const econtURL = configurations.get(ECONT_DELIVERY_URL_CFG_NAME, 'https://delivery.econt.com');
+		const econtURL = configurations.get(ECONT_DELIVERY_URL_CFG_NAME, ECONT_DELIVERY_DEFAULT_URL);
 		const secret = getMandatoryCfg(SHOP_SECRET_CFG_NAME);
 		const url = `${econtURL}/create_label.php?order_number=${salesOrderId}&token=${secret}`;
 

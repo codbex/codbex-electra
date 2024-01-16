@@ -57,7 +57,7 @@ $(function ($) {
         const eventType = messageData['event'];
         switch (eventType) {
             case 'confirm':
-                if (messageData['printPdf'] === true && !empty__(messageData['shipmentStatus']['pdfURL'])) {
+                if (messageData?.shipmentStatus?.pdfURL) {
                     window.open(messageData['shipmentStatus']['pdfURL'], '_blank');
                 }
 
