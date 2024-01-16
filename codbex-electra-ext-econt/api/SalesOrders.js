@@ -2,7 +2,7 @@ const rs = require("http/rs");
 const http = require("codbex-electra/gen/api/utils/http");
 const configurations = require("core/configurations");
 
-const SHOP_SECRET_CFG_NAME = "ELECTRA_ECONT_SHOP_SECRET_CFG_NAME";
+const SHOP_SECRET_CFG_NAME = "ELECTRA_ECONT_SHOP_SECRET";
 const ECONT_DELIVERY_URL_CFG_NAME = "ELECTRA_ECONT_DELIVERY_URL";
 
 function getMandatoryCfg(configName) {
