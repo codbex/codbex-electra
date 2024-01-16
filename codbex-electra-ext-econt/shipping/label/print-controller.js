@@ -1,5 +1,7 @@
 let angularHttp;
 
+const ECONT_TRACKING_URL = "https://econt.com/services/track-shipment/";
+
 const app = angular.module('templateApp', []);
 app.controller('templateContoller', function ($scope, $http, $sce) {
     angularHttp = $http;
@@ -22,13 +24,15 @@ function handleShippingLabelConfirmed(data) {
     const salesOrderId = parseInt(data.orderData.num);
     const url = `/services/js/codbex-electra/gen/api/SalesOrders/SalesOrder.js/${salesOrderId}`;
 
-    const shipmentStatus = data.shipmentStatus;;
+    const shipmentStatus = data.shipmentStatus;
 
     angularHttp.get(url)
         .then(function (response) {
             const salesOrder = response.data;
 
-            salesOrder.Tracking = shipmentStatus.shipmentNumber;
+            const trackingNumber = shipmentStatus.shipmentNumber;
+            const trackingURL = ECONT_TRACKING_URL + trackingNumber;
+            salesOrder.Tracking = trackingURL;
             salesOrder.DateModified = Date.now();
             salesOrder.DateAdded = undefined;
 
