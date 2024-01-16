@@ -1,6 +1,9 @@
 const rs = require("http/rs");
 const http = require("codbex-electra/gen/api/utils/http");
 const configurations = require("core/configurations");
+const logging = require("log/logging");
+
+const logger = logging.getLogger("api.SalesOrders.js");
 
 const SHOP_SECRET_CFG_NAME = "ELECTRA_ECONT_SHOP_SECRET";
 const ECONT_DELIVERY_URL_CFG_NAME = "ELECTRA_ECONT_DELIVERY_URL";
@@ -11,7 +14,7 @@ function getMandatoryCfg(configName) {
 		return configValue;
 	}
 	const errorMessage = `Missing mandatory configuration with name [${configName}] `;
-	console.error(errorMessage);
+	logger.error(errorMessage);
 	throw new Error(errorMessage);
 }
 rs.service()
