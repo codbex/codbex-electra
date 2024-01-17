@@ -4,54 +4,34 @@ const extensions = require('extensions/extensions');
 const daoApi = require("db/dao");
 
 let dao = daoApi.create({
-	table: "CODBEX_SALESORDERITEM",
+	table: "CODBEX_SALESORDERCOMMENT",
 	properties: [
 		{
 			name: "Id",
-			column: "ORDERITEM_ID",
+			column: "SALESORDERCOMMENT_ID",
 			type: "INTEGER",
 			id: true,
 			autoIncrement: true,
 		},
  {
-			name: "Product",
-			column: "ORDERITEM_PRODUCT",
-			type: "INTEGER",
+			name: "Text",
+			column: "SALESORDERCOMMENT_TEXT",
+			type: "VARCHAR",
+		},
+ {
+			name: "CreatedBy",
+			column: "SALESORDERCOMMENT_CREATEDBY",
+			type: "VARCHAR",
+		},
+ {
+			name: "CreatedAt",
+			column: "SALESORDERCOMMENT_CREATEDAT",
+			type: "TIMESTAMP",
 		},
  {
 			name: "SalesOrder",
-			column: "ORDERITEM_SALESORDER",
+			column: "SALESORDERCOMMENT_SALESORDER",
 			type: "INTEGER",
-		},
- {
-			name: "Name",
-			column: "ORDERITEM_NAME",
-			type: "VARCHAR",
-		},
- {
-			name: "Model",
-			column: "ORDERITEM_MODEL",
-			type: "VARCHAR",
-		},
- {
-			name: "Quantity",
-			column: "ORDERITEM_QUANTITY",
-			type: "INTEGER",
-		},
- {
-			name: "Price",
-			column: "ORDERITEM_PRICE",
-			type: "DECIMAL",
-		},
- {
-			name: "Total",
-			column: "ORDERITEM_TOTAL",
-			type: "DECIMAL",
-		},
- {
-			name: "Tax",
-			column: "ORDERITEM_TAX",
-			type: "DECIMAL",
 		}
 ]
 });
@@ -65,14 +45,16 @@ exports.get = function(id) {
 };
 
 exports.create = function(entity) {
+	entity["CreatedBy"] = require("security/user").getName();
+	entity["CreatedAt"] = new Date();
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
-		table: "CODBEX_SALESORDERITEM",
+		table: "CODBEX_SALESORDERCOMMENT",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "ORDERITEM_ID",
+			column: "SALESORDERCOMMENT_ID",
 			value: id
 		}
 	});
@@ -80,14 +62,16 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
+	entity["CreatedBy"] = require("security/user").getName();
+	entity["CreatedAt"] = new Date();
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",
-		table: "CODBEX_SALESORDERITEM",
+		table: "CODBEX_SALESORDERCOMMENT",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "ORDERITEM_ID",
+			column: "SALESORDERCOMMENT_ID",
 			value: entity.Id
 		}
 	});
@@ -98,18 +82,18 @@ exports.delete = function(id) {
 	dao.remove(id);
 	triggerEvent({
 		operation: "delete",
-		table: "CODBEX_SALESORDERITEM",
+		table: "CODBEX_SALESORDERCOMMENT",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "ORDERITEM_ID",
+			column: "SALESORDERCOMMENT_ID",
 			value: id
 		}
 	});
 };
 
 exports.count = function (SalesOrder) {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDERITEM" WHERE "ORDERITEM_SALESORDER" = ?', [SalesOrder]);
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDERCOMMENT" WHERE "SALESORDERCOMMENT_SALESORDER" = ?', [SalesOrder]);
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;
@@ -121,7 +105,7 @@ exports.count = function (SalesOrder) {
 };
 
 exports.customDataCount = function() {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDERITEM"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDERCOMMENT"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;
@@ -133,7 +117,7 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(data) {
-	let triggerExtensions = extensions.getExtensions("codbex-electra/SalesOrders/SalesOrderItem");
+	let triggerExtensions = extensions.getExtensions("codbex-electra/SalesOrders/SalesOrderComment");
 	try {
 		for (let i=0; i < triggerExtensions.length; i++) {
 			let module = triggerExtensions[i];
@@ -147,5 +131,5 @@ function triggerEvent(data) {
 	} catch (error) {
 		console.error(error);
 	}
-	producer.queue("codbex-electra/SalesOrders/SalesOrderItem").send(JSON.stringify(data));
+	producer.queue("codbex-electra/SalesOrders/SalesOrderComment").send(JSON.stringify(data));
 }

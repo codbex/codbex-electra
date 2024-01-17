@@ -1,16 +1,16 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-electra.SalesOrders.SalesOrderItem';
+		messageHubProvider.eventIdPrefix = 'codbex-electra.SalesOrders.SalesOrderComment';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/SalesOrders/SalesOrderItem.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/SalesOrders/SalesOrderComment.js";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
 		//-----------------Custom Actions-------------------//
 		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=codbex-electra-custom-action").then(function (response) {
-			$scope.pageActions = response.data.filter(e => e.perspective === "SalesOrders" && e.view === "SalesOrderItem" && (e.type === "page" || e.type === undefined));
-			$scope.entityActions = response.data.filter(e => e.perspective === "SalesOrders" && e.view === "SalesOrderItem" && e.type === "entity");
+			$scope.pageActions = response.data.filter(e => e.perspective === "SalesOrders" && e.view === "SalesOrderComment" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.data.filter(e => e.perspective === "SalesOrders" && e.view === "SalesOrderComment" && e.type === "entity");
 		});
 
 		$scope.triggerPageAction = function (actionId) {
@@ -79,7 +79,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.dataPage = pageNumber;
 			entityApi.count(SalesOrder).then(function (response) {
 				if (response.status != 200) {
-					messageHub.showAlertError("SalesOrderItem", `Unable to count SalesOrderItem: '${response.message}'`);
+					messageHub.showAlertError("SalesOrderComment", `Unable to count SalesOrderComment: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
@@ -88,9 +88,16 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				let limit = $scope.dataLimit;
 				entityApi.filter(query, offset, limit).then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("SalesOrderItem", `Unable to list SalesOrderItem: '${response.message}'`);
+						messageHub.showAlertError("SalesOrderComment", `Unable to list SalesOrderComment: '${response.message}'`);
 						return;
 					}
+
+					response.data.forEach(e => {
+						if (e.CreatedAt) {
+							e.CreatedAt = new Date(e.CreatedAt);
+						}
+					});
+
 					$scope.data = response.data;
 				});
 			});
@@ -102,39 +109,36 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.openDetails = function (entity) {
 			$scope.selectedEntity = entity;
-			messageHub.showDialogWindow("SalesOrderItem-details", {
+			messageHub.showDialogWindow("SalesOrderComment-details", {
 				action: "select",
 				entity: entity,
-				optionsProduct: $scope.optionsProduct,
 			});
 		};
 
 		$scope.createEntity = function () {
 			$scope.selectedEntity = null;
-			messageHub.showDialogWindow("SalesOrderItem-details", {
+			messageHub.showDialogWindow("SalesOrderComment-details", {
 				action: "create",
 				entity: {},
 				selectedMainEntityKey: "SalesOrder",
 				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsProduct: $scope.optionsProduct,
 			}, null, false);
 		};
 
 		$scope.updateEntity = function (entity) {
-			messageHub.showDialogWindow("SalesOrderItem-details", {
+			messageHub.showDialogWindow("SalesOrderComment-details", {
 				action: "update",
 				entity: entity,
 				selectedMainEntityKey: "SalesOrder",
 				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsProduct: $scope.optionsProduct,
 			}, null, false);
 		};
 
 		$scope.deleteEntity = function (entity) {
 			let id = entity.Id;
 			messageHub.showDialogAsync(
-				'Delete SalesOrderItem?',
-				`Are you sure you want to delete SalesOrderItem? This action cannot be undone.`,
+				'Delete SalesOrderComment?',
+				`Are you sure you want to delete SalesOrderComment? This action cannot be undone.`,
 				[{
 					id: "delete-btn-yes",
 					type: "emphasized",
@@ -149,7 +153,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (msg.data === "delete-btn-yes") {
 					entityApi.delete(id).then(function (response) {
 						if (response.status != 204) {
-							messageHub.showAlertError("SalesOrderItem", `Unable to delete SalesOrderItem: '${response.message}'`);
+							messageHub.showAlertError("SalesOrderComment", `Unable to delete SalesOrderComment: '${response.message}'`);
 							return;
 						}
 						$scope.loadPage($scope.dataPage);
@@ -158,26 +162,5 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		};
-
-		//----------------Dropdowns-----------------//
-		$scope.optionsProduct = [];
-
-		$http.get("/services/js/codbex-electra/gen/api/Products/Product.js").then(function (response) {
-			$scope.optionsProduct = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Model
-				}
-			});
-		});
-		$scope.optionsProductValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsProduct.length; i++) {
-				if ($scope.optionsProduct[i].value === optionKey) {
-					return $scope.optionsProduct[i].text;
-				}
-			}
-			return null;
-		};
-		//----------------Dropdowns-----------------//
 
 	}]);
