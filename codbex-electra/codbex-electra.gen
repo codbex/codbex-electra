@@ -4915,7 +4915,7 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "new Date()",
+          "calculatedPropertyExpression": "Date.now()",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "SALESORDERCOMMENT_CREATEDAT",
