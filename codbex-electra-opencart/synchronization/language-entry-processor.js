@@ -7,7 +7,7 @@ function modifyBooleanProperty(body, propertyKey) {
 }
 
 exports.onMessage = function (message) {
-    const body = message.getBody();
+    const body = message.getCamelMessage().getBody();
     modifyBooleanProperty(body, "status");
 
     return message;

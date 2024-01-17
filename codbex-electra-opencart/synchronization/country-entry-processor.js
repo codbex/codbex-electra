@@ -15,7 +15,7 @@ function escapeSQLSymbols(body, propertyKey) {
 }
 
 exports.onMessage = function (message) {
-    const body = message.getBody();
+    const body = message.getCamelMessage().getBody();
     modifyBooleanProperty(body, "status");
     modifyBooleanProperty(body, "postcode_required");
     escapeSQLSymbols(body, "name");
