@@ -105,7 +105,23 @@ In the following table you can find more details about the actions which have ef
 ### Management
 
 #### Sales Orders
-![salesorders](misc/images/user-interface/sales-orders.png)
+
+##### Items
+![salesorder-items](misc/images/user-interface/sales-order-items.png)
+
+##### Shipping
+![salesorder-shipping](misc/images/user-interface/sales-order-shipping.png)
+
+##### Payment
+![salesorder-payment](misc/images/user-interface/sales-order-payment.png)
+
+##### Comments
+You can add comments to the selected order.
+![salesorder-comments](misc/images/user-interface/sales-order-comments.png)
+
+##### Print econt shipping label
+You can print an econt shipping label using the `Print Shipping Label` button.
+![salesorder-econt-label](misc/images/user-interface/sales-order-econt-shipping-label.png)
 
 #### Products
 ![products](misc/images/user-interface/products.png)
@@ -133,3 +149,6 @@ In the following table you can find more details about the actions which have ef
 
 #### Settings
 ![settings](misc/images/user-interface/settings.png)
+
+#### Settings launchpad
+![settings-launchpad](misc/images/user-interface/settings-launchpad.png)
