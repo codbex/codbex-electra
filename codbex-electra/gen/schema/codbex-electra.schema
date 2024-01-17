@@ -1408,6 +1408,54 @@
                 ]
             },
             {
+                "name": "CODBEX_SALESORDERCOMMENT",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDERCOMMENT_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 2000,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDERCOMMENT_TEXT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 40,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDERCOMMENT_CREATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDERCOMMENT_CREATEDAT"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDERCOMMENT_SALESORDER"
+                    }
+                ]
+            },
+            {
                 "name": "Currency_CurrencyStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_CURRENCY",
@@ -1676,6 +1724,15 @@
                 "columns": "PRODUCTATTRIBUTE_PRODUCT",
                 "referencedTable": "CODBEX_PRODUCT",
                 "referencedColumns": "PRODUCT_ID"
+            },
+            {
+                "name": "SalesOrderComment_SalesOrder",
+                "type": "foreignKey",
+                "table": "CODBEX_SALESORDERCOMMENT",
+                "constraintName": "SalesOrderComment_SalesOrder",
+                "columns": "SALESORDERCOMMENT_SALESORDER",
+                "referencedTable": "CODBEX_SALESORDER",
+                "referencedColumns": "SALESORDER_ID"
             }
         ]
     }
