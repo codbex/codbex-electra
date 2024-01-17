@@ -47,17 +47,17 @@
 						navigated="next.Id === selectedEntity.Id"
 						ng-click="action == 'select' ? selectEntity(next) : ''">
 						<fd-list-content
-							item-title="{{optionsStoreValue(next.Store)}}">
+							item-title="{{next.Email}}">
 							<fd-list-byline dg-align="left">
 								{{next.FirstName}} |
 								{{next.LastName}} |
-								{{next.Email}} |
-								{{next.Telephone}} |
-								{{next.CustomField}} |
+								{{optionsStoreValue(next.Store)}} |
 								{{optionsStatusValue(next.Status)}} |
-								{{next.Code}} |
+								{{next.Telephone}} |
 								{{next.DateAdded | date: "dd/MMM/yyyy HH:MM"}} |
-								{{optionsLanguageValue(next.Language)}}
+								{{optionsLanguageValue(next.Language)}} |
+								{{next.Code}} |
+								{{next.CustomField}}
 							</fd-list-byline>
 						</fd-list-content>
 					</fd-list-link>

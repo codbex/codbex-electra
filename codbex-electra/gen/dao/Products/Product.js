@@ -20,14 +20,34 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
-			name: "SKU",
-			column: "PRODUCT_SKU",
-			type: "VARCHAR",
+			name: "Manufacturer",
+			column: "PRODUCT_MANUFACTURER",
+			type: "INTEGER",
 		},
  {
 			name: "Status",
 			column: "PRODUCT_STATUS",
 			type: "TINYINT",
+		},
+ {
+			name: "Quantity",
+			column: "PRODUCT_QUANTITY",
+			type: "INTEGER",
+		},
+ {
+			name: "Price",
+			column: "PRODUCT_PRICE",
+			type: "DECIMAL",
+		},
+ {
+			name: "Image",
+			column: "PRODUCT_IMAGE",
+			type: "VARCHAR",
+		},
+ {
+			name: "SKU",
+			column: "PRODUCT_SKU",
+			type: "VARCHAR",
 		},
  {
 			name: "UPC",
@@ -55,41 +75,6 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
-			name: "Manufacturer",
-			column: "PRODUCT_MANUFACTURER",
-			type: "INTEGER",
-		},
- {
-			name: "Location",
-			column: "PRODUCT_LOCATION",
-			type: "VARCHAR",
-		},
- {
-			name: "Quantity",
-			column: "PRODUCT_QUANTITY",
-			type: "INTEGER",
-		},
- {
-			name: "Image",
-			column: "PRODUCT_IMAGE",
-			type: "VARCHAR",
-		},
- {
-			name: "Shipping",
-			column: "PRODUCT_SHIPPING",
-			type: "TINYINT",
-		},
- {
-			name: "Price",
-			column: "PRODUCT_PRICE",
-			type: "DECIMAL",
-		},
- {
-			name: "Points",
-			column: "PRODUCT_POINTS",
-			type: "INTEGER",
-		},
- {
 			name: "DateAvailable",
 			column: "PRODUCT_DATEAVAILABLE",
 			type: "DATE",
@@ -113,6 +98,21 @@ let dao = daoApi.create({
 			name: "Height",
 			column: "PRODUCT_HEIGHT",
 			type: "DECIMAL",
+		},
+ {
+			name: "Points",
+			column: "PRODUCT_POINTS",
+			type: "INTEGER",
+		},
+ {
+			name: "Shipping",
+			column: "PRODUCT_SHIPPING",
+			type: "TINYINT",
+		},
+ {
+			name: "Location",
+			column: "PRODUCT_LOCATION",
+			type: "VARCHAR",
 		},
  {
 			name: "Subtract",

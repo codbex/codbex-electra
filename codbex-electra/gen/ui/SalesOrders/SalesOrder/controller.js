@@ -100,10 +100,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("entitySelected", {
 				entity: entity,
 				selectedMainEntityId: entity.Id,
-				optionsStore: $scope.optionsStore,
-				optionsCustomer: $scope.optionsCustomer,
-				optionsStatus: $scope.optionsStatus,
 				optionsCurrency: $scope.optionsCurrency,
+				optionsStatus: $scope.optionsStatus,
+				optionsCustomer: $scope.optionsCustomer,
+				optionsStore: $scope.optionsStore,
 				optionsLanguage: $scope.optionsLanguage,
 			});
 		};
@@ -114,10 +114,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 			messageHub.postMessage("createEntity", {
 				entity: {},
-				optionsStore: $scope.optionsStore,
-				optionsCustomer: $scope.optionsCustomer,
-				optionsStatus: $scope.optionsStatus,
 				optionsCurrency: $scope.optionsCurrency,
+				optionsStatus: $scope.optionsStatus,
+				optionsCustomer: $scope.optionsCustomer,
+				optionsStore: $scope.optionsStore,
 				optionsLanguage: $scope.optionsLanguage,
 			});
 		};
@@ -126,10 +126,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.action = "update";
 			messageHub.postMessage("updateEntity", {
 				entity: $scope.selectedEntity,
-				optionsStore: $scope.optionsStore,
-				optionsCustomer: $scope.optionsCustomer,
-				optionsStatus: $scope.optionsStatus,
 				optionsCurrency: $scope.optionsCurrency,
+				optionsStatus: $scope.optionsStatus,
+				optionsCustomer: $scope.optionsCustomer,
+				optionsStore: $scope.optionsStore,
 				optionsLanguage: $scope.optionsLanguage,
 			});
 		};
@@ -165,14 +165,23 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsStore = [];
-		$scope.optionsCustomer = [];
-		$scope.optionsStatus = [];
 		$scope.optionsCurrency = [];
+		$scope.optionsStatus = [];
+		$scope.optionsCustomer = [];
+		$scope.optionsStore = [];
 		$scope.optionsLanguage = [];
 
-		$http.get("/services/js/codbex-electra/gen/api/Stores/Store.js").then(function (response) {
-			$scope.optionsStore = response.data.map(e => {
+		$http.get("/services/js/codbex-electra/gen/api/Currencies/Currency.js").then(function (response) {
+			$scope.optionsCurrency = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Code
+				}
+			});
+		});
+
+		$http.get("/services/js/codbex-electra/gen/api/Settings/OrderStatus.js").then(function (response) {
+			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -189,20 +198,11 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-electra/gen/api/Settings/OrderStatus.js").then(function (response) {
-			$scope.optionsStatus = response.data.map(e => {
+		$http.get("/services/js/codbex-electra/gen/api/Stores/Store.js").then(function (response) {
+			$scope.optionsStore = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
-				}
-			});
-		});
-
-		$http.get("/services/js/codbex-electra/gen/api/Currencies/Currency.js").then(function (response) {
-			$scope.optionsCurrency = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Title
 				}
 			});
 		});
@@ -215,18 +215,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
-		$scope.optionsStoreValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsStore.length; i++) {
-				if ($scope.optionsStore[i].value === optionKey) {
-					return $scope.optionsStore[i].text;
-				}
-			}
-			return null;
-		};
-		$scope.optionsCustomerValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsCustomer.length; i++) {
-				if ($scope.optionsCustomer[i].value === optionKey) {
-					return $scope.optionsCustomer[i].text;
+		$scope.optionsCurrencyValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsCurrency.length; i++) {
+				if ($scope.optionsCurrency[i].value === optionKey) {
+					return $scope.optionsCurrency[i].text;
 				}
 			}
 			return null;
@@ -239,10 +231,18 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsCurrencyValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsCurrency.length; i++) {
-				if ($scope.optionsCurrency[i].value === optionKey) {
-					return $scope.optionsCurrency[i].text;
+		$scope.optionsCustomerValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsCustomer.length; i++) {
+				if ($scope.optionsCustomer[i].value === optionKey) {
+					return $scope.optionsCustomer[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsStoreValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsStore.length; i++) {
+				if ($scope.optionsStore[i].value === optionKey) {
+					return $scope.optionsStore[i].text;
 				}
 			}
 			return null;

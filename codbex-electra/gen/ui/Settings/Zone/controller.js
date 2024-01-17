@@ -83,8 +83,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Zone-details", {
 				action: "select",
 				entity: entity,
-				optionsStatus: $scope.optionsStatus,
 				optionsCountry: $scope.optionsCountry,
+				optionsStatus: $scope.optionsStatus,
 			});
 		};
 
@@ -93,8 +93,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Zone-details", {
 				action: "create",
 				entity: {},
-				optionsStatus: $scope.optionsStatus,
 				optionsCountry: $scope.optionsCountry,
+				optionsStatus: $scope.optionsStatus,
 			}, null, false);
 		};
 
@@ -102,8 +102,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Zone-details", {
 				action: "update",
 				entity: entity,
-				optionsStatus: $scope.optionsStatus,
 				optionsCountry: $scope.optionsCountry,
+				optionsStatus: $scope.optionsStatus,
 			}, null, false);
 		};
 
@@ -137,17 +137,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsStatus = [];
 		$scope.optionsCountry = [];
-
-		$http.get("/services/js/codbex-electra/gen/api/Settings/ZoneStatus.js").then(function (response) {
-			$scope.optionsStatus = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
+		$scope.optionsStatus = [];
 
 		$http.get("/services/js/codbex-electra/gen/api/Settings/Country.js").then(function (response) {
 			$scope.optionsCountry = response.data.map(e => {
@@ -157,18 +148,27 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
-		$scope.optionsStatusValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsStatus.length; i++) {
-				if ($scope.optionsStatus[i].value === optionKey) {
-					return $scope.optionsStatus[i].text;
+
+		$http.get("/services/js/codbex-electra/gen/api/Settings/ZoneStatus.js").then(function (response) {
+			$scope.optionsStatus = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
 				}
-			}
-			return null;
-		};
+			});
+		});
 		$scope.optionsCountryValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsCountry.length; i++) {
 				if ($scope.optionsCountry[i].value === optionKey) {
 					return $scope.optionsCountry[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsStatusValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsStatus.length; i++) {
+				if ($scope.optionsStatus[i].value === optionKey) {
+					return $scope.optionsStatus[i].text;
 				}
 			}
 			return null;

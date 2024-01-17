@@ -28,25 +28,25 @@
 				<thead fd-table-header sticky="true">
 					<tr fd-table-row>
 						<th fd-table-header-cell>Model</th>
-						<th fd-table-header-cell>SKU</th>
+						<th fd-table-header-cell>Manufacturer</th>
 						<th fd-table-header-cell>Status</th>
+						<th fd-table-header-cell>Quantity</th>
+						<th fd-table-header-cell>Price</th>
+						<th fd-table-header-cell>Image</th>
+						<th fd-table-header-cell>SKU</th>
 						<th fd-table-header-cell>UPC</th>
 						<th fd-table-header-cell>EAN</th>
 						<th fd-table-header-cell>JAN</th>
 						<th fd-table-header-cell>ISBN</th>
 						<th fd-table-header-cell>MPN</th>
-						<th fd-table-header-cell>Manufacturer</th>
-						<th fd-table-header-cell>Location</th>
-						<th fd-table-header-cell>Quantity</th>
-						<th fd-table-header-cell>Image</th>
-						<th fd-table-header-cell>Shipping</th>
-						<th fd-table-header-cell>Price</th>
-						<th fd-table-header-cell>Points</th>
 						<th fd-table-header-cell>DateAvailable</th>
 						<th fd-table-header-cell>Weight</th>
 						<th fd-table-header-cell>Length</th>
 						<th fd-table-header-cell>Width</th>
 						<th fd-table-header-cell>Height</th>
+						<th fd-table-header-cell>Points</th>
+						<th fd-table-header-cell>Shipping</th>
+						<th fd-table-header-cell>Location</th>
 						<th fd-table-header-cell>Subtract</th>
 						<th fd-table-header-cell>Minimum</th>
 						<th fd-table-header-cell>DateAdded</th>
@@ -62,27 +62,21 @@
 					<tr fd-table-row hoverable="true" ng-repeat="next in data"
 						dg-selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Model}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.SKU}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							{{optionsManufacturerValue(next.Manufacturer)}}
+						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsStatusValue(next.Status)}}
 						</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Quantity}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Price}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Image}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.SKU}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.UPC}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.EAN}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.JAN}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.ISBN}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.MPN}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsManufacturerValue(next.Manufacturer)}}
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Location}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Quantity}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Image}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-checkbox id="idShipping" compact="false" ng-disabled="true" ng-model="next.Shipping"></fd-checkbox>
-							<fd-checkbox-label for="idShipping"></fd-checkbox-label>
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Price}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Points}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							<fd-input type="date" ng-model="next.DateAvailable" ng-readonly="true"></fd-input>
 						</td>
@@ -90,6 +84,12 @@
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Length}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Width}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Height}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Points}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							<fd-checkbox id="idShipping" compact="false" ng-disabled="true" ng-model="next.Shipping"></fd-checkbox>
+							<fd-checkbox-label for="idShipping"></fd-checkbox-label>
+						</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Location}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							<fd-checkbox id="idSubtract" compact="false" ng-disabled="true" ng-model="next.Subtract"></fd-checkbox>
 							<fd-checkbox-label for="idSubtract"></fd-checkbox-label>

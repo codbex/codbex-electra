@@ -38,10 +38,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.$apply(function () {
 				$scope.entity = {};
 				$scope.formErrors = {};
-				$scope.optionsStore = [];
-				$scope.optionsCustomer = [];
-				$scope.optionsStatus = [];
 				$scope.optionsCurrency = [];
+				$scope.optionsStatus = [];
+				$scope.optionsCustomer = [];
+				$scope.optionsStore = [];
 				$scope.optionsLanguage = [];
 				$scope.action = 'select';
 			});
@@ -56,10 +56,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					msg.data.entity.DateModified = new Date(msg.data.entity.DateModified);
 				}
 				$scope.entity = msg.data.entity;
-				$scope.optionsStore = msg.data.optionsStore;
-				$scope.optionsCustomer = msg.data.optionsCustomer;
-				$scope.optionsStatus = msg.data.optionsStatus;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
+				$scope.optionsStatus = msg.data.optionsStatus;
+				$scope.optionsCustomer = msg.data.optionsCustomer;
+				$scope.optionsStore = msg.data.optionsStore;
 				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.action = 'select';
 			});
@@ -68,10 +68,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("createEntity", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
-				$scope.optionsStore = msg.data.optionsStore;
-				$scope.optionsCustomer = msg.data.optionsCustomer;
-				$scope.optionsStatus = msg.data.optionsStatus;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
+				$scope.optionsStatus = msg.data.optionsStatus;
+				$scope.optionsCustomer = msg.data.optionsCustomer;
+				$scope.optionsStore = msg.data.optionsStore;
 				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.action = 'create';
 				// Set Errors for required fields only
@@ -89,10 +89,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					msg.data.entity.DateModified = new Date(msg.data.entity.DateModified);
 				}
 				$scope.entity = msg.data.entity;
-				$scope.optionsStore = msg.data.optionsStore;
-				$scope.optionsCustomer = msg.data.optionsCustomer;
-				$scope.optionsStatus = msg.data.optionsStatus;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
+				$scope.optionsStatus = msg.data.optionsStatus;
+				$scope.optionsCustomer = msg.data.optionsCustomer;
+				$scope.optionsStore = msg.data.optionsStore;
 				$scope.optionsLanguage = msg.data.optionsLanguage;
 				$scope.action = 'update';
 			});

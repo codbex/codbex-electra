@@ -44,6 +44,11 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
+			name: "Country",
+			column: "SALESORDERSHIPPING_COUNTRY",
+			type: "INTEGER",
+		},
+ {
 			name: "City",
 			column: "SALESORDERSHIPPING_CITY",
 			type: "VARCHAR",
@@ -54,9 +59,14 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
-			name: "Country",
-			column: "SALESORDERSHIPPING_COUNTRY",
-			type: "INTEGER",
+			name: "Method",
+			column: "SALESORDERSHIPPING_METHOD",
+			type: "VARCHAR",
+		},
+ {
+			name: "Code",
+			column: "SALESORDERSHIPPING_CODE",
+			type: "VARCHAR",
 		},
  {
 			name: "AddressFormat",
@@ -66,16 +76,6 @@ let dao = daoApi.create({
  {
 			name: "CustomField",
 			column: "SALESORDERSHIPPING_CUSTOMFIELD",
-			type: "VARCHAR",
-		},
- {
-			name: "Method",
-			column: "SALESORDERSHIPPING_METHOD",
-			type: "VARCHAR",
-		},
- {
-			name: "Code",
-			column: "SALESORDERSHIPPING_CODE",
 			type: "VARCHAR",
 		},
  {

@@ -14,9 +14,9 @@ let dao = daoApi.create({
 			autoIncrement: true,
 		},
  {
-			name: "Store",
-			column: "CUSTOMER_STORE",
-			type: "INTEGER",
+			name: "Email",
+			column: "CUSTOMER_EMAIL",
+			type: "VARCHAR",
 		},
  {
 			name: "FirstName",
@@ -29,19 +29,9 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
-			name: "Email",
-			column: "CUSTOMER_EMAIL",
-			type: "VARCHAR",
-		},
- {
-			name: "Telephone",
-			column: "CUSTOMER_TELEPHONE",
-			type: "VARCHAR",
-		},
- {
-			name: "CustomField",
-			column: "CUSTOMER_CUSTOMFIELD",
-			type: "VARCHAR",
+			name: "Store",
+			column: "CUSTOMER_STORE",
+			type: "INTEGER",
 		},
  {
 			name: "Status",
@@ -49,8 +39,8 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
-			name: "Code",
-			column: "CUSTOMER_CODE",
+			name: "Telephone",
+			column: "CUSTOMER_TELEPHONE",
 			type: "VARCHAR",
 		},
  {
@@ -62,6 +52,16 @@ let dao = daoApi.create({
 			name: "Language",
 			column: "CUSTOMER_LANGUAGE",
 			type: "INTEGER",
+		},
+ {
+			name: "Code",
+			column: "CUSTOMER_CODE",
+			type: "VARCHAR",
+		},
+ {
+			name: "CustomField",
+			column: "CUSTOMER_CUSTOMFIELD",
+			type: "VARCHAR",
 		}
 ]
 });

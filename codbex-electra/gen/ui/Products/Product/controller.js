@@ -96,8 +96,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Product-details", {
 				action: "select",
 				entity: entity,
-				optionsStatus: $scope.optionsStatus,
 				optionsManufacturer: $scope.optionsManufacturer,
+				optionsStatus: $scope.optionsStatus,
 				optionsStockStatus: $scope.optionsStockStatus,
 			});
 		};
@@ -107,8 +107,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Product-details", {
 				action: "create",
 				entity: {},
-				optionsStatus: $scope.optionsStatus,
 				optionsManufacturer: $scope.optionsManufacturer,
+				optionsStatus: $scope.optionsStatus,
 				optionsStockStatus: $scope.optionsStockStatus,
 			}, null, false);
 		};
@@ -117,8 +117,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Product-details", {
 				action: "update",
 				entity: entity,
-				optionsStatus: $scope.optionsStatus,
 				optionsManufacturer: $scope.optionsManufacturer,
+				optionsStatus: $scope.optionsStatus,
 				optionsStockStatus: $scope.optionsStockStatus,
 			}, null, false);
 		};
@@ -153,12 +153,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsStatus = [];
 		$scope.optionsManufacturer = [];
+		$scope.optionsStatus = [];
 		$scope.optionsStockStatus = [];
 
-		$http.get("/services/js/codbex-electra/gen/api/Settings/ProductStatus.js").then(function (response) {
-			$scope.optionsStatus = response.data.map(e => {
+		$http.get("/services/js/codbex-electra/gen/api/Manufacturers/Manufacturer.js").then(function (response) {
+			$scope.optionsManufacturer = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -166,8 +166,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-electra/gen/api/Manufacturers/Manufacturer.js").then(function (response) {
-			$scope.optionsManufacturer = response.data.map(e => {
+		$http.get("/services/js/codbex-electra/gen/api/Settings/ProductStatus.js").then(function (response) {
+			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -183,18 +183,18 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
-		$scope.optionsStatusValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsStatus.length; i++) {
-				if ($scope.optionsStatus[i].value === optionKey) {
-					return $scope.optionsStatus[i].text;
-				}
-			}
-			return null;
-		};
 		$scope.optionsManufacturerValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsManufacturer.length; i++) {
 				if ($scope.optionsManufacturer[i].value === optionKey) {
 					return $scope.optionsManufacturer[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsStatusValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsStatus.length; i++) {
+				if ($scope.optionsStatus[i].value === optionKey) {
+					return $scope.optionsStatus[i].text;
 				}
 			}
 			return null;

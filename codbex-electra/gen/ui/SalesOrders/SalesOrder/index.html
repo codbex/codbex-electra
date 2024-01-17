@@ -47,19 +47,19 @@
 						navigated="next.Id === selectedEntity.Id"
 						ng-click="action == 'select' ? selectEntity(next) : ''">
 						<fd-list-content
-							item-title="{{optionsStoreValue(next.Store)}}">
+							item-title="{{next.Total}}">
 							<fd-list-byline dg-align="left">
-								{{next.InvoiceNumber}} |
-								{{next.InvoicePrefix}} |
-								{{next.Comment}} |
-								{{next.Total}} |
-								{{optionsCustomerValue(next.Customer)}} |
+								{{optionsCurrencyValue(next.Currency)}} |
 								{{optionsStatusValue(next.Status)}} |
-								<a href="{{next.Tracking}}" target="_blank" class="fd-link">{{next.Tracking}}</a> |
-								{{next.AcceptLanguage}} |
+								{{optionsCustomerValue(next.Customer)}} |
+								{{optionsStoreValue(next.Store)}} |
 								{{next.DateAdded | date: "dd/MMM/yyyy HH:MM"}} |
 								{{next.DateModified | date: "dd/MMM/yyyy HH:MM"}} |
-								{{optionsCurrencyValue(next.Currency)}} |
+								<a href="{{next.Tracking}}" target="_blank" class="fd-link">{{next.Tracking}}</a> |
+								{{next.Comment}} |
+								{{next.InvoiceNumber}} |
+								{{next.InvoicePrefix}} |
+								{{next.AcceptLanguage}} |
 								{{optionsLanguageValue(next.Language)}}
 							</fd-list-byline>
 						</fd-list-content>

@@ -19,6 +19,11 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
+			name: "Status",
+			column: "COUNTRY_STATUS",
+			type: "INTEGER",
+		},
+ {
 			name: "IsoCode2",
 			column: "COUNTRY_ISOCODE2",
 			type: "VARCHAR",
@@ -32,11 +37,6 @@ let dao = daoApi.create({
 			name: "PostcodeRequired",
 			column: "COUNTRY_POSTCODEREQUIRED",
 			type: "TINYINT",
-		},
- {
-			name: "Status",
-			column: "COUNTRY_STATUS",
-			type: "INTEGER",
 		}
 ]
 });

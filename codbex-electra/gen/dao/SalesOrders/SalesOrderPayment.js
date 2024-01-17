@@ -14,6 +14,11 @@ let dao = daoApi.create({
 			autoIncrement: true,
 		},
  {
+			name: "Zone",
+			column: "SALESORDERPAYMENT_ZONE",
+			type: "INTEGER",
+		},
+ {
 			name: "FirstName",
 			column: "SALESORDERPAYMENT_FIRSTNAME",
 			type: "VARCHAR",
@@ -22,11 +27,6 @@ let dao = daoApi.create({
 			name: "LastName",
 			column: "SALESORDERPAYMENT_LASTNAME",
 			type: "VARCHAR",
-		},
- {
-			name: "Zone",
-			column: "SALESORDERPAYMENT_ZONE",
-			type: "INTEGER",
 		},
  {
 			name: "Company",
@@ -44,6 +44,11 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
+			name: "Country",
+			column: "SALESORDERPAYMENT_COUNTRY",
+			type: "INTEGER",
+		},
+ {
 			name: "City",
 			column: "SALESORDERPAYMENT_CITY",
 			type: "VARCHAR",
@@ -54,9 +59,14 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
-			name: "Country",
-			column: "SALESORDERPAYMENT_COUNTRY",
-			type: "INTEGER",
+			name: "Method",
+			column: "SALESORDERPAYMENT_METHOD",
+			type: "VARCHAR",
+		},
+ {
+			name: "Code",
+			column: "SALESORDERPAYMENT_CODE",
+			type: "VARCHAR",
 		},
  {
 			name: "AddressFormat",
@@ -66,16 +76,6 @@ let dao = daoApi.create({
  {
 			name: "CustomField",
 			column: "SALESORDERPAYMENT_CUSTOMFIELD",
-			type: "VARCHAR",
-		},
- {
-			name: "Method",
-			column: "SALESORDERPAYMENT_METHOD",
-			type: "VARCHAR",
-		},
- {
-			name: "Code",
-			column: "SALESORDERPAYMENT_CODE",
 			type: "VARCHAR",
 		},
  {
