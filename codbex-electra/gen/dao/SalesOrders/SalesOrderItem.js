@@ -19,8 +19,8 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
-			name: "Order",
-			column: "ORDERITEM_ORDER",
+			name: "SalesOrder",
+			column: "ORDERITEM_SALESORDER",
 			type: "INTEGER",
 		},
  {
@@ -108,8 +108,8 @@ exports.delete = function(id) {
 	});
 };
 
-exports.count = function (Order) {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDERITEM" WHERE "ORDERITEM_ORDER" = ?', [Order]);
+exports.count = function (SalesOrder) {
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDERITEM" WHERE "ORDERITEM_SALESORDER" = ?', [SalesOrder]);
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

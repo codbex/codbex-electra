@@ -2424,7 +2424,7 @@
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
-          "dataName": "ORDERITEM_ORDER",
+          "dataName": "ORDERITEM_SALESORDER",
           "dataNullable": true,
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
@@ -2432,7 +2432,7 @@
           "dataType": "INTEGER",
           "dataUnique": false,
           "isCalculatedProperty": false,
-          "name": "Order",
+          "name": "SalesOrder",
           "relationshipCardinality": "1_n",
           "relationshipName": "SalesOrderItem_SalesOrder",
           "relationshipType": "COMPOSITION",
@@ -2442,7 +2442,7 @@
           "relationshipEntityName": "SalesOrder",
           "relationshipEntityPerspectiveName": "SalesOrders",
           "dataNotNull": false,
-          "widgetLabel": "Order",
+          "widgetLabel": "SalesOrder",
           "inputRule": ""
         },
         {
@@ -2593,7 +2593,7 @@
       "primaryKeysString": "Id",
       "hasDropdowns": true,
       "masterEntity": "SalesOrder",
-      "masterEntityId": "Order"
+      "masterEntityId": "SalesOrder"
     },
     {
       "properties": [

@@ -23,11 +23,11 @@ rs.service()
 				http.sendInternalServerError(error.message);
 			}
         })
-	.resource("count/{Order}")
+	.resource("count/{SalesOrder}")
 		.get(function(ctx, request) {
-			let Order = parseInt(ctx.pathParameters.Order);
-			Order = isNaN(Order) ? ctx.pathParameters.Order : Order;
-			http.sendResponseOk("" + dao.count(Order));
+			let SalesOrder = parseInt(ctx.pathParameters.SalesOrder);
+			SalesOrder = isNaN(SalesOrder) ? ctx.pathParameters.SalesOrder : SalesOrder;
+			http.sendResponseOk("" + dao.count(SalesOrder));
 		})
 		.catch(function(ctx, error) {
             if (error.name === "ForbiddenError") {

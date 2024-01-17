@@ -75,15 +75,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//-----------------Events-------------------//
 
 		$scope.loadPage = function (pageNumber) {
-			let Order = $scope.selectedMainEntityId;
+			let SalesOrder = $scope.selectedMainEntityId;
 			$scope.dataPage = pageNumber;
-			entityApi.count(Order).then(function (response) {
+			entityApi.count(SalesOrder).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("SalesOrderItem", `Unable to count SalesOrderItem: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
-				let query = `Order=${Order}`;
+				let query = `SalesOrder=${SalesOrder}`;
 				let offset = (pageNumber - 1) * $scope.dataLimit;
 				let limit = $scope.dataLimit;
 				entityApi.filter(query, offset, limit).then(function (response) {
@@ -114,7 +114,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("SalesOrderItem-details", {
 				action: "create",
 				entity: {},
-				selectedMainEntityKey: "Order",
+				selectedMainEntityKey: "SalesOrder",
 				selectedMainEntityId: $scope.selectedMainEntityId,
 				optionsProduct: $scope.optionsProduct,
 			}, null, false);
@@ -124,7 +124,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("SalesOrderItem-details", {
 				action: "update",
 				entity: entity,
-				selectedMainEntityKey: "Order",
+				selectedMainEntityKey: "SalesOrder",
 				selectedMainEntityId: $scope.selectedMainEntityId,
 				optionsProduct: $scope.optionsProduct,
 			}, null, false);

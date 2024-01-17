@@ -38,7 +38,7 @@
                       expression: |-
                         MERGE INTO CODBEX_SALESORDERITEM
                             (
-                                ORDERITEM_ID, ORDERITEM_PRODUCT, ORDERITEM_ORDER, 
+                                ORDERITEM_ID, ORDERITEM_PRODUCT, ORDERITEM_SALESORDER, 
                                 ORDERITEM_NAME, ORDERITEM_MODEL, ORDERITEM_QUANTITY, 
                                 ORDERITEM_PRICE, ORDERITEM_TOTAL, ORDERITEM_TAX
                             ) 

@@ -599,7 +599,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_ORDER"
+                        "name": "ORDERITEM_SALESORDER"
                     },
                     {
                         "type": "VARCHAR",
@@ -1586,7 +1586,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDERITEM",
                 "constraintName": "SalesOrderItem_SalesOrder",
-                "columns": "ORDERITEM_ORDER",
+                "columns": "ORDERITEM_SALESORDER",
                 "referencedTable": "CODBEX_SALESORDER",
                 "referencedColumns": "SALESORDER_ID"
             },
