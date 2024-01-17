@@ -46,7 +46,7 @@ exports.get = function(id) {
 
 exports.create = function(entity) {
 	entity["CreatedBy"] = require("security/user").getName();
-	entity["CreatedAt"] = new Date();
+	entity["CreatedAt"] = Date.now();
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
@@ -63,7 +63,7 @@ exports.create = function(entity) {
 
 exports.update = function(entity) {
 	entity["CreatedBy"] = require("security/user").getName();
-	entity["CreatedAt"] = new Date();
+	entity["CreatedAt"] = Date.now();
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",
