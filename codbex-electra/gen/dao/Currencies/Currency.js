@@ -65,6 +65,7 @@ exports.get = function(id) {
 };
 
 exports.create = function(entity) {
+	entity["DateModified"] = Date.now();
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
@@ -80,6 +81,7 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
+	entity["DateModified"] = Date.now();
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",

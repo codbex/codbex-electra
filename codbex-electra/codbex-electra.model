@@ -121,7 +121,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpression": "Date.now()",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "CURRENCY_DATEMODIFIED",
@@ -131,7 +131,7 @@
                         "dataScale": "NaN",
                         "dataType": "TIMESTAMP",
                         "dataUnique": "false",
-                        "isCalculatedProperty": "false",
+                        "isCalculatedProperty": "true",
                         "name": "DateModified",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
@@ -320,7 +320,7 @@
                         "widgetType": "DATETIME-LOCAL"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpression": "Date.now()",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "SALESORDER_DATEMODIFIED",
@@ -330,7 +330,7 @@
                         "dataScale": "NaN",
                         "dataType": "TIMESTAMP",
                         "dataUnique": "false",
-                        "isCalculatedProperty": "false",
+                        "isCalculatedProperty": "true",
                         "name": "DateModified",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
@@ -1964,7 +1964,7 @@
                         "widgetType": "DATETIME-LOCAL"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpression": "Date.now()",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "PRODUCT_DATEMODIFIED",
@@ -1974,7 +1974,7 @@
                         "dataScale": "NaN",
                         "dataType": "TIMESTAMP",
                         "dataUnique": "false",
-                        "isCalculatedProperty": "false",
+                        "isCalculatedProperty": "true",
                         "name": "DateModified",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",

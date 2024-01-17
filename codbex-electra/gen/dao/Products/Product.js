@@ -157,6 +157,7 @@ exports.get = function(id) {
 
 exports.create = function(entity) {
 	EntityUtils.setLocalDate(entity, "DateAvailable");
+	entity["DateModified"] = Date.now();
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
@@ -173,6 +174,7 @@ exports.create = function(entity) {
 
 exports.update = function(entity) {
 	// EntityUtils.setLocalDate(entity, "DateAvailable");
+	entity["DateModified"] = Date.now();
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",
