@@ -554,6 +554,8 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "LANGUAGESTATUS_NAME"
                     }
@@ -1014,8 +1016,10 @@
                         "name": "EMPLOYEE_CODE"
                     },
                     {
-                        "type": "VARCHAR",
+                        "type": "TIMESTAMP",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "EMPLOYEE_DATEADDED"
                     },
@@ -1324,6 +1328,8 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "CURRENCYSTATUS_NAME"
                     }

@@ -82,10 +82,7 @@
                                 ng-change="isValid(formFieldset['Quantity'].$valid, 'Quantity')"
                                 ng-model="entity.Quantity"
                                 ng-readonly="action === 'select'"
-                                ng-minlength="${property.minLength} || 0"
-                                ng-maxlength="${property.maxLength} || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
+                                type="number"
                                 placeholder="Enter Quantity">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -101,10 +98,7 @@
                                 ng-change="isValid(formFieldset['Price'].$valid, 'Price')"
                                 ng-model="entity.Price"
                                 ng-readonly="action === 'select'"
-                                ng-minlength="${property.minLength} || 0"
-                                ng-maxlength="${property.maxLength} || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
+                                type="number"
                                 placeholder="Enter Price">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -268,10 +262,7 @@
                                 ng-change="isValid(formFieldset['Weight'].$valid, 'Weight')"
                                 ng-model="entity.Weight"
                                 ng-readonly="action === 'select'"
-                                ng-minlength="${property.minLength} || 0"
-                                ng-maxlength="${property.maxLength} || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
+                                type="number"
                                 placeholder="Enter Weight">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -287,10 +278,7 @@
                                 ng-change="isValid(formFieldset['Length'].$valid, 'Length')"
                                 ng-model="entity.Length"
                                 ng-readonly="action === 'select'"
-                                ng-minlength="${property.minLength} || 0"
-                                ng-maxlength="${property.maxLength} || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
+                                type="number"
                                 placeholder="Enter Length">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -306,10 +294,7 @@
                                 ng-change="isValid(formFieldset['Width'].$valid, 'Width')"
                                 ng-model="entity.Width"
                                 ng-readonly="action === 'select'"
-                                ng-minlength="${property.minLength} || 0"
-                                ng-maxlength="${property.maxLength} || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
+                                type="number"
                                 placeholder="Enter Width">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -325,10 +310,7 @@
                                 ng-change="isValid(formFieldset['Height'].$valid, 'Height')"
                                 ng-model="entity.Height"
                                 ng-readonly="action === 'select'"
-                                ng-minlength="${property.minLength} || 0"
-                                ng-maxlength="${property.maxLength} || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
+                                type="number"
                                 placeholder="Enter Height">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -393,23 +375,30 @@
                                 ng-change="isValid(formFieldset['Points'].$valid, 'Points')"
                                 ng-model="entity.Points"
                                 ng-readonly="action === 'select'"
-                                ng-minlength="${property.minLength} || 0"
-                                ng-maxlength="${property.maxLength} || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
+                                type="number"
                                 placeholder="Enter Points">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
                     </fd-form-item>
-                    <fd-form-item>
-                        <fd-checkbox id="idShipping"
-                            compact="false"
-                            ng-required="false"
-                            ng-disabled="action === 'select'"
-                            ng-model="entity.Shipping">
-                        </fd-checkbox>
-                        <fd-checkbox-label for="idShipping" dg-required="false">Shipping</fd-checkbox-label>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idShipping" dg-required="false" dg-colon="true">Shipping</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.Shipping ? false : true }}">
+                            <fd-input id="idShipping"
+                                name="Shipping"
+                                state="{{ formErrors.Shipping ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['Shipping'].$valid, 'Shipping')"
+                                ng-model="entity.Shipping"
+                                ng-readonly="action === 'select'"
+                                ng-minlength="${property.minLength} || 0"
+                                ng-maxlength="${property.maxLength} || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter Shipping">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
                         <fd-form-label for="idLocation" dg-required="false" dg-colon="true">Location</fd-form-label>
@@ -422,7 +411,7 @@
                                 ng-model="entity.Location"
                                 ng-readonly="action === 'select'"
                                 ng-minlength="0.0 || 0"
-                                ng-maxlength="20.0 || -1"
+                                ng-maxlength="128.0 || -1"
                                 dg-input-rules="{ patterns: [''] }"
                                 type="text"
                                 placeholder="Enter Location">
@@ -430,14 +419,24 @@
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
                     </fd-form-item>
-                    <fd-form-item>
-                        <fd-checkbox id="idSubtract"
-                            compact="false"
-                            ng-required="false"
-                            ng-disabled="action === 'select'"
-                            ng-model="entity.Subtract">
-                        </fd-checkbox>
-                        <fd-checkbox-label for="idSubtract" dg-required="false">Subtract</fd-checkbox-label>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idSubtract" dg-required="false" dg-colon="true">Subtract</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.Subtract ? false : true }}">
+                            <fd-input id="idSubtract"
+                                name="Subtract"
+                                state="{{ formErrors.Subtract ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['Subtract'].$valid, 'Subtract')"
+                                ng-model="entity.Subtract"
+                                ng-readonly="action === 'select'"
+                                ng-minlength="${property.minLength} || 0"
+                                ng-maxlength="${property.maxLength} || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter Subtract">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
                         <fd-form-label for="idMinimum" dg-required="false" dg-colon="true">Minimum</fd-form-label>
@@ -449,10 +448,7 @@
                                 ng-change="isValid(formFieldset['Minimum'].$valid, 'Minimum')"
                                 ng-model="entity.Minimum"
                                 ng-readonly="action === 'select'"
-                                ng-minlength="${property.minLength} || 0"
-                                ng-maxlength="${property.maxLength} || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
+                                type="number"
                                 placeholder="Enter Minimum">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>

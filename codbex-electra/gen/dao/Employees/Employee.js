@@ -41,7 +41,7 @@ let dao = daoApi.create({
  {
 			name: "DateAdded",
 			column: "EMPLOYEE_DATEADDED",
-			type: "VARCHAR",
+			type: "TIMESTAMP",
 		},
  {
 			name: "Team",

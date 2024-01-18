@@ -80,10 +80,7 @@
                                 ng-change="isValid(formFieldset['Quantity'].$valid, 'Quantity')"
                                 ng-model="entity.Quantity"
                                 ng-readonly="action === 'select'"
-                                ng-minlength="${property.minLength} || 0"
-                                ng-maxlength="${property.maxLength} || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
+                                type="number"
                                 placeholder="Enter Quantity">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -99,10 +96,7 @@
                                 ng-change="isValid(formFieldset['Price'].$valid, 'Price')"
                                 ng-model="entity.Price"
                                 ng-readonly="action === 'select'"
-                                ng-minlength="${property.minLength} || 0"
-                                ng-maxlength="${property.maxLength} || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
+                                type="number"
                                 placeholder="Enter Price">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -118,10 +112,7 @@
                                 ng-change="isValid(formFieldset['Total'].$valid, 'Total')"
                                 ng-model="entity.Total"
                                 ng-readonly="action === 'select'"
-                                ng-minlength="${property.minLength} || 0"
-                                ng-maxlength="${property.maxLength} || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
+                                type="number"
                                 placeholder="Enter Total">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -137,10 +128,7 @@
                                 ng-change="isValid(formFieldset['Tax'].$valid, 'Tax')"
                                 ng-model="entity.Tax"
                                 ng-readonly="action === 'select'"
-                                ng-minlength="${property.minLength} || 0"
-                                ng-maxlength="${property.maxLength} || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
+                                type="number"
                                 placeholder="Enter Tax">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>

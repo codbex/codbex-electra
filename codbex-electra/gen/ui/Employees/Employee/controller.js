@@ -68,6 +68,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 						messageHub.showAlertError("Employee", `Unable to list Employee: '${response.message}'`);
 						return;
 					}
+
+					response.data.forEach(e => {
+						if (e.DateAdded) {
+							e.DateAdded = new Date(e.DateAdded);
+						}
+					});
+
 					$scope.data = response.data;
 				});
 			});

@@ -212,7 +212,7 @@
                         "name": "Total",
                         "widgetIsMajor": "true",
                         "widgetLength": "19",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -367,7 +367,7 @@
                         "isCalculatedProperty": "false",
                         "name": "Tracking",
                         "widgetIsMajor": "true",
-                        "widgetLength": "128",
+                        "widgetLength": "255",
                         "widgetType": "URL"
                     },
                     {
@@ -384,7 +384,7 @@
                         "isCalculatedProperty": "false",
                         "name": "Comment",
                         "widgetIsMajor": "true",
-                        "widgetLength": "256",
+                        "widgetLength": "2000",
                         "widgetType": "TEXTAREA"
                     },
                     {
@@ -401,8 +401,8 @@
                         "isCalculatedProperty": "false",
                         "name": "InvoiceNumber",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetType": "TEXTBOX"
+                        "widgetLength": "11",
+                        "widgetType": "NUMBER"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -418,7 +418,7 @@
                         "isCalculatedProperty": "false",
                         "name": "InvoicePrefix",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "26",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -435,7 +435,7 @@
                         "isCalculatedProperty": "false",
                         "name": "AcceptLanguage",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "255",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -580,8 +580,8 @@
                         "isCalculatedProperty": "false",
                         "name": "Email",
                         "widgetIsMajor": "true",
-                        "widgetLength": "255",
-                        "widgetType": "TEXTBOX"
+                        "widgetLength": "96",
+                        "widgetType": "EMAIL"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -731,7 +731,7 @@
                         "isCalculatedProperty": "false",
                         "name": "Code",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "40",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -748,7 +748,7 @@
                         "isCalculatedProperty": "false",
                         "name": "CustomField",
                         "widgetIsMajor": "true",
-                        "widgetLength": "255",
+                        "widgetLength": "2000",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -874,7 +874,7 @@
                         "isCalculatedProperty": "false",
                         "name": "PostcodeRequired",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "1",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -1000,7 +1000,7 @@
                         "isCalculatedProperty": "false",
                         "name": "Name",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "128",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1039,7 +1039,7 @@
                         "isCalculatedProperty": "false",
                         "name": "Code",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "32",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -1143,7 +1143,7 @@
                         "isCalculatedProperty": "false",
                         "name": "Name",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "32",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -1213,7 +1213,7 @@
                         "isCalculatedProperty": "false",
                         "name": "Code",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "5",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1297,7 +1297,9 @@
                         "dataLength": "20",
                         "dataName": "LANGUAGESTATUS_NAME",
                         "dataNullable": "true",
+                        "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
                         "dataType": "VARCHAR",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
@@ -1490,7 +1492,7 @@
                         "name": "Quantity",
                         "widgetIsMajor": "true",
                         "widgetLength": "4",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1507,7 +1509,7 @@
                         "name": "Price",
                         "widgetIsMajor": "true",
                         "widgetLength": "19",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1524,7 +1526,7 @@
                         "name": "Total",
                         "widgetIsMajor": "true",
                         "widgetLength": "19",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1541,7 +1543,7 @@
                         "name": "Tax",
                         "widgetIsMajor": "true",
                         "widgetLength": "19",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     }
                 ],
                 "caption": "Manage entity OrderItem",
@@ -1634,7 +1636,7 @@
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "1",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Product_ProductStatus",
                         "relationshipEntityName": "ProductStatus",
@@ -1655,7 +1657,7 @@
                         "name": "Quantity",
                         "widgetIsMajor": "true",
                         "widgetLength": "4",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1672,7 +1674,7 @@
                         "name": "Price",
                         "widgetIsMajor": "true",
                         "widgetLength": "19",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1722,7 +1724,7 @@
                         "isCalculatedProperty": "false",
                         "name": "UPC",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "12",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1739,7 +1741,7 @@
                         "isCalculatedProperty": "false",
                         "name": "EAN",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "14",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1756,7 +1758,7 @@
                         "isCalculatedProperty": "false",
                         "name": "JAN",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "13",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1773,7 +1775,7 @@
                         "isCalculatedProperty": "false",
                         "name": "ISBN",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "17",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1825,7 +1827,7 @@
                         "name": "Weight",
                         "widgetIsMajor": "true",
                         "widgetLength": "23",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1842,7 +1844,7 @@
                         "name": "Length",
                         "widgetIsMajor": "true",
                         "widgetLength": "23",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1859,7 +1861,7 @@
                         "name": "Width",
                         "widgetIsMajor": "true",
                         "widgetLength": "23",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1876,7 +1878,7 @@
                         "name": "Height",
                         "widgetIsMajor": "true",
                         "widgetLength": "23",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1944,7 +1946,7 @@
                         "name": "Points",
                         "widgetIsMajor": "true",
                         "widgetLength": "8",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1961,7 +1963,7 @@
                         "name": "Shipping",
                         "widgetIsMajor": "true",
                         "widgetLength": "1",
-                        "widgetType": "CHECKBOX"
+                        "widgetType": "TEXTBOX"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1977,7 +1979,7 @@
                         "isCalculatedProperty": "false",
                         "name": "Location",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "128",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1995,7 +1997,7 @@
                         "name": "Subtract",
                         "widgetIsMajor": "true",
                         "widgetLength": "1",
-                        "widgetType": "CHECKBOX"
+                        "widgetType": "TEXTBOX"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -2011,8 +2013,8 @@
                         "isCalculatedProperty": "false",
                         "name": "Minimum",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetType": "TEXTBOX"
+                        "widgetLength": "11",
+                        "widgetType": "NUMBER"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -2108,7 +2110,7 @@
                         "isCalculatedProperty": "false",
                         "name": "Name",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "32",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -2317,7 +2319,7 @@
                         "name": "Email",
                         "widgetIsMajor": "true",
                         "widgetLength": "96",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "EMAIL"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -2359,14 +2361,16 @@
                         "dataLength": "20",
                         "dataName": "EMPLOYEE_DATEADDED",
                         "dataNullable": "true",
+                        "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
-                        "dataType": "VARCHAR",
+                        "dataScale": "NaN",
+                        "dataType": "TIMESTAMP",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
                         "name": "DateAdded",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "DATETIME-LOCAL"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -2702,7 +2706,7 @@
                         "isCalculatedProperty": "false",
                         "name": "AddressFormat",
                         "widgetIsMajor": "true",
-                        "widgetLength": "128",
+                        "widgetLength": "2000",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2719,7 +2723,7 @@
                         "isCalculatedProperty": "false",
                         "name": "CustomField",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "2000",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2848,7 +2852,7 @@
                         "isCalculatedProperty": "false",
                         "name": "Company",
                         "widgetIsMajor": "true",
-                        "widgetLength": "60",
+                        "widgetLength": "40",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3006,7 +3010,7 @@
                         "isCalculatedProperty": "false",
                         "name": "AddressFormat",
                         "widgetIsMajor": "true",
-                        "widgetLength": "128",
+                        "widgetLength": "2000",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3023,7 +3027,7 @@
                         "isCalculatedProperty": "false",
                         "name": "CustomField",
                         "widgetIsMajor": "true",
-                        "widgetLength": "128",
+                        "widgetLength": "2000",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3088,7 +3092,9 @@
                         "dataLength": "20",
                         "dataName": "CURRENCYSTATUS_NAME",
                         "dataNullable": "true",
+                        "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
                         "dataType": "VARCHAR",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
@@ -3430,7 +3436,7 @@
                         "isCalculatedProperty": "true",
                         "name": "CreatedBy",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "40",
                         "widgetType": "TEXTBOX"
                     },
                     {

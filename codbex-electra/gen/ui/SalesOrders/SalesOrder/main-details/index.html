@@ -29,10 +29,7 @@
                                 ng-change="isValid(formFieldset['Total'].$valid, 'Total')"
                                 ng-model="entity.Total"
                                 ng-readonly="action === 'select'"
-                                ng-minlength="${property.minLength} || 0"
-                                ng-maxlength="${property.maxLength} || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
+                                type="number"
                                 placeholder="Enter Total">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -150,7 +147,7 @@
                                 ng-model="entity.Tracking"
                                 ng-readonly="action === 'select'"
                                 ng-minlength="0.0 || 0"
-                                ng-maxlength="128.0 || -1"
+                                ng-maxlength="255.0 || -1"
                                 dg-input-rules="{ patterns: [''] }"
                                 type="url"
                                 placeholder="Enter Tracking">
@@ -168,7 +165,7 @@
 							ng-model="entity.Comment"
                             ng-readonly="action === 'select'"
 							ng-minlength="0.0 || 0"
-							ng-maxlength="256.0 || -1"
+							ng-maxlength="2000.0 || -1"
 							dg-input-rules="{ patterns: [''] }"
 							placeholder="Enter Comment">
 						</fd-textarea>
@@ -184,10 +181,7 @@
                                 ng-change="isValid(formFieldset['InvoiceNumber'].$valid, 'InvoiceNumber')"
                                 ng-model="entity.InvoiceNumber"
                                 ng-readonly="action === 'select'"
-                                ng-minlength="${property.minLength} || 0"
-                                ng-maxlength="${property.maxLength} || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
+                                type="number"
                                 placeholder="Enter InvoiceNumber">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -204,7 +198,7 @@
                                 ng-model="entity.InvoicePrefix"
                                 ng-readonly="action === 'select'"
                                 ng-minlength="0.0 || 0"
-                                ng-maxlength="20.0 || -1"
+                                ng-maxlength="26.0 || -1"
                                 dg-input-rules="{ patterns: [''] }"
                                 type="text"
                                 placeholder="Enter InvoicePrefix">
@@ -223,7 +217,7 @@
                                 ng-model="entity.AcceptLanguage"
                                 ng-readonly="action === 'select'"
                                 ng-minlength="0.0 || 0"
-                                ng-maxlength="20.0 || -1"
+                                ng-maxlength="255.0 || -1"
                                 dg-input-rules="{ patterns: [''] }"
                                 type="text"
                                 placeholder="Enter AcceptLanguage">

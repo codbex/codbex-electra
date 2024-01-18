@@ -32,7 +32,7 @@
                                 ng-minlength="0.0 || 0"
                                 ng-maxlength="96.0 || -1"
                                 dg-input-rules="{ patterns: [''] }"
-                                type="text"
+                                type="email"
                                 placeholder="Enter Email">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -160,7 +160,7 @@
                                 ng-model="entity.Code"
                                 ng-readonly="action === 'select'"
                                 ng-minlength="0.0 || 0"
-                                ng-maxlength="20.0 || -1"
+                                ng-maxlength="40.0 || -1"
                                 dg-input-rules="{ patterns: [''] }"
                                 type="text"
                                 placeholder="Enter Code">
@@ -179,7 +179,7 @@
                                 ng-model="entity.CustomField"
                                 ng-readonly="action === 'select'"
                                 ng-minlength="0.0 || 0"
-                                ng-maxlength="255.0 || -1"
+                                ng-maxlength="2000.0 || -1"
                                 dg-input-rules="{ patterns: [''] }"
                                 type="text"
                                 placeholder="Enter CustomField">

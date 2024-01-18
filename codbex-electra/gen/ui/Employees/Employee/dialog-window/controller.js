@@ -25,6 +25,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					$scope.formErrors = {
 					};
 				}
+				if (params.entity.DateAdded) {
+					params.entity.DateAdded = new Date(params.entity.DateAdded);
+				}
 				$scope.entity = params.entity;
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
