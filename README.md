@@ -22,18 +22,19 @@ Details about the configured OpenCart instance could be found [here](https://git
 ### Prerequisites
 The following Eclipse Dirigible configurations should be available:
 
-| Name | Example value | Description |
+| Name | Description | Example value |
 |--|--|--|
-| DIRIGIBLE_HOME_URL | /services/web/codbex-electra/gen/index.html | Electra home URL |
-| ELECTRA_OPENCART_DB_HOST | localhost | OpenCart DB host |
-| ELECTRA_OPENCART_DB_PORT | 3306 | OpenCart DB port |
-| ELECTRA_OPENCART_DB_NAME | bitnami_opencart | OpenCart DB name |
-| ELECTRA_OPENCART_DB_USER | bn_opencart | OpenCart DB user |
-| ELECTRA_OPENCART_DB_PASS | mypass | OpenCart DB pass |
-| ELECTRA_OPENCART_URL | https://dev.opencart-demo.eu1.codbex.com | URL of the configured OpenCart Instance |
-| ELECTRA_ECONT_SHOP_SECRET | 6303036@1vDbAJ6LhPPxb9wFsaDWD32eqw | A secret for your shop in deliver with econt <br> ![Screenshot 2024-01-16 at 10 43 16](https://github.com/codbex/codbex-electra/assets/5058839/fe9607f9-7bae-455a-abad-087374af664f)|
-| ELECTRA_ECONT_DELIVERY_URL | https://delivery.econt.com | URL of the deliver with econt |
-[Here](https://www.dirigible.io/help/setup/setup-environment-variables/) is described how you can provide dirigbile configurations.
+| DIRIGIBLE_HOME_URL | Electra home URL | /services/web/codbex-electra/gen/index.html |
+| ELECTRA_OPENCART_DB_HOST | OpenCart DB host | localhost |
+| ELECTRA_OPENCART_DB_PORT | OpenCart DB port | 3306 |
+| ELECTRA_OPENCART_DB_NAME | OpenCart DB name | bitnami_opencart |
+| ELECTRA_OPENCART_DB_USER | OpenCart DB user | bn_opencart |
+| ELECTRA_OPENCART_DB_PASS | OpenCart DB pass | mypass |
+| ELECTRA_OPENCART_URL | URL of the configured OpenCart Instance | https://dev.opencart-demo.eu1.codbex.com |
+| ELECTRA_ECONT_SHOP_SECRET | A secret for your shop in deliver with econt <br> ![Screenshot 2024-01-16 at 10 43 16](https://github.com/codbex/codbex-electra/assets/5058839/fe9607f9-7bae-455a-abad-087374af664f)| 6303036@1vDbAJ6LhPPxb9wFsaDWD32eqw |
+| ELECTRA_ECONT_DELIVERY_URL | URL of the deliver with econt | https://delivery.econt.com |
+
+[Here](https://www.dirigible.io/help/setup/setup-environment-variables/) is described how you can provide Dirigible configurations.
 
 ### Steps
 To deploy and run the Electra, you have to follow the steps described bellow.
