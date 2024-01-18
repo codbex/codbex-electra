@@ -1,6 +1,6 @@
 function modifyBooleanProperty(body, propertyKey) {
     const propertyValue = body.get(propertyKey);
-    if (typeof propertyValue !== 'undefined') {
+    if (propertyValue) {
         const finalPropertyValue = propertyValue ? 1 : 0;
         body.put(propertyKey, finalPropertyValue);
     }
@@ -8,7 +8,7 @@ function modifyBooleanProperty(body, propertyKey) {
 
 function escapeSQLSymbols(body, propertyKey) {
     const propertyValue = body.get(propertyKey);
-    if (typeof propertyValue !== 'undefined') {
+    if (propertyValue) {
         const finalPropertyValue = propertyValue.replaceAll("'", "''");
         body.put(propertyKey, finalPropertyValue);
     }
