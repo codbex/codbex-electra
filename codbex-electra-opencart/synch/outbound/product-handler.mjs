@@ -42,7 +42,7 @@ function handleUpdate(product) {
 		const quantity = parseInt(product.Quantity);
 		statement.setInt(1, quantity);
 		statement.setInt(2, product.StockStatus);
-		statement.setInt(3, product.Status);
+		statement.setInt(3, product.Status ? 1 : 0);
 
 
 		const dateModified = new Timestamp(Date.now());
