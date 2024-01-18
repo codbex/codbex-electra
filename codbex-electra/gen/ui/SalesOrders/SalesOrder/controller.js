@@ -171,7 +171,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsStore = [];
 		$scope.optionsLanguage = [];
 
-		$http.get("/services/js/codbex-electra/gen/api/Currencies/Currency.js").then(function (response) {
+		$http.get("/services/js/codbex-electra/gen/api/Settings/Currency.js").then(function (response) {
 			$scope.optionsCurrency = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -189,7 +189,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-electra/gen/api/Customer/Customer.js").then(function (response) {
+		$http.get("/services/js/codbex-electra/gen/api/Customers/Customer.js").then(function (response) {
 			$scope.optionsCustomer = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -198,7 +198,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-electra/gen/api/Stores/Store.js").then(function (response) {
+		$http.get("/services/js/codbex-electra/gen/api/Settings/Store.js").then(function (response) {
 			$scope.optionsStore = response.data.map(e => {
 				return {
 					value: e.Id,

@@ -171,9 +171,9 @@
                 "menuLabel": "Currency",
                 "name": "Currency",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/dollar-alt.svg",
-                "perspectiveName": "Currencies",
-                "perspectiveOrder": "400",
+                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveName": "Settings",
+                "perspectiveOrder": "1000",
                 "title": "Currency",
                 "tooltip": "Currency",
                 "type": "PRIMARY"
@@ -234,7 +234,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_Currency",
                         "relationshipEntityName": "Currency",
-                        "relationshipEntityPerspectiveName": "Currencies"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -278,7 +278,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_Customer",
                         "relationshipEntityName": "Customer",
-                        "relationshipEntityPerspectiveName": "Customer"
+                        "relationshipEntityPerspectiveName": "Customers"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -300,7 +300,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_Store",
                         "relationshipEntityName": "Store",
-                        "relationshipEntityPerspectiveName": "Stores"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -474,7 +474,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
                 "perspectiveName": "SalesOrders",
-                "perspectiveOrder": "100",
+                "perspectiveOrder": "200",
                 "title": "SalesOrder",
                 "tooltip": "SalesOrder",
                 "type": "PRIMARY"
@@ -542,9 +542,9 @@
                 "menuLabel": "Store",
                 "name": "Store",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/store.svg",
-                "perspectiveName": "Stores",
-                "perspectiveOrder": "300",
+                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveName": "Settings",
+                "perspectiveOrder": "1000",
                 "title": "Store",
                 "tooltip": "Store",
                 "type": "PRIMARY"
@@ -637,7 +637,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Customer_Store",
                         "relationshipEntityName": "Store",
-                        "relationshipEntityPerspectiveName": "Stores"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -763,9 +763,9 @@
                 "menuLabel": "Customer",
                 "name": "Customer",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/usd-circle.svg",
-                "perspectiveName": "Customer",
-                "perspectiveOrder": "800",
+                "perspectiveIcon": "/services/web/resources/unicons/users-alt.svg",
+                "perspectiveName": "Customers",
+                "perspectiveOrder": "300",
                 "title": "Customer",
                 "tooltip": "Customer",
                 "type": "PRIMARY"
@@ -891,7 +891,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
-                "perspectiveOrder": "999",
+                "perspectiveOrder": "1000",
                 "title": "Country",
                 "tooltip": "Country",
                 "type": "PRIMARY"
@@ -942,7 +942,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
-                "perspectiveOrder": "999",
+                "perspectiveOrder": "1000",
                 "title": "CountryStatus",
                 "tooltip": "CountryStatus",
                 "type": "PRIMARY"
@@ -1056,7 +1056,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
-                "perspectiveOrder": "999",
+                "perspectiveOrder": "1000",
                 "title": "Zone",
                 "tooltip": "Zone",
                 "type": "PRIMARY"
@@ -1107,7 +1107,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
-                "perspectiveOrder": "999",
+                "perspectiveOrder": "1000",
                 "title": "ZoneStatus",
                 "tooltip": "ZoneStatus",
                 "type": "PRIMARY"
@@ -1160,7 +1160,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
-                "perspectiveOrder": "999",
+                "perspectiveOrder": "1000",
                 "title": "OrderStatus",
                 "tooltip": "OrderStatus",
                 "type": "PRIMARY"
@@ -1269,7 +1269,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
-                "perspectiveOrder": "999",
+                "perspectiveOrder": "1000",
                 "title": "Language",
                 "tooltip": "Language",
                 "type": "PRIMARY"
@@ -1322,7 +1322,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
-                "perspectiveOrder": "999",
+                "perspectiveOrder": "1000",
                 "title": "LanguageStatus",
                 "tooltip": "LanguageStatus",
                 "type": "PRIMARY"
@@ -1377,7 +1377,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
-                "perspectiveOrder": "999",
+                "perspectiveOrder": "1000",
                 "title": "CustomerStatus",
                 "tooltip": "CustomerStatus",
                 "type": "PRIMARY"
@@ -1559,7 +1559,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
                 "perspectiveName": "SalesOrders",
-                "perspectiveOrder": "100",
+                "perspectiveOrder": "200",
                 "title": "SalesOrderItem",
                 "tooltip": "SalesOrderItem",
                 "type": "DEPENDENT"
@@ -1618,7 +1618,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Product_Manufacturer",
                         "relationshipEntityName": "Manufacturer",
-                        "relationshipEntityPerspectiveName": "Manufacturers"
+                        "relationshipEntityPerspectiveName": "Products"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1640,7 +1640,7 @@
                         "widgetType": "CHECKBOX",
                         "relationshipName": "Product_ProductStatus",
                         "relationshipEntityName": "ProductStatus",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "Products"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -2052,7 +2052,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
-                "perspectiveOrder": "200",
+                "perspectiveOrder": "400",
                 "title": "Product",
                 "tooltip": "Product",
                 "type": "PRIMARY"
@@ -2127,7 +2127,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
-                "perspectiveOrder": "999",
+                "perspectiveOrder": "1000",
                 "title": "StockStatus",
                 "tooltip": "StockStatus",
                 "type": "PRIMARY"
@@ -2189,15 +2189,15 @@
                 "dataName": "MANUFACTURER",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
+                "layoutType": "LIST",
                 "menuIndex": "100",
                 "menuKey": "manufacturer",
                 "menuLabel": "Manufacturer",
                 "name": "Manufacturer",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/screw.svg",
-                "perspectiveName": "Manufacturers",
-                "perspectiveOrder": "700",
+                "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+                "perspectiveName": "Products",
+                "perspectiveOrder": "400",
                 "title": "Manufacturer",
                 "tooltip": "Manifacturer",
                 "type": "PRIMARY"
@@ -2246,9 +2246,9 @@
                 "menuLabel": "ProductStatus",
                 "name": "ProductStatus",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-                "perspectiveName": "Settings",
-                "perspectiveOrder": "999",
+                "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+                "perspectiveName": "Products",
+                "perspectiveOrder": "400",
                 "title": "ProductStatus",
                 "tooltip": "ProductStatus",
                 "type": "PRIMARY"
@@ -2392,7 +2392,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Employee_Team",
                         "relationshipEntityName": "Team",
-                        "relationshipEntityPerspectiveName": "Teams"
+                        "relationshipEntityPerspectiveName": "Access"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -2428,9 +2428,9 @@
                 "menuLabel": "Employee",
                 "name": "Employee",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/hard-hat.svg",
-                "perspectiveName": "Employees",
-                "perspectiveOrder": "600",
+                "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
+                "perspectiveName": "Access",
+                "perspectiveOrder": "500",
                 "title": "Employee",
                 "tooltip": "Employee",
                 "type": "PRIMARY"
@@ -2481,7 +2481,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
-                "perspectiveOrder": "999",
+                "perspectiveOrder": "1000",
                 "title": "EmployeeStatus",
                 "tooltip": "EmployeeStatus",
                 "type": "PRIMARY"
@@ -2768,7 +2768,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
                 "perspectiveName": "SalesOrders",
-                "perspectiveOrder": "100",
+                "perspectiveOrder": "200",
                 "title": "SalesOrderPayment",
                 "tooltip": "SalesOrderPayment",
                 "type": "DEPENDENT"
@@ -3072,7 +3072,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
                 "perspectiveName": "SalesOrders",
-                "perspectiveOrder": "100",
+                "perspectiveOrder": "200",
                 "title": "SalesOrderShipping",
                 "tooltip": "SalesOrderShipping",
                 "type": "DEPENDENT"
@@ -3125,7 +3125,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
-                "perspectiveOrder": "999",
+                "perspectiveOrder": "1000",
                 "title": "CurrencyStatus",
                 "tooltip": "CurrencyStatus",
                 "type": "PRIMARY"
@@ -3193,8 +3193,8 @@
                 "menuLabel": "Team",
                 "name": "Team",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/users-alt.svg",
-                "perspectiveName": "Teams",
+                "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
+                "perspectiveName": "Access",
                 "perspectiveOrder": "500",
                 "title": "Team",
                 "tooltip": "Team",
@@ -3238,7 +3238,9 @@
                         "dataLength": "0",
                         "dataName": "ATTRIBUTE_GROUP",
                         "dataNullable": "true",
+                        "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
                         "dataType": "INTEGER",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
@@ -3246,11 +3248,13 @@
                         "relationshipCardinality": "1_1",
                         "relationshipName": "Attribute_AttributeGroup",
                         "relationshipType": "COMPOSITION",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetType": "TEXTBOX",
+                        "widgetType": "DROPDOWN",
                         "relationshipEntityName": "AttributeGroup",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Products"
                     }
                 ],
                 "caption": "Manage entity Attribute",
@@ -3258,15 +3262,15 @@
                 "dataName": "ATTRIBUTE",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE_MASTER",
+                "layoutType": "MANAGE",
                 "menuIndex": "100",
                 "menuKey": "attribute",
                 "menuLabel": "Attribute",
                 "name": "Attribute",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/list-ul.svg",
-                "perspectiveName": "Attributes",
-                "perspectiveOrder": "900",
+                "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+                "perspectiveName": "Products",
+                "perspectiveOrder": "400",
                 "title": "Attribute",
                 "tooltip": "Attribute",
                 "type": "PRIMARY"
@@ -3294,17 +3298,21 @@
                         "dataLength": "0",
                         "dataName": "PRODUCTATTRIBUTE_ATTTRIBUTE",
                         "dataNullable": "true",
+                        "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
                         "dataType": "INTEGER",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
                         "name": "Atttribute",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetType": "TEXTBOX",
+                        "widgetType": "DROPDOWN",
                         "relationshipName": "ProductAttribute_Attribute",
                         "relationshipEntityName": "Attribute",
-                        "relationshipEntityPerspectiveName": "Attributes"
+                        "relationshipEntityPerspectiveName": "Products"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -3338,7 +3346,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
-                "perspectiveOrder": "200",
+                "perspectiveOrder": "400",
                 "title": "ProductAttribute",
                 "tooltip": "ProductAttribute",
                 "type": "DEPENDENT"
@@ -3387,12 +3395,12 @@
                 "menuLabel": "AttributeGroup",
                 "name": "AttributeGroup",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+                "perspectiveName": "Products",
+                "perspectiveOrder": "400",
                 "title": "AttributeGroup",
                 "tooltip": "AttributeGroup",
-                "type": "DEPENDENT"
+                "type": "PRIMARY"
             },
             {
                 "properties": [
@@ -3500,7 +3508,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
                 "perspectiveName": "SalesOrders",
-                "perspectiveOrder": "100",
+                "perspectiveOrder": "200",
                 "title": "SalesOrderComment",
                 "tooltip": "SalesOrderComment",
                 "type": "DEPENDENT"
@@ -3511,61 +3519,31 @@
                 "name": "SalesOrders",
                 "label": "salesorders",
                 "icon": "/services/web/resources/unicons/bill.svg",
-                "order": "100"
+                "order": "200"
             },
             {
                 "name": "Products",
                 "label": "products",
                 "icon": "/services/web/resources/unicons/box.svg",
-                "order": "200"
-            },
-            {
-                "name": "Stores",
-                "label": "stores",
-                "icon": "/services/web/resources/unicons/store.svg",
-                "order": "300"
-            },
-            {
-                "name": "Currencies",
-                "label": "currencies",
-                "icon": "/services/web/resources/unicons/dollar-alt.svg",
                 "order": "400"
-            },
-            {
-                "name": "Teams",
-                "label": "teams",
-                "icon": "/services/web/resources/unicons/users-alt.svg",
-                "order": "500"
-            },
-            {
-                "name": "Employees",
-                "label": "employees",
-                "icon": "/services/web/resources/unicons/hard-hat.svg",
-                "order": "600"
-            },
-            {
-                "name": "Manufacturers",
-                "label": "manufacturers",
-                "icon": "/services/web/resources/unicons/screw.svg",
-                "order": "700"
             },
             {
                 "name": "Settings",
                 "label": "settings",
                 "icon": "/services/web/resources/unicons/wrench.svg",
-                "order": "999"
+                "order": "1000"
             },
             {
-                "name": "Customer",
-                "label": "customer",
-                "icon": "/services/web/resources/unicons/usd-circle.svg",
-                "order": "800"
+                "name": "Customers",
+                "label": "customers",
+                "icon": "/services/web/resources/unicons/users-alt.svg",
+                "order": "300"
             },
             {
-                "name": "Attributes",
-                "label": "attributes",
-                "icon": "/services/web/resources/unicons/list-ul.svg",
-                "order": "900"
+                "name": "Access",
+                "label": "access",
+                "icon": "/services/web/resources/unicons/lock.svg",
+                "order": "500"
             }
         ],
         "navigations": []

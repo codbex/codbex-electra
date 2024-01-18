@@ -105,6 +105,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("ProductAttribute-details", {
 				action: "select",
 				entity: entity,
+				optionsAtttribute: $scope.optionsAtttribute,
 			});
 		};
 
@@ -115,6 +116,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: {},
 				selectedMainEntityKey: "${masterEntityId}",
 				selectedMainEntityId: $scope.selectedMainEntityId,
+				optionsAtttribute: $scope.optionsAtttribute,
 			}, null, false);
 		};
 
@@ -124,6 +126,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: entity,
 				selectedMainEntityKey: "${masterEntityId}",
 				selectedMainEntityId: $scope.selectedMainEntityId,
+				optionsAtttribute: $scope.optionsAtttribute,
 			}, null, false);
 		};
 
@@ -155,5 +158,26 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		};
+
+		//----------------Dropdowns-----------------//
+		$scope.optionsAtttribute = [];
+
+		$http.get("/services/js/codbex-electra/gen/api/Products/Attribute.js").then(function (response) {
+			$scope.optionsAtttribute = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+		$scope.optionsAtttributeValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsAtttribute.length; i++) {
+				if ($scope.optionsAtttribute[i].value === optionKey) {
+					return $scope.optionsAtttribute[i].text;
+				}
+			}
+			return null;
+		};
+		//----------------Dropdowns-----------------//
 
 	}]);
