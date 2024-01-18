@@ -1691,7 +1691,7 @@
                         "name": "Image",
                         "widgetIsMajor": "true",
                         "widgetLength": "255",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "URL"
                     },
                     {
                         "calculatedPropertyExpression": "",

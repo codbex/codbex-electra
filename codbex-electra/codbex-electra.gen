@@ -2787,7 +2787,7 @@
           "name": "Image",
           "widgetIsMajor": true,
           "widgetLength": "255",
-          "widgetType": "TEXTBOX",
+          "widgetType": "URL",
           "dataNotNull": false,
           "widgetLabel": "Image",
           "minLength": 0,
