@@ -55,7 +55,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Currency_CurrencyStatus",
                         "relationshipEntityName": "CurrencyStatus",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "unused"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -165,7 +165,7 @@
                 "dataName": "CURRENCY",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
+                "layoutType": "LIST",
                 "menuIndex": "100",
                 "menuKey": "currency",
                 "menuLabel": "Currency",
@@ -659,7 +659,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Customer_CustomerStatus",
                         "relationshipEntityName": "CustomerStatus",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "unused"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -824,7 +824,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Country_CountryStatus",
                         "relationshipEntityName": "CountryStatus",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "unused"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -883,7 +883,7 @@
                 "dataName": "COUNTRY",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
+                "layoutType": "LIST",
                 "menuIndex": "100",
                 "menuKey": "country",
                 "menuLabel": "Country",
@@ -940,9 +940,9 @@
                 "menuLabel": "CountryStatus",
                 "name": "CountryStatus",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-                "perspectiveName": "Settings",
-                "perspectiveOrder": "1000",
+                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveName": "unused",
+                "perspectiveOrder": "100",
                 "title": "CountryStatus",
                 "tooltip": "CountryStatus",
                 "type": "PRIMARY"
@@ -1023,7 +1023,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Zone_ZoneStatus",
                         "relationshipEntityName": "ZoneStatus",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "unused"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1048,7 +1048,7 @@
                 "dataName": "ZONE",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
+                "layoutType": "LIST",
                 "menuIndex": "100",
                 "menuKey": "zone",
                 "menuLabel": "Zone",
@@ -1105,9 +1105,9 @@
                 "menuLabel": "ZoneStatus",
                 "name": "ZoneStatus",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-                "perspectiveName": "Settings",
-                "perspectiveOrder": "1000",
+                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveName": "unused",
+                "perspectiveOrder": "100",
                 "title": "ZoneStatus",
                 "tooltip": "ZoneStatus",
                 "type": "PRIMARY"
@@ -1152,7 +1152,7 @@
                 "dataName": "ORDERSTATUS",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
+                "layoutType": "LIST",
                 "menuIndex": "100",
                 "menuKey": "orderstatus",
                 "menuLabel": "OrderStatus",
@@ -1253,7 +1253,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Language_LanguageStatus",
                         "relationshipEntityName": "LanguageStatus",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "unused"
                     }
                 ],
                 "caption": "Manage entity Language",
@@ -1261,7 +1261,7 @@
                 "dataName": "LANGUAGE",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
+                "layoutType": "LIST",
                 "menuIndex": "100",
                 "menuKey": "language",
                 "menuLabel": "Language",
@@ -1320,9 +1320,9 @@
                 "menuLabel": "LanguageStatus",
                 "name": "LanguageStatus",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-                "perspectiveName": "Settings",
-                "perspectiveOrder": "1000",
+                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveName": "unused",
+                "perspectiveOrder": "100",
                 "title": "LanguageStatus",
                 "tooltip": "LanguageStatus",
                 "type": "PRIMARY"
@@ -1375,9 +1375,9 @@
                 "menuLabel": "CustomerStatus",
                 "name": "CustomerStatus",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-                "perspectiveName": "Settings",
-                "perspectiveOrder": "1000",
+                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveName": "unused",
+                "perspectiveOrder": "100",
                 "title": "CustomerStatus",
                 "tooltip": "CustomerStatus",
                 "type": "PRIMARY"
@@ -1640,7 +1640,7 @@
                         "widgetType": "CHECKBOX",
                         "relationshipName": "Product_ProductStatus",
                         "relationshipEntityName": "ProductStatus",
-                        "relationshipEntityPerspectiveName": "Products"
+                        "relationshipEntityPerspectiveName": "unused"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -2119,7 +2119,7 @@
                 "dataName": "STOCKSTATUS",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
+                "layoutType": "LIST",
                 "menuIndex": "100",
                 "menuKey": "stockstatus",
                 "menuLabel": "StockStatus",
@@ -2190,7 +2190,7 @@
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "LIST",
-                "menuIndex": "100",
+                "menuIndex": "200",
                 "menuKey": "manufacturer",
                 "menuLabel": "Manufacturer",
                 "name": "Manufacturer",
@@ -2246,9 +2246,9 @@
                 "menuLabel": "ProductStatus",
                 "name": "ProductStatus",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/box.svg",
-                "perspectiveName": "Products",
-                "perspectiveOrder": "400",
+                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveName": "unused",
+                "perspectiveOrder": "100",
                 "title": "ProductStatus",
                 "tooltip": "ProductStatus",
                 "type": "PRIMARY"
@@ -2414,7 +2414,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Employee_EmployeeStatus",
                         "relationshipEntityName": "EmployeeStatus",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "unused"
                     }
                 ],
                 "caption": "Manage entity Employee",
@@ -2479,9 +2479,9 @@
                 "menuLabel": "EmployeeStatus",
                 "name": "EmployeeStatus",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-                "perspectiveName": "Settings",
-                "perspectiveOrder": "1000",
+                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveName": "unused",
+                "perspectiveOrder": "100",
                 "title": "EmployeeStatus",
                 "tooltip": "EmployeeStatus",
                 "type": "PRIMARY"
@@ -3123,9 +3123,9 @@
                 "menuLabel": "CurrencyStatus",
                 "name": "CurrencyStatus",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-                "perspectiveName": "Settings",
-                "perspectiveOrder": "1000",
+                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveName": "unused",
+                "perspectiveOrder": "100",
                 "title": "CurrencyStatus",
                 "tooltip": "CurrencyStatus",
                 "type": "PRIMARY"
@@ -3263,7 +3263,7 @@
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
-                "menuIndex": "100",
+                "menuIndex": "400",
                 "menuKey": "attribute",
                 "menuLabel": "Attribute",
                 "name": "Attribute",
@@ -3390,7 +3390,7 @@
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
-                "menuIndex": "100",
+                "menuIndex": "300",
                 "menuKey": "attributegroup",
                 "menuLabel": "AttributeGroup",
                 "name": "AttributeGroup",

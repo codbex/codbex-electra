@@ -11,7 +11,7 @@ exports.getTile = function () {
         tooltip: "Manifacturer",
         // icon: "file-o",
         location: "/services/web/codbex-electra/gen/ui/Products/index.html",
-        order: "100",
+        order: "200",
         groupOrder: "400"
     };
 };

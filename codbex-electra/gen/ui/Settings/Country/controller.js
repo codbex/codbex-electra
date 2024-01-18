@@ -43,16 +43,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		}
 		resetPagination();
 
-		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
-			$scope.loadPage($scope.dataPage);
-		});
-
-		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
-			$scope.loadPage($scope.dataPage);
-		});
-		//-----------------Events-------------------//
-
 		$scope.loadPage = function (pageNumber) {
 			$scope.dataPage = pageNumber;
 			entityApi.count().then(function (response) {
@@ -87,56 +77,11 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		};
 
-		$scope.createEntity = function () {
-			$scope.selectedEntity = null;
-			messageHub.showDialogWindow("Country-details", {
-				action: "create",
-				entity: {},
-				optionsStatus: $scope.optionsStatus,
-			}, null, false);
-		};
-
-		$scope.updateEntity = function (entity) {
-			messageHub.showDialogWindow("Country-details", {
-				action: "update",
-				entity: entity,
-				optionsStatus: $scope.optionsStatus,
-			}, null, false);
-		};
-
-		$scope.deleteEntity = function (entity) {
-			let id = entity.Id;
-			messageHub.showDialogAsync(
-				'Delete Country?',
-				`Are you sure you want to delete Country? This action cannot be undone.`,
-				[{
-					id: "delete-btn-yes",
-					type: "emphasized",
-					label: "Yes",
-				},
-				{
-					id: "delete-btn-no",
-					type: "normal",
-					label: "No",
-				}],
-			).then(function (msg) {
-				if (msg.data === "delete-btn-yes") {
-					entityApi.delete(id).then(function (response) {
-						if (response.status != 204) {
-							messageHub.showAlertError("Country", `Unable to delete Country: '${response.message}'`);
-							return;
-						}
-						$scope.loadPage($scope.dataPage);
-						messageHub.postMessage("clearDetails");
-					});
-				}
-			});
-		};
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsStatus = [];
 
-		$http.get("/services/js/codbex-electra/gen/api/Settings/CountryStatus.js").then(function (response) {
+		$http.get("/services/js/codbex-electra/gen/api/unused/CountryStatus.js").then(function (response) {
 			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,

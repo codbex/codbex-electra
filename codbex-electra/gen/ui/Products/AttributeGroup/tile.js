@@ -11,7 +11,7 @@ exports.getTile = function () {
         tooltip: "AttributeGroup",
         // icon: "file-o",
         location: "/services/web/codbex-electra/gen/ui/Products/index.html",
-        order: "100",
+        order: "300",
         groupOrder: "400"
     };
 };
