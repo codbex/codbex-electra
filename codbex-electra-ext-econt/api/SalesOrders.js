@@ -7,6 +7,7 @@ const logger = logging.getLogger("api.SalesOrders.js");
 
 const SHOP_SECRET_CFG_NAME = "ELECTRA_ECONT_SHOP_SECRET";
 const ECONT_DELIVERY_URL_CFG_NAME = "ELECTRA_ECONT_DELIVERY_URL";
+
 const ECONT_DELIVERY_DEFAULT_URL = "https://delivery.econt.com";
 
 function getMandatoryCfg(configName) {
@@ -18,6 +19,7 @@ function getMandatoryCfg(configName) {
 	logger.error(errorMessage);
 	throw new Error(errorMessage);
 }
+
 rs.service()
 	.resource("{salesOrderId}/shippingLabelURL")
 	.get(function (ctx) {

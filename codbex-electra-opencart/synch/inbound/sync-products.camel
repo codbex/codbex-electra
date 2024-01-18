@@ -31,6 +31,20 @@
                 id: simple-333
             description: Split to single product
             steps:
+              - setProperty:
+                  name: resource
+                  id: set-resource-property-product
+                  expression:
+                    constant:
+                      expression: >-
+                        codbex-electra-opencart/synch/inbound/product-entry-processor.js
+                      id: constant-9471
+                  description: Set resource property
+              - to:
+                  uri: >-
+                    class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+                  id: invoke-js-product-processor
+                  description: Invoke JS
               - setBody:
                   id: create-merge-statement
                   expression:
