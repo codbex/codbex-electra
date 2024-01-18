@@ -11,7 +11,7 @@ exports.getTile = function () {
         tooltip: "Employee",
         // icon: "file-o",
         location: "/services/web/codbex-electra/gen/ui/Access/index.html",
-        order: "100",
+        order: "200",
         groupOrder: "500"
     };
 };
