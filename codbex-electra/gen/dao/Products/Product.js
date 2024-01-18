@@ -100,6 +100,21 @@ let dao = daoApi.create({
 			type: "DECIMAL",
 		},
  {
+			name: "DateAdded",
+			column: "PRODUCT_DATEADDED",
+			type: "TIMESTAMP",
+		},
+ {
+			name: "DateModified",
+			column: "PRODUCT_DATEMODIFIED",
+			type: "TIMESTAMP",
+		},
+ {
+			name: "UpdatedBy",
+			column: "PRODUCT_UPDATEDBY",
+			type: "VARCHAR",
+		},
+ {
 			name: "Points",
 			column: "PRODUCT_POINTS",
 			type: "INTEGER",
@@ -125,16 +140,6 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
-			name: "DateAdded",
-			column: "PRODUCT_DATEADDED",
-			type: "TIMESTAMP",
-		},
- {
-			name: "DateModified",
-			column: "PRODUCT_DATEMODIFIED",
-			type: "TIMESTAMP",
-		},
- {
 			name: "StockStatus",
 			column: "PRODUCT_STOCKSTATUS",
 			type: "INTEGER",
@@ -158,6 +163,7 @@ exports.get = function(id) {
 exports.create = function(entity) {
 	EntityUtils.setLocalDate(entity, "DateAvailable");
 	entity["DateModified"] = Date.now();
+	entity["UpdatedBy"] = require("security/user").getName();
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
@@ -175,6 +181,7 @@ exports.create = function(entity) {
 exports.update = function(entity) {
 	// EntityUtils.setLocalDate(entity, "DateAvailable");
 	entity["DateModified"] = Date.now();
+	entity["UpdatedBy"] = require("security/user").getName();
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",

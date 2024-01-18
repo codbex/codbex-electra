@@ -69,6 +69,11 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
+			name: "UpdatedBy",
+			column: "SALESORDERSHIPPING_UPDATEDBY",
+			type: "VARCHAR",
+		},
+ {
 			name: "AddressFormat",
 			column: "SALESORDERSHIPPING_ADDRESSFORMAT",
 			type: "VARCHAR",
@@ -95,6 +100,7 @@ exports.get = function(id) {
 };
 
 exports.create = function(entity) {
+	entity["UpdatedBy"] = require("security/user").getName();
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
@@ -110,6 +116,7 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
+	entity["UpdatedBy"] = require("security/user").getName();
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",

@@ -49,6 +49,11 @@ let dao = daoApi.create({
 			type: "TIMESTAMP",
 		},
  {
+			name: "UpdatedBy",
+			column: "SALESORDER_UPDATEDBY",
+			type: "VARCHAR",
+		},
+ {
 			name: "Tracking",
 			column: "SALESORDER_TRACKING",
 			type: "VARCHAR",
@@ -91,6 +96,7 @@ exports.get = function(id) {
 
 exports.create = function(entity) {
 	entity["DateModified"] = Date.now();
+	entity["UpdatedBy"] = require("security/user").getName();
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
@@ -107,6 +113,7 @@ exports.create = function(entity) {
 
 exports.update = function(entity) {
 	entity["DateModified"] = Date.now();
+	entity["UpdatedBy"] = require("security/user").getName();
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",

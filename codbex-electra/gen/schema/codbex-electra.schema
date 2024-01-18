@@ -151,6 +151,14 @@
                     },
                     {
                         "type": "VARCHAR",
+                        "length": 40,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDER_UPDATEDBY"
+                    },
+                    {
+                        "type": "VARCHAR",
                         "length": 255,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -800,6 +808,30 @@
                         "name": "PRODUCT_HEIGHT"
                     },
                     {
+                        "type": "TIMESTAMP",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PRODUCT_DATEADDED"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PRODUCT_DATEMODIFIED"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 40,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PRODUCT_UPDATEDBY"
+                    },
+                    {
                         "type": "INTEGER",
                         "length": 8,
                         "precision": "NaN",
@@ -838,22 +870,6 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "PRODUCT_MINIMUM"
-                    },
-                    {
-                        "type": "TIMESTAMP",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCT_DATEADDED"
-                    },
-                    {
-                        "type": "TIMESTAMP",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCT_DATEMODIFIED"
                     },
                     {
                         "type": "INTEGER",
@@ -1260,6 +1276,14 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "SALESORDERSHIPPING_CODE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 40,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDERSHIPPING_UPDATEDBY"
                     },
                     {
                         "type": "VARCHAR",

@@ -44,13 +44,14 @@
 						<th fd-table-header-cell>Length</th>
 						<th fd-table-header-cell>Width</th>
 						<th fd-table-header-cell>Height</th>
+						<th fd-table-header-cell>DateAdded</th>
+						<th fd-table-header-cell>DateModified</th>
+						<th fd-table-header-cell>UpdatedBy</th>
 						<th fd-table-header-cell>Points</th>
 						<th fd-table-header-cell>Shipping</th>
 						<th fd-table-header-cell>Location</th>
 						<th fd-table-header-cell>Subtract</th>
 						<th fd-table-header-cell>Minimum</th>
-						<th fd-table-header-cell>DateAdded</th>
-						<th fd-table-header-cell>DateModified</th>
 						<th fd-table-header-cell>StockStatus</th>
 						<th fd-table-header-cell></th>
 					</tr>
@@ -84,6 +85,13 @@
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Length}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Width}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Height}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							<fd-input type="datetime-local" ng-model="next.DateAdded" ng-readonly="true"></fd-input>
+						</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							<fd-input type="datetime-local" ng-model="next.DateModified" ng-readonly="true"></fd-input>
+						</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.UpdatedBy}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Points}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							<fd-checkbox id="idShipping" compact="false" ng-disabled="true" ng-model="next.Shipping"></fd-checkbox>
@@ -95,12 +103,6 @@
 							<fd-checkbox-label for="idSubtract"></fd-checkbox-label>
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Minimum}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-input type="datetime-local" ng-model="next.DateAdded" ng-readonly="true"></fd-input>
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-input type="datetime-local" ng-model="next.DateModified" ng-readonly="true"></fd-input>
-						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsStockStatusValue(next.StockStatus)}}
 						</td>
