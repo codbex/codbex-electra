@@ -81,7 +81,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsStatus = [];
 
-		$http.get("/services/js/codbex-electra/gen/api/unused/CountryStatus.js").then(function (response) {
+		$http.get("/services/js/codbex-electra/gen/api/Settings/CountryStatus.js").then(function (response) {
 			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,

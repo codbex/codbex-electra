@@ -55,7 +55,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Currency_CurrencyStatus",
                         "relationshipEntityName": "CurrencyStatus",
-                        "relationshipEntityPerspectiveName": "unused"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -659,7 +659,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Customer_CustomerStatus",
                         "relationshipEntityName": "CustomerStatus",
-                        "relationshipEntityPerspectiveName": "unused"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -824,7 +824,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Country_CountryStatus",
                         "relationshipEntityName": "CountryStatus",
-                        "relationshipEntityPerspectiveName": "unused"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -940,9 +940,9 @@
                 "menuLabel": "CountryStatus",
                 "name": "CountryStatus",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "unused",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveName": "Settings",
+                "perspectiveOrder": "1000",
                 "title": "CountryStatus",
                 "tooltip": "CountryStatus",
                 "type": "PRIMARY"
@@ -1023,7 +1023,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Zone_ZoneStatus",
                         "relationshipEntityName": "ZoneStatus",
-                        "relationshipEntityPerspectiveName": "unused"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1105,9 +1105,9 @@
                 "menuLabel": "ZoneStatus",
                 "name": "ZoneStatus",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "unused",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveName": "Settings",
+                "perspectiveOrder": "1000",
                 "title": "ZoneStatus",
                 "tooltip": "ZoneStatus",
                 "type": "PRIMARY"
@@ -1253,7 +1253,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Language_LanguageStatus",
                         "relationshipEntityName": "LanguageStatus",
-                        "relationshipEntityPerspectiveName": "unused"
+                        "relationshipEntityPerspectiveName": "Settings"
                     }
                 ],
                 "caption": "Manage entity Language",
@@ -1320,9 +1320,9 @@
                 "menuLabel": "LanguageStatus",
                 "name": "LanguageStatus",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "unused",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveName": "Settings",
+                "perspectiveOrder": "1000",
                 "title": "LanguageStatus",
                 "tooltip": "LanguageStatus",
                 "type": "PRIMARY"
@@ -1375,9 +1375,9 @@
                 "menuLabel": "CustomerStatus",
                 "name": "CustomerStatus",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "unused",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveName": "Settings",
+                "perspectiveOrder": "1000",
                 "title": "CustomerStatus",
                 "tooltip": "CustomerStatus",
                 "type": "PRIMARY"
@@ -1640,7 +1640,7 @@
                         "widgetType": "CHECKBOX",
                         "relationshipName": "Product_ProductStatus",
                         "relationshipEntityName": "ProductStatus",
-                        "relationshipEntityPerspectiveName": "unused"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -2246,9 +2246,9 @@
                 "menuLabel": "ProductStatus",
                 "name": "ProductStatus",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "unused",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveName": "Settings",
+                "perspectiveOrder": "1000",
                 "title": "ProductStatus",
                 "tooltip": "ProductStatus",
                 "type": "PRIMARY"
@@ -2414,7 +2414,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Employee_EmployeeStatus",
                         "relationshipEntityName": "EmployeeStatus",
-                        "relationshipEntityPerspectiveName": "unused"
+                        "relationshipEntityPerspectiveName": "Settings"
                     }
                 ],
                 "caption": "Manage entity Employee",
@@ -2479,9 +2479,9 @@
                 "menuLabel": "EmployeeStatus",
                 "name": "EmployeeStatus",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "unused",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveName": "Settings",
+                "perspectiveOrder": "1000",
                 "title": "EmployeeStatus",
                 "tooltip": "EmployeeStatus",
                 "type": "PRIMARY"
@@ -3123,9 +3123,9 @@
                 "menuLabel": "CurrencyStatus",
                 "name": "CurrencyStatus",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "unused",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveName": "Settings",
+                "perspectiveOrder": "1000",
                 "title": "CurrencyStatus",
                 "tooltip": "CurrencyStatus",
                 "type": "PRIMARY"

@@ -1,16 +1,16 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-electra.Access.Employee';
+		messageHubProvider.eventIdPrefix = 'codbex-electra.Settings.CountryStatus';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/Access/Employee.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/Settings/CountryStatus.js";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
 		//-----------------Custom Actions-------------------//
 		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=codbex-electra-custom-action").then(function (response) {
-			$scope.pageActions = response.data.filter(e => e.perspective === "Access" && e.view === "Employee" && (e.type === "page" || e.type === undefined));
-			$scope.entityActions = response.data.filter(e => e.perspective === "Access" && e.view === "Employee" && e.type === "entity");
+			$scope.pageActions = response.data.filter(e => e.perspective === "Settings" && e.view === "CountryStatus" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.data.filter(e => e.perspective === "Settings" && e.view === "CountryStatus" && e.type === "entity");
 		});
 
 		$scope.triggerPageAction = function (actionId) {
@@ -57,7 +57,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.dataPage = pageNumber;
 			entityApi.count().then(function (response) {
 				if (response.status != 200) {
-					messageHub.showAlertError("Employee", `Unable to count Employee: '${response.message}'`);
+					messageHub.showAlertError("CountryStatus", `Unable to count CountryStatus: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
@@ -65,16 +65,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				let limit = $scope.dataLimit;
 				entityApi.list(offset, limit).then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("Employee", `Unable to list Employee: '${response.message}'`);
+						messageHub.showAlertError("CountryStatus", `Unable to list CountryStatus: '${response.message}'`);
 						return;
 					}
-
-					response.data.forEach(e => {
-						if (e.DateAdded) {
-							e.DateAdded = new Date(e.DateAdded);
-						}
-					});
-
 					$scope.data = response.data;
 				});
 			});
@@ -87,38 +80,32 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.openDetails = function (entity) {
 			$scope.selectedEntity = entity;
-			messageHub.showDialogWindow("Employee-details", {
+			messageHub.showDialogWindow("CountryStatus-details", {
 				action: "select",
 				entity: entity,
-				optionsTeam: $scope.optionsTeam,
-				optionsStatus: $scope.optionsStatus,
 			});
 		};
 
 		$scope.createEntity = function () {
 			$scope.selectedEntity = null;
-			messageHub.showDialogWindow("Employee-details", {
+			messageHub.showDialogWindow("CountryStatus-details", {
 				action: "create",
 				entity: {},
-				optionsTeam: $scope.optionsTeam,
-				optionsStatus: $scope.optionsStatus,
 			}, null, false);
 		};
 
 		$scope.updateEntity = function (entity) {
-			messageHub.showDialogWindow("Employee-details", {
+			messageHub.showDialogWindow("CountryStatus-details", {
 				action: "update",
 				entity: entity,
-				optionsTeam: $scope.optionsTeam,
-				optionsStatus: $scope.optionsStatus,
 			}, null, false);
 		};
 
 		$scope.deleteEntity = function (entity) {
 			let id = entity.Id;
 			messageHub.showDialogAsync(
-				'Delete Employee?',
-				`Are you sure you want to delete Employee? This action cannot be undone.`,
+				'Delete CountryStatus?',
+				`Are you sure you want to delete CountryStatus? This action cannot be undone.`,
 				[{
 					id: "delete-btn-yes",
 					type: "emphasized",
@@ -133,7 +120,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (msg.data === "delete-btn-yes") {
 					entityApi.delete(id).then(function (response) {
 						if (response.status != 204) {
-							messageHub.showAlertError("Employee", `Unable to delete Employee: '${response.message}'`);
+							messageHub.showAlertError("CountryStatus", `Unable to delete CountryStatus: '${response.message}'`);
 							return;
 						}
 						$scope.loadPage($scope.dataPage);
@@ -142,44 +129,5 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		};
-
-		//----------------Dropdowns-----------------//
-		$scope.optionsTeam = [];
-		$scope.optionsStatus = [];
-
-		$http.get("/services/js/codbex-electra/gen/api/Access/Team.js").then(function (response) {
-			$scope.optionsTeam = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-
-		$http.get("/services/js/codbex-electra/gen/api/Settings/EmployeeStatus.js").then(function (response) {
-			$scope.optionsStatus = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-		$scope.optionsTeamValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsTeam.length; i++) {
-				if ($scope.optionsTeam[i].value === optionKey) {
-					return $scope.optionsTeam[i].text;
-				}
-			}
-			return null;
-		};
-		$scope.optionsStatusValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsStatus.length; i++) {
-				if ($scope.optionsStatus[i].value === optionKey) {
-					return $scope.optionsStatus[i].text;
-				}
-			}
-			return null;
-		};
-		//----------------Dropdowns-----------------//
 
 	}]);

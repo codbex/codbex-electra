@@ -92,7 +92,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-electra/gen/api/unused/ZoneStatus.js").then(function (response) {
+		$http.get("/services/js/codbex-electra/gen/api/Settings/ZoneStatus.js").then(function (response) {
 			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,
