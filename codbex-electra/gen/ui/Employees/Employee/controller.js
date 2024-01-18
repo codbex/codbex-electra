@@ -90,6 +90,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Employee-details", {
 				action: "select",
 				entity: entity,
+				optionsTeam: $scope.optionsTeam,
+				optionsStatus: $scope.optionsStatus,
 			});
 		};
 
@@ -98,6 +100,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Employee-details", {
 				action: "create",
 				entity: {},
+				optionsTeam: $scope.optionsTeam,
+				optionsStatus: $scope.optionsStatus,
 			}, null, false);
 		};
 
@@ -105,6 +109,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Employee-details", {
 				action: "update",
 				entity: entity,
+				optionsTeam: $scope.optionsTeam,
+				optionsStatus: $scope.optionsStatus,
 			}, null, false);
 		};
 
@@ -136,5 +142,44 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		};
+
+		//----------------Dropdowns-----------------//
+		$scope.optionsTeam = [];
+		$scope.optionsStatus = [];
+
+		$http.get("/services/js/codbex-electra/gen/api/Teams/Team.js").then(function (response) {
+			$scope.optionsTeam = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/js/codbex-electra/gen/api/Settings/EmployeeStatus.js").then(function (response) {
+			$scope.optionsStatus = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+		$scope.optionsTeamValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsTeam.length; i++) {
+				if ($scope.optionsTeam[i].value === optionKey) {
+					return $scope.optionsTeam[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsStatusValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsStatus.length; i++) {
+				if ($scope.optionsStatus[i].value === optionKey) {
+					return $scope.optionsStatus[i].text;
+				}
+			}
+			return null;
+		};
+		//----------------Dropdowns-----------------//
 
 	}]);

@@ -54,8 +54,12 @@
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							<fd-input type="datetime-local" ng-model="next.DateAdded" ng-readonly="true"></fd-input>
 						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Team}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Status}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							{{optionsTeamValue(next.Team)}}
+						</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							{{optionsStatusValue(next.Status)}}
+						</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>
 								<fd-popover-control>

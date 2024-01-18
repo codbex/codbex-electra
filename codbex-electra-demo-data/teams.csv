@@ -1,0 +1,5 @@
+TEAM_ID,TEAM_NAME,TEAM_PERMISSION
+1,OpenCartSalesOrdersProcessors,SalesOrder
+2,eMAGSalesOrdersProcessors,SalesOrder
+3,ProductManagers,Product
+4,AccessManagers,"Employee,Team"
