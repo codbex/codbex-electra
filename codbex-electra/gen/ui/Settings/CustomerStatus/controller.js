@@ -83,7 +83,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("CustomerStatus-details", {
 				action: "select",
 				entity: entity,
-				optionsName: $scope.optionsName,
 			});
 		};
 
@@ -92,7 +91,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("CustomerStatus-details", {
 				action: "create",
 				entity: {},
-				optionsName: $scope.optionsName,
 			}, null, false);
 		};
 
@@ -100,7 +98,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("CustomerStatus-details", {
 				action: "update",
 				entity: entity,
-				optionsName: $scope.optionsName,
 			}, null, false);
 		};
 
@@ -132,26 +129,5 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		};
-
-		//----------------Dropdowns-----------------//
-		$scope.optionsName = [];
-
-		$http.get("/services/js/codbex-electra/gen/api/${property.relationshipEntityPerspectiveName}/${property.relationshipEntityName}.js").then(function (response) {
-			$scope.optionsName = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-		$scope.optionsNameValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsName.length; i++) {
-				if ($scope.optionsName[i].value === optionKey) {
-					return $scope.optionsName[i].text;
-				}
-			}
-			return null;
-		};
-		//----------------Dropdowns-----------------//
 
 	}]);

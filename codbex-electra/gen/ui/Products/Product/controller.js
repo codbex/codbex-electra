@@ -97,7 +97,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				action: "select",
 				entity: entity,
 				optionsManufacturer: $scope.optionsManufacturer,
-				optionsStatus: $scope.optionsStatus,
 				optionsStockStatus: $scope.optionsStockStatus,
 			});
 		};
@@ -108,7 +107,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				action: "create",
 				entity: {},
 				optionsManufacturer: $scope.optionsManufacturer,
-				optionsStatus: $scope.optionsStatus,
 				optionsStockStatus: $scope.optionsStockStatus,
 			}, null, false);
 		};
@@ -118,7 +116,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				action: "update",
 				entity: entity,
 				optionsManufacturer: $scope.optionsManufacturer,
-				optionsStatus: $scope.optionsStatus,
 				optionsStockStatus: $scope.optionsStockStatus,
 			}, null, false);
 		};
@@ -154,20 +151,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsManufacturer = [];
-		$scope.optionsStatus = [];
 		$scope.optionsStockStatus = [];
 
 		$http.get("/services/js/codbex-electra/gen/api/Manufacturers/Manufacturer.js").then(function (response) {
 			$scope.optionsManufacturer = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-
-		$http.get("/services/js/codbex-electra/gen/api/Settings/ProductStatus.js").then(function (response) {
-			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -187,14 +174,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			for (let i = 0; i < $scope.optionsManufacturer.length; i++) {
 				if ($scope.optionsManufacturer[i].value === optionKey) {
 					return $scope.optionsManufacturer[i].text;
-				}
-			}
-			return null;
-		};
-		$scope.optionsStatusValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsStatus.length; i++) {
-				if ($scope.optionsStatus[i].value === optionKey) {
-					return $scope.optionsStatus[i].text;
 				}
 			}
 			return null;

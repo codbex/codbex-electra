@@ -38,6 +38,28 @@
                     {
                         "calculatedPropertyExpression": "",
                         "dataAutoIncrement": "false",
+                        "dataLength": "0",
+                        "dataName": "CURRENCY_STATUS",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Status",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "Currency_CurrencyStatus",
+                        "relationshipEntityName": "CurrencyStatus",
+                        "relationshipEntityPerspectiveName": "Settings"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
                         "dataLength": "3",
                         "dataName": "CURRENCY_CODE",
                         "dataNullable": "true",
@@ -136,28 +158,6 @@
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetType": "DATETIME-LOCAL"
-                    },
-                    {
-                        "calculatedPropertyExpression": "",
-                        "dataAutoIncrement": "false",
-                        "dataLength": "0",
-                        "dataName": "CURRENCY_STATUS",
-                        "dataNullable": "true",
-                        "dataPrecision": "NaN",
-                        "dataPrimaryKey": "false",
-                        "dataScale": "NaN",
-                        "dataType": "INTEGER",
-                        "dataUnique": "false",
-                        "isCalculatedProperty": "false",
-                        "name": "Status",
-                        "widgetDropDownKey": "Id",
-                        "widgetDropDownValue": "Name",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetType": "DROPDOWN",
-                        "relationshipName": "Currency_CurrencyStatus",
-                        "relationshipEntityName": "CurrencyStatus",
-                        "relationshipEntityPerspectiveName": "Settings"
                     }
                 ],
                 "caption": "Manage entity Currency",
@@ -869,13 +869,13 @@
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
-                        "dataType": "TINYINT",
+                        "dataType": "BOOLEAN",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
                         "name": "PostcodeRequired",
                         "widgetIsMajor": "true",
                         "widgetLength": "1",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "CHECKBOX"
                     }
                 ],
                 "caption": "Manage entity Country",
@@ -1361,7 +1361,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetType": "DROPDOWN"
+                        "widgetType": "TEXTBOX"
                     }
                 ],
                 "caption": "Manage entity CustomerStatus",
@@ -1629,7 +1629,7 @@
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
-                        "dataType": "TINYINT",
+                        "dataType": "BOOLEAN",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
                         "name": "Status",
@@ -1637,7 +1637,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "1",
-                        "widgetType": "DROPDOWN",
+                        "widgetType": "CHECKBOX",
                         "relationshipName": "Product_ProductStatus",
                         "relationshipEntityName": "ProductStatus",
                         "relationshipEntityPerspectiveName": "Settings"
@@ -1957,13 +1957,13 @@
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
-                        "dataType": "TINYINT",
+                        "dataType": "BOOLEAN",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
                         "name": "Shipping",
                         "widgetIsMajor": "true",
                         "widgetLength": "1",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "CHECKBOX"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1991,13 +1991,13 @@
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
-                        "dataType": "TINYINT",
+                        "dataType": "BOOLEAN",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
                         "name": "Subtract",
                         "widgetIsMajor": "true",
                         "widgetLength": "1",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "CHECKBOX"
                     },
                     {
                         "calculatedPropertyExpression": "",

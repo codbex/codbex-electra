@@ -19,6 +19,11 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
+			name: "Status",
+			column: "CURRENCY_STATUS",
+			type: "INTEGER",
+		},
+ {
 			name: "Code",
 			column: "CURRENCY_CODE",
 			type: "VARCHAR",
@@ -47,11 +52,6 @@ let dao = daoApi.create({
 			name: "DateModified",
 			column: "CURRENCY_DATEMODIFIED",
 			type: "TIMESTAMP",
-		},
- {
-			name: "Status",
-			column: "CURRENCY_STATUS",
-			type: "INTEGER",
 		}
 ]
 });

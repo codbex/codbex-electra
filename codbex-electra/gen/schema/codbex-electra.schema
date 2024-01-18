@@ -22,6 +22,14 @@
                         "name": "CURRENCY_TITLE"
                     },
                     {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CURRENCY_STATUS"
+                    },
+                    {
                         "type": "VARCHAR",
                         "length": 3,
                         "precision": "NaN",
@@ -68,14 +76,6 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "CURRENCY_DATEMODIFIED"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CURRENCY_STATUS"
                     }
                 ]
             },
@@ -376,7 +376,7 @@
                         "name": "COUNTRY_ISOCODE3"
                     },
                     {
-                        "type": "TINYINT",
+                        "type": "BOOLEAN",
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -690,7 +690,7 @@
                         "name": "PRODUCT_MANUFACTURER"
                     },
                     {
-                        "type": "TINYINT",
+                        "type": "BOOLEAN",
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -842,7 +842,7 @@
                         "name": "PRODUCT_POINTS"
                     },
                     {
-                        "type": "TINYINT",
+                        "type": "BOOLEAN",
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -858,7 +858,7 @@
                         "name": "PRODUCT_LOCATION"
                     },
                     {
-                        "type": "TINYINT",
+                        "type": "BOOLEAN",
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",

@@ -23,7 +23,7 @@
       "version": "1.0"
     },
     {
-      "table": "CODBEX_CURRENCYSTATUSES",
+      "table": "CODBEX_CURRENCYSTATUS",
       "schema": "PUBLIC",
       "file": "/codbex-electra-data/currency-statuses.csv",
       "header": true,

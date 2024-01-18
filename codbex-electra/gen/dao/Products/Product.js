@@ -27,7 +27,7 @@ let dao = daoApi.create({
  {
 			name: "Status",
 			column: "PRODUCT_STATUS",
-			type: "TINYINT",
+			type: "BOOLEAN",
 		},
  {
 			name: "Quantity",
@@ -122,7 +122,7 @@ let dao = daoApi.create({
  {
 			name: "Shipping",
 			column: "PRODUCT_SHIPPING",
-			type: "TINYINT",
+			type: "BOOLEAN",
 		},
  {
 			name: "Location",
@@ -132,7 +132,7 @@ let dao = daoApi.create({
  {
 			name: "Subtract",
 			column: "PRODUCT_SUBTRACT",
-			type: "TINYINT",
+			type: "BOOLEAN",
 		},
  {
 			name: "Minimum",
@@ -149,19 +149,28 @@ let dao = daoApi.create({
 
 exports.list = function(settings) {
 	return dao.list(settings).map(function(e) {
+		EntityUtils.setBoolean(e, "Status");
 		EntityUtils.setDate(e, "DateAvailable");
+		EntityUtils.setBoolean(e, "Shipping");
+		EntityUtils.setBoolean(e, "Subtract");
 		return e;
 	});
 };
 
 exports.get = function(id) {
 	let entity = dao.find(id);
+	EntityUtils.setBoolean(entity, "Status");
 	EntityUtils.setDate(entity, "DateAvailable");
+	EntityUtils.setBoolean(entity, "Shipping");
+	EntityUtils.setBoolean(entity, "Subtract");
 	return entity;
 };
 
 exports.create = function(entity) {
+	EntityUtils.setBoolean(entity, "Status");
 	EntityUtils.setLocalDate(entity, "DateAvailable");
+	EntityUtils.setBoolean(entity, "Shipping");
+	EntityUtils.setBoolean(entity, "Subtract");
 	entity["DateModified"] = Date.now();
 	entity["UpdatedBy"] = require("security/user").getName();
 	let id = dao.insert(entity);
@@ -179,7 +188,10 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
+	EntityUtils.setBoolean(entity, "Status");
 	// EntityUtils.setLocalDate(entity, "DateAvailable");
+	EntityUtils.setBoolean(entity, "Shipping");
+	EntityUtils.setBoolean(entity, "Subtract");
 	entity["DateModified"] = Date.now();
 	entity["UpdatedBy"] = require("security/user").getName();
 	dao.update(entity);
