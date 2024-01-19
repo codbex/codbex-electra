@@ -14,13 +14,13 @@ let dao = daoApi.create({
 			autoIncrement: true,
 		},
  {
-			name: "Name",
-			column: "ATTRIBUTE_NAME",
-			type: "VARCHAR",
-		},
- {
 			name: "Group",
 			column: "ATTRIBUTE_GROUP",
+			type: "INTEGER",
+		},
+ {
+			name: "Name",
+			column: "ATTRIBUTE_NAME",
 			type: "INTEGER",
 		}
 ]

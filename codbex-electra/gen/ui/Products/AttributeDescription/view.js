@@ -4,11 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "Product",
-    label: "Product",
+    id: "AttributeDescription",
+    label: "AttributeDescription",
     factory: "frame",
-    region: "left",
-    link: "/services/web/codbex-electra/gen/ui/Products/Product/index.html",
+    region: "center",
+    link: "/services/web/codbex-electra/gen/ui/Products/AttributeDescription/index.html",
     perspectiveName: "Products"
 };
 

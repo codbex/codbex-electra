@@ -6,12 +6,14 @@
 const viewData = {
     id: "Product-details",
     label: "Product",
-    link: "/services/web/codbex-electra/gen/ui/Products/Product/dialog-window/index.html",
+    factory: "frame",
+    region: "center",
+    link: "/services/web/codbex-electra/gen/ui/Products/Product/main-details/index.html",
     perspectiveName: "Products"
 };
 
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
+    exports.getView = function () {
         return viewData;
     }
 }

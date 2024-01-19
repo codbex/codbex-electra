@@ -18,124 +18,71 @@
 	<body class="dg-vbox">
 		<fd-toolbar has-title="true">
 			<fd-toolbar-title>Items ({{dataCount}})</fd-toolbar-title>
-			<fd-button ng-repeat="action in pageActions" compact="true" dg-type="transparent" dg-label="{{action.label}}" ng-click="triggerPageAction(action.id)"></fd-button>
 			<fd-toolbar-spacer></fd-toolbar-spacer>
-			<fd-button compact="true" dg-type="transparent" dg-label="Create" ng-click="createEntity()"></fd-button>
+			<fd-button compact="true" dg-type="transparent" dg-label="Create"
+				state="{{action == 'update'? 'disabled' : ''}}" ng-click="createEntity()"></fd-button>
+			<fd-button compact="true" dg-type="transparent" dg-label="Edit"
+				state="{{selectedEntity == null ? 'disabled' : ''}}" ng-click="updateEntity()"></fd-button>
+			<fd-button compact="true" dg-type="transparent" dg-label="Delete"
+				state="{{selectedEntity == null || action == 'update'? 'disabled' : ''}}" ng-click="deleteEntity()">
+			</fd-button>
+			<fd-popover ng-show="pageActions.length > 0">
+				<fd-popover-control>
+					<fd-button compact="true" glyph="sap-icon--overflow" dg-type="transparent"
+						aria-label="Header Menu Button">
+					</fd-button>
+				</fd-popover-control>
+				<fd-popover-body dg-align="bottom-right">
+					<fd-menu aria-label="Header Menu" no-backdrop="true" no-shadow="true">
+						<fd-menu-item ng-repeat="action in pageActions" title="{{action.label}}"
+							ng-click="triggerPageAction(action.id)"></fd-menu-item>
+					</fd-menu>
+				</fd-popover-body>
+			</fd-popover>
 		</fd-toolbar>
-
-		<fd-scrollbar class="dg-full-height" ng-hide="data == null">
-			<table fd-table display-mode="compact" inner-borders="top" outer-borders="none">
-				<thead fd-table-header sticky="true">
-					<tr fd-table-row>
-						<th fd-table-header-cell>Model</th>
-						<th fd-table-header-cell>Manufacturer</th>
-						<th fd-table-header-cell>Status</th>
-						<th fd-table-header-cell>Quantity</th>
-						<th fd-table-header-cell>Price</th>
-						<th fd-table-header-cell>Image</th>
-						<th fd-table-header-cell>SKU</th>
-						<th fd-table-header-cell>UPC</th>
-						<th fd-table-header-cell>EAN</th>
-						<th fd-table-header-cell>JAN</th>
-						<th fd-table-header-cell>ISBN</th>
-						<th fd-table-header-cell>MPN</th>
-						<th fd-table-header-cell>DateAvailable</th>
-						<th fd-table-header-cell>Weight</th>
-						<th fd-table-header-cell>Length</th>
-						<th fd-table-header-cell>Width</th>
-						<th fd-table-header-cell>Height</th>
-						<th fd-table-header-cell>DateAdded</th>
-						<th fd-table-header-cell>DateModified</th>
-						<th fd-table-header-cell>UpdatedBy</th>
-						<th fd-table-header-cell>Points</th>
-						<th fd-table-header-cell>Shipping</th>
-						<th fd-table-header-cell>Location</th>
-						<th fd-table-header-cell>Subtract</th>
-						<th fd-table-header-cell>Minimum</th>
-						<th fd-table-header-cell>StockStatus</th>
-						<th fd-table-header-cell></th>
-					</tr>
-				</thead>
-				<tbody fd-table-body>
-					<tr fd-table-row hoverable="true" ng-show="data.length == 0">
-						<td fd-table-cell no-data="true">No data available.</td>
-					</tr>
-					<tr fd-table-row hoverable="true" ng-repeat="next in data"
-						dg-selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Model}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsManufacturerValue(next.Manufacturer)}}
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-checkbox id="idStatus" compact="false" ng-disabled="true" ng-model="next.Status"></fd-checkbox>
-							<fd-checkbox-label for="idStatus"></fd-checkbox-label>
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Quantity}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Price}}</td>
-						<td fd-table-cell>
-							<a href="{{next.Image}}" target="_blank" class="fd-link">{{next.Image}}</a>
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.SKU}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.UPC}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.EAN}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.JAN}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.ISBN}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.MPN}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-input type="date" ng-model="next.DateAvailable" ng-readonly="true"></fd-input>
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Weight}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Length}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Width}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Height}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-input type="datetime-local" ng-model="next.DateAdded" ng-readonly="true"></fd-input>
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-input type="datetime-local" ng-model="next.DateModified" ng-readonly="true"></fd-input>
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.UpdatedBy}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Points}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-checkbox id="idShipping" compact="false" ng-disabled="true" ng-model="next.Shipping"></fd-checkbox>
-							<fd-checkbox-label for="idShipping"></fd-checkbox-label>
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Location}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-checkbox id="idSubtract" compact="false" ng-disabled="true" ng-model="next.Subtract"></fd-checkbox>
-							<fd-checkbox-label for="idSubtract"></fd-checkbox-label>
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Minimum}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsStockStatusValue(next.StockStatus)}}
-						</td>
-						<td fd-table-cell fit-content="true">
-							<fd-popover>
-								<fd-popover-control>
-									<fd-button compact="true" glyph="sap-icon--overflow" dg-type="transparent"
-										aria-label="Table Row Menu Button" ng-click="setTristate()">
-									</fd-button>
-								</fd-popover-control>
-								<fd-popover-body dg-align="bottom-right">
-									<fd-menu aria-label="Table Row Menu" no-backdrop="true" no-shadow="true">
-										<fd-menu-item ng-repeat="action in entityActions" title="{{action.label}}" ng-click="triggerEntityAction(action.id, next)"></fd-menu-item>
-										<fd-menu-item title="View Details" ng-click="openDetails(next)"></fd-menu-item>
-										<fd-menu-item title="Edit" ng-click="updateEntity(next)"></fd-menu-item>
-										<fd-menu-item title="Delete" ng-click="deleteEntity(next)"></fd-menu-item>
-									</fd-menu>
-								</fd-popover-body>
-							</fd-popover>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+		<fd-scrollbar>
+			<fd-list list-type="navigation-indication" byline="true" state="disabled">
+				<fd-list-item ng-repeat="next in data">
+					<fd-list-link navigation-indicator="true" dg-selected="next.Id === selectedEntity.Id"
+						navigated="next.Id === selectedEntity.Id"
+						ng-click="action == 'select' ? selectEntity(next) : ''">
+						<fd-list-content
+							item-title="{{next.Model}}">
+							<fd-list-byline dg-align="left">
+								{{optionsManufacturerValue(next.Manufacturer)}} |
+								{{next.Status}} |
+								{{next.Quantity}} |
+								{{next.Price}} |
+								<a href="{{next.Image}}" target="_blank" class="fd-link">{{next.Image}}</a> |
+								{{next.SKU}} |
+								{{next.UPC}} |
+								{{next.EAN}} |
+								{{next.JAN}} |
+								{{next.ISBN}} |
+								{{next.MPN}} |
+								{{next.DateAvailable | date: "dd/MMM/yyyy"}} |
+								{{next.Weight}} |
+								{{next.Length}} |
+								{{next.Width}} |
+								{{next.Height}} |
+								{{next.DateAdded | date: "dd/MMM/yyyy HH:MM"}} |
+								{{next.DateModified | date: "dd/MMM/yyyy HH:MM"}} |
+								{{next.UpdatedBy}} |
+								{{next.Points}} |
+								{{next.Shipping}} |
+								{{next.Location}} |
+								{{next.Subtract}} |
+								{{next.Minimum}} |
+								{{optionsStockStatusValue(next.StockStatus)}}
+							</fd-list-byline>
+						</fd-list-content>
+					</fd-list-link>
+				</fd-list-item>
+			</fd-list>
+			<fd-list-action-item ng-show="dataPage <= dataPages && dataCount > dataLimit" ng-click="loadPage()">
+				Load More ...
+			</fd-list-action-item>
 		</fd-scrollbar>
-
-		<fd-pagination total-items="dataCount" items-per-page="dataLimit"
-			items-per-page-options="[10, 20, 50]" page-change="loadPage(pageNumber)"
-			items-per-page-change="loadPage(pageNumber)" items-per-page-placement="top-start" compact="true"
-			display-total-items="true" ng-hide="dataCount == 0">
-		</fd-pagination>
 	</body>
 
 </html>
