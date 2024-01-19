@@ -4,33 +4,23 @@ const extensions = require('extensions/extensions');
 const daoApi = require("db/dao");
 
 let dao = daoApi.create({
-	table: "CODBEX_PRODUCTATTRIBUTE",
+	table: "CODBEX_ATTRIBUTEDESCRIPTION",
 	properties: [
 		{
 			name: "Id",
-			column: "PRODUCTATTRIBUTE_ID",
+			column: "ATTRIBUTEDESCRIPTION_ID",
 			type: "INTEGER",
 			id: true,
 			autoIncrement: true,
 		},
  {
-			name: "Product",
-			column: "PRODUCTATTRIBUTE_PRODUCT",
-			type: "INTEGER",
-		},
- {
-			name: "Atttribute",
-			column: "PRODUCTATTRIBUTE_ATTTRIBUTE",
-			type: "INTEGER",
-		},
- {
-			name: "Text",
-			column: "PRODUCTATTRIBUTE_TEXT",
+			name: "Name",
+			column: "ATTRIBUTEDESCRIPTION_NAME",
 			type: "VARCHAR",
 		},
  {
 			name: "Language",
-			column: "PRODUCTATTRIBUTE_LANGUAGE",
+			column: "ATTRIBUTEDESCRIPTION_LANGUAGE",
 			type: "INTEGER",
 		}
 ]
@@ -48,11 +38,11 @@ exports.create = function(entity) {
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
-		table: "CODBEX_PRODUCTATTRIBUTE",
+		table: "CODBEX_ATTRIBUTEDESCRIPTION",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "PRODUCTATTRIBUTE_ID",
+			column: "ATTRIBUTEDESCRIPTION_ID",
 			value: id
 		}
 	});
@@ -63,11 +53,11 @@ exports.update = function(entity) {
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",
-		table: "CODBEX_PRODUCTATTRIBUTE",
+		table: "CODBEX_ATTRIBUTEDESCRIPTION",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "PRODUCTATTRIBUTE_ID",
+			column: "ATTRIBUTEDESCRIPTION_ID",
 			value: entity.Id
 		}
 	});
@@ -78,30 +68,22 @@ exports.delete = function(id) {
 	dao.remove(id);
 	triggerEvent({
 		operation: "delete",
-		table: "CODBEX_PRODUCTATTRIBUTE",
+		table: "CODBEX_ATTRIBUTEDESCRIPTION",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "PRODUCTATTRIBUTE_ID",
+			column: "ATTRIBUTEDESCRIPTION_ID",
 			value: id
 		}
 	});
 };
 
-exports.count = function () {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PRODUCTATTRIBUTE" WHERE  = ?', []);
-	if (resultSet !== null && resultSet[0] !== null) {
-		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
-			return resultSet[0].COUNT;
-		} else if (resultSet[0].count !== undefined && resultSet[0].count !== null) {
-			return resultSet[0].count;
-		}
-	}
-	return 0;
+exports.count = function() {
+	return dao.count();
 };
 
 exports.customDataCount = function() {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PRODUCTATTRIBUTE"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_ATTRIBUTEDESCRIPTION"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;
@@ -113,7 +95,7 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(data) {
-	let triggerExtensions = extensions.getExtensions("codbex-electra/Products/ProductAttribute");
+	let triggerExtensions = extensions.getExtensions("codbex-electra/Products/AttributeDescription");
 	try {
 		for (let i=0; i < triggerExtensions.length; i++) {
 			let module = triggerExtensions[i];
@@ -127,5 +109,5 @@ function triggerEvent(data) {
 	} catch (error) {
 		console.error(error);
 	}
-	producer.queue("codbex-electra/Products/ProductAttribute").send(JSON.stringify(data));
+	producer.queue("codbex-electra/Products/AttributeDescription").send(JSON.stringify(data));
 }

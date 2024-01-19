@@ -17,6 +17,11 @@ let dao = daoApi.create({
 			name: "Name",
 			column: "ATTRIBUTEGROUP_NAME",
 			type: "VARCHAR",
+		},
+ {
+			name: "Language",
+			column: "ATTRIBUTEGROUP_LANGUAGE",
+			type: "INTEGER",
 		}
 ]
 });

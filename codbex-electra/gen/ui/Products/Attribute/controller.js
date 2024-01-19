@@ -84,6 +84,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				action: "select",
 				entity: entity,
 				optionsGroup: $scope.optionsGroup,
+				optionsName: $scope.optionsName,
 			});
 		};
 
@@ -93,6 +94,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				action: "create",
 				entity: {},
 				optionsGroup: $scope.optionsGroup,
+				optionsName: $scope.optionsName,
 			}, null, false);
 		};
 
@@ -101,6 +103,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				action: "update",
 				entity: entity,
 				optionsGroup: $scope.optionsGroup,
+				optionsName: $scope.optionsName,
 			}, null, false);
 		};
 
@@ -135,9 +138,19 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsGroup = [];
+		$scope.optionsName = [];
 
 		$http.get("/services/js/codbex-electra/gen/api/Products/AttributeGroup.js").then(function (response) {
 			$scope.optionsGroup = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/js/codbex-electra/gen/api/Products/AttributeDescription.js").then(function (response) {
+			$scope.optionsName = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -148,6 +161,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			for (let i = 0; i < $scope.optionsGroup.length; i++) {
 				if ($scope.optionsGroup[i].value === optionKey) {
 					return $scope.optionsGroup[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsNameValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsName.length; i++) {
+				if ($scope.optionsName[i].value === optionKey) {
+					return $scope.optionsName[i].text;
 				}
 			}
 			return null;
