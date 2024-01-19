@@ -11,7 +11,7 @@ exports.getTile = function () {
         tooltip: "Language",
         // icon: "file-o",
         location: "/services/web/codbex-electra/gen/ui/Settings/index.html",
-        order: "100",
-        groupOrder: "999"
+        order: "20",
+        groupOrder: "1000"
     };
 };

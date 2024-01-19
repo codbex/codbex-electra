@@ -1390,6 +1390,8 @@
                     {
                         "type": "INTEGER",
                         "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "ATTRIBUTE_GROUP"
                     }
@@ -1410,6 +1412,8 @@
                     {
                         "type": "INTEGER",
                         "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "PRODUCTATTRIBUTE_ATTTRIBUTE"
                     },
