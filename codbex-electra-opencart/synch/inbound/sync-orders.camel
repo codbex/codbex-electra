@@ -4,7 +4,7 @@
       uri: cron:TriggerOrdersReplication
       id: trigger-orders-replication-cron
       parameters:
-        schedule: 3 * * ? * *
+        schedule: 9 * * ? * *
       description: Trigger Orders Replication
       steps:
         - log:

@@ -68,24 +68,24 @@ In the following table you can find more details about tables mapping.
 
 | OpenCart Table | Electra Table | Synch frequency | Details | Example execution |
 |--|--|--|--|--|
-| oc_order_product | CODBEX_SALESORDERITEM | every minute | [here](codbex-electra-opencart/synch/inbound/sync-order-items.camel) | 12:00:00<br>12:01:00<br>12:02:00 |
-| oc_product | CODBEX_PRODUCT | every minute | [here](codbex-electra-opencart/synch/inbound/sync-products.camel) | 12:00:01<br>12:01:01<br>12:02:01 |
+| oc_customer | CODBEX_CUSTOMER | every minute | [here](codbex-electra-opencart/synch/inbound/sync-customers.camel) | 12:00:01<br>12:01:01<br>12:02:01 |
 | oc_manufacturer | CODBEX_MANUFACTURER | every minute | [here](codbex-electra-opencart/synch/inbound/sync-manufacturers.camel) | 12:00:02<br>12:01:02<br>12:02:02 |
-| oc_order | CODBEX_SALESORDER | every minute | [here](codbex-electra-opencart/synch/inbound/sync-orders.camel) | 12:00:03<br>12:01:03<br>12:02:03 |
-| oc_order | CODBEX_SALESORDERPAYMENT | every minute | [here](codbex-electra-opencart/synch/inbound/sync-orders.camel) | 12:00:03<br>12:01:03<br>12:02:03 |
-| oc_order | CODBEX_SALESORDERSHIPPING | every minute | [here](codbex-electra-opencart/synch/inbound/sync-orders.camel) | 12:00:03<br>12:01:03<br>12:02:03 |
-| oc_customer | CODBEX_CUSTOMER | every minute | [here](codbex-electra-opencart/synch/inbound/sync-customers.camel) | 12:00:04<br>12:01:04<br>12:02:04 |
-| oc_attribute_group_description | CODBEX_ATTRIBUTEGROUP | every minute | [here](codbex-electra-opencart/synch/inbound/sync-attribute-groups.camel) | 12:00:05<br>12:01:05<br>12:02:05 |
-| oc_attribute_description | CODBEX_ATTRIBUTEDESCRIPTION | every minute | [here](codbex-electra-opencart/synch/inbound/sync-attribute-descriptions.camel) | 12:00:06<br>12:01:06<br>12:02:06 |
-| oc_attribute | CODBEX_ATTRIBUTE | every minute | [here](codbex-electra-opencart/synch/inbound/sync-attributes.camel) | 12:00:07<br>12:01:07<br>12:02:07 |
-| oc_product_attribute | CODBEX_PRODUCTATTRIBUTE | every minute | [here](codbex-electra-opencart/synch/inbound/sync-product-attributes.camel) | 12:00:08<br>12:01:08<br>12:02:08 |
-| oc_country | CODBEX_COUNTRY | hourly | [here](codbex-electra-opencart/synch/inbound/sync-countries.camel) | 12:30:00<br>13:30:00<br>14:30:00 |
-| oc_currency | CODBEX_CURRENCY | hourly | [here](codbex-electra-opencart/synch/inbound/sync-currencies.camel) | 12:30:01<br>13:30:01<br>14:30:01 |
+| oc_attribute_group_description | CODBEX_ATTRIBUTEGROUP | every minute | [here](codbex-electra-opencart/synch/inbound/sync-attribute-groups.camel) | 12:00:03<br>12:01:03<br>12:02:03 |
+| oc_attribute_description | CODBEX_ATTRIBUTEDESCRIPTION | every minute | [here](codbex-electra-opencart/synch/inbound/sync-attribute-descriptions.camel) | 12:00:04<br>12:01:04<br>12:02:04 |
+| oc_attribute | CODBEX_ATTRIBUTE | every minute | [here](codbex-electra-opencart/synch/inbound/sync-attributes.camel) | 12:00:05<br>12:01:05<br>12:02:05 |
+| oc_product_attribute | CODBEX_PRODUCTATTRIBUTE | every minute | [here](codbex-electra-opencart/synch/inbound/sync-product-attributes.camel) | 12:00:06<br>12:01:06<br>12:02:06 |
+| oc_product | CODBEX_PRODUCT | every minute | [here](codbex-electra-opencart/synch/inbound/sync-products.camel) | 12:00:07<br>12:01:07<br>12:02:07 |
+| oc_order_product | CODBEX_SALESORDERITEM | every minute | [here](codbex-electra-opencart/synch/inbound/sync-order-items.camel) | 12:00:08<br>12:01:08<br>12:02:08 |
+| oc_order | CODBEX_SALESORDERPAYMENT | every minute | [here](codbex-electra-opencart/synch/inbound/sync-orders.camel) | 12:00:09<br>12:01:09<br>12:02:09 |
+| oc_order | CODBEX_SALESORDERSHIPPING | every minute | [here](codbex-electra-opencart/synch/inbound/sync-orders.camel) | 12:00:09<br>12:01:09<br>12:02:09 |
+| oc_order | CODBEX_SALESORDER | every minute | [here](codbex-electra-opencart/synch/inbound/sync-orders.camel) | 12:00:09<br>12:01:09<br>12:02:09 |
+| oc_store | CODBEX_STORE | hourly | [here](codbex-electra-opencart/synch/inbound/sync-stores.camel) | 12:30:01<br>13:30:01<br>14:30:01 |
 | oc_language | CODBEX_LANGUAGE | hourly | [here](codbex-electra-opencart/synch/inbound/sync-languages.camel) | 12:30:02<br>13:30:02<br>14:30:02 |
-| oc_stock_status | CODBEX_STOCKSTATUS | hourly | [here](codbex-electra-opencart/synch/inbound/sync-stock-statuses.camel) | 12:30:03<br>13:30:03<br>14:30:03 |
-| oc_store | CODBEX_STORE | hourly | [here](codbex-electra-opencart/synch/inbound/sync-stores.camel) | 12:30:04<br>13:30:04<br>14:30:04 |
+| oc_country | CODBEX_COUNTRY | hourly | [here](codbex-electra-opencart/synch/inbound/sync-countries.camel) | 12:30:03<br>13:30:03<br>14:30:03 |
+| oc_currency | CODBEX_CURRENCY | hourly | [here](codbex-electra-opencart/synch/inbound/sync-currencies.camel) | 12:30:04<br>13:30:04<br>14:30:04 |
 | oc_zone | CODBEX_ZONE | hourly | [here](codbex-electra-opencart/synch/inbound/sync-zones.camel) | 12:30:05<br>13:30:05<br>14:30:05 |
-| oc_order_status | CODBEX_SALESORDERITEM | hourly | [here](codbex-electra-opencart/synch/inbound/sync-order-status.camel) | 12:30:06<br>13:30:06<br>14:30:06 |
+| oc_stock_status | CODBEX_STOCKSTATUS | hourly | [here](codbex-electra-opencart/synch/inbound/sync-stock-statuses.camel) | 12:30:06<br>13:30:06<br>14:30:06 |
+| oc_order_status | CODBEX_SALESORDERITEM | hourly | [here](codbex-electra-opencart/synch/inbound/sync-order-status.camel) | 12:30:07<br>13:30:07<br>14:30:07 |
 
 OpenCart DB model could be found [here](https://github.com/opencart/opencart/blob/3.0.3.8/upload/install/opencart.sql).
 

@@ -4,7 +4,7 @@
       uri: cron:TriggerCountriesReplication
       id: trigger-countries-replication-cron
       parameters:
-        schedule: 0 30 * ? * *
+        schedule: 3 30 * ? * *
       description: Trigger Countries Replication
       steps:
         - log:
