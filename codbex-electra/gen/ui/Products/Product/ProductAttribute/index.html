@@ -31,8 +31,7 @@
 			<table fd-table display-mode="compact" inner-borders="top" outer-borders="none">
 				<thead fd-table-header sticky="true">
 					<tr fd-table-row>
-						<th fd-table-header-cell>Product</th>
-						<th fd-table-header-cell>Atttribute</th>
+						<th fd-table-header-cell>Name</th>
 						<th fd-table-header-cell>Text</th>
 						<th fd-table-header-cell>Language</th>
 						<th fd-table-header-cell></th>
@@ -45,10 +44,7 @@
 					<tr fd-table-row hoverable="true" ng-repeat="next in data"
 						dg-selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsProductValue(next.Product)}}
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsAtttributeValue(next.Atttribute)}}
+							{{optionsNameValue(next.Name)}}
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Text}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">

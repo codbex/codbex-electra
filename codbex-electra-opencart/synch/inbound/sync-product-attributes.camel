@@ -38,18 +38,18 @@
                       expression: |-
                         MERGE INTO CODBEX_PRODUCTATTRIBUTE
                             (
-                                PRODUCTATTRIBUTE_ID, PRODUCTATTRIBUTE_PRODUCT, 
-                                PRODUCTATTRIBUTE_ATTTRIBUTE, PRODUCTATTRIBUTE_TEXT, 
-                                PRODUCTATTRIBUTE_LANGUAGE
+                                PRODUCTATTRIBUTE_ID, PRODUCTATTRIBUTE_NAME, 
+                                PRODUCTATTRIBUTE_TEXT, PRODUCTATTRIBUTE_LANGUAGE, 
+                                PRODUCTATTRIBUTE_PRODUCT
                             ) 
                         KEY(PRODUCTATTRIBUTE_ID)
                         VALUES 
                             (
                                 ${body['attribute_id']},
-                                ${body['product_id']},
                                 ${body['attribute_id']},
                                 '${body['text']}',
-                                ${body['language_id']}
+                                ${body['language_id']},
+                                ${body['product_id']}
                             )
                       id: simple-b426-yuy43e
                   description: Create MERGE statement

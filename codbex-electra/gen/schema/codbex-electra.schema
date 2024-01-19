@@ -1417,15 +1417,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PRODUCTATTRIBUTE_PRODUCT"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCTATTRIBUTE_ATTTRIBUTE"
+                        "name": "PRODUCTATTRIBUTE_NAME"
                     },
                     {
                         "type": "VARCHAR",
@@ -1442,6 +1434,14 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "PRODUCTATTRIBUTE_LANGUAGE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PRODUCTATTRIBUTE_PRODUCT"
                     }
                 ]
             },
@@ -1815,22 +1815,13 @@
                 "referencedColumns": "ATTRIBUTEDESCRIPTION_ID"
             },
             {
-                "name": "ProductAttribute_Product",
+                "name": "ProductAttribute_AttributeDescription",
                 "type": "foreignKey",
                 "table": "CODBEX_PRODUCTATTRIBUTE",
-                "constraintName": "ProductAttribute_Product",
-                "columns": "PRODUCTATTRIBUTE_PRODUCT",
-                "referencedTable": "CODBEX_PRODUCT",
-                "referencedColumns": "PRODUCT_ID"
-            },
-            {
-                "name": "ProductAttribute_Attribute",
-                "type": "foreignKey",
-                "table": "CODBEX_PRODUCTATTRIBUTE",
-                "constraintName": "ProductAttribute_Attribute",
-                "columns": "PRODUCTATTRIBUTE_ATTTRIBUTE",
-                "referencedTable": "CODBEX_ATTRIBUTE",
-                "referencedColumns": "ATTRIBUTE_ID"
+                "constraintName": "ProductAttribute_AttributeDescription",
+                "columns": "PRODUCTATTRIBUTE_NAME",
+                "referencedTable": "CODBEX_ATTRIBUTEDESCRIPTION",
+                "referencedColumns": "ATTRIBUTEDESCRIPTION_ID"
             },
             {
                 "name": "ProductAttribute_Language",
@@ -1840,6 +1831,15 @@
                 "columns": "PRODUCTATTRIBUTE_LANGUAGE",
                 "referencedTable": "CODBEX_LANGUAGE",
                 "referencedColumns": "LANGUAGE_ID"
+            },
+            {
+                "name": "ProductAttribute_Product",
+                "type": "foreignKey",
+                "table": "CODBEX_PRODUCTATTRIBUTE",
+                "constraintName": "ProductAttribute_Product",
+                "columns": "PRODUCTATTRIBUTE_PRODUCT",
+                "referencedTable": "CODBEX_PRODUCT",
+                "referencedColumns": "PRODUCT_ID"
             },
             {
                 "name": "AttributeGroup_Language",

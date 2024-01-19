@@ -14,13 +14,8 @@ let dao = daoApi.create({
 			autoIncrement: true,
 		},
  {
-			name: "Product",
-			column: "PRODUCTATTRIBUTE_PRODUCT",
-			type: "INTEGER",
-		},
- {
-			name: "Atttribute",
-			column: "PRODUCTATTRIBUTE_ATTTRIBUTE",
+			name: "Name",
+			column: "PRODUCTATTRIBUTE_NAME",
 			type: "INTEGER",
 		},
  {
@@ -31,6 +26,11 @@ let dao = daoApi.create({
  {
 			name: "Language",
 			column: "PRODUCTATTRIBUTE_LANGUAGE",
+			type: "INTEGER",
+		},
+ {
+			name: "Product",
+			column: "PRODUCTATTRIBUTE_PRODUCT",
 			type: "INTEGER",
 		}
 ]
@@ -88,8 +88,8 @@ exports.delete = function(id) {
 	});
 };
 
-exports.count = function () {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PRODUCTATTRIBUTE" WHERE  = ?', []);
+exports.count = function (Product) {
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PRODUCTATTRIBUTE" WHERE "PRODUCTATTRIBUTE_PRODUCT" = ?', [Product]);
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

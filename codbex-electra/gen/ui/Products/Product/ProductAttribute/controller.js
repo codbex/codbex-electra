@@ -44,13 +44,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		resetPagination();
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("codbex-electra.Products.${masterEntity}.entitySelected", function (msg) {
+		messageHub.onDidReceiveMessage("codbex-electra.Products.Product.entitySelected", function (msg) {
 			resetPagination();
 			$scope.selectedMainEntityId = msg.data.selectedMainEntityId;
 			$scope.loadPage($scope.dataPage);
 		}, true);
 
-		messageHub.onDidReceiveMessage("codbex-electra.Products.${masterEntity}.clearDetails", function (msg) {
+		messageHub.onDidReceiveMessage("codbex-electra.Products.Product.clearDetails", function (msg) {
 			$scope.$apply(function () {
 				resetPagination();
 				$scope.selectedMainEntityId = null;
@@ -75,15 +75,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//-----------------Events-------------------//
 
 		$scope.loadPage = function (pageNumber) {
-			let ${masterEntityId} = $scope.selectedMainEntityId;
+			let Product = $scope.selectedMainEntityId;
 			$scope.dataPage = pageNumber;
-			entityApi.count(${masterEntityId}).then(function (response) {
+			entityApi.count(Product).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("ProductAttribute", `Unable to count ProductAttribute: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
-				let query = `${masterEntityId}=${${masterEntityId}}`;
+				let query = `Product=${Product}`;
 				let offset = (pageNumber - 1) * $scope.dataLimit;
 				let limit = $scope.dataLimit;
 				entityApi.filter(query, offset, limit).then(function (response) {
@@ -105,9 +105,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("ProductAttribute-details", {
 				action: "select",
 				entity: entity,
-				optionsProduct: $scope.optionsProduct,
-				optionsAtttribute: $scope.optionsAtttribute,
+				optionsName: $scope.optionsName,
 				optionsLanguage: $scope.optionsLanguage,
+				optionsProduct: $scope.optionsProduct,
 			});
 		};
 
@@ -116,11 +116,11 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("ProductAttribute-details", {
 				action: "create",
 				entity: {},
-				selectedMainEntityKey: "${masterEntityId}",
+				selectedMainEntityKey: "Product",
 				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsProduct: $scope.optionsProduct,
-				optionsAtttribute: $scope.optionsAtttribute,
+				optionsName: $scope.optionsName,
 				optionsLanguage: $scope.optionsLanguage,
+				optionsProduct: $scope.optionsProduct,
 			}, null, false);
 		};
 
@@ -128,11 +128,11 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("ProductAttribute-details", {
 				action: "update",
 				entity: entity,
-				selectedMainEntityKey: "${masterEntityId}",
+				selectedMainEntityKey: "Product",
 				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsProduct: $scope.optionsProduct,
-				optionsAtttribute: $scope.optionsAtttribute,
+				optionsName: $scope.optionsName,
 				optionsLanguage: $scope.optionsLanguage,
+				optionsProduct: $scope.optionsProduct,
 			}, null, false);
 		};
 
@@ -166,21 +166,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsProduct = [];
-		$scope.optionsAtttribute = [];
+		$scope.optionsName = [];
 		$scope.optionsLanguage = [];
+		$scope.optionsProduct = [];
 
-		$http.get("/services/js/codbex-electra/gen/api/Products/Product.js").then(function (response) {
-			$scope.optionsProduct = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Model
-				}
-			});
-		});
-
-		$http.get("/services/js/codbex-electra/gen/api/Products/Attribute.js").then(function (response) {
-			$scope.optionsAtttribute = response.data.map(e => {
+		$http.get("/services/js/codbex-electra/gen/api/Products/AttributeDescription.js").then(function (response) {
+			$scope.optionsName = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -196,18 +187,19 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
-		$scope.optionsProductValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsProduct.length; i++) {
-				if ($scope.optionsProduct[i].value === optionKey) {
-					return $scope.optionsProduct[i].text;
+
+		$http.get("/services/js/codbex-electra/gen/api/Products/Product.js").then(function (response) {
+			$scope.optionsProduct = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Model
 				}
-			}
-			return null;
-		};
-		$scope.optionsAtttributeValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsAtttribute.length; i++) {
-				if ($scope.optionsAtttribute[i].value === optionKey) {
-					return $scope.optionsAtttribute[i].text;
+			});
+		});
+		$scope.optionsNameValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsName.length; i++) {
+				if ($scope.optionsName[i].value === optionKey) {
+					return $scope.optionsName[i].text;
 				}
 			}
 			return null;
@@ -216,6 +208,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			for (let i = 0; i < $scope.optionsLanguage.length; i++) {
 				if ($scope.optionsLanguage[i].value === optionKey) {
 					return $scope.optionsLanguage[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsProductValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsProduct.length; i++) {
+				if ($scope.optionsProduct[i].value === optionKey) {
+					return $scope.optionsProduct[i].text;
 				}
 			}
 			return null;
