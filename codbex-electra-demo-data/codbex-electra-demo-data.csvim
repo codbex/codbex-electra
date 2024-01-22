@@ -10,17 +10,6 @@
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
       "version": "1.0"
-    },
-    {
-      "table": "CODBEX_TEAM",
-      "schema": "PUBLIC",
-      "file": "/codbex-electra-demo-data/teams.csv",
-      "header": true,
-      "useHeaderNames": true,
-      "delimField": ",",
-      "delimEnclosing": "\"",
-      "distinguishEmptyFromNull": true,
-      "version": "1.0"
     }
   ]
 }

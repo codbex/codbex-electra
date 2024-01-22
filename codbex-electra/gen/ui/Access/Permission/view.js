@@ -4,14 +4,16 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "Team-details",
-    label: "Team",
-    link: "/services/web/codbex-electra/gen/ui/Access/Team/dialog-window/index.html",
+    id: "Permission",
+    label: "Permission",
+    factory: "frame",
+    region: "center",
+    link: "/services/web/codbex-electra/gen/ui/Access/Permission/index.html",
     perspectiveName: "Access"
 };
 
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
+    exports.getView = function () {
         return viewData;
     }
 }

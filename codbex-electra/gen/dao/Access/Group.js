@@ -4,24 +4,24 @@ const extensions = require('extensions/extensions');
 const daoApi = require("db/dao");
 
 let dao = daoApi.create({
-	table: "CODBEX_TEAM",
+	table: "CODBEX_GROUP",
 	properties: [
 		{
 			name: "Id",
-			column: "TEAM_ID",
+			column: "GROUP_ID",
 			type: "INTEGER",
 			id: true,
 			autoIncrement: true,
 		},
  {
 			name: "Name",
-			column: "TEAM_NAME",
+			column: "GROUP_NAME",
 			type: "VARCHAR",
 		},
  {
 			name: "Permission",
-			column: "TEAM_PERMISSION",
-			type: "VARCHAR",
+			column: "GROUP_PERMISSION",
+			type: "INTEGER",
 		}
 ]
 });
@@ -38,11 +38,11 @@ exports.create = function(entity) {
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
-		table: "CODBEX_TEAM",
+		table: "CODBEX_GROUP",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "TEAM_ID",
+			column: "GROUP_ID",
 			value: id
 		}
 	});
@@ -53,11 +53,11 @@ exports.update = function(entity) {
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",
-		table: "CODBEX_TEAM",
+		table: "CODBEX_GROUP",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "TEAM_ID",
+			column: "GROUP_ID",
 			value: entity.Id
 		}
 	});
@@ -68,11 +68,11 @@ exports.delete = function(id) {
 	dao.remove(id);
 	triggerEvent({
 		operation: "delete",
-		table: "CODBEX_TEAM",
+		table: "CODBEX_GROUP",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "TEAM_ID",
+			column: "GROUP_ID",
 			value: id
 		}
 	});
@@ -83,7 +83,7 @@ exports.count = function() {
 };
 
 exports.customDataCount = function() {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_TEAM"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_GROUP"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;
@@ -95,7 +95,7 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(data) {
-	let triggerExtensions = extensions.getExtensions("codbex-electra/Access/Team");
+	let triggerExtensions = extensions.getExtensions("codbex-electra/Access/Group");
 	try {
 		for (let i=0; i < triggerExtensions.length; i++) {
 			let module = triggerExtensions[i];
@@ -109,5 +109,5 @@ function triggerEvent(data) {
 	} catch (error) {
 		console.error(error);
 	}
-	producer.queue("codbex-electra/Access/Team").send(JSON.stringify(data));
+	producer.queue("codbex-electra/Access/Group").send(JSON.stringify(data));
 }

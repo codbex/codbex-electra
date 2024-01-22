@@ -6,9 +6,9 @@
 exports.getTile = function () {
     return {
         group: "Access",
-        name: "Team",
-        caption: "Manage entity Team",
-        tooltip: "Team",
+        name: "Group",
+        caption: "Manage entity Group",
+        tooltip: "Group",
         // icon: "file-o",
         location: "/services/web/codbex-electra/gen/ui/Access/index.html",
         order: "100",

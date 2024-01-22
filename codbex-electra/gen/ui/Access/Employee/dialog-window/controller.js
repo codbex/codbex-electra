@@ -23,6 +23,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.action = params.action;
 				if ($scope.action == "create") {
 					$scope.formErrors = {
+						Group: true,
 					};
 				}
 				if (params.entity.DateAdded) {
@@ -31,7 +32,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = params.entity;
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
-				$scope.optionsTeam = params.optionsTeam;
+				$scope.optionsGroup = params.optionsGroup;
 				$scope.optionsStatus = params.optionsStatus;
 			}
 		}

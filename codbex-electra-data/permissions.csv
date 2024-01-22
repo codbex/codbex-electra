@@ -1,0 +1,7 @@
+PERMISSION_ID,PERMISSION_NAME
+1,SalesOrder
+2,Product
+3,Employee
+4,Group
+5,Permission
+6,SalesAnalyzer

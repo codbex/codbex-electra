@@ -1,5 +1,5 @@
 const rs = require("http/rs");
-const dao = require("codbex-electra/gen/dao/Access/Team");
+const dao = require("codbex-electra/gen/dao/Access/Group");
 const http = require("codbex-electra/gen/api/utils/http");
 
 rs.service()
@@ -43,7 +43,7 @@ rs.service()
 			if (entity) {
 			    http.sendResponseOk(entity);
 			} else {
-				http.sendResponseNotFound("Team not found");
+				http.sendResponseNotFound("Group not found");
 			}
 		})
 		.produces(["application/json"])
@@ -60,7 +60,7 @@ rs.service()
 		.post(function(ctx, request, response) {
 			let entity = request.getJSON();
 			entity.Id = dao.create(entity);
-			response.setHeader("Content-Location", "/services/js/codbex-electra/gen/api/Team.js/" + entity.Id);
+			response.setHeader("Content-Location", "/services/js/codbex-electra/gen/api/Group.js/" + entity.Id);
 			http.sendResponseCreated(entity);
 		})
 		.produces(["application/json"])
@@ -98,7 +98,7 @@ rs.service()
 				dao.delete(id);
 				http.sendResponseNoContent();
 			} else {
-				http.sendResponseNotFound("Team not found");
+				http.sendResponseNotFound("Group not found");
 			}
 		})
 		.catch(function(ctx, error) {

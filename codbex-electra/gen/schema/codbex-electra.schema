@@ -1028,8 +1028,7 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
-                        "name": "EMPLOYEE_TEAM"
+                        "name": "EMPLOYEE_GROUP"
                     },
                     {
                         "type": "INTEGER",
@@ -1340,7 +1339,7 @@
                 ]
             },
             {
-                "name": "CODBEX_TEAM",
+                "name": "CODBEX_GROUP",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -1348,8 +1347,10 @@
                         "length": 0,
                         "primaryKey": true,
                         "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
-                        "name": "TEAM_ID"
+                        "name": "GROUP_ID"
                     },
                     {
                         "type": "VARCHAR",
@@ -1357,15 +1358,15 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "TEAM_NAME"
+                        "name": "GROUP_NAME"
                     },
                     {
-                        "type": "VARCHAR",
-                        "length": 100,
+                        "type": "INTEGER",
+                        "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "TEAM_PERMISSION"
+                        "name": "GROUP_PERMISSION"
                     }
                 ]
             },
@@ -1634,6 +1635,30 @@
                 ]
             },
             {
+                "name": "CODBEX_PERMISSION",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PERMISSION_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 64,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PERMISSION_NAME"
+                    }
+                ]
+            },
+            {
                 "name": "Currency_CurrencyStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_CURRENCY",
@@ -1805,13 +1830,13 @@
                 "referencedColumns": "LANGUAGE_ID"
             },
             {
-                "name": "Employee_Team",
+                "name": "Employee_Group",
                 "type": "foreignKey",
                 "table": "CODBEX_EMPLOYEE",
-                "constraintName": "Employee_Team",
-                "columns": "EMPLOYEE_TEAM",
-                "referencedTable": "CODBEX_TEAM",
-                "referencedColumns": "TEAM_ID"
+                "constraintName": "Employee_Group",
+                "columns": "EMPLOYEE_GROUP",
+                "referencedTable": "CODBEX_GROUP",
+                "referencedColumns": "GROUP_ID"
             },
             {
                 "name": "Employee_EmployeeStatus",
@@ -1875,6 +1900,15 @@
                 "columns": "SALESORDERSHIPPING_SALESORDER",
                 "referencedTable": "CODBEX_SALESORDER",
                 "referencedColumns": "SALESORDER_ID"
+            },
+            {
+                "name": "Group_Permission",
+                "type": "foreignKey",
+                "table": "CODBEX_GROUP",
+                "constraintName": "Group_Permission",
+                "columns": "GROUP_PERMISSION",
+                "referencedTable": "CODBEX_PERMISSION",
+                "referencedColumns": "PERMISSION_ID"
             },
             {
                 "name": "Attribute_AttributeGroup",

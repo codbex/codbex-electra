@@ -1,16 +1,16 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-electra.Access.Team';
+		messageHubProvider.eventIdPrefix = 'codbex-electra.Access.Group';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/Access/Team.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/Access/Group.js";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
 		//-----------------Custom Actions-------------------//
 		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=codbex-electra-custom-action").then(function (response) {
-			$scope.pageActions = response.data.filter(e => e.perspective === "Access" && e.view === "Team" && (e.type === "page" || e.type === undefined));
-			$scope.entityActions = response.data.filter(e => e.perspective === "Access" && e.view === "Team" && e.type === "entity");
+			$scope.pageActions = response.data.filter(e => e.perspective === "Access" && e.view === "Group" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.data.filter(e => e.perspective === "Access" && e.view === "Group" && e.type === "entity");
 		});
 
 		$scope.triggerPageAction = function (actionId) {
@@ -57,7 +57,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.dataPage = pageNumber;
 			entityApi.count().then(function (response) {
 				if (response.status != 200) {
-					messageHub.showAlertError("Team", `Unable to count Team: '${response.message}'`);
+					messageHub.showAlertError("Group", `Unable to count Group: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
@@ -65,7 +65,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				let limit = $scope.dataLimit;
 				entityApi.list(offset, limit).then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("Team", `Unable to list Team: '${response.message}'`);
+						messageHub.showAlertError("Group", `Unable to list Group: '${response.message}'`);
 						return;
 					}
 					$scope.data = response.data;
@@ -80,32 +80,35 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.openDetails = function (entity) {
 			$scope.selectedEntity = entity;
-			messageHub.showDialogWindow("Team-details", {
+			messageHub.showDialogWindow("Group-details", {
 				action: "select",
 				entity: entity,
+				optionsPermission: $scope.optionsPermission,
 			});
 		};
 
 		$scope.createEntity = function () {
 			$scope.selectedEntity = null;
-			messageHub.showDialogWindow("Team-details", {
+			messageHub.showDialogWindow("Group-details", {
 				action: "create",
 				entity: {},
+				optionsPermission: $scope.optionsPermission,
 			}, null, false);
 		};
 
 		$scope.updateEntity = function (entity) {
-			messageHub.showDialogWindow("Team-details", {
+			messageHub.showDialogWindow("Group-details", {
 				action: "update",
 				entity: entity,
+				optionsPermission: $scope.optionsPermission,
 			}, null, false);
 		};
 
 		$scope.deleteEntity = function (entity) {
 			let id = entity.Id;
 			messageHub.showDialogAsync(
-				'Delete Team?',
-				`Are you sure you want to delete Team? This action cannot be undone.`,
+				'Delete Group?',
+				`Are you sure you want to delete Group? This action cannot be undone.`,
 				[{
 					id: "delete-btn-yes",
 					type: "emphasized",
@@ -120,7 +123,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (msg.data === "delete-btn-yes") {
 					entityApi.delete(id).then(function (response) {
 						if (response.status != 204) {
-							messageHub.showAlertError("Team", `Unable to delete Team: '${response.message}'`);
+							messageHub.showAlertError("Group", `Unable to delete Group: '${response.message}'`);
 							return;
 						}
 						$scope.loadPage($scope.dataPage);
@@ -129,5 +132,26 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		};
+
+		//----------------Dropdowns-----------------//
+		$scope.optionsPermission = [];
+
+		$http.get("/services/js/codbex-electra/gen/api/Access/Permission.js").then(function (response) {
+			$scope.optionsPermission = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+		$scope.optionsPermissionValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsPermission.length; i++) {
+				if ($scope.optionsPermission[i].value === optionKey) {
+					return $scope.optionsPermission[i].text;
+				}
+			}
+			return null;
+		};
+		//----------------Dropdowns-----------------//
 
 	}]);

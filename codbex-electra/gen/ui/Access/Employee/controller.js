@@ -90,7 +90,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Employee-details", {
 				action: "select",
 				entity: entity,
-				optionsTeam: $scope.optionsTeam,
+				optionsGroup: $scope.optionsGroup,
 				optionsStatus: $scope.optionsStatus,
 			});
 		};
@@ -100,7 +100,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Employee-details", {
 				action: "create",
 				entity: {},
-				optionsTeam: $scope.optionsTeam,
+				optionsGroup: $scope.optionsGroup,
 				optionsStatus: $scope.optionsStatus,
 			}, null, false);
 		};
@@ -109,7 +109,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Employee-details", {
 				action: "update",
 				entity: entity,
-				optionsTeam: $scope.optionsTeam,
+				optionsGroup: $scope.optionsGroup,
 				optionsStatus: $scope.optionsStatus,
 			}, null, false);
 		};
@@ -144,11 +144,11 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsTeam = [];
+		$scope.optionsGroup = [];
 		$scope.optionsStatus = [];
 
-		$http.get("/services/js/codbex-electra/gen/api/Access/Team.js").then(function (response) {
-			$scope.optionsTeam = response.data.map(e => {
+		$http.get("/services/js/codbex-electra/gen/api/Access/Group.js").then(function (response) {
+			$scope.optionsGroup = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -164,10 +164,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
-		$scope.optionsTeamValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsTeam.length; i++) {
-				if ($scope.optionsTeam[i].value === optionKey) {
-					return $scope.optionsTeam[i].text;
+		$scope.optionsGroupValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsGroup.length; i++) {
+				if ($scope.optionsGroup[i].value === optionKey) {
+					return $scope.optionsGroup[i].text;
 				}
 			}
 			return null;
