@@ -6,12 +6,12 @@
 exports.getTile = function () {
     return {
         group: "Access",
-        name: "Group",
-        caption: "Manage entity Group",
-        tooltip: "Group",
+        name: "GroupEmployee",
+        caption: "Manage entity GroupEmployee",
+        tooltip: "GroupEmployee",
         // icon: "file-o",
         location: "/services/web/codbex-electra/gen/ui/Access/index.html",
-        order: "300",
+        order: "400",
         groupOrder: "500"
     };
 };

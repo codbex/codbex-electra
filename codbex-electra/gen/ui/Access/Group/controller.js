@@ -83,7 +83,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Group-details", {
 				action: "select",
 				entity: entity,
-				optionsPermission: $scope.optionsPermission,
 			});
 		};
 
@@ -92,7 +91,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Group-details", {
 				action: "create",
 				entity: {},
-				optionsPermission: $scope.optionsPermission,
 			}, null, false);
 		};
 
@@ -100,7 +98,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Group-details", {
 				action: "update",
 				entity: entity,
-				optionsPermission: $scope.optionsPermission,
 			}, null, false);
 		};
 
@@ -132,26 +129,5 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		};
-
-		//----------------Dropdowns-----------------//
-		$scope.optionsPermission = [];
-
-		$http.get("/services/js/codbex-electra/gen/api/Access/Permission.js").then(function (response) {
-			$scope.optionsPermission = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-		$scope.optionsPermissionValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsPermission.length; i++) {
-				if ($scope.optionsPermission[i].value === optionKey) {
-					return $scope.optionsPermission[i].text;
-				}
-			}
-			return null;
-		};
-		//----------------Dropdowns-----------------//
 
 	}]);

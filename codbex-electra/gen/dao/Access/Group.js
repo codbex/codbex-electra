@@ -17,11 +17,6 @@ let dao = daoApi.create({
 			name: "Name",
 			column: "GROUP_NAME",
 			type: "VARCHAR",
-		},
- {
-			name: "Permission",
-			column: "GROUP_PERMISSION",
-			type: "INTEGER",
 		}
 ]
 });

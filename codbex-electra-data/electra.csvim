@@ -109,6 +109,17 @@
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
       "version": "1.0"
+    },
+    {
+      "table": "CODBEX_GROUPPERMISSION",
+      "schema": "PUBLIC",
+      "file": "/codbex-electra-data/group-permissions.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
     }
   ]
 }

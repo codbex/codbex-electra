@@ -1,6 +1,5 @@
-GROUP_ID,GROUP_NAME,GROUP_PERMISSION
-1,OpenCartSalesOrdersProcessors,1
-2,eMAGSalesOrdersProcessors,1
-3,ProductManagers,2
-4,AccessManagers,3
-5,SalesAnalyzers,6
+GROUP_ID,GROUP_NAME
+1,SalesOrderProcessors
+3,ProductManagers
+4,AccessManagers
+5,SalesAnalyzers

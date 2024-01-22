@@ -1028,13 +1028,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "name": "EMPLOYEE_GROUP"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
                         "nullable": true,
                         "name": "EMPLOYEE_STATUS"
                     }
@@ -1359,14 +1352,6 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "GROUP_NAME"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "GROUP_PERMISSION"
                     }
                 ]
             },
@@ -1659,6 +1644,66 @@
                 ]
             },
             {
+                "name": "CODBEX_GROUPEMPLOYEE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "GROUPEMPLOYEE_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "GROUPEMPLOYEE_EMPLOYEE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "GROUPEMPLOYEE_GROUP"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_GROUPPERMISSION",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "GROUPPERMISSION_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "GROUPPERMISSION_GROUP"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "GROUPPERMISSION_PERMISSION"
+                    }
+                ]
+            },
+            {
                 "name": "Currency_CurrencyStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_CURRENCY",
@@ -1830,15 +1875,6 @@
                 "referencedColumns": "LANGUAGE_ID"
             },
             {
-                "name": "Employee_Group",
-                "type": "foreignKey",
-                "table": "CODBEX_EMPLOYEE",
-                "constraintName": "Employee_Group",
-                "columns": "EMPLOYEE_GROUP",
-                "referencedTable": "CODBEX_GROUP",
-                "referencedColumns": "GROUP_ID"
-            },
-            {
                 "name": "Employee_EmployeeStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_EMPLOYEE",
@@ -1900,15 +1936,6 @@
                 "columns": "SALESORDERSHIPPING_SALESORDER",
                 "referencedTable": "CODBEX_SALESORDER",
                 "referencedColumns": "SALESORDER_ID"
-            },
-            {
-                "name": "Group_Permission",
-                "type": "foreignKey",
-                "table": "CODBEX_GROUP",
-                "constraintName": "Group_Permission",
-                "columns": "GROUP_PERMISSION",
-                "referencedTable": "CODBEX_PERMISSION",
-                "referencedColumns": "PERMISSION_ID"
             },
             {
                 "name": "Attribute_AttributeGroup",
@@ -1999,6 +2026,42 @@
                 "columns": "PRODUCTDESCRIPTION_LANGUAGE",
                 "referencedTable": "CODBEX_LANGUAGE",
                 "referencedColumns": "LANGUAGE_ID"
+            },
+            {
+                "name": "GroupEmployee_Employee",
+                "type": "foreignKey",
+                "table": "CODBEX_GROUPEMPLOYEE",
+                "constraintName": "GroupEmployee_Employee",
+                "columns": "GROUPEMPLOYEE_EMPLOYEE",
+                "referencedTable": "CODBEX_EMPLOYEE",
+                "referencedColumns": "EMPLOYEE_ID"
+            },
+            {
+                "name": "GroupEmployee_Group",
+                "type": "foreignKey",
+                "table": "CODBEX_GROUPEMPLOYEE",
+                "constraintName": "GroupEmployee_Group",
+                "columns": "GROUPEMPLOYEE_GROUP",
+                "referencedTable": "CODBEX_GROUP",
+                "referencedColumns": "GROUP_ID"
+            },
+            {
+                "name": "GroupPermission_Group",
+                "type": "foreignKey",
+                "table": "CODBEX_GROUPPERMISSION",
+                "constraintName": "GroupPermission_Group",
+                "columns": "GROUPPERMISSION_GROUP",
+                "referencedTable": "CODBEX_GROUP",
+                "referencedColumns": "GROUP_ID"
+            },
+            {
+                "name": "GroupPermission_Permission",
+                "type": "foreignKey",
+                "table": "CODBEX_GROUPPERMISSION",
+                "constraintName": "GroupPermission_Permission",
+                "columns": "GROUPPERMISSION_PERMISSION",
+                "referencedTable": "CODBEX_PERMISSION",
+                "referencedColumns": "PERMISSION_ID"
             }
         ]
     }

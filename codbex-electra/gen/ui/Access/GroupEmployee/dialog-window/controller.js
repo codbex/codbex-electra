@@ -1,17 +1,17 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-electra.Access.Employee';
+		messageHubProvider.eventIdPrefix = 'codbex-electra.Access.GroupEmployee';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/Access/Employee.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/Access/GroupEmployee.js";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 
 		$scope.entity = {};
 		$scope.formHeaders = {
-			select: "Employee Details",
-			create: "Create Employee",
-			update: "Update Employee"
+			select: "GroupEmployee Details",
+			create: "Create GroupEmployee",
+			update: "Update GroupEmployee"
 		};
 		$scope.formErrors = {};
 		$scope.action = 'select';
@@ -25,13 +25,11 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					$scope.formErrors = {
 					};
 				}
-				if (params.entity.DateAdded) {
-					params.entity.DateAdded = new Date(params.entity.DateAdded);
-				}
 				$scope.entity = params.entity;
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
-				$scope.optionsStatus = params.optionsStatus;
+				$scope.optionsEmployee = params.optionsEmployee;
+				$scope.optionsGroup = params.optionsGroup;
 			}
 		}
 
@@ -51,12 +49,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			entityApi.create(entity).then(function (response) {
 				if (response.status != 201) {
-					$scope.errorMessage = `Unable to create Employee: '${response.message}'`;
+					$scope.errorMessage = `Unable to create GroupEmployee: '${response.message}'`;
 					return;
 				}
 				messageHub.postMessage("entityCreated", response.data);
 				$scope.cancel();
-				messageHub.showAlertSuccess("Employee", "Employee successfully created");
+				messageHub.showAlertSuccess("GroupEmployee", "GroupEmployee successfully created");
 			});
 		};
 
@@ -66,19 +64,19 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			entityApi.update(id, entity).then(function (response) {
 				if (response.status != 200) {
-					$scope.errorMessage = `Unable to update Employee: '${response.message}'`;
+					$scope.errorMessage = `Unable to update GroupEmployee: '${response.message}'`;
 					return;
 				}
 				messageHub.postMessage("entityUpdated", response.data);
 				$scope.cancel();
-				messageHub.showAlertSuccess("Employee", "Employee successfully updated");
+				messageHub.showAlertSuccess("GroupEmployee", "GroupEmployee successfully updated");
 			});
 		};
 
 		$scope.cancel = function () {
 			$scope.entity = {};
 			$scope.action = 'select';
-			messageHub.closeDialogWindow("Employee-details");
+			messageHub.closeDialogWindow("GroupEmployee-details");
 		};
 
 		$scope.clearErrorMessage = function () {
