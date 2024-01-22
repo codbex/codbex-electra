@@ -73,6 +73,7 @@ In the following table you can find more details about tables mapping.
 | oc_attribute_group_description | CODBEX_ATTRIBUTEGROUP | every minute | [here](codbex-electra-opencart/synch/inbound/sync-attribute-groups.camel) | 12:00:03<br>12:01:03<br>12:02:03 |
 | oc_attribute_description | CODBEX_ATTRIBUTEDESCRIPTION | every minute | [here](codbex-electra-opencart/synch/inbound/sync-attribute-descriptions.camel) | 12:00:04<br>12:01:04<br>12:02:04 |
 | oc_attribute | CODBEX_ATTRIBUTE | every minute | [here](codbex-electra-opencart/synch/inbound/sync-attributes.camel) | 12:00:05<br>12:01:05<br>12:02:05 |
+| oc_product_description | CODBEX_PRODUCTDESCRIPTION | every minute | [here](codbex-electra-opencart/synch/inbound/sync-product-descriptions.camel) | 12:00:05<br>12:01:05<br>12:02:05 |
 | oc_product_attribute | CODBEX_PRODUCTATTRIBUTE | every minute | [here](codbex-electra-opencart/synch/inbound/sync-product-attributes.camel) | 12:00:06<br>12:01:06<br>12:02:06 |
 | oc_product | CODBEX_PRODUCT | every minute | [here](codbex-electra-opencart/synch/inbound/sync-products.camel) | 12:00:07<br>12:01:07<br>12:02:07 |
 | oc_order_product | CODBEX_SALESORDERITEM | every minute | [here](codbex-electra-opencart/synch/inbound/sync-order-items.camel) | 12:00:08<br>12:01:08<br>12:02:08 |
