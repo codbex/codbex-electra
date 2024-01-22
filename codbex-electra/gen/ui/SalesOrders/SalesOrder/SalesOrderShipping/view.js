@@ -4,14 +4,16 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "SalesOrderItem-details",
-    label: "SalesOrderItem",
-    link: "/services/web/codbex-electra/gen/ui/SalesOrders/${masterEntity}/SalesOrderItem/dialog-window/index.html",
+    id: "SalesOrderShipping",
+    label: "SalesOrderShipping",
+    factory: "frame",
+    region: "bottom",
+    link: "/services/web/codbex-electra/gen/ui/SalesOrders/SalesOrder/SalesOrderShipping/index.html",
     perspectiveName: "SalesOrders"
 };
 
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
+    exports.getView = function () {
         return viewData;
     }
 }

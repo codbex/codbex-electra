@@ -536,7 +536,7 @@
         {
           "calculatedPropertyExpression": "require(\"security/user\").getName()",
           "dataAutoIncrement": false,
-          "dataLength": "40",
+          "dataLength": "96",
           "dataName": "SALESORDER_UPDATEDBY",
           "dataNullable": true,
           "dataPrecision": "NaN",
@@ -547,12 +547,12 @@
           "isCalculatedProperty": true,
           "name": "UpdatedBy",
           "widgetIsMajor": true,
-          "widgetLength": "40",
+          "widgetLength": "96",
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "UpdatedBy",
           "minLength": 0,
-          "maxLength": 40,
+          "maxLength": 96,
           "inputRule": ""
         },
         {
@@ -877,7 +877,7 @@
           {
             "calculatedPropertyExpression": "require(\"security/user\").getName()",
             "dataAutoIncrement": false,
-            "dataLength": "40",
+            "dataLength": "96",
             "dataName": "SALESORDER_UPDATEDBY",
             "dataNullable": true,
             "dataPrecision": "NaN",
@@ -888,12 +888,12 @@
             "isCalculatedProperty": true,
             "name": "UpdatedBy",
             "widgetIsMajor": true,
-            "widgetLength": "40",
+            "widgetLength": "96",
             "widgetType": "TEXTBOX",
             "dataNotNull": false,
             "widgetLabel": "UpdatedBy",
             "minLength": 0,
-            "maxLength": 40,
+            "maxLength": 96,
             "inputRule": ""
           },
           {
@@ -2435,10 +2435,10 @@
           "dataUnique": false,
           "isCalculatedProperty": false,
           "name": "SalesOrder",
-          "relationshipCardinality": "1_1",
+          "relationshipCardinality": "1_n",
           "relationshipName": "SalesOrderItem_SalesOrder",
           "relationshipType": "COMPOSITION",
-          "widgetIsMajor": true,
+          "widgetIsMajor": false,
           "widgetLength": "20",
           "widgetType": "TEXTBOX",
           "relationshipEntityName": "SalesOrder",
@@ -2593,7 +2593,9 @@
         "Id"
       ],
       "primaryKeysString": "Id",
-      "hasDropdowns": true
+      "hasDropdowns": true,
+      "masterEntity": "SalesOrder",
+      "masterEntityId": "SalesOrder"
     },
     {
       "properties": [
@@ -3027,7 +3029,7 @@
         {
           "calculatedPropertyExpression": "require(\"security/user\").getName()",
           "dataAutoIncrement": false,
-          "dataLength": "40",
+          "dataLength": "96",
           "dataName": "PRODUCT_UPDATEDBY",
           "dataNullable": true,
           "dataPrecision": "NaN",
@@ -3038,12 +3040,12 @@
           "isCalculatedProperty": true,
           "name": "UpdatedBy",
           "widgetIsMajor": true,
-          "widgetLength": "40",
+          "widgetLength": "96",
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "UpdatedBy",
           "minLength": 0,
-          "maxLength": 40,
+          "maxLength": 96,
           "inputRule": ""
         },
         {
@@ -3609,7 +3611,7 @@
           {
             "calculatedPropertyExpression": "require(\"security/user\").getName()",
             "dataAutoIncrement": false,
-            "dataLength": "40",
+            "dataLength": "96",
             "dataName": "PRODUCT_UPDATEDBY",
             "dataNullable": true,
             "dataPrecision": "NaN",
@@ -3620,12 +3622,12 @@
             "isCalculatedProperty": true,
             "name": "UpdatedBy",
             "widgetIsMajor": true,
-            "widgetLength": "40",
+            "widgetLength": "96",
             "widgetType": "TEXTBOX",
             "dataNotNull": false,
             "widgetLabel": "UpdatedBy",
             "minLength": 0,
-            "maxLength": 40,
+            "maxLength": 96,
             "inputRule": ""
           },
           {
@@ -4090,6 +4092,31 @@
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
+          "dataLength": "0",
+          "dataName": "EMPLOYEE_STATUS",
+          "dataNullable": true,
+          "dataPrecision": "NaN",
+          "dataPrimaryKey": false,
+          "dataScale": "NaN",
+          "dataType": "INTEGER",
+          "dataUnique": false,
+          "isCalculatedProperty": false,
+          "name": "Status",
+          "widgetDropDownKey": "Id",
+          "widgetDropDownValue": "Name",
+          "widgetIsMajor": true,
+          "widgetLength": "20",
+          "widgetType": "DROPDOWN",
+          "relationshipName": "Employee_EmployeeStatus",
+          "relationshipEntityName": "EmployeeStatus",
+          "relationshipEntityPerspectiveName": "Settings",
+          "dataNotNull": false,
+          "widgetLabel": "Status",
+          "inputRule": ""
+        },
+        {
+          "calculatedPropertyExpression": "",
+          "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "EMPLOYEE_IMAGE",
           "dataNullable": true,
@@ -4132,7 +4159,29 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpression": "require(\"security/user\").getName()",
+          "dataAutoIncrement": false,
+          "dataLength": "96",
+          "dataName": "EMPLOYEE_UPDATEDBY",
+          "dataNullable": true,
+          "dataPrecision": "NaN",
+          "dataPrimaryKey": false,
+          "dataScale": "NaN",
+          "dataType": "VARCHAR",
+          "dataUnique": false,
+          "isCalculatedProperty": true,
+          "name": "UpdatedBy",
+          "widgetIsMajor": true,
+          "widgetLength": "96",
+          "widgetType": "TEXTBOX",
+          "dataNotNull": false,
+          "widgetLabel": "UpdatedBy",
+          "minLength": 0,
+          "maxLength": 96,
+          "inputRule": ""
+        },
+        {
+          "calculatedPropertyExpression": "Date.now()",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "EMPLOYEE_DATEADDED",
@@ -4142,39 +4191,14 @@
           "dataScale": "NaN",
           "dataType": "TIMESTAMP",
           "dataUnique": false,
-          "isCalculatedProperty": false,
-          "name": "DateAdded",
+          "isCalculatedProperty": true,
+          "name": "DateModified",
           "widgetIsMajor": true,
           "widgetLength": "20",
           "widgetType": "DATETIME-LOCAL",
           "dataNotNull": false,
-          "widgetLabel": "DateAdded",
+          "widgetLabel": "DateModified",
           "isDateType": true,
-          "inputRule": ""
-        },
-        {
-          "calculatedPropertyExpression": "",
-          "dataAutoIncrement": false,
-          "dataLength": "0",
-          "dataName": "EMPLOYEE_STATUS",
-          "dataNullable": true,
-          "dataPrecision": "NaN",
-          "dataPrimaryKey": false,
-          "dataScale": "NaN",
-          "dataType": "INTEGER",
-          "dataUnique": false,
-          "isCalculatedProperty": false,
-          "name": "Status",
-          "widgetDropDownKey": "Id",
-          "widgetDropDownValue": "Name",
-          "widgetIsMajor": true,
-          "widgetLength": "20",
-          "widgetType": "DROPDOWN",
-          "relationshipName": "Employee_EmployeeStatus",
-          "relationshipEntityName": "EmployeeStatus",
-          "relationshipEntityPerspectiveName": "Settings",
-          "dataNotNull": false,
-          "widgetLabel": "Status",
           "inputRule": ""
         }
       ],
@@ -4199,8 +4223,8 @@
         "Id"
       ],
       "primaryKeysString": "Id",
-      "hasDates": true,
-      "hasDropdowns": true
+      "hasDropdowns": true,
+      "hasDates": true
     },
     {
       "properties": [
@@ -4897,7 +4921,7 @@
         {
           "calculatedPropertyExpression": "require(\"security/user\").getName()",
           "dataAutoIncrement": false,
-          "dataLength": "40",
+          "dataLength": "96",
           "dataName": "SALESORDERSHIPPING_UPDATEDBY",
           "dataNullable": true,
           "dataPrecision": "NaN",
@@ -4908,12 +4932,12 @@
           "isCalculatedProperty": true,
           "name": "UpdatedBy",
           "widgetIsMajor": true,
-          "widgetLength": "40",
+          "widgetLength": "96",
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "UpdatedBy",
           "minLength": 0,
-          "maxLength": 40,
+          "maxLength": 96,
           "inputRule": ""
         },
         {
@@ -4971,10 +4995,10 @@
           "dataUnique": false,
           "isCalculatedProperty": false,
           "name": "SalesOrder",
-          "relationshipCardinality": "1_1",
+          "relationshipCardinality": "1_n",
           "relationshipName": "SalesOrderShipping_SalesOrder",
           "relationshipType": "COMPOSITION",
-          "widgetIsMajor": true,
+          "widgetIsMajor": false,
           "widgetLength": "20",
           "widgetType": "TEXTBOX",
           "relationshipEntityName": "SalesOrder",
@@ -5005,7 +5029,9 @@
         "Id"
       ],
       "primaryKeysString": "Id",
-      "hasDropdowns": true
+      "hasDropdowns": true,
+      "masterEntity": "SalesOrder",
+      "masterEntityId": "SalesOrder"
     },
     {
       "properties": [
@@ -5115,6 +5141,49 @@
           "minLength": 0,
           "maxLength": 64,
           "inputRule": ""
+        },
+        {
+          "calculatedPropertyExpression": "require(\"security/user\").getName()",
+          "dataAutoIncrement": false,
+          "dataLength": "96",
+          "dataName": "GROUP_UPDATEDBY",
+          "dataNullable": true,
+          "dataPrecision": "NaN",
+          "dataPrimaryKey": false,
+          "dataScale": "NaN",
+          "dataType": "VARCHAR",
+          "dataUnique": false,
+          "isCalculatedProperty": true,
+          "name": "UpdatedBy",
+          "widgetIsMajor": true,
+          "widgetLength": "96",
+          "widgetType": "TEXTBOX",
+          "dataNotNull": false,
+          "widgetLabel": "UpdatedBy",
+          "minLength": 0,
+          "maxLength": 96,
+          "inputRule": ""
+        },
+        {
+          "calculatedPropertyExpression": "Date.now()",
+          "dataAutoIncrement": false,
+          "dataLength": "20",
+          "dataName": "GROUP_DATEMODIFIED",
+          "dataNullable": true,
+          "dataPrecision": "NaN",
+          "dataPrimaryKey": false,
+          "dataScale": "NaN",
+          "dataType": "TIMESTAMP",
+          "dataUnique": false,
+          "isCalculatedProperty": true,
+          "name": "DateModified",
+          "widgetIsMajor": true,
+          "widgetLength": "20",
+          "widgetType": "DATETIME-LOCAL",
+          "dataNotNull": false,
+          "widgetLabel": "DateModified",
+          "isDateType": true,
+          "inputRule": ""
         }
       ],
       "caption": "Manage entity Group",
@@ -5137,7 +5206,8 @@
       "primaryKeys": [
         "Id"
       ],
-      "primaryKeysString": "Id"
+      "primaryKeysString": "Id",
+      "hasDates": true
     },
     {
       "properties": [
@@ -5516,7 +5586,7 @@
         {
           "calculatedPropertyExpression": "require(\"security/user\").getName()",
           "dataAutoIncrement": false,
-          "dataLength": "40",
+          "dataLength": "96",
           "dataName": "SALESORDERCOMMENT_CREATEDBY",
           "dataNullable": true,
           "dataPrecision": "NaN",
@@ -5527,12 +5597,12 @@
           "isCalculatedProperty": true,
           "name": "CreatedBy",
           "widgetIsMajor": true,
-          "widgetLength": "40",
+          "widgetLength": "96",
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "CreatedBy",
           "minLength": 0,
-          "maxLength": 40,
+          "maxLength": 96,
           "inputRule": ""
         },
         {
@@ -6068,6 +6138,49 @@
           "dataNotNull": false,
           "widgetLabel": "Group",
           "inputRule": ""
+        },
+        {
+          "calculatedPropertyExpression": "require(\"security/user\").getName()",
+          "dataAutoIncrement": false,
+          "dataLength": "96",
+          "dataName": "GROUPEMPLOYEE_UPDATEDBY",
+          "dataNullable": true,
+          "dataPrecision": "NaN",
+          "dataPrimaryKey": false,
+          "dataScale": "NaN",
+          "dataType": "VARCHAR",
+          "dataUnique": false,
+          "isCalculatedProperty": true,
+          "name": "UpdatedBy",
+          "widgetIsMajor": true,
+          "widgetLength": "96",
+          "widgetType": "TEXTBOX",
+          "dataNotNull": false,
+          "widgetLabel": "UpdatedBy",
+          "minLength": 0,
+          "maxLength": 96,
+          "inputRule": ""
+        },
+        {
+          "calculatedPropertyExpression": "Date.now()",
+          "dataAutoIncrement": false,
+          "dataLength": "20",
+          "dataName": "GROUPEMPLOYEE_DATEMODIFIED",
+          "dataNullable": true,
+          "dataPrecision": "NaN",
+          "dataPrimaryKey": false,
+          "dataScale": "NaN",
+          "dataType": "TIMESTAMP",
+          "dataUnique": false,
+          "isCalculatedProperty": true,
+          "name": "DateModified",
+          "widgetIsMajor": true,
+          "widgetLength": "20",
+          "widgetType": "DATETIME-LOCAL",
+          "dataNotNull": false,
+          "widgetLabel": "DateModified",
+          "isDateType": true,
+          "inputRule": ""
         }
       ],
       "caption": "Manage entity GroupEmployee",
@@ -6091,7 +6204,8 @@
         "Id"
       ],
       "primaryKeysString": "Id",
-      "hasDropdowns": true
+      "hasDropdowns": true,
+      "hasDates": true
     },
     {
       "properties": [
@@ -6162,6 +6276,49 @@
           "dataNotNull": false,
           "widgetLabel": "Permission",
           "inputRule": ""
+        },
+        {
+          "calculatedPropertyExpression": "require(\"security/user\").getName()",
+          "dataAutoIncrement": false,
+          "dataLength": "96",
+          "dataName": "GROUPPERMISSION_UPDATEDBY",
+          "dataNullable": true,
+          "dataPrecision": "NaN",
+          "dataPrimaryKey": false,
+          "dataScale": "NaN",
+          "dataType": "VARCHAR",
+          "dataUnique": false,
+          "isCalculatedProperty": true,
+          "name": "UpdatedBy",
+          "widgetIsMajor": true,
+          "widgetLength": "96",
+          "widgetType": "TEXTBOX",
+          "dataNotNull": false,
+          "widgetLabel": "UpdatedBy",
+          "minLength": 0,
+          "maxLength": 96,
+          "inputRule": ""
+        },
+        {
+          "calculatedPropertyExpression": "Date.now()",
+          "dataAutoIncrement": false,
+          "dataLength": "20",
+          "dataName": "GROUPPERMISSION_DATEMODIFIED",
+          "dataNullable": true,
+          "dataPrecision": "NaN",
+          "dataPrimaryKey": false,
+          "dataScale": "NaN",
+          "dataType": "TIMESTAMP",
+          "dataUnique": false,
+          "isCalculatedProperty": true,
+          "name": "DateModified",
+          "widgetIsMajor": true,
+          "widgetLength": "20",
+          "widgetType": "DATETIME-LOCAL",
+          "dataNotNull": false,
+          "widgetLabel": "DateModified",
+          "isDateType": true,
+          "inputRule": ""
         }
       ],
       "caption": "Manage entity GroupPermission",
@@ -6185,7 +6342,8 @@
         "Id"
       ],
       "primaryKeysString": "Id",
-      "hasDropdowns": true
+      "hasDropdowns": true,
+      "hasDates": true
     }
   ]
 }

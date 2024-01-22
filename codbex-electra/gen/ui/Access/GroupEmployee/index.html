@@ -29,6 +29,8 @@
 					<tr fd-table-row>
 						<th fd-table-header-cell>Employee</th>
 						<th fd-table-header-cell>Group</th>
+						<th fd-table-header-cell>UpdatedBy</th>
+						<th fd-table-header-cell>DateModified</th>
 						<th fd-table-header-cell></th>
 					</tr>
 				</thead>
@@ -43,6 +45,10 @@
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsGroupValue(next.Group)}}
+						</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.UpdatedBy}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							<fd-input type="datetime-local" ng-model="next.DateModified" ng-readonly="true"></fd-input>
 						</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>

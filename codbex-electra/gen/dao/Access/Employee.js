@@ -29,6 +29,11 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
+			name: "Status",
+			column: "EMPLOYEE_STATUS",
+			type: "INTEGER",
+		},
+ {
 			name: "Image",
 			column: "EMPLOYEE_IMAGE",
 			type: "VARCHAR",
@@ -39,14 +44,14 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
-			name: "DateAdded",
-			column: "EMPLOYEE_DATEADDED",
-			type: "TIMESTAMP",
+			name: "UpdatedBy",
+			column: "EMPLOYEE_UPDATEDBY",
+			type: "VARCHAR",
 		},
  {
-			name: "Status",
-			column: "EMPLOYEE_STATUS",
-			type: "INTEGER",
+			name: "DateModified",
+			column: "EMPLOYEE_DATEADDED",
+			type: "TIMESTAMP",
 		}
 ]
 });
@@ -60,6 +65,8 @@ exports.get = function(id) {
 };
 
 exports.create = function(entity) {
+	entity["UpdatedBy"] = require("security/user").getName();
+	entity["DateModified"] = Date.now();
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
@@ -75,6 +82,8 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
+	entity["UpdatedBy"] = require("security/user").getName();
+	entity["DateModified"] = Date.now();
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",

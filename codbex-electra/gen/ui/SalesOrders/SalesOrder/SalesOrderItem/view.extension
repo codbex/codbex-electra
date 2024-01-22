@@ -1,5 +1,5 @@
 {
-    "module": "codbex-electra/gen/ui/SalesOrders/${masterEntity}/SalesOrderShipping/view.js",
+    "module": "codbex-electra/gen/ui/SalesOrders/SalesOrder/SalesOrderItem/view.js",
     "extensionPoint": "codbex-electra-view",
     "description": "codbex-electra - Application View - Details"
 }

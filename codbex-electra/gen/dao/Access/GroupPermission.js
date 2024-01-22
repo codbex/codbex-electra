@@ -22,6 +22,16 @@ let dao = daoApi.create({
 			name: "Permission",
 			column: "GROUPPERMISSION_PERMISSION",
 			type: "INTEGER",
+		},
+ {
+			name: "UpdatedBy",
+			column: "GROUPPERMISSION_UPDATEDBY",
+			type: "VARCHAR",
+		},
+ {
+			name: "DateModified",
+			column: "GROUPPERMISSION_DATEMODIFIED",
+			type: "TIMESTAMP",
 		}
 ]
 });
@@ -35,6 +45,8 @@ exports.get = function(id) {
 };
 
 exports.create = function(entity) {
+	entity["UpdatedBy"] = require("security/user").getName();
+	entity["DateModified"] = Date.now();
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
@@ -50,6 +62,8 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
+	entity["UpdatedBy"] = require("security/user").getName();
+	entity["DateModified"] = Date.now();
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",

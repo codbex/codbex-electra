@@ -1,16 +1,16 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-electra.SalesOrders.SalesOrderItem';
+		messageHubProvider.eventIdPrefix = 'codbex-electra.SalesOrders.SalesOrderShipping';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/SalesOrders/SalesOrderItem.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/SalesOrders/SalesOrderShipping.js";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
 		//-----------------Custom Actions-------------------//
 		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=codbex-electra-custom-action").then(function (response) {
-			$scope.pageActions = response.data.filter(e => e.perspective === "SalesOrders" && e.view === "SalesOrderItem" && (e.type === "page" || e.type === undefined));
-			$scope.entityActions = response.data.filter(e => e.perspective === "SalesOrders" && e.view === "SalesOrderItem" && e.type === "entity");
+			$scope.pageActions = response.data.filter(e => e.perspective === "SalesOrders" && e.view === "SalesOrderShipping" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.data.filter(e => e.perspective === "SalesOrders" && e.view === "SalesOrderShipping" && e.type === "entity");
 		});
 
 		$scope.triggerPageAction = function (actionId) {
@@ -44,13 +44,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		resetPagination();
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("codbex-electra.SalesOrders.${masterEntity}.entitySelected", function (msg) {
+		messageHub.onDidReceiveMessage("codbex-electra.SalesOrders.SalesOrder.entitySelected", function (msg) {
 			resetPagination();
 			$scope.selectedMainEntityId = msg.data.selectedMainEntityId;
 			$scope.loadPage($scope.dataPage);
 		}, true);
 
-		messageHub.onDidReceiveMessage("codbex-electra.SalesOrders.${masterEntity}.clearDetails", function (msg) {
+		messageHub.onDidReceiveMessage("codbex-electra.SalesOrders.SalesOrder.clearDetails", function (msg) {
 			$scope.$apply(function () {
 				resetPagination();
 				$scope.selectedMainEntityId = null;
@@ -75,20 +75,20 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//-----------------Events-------------------//
 
 		$scope.loadPage = function (pageNumber) {
-			let ${masterEntityId} = $scope.selectedMainEntityId;
+			let SalesOrder = $scope.selectedMainEntityId;
 			$scope.dataPage = pageNumber;
-			entityApi.count(${masterEntityId}).then(function (response) {
+			entityApi.count(SalesOrder).then(function (response) {
 				if (response.status != 200) {
-					messageHub.showAlertError("SalesOrderItem", `Unable to count SalesOrderItem: '${response.message}'`);
+					messageHub.showAlertError("SalesOrderShipping", `Unable to count SalesOrderShipping: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
-				let query = `${masterEntityId}=${${masterEntityId}}`;
+				let query = `SalesOrder=${SalesOrder}`;
 				let offset = (pageNumber - 1) * $scope.dataLimit;
 				let limit = $scope.dataLimit;
 				entityApi.filter(query, offset, limit).then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("SalesOrderItem", `Unable to list SalesOrderItem: '${response.message}'`);
+						messageHub.showAlertError("SalesOrderShipping", `Unable to list SalesOrderShipping: '${response.message}'`);
 						return;
 					}
 					$scope.data = response.data;
@@ -102,39 +102,42 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.openDetails = function (entity) {
 			$scope.selectedEntity = entity;
-			messageHub.showDialogWindow("SalesOrderItem-details", {
+			messageHub.showDialogWindow("SalesOrderShipping-details", {
 				action: "select",
 				entity: entity,
-				optionsProduct: $scope.optionsProduct,
+				optionsZone: $scope.optionsZone,
+				optionsCountry: $scope.optionsCountry,
 			});
 		};
 
 		$scope.createEntity = function () {
 			$scope.selectedEntity = null;
-			messageHub.showDialogWindow("SalesOrderItem-details", {
+			messageHub.showDialogWindow("SalesOrderShipping-details", {
 				action: "create",
 				entity: {},
-				selectedMainEntityKey: "${masterEntityId}",
+				selectedMainEntityKey: "SalesOrder",
 				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsProduct: $scope.optionsProduct,
+				optionsZone: $scope.optionsZone,
+				optionsCountry: $scope.optionsCountry,
 			}, null, false);
 		};
 
 		$scope.updateEntity = function (entity) {
-			messageHub.showDialogWindow("SalesOrderItem-details", {
+			messageHub.showDialogWindow("SalesOrderShipping-details", {
 				action: "update",
 				entity: entity,
-				selectedMainEntityKey: "${masterEntityId}",
+				selectedMainEntityKey: "SalesOrder",
 				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsProduct: $scope.optionsProduct,
+				optionsZone: $scope.optionsZone,
+				optionsCountry: $scope.optionsCountry,
 			}, null, false);
 		};
 
 		$scope.deleteEntity = function (entity) {
 			let id = entity.Id;
 			messageHub.showDialogAsync(
-				'Delete SalesOrderItem?',
-				`Are you sure you want to delete SalesOrderItem? This action cannot be undone.`,
+				'Delete SalesOrderShipping?',
+				`Are you sure you want to delete SalesOrderShipping? This action cannot be undone.`,
 				[{
 					id: "delete-btn-yes",
 					type: "emphasized",
@@ -149,7 +152,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (msg.data === "delete-btn-yes") {
 					entityApi.delete(id).then(function (response) {
 						if (response.status != 204) {
-							messageHub.showAlertError("SalesOrderItem", `Unable to delete SalesOrderItem: '${response.message}'`);
+							messageHub.showAlertError("SalesOrderShipping", `Unable to delete SalesOrderShipping: '${response.message}'`);
 							return;
 						}
 						$scope.loadPage($scope.dataPage);
@@ -160,20 +163,38 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsProduct = [];
+		$scope.optionsZone = [];
+		$scope.optionsCountry = [];
 
-		$http.get("/services/js/codbex-electra/gen/api/Products/Product.js").then(function (response) {
-			$scope.optionsProduct = response.data.map(e => {
+		$http.get("/services/js/codbex-electra/gen/api/Settings/Zone.js").then(function (response) {
+			$scope.optionsZone = response.data.map(e => {
 				return {
 					value: e.Id,
-					text: e.Model
+					text: e.Name
 				}
 			});
 		});
-		$scope.optionsProductValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsProduct.length; i++) {
-				if ($scope.optionsProduct[i].value === optionKey) {
-					return $scope.optionsProduct[i].text;
+
+		$http.get("/services/js/codbex-electra/gen/api/Settings/Country.js").then(function (response) {
+			$scope.optionsCountry = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+		$scope.optionsZoneValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsZone.length; i++) {
+				if ($scope.optionsZone[i].value === optionKey) {
+					return $scope.optionsZone[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsCountryValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsCountry.length; i++) {
+				if ($scope.optionsCountry[i].value === optionKey) {
+					return $scope.optionsCountry[i].text;
 				}
 			}
 			return null;

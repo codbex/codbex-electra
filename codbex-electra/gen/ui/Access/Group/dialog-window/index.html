@@ -46,6 +46,40 @@
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
                     </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idUpdatedBy" dg-required="false" dg-colon="true">UpdatedBy</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.UpdatedBy ? false : true }}">
+                            <fd-input id="idUpdatedBy"
+                                name="UpdatedBy"
+                                state="{{ formErrors.UpdatedBy ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['UpdatedBy'].$valid, 'UpdatedBy')"
+                                ng-model="entity.UpdatedBy"
+                                ng-readonly="true"
+                                ng-minlength="0.0 || 0"
+                                ng-maxlength="96.0 || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter UpdatedBy">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idDateModified" dg-required="false" dg-colon="true">DateModified</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.DateModified ? false : true }}">
+                            <fd-input id="idDateModified"
+                                name="DateModified"
+                                state="{{ formErrors.DateModified ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['DateModified'].$valid, 'DateModified')"
+                                ng-model="entity.DateModified"
+                                ng-readonly="true"
+                                type="datetime-local">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
             </fd-fieldset>
         </fd-scrollbar>
 

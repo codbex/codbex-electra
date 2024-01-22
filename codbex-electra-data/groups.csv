@@ -1,5 +1,5 @@
-GROUP_ID,GROUP_NAME
-1,SalesOrderProcessors
-3,ProductManagers
-4,AccessManagers
-5,SalesAnalyzers
+GROUP_ID,GROUP_NAME,GROUP_UPDATEDBY,GROUP_DATEMODIFIED
+9,SalesOrderProcessors,system,2024-01-22 16:22:01.362
+10,ProductManagers,system,2024-01-22 16:22:09.004
+11,AccessManagers,system,2024-01-22 16:22:14.473
+12,SalesAnalyzers,system,2024-01-22 16:22:22.047

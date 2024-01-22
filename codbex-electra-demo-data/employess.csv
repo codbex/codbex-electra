@@ -1,6 +1,6 @@
-EMPLOYEE_ID,EMPLOYEE_FIRSTNAME,EMPLOYEE_LASTNAME,EMPLOYEE_EMAIL,EMPLOYEE_IMAGE,EMPLOYEE_CODE,EMPLOYEE_DATEADDED,EMPLOYEE_STATUS
-1,Marin,Petrov,marin.petrov@mycompany.com,,,2024-01-18 12:07:00.0,1
-2,Kiril,Marinov,kiril.marinov@mycompany.com,,,2024-01-17 13:17:00.0,1
-3,Ina,Mladenova,ina.mladenova@mycompany.com,,,2024-01-19 11:08:00.0,1
-4,Silviya,Petrova,silviya.petrova@mycompany.com,,,2024-01-16 14:13:00.0,1
-5,Lubo,Ivanov,lubo.ivanov@mycompany.com,,,2024-01-13 11:11:07.0,1
+EMPLOYEE_ID,EMPLOYEE_FIRSTNAME,EMPLOYEE_LASTNAME,EMPLOYEE_EMAIL,EMPLOYEE_STATUS,EMPLOYEE_IMAGE,EMPLOYEE_CODE,EMPLOYEE_UPDATEDBY,EMPLOYEE_DATEADDED
+1,Marin,Petrov,marin.petrov@mycompany.com,1,,,admin,2024-01-22 16:15:45.044
+2,Kiril,Marinov,kiril.marinov@mycompany.com,1,,,admin,2024-01-22 16:16:01.519
+3,Ina,Mladenova,ina.mladenova@mycompany.com,1,,,admin,2024-01-22 16:16:18.429
+4,Silviya,Petrova,silviya.petrova@mycompany.com,1,,,admin,2024-01-22 16:16:36.293
+5,Lubo,Ivanov,lubo.ivanov@mycompany.com,1,,,admin,2024-01-22 16:16:58.173

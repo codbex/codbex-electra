@@ -68,6 +68,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 						messageHub.showAlertError("GroupEmployee", `Unable to list GroupEmployee: '${response.message}'`);
 						return;
 					}
+
+					response.data.forEach(e => {
+						if (e.DateModified) {
+							e.DateModified = new Date(e.DateModified);
+						}
+					});
+
 					$scope.data = response.data;
 				});
 			});

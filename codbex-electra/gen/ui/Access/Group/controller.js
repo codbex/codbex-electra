@@ -68,6 +68,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 						messageHub.showAlertError("Group", `Unable to list Group: '${response.message}'`);
 						return;
 					}
+
+					response.data.forEach(e => {
+						if (e.DateModified) {
+							e.DateModified = new Date(e.DateModified);
+						}
+					});
+
 					$scope.data = response.data;
 				});
 			});

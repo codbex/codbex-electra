@@ -22,6 +22,16 @@ let dao = daoApi.create({
 			name: "Group",
 			column: "GROUPEMPLOYEE_GROUP",
 			type: "INTEGER",
+		},
+ {
+			name: "UpdatedBy",
+			column: "GROUPEMPLOYEE_UPDATEDBY",
+			type: "VARCHAR",
+		},
+ {
+			name: "DateModified",
+			column: "GROUPEMPLOYEE_DATEMODIFIED",
+			type: "TIMESTAMP",
 		}
 ]
 });
@@ -35,6 +45,8 @@ exports.get = function(id) {
 };
 
 exports.create = function(entity) {
+	entity["UpdatedBy"] = require("security/user").getName();
+	entity["DateModified"] = Date.now();
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
@@ -50,6 +62,8 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
+	entity["UpdatedBy"] = require("security/user").getName();
+	entity["DateModified"] = Date.now();
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",

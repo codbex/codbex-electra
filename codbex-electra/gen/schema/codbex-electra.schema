@@ -151,7 +151,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 40,
+                        "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -827,7 +827,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 40,
+                        "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -1000,6 +1000,14 @@
                         "name": "EMPLOYEE_EMAIL"
                     },
                     {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "EMPLOYEE_STATUS"
+                    },
+                    {
                         "type": "VARCHAR",
                         "length": 255,
                         "precision": "NaN",
@@ -1016,20 +1024,20 @@
                         "name": "EMPLOYEE_CODE"
                     },
                     {
+                        "type": "VARCHAR",
+                        "length": 96,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "EMPLOYEE_UPDATEDBY"
+                    },
+                    {
                         "type": "TIMESTAMP",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
                         "name": "EMPLOYEE_DATEADDED"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "EMPLOYEE_STATUS"
                     }
                 ]
             },
@@ -1279,7 +1287,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 40,
+                        "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -1352,6 +1360,22 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "GROUP_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 96,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "GROUP_UPDATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "GROUP_DATEMODIFIED"
                     }
                 ]
             },
@@ -1483,7 +1507,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 40,
+                        "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -1670,6 +1694,22 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "GROUPEMPLOYEE_GROUP"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 96,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "GROUPEMPLOYEE_UPDATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "GROUPEMPLOYEE_DATEMODIFIED"
                     }
                 ]
             },
@@ -1700,6 +1740,22 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "GROUPPERMISSION_PERMISSION"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 96,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "GROUPPERMISSION_UPDATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "GROUPPERMISSION_DATEMODIFIED"
                     }
                 ]
             },
