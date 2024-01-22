@@ -1,0 +1,83 @@
+- route:
+    id: product-descriptions-sync-route
+    from:
+      uri: cron:TriggerProductDescriptionsReplication
+      id: trigger-product-descriptions-replication-cron
+      parameters:
+        schedule: 5 * * ? * *
+      description: Trigger Product Descriptions Replication
+      steps:
+        - log:
+            message: Replicating product descriptions from OpenCart DB...
+            id: log-about-to-start-product-descriptions-replication
+            logName: OpenCartProductDescriptionsReplication
+            loggingLevel: INFO
+        - setBody:
+            id: create-product-descriptions-select-statement
+            expression:
+              constant:
+                expression: SELECT * FROM oc_product_description
+                id: constant-e9a5-43tuke
+            description: Create product descriptions SELECT statement
+        - to:
+            uri: spring-jdbc:OpenCartDB
+            id: execute-get-product-descriptions
+            description: Get all product descriptions
+        - split:
+            id: split-to-single-product-description
+            expression:
+              simple:
+                expression: ${body}
+                id: simple-099e-rt3465rt
+            description: Split to single product description
+            steps:
+              - setProperty:
+                  name: resource
+                  id: set-resource-property-product-description
+                  expression:
+                    constant:
+                      expression: >-
+                        codbex-electra-opencart/synch/inbound/product-description-entry-processor.js
+                      id: constant-d4fc
+                  description: Set resource property
+              - to:
+                  uri: >-
+                    class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+                  id: invoke-js-product-description-processor
+                  description: Invoke JS
+              - setBody:
+                  id: create-product-description-merge-statement
+                  expression:
+                    simple:
+                      expression: |
+                        MERGE INTO CODBEX_PRODUCTDESCRIPTION
+                            (
+                                PRODUCTDESCRIPTION_ID, PRODUCTDESCRIPTION_NAME, PRODUCTDESCRIPTION_DESCRIPTION,
+                                PRODUCTDESCRIPTION_TAG, PRODUCTDESCRIPTION_METATITLE, PRODUCTDESCRIPTION_METADESCRIPTION,
+                                PRODUCTDESCRIPTION_METAKEYWORD, PRODUCTDESCRIPTION_LANGUAGE, PRODUCTDESCRIPTION_PRODUCT
+                            ) 
+                        KEY(PRODUCTDESCRIPTION_ID)
+                        VALUES 
+                            (
+                                ${body['product_id']},
+                                '${body['name']}',
+                                '${body['description']}',
+                                '${body['tag']}',
+                                '${body['meta_title']}',
+                                '${body['meta_description']}',
+                                '${body['meta_keyword']}',
+                                ${body['language_id']},
+                                ${body['product_id']}
+                            )
+                      id: simple-b426-iuygre4r
+                  description: Create MERGE statement
+              - to:
+                  uri: spring-jdbc:DefaultDB
+                  id: merge-product-description
+                  description: Merge product description
+        - log:
+            message: Successfully replicated product descriptions from OpenCart DB
+            id: log-product-descriptions-replication-completed
+            logName: OpenCartProductDescriptionsReplication
+            loggingLevel: INFO
+    description: Sync product descriptions from OpenCart
