@@ -1554,6 +1554,86 @@
                 ]
             },
             {
+                "name": "CODBEX_PRODUCTDESCRIPTION",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PRODUCTDESCRIPTION_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PRODUCTDESCRIPTION_PRODUCT"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PRODUCTDESCRIPTION_LANGUAGE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PRODUCTDESCRIPTION_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 65535,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PRODUCTDESCRIPTION_DESCRIPTION"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 2000,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PRODUCTDESCRIPTION_TAG"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PRODUCTDESCRIPTION_METATITLE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PRODUCTDESCRIPTION_METADESCRIPTION"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PRODUCTDESCRIPTION_METAKEYWORD"
+                    }
+                ]
+            },
+            {
                 "name": "Currency_CurrencyStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_CURRENCY",
@@ -1865,6 +1945,24 @@
                 "table": "CODBEX_ATTRIBUTEDESCRIPTION",
                 "constraintName": "AttributeDescription_Language",
                 "columns": "ATTRIBUTEDESCRIPTION_LANGUAGE",
+                "referencedTable": "CODBEX_LANGUAGE",
+                "referencedColumns": "LANGUAGE_ID"
+            },
+            {
+                "name": "ProductDescription_Product",
+                "type": "foreignKey",
+                "table": "CODBEX_PRODUCTDESCRIPTION",
+                "constraintName": "ProductDescription_Product",
+                "columns": "PRODUCTDESCRIPTION_PRODUCT",
+                "referencedTable": "CODBEX_PRODUCT",
+                "referencedColumns": "PRODUCT_ID"
+            },
+            {
+                "name": "ProductDescription_Language",
+                "type": "foreignKey",
+                "table": "CODBEX_PRODUCTDESCRIPTION",
+                "constraintName": "ProductDescription_Language",
+                "columns": "PRODUCTDESCRIPTION_LANGUAGE",
                 "referencedTable": "CODBEX_LANGUAGE",
                 "referencedColumns": "LANGUAGE_ID"
             }
