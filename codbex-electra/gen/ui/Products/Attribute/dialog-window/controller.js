@@ -28,8 +28,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = params.entity;
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
-				$scope.optionsGroup = params.optionsGroup;
 				$scope.optionsName = params.optionsName;
+				$scope.optionsGroup = params.optionsGroup;
 			}
 		}
 

@@ -1,5 +1,5 @@
 {
-    "module": "codbex-electra/gen/ui/SalesOrders/SalesOrder/SalesOrderItem/dialog-window/view.js",
+    "module": "codbex-electra/gen/ui/SalesOrders/${masterEntity}/SalesOrderShipping/dialog-window/view.js",
     "extensionPoint": "codbex-electra-dialog-window",
     "description": "codbex-electra - Application Dialog Window"
 }

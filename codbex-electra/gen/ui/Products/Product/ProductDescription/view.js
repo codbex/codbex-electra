@@ -4,12 +4,12 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "SalesOrderItem",
-    label: "SalesOrderItem",
+    id: "ProductDescription",
+    label: "ProductDescription",
     factory: "frame",
     region: "bottom",
-    link: "/services/web/codbex-electra/gen/ui/SalesOrders/SalesOrder/SalesOrderItem/index.html",
-    perspectiveName: "SalesOrders"
+    link: "/services/web/codbex-electra/gen/ui/Products/Product/ProductDescription/index.html",
+    perspectiveName: "Products"
 };
 
 if (typeof exports !== 'undefined') {

@@ -102,8 +102,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				selectedMainEntityId: entity.Id,
 				optionsCurrency: $scope.optionsCurrency,
 				optionsStatus: $scope.optionsStatus,
-				optionsCustomer: $scope.optionsCustomer,
 				optionsStore: $scope.optionsStore,
+				optionsCustomer: $scope.optionsCustomer,
 				optionsLanguage: $scope.optionsLanguage,
 			});
 		};
@@ -116,8 +116,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: {},
 				optionsCurrency: $scope.optionsCurrency,
 				optionsStatus: $scope.optionsStatus,
-				optionsCustomer: $scope.optionsCustomer,
 				optionsStore: $scope.optionsStore,
+				optionsCustomer: $scope.optionsCustomer,
 				optionsLanguage: $scope.optionsLanguage,
 			});
 		};
@@ -128,8 +128,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: $scope.selectedEntity,
 				optionsCurrency: $scope.optionsCurrency,
 				optionsStatus: $scope.optionsStatus,
-				optionsCustomer: $scope.optionsCustomer,
 				optionsStore: $scope.optionsStore,
+				optionsCustomer: $scope.optionsCustomer,
 				optionsLanguage: $scope.optionsLanguage,
 			});
 		};
@@ -167,8 +167,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsCurrency = [];
 		$scope.optionsStatus = [];
-		$scope.optionsCustomer = [];
 		$scope.optionsStore = [];
+		$scope.optionsCustomer = [];
 		$scope.optionsLanguage = [];
 
 		$http.get("/services/js/codbex-electra/gen/api/Settings/Currency.js").then(function (response) {
@@ -189,20 +189,20 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-electra/gen/api/Customers/Customer.js").then(function (response) {
-			$scope.optionsCustomer = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Email
-				}
-			});
-		});
-
 		$http.get("/services/js/codbex-electra/gen/api/Settings/Store.js").then(function (response) {
 			$scope.optionsStore = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/js/codbex-electra/gen/api/Customers/Customer.js").then(function (response) {
+			$scope.optionsCustomer = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Email
 				}
 			});
 		});
@@ -231,18 +231,18 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsCustomerValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsCustomer.length; i++) {
-				if ($scope.optionsCustomer[i].value === optionKey) {
-					return $scope.optionsCustomer[i].text;
-				}
-			}
-			return null;
-		};
 		$scope.optionsStoreValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsStore.length; i++) {
 				if ($scope.optionsStore[i].value === optionKey) {
 					return $scope.optionsStore[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsCustomerValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsCustomer.length; i++) {
+				if ($scope.optionsCustomer[i].value === optionKey) {
+					return $scope.optionsCustomer[i].text;
 				}
 			}
 			return null;

@@ -123,7 +123,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "SALESORDER_CUSTOMER"
+                        "name": "SALESORDER_STORE"
                     },
                     {
                         "type": "INTEGER",
@@ -131,7 +131,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "SALESORDER_STORE"
+                        "name": "SALESORDER_CUSTOMER"
                     },
                     {
                         "type": "TIMESTAMP",
@@ -190,20 +190,20 @@
                         "name": "SALESORDER_INVOICEPREFIX"
                     },
                     {
-                        "type": "VARCHAR",
-                        "length": 255,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "SALESORDER_ACCEPTLANGUAGE"
-                    },
-                    {
                         "type": "INTEGER",
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
                         "name": "SALESORDER_LANGUAGE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDER_ACCEPTLANGUAGE"
                     }
                 ]
             },
@@ -306,14 +306,6 @@
                         "name": "CUSTOMER_DATE_ADDED"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CUSTOMER_LANGUAGE"
-                    },
-                    {
                         "type": "VARCHAR",
                         "length": 40,
                         "precision": "NaN",
@@ -328,6 +320,14 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "CUSTOMER_CUSTOMFIELD"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CUSTOMER_LANGUAGE"
                     }
                 ]
             },
@@ -1373,7 +1373,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ATTRIBUTE_GROUP"
+                        "name": "ATTRIBUTE_NAME"
                     },
                     {
                         "type": "INTEGER",
@@ -1381,7 +1381,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ATTRIBUTE_NAME"
+                        "name": "ATTRIBUTE_GROUP"
                     }
                 ]
             },
@@ -1419,7 +1419,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PRODUCTATTRIBUTE_LANGUAGE"
+                        "name": "PRODUCTATTRIBUTE_PRODUCT"
                     },
                     {
                         "type": "INTEGER",
@@ -1427,7 +1427,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PRODUCTATTRIBUTE_PRODUCT"
+                        "name": "PRODUCTATTRIBUTE_LANGUAGE"
                     }
                 ]
             },
@@ -1562,14 +1562,6 @@
                         "name": "PRODUCTDESCRIPTION_PRODUCT"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCTDESCRIPTION_LANGUAGE"
-                    },
-                    {
                         "type": "VARCHAR",
                         "length": 255,
                         "precision": "NaN",
@@ -1616,6 +1608,14 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "PRODUCTDESCRIPTION_METAKEYWORD"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PRODUCTDESCRIPTION_LANGUAGE"
                     }
                 ]
             },
@@ -1731,15 +1731,6 @@
                 "referencedColumns": "ORDERSTATUS_ID"
             },
             {
-                "name": "SalesOrder_Customer",
-                "type": "foreignKey",
-                "table": "CODBEX_SALESORDER",
-                "constraintName": "SalesOrder_Customer",
-                "columns": "SALESORDER_CUSTOMER",
-                "referencedTable": "CODBEX_CUSTOMER",
-                "referencedColumns": "CUSTOMER_ID"
-            },
-            {
                 "name": "SalesOrder_Store",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDER",
@@ -1747,6 +1738,15 @@
                 "columns": "SALESORDER_STORE",
                 "referencedTable": "CODBEX_STORE",
                 "referencedColumns": "STORE_ID"
+            },
+            {
+                "name": "SalesOrder_Customer",
+                "type": "foreignKey",
+                "table": "CODBEX_SALESORDER",
+                "constraintName": "SalesOrder_Customer",
+                "columns": "SALESORDER_CUSTOMER",
+                "referencedTable": "CODBEX_CUSTOMER",
+                "referencedColumns": "CUSTOMER_ID"
             },
             {
                 "name": "SalesOrder_Language",
@@ -1938,15 +1938,6 @@
                 "referencedColumns": "SALESORDER_ID"
             },
             {
-                "name": "Attribute_AttributeGroup",
-                "type": "foreignKey",
-                "table": "CODBEX_ATTRIBUTE",
-                "constraintName": "Attribute_AttributeGroup",
-                "columns": "ATTRIBUTE_GROUP",
-                "referencedTable": "CODBEX_ATTRIBUTEGROUP",
-                "referencedColumns": "ATTRIBUTEGROUP_ID"
-            },
-            {
                 "name": "Attribute_AttributeDescription",
                 "type": "foreignKey",
                 "table": "CODBEX_ATTRIBUTE",
@@ -1954,6 +1945,15 @@
                 "columns": "ATTRIBUTE_NAME",
                 "referencedTable": "CODBEX_ATTRIBUTEDESCRIPTION",
                 "referencedColumns": "ATTRIBUTEDESCRIPTION_ID"
+            },
+            {
+                "name": "Attribute_AttributeGroup",
+                "type": "foreignKey",
+                "table": "CODBEX_ATTRIBUTE",
+                "constraintName": "Attribute_AttributeGroup",
+                "columns": "ATTRIBUTE_GROUP",
+                "referencedTable": "CODBEX_ATTRIBUTEGROUP",
+                "referencedColumns": "ATTRIBUTEGROUP_ID"
             },
             {
                 "name": "ProductAttribute_AttributeDescription",
@@ -1965,15 +1965,6 @@
                 "referencedColumns": "ATTRIBUTEDESCRIPTION_ID"
             },
             {
-                "name": "ProductAttribute_Language",
-                "type": "foreignKey",
-                "table": "CODBEX_PRODUCTATTRIBUTE",
-                "constraintName": "ProductAttribute_Language",
-                "columns": "PRODUCTATTRIBUTE_LANGUAGE",
-                "referencedTable": "CODBEX_LANGUAGE",
-                "referencedColumns": "LANGUAGE_ID"
-            },
-            {
                 "name": "ProductAttribute_Product",
                 "type": "foreignKey",
                 "table": "CODBEX_PRODUCTATTRIBUTE",
@@ -1981,6 +1972,15 @@
                 "columns": "PRODUCTATTRIBUTE_PRODUCT",
                 "referencedTable": "CODBEX_PRODUCT",
                 "referencedColumns": "PRODUCT_ID"
+            },
+            {
+                "name": "ProductAttribute_Language",
+                "type": "foreignKey",
+                "table": "CODBEX_PRODUCTATTRIBUTE",
+                "constraintName": "ProductAttribute_Language",
+                "columns": "PRODUCTATTRIBUTE_LANGUAGE",
+                "referencedTable": "CODBEX_LANGUAGE",
+                "referencedColumns": "LANGUAGE_ID"
             },
             {
                 "name": "AttributeGroup_Language",

@@ -6,7 +6,7 @@
 const viewData = {
     id: "SalesOrderItem-details",
     label: "SalesOrderItem",
-    link: "/services/web/codbex-electra/gen/ui/SalesOrders/SalesOrder/SalesOrderItem/dialog-window/index.html",
+    link: "/services/web/codbex-electra/gen/ui/SalesOrders/${masterEntity}/SalesOrderItem/dialog-window/index.html",
     perspectiveName: "SalesOrders"
 };
 

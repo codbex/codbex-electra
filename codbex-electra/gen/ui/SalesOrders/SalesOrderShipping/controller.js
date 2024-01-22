@@ -44,13 +44,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		resetPagination();
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("codbex-electra.SalesOrders.SalesOrder.entitySelected", function (msg) {
+		messageHub.onDidReceiveMessage("codbex-electra.SalesOrders.${masterEntity}.entitySelected", function (msg) {
 			resetPagination();
 			$scope.selectedMainEntityId = msg.data.selectedMainEntityId;
 			$scope.loadPage($scope.dataPage);
 		}, true);
 
-		messageHub.onDidReceiveMessage("codbex-electra.SalesOrders.SalesOrder.clearDetails", function (msg) {
+		messageHub.onDidReceiveMessage("codbex-electra.SalesOrders.${masterEntity}.clearDetails", function (msg) {
 			$scope.$apply(function () {
 				resetPagination();
 				$scope.selectedMainEntityId = null;
@@ -75,15 +75,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//-----------------Events-------------------//
 
 		$scope.loadPage = function (pageNumber) {
-			let SalesOrder = $scope.selectedMainEntityId;
+			let ${masterEntityId} = $scope.selectedMainEntityId;
 			$scope.dataPage = pageNumber;
-			entityApi.count(SalesOrder).then(function (response) {
+			entityApi.count(${masterEntityId}).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("SalesOrderShipping", `Unable to count SalesOrderShipping: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
-				let query = `SalesOrder=${SalesOrder}`;
+				let query = `${masterEntityId}=${${masterEntityId}}`;
 				let offset = (pageNumber - 1) * $scope.dataLimit;
 				let limit = $scope.dataLimit;
 				entityApi.filter(query, offset, limit).then(function (response) {
@@ -115,7 +115,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("SalesOrderShipping-details", {
 				action: "create",
 				entity: {},
-				selectedMainEntityKey: "SalesOrder",
+				selectedMainEntityKey: "${masterEntityId}",
 				selectedMainEntityId: $scope.selectedMainEntityId,
 				optionsZone: $scope.optionsZone,
 				optionsCountry: $scope.optionsCountry,
@@ -126,7 +126,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("SalesOrderShipping-details", {
 				action: "update",
 				entity: entity,
-				selectedMainEntityKey: "SalesOrder",
+				selectedMainEntityKey: "${masterEntityId}",
 				selectedMainEntityId: $scope.selectedMainEntityId,
 				optionsZone: $scope.optionsZone,
 				optionsCountry: $scope.optionsCountry,

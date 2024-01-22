@@ -19,11 +19,6 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
-			name: "Language",
-			column: "PRODUCTDESCRIPTION_LANGUAGE",
-			type: "INTEGER",
-		},
- {
 			name: "Name",
 			column: "PRODUCTDESCRIPTION_NAME",
 			type: "VARCHAR",
@@ -52,6 +47,11 @@ let dao = daoApi.create({
 			name: "MetaKeyword",
 			column: "PRODUCTDESCRIPTION_METAKEYWORD",
 			type: "VARCHAR",
+		},
+ {
+			name: "Language",
+			column: "PRODUCTDESCRIPTION_LANGUAGE",
+			type: "INTEGER",
 		}
 ]
 });

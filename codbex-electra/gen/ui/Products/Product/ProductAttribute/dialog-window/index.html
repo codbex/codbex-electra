@@ -18,16 +18,15 @@
     <body class="dg-vbox">
         <fd-scrollbar class="dg-full-height">
             <fd-fieldset class="fd-margin--md" ng-form="formFieldset">
-                <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm">
+                <fd-form-group dg-header="ProductAttribute Details" name="entityForm">
                     <fd-form-item horizontal="false">
                         <fd-form-label for="idName" dg-required="false" dg-colon="true">Name</fd-form-label>
                         <fd-combobox-input id="idName"
                             name="Name"
-                            state="{{ formErrors.Name ? 'error' : '' }}"
                             ng-required="true"
                             ng-change="isValid(formFieldset['Name'].$valid, 'Name')"
                             ng-model="entity.Name"
-                            dg-disabled="action === 'select'"
+                            dg-disabled="true"
                             dropdown-items="optionsName"
                             dg-placeholder="Search Name ...">
                         </fd-combobox-input>
@@ -36,27 +35,24 @@
 						<fd-form-label for="idText" dg-required="false" dg-colon="true">Text</fd-form-label>
 						<fd-textarea id="idText"
 							name="Text"
-							state="{{ formErrors.Text ? 'error' : '' }}"
 							ng-required="false"
 							ng-change="isValid(formFieldset['Text'].$valid, 'Text')"
 							ng-model="entity.Text"
-                            ng-readonly="action === 'select'"
+							ng-readonly="true"
 							ng-minlength="0.0 || 0"
 							ng-maxlength="2000.0 || -1"
 							dg-input-rules="{ patterns: [''] }"
 							placeholder="Enter Text">
 						</fd-textarea>
-						<fd-form-message dg-type="error" ng-show="formErrors.Text">Incorrect Input</fd-form-message>
 					</fd-form-item horizontal="false">
                     <fd-form-item horizontal="false">
                         <fd-form-label for="idLanguage" dg-required="false" dg-colon="true">Language</fd-form-label>
                         <fd-combobox-input id="idLanguage"
                             name="Language"
-                            state="{{ formErrors.Language ? 'error' : '' }}"
                             ng-required="true"
                             ng-change="isValid(formFieldset['Language'].$valid, 'Language')"
                             ng-model="entity.Language"
-                            dg-disabled="action === 'select'"
+                            dg-disabled="true"
                             dropdown-items="optionsLanguage"
                             dg-placeholder="Search Language ...">
                         </fd-combobox-input>
@@ -64,17 +60,6 @@
                 </fd-form-group>
             </fd-fieldset>
         </fd-scrollbar>
-
-        <footer class="fd-dialog__footer fd-bar fd-bar--footer" ng-show="action !== 'select'">
-            <div class="fd-bar__right">
-                <fd-button class="fd-margin-end--tiny fd-dialog__decisive-button" compact="true" dg-type="emphasized"
-                    dg-label="{{action === 'create' ? 'Create' : 'Update'}}"
-                    ng-click="action === 'create' ? create() : update()" state="{{ !isFormValid ? 'disabled' : '' }}">
-                </fd-button>
-                <fd-button class="fd-dialog__decisive-button" compact="true" dg-type="transparent" dg-label="Cancel"
-                    ng-click="cancel()"></fd-button>
-            </div>
-        </footer>
     </body>
 
 </html>

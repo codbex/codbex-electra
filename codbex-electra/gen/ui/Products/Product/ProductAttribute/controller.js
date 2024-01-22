@@ -61,17 +61,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
-				$scope.action = 'select';
 			});
 		});
 
-		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
-			$scope.loadPage($scope.dataPage);
-		});
-
-		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
-			$scope.loadPage($scope.dataPage);
-		});
 		//-----------------Events-------------------//
 
 		$scope.loadPage = function (pageNumber) {
@@ -103,84 +95,21 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.openDetails = function (entity) {
 			$scope.selectedEntity = entity;
 			messageHub.showDialogWindow("ProductAttribute-details", {
-				action: "select",
 				entity: entity,
 				optionsName: $scope.optionsName,
-				optionsLanguage: $scope.optionsLanguage,
 				optionsProduct: $scope.optionsProduct,
+				optionsLanguage: $scope.optionsLanguage,
 			});
 		};
 
-		$scope.createEntity = function () {
-			$scope.selectedEntity = null;
-			messageHub.showDialogWindow("ProductAttribute-details", {
-				action: "create",
-				entity: {},
-				selectedMainEntityKey: "Product",
-				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsName: $scope.optionsName,
-				optionsLanguage: $scope.optionsLanguage,
-				optionsProduct: $scope.optionsProduct,
-			}, null, false);
-		};
-
-		$scope.updateEntity = function (entity) {
-			messageHub.showDialogWindow("ProductAttribute-details", {
-				action: "update",
-				entity: entity,
-				selectedMainEntityKey: "Product",
-				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsName: $scope.optionsName,
-				optionsLanguage: $scope.optionsLanguage,
-				optionsProduct: $scope.optionsProduct,
-			}, null, false);
-		};
-
-		$scope.deleteEntity = function (entity) {
-			let id = entity.Id;
-			messageHub.showDialogAsync(
-				'Delete ProductAttribute?',
-				`Are you sure you want to delete ProductAttribute? This action cannot be undone.`,
-				[{
-					id: "delete-btn-yes",
-					type: "emphasized",
-					label: "Yes",
-				},
-				{
-					id: "delete-btn-no",
-					type: "normal",
-					label: "No",
-				}],
-			).then(function (msg) {
-				if (msg.data === "delete-btn-yes") {
-					entityApi.delete(id).then(function (response) {
-						if (response.status != 204) {
-							messageHub.showAlertError("ProductAttribute", `Unable to delete ProductAttribute: '${response.message}'`);
-							return;
-						}
-						$scope.loadPage($scope.dataPage);
-						messageHub.postMessage("clearDetails");
-					});
-				}
-			});
-		};
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsName = [];
-		$scope.optionsLanguage = [];
 		$scope.optionsProduct = [];
+		$scope.optionsLanguage = [];
 
 		$http.get("/services/js/codbex-electra/gen/api/Products/AttributeDescription.js").then(function (response) {
 			$scope.optionsName = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-
-		$http.get("/services/js/codbex-electra/gen/api/Settings/Language.js").then(function (response) {
-			$scope.optionsLanguage = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -196,6 +125,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
+		$http.get("/services/js/codbex-electra/gen/api/Settings/Language.js").then(function (response) {
+			$scope.optionsLanguage = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
 		$scope.optionsNameValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsName.length; i++) {
 				if ($scope.optionsName[i].value === optionKey) {
@@ -204,18 +142,18 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsLanguageValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsLanguage.length; i++) {
-				if ($scope.optionsLanguage[i].value === optionKey) {
-					return $scope.optionsLanguage[i].text;
-				}
-			}
-			return null;
-		};
 		$scope.optionsProductValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsProduct.length; i++) {
 				if ($scope.optionsProduct[i].value === optionKey) {
 					return $scope.optionsProduct[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsLanguageValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsLanguage.length; i++) {
+				if ($scope.optionsLanguage[i].value === optionKey) {
+					return $scope.optionsLanguage[i].text;
 				}
 			}
 			return null;

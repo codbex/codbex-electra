@@ -11,7 +11,6 @@ angular.module('page', ["ideUI", "ideView"])
 				$scope.entity = params.entity;
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
-				$scope.optionsName = params.optionsName;
 				$scope.optionsProduct = params.optionsProduct;
 				$scope.optionsLanguage = params.optionsLanguage;
 			}

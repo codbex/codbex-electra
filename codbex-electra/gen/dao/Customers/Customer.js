@@ -49,11 +49,6 @@ let dao = daoApi.create({
 			type: "TIMESTAMP",
 		},
  {
-			name: "Language",
-			column: "CUSTOMER_LANGUAGE",
-			type: "INTEGER",
-		},
- {
 			name: "Code",
 			column: "CUSTOMER_CODE",
 			type: "VARCHAR",
@@ -62,6 +57,11 @@ let dao = daoApi.create({
 			name: "CustomField",
 			column: "CUSTOMER_CUSTOMFIELD",
 			type: "VARCHAR",
+		},
+ {
+			name: "Language",
+			column: "CUSTOMER_LANGUAGE",
+			type: "INTEGER",
 		}
 ]
 });

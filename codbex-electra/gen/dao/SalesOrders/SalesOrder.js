@@ -29,13 +29,13 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
-			name: "Customer",
-			column: "SALESORDER_CUSTOMER",
+			name: "Store",
+			column: "SALESORDER_STORE",
 			type: "INTEGER",
 		},
  {
-			name: "Store",
-			column: "SALESORDER_STORE",
+			name: "Customer",
+			column: "SALESORDER_CUSTOMER",
 			type: "INTEGER",
 		},
  {
@@ -74,14 +74,14 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
-			name: "AcceptLanguage",
-			column: "SALESORDER_ACCEPTLANGUAGE",
-			type: "VARCHAR",
-		},
- {
 			name: "Language",
 			column: "SALESORDER_LANGUAGE",
 			type: "INTEGER",
+		},
+ {
+			name: "AcceptLanguage",
+			column: "SALESORDER_ACCEPTLANGUAGE",
+			type: "VARCHAR",
 		}
 ]
 });

@@ -83,8 +83,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Attribute-details", {
 				action: "select",
 				entity: entity,
-				optionsGroup: $scope.optionsGroup,
 				optionsName: $scope.optionsName,
+				optionsGroup: $scope.optionsGroup,
 			});
 		};
 
@@ -93,8 +93,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Attribute-details", {
 				action: "create",
 				entity: {},
-				optionsGroup: $scope.optionsGroup,
 				optionsName: $scope.optionsName,
+				optionsGroup: $scope.optionsGroup,
 			}, null, false);
 		};
 
@@ -102,8 +102,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Attribute-details", {
 				action: "update",
 				entity: entity,
-				optionsGroup: $scope.optionsGroup,
 				optionsName: $scope.optionsName,
+				optionsGroup: $scope.optionsGroup,
 			}, null, false);
 		};
 
@@ -137,17 +137,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsGroup = [];
 		$scope.optionsName = [];
-
-		$http.get("/services/js/codbex-electra/gen/api/Products/AttributeGroup.js").then(function (response) {
-			$scope.optionsGroup = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
+		$scope.optionsGroup = [];
 
 		$http.get("/services/js/codbex-electra/gen/api/Products/AttributeDescription.js").then(function (response) {
 			$scope.optionsName = response.data.map(e => {
@@ -157,18 +148,27 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
-		$scope.optionsGroupValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsGroup.length; i++) {
-				if ($scope.optionsGroup[i].value === optionKey) {
-					return $scope.optionsGroup[i].text;
+
+		$http.get("/services/js/codbex-electra/gen/api/Products/AttributeGroup.js").then(function (response) {
+			$scope.optionsGroup = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
 				}
-			}
-			return null;
-		};
+			});
+		});
 		$scope.optionsNameValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsName.length; i++) {
 				if ($scope.optionsName[i].value === optionKey) {
 					return $scope.optionsName[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsGroupValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsGroup.length; i++) {
+				if ($scope.optionsGroup[i].value === optionKey) {
+					return $scope.optionsGroup[i].text;
 				}
 			}
 			return null;

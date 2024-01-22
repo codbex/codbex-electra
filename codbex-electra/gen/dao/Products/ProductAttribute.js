@@ -24,13 +24,13 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
-			name: "Language",
-			column: "PRODUCTATTRIBUTE_LANGUAGE",
+			name: "Product",
+			column: "PRODUCTATTRIBUTE_PRODUCT",
 			type: "INTEGER",
 		},
  {
-			name: "Product",
-			column: "PRODUCTATTRIBUTE_PRODUCT",
+			name: "Language",
+			column: "PRODUCTATTRIBUTE_LANGUAGE",
 			type: "INTEGER",
 		}
 ]
