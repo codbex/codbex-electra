@@ -1,6 +1,6 @@
-import { rs } from "@dirigible/http";
-import * as dao from "../../dao/Products/ProductAttribute";
-import * as http from "../utils/http";
+const rs = require("http/rs");
+const dao = require("codbex-electra/gen/dao/Products/ProductAttribute");
+const http = require("codbex-electra/gen/api/utils/http");
 
 rs.service()
 	.resource("")
@@ -97,7 +97,7 @@ rs.service()
 			let id = ctx.pathParameters.id;
 			let entity = dao.get(id);
 			if (entity) {
-				dao.remove(id);
+				dao.delete(id);
 				http.sendResponseNoContent();
 			} else {
 				http.sendResponseNotFound("ProductAttribute not found");

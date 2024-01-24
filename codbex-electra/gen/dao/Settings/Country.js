@@ -1,8 +1,8 @@
-import { query } from "@dirigible/db";
-import { producer } from "@dirigible/messaging";
-import { extensions } from "@dirigible/extensions";
-import { dao as daoApi } from "@dirigible/db";
-import * as EntityUtils from "../utils/EntityUtils";
+const query = require("db/query");
+const producer = require("messaging/producer");
+const extensions = require('extensions/extensions');
+const daoApi = require("db/dao");
+const EntityUtils = require("codbex-electra/gen/dao/utils/EntityUtils");
 
 let dao = daoApi.create({
 	table: "CODBEX_COUNTRY",
@@ -42,20 +42,20 @@ let dao = daoApi.create({
 ]
 });
 
-export const list = (settings) => {
+exports.list = function(settings) {
 	return dao.list(settings).map(function(e) {
 		EntityUtils.setBoolean(e, "PostcodeRequired");
 		return e;
 	});
-}
+};
 
-export const get = (id) => {
+exports.get = function(id) {
 	let entity = dao.find(id);
 	EntityUtils.setBoolean(entity, "PostcodeRequired");
 	return entity;
-}
+};
 
-export const create = (entity) => {
+exports.create = function(entity) {
 	EntityUtils.setBoolean(entity, "PostcodeRequired");
 	let id = dao.insert(entity);
 	triggerEvent({
@@ -69,9 +69,9 @@ export const create = (entity) => {
 		}
 	});
 	return id;
-}
+};
 
-export const update = (entity) => {
+exports.update = function(entity) {
 	EntityUtils.setBoolean(entity, "PostcodeRequired");
 	dao.update(entity);
 	triggerEvent({
@@ -84,9 +84,9 @@ export const update = (entity) => {
 			value: entity.Id
 		}
 	});
-}
+};
 
-export const remove = (id) => {
+exports.delete = function(id) {
 	let entity = dao.find(id);
 	dao.remove(id);
 	triggerEvent({
@@ -99,13 +99,13 @@ export const remove = (id) => {
 			value: id
 		}
 	});
-}
+};
 
-export const count = () => {
+exports.count = function() {
 	return dao.count();
-}
+};
 
-export const customDataCount = () => {
+exports.customDataCount = function() {
 	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_COUNTRY"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -115,17 +115,22 @@ export const customDataCount = () => {
 		}
 	}
 	return 0;
-}
+};
 
-
-const triggerEvent = async(data) => {
-	const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Settings/Country", ["trigger"]);
-	triggerExtensions.forEach(triggerExtension => {
-		try {
-			triggerExtension.trigger(data);
-		} catch (error) {
-			console.error(error);
-		}			
-	});
+function triggerEvent(data) {
+	let triggerExtensions = extensions.getExtensions("codbex-electra/Settings/Country");
+	try {
+		for (let i=0; i < triggerExtensions.length; i++) {
+			let module = triggerExtensions[i];
+			let triggerExtension = require(module);
+			try {
+				triggerExtension.trigger(data);
+			} catch (error) {
+				console.error(error);
+			}			
+		}
+	} catch (error) {
+		console.error(error);
+	}
 	producer.queue("codbex-electra/Settings/Country").send(JSON.stringify(data));
 }

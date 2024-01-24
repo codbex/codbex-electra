@@ -1,7 +1,7 @@
-import { query } from "@dirigible/db";
-import { producer } from "@dirigible/messaging";
-import { extensions } from "@dirigible/extensions";
-import { dao as daoApi } from "@dirigible/db";
+const query = require("db/query");
+const producer = require("messaging/producer");
+const extensions = require('extensions/extensions');
+const daoApi = require("db/dao");
 
 let dao = daoApi.create({
 	table: "CODBEX_LANGUAGE",
@@ -36,15 +36,15 @@ let dao = daoApi.create({
 ]
 });
 
-export const list = (settings) => {
+exports.list = function(settings) {
 	return dao.list(settings);
-}
+};
 
-export const get = (id) => {
+exports.get = function(id) {
 	return dao.find(id);
-}
+};
 
-export const create = (entity) => {
+exports.create = function(entity) {
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
@@ -57,9 +57,9 @@ export const create = (entity) => {
 		}
 	});
 	return id;
-}
+};
 
-export const update = (entity) => {
+exports.update = function(entity) {
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",
@@ -71,9 +71,9 @@ export const update = (entity) => {
 			value: entity.Id
 		}
 	});
-}
+};
 
-export const remove = (id) => {
+exports.delete = function(id) {
 	let entity = dao.find(id);
 	dao.remove(id);
 	triggerEvent({
@@ -86,13 +86,13 @@ export const remove = (id) => {
 			value: id
 		}
 	});
-}
+};
 
-export const count = () => {
+exports.count = function() {
 	return dao.count();
-}
+};
 
-export const customDataCount = () => {
+exports.customDataCount = function() {
 	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_LANGUAGE"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -102,17 +102,22 @@ export const customDataCount = () => {
 		}
 	}
 	return 0;
-}
+};
 
-
-const triggerEvent = async(data) => {
-	const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Settings/Language", ["trigger"]);
-	triggerExtensions.forEach(triggerExtension => {
-		try {
-			triggerExtension.trigger(data);
-		} catch (error) {
-			console.error(error);
-		}			
-	});
+function triggerEvent(data) {
+	let triggerExtensions = extensions.getExtensions("codbex-electra/Settings/Language");
+	try {
+		for (let i=0; i < triggerExtensions.length; i++) {
+			let module = triggerExtensions[i];
+			let triggerExtension = require(module);
+			try {
+				triggerExtension.trigger(data);
+			} catch (error) {
+				console.error(error);
+			}			
+		}
+	} catch (error) {
+		console.error(error);
+	}
 	producer.queue("codbex-electra/Settings/Language").send(JSON.stringify(data));
 }
