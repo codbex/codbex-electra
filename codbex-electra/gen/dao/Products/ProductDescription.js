@@ -1,7 +1,7 @@
-const query = require("db/query");
-const producer = require("messaging/producer");
-const extensions = require('extensions/extensions');
-const daoApi = require("db/dao");
+import { query } from "@dirigible/db";
+import { producer } from "@dirigible/messaging";
+import { extensions } from "@dirigible/extensions";
+import { dao as daoApi } from "@dirigible/db";
 
 let dao = daoApi.create({
 	table: "CODBEX_PRODUCTDESCRIPTION",
@@ -56,15 +56,15 @@ let dao = daoApi.create({
 ]
 });
 
-exports.list = function(settings) {
+export const list = (settings) => {
 	return dao.list(settings);
-};
+}
 
-exports.get = function(id) {
+export const get = (id) => {
 	return dao.find(id);
-};
+}
 
-exports.create = function(entity) {
+export const create = (entity) => {
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
@@ -77,9 +77,9 @@ exports.create = function(entity) {
 		}
 	});
 	return id;
-};
+}
 
-exports.update = function(entity) {
+export const update = (entity) => {
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",
@@ -91,9 +91,9 @@ exports.update = function(entity) {
 			value: entity.Id
 		}
 	});
-};
+}
 
-exports.delete = function(id) {
+export const remove = (id) => {
 	let entity = dao.find(id);
 	dao.remove(id);
 	triggerEvent({
@@ -106,9 +106,9 @@ exports.delete = function(id) {
 			value: id
 		}
 	});
-};
+}
 
-exports.count = function (Product) {
+export const count = (Product) => {
 	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PRODUCTDESCRIPTION" WHERE "PRODUCTDESCRIPTION_PRODUCT" = ?', [Product]);
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -118,9 +118,9 @@ exports.count = function (Product) {
 		}
 	}
 	return 0;
-};
+}
 
-exports.customDataCount = function() {
+export const customDataCount = () => {
 	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PRODUCTDESCRIPTION"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -130,22 +130,17 @@ exports.customDataCount = function() {
 		}
 	}
 	return 0;
-};
+}
 
-function triggerEvent(data) {
-	let triggerExtensions = extensions.getExtensions("codbex-electra/Products/ProductDescription");
-	try {
-		for (let i=0; i < triggerExtensions.length; i++) {
-			let module = triggerExtensions[i];
-			let triggerExtension = require(module);
-			try {
-				triggerExtension.trigger(data);
-			} catch (error) {
-				console.error(error);
-			}			
-		}
-	} catch (error) {
-		console.error(error);
-	}
+
+const triggerEvent = async(data) => {
+	const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Products/ProductDescription", ["trigger"]);
+	triggerExtensions.forEach(triggerExtension => {
+		try {
+			triggerExtension.trigger(data);
+		} catch (error) {
+			console.error(error);
+		}			
+	});
 	producer.queue("codbex-electra/Products/ProductDescription").send(JSON.stringify(data));
 }

@@ -1,6 +1,6 @@
-const rs = require("http/rs");
-const dao = require("codbex-electra/gen/dao/Settings/EmployeeStatus");
-const http = require("codbex-electra/gen/api/utils/http");
+import { rs } from "@dirigible/http";
+import * as dao from "../../dao/Settings/EmployeeStatus";
+import * as http from "../utils/http";
 
 rs.service()
 	.resource("")
@@ -95,7 +95,7 @@ rs.service()
 			let id = ctx.pathParameters.id;
 			let entity = dao.get(id);
 			if (entity) {
-				dao.delete(id);
+				dao.remove(id);
 				http.sendResponseNoContent();
 			} else {
 				http.sendResponseNotFound("EmployeeStatus not found");
