@@ -2,10 +2,10 @@ import { database } from "@dirigible/db";
 import { getLogger } from "/codbex-electra/util/logger-util.mjs";
 import { closeResources } from "/codbex-electra/util/db-util.mjs";
 
-const salesOrderItemDAO = require("codbex-electra/gen/dao/SalesOrders/SalesOrderItem");
-const salesOrderShippingDAO = require("codbex-electra/gen/dao/SalesOrders/SalesOrderShipping");
-const salesOrderPaymentDAO = require("codbex-electra/gen/dao/SalesOrders/SalesOrderPayment");
-const salesOrderCommentDAO = require("codbex-electra/gen/dao/SalesOrders/SalesOrderComment");
+import * as salesOrderItemDAO from "/codbex-electra/gen/dao/SalesOrders/SalesOrderItem";
+import * as salesOrderShippingDAO from "/codbex-electra/gen/dao/SalesOrders/SalesOrderShipping";
+import * as salesOrderPaymentDAO from "/codbex-electra/gen/dao/SalesOrders/SalesOrderPayment";
+import * as salesOrderCommentDAO from "/codbex-electra/gen/dao/SalesOrders/SalesOrderComment";
 const Timestamp = Java.type('java.sql.Timestamp');
 const logger = getLogger(import.meta.url);
 const updateStatement = `
