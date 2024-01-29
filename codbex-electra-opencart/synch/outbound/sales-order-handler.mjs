@@ -2,10 +2,10 @@ import { database } from "@dirigible/db";
 import { getLogger } from "/codbex-electra/util/logger-util.mjs";
 import { closeResources } from "/codbex-electra/util/db-util.mjs";
 
-const salesOrderItemDAO = require("codbex-electra/gen/dao/SalesOrders/SalesOrderItem");
-const salesOrderShippingDAO = require("codbex-electra/gen/dao/SalesOrders/SalesOrderShipping");
-const salesOrderPaymentDAO = require("codbex-electra/gen/dao/SalesOrders/SalesOrderPayment");
-const salesOrderCommentDAO = require("codbex-electra/gen/dao/SalesOrders/SalesOrderComment");
+import * as salesOrderItemDAO from "/codbex-electra/gen/dao/SalesOrders/SalesOrderItem";
+import * as salesOrderShippingDAO from "/codbex-electra/gen/dao/SalesOrders/SalesOrderShipping";
+import * as salesOrderPaymentDAO from "/codbex-electra/gen/dao/SalesOrders/SalesOrderPayment";
+import * as salesOrderCommentDAO from "/codbex-electra/gen/dao/SalesOrders/SalesOrderComment";
 const Timestamp = Java.type('java.sql.Timestamp');
 const logger = getLogger(import.meta.url);
 const updateStatement = `
@@ -107,7 +107,7 @@ function deleteSalesOrderItems(salesOrderId) {
 	};
 	const items = salesOrderItemDAO.list(querySettings)
 	items.forEach(i => {
-		salesOrderItemDAO.delete(i.Id);
+		salesOrderItemDAO.remove(i.Id);
 	});
 }
 
@@ -117,7 +117,7 @@ function deleteSalesOrderShippings(salesOrderId) {
 	};
 	const items = salesOrderShippingDAO.list(querySettings)
 	items.forEach(i => {
-		salesOrderShippingDAO.delete(i.Id);
+		salesOrderShippingDAO.remove(i.Id);
 	});
 }
 
@@ -127,7 +127,7 @@ function deleteSalesOrderPayments(salesOrderId) {
 	};
 	const items = salesOrderPaymentDAO.list(querySettings)
 	items.forEach(i => {
-		salesOrderPaymentDAO.delete(i.Id);
+		salesOrderPaymentDAO.remove(i.Id);
 	});
 }
 
@@ -137,7 +137,7 @@ function deleteSalesOrderComments(salesOrderId) {
 	};
 	const items = salesOrderCommentDAO.list(querySettings)
 	items.forEach(i => {
-		salesOrderCommentDAO.delete(i.Id);
+		salesOrderCommentDAO.remove(i.Id);
 	});
 }
 
