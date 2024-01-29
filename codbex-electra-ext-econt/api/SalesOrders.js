@@ -1,4 +1,4 @@
-const http = require("codbex-electra/gen/api/utils/http");
+import * as http from "/codbex-electra/gen/api/utils/http";
 import { rs } from '@dirigible/http'
 import { configurations } from '@dirigible/core'
 import { logging } from '@dirigible/log'
