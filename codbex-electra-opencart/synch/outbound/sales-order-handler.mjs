@@ -107,7 +107,7 @@ function deleteSalesOrderItems(salesOrderId) {
 	};
 	const items = salesOrderItemDAO.list(querySettings)
 	items.forEach(i => {
-		salesOrderItemDAO.delete(i.Id);
+		salesOrderItemDAO.remove(i.Id);
 	});
 }
 
@@ -117,7 +117,7 @@ function deleteSalesOrderShippings(salesOrderId) {
 	};
 	const items = salesOrderShippingDAO.list(querySettings)
 	items.forEach(i => {
-		salesOrderShippingDAO.delete(i.Id);
+		salesOrderShippingDAO.remove(i.Id);
 	});
 }
 
@@ -127,7 +127,7 @@ function deleteSalesOrderPayments(salesOrderId) {
 	};
 	const items = salesOrderPaymentDAO.list(querySettings)
 	items.forEach(i => {
-		salesOrderPaymentDAO.delete(i.Id);
+		salesOrderPaymentDAO.remove(i.Id);
 	});
 }
 
@@ -137,7 +137,7 @@ function deleteSalesOrderComments(salesOrderId) {
 	};
 	const items = salesOrderCommentDAO.list(querySettings)
 	items.forEach(i => {
-		salesOrderCommentDAO.delete(i.Id);
+		salesOrderCommentDAO.remove(i.Id);
 	});
 }
 
