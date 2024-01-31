@@ -1,0 +1,14 @@
+{
+    "files": [
+        {
+            "table": "CODBEX_STORECONFIGURATIONPROPERTY",
+            "schema": "PUBLIC",
+            "file": "/codbex-electra-opencart-data/CODBEX_STORECONFIGURATIONPROPERTY.csv",
+            "header": true,
+            "useHeaderNames": true,
+            "delimField": ",",
+            "delimEnclosing": "\"",
+            "distinguishEmptyFromNull": true
+        }
+    ]
+}

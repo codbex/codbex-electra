@@ -7,7 +7,7 @@ const perspectiveData = {
 	id: "Access",
 	name: "Access",
 	link: "/services/web/codbex-electra/gen/ui/Access/index.html",
-	order: "500",
+	order: "600",
 	icon: "/services/web/resources/unicons/lock.svg",
 };
 

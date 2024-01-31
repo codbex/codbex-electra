@@ -1,0 +1,15 @@
+ORDERSTATUS_ID,ORDERSTATUS_NAME
+1,Pending
+2,Processing
+3,Shipped
+5,Complete
+7,Canceled
+8,Denied
+9,Canceled Reversal
+10,Failed
+11,Refunded
+12,Reversed
+13,Chargeback
+14,Expired
+15,Processed
+16,Voided

@@ -1,0 +1,135 @@
+import { query } from "@dirigible/db";
+import { producer } from "@dirigible/messaging";
+import { extensions } from "@dirigible/extensions";
+import { dao as daoApi } from "@dirigible/db";
+
+let dao = daoApi.create({
+	table: "CODBEX_ENTITYREFERENCE",
+	properties: [
+		{
+			name: "Id",
+			column: "ID",
+			type: "INTEGER",
+			id: true,
+			autoIncrement: true,
+			required: true
+		},
+ {
+			name: "EntityName",
+			column: "ENTITY_NAME",
+			type: "VARCHAR",
+			required: true
+		},
+ {
+			name: "EntityIntegerId",
+			column: "ENTITY_INTEGER_ID",
+			type: "BIGINT",
+		},
+ {
+			name: "EntityStringId",
+			column: "ENTITY_STRING_ID",
+			type: "VARCHAR",
+		},
+ {
+			name: "ReferenceIntegerId",
+			column: "REFERENCE_INTEGER_ID",
+			type: "BIGINT",
+		},
+ {
+			name: "ReferenceStringId",
+			column: "REFERENCE_STRING_ID",
+			type: "VARCHAR",
+		},
+ {
+			name: "ScopeIntegerId",
+			column: "SCOPE_INTEGER_ID",
+			type: "BIGINT",
+		},
+ {
+			name: "ScopeStringId",
+			column: "SCOPE_STRING_ID",
+			type: "VARCHAR",
+		}
+]
+});
+
+export const list = (settings) => {
+	return dao.list(settings);
+}
+
+export const get = (id) => {
+	return dao.find(id);
+}
+
+export const create = (entity) => {
+	let id = dao.insert(entity);
+	triggerEvent({
+		operation: "create",
+		table: "CODBEX_ENTITYREFERENCE",
+		entity: entity,
+		key: {
+			name: "Id",
+			column: "ID",
+			value: id
+		}
+	});
+	return id;
+}
+
+export const update = (entity) => {
+	dao.update(entity);
+	triggerEvent({
+		operation: "update",
+		table: "CODBEX_ENTITYREFERENCE",
+		entity: entity,
+		key: {
+			name: "Id",
+			column: "ID",
+			value: entity.Id
+		}
+	});
+}
+
+export const remove = (id) => {
+	let entity = dao.find(id);
+	dao.remove(id);
+	triggerEvent({
+		operation: "delete",
+		table: "CODBEX_ENTITYREFERENCE",
+		entity: entity,
+		key: {
+			name: "Id",
+			column: "ID",
+			value: id
+		}
+	});
+}
+
+export const count = () => {
+	return dao.count();
+}
+
+export const customDataCount = () => {
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_ENTITYREFERENCE"');
+	if (resultSet !== null && resultSet[0] !== null) {
+		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
+			return resultSet[0].COUNT;
+		} else if (resultSet[0].count !== undefined && resultSet[0].count !== null) {
+			return resultSet[0].count;
+		}
+	}
+	return 0;
+}
+
+
+const triggerEvent = async(data) => {
+	const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Settings/EntityReference", ["trigger"]);
+	triggerExtensions.forEach(triggerExtension => {
+		try {
+			triggerExtension.trigger(data);
+		} catch (error) {
+			console.error(error);
+		}			
+	});
+	producer.queue("codbex-electra/Settings/EntityReference").send(JSON.stringify(data));
+}

@@ -224,7 +224,6 @@
                         "length": 64,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "STORE_NAME"
                     },
                     {
@@ -234,6 +233,20 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "STORE_URL"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STORE_TYPE"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "length": 1,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STORE_ENABLED"
                     }
                 ]
             },
@@ -1760,6 +1773,155 @@
                 ]
             },
             {
+                "name": "CODBEX_ENTITYREFERENCE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 64,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "ENTITY_NAME"
+                    },
+                    {
+                        "type": "BIGINT",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "ENTITY_INTEGER_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 64,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "ENTITY_STRING_ID"
+                    },
+                    {
+                        "type": "BIGINT",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "REFERENCE_INTEGER_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 64,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "REFERENCE_STRING_ID"
+                    },
+                    {
+                        "type": "BIGINT",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SCOPE_INTEGER_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SCOPE_STRING_ID"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_STORECONFIGURATION",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STORECONFIGURATION_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STORECONFIGURATION_STORE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STORECONFIGURATION_PROPERTY"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 64,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STORECONFIGURATION_VALUE"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_STORECONFIGURATIONPROPERTY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "STORECONFIGURATIONPROPERTY_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 32,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STORECONFIGURATIONPROPERTY_NAME"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_STORETYPE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STORETYPE_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 32,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STORETYPE_NAME"
+                    }
+                ]
+            },
+            {
                 "name": "Currency_CurrencyStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_CURRENCY",
@@ -1812,6 +1974,15 @@
                 "columns": "SALESORDER_LANGUAGE",
                 "referencedTable": "CODBEX_LANGUAGE",
                 "referencedColumns": "LANGUAGE_ID"
+            },
+            {
+                "name": "Store_StoreType",
+                "type": "foreignKey",
+                "table": "CODBEX_STORE",
+                "constraintName": "Store_StoreType",
+                "columns": "STORE_TYPE",
+                "referencedTable": "CODBEX_STORETYPE",
+                "referencedColumns": "STORETYPE_ID"
             },
             {
                 "name": "Customer_Store",
@@ -2118,6 +2289,24 @@
                 "columns": "GROUPPERMISSION_PERMISSION",
                 "referencedTable": "CODBEX_PERMISSION",
                 "referencedColumns": "PERMISSION_ID"
+            },
+            {
+                "name": "StoreConfiguration_Store",
+                "type": "foreignKey",
+                "table": "CODBEX_STORECONFIGURATION",
+                "constraintName": "StoreConfiguration_Store",
+                "columns": "STORECONFIGURATION_STORE",
+                "referencedTable": "CODBEX_STORE",
+                "referencedColumns": "STORE_ID"
+            },
+            {
+                "name": "StoreConfiguration_StoreConfigurationProperty",
+                "type": "foreignKey",
+                "table": "CODBEX_STORECONFIGURATION",
+                "constraintName": "StoreConfiguration_StoreConfigurationProperty",
+                "columns": "STORECONFIGURATION_PROPERTY",
+                "referencedTable": "CODBEX_STORECONFIGURATIONPROPERTY",
+                "referencedColumns": "STORECONFIGURATIONPROPERTY_ID"
             }
         ]
     }

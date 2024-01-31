@@ -1,9 +1,9 @@
 {
   "files": [
     {
-      "table": "CODBEX_CUSTOMER",
+      "table": "CODBEX_SALESORDERSHIPPING",
       "schema": "PUBLIC",
-      "file": "/codbex-electra-emag-demo-data/customers.csv",
+      "file": "/codbex-electra-emag-demo-data/CODBEX_SALESORDERSHIPPING.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
@@ -12,9 +12,9 @@
       "version": "1.0"
     },
     {
-      "table": "CODBEX_SALESORDERITEM",
+      "table": "CODBEX_CUSTOMER",
       "schema": "PUBLIC",
-      "file": "/codbex-electra-emag-demo-data/sales-order-items.csv",
+      "file": "/codbex-electra-emag-demo-data/CODBEX_CUSTOMER.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
@@ -25,7 +25,29 @@
     {
       "table": "CODBEX_SALESORDERPAYMENT",
       "schema": "PUBLIC",
-      "file": "/codbex-electra-emag-demo-data/sales-order-payments.csv",
+      "file": "/codbex-electra-emag-demo-data/CODBEX_SALESORDERPAYMENT.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    },
+    {
+      "table": "CODBEX_SALESORDERITEM",
+      "schema": "PUBLIC",
+      "file": "/codbex-electra-emag-demo-data/CODBEX_SALESORDERITEM.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    },
+    {
+      "table": "CODBEX_STORE",
+      "schema": "PUBLIC",
+      "file": "/codbex-electra-emag-demo-data/CODBEX_STORE.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
@@ -36,29 +58,7 @@
     {
       "table": "CODBEX_SALESORDER",
       "schema": "PUBLIC",
-      "file": "/codbex-electra-emag-demo-data/sales-orders.csv",
-      "header": true,
-      "useHeaderNames": true,
-      "delimField": ",",
-      "delimEnclosing": "\"",
-      "distinguishEmptyFromNull": true,
-      "version": "1.0"
-    },
-    {
-      "table": "CODBEX_SALESORDERSHIPPING",
-      "schema": "PUBLIC",
-      "file": "/codbex-electra-emag-demo-data/sales-order-shippings.csv",
-      "header": true,
-      "useHeaderNames": true,
-      "delimField": ",",
-      "delimEnclosing": "\"",
-      "distinguishEmptyFromNull": true,
-      "version": "1.0"
-    },
-        {
-      "table": "CODBEX_STORE",
-      "schema": "PUBLIC",
-      "file": "/codbex-electra-emag-demo-data/stores.csv",
+      "file": "/codbex-electra-emag-demo-data/CODBEX_SALESORDER.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",

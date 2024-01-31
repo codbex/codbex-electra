@@ -1,0 +1,8 @@
+CUSTOMER_ID,CUSTOMER_EMAIL,CUSTOMER_FIRSTNAME,CUSTOMER_LASTNAME,CUSTOMER_STORE,CUSTOMER_STATUS,CUSTOMER_TELEPHONE,CUSTOMER_DATE_ADDED,CUSTOMER_CODE,CUSTOMER_CUSTOMFIELD,CUSTOMER_LANGUAGE
+1,iliyan.velichkov@codbex.com,Iliyan,Velichkov,0,1,+359899999999,2023-12-07 16:59:08.0,,,1
+2,ivan.stoyanov@codbex.com,Ivan,Stoyanov,0,1,+359877777777,2024-01-10 10:30:59.0,,,1
+3,maria.draganova@codbex.com,Maria,Draganova,0,1,+359866666666,2024-01-10 15:58:00.0,,,1
+4,sofia.ivanova@codbex.com,Sofia,Ivanova,0,1,+3599999999,2024-01-24 11:24:01.0,,,1
+5,vladimir.pavlov@codbex.com,Vladimir,Pavlov,0,1,+359899999777,2024-01-24 11:46:39.0,,,1
+6,plamen.petkov@codbex.com,Пламен,Петков,0,1,+35989999999,2024-01-24 12:18:40.0,,,1
+7,ina.kirilova@codbex.com,Ina,Kirilova,0,1,+35987777777777,2024-01-26 10:29:47.0,,,1

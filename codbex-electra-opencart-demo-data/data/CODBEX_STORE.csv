@@ -1,0 +1,4 @@
+STORE_ID,STORE_NAME,STORE_URL,STORE_TYPE,STORE_ENABLED
+0,Demo OpenCart Store,https://dev.opencart-demo.eu1.codbex.com,1,true
+1,Another OpenCart Store,https://dev.another-opencart-demo.eu1.codbex.com,1,false
+
