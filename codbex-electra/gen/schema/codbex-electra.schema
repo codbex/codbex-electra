@@ -1922,6 +1922,35 @@
                 ]
             },
             {
+                "name": "CODBEX_PRODUCTTOSTORE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "PRODUCTTOSTORE_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "PRODUCTTOSTORE_PRODUCT"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "PRODUCTTOSTORE_STORE"
+                    }
+                ]
+            },
+            {
                 "name": "Currency_CurrencyStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_CURRENCY",
@@ -2307,6 +2336,24 @@
                 "columns": "STORECONFIGURATION_PROPERTY",
                 "referencedTable": "CODBEX_STORECONFIGURATIONPROPERTY",
                 "referencedColumns": "STORECONFIGURATIONPROPERTY_ID"
+            },
+            {
+                "name": "ProductToStore_Product",
+                "type": "foreignKey",
+                "table": "CODBEX_PRODUCTTOSTORE",
+                "constraintName": "ProductToStore_Product",
+                "columns": "PRODUCTTOSTORE_PRODUCT",
+                "referencedTable": "CODBEX_PRODUCT",
+                "referencedColumns": "PRODUCT_ID"
+            },
+            {
+                "name": "ProductToStore_Store",
+                "type": "foreignKey",
+                "table": "CODBEX_PRODUCTTOSTORE",
+                "constraintName": "ProductToStore_Store",
+                "columns": "PRODUCTTOSTORE_STORE",
+                "referencedTable": "CODBEX_STORE",
+                "referencedColumns": "STORE_ID"
             }
         ]
     }

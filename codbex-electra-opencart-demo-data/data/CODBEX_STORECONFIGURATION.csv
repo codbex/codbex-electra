@@ -1,7 +1,7 @@
 STORECONFIGURATION_ID,STORECONFIGURATION_STORE,STORECONFIGURATION_PROPERTY,STORECONFIGURATION_VALUE
-1,0,1,DemoStoreOpenCartDB
-2,0,2,https://dev.opencart-demo.eu1.codbex.com
-3,0,3,<demo-store-opencart-econt-secret>
-4,1,1,AnotherDemoStoreOpenCartDB
-5,1,2,https://dev.another-opencart-demo.eu1.codbex.com
-6,1,3,<another-demo-store-opencart-econt-secret>
+1,1,1,DemoStoreOpenCartDB
+2,1,2,https://dev.opencart-demo.eu1.codbex.com
+3,1,3,<demo-store-opencart-econt-secret>
+4,2,1,AnotherDemoStoreOpenCartDB
+5,2,2,https://dev.another-opencart-demo.eu1.codbex.com
+6,2,3,<another-demo-store-opencart-econt-secret>

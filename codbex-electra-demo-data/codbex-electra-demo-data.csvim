@@ -199,6 +199,17 @@
       "version": "1.0"
     },
     {
+      "table": "CODBEX_STOCKSTATUS",
+      "schema": "PUBLIC",
+      "file": "/codbex-electra-demo-data/CODBEX_STOCKSTATUS.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    },
+    {
       "table": "CODBEX_ATTRIBUTE",
       "schema": "PUBLIC",
       "file": "/codbex-electra-demo-data/CODBEX_ATTRIBUTE.csv",

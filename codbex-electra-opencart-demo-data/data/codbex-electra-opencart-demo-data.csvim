@@ -21,6 +21,17 @@
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
             "version": "1.0"
+        },
+        {
+            "table": "CODBEX_PRODUCTTOSTORE",
+            "schema": "PUBLIC",
+            "file": "/codbex-electra-opencart-demo-data/data/CODBEX_PRODUCTTOSTORE.csv",
+            "header": true,
+            "useHeaderNames": true,
+            "delimField": ",",
+            "delimEnclosing": "\"",
+            "distinguishEmptyFromNull": true,
+            "version": "1.0"
         }
     ]
 }

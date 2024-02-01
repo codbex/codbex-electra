@@ -1,0 +1,67 @@
+- route:
+    id: products-out-sync-route
+    from:
+      uri: cron:TriggerProductsReplication
+      id: trigger-products-replication-cron
+      parameters:
+        schedule: '*/10 * * * * ? '
+      description: Trigger Products Replication
+      steps:
+        - log:
+            message: Replicating products to OpenCart DB...
+            id: log-about-to-start-products-replication
+            logName: OpenCartProductsReplication
+            loggingLevel: INFO
+        - setProperty:
+            name: resource
+            id: set-js-products-1
+            expression:
+              constant:
+                expression: >-
+                  codbex-electra-opencart/synch/outbound/products/get-all-relevant-stores.mjs
+                id: constant-8de2
+            description: Set JS file
+        - to:
+            uri: class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+            id: get-all-relevant-stores
+            description: Get all relevant stores
+        - split:
+            id: split-to-single-store
+            expression:
+              simple:
+                expression: ${body}
+                id: simple-333
+            description: Split to single store
+            steps:
+              - setProperty:
+                  name: resource
+                  id: set-js-products-2
+                  expression:
+                    constant:
+                      expression: >-
+                        codbex-electra-opencart/synch/outbound/products/get-products.mjs
+                      id: constant-eb12
+                  description: Set JS file
+              - to:
+                  uri: >-
+                    class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+                  id: get-all-products
+                  description: Get all products
+              - split:
+                  id: split-to-single-product
+                  expression:
+                    simple:
+                      expression: ${body}
+                      id: simple-b984
+                  description: Split to single product
+                  steps:
+                    - log:
+                        message: ${body['Id']}
+                        id: log-0862
+                        logName: TestLogger
+        - log:
+            message: Successfully replicated products to OpenCart stores
+            id: log-products-replication-completed
+            logName: OpenCartProductsReplication
+            loggingLevel: INFO
+    description: Sync products to OpenCarts
