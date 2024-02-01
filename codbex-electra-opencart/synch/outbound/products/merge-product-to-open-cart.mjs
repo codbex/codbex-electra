@@ -1,6 +1,6 @@
 import { getLogger } from "/codbex-electra/util/logger-util.mjs";
 import * as productDAO from "/codbex-electra/gen/dao/Products/Product";
-import { ProductDAO } from "/codbex-electra-opencart/dao/ProductDAO.mjs";
+import { OpenCartProductDAO } from "/codbex-electra-opencart/dao/OpenCartProductDAO.mjs";
 const logger = getLogger(import.meta.url);
 
 export function onMessage(message) {
@@ -11,14 +11,14 @@ export function onMessage(message) {
     logger.info("Received product entry [{}]", JSON.stringify(product));
 
     const dataSourceName = productEntry.store.dataSourceName;
-    const ocProductDAO = new ProductDAO(dataSourceName);
+    const ocProductDAO = new OpenCartProductDAO(dataSourceName);
 
-    const osProducts = ocProductDAO.list();
-    logger.info("osProducts[{}]", osProducts);
+    const ocProducts = ocProductDAO.list();
+    logger.info("ocProducts: {}", ocProducts);
 
 
-    const osProduct = ocProductDAO.get(51);
-    logger.info("osProduct[{}]", osProduct);
+    const ocProduct = ocProductDAO.get(51);
+    logger.info("ocProduct: {}", ocProduct);
     return message;
 }
 

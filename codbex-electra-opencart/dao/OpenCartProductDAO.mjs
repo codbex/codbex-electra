@@ -20,7 +20,7 @@ const CONFIG = {
 
 const LOGGER_NAME = "ProductDAO";
 
-export class ProductDAO {
+export class OpenCartProductDAO {
 	openCartDAO;
 
 	constructor(dataSourceName) {
