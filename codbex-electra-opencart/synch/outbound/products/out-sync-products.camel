@@ -39,14 +39,14 @@
                   expression:
                     constant:
                       expression: >-
-                        codbex-electra-opencart/synch/outbound/products/get-products.mjs
+                        codbex-electra-opencart/synch/outbound/products/get-store-products.mjs
                       id: constant-eb12
                   description: Set JS file
               - to:
                   uri: >-
                     class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
-                  id: get-all-products
-                  description: Get all products
+                  id: get-all-store-products
+                  description: Get all store products
               - split:
                   id: split-to-single-product
                   expression:
@@ -55,8 +55,21 @@
                       id: simple-b984
                   description: Split to single product
                   steps:
+                    - setProperty:
+                        name: resource
+                        id: Set JS file
+                        expression:
+                          constant:
+                            expression: >-
+                              codbex-electra-opencart/synch/outbound/products/merge-product-to-open-cart.mjs
+                            id: constant-a0bf
+                    - to:
+                        uri: >-
+                          class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+                        id: merge-product-to-oc
+                        description: Merge product to OpenCart
                     - log:
-                        message: ${body['Id']}
+                        message: ${body['productId']}
                         id: log-0862
                         logName: TestLogger
         - log:
