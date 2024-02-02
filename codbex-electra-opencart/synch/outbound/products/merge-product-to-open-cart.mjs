@@ -1,25 +1,94 @@
 import { getLogger } from "/codbex-electra/util/logger-util.mjs";
-import * as productDAO from "/codbex-electra/gen/dao/Products/Product";
 import { OpenCartProductDAO } from "/codbex-electra-opencart/dao/OpenCartProductDAO.mjs";
+import * as productDAO from "/codbex-electra/gen/dao/Products/Product";
+import * as entityReferenceDAO from "/codbex-electra/gen/dao/Settings/EntityReference";
+
 const logger = getLogger(import.meta.url);
 
 export function onMessage(message) {
     const productEntry = message.getBody();
+
     const productId = productEntry.productId;
+    const productReference = productEntry.reference;
 
     const product = getProduct(productId);
-    logger.info("Received product entry [{}]", JSON.stringify(product));
 
     const dataSourceName = productEntry.store.dataSourceName;
     const ocProductDAO = new OpenCartProductDAO(dataSourceName);
 
-    const ocProducts = ocProductDAO.list();
-    logger.info("ocProducts: {}", ocProducts);
+    const ocProduct = createOpenCartProduct(product, productReference);
+    const ocProductId = ocProductDAO.upsert(ocProduct);
+    console.log("!!! ocProductId: " + ocProductId);
+    if (productReference) {
+        const entityReference = {
+            Id: productReference.Id,
+            EntityName: productReference.EntityName,
+            ScopeIntegerId: productReference.ScopeIntegerId,
+            EntityIntegerId: productReference.EntityIntegerId,
+            ReferenceIntegerId: ocProductId
+        }
+        entityReferenceDAO.update(entityReference);
+    } else {
+        const storeId = productEntry.store.id;
+        const entityReference = {
+            EntityName: "Product",
+            ScopeIntegerId: storeId,
+            EntityIntegerId: productId,
+            ReferenceIntegerId: ocProductId
+        }
+        entityReferenceDAO.create(entityReference);
+    }
 
-
-    const ocProduct = ocProductDAO.get(51);
-    logger.info("ocProduct: {}", ocProduct);
     return message;
+}
+
+function createOpenCartProduct(product, productReference) {
+    console.log("Reference " + JSON.stringify(productReference));
+    console.log("product " + JSON.stringify(product));
+
+    const shipping = product.Shipping ? 1 : 0;
+    const subtract = product.Subtract ? 1 : 0;
+    const status = product.Status ? 1 : 0;
+    const viewed = 0; // TODO get it before push it
+
+    const ocProduct = {
+        "model": product.Model,
+        "sku": product.SKU,
+        "upc": product.UPC,
+        "ean": product.EAN,
+        "jan": product.JAN,
+        "isbn": product.ISBN,
+        "mpn": product.MPN,
+        "location": product.Location,
+        "quantity": product.Quantity,
+        "stockStatusId": product.StockStatus,
+        "image": product.Image,
+        "manufacturerId": product.Manufacturer,
+        "shipping": shipping,
+        "price": product.Price,
+        "points": product.Points,
+        "taxClassId": 1,
+        "dateAvailable": product.DateAvailable,
+        "weight": product.Weight,
+        "weightClassId": 1,
+        "length": product.Length,
+        "width": product.Width,
+        "height": product.Height,
+        "lengthClassId": 1,
+        "subtract": subtract,
+        "minimum": product.Minimum,
+        "sortOrder": 0,
+        "status": status,
+        "viewed": viewed,
+        "dateAdded": product.DateAdded,
+        "dateModified": product.DateModified
+    };
+
+    if (productReference) {
+        ocProduct.productId = productReference.ReferenceIntegerId;
+    }
+
+    return ocProduct;
 }
 
 function getProduct(productId) {
