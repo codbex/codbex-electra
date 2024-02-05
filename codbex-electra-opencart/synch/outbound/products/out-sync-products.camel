@@ -4,7 +4,7 @@
       uri: cron:TriggerProductsReplication
       id: trigger-products-replication-cron
       parameters:
-        schedule: '*/10 * * * * ? '
+        schedule: 0 * * ? * *
       description: Trigger Products Replication
       steps:
         - log:
@@ -68,12 +68,6 @@
                           class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
                         id: merge-product-to-oc
                         description: Merge product to OpenCart
-                    - log:
-                        message: >-
-                          Processed product with Electra id:
-                          ${body['productId']}
-                        id: log-0862
-                        logName: TestLogger
         - log:
             message: Successfully replicated products to OpenCart stores
             id: log-products-replication-completed
