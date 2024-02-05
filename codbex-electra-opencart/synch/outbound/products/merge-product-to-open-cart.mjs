@@ -18,17 +18,8 @@ export function onMessage(message) {
 
     const ocProduct = createOpenCartProduct(product, productReference);
     const ocProductId = ocProductDAO.upsert(ocProduct);
-    console.log("!!! ocProductId: " + ocProductId);
-    if (productReference) {
-        const entityReference = {
-            Id: productReference.Id,
-            EntityName: productReference.EntityName,
-            ScopeIntegerId: productReference.ScopeIntegerId,
-            EntityIntegerId: productReference.EntityIntegerId,
-            ReferenceIntegerId: ocProductId
-        }
-        entityReferenceDAO.update(entityReference);
-    } else {
+
+    if (!productReference) {
         const storeId = productEntry.store.id;
         const entityReference = {
             EntityName: "Product",
@@ -42,10 +33,15 @@ export function onMessage(message) {
     return message;
 }
 
-function createOpenCartProduct(product, productReference) {
-    console.log("Reference " + JSON.stringify(productReference));
-    console.log("product " + JSON.stringify(product));
+function getProduct(productId) {
+    const product = productDAO.get(productId);
+    if (!product) {
+        throwError(`Missing product with id [${productId}]`);
+    }
+    return product;
+}
 
+function createOpenCartProduct(product, productReference) {
     const shipping = product.Shipping ? 1 : 0;
     const subtract = product.Subtract ? 1 : 0;
     const status = product.Status ? 1 : 0;
@@ -89,14 +85,6 @@ function createOpenCartProduct(product, productReference) {
     }
 
     return ocProduct;
-}
-
-function getProduct(productId) {
-    const product = productDAO.get(productId);
-    if (!product) {
-        throwError(`Missing product with id [${productId}]`);
-    }
-    return product;
 }
 
 function throwError(errorMessage) {

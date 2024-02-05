@@ -189,16 +189,11 @@ export class OpenCartProductDAO {
 	}
 
 	upsert(product) {
-		console.log("In upser for product " + JSON.stringify(product));
 		if (product.productId && product.productId !== 0) {
-			console.log("Will UPDATE product " + JSON.stringify(product));
 			this.update(product);
 			return product.productId;
 		} else {
-			console.log("Will CREATE product " + JSON.stringify(product));
-			const result = this.create(product);
-			console.log("result " + result);
-			return result;
+			return this.create(product);
 		}
 	}
 }

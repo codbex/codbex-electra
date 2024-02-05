@@ -69,7 +69,9 @@
                         id: merge-product-to-oc
                         description: Merge product to OpenCart
                     - log:
-                        message: ${body['productId']}
+                        message: >-
+                          Processed product with Electra id:
+                          ${body['productId']}
                         id: log-0862
                         logName: TestLogger
         - log:
