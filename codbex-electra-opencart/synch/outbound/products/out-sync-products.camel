@@ -69,7 +69,7 @@
                         id: merge-product-to-oc
                         description: Merge product to OpenCart
         - log:
-            message: Successfully replicated products to OpenCart stores
+            message: Successfully replicated products to all enabled OpenCart stores
             id: log-products-replication-completed
             logName: OpenCartProductsReplication
             loggingLevel: INFO
