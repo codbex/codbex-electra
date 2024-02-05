@@ -1,25 +1,25 @@
 - route:
-    id: products-out-sync-route
+    id: product-descriptions-out-sync-route
     from:
-      uri: cron:TriggerProductsReplication
-      id: trigger-products-replication-cron
+      uri: cron:TriggerProductDescriptionsReplication
+      id: trigger-product-descriptions-replication-cron
       parameters:
-        schedule: 0 * * ? * *
-      description: Trigger Products Replication
+        schedule: 5 * * ? * *
+      description: Trigger Product Descriptions Replication
       steps:
         - log:
-            message: Replicating products to OpenCart DB...
-            id: log-about-to-start-products-replication
-            logName: OpenCartProductsReplication
+            message: Replicating product descriptions to OpenCart DB...
+            id: log-about-to-start-product-descriptions-replication
+            logName: OpenCartProductDescriptionsReplication
             loggingLevel: INFO
         - setProperty:
             name: resource
-            id: set-js-products-1
+            id: set-js-product-descriptions-1
             expression:
               constant:
                 expression: >-
                   codbex-electra-opencart/synch/outbound/products/get-all-relevant-stores.mjs
-                id: constant-8de2
+                id: constant-product-descriptions-01
             description: Set JS file
         - to:
             uri: class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
@@ -35,12 +35,12 @@
             steps:
               - setProperty:
                   name: resource
-                  id: set-js-products-2
+                  id: set-js-product-descriptions-2
                   expression:
                     constant:
                       expression: >-
                         codbex-electra-opencart/synch/outbound/products/get-store-products.mjs
-                      id: constant-eb12
+                      id: constant-product-descriptions-02
                   description: Set JS file
               - to:
                   uri: >-
@@ -57,21 +57,23 @@
                   steps:
                     - setProperty:
                         name: resource
-                        id: set-js-products-3
+                        id: set-js-product-descriptions-3
                         expression:
                           constant:
                             expression: >-
-                              codbex-electra-opencart/synch/outbound/products/products/merge-product-to-open-cart.mjs
-                            id: constant-a0bf
+                              codbex-electra-opencart/synch/outbound/products/descriptions/merge-product-description-to-open-cart.mjs
+                            id: constant-product-descriptions-03
                         description: Set JS file
                     - to:
                         uri: >-
                           class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
-                        id: merge-product-to-oc
-                        description: Merge product to OpenCart
+                        id: merge-product-description-to-oc
+                        description: Merge product description to OpenCart
         - log:
-            message: Successfully replicated products to all enabled OpenCart stores
-            id: log-products-replication-completed
-            logName: OpenCartProductsReplication
+            message: >-
+              Successfully replicated product descriptions to all enabled
+              OpenCart stores
+            id: log-product-descriptions-replication-completed
+            logName: OpenCartProductDescriptionsReplication
             loggingLevel: INFO
-    description: Sync products to OpenCarts
+    description: Sync product descriptions to OpenCarts

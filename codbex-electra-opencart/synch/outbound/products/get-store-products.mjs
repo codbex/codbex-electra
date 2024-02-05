@@ -1,9 +1,8 @@
 import * as productToStoreDAO from "/codbex-electra/gen/dao/Products/ProductToStore";
-import * as entityReferenceDAO from "/codbex-electra/gen/dao/Settings/EntityReference";
 import { getLogger } from "/codbex-electra/util/logger-util.mjs";
+import * as entityReferenceDAO from "/codbex-electra/dao/entity-reference-dao.mjs";
 
 const logger = getLogger(import.meta.url);
-
 
 export function onMessage(message) {
     const store = message.getBody();
@@ -38,10 +37,7 @@ function getProductToStoreEntries(storeId) {
 }
 
 function getStoreProductReferences(storeId) {
-    const querySettings = {
-        ScopeIntegerId: storeId
-    };
-    const productReferences = entityReferenceDAO.list(querySettings);
+    const productReferences = entityReferenceDAO.getStoreProductReferences(storeId);
 
     const mappings = new Map();
 

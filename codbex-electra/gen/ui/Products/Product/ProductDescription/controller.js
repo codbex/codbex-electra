@@ -61,9 +61,17 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
+				$scope.action = 'select';
 			});
 		});
 
+		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
+			$scope.loadPage($scope.dataPage);
+		});
+
+		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
+			$scope.loadPage($scope.dataPage);
+		});
 		//-----------------Events-------------------//
 
 		$scope.loadPage = function (pageNumber) {
@@ -95,12 +103,64 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.openDetails = function (entity) {
 			$scope.selectedEntity = entity;
 			messageHub.showDialogWindow("ProductDescription-details", {
+				action: "select",
 				entity: entity,
 				optionsProduct: $scope.optionsProduct,
 				optionsLanguage: $scope.optionsLanguage,
 			});
 		};
 
+		$scope.createEntity = function () {
+			$scope.selectedEntity = null;
+			messageHub.showDialogWindow("ProductDescription-details", {
+				action: "create",
+				entity: {},
+				selectedMainEntityKey: "Product",
+				selectedMainEntityId: $scope.selectedMainEntityId,
+				optionsProduct: $scope.optionsProduct,
+				optionsLanguage: $scope.optionsLanguage,
+			}, null, false);
+		};
+
+		$scope.updateEntity = function (entity) {
+			messageHub.showDialogWindow("ProductDescription-details", {
+				action: "update",
+				entity: entity,
+				selectedMainEntityKey: "Product",
+				selectedMainEntityId: $scope.selectedMainEntityId,
+				optionsProduct: $scope.optionsProduct,
+				optionsLanguage: $scope.optionsLanguage,
+			}, null, false);
+		};
+
+		$scope.deleteEntity = function (entity) {
+			let id = entity.Id;
+			messageHub.showDialogAsync(
+				'Delete ProductDescription?',
+				`Are you sure you want to delete ProductDescription? This action cannot be undone.`,
+				[{
+					id: "delete-btn-yes",
+					type: "emphasized",
+					label: "Yes",
+				},
+				{
+					id: "delete-btn-no",
+					type: "normal",
+					label: "No",
+				}],
+			).then(function (msg) {
+				if (msg.data === "delete-btn-yes") {
+					entityApi.delete(id).then(function (response) {
+						if (response.status != 204) {
+							messageHub.showAlertError("ProductDescription", `Unable to delete ProductDescription: '${response.message}'`);
+							return;
+						}
+						$scope.loadPage($scope.dataPage);
+						messageHub.postMessage("clearDetails");
+					});
+				}
+			});
+		};
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsProduct = [];

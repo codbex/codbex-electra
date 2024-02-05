@@ -1,7 +1,7 @@
 import { getLogger } from "/codbex-electra/util/logger-util.mjs";
 import { OpenCartProductDAO } from "/codbex-electra-opencart/dao/OpenCartProductDAO.mjs";
 import * as productDAO from "/codbex-electra/gen/dao/Products/Product";
-import * as entityReferenceDAO from "/codbex-electra/gen/dao/Settings/EntityReference";
+import * as entityReferenceDAO from "/codbex-electra/dao/entity-reference-dao.mjs";
 
 const logger = getLogger(import.meta.url);
 
@@ -45,7 +45,7 @@ function createOpenCartProduct(product, productReference) {
     const shipping = product.Shipping ? 1 : 0;
     const subtract = product.Subtract ? 1 : 0;
     const status = product.Status ? 1 : 0;
-    const viewed = 0; // TODO get it before push it
+    const viewed = 0; // TODO get it from database
 
     const ocProduct = {
         "model": product.Model,
@@ -75,9 +75,9 @@ function createOpenCartProduct(product, productReference) {
         "minimum": product.Minimum,
         "sortOrder": 0,
         "status": status,
-        "viewed": viewed,
         "dateAdded": product.DateAdded,
-        "dateModified": product.DateModified
+        "dateModified": product.DateModified,
+        "viewed": viewed
     };
 
     if (productReference) {

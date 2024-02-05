@@ -163,7 +163,7 @@ const CONFIG = {
 	]
 };
 
-const LOGGER_NAME = "ProductDAO";
+const LOGGER_NAME = "OpenCartProductDAO";
 
 export class OpenCartProductDAO {
 	openCartDAO;

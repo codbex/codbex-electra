@@ -3890,7 +3890,7 @@
                 "dataName": "PRODUCTDESCRIPTION",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "LIST_DETAILS",
+                "layoutType": "MANAGE_DETAILS",
                 "menuIndex": "100",
                 "menuKey": "productdescription",
                 "menuLabel": "ProductDescription",
