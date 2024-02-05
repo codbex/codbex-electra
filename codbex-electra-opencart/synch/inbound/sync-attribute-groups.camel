@@ -1,0 +1,61 @@
+- route:
+    id: attribute-groups-sync-route
+    from:
+      uri: cron:TriggerAttributeGroupsReplication
+      id: trigger-attribute-groups-replication-cron
+      parameters:
+        schedule: 3 * * ? * *
+      description: Trigger Attribute Groups Replication
+      steps:
+        - log:
+            message: Replicating attribute groups from OpenCart DB...
+            id: log-about-to-start-attribute-groups-replication
+            logName: OpenCartAttributeGroupsReplication
+            loggingLevel: INFO
+        - setBody:
+            id: create-attribute-groups-select-statement
+            expression:
+              constant:
+                expression: SELECT * FROM oc_attribute_group_description
+                id: constant-e9a5-21321
+            description: Create attribute groups SELECT statement
+        - to:
+            uri: spring-jdbc:OpenCartDB
+            id: execute-get-attribute-groups
+            description: Get all attribute groups
+        - split:
+            id: split-to-single-attribute-group
+            expression:
+              simple:
+                expression: ${body}
+                id: simple-099e-435234423
+            description: Split to single attribute group
+            steps:
+              - setBody:
+                  id: create-attribute-group-merge-statement
+                  expression:
+                    simple:
+                      expression: |-
+                        MERGE INTO CODBEX_ATTRIBUTEGROUP
+                            (
+                                ATTRIBUTEGROUP_ID, ATTRIBUTEGROUP_NAME, ATTRIBUTEGROUP_LANGUAGE
+                            ) 
+                        KEY(ATTRIBUTEGROUP_ID)
+                        VALUES 
+                            (
+                                ${body['attribute_group_id']},
+                                '${body['name']}',
+                                ${body['language_id']}
+                            )
+                      id: simple-b426-sdcwsdq
+                  description: Create MERGE statement
+              - to:
+                  uri: spring-jdbc:DefaultDB
+                  id: merge-attribute-group
+                  description: Merge attribute group
+        - log:
+            message: Successfully replicated attribute groups from OpenCart DB
+            id: log-attribute-groups-replication-completed
+            logName: OpenCartAttributeGroupsReplication
+            loggingLevel: INFO
+    description: Sync attribute groups from OpenCart

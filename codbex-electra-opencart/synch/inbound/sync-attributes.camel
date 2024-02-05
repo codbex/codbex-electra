@@ -1,0 +1,62 @@
+- route:
+    id: attributes-sync-route
+    from:
+      uri: cron:TriggerAttributesReplication
+      id: trigger-attributes-replication-cron
+      parameters:
+        schedule: 5 * * ? * *
+      description: Trigger Attributes Replication
+      steps:
+        - log:
+            message: Replicating Attributes from OpenCart DB...
+            id: log-about-to-start-attributes-replication
+            logName: OpenCartAttributesReplication
+            loggingLevel: INFO
+        - setBody:
+            id: create-attributes-select-statement
+            expression:
+              constant:
+                expression: SELECT * FROM oc_attribute
+                id: constant-e9a5-wer23e
+            description: Create attributes SELECT statement
+        - to:
+            uri: spring-jdbc:OpenCartDB
+            id: execute-get-attributes
+            description: Get all attributes
+        - split:
+            id: split-to-single-attribute
+            expression:
+              simple:
+                expression: ${body}
+                id: simple-099e-fwefwe
+            description: Split to single attribute
+            steps:
+              - setBody:
+                  id: create-attribute-merge-statement
+                  expression:
+                    simple:
+                      expression: |+
+                        MERGE INTO CODBEX_ATTRIBUTE
+                            (
+                                ATTRIBUTE_ID, ATTRIBUTE_GROUP, ATTRIBUTE_NAME
+                            ) 
+                        KEY(ATTRIBUTE_ID)
+                        VALUES 
+                            (
+                                ${body['attribute_id']},
+                                ${body['attribute_group_id']},
+                                ${body['attribute_id']}
+                            )
+
+                      id: simple-b426-fe3wef
+                  description: Create MERGE statement
+              - to:
+                  uri: spring-jdbc:DefaultDB
+                  id: merge-attribute
+                  description: Merge attribute
+        - log:
+            message: Successfully replicated attributes from OpenCart DB
+            id: log-attributes-replication-completed
+            logName: OpenCartAttributesReplication
+            loggingLevel: INFO
+    description: Sync attributes from OpenCart

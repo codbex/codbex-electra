@@ -1,0 +1,73 @@
+- route:
+    id: customers-sync-route
+    from:
+      uri: cron:TriggerCustomersReplication
+      id: trigger-customers-replication-cron
+      parameters:
+        schedule: 1 * * ? * *
+      description: Trigger Customers Replication
+      steps:
+        - log:
+            message: Replicating customers from OpenCart DB...
+            id: log-about-to-start-customers-replication
+            logName: OpenCartCustomersReplication
+            loggingLevel: INFO
+        - setBody:
+            id: create-select-statement
+            expression:
+              constant:
+                expression: SELECT * FROM oc_customer
+                id: constant-999
+            description: Create customers SELECT statement
+        - to:
+            uri: spring-jdbc:OpenCartDB
+            id: execute-get-customers
+            description: Get all customers
+        - split:
+            id: split-to-single-customer
+            expression:
+              simple:
+                expression: ${body}
+                id: simple-099e-999
+            description: Split to single customer
+            steps:
+              - setBody:
+                  id: create-merge-statement
+                  expression:
+                    simple:
+                      expression: |-
+                        MERGE INTO CODBEX_CUSTOMER
+                            (
+                                CUSTOMER_ID, CUSTOMER_STORE, CUSTOMER_FIRSTNAME, 
+                                CUSTOMER_LASTNAME, CUSTOMER_EMAIL, CUSTOMER_TELEPHONE,
+                                CUSTOMER_STATUS, CUSTOMER_LANGUAGE, CUSTOMER_CUSTOMFIELD,
+                                CUSTOMER_CODE, CUSTOMER_DATE_ADDED
+
+                            ) 
+                        KEY(CUSTOMER_ID)
+                        VALUES 
+                        (
+                            ${body['customer_id']},
+                            ${body['store_id']},
+                            '${body['firstname']}',
+                            '${body['lastname']}',
+                            '${body['email']}',
+                            '${body['telephone']}',
+                            ${body['status']},
+                            ${body['language_id']},
+                            '${body['custom_field']}',
+                            '${body['code']}',
+                            '${body['date_added']}'
+                        )
+                      id: simple-999
+                  description: Create MERGE statement
+              - to:
+                  uri: spring-jdbc:DefaultDB
+                  id: merge-customer
+                  description: Merge customer
+        - log:
+            message: Successfully replicated customers from OpenCart DB
+            id: log-customers-replication-completed
+            logName: OpenCartCustomersReplication
+            loggingLevel: INFO
+    description: Sync customers from OpenCart

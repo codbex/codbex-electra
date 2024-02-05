@@ -1,0 +1,65 @@
+- route:
+    id: product-attributes-sync-route
+    from:
+      uri: cron:TriggerProductAttributesReplication
+      id: trigger-product-attributes-replication-cron
+      parameters:
+        schedule: 6 * * ? * *
+      description: Trigger Product Attributes Replication
+      steps:
+        - log:
+            message: Replicating product attributes from OpenCart DB...
+            id: log-about-to-start-product-attributes-replication
+            logName: OpenCartProductAttributesReplication
+            loggingLevel: INFO
+        - setBody:
+            id: create-product-attributes-select-statement
+            expression:
+              constant:
+                expression: SELECT * FROM oc_product_attribute
+                id: constant-e9a5-r23edw
+            description: Create product attributes SELECT statement
+        - to:
+            uri: spring-jdbc:OpenCartDB
+            id: execute-get-product-attributes
+            description: Get all product attributes
+        - split:
+            id: split-to-single-product-attribute
+            expression:
+              simple:
+                expression: ${body}
+                id: simple-099e-fe2dqw
+            description: Split to single product attribute
+            steps:
+              - setBody:
+                  id: create-product-attribute-merge-statement
+                  expression:
+                    simple:
+                      expression: |-
+                        MERGE INTO CODBEX_PRODUCTATTRIBUTE
+                            (
+                                PRODUCTATTRIBUTE_ID, PRODUCTATTRIBUTE_NAME, 
+                                PRODUCTATTRIBUTE_TEXT, PRODUCTATTRIBUTE_LANGUAGE, 
+                                PRODUCTATTRIBUTE_PRODUCT
+                            ) 
+                        KEY(PRODUCTATTRIBUTE_ID)
+                        VALUES 
+                            (
+                                ${body['attribute_id']},
+                                ${body['attribute_id']},
+                                '${body['text']}',
+                                ${body['language_id']},
+                                ${body['product_id']}
+                            )
+                      id: simple-b426-yuy43e
+                  description: Create MERGE statement
+              - to:
+                  uri: spring-jdbc:DefaultDB
+                  id: merge-product-attribute
+                  description: Merge product attribute
+        - log:
+            message: Successfully replicated product attributes from OpenCart DB
+            id: log-product-attributes-replication-completed
+            logName: OpenCartProductAttributesReplication
+            loggingLevel: INFO
+    description: Sync product attributes from OpenCart

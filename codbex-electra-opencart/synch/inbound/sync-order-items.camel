@@ -1,0 +1,69 @@
+- route:
+    id: order-items-sync-route
+    from:
+      uri: cron:TriggerOrderItemsReplication
+      id: trigger-order-items-replication-cron
+      parameters:
+        schedule: 8 * * ? * *
+      description: Trigger Order Items Replication
+      steps:
+        - log:
+            message: Replicating order items from OpenCart DB...
+            id: log-about-to-start-order-items-replication
+            logName: OpenCartOrderItemsReplication
+            loggingLevel: INFO
+        - setBody:
+            id: create-order-items-select-statement
+            expression:
+              constant:
+                expression: SELECT * FROM oc_order_product
+                id: constant-e9a5-666
+            description: Create order items SELECT statement
+        - to:
+            uri: spring-jdbc:OpenCartDB
+            id: execute-get-order-items
+            description: Get all order items
+        - split:
+            id: split-to-single-order-item
+            expression:
+              simple:
+                expression: ${body}
+                id: simple-099e-666
+            description: Split to single order item
+            steps:
+              - setBody:
+                  id: create-order-item-merge-statement
+                  expression:
+                    simple:
+                      expression: |-
+                        MERGE INTO CODBEX_SALESORDERITEM
+                            (
+                                ORDERITEM_ID, ORDERITEM_PRODUCT, ORDERITEM_SALESORDER, 
+                                ORDERITEM_NAME, ORDERITEM_MODEL, ORDERITEM_QUANTITY, 
+                                ORDERITEM_PRICE, ORDERITEM_TOTAL, ORDERITEM_TAX
+                            ) 
+                        KEY(ORDERITEM_ID)
+                        VALUES 
+                            (
+                                ${body['order_product_id']},
+                                ${body['product_id']},
+                                ${body['order_id']},
+                                '${body['name']}',
+                                '${body['model']}',
+                                ${body['quantity']},
+                                ${body['price']},
+                                ${body['total']},
+                                ${body['tax']}
+                            )
+                      id: simple-b426-666
+                  description: Create MERGE statement
+              - to:
+                  uri: spring-jdbc:DefaultDB
+                  id: merge-order-item
+                  description: Merge order item
+        - log:
+            message: Successfully replicated order items from OpenCart DB
+            id: log-order-items-replication-completed
+            logName: OpenCartOrderItemsReplication
+            loggingLevel: INFO
+    description: Sync order items from OpenCart
