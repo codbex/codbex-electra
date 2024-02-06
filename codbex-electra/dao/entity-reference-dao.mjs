@@ -15,6 +15,14 @@ export function createLanguageReference(storeId, entityLanguageId, referenceLang
     return createReference(storeId, LANGUAGE_ENTITY, entityLanguageId, referenceLanguageId);
 };
 
+export function createProductDescriptionReference(storeId, entityProductDescriptionId, referenceProductDescriptionId) {
+    return createReference(storeId, PRODUCT_DESCRIPTION_ENTITY, entityProductDescriptionId, referenceProductDescriptionId);
+};
+
+export function createProductReference(storeId, entityProductId, referenceProductId) {
+    return createReference(storeId, PRODUCT_ENTITY, entityProductId, referenceProductId);
+};
+
 export function createReference(scopeIntegerId, entityName, entityIntegerId, referenceIntegerId) {
     const entityReference = {
         EntityName: entityName,

@@ -74,9 +74,14 @@ export class OpenCartLanguageDAO {
 	}
 
 	upsert(language) {
-		if (language.languageId && language.languageId !== 0) {
+		if (!language.languageId || language.languageId === 0) {
+			return this.create(language);
+		}
+
+		const existingLanguage = this.get(language.languageId);
+		if (existingLanguage) {
 			this.update(language);
-			return language.languageId;
+			return existingLanguage.languageId;
 		} else {
 			return this.create(language);
 		}

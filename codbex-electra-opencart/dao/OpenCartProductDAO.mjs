@@ -189,10 +189,18 @@ export class OpenCartProductDAO {
 	}
 
 	upsert(product) {
-		if (product.productId && product.productId !== 0) {
+		if (!product.productId || product.productId === 0) {
+			return this.create(product);
+		}
+
+		const existingProduct = this.get(product.productId);
+		if (existingProduct) {
 			this.update(product);
-			return product.productId;
+			return existingProduct.productId;
 		} else {
+			if (!product.viewed) {
+				product.viewed = 0;
+			}
 			return this.create(product);
 		}
 	}

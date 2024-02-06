@@ -1,9 +1,5 @@
-import { getLogger } from "/codbex-electra/util/logger-util.mjs";
 import { OpenCartLanguageDAO } from "/codbex-electra-opencart/dao/OpenCartLanguageDAO.mjs";
-import * as productDAO from "/codbex-electra/gen/dao/Products/Product";
 import * as entityReferenceDAO from "/codbex-electra/dao/entity-reference-dao.mjs";
-
-const logger = getLogger(import.meta.url);
 
 export function onMessage(message) {
     const languageEntry = message.getBody();
@@ -40,9 +36,4 @@ function createOpenCartLanguage(language, languageReference) {
         "sortOrder": sortOrder,
         "status": language.Status
     };
-}
-
-function throwError(errorMessage) {
-    logger.error(errorMessage);
-    throw new Error(errorMessage);
 }

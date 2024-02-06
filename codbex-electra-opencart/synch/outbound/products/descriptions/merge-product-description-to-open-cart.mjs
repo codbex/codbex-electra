@@ -11,25 +11,19 @@ export function onMessage(message) {
     const productId = productEntry.productId;
     const productDescriptions = getProductDescriptions(productId);
 
+    const storeId = productEntry.store.id;
     productDescriptions.forEach((productDescription) => {
         const productReference = productEntry.reference;
-        const descriptionReference = entityReferenceDAO.getStoreProductDescriptionReference(productEntry.store.id, productDescription.Id);
+        const descriptionReference = entityReferenceDAO.getStoreProductDescriptionReference(storeId, productDescription.Id);
 
-        const ocProductDescription = createOpenCartProductDescription(productEntry.store.id, productDescription, productReference, descriptionReference);
+        const ocProductDescription = createOpenCartProductDescription(storeId, productDescription, productReference, descriptionReference);
 
         const dataSourceName = productEntry.store.dataSourceName;
         const ocProductDescriptionDAO = new OpenCartProductDescriptionDAO(dataSourceName);
         ocProductDescriptionDAO.upsert(ocProductDescription);
 
         if (!descriptionReference) {
-            const storeId = productEntry.store.id;
-            const entityReference = {
-                ScopeIntegerId: storeId,
-                EntityName: "ProductDescription",
-                EntityIntegerId: productDescription.Id,
-                ReferenceIntegerId: ocProductDescription.productId
-            }
-            entityReferenceDAO.create(entityReference);
+            entityReferenceDAO.createProductDescriptionReference(storeId, productDescription.Id, ocProductDescription.productId);
         }
 
     });

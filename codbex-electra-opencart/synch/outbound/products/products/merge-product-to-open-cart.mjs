@@ -21,13 +21,7 @@ export function onMessage(message) {
 
     if (!productReference) {
         const storeId = productEntry.store.id;
-        const entityReference = {
-            EntityName: "Product",
-            ScopeIntegerId: storeId,
-            EntityIntegerId: productId,
-            ReferenceIntegerId: ocProductId
-        }
-        entityReferenceDAO.create(entityReference);
+        entityReferenceDAO.createProductReference(storeId, productId, ocProductId);
     }
 
     return message;

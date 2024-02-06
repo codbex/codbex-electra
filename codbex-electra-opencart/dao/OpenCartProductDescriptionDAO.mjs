@@ -74,8 +74,13 @@ export class OpenCartProductDescriptionDAO {
 	}
 
 	upsert(productDescription) {
-		const existingProductDescription = this.get(productDescription.productId);
-		if (existingProductDescription) {
+		const querySettings = {
+			productId: productDescription.productId,
+			languageId: productDescription.languageId
+		};
+		const productDescriptions = this.list(querySettings);
+
+		if (productDescriptions > 0) {
 			this.update(productDescription);
 		} else {
 			return this.create(productDescription);
