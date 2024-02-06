@@ -80,7 +80,7 @@ export class OpenCartProductDescriptionDAO {
 		};
 		const productDescriptions = this.list(querySettings);
 
-		if (productDescriptions > 0) {
+		if (productDescriptions.length > 0) {
 			this.update(productDescription);
 		} else {
 			return this.create(productDescription);
