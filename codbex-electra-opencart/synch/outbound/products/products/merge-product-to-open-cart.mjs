@@ -45,7 +45,6 @@ function createOpenCartProduct(product, productReference) {
     const shipping = product.Shipping ? 1 : 0;
     const subtract = product.Subtract ? 1 : 0;
     const status = product.Status ? 1 : 0;
-    const viewed = 0; // TODO get it from database
 
     const ocProduct = {
         "model": product.Model,
@@ -66,22 +65,23 @@ function createOpenCartProduct(product, productReference) {
         "taxClassId": 1,
         "dateAvailable": product.DateAvailable,
         "weight": product.Weight,
-        "weightClassId": 1,
+        "weightClassId": 1, // do we want to support different classes
         "length": product.Length,
         "width": product.Width,
         "height": product.Height,
-        "lengthClassId": 1,
+        "lengthClassId": 1, // do we want to support different classes
         "subtract": subtract,
         "minimum": product.Minimum,
         "sortOrder": 0,
         "status": status,
         "dateAdded": product.DateAdded,
-        "dateModified": product.DateModified,
-        "viewed": viewed
+        "dateModified": product.DateModified
     };
 
     if (productReference) {
         ocProduct.productId = productReference.ReferenceIntegerId;
+    } else {
+        ocProduct.viewed = 0;
     }
 
     return ocProduct;

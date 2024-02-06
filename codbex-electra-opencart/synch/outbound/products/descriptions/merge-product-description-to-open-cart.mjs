@@ -9,43 +9,38 @@ export function onMessage(message) {
     const productEntry = message.getBody();
 
     const productId = productEntry.productId;
-    const productDescription = getProductDescription(productId);
+    const productDescriptions = getProductDescriptions(productId);
 
-    const productReference = productEntry.reference;
-    const descriptionReference = entityReferenceDAO.getStoreProductDescriptionReference(productEntry.store.id, productDescription.Id);
+    productDescriptions.forEach((productDescription) => {
+        const productReference = productEntry.reference;
+        const descriptionReference = entityReferenceDAO.getStoreProductDescriptionReference(productEntry.store.id, productDescription.Id);
 
-    const ocProductDescription = createOpenCartProductDescription(productDescription, productReference, descriptionReference);
+        const ocProductDescription = createOpenCartProductDescription(productDescription, productReference, descriptionReference);
 
-    const dataSourceName = productEntry.store.dataSourceName;
-    const ocProductDescriptionDAO = new OpenCartProductDescriptionDAO(dataSourceName);
-    ocProductDescriptionDAO.upsert(ocProductDescription);
+        const dataSourceName = productEntry.store.dataSourceName;
+        const ocProductDescriptionDAO = new OpenCartProductDescriptionDAO(dataSourceName);
+        ocProductDescriptionDAO.upsert(ocProductDescription);
 
-    if (!descriptionReference) {
-        const storeId = productEntry.store.id;
-        const entityReference = {
-            ScopeIntegerId: storeId,
-            EntityName: "ProductDescription",
-            EntityIntegerId: productDescription.Id,
-            ReferenceIntegerId: ocProductDescription.productId
+        if (!descriptionReference) {
+            const storeId = productEntry.store.id;
+            const entityReference = {
+                ScopeIntegerId: storeId,
+                EntityName: "ProductDescription",
+                EntityIntegerId: productDescription.Id,
+                ReferenceIntegerId: ocProductDescription.productId
+            }
+            entityReferenceDAO.create(entityReference);
         }
-        entityReferenceDAO.create(entityReference);
-    }
 
+    });
     return message;
 }
 
-function getProductDescription(productId) {
+function getProductDescriptions(productId) {
     const querySettings = {
         Product: productId
     };
-    const productDescriptions = productDescriptionDAO.list(querySettings);
-    if (productDescriptions.length === 0) {
-        throwError(`Missing product descriptions for product [${productId}]`);
-    }
-    if (productDescriptions.length > 1) {
-        throwError(`Found more than one product descriptions for product [${productId}]`);
-    }
-    return productDescriptions[0];
+    return productDescriptionDAO.list(querySettings);
 }
 
 function createOpenCartProductDescription(productDescription, productReference, descriptionReference) {
