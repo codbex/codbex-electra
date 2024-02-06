@@ -15,7 +15,7 @@ export function onMessage(message) {
         const productReference = productEntry.reference;
         const descriptionReference = entityReferenceDAO.getStoreProductDescriptionReference(productEntry.store.id, productDescription.Id);
 
-        const ocProductDescription = createOpenCartProductDescription(productDescription, productReference, descriptionReference);
+        const ocProductDescription = createOpenCartProductDescription(productEntry.store.id, productDescription, productReference, descriptionReference);
 
         const dataSourceName = productEntry.store.dataSourceName;
         const ocProductDescriptionDAO = new OpenCartProductDescriptionDAO(dataSourceName);
@@ -43,10 +43,12 @@ function getProductDescriptions(productId) {
     return productDescriptionDAO.list(querySettings);
 }
 
-function createOpenCartProductDescription(productDescription, productReference, descriptionReference) {
-    // TODO get language Id from entity references once it is replicated 
-    // entityReferenceDAO.getByScopeIntegerIdAndEntityType(scopeIntegerId, "Language")
-    const languageId = 1;
+function createOpenCartProductDescription(storeId, productDescription, productReference, descriptionReference) {
+    const languageReference = entityReferenceDAO.getStoreLanguageReference(storeId, productDescription.Language);
+    if (!languageReference) {
+        throwError(`Missing language reference for language with id ${productDescription.Language}`);
+    }
+    const languageId = languageReference.ReferenceIntegerId;
 
     let productReferenceId;
     if (productReference && productReference.ReferenceIntegerId) {

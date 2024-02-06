@@ -7,7 +7,7 @@ export function onMessage(message) {
     const store = message.getBody();
 
     const languages = languagesDAO.list();
-    logger.info("Found [{}] languages which must be replicated to store [{}]", languagesDAO.length, store.name);
+    logger.info("Found [{}] languages which must be replicated to store [{}]", languages.length, store.name);
 
     const languageEntries = [];
     languages.forEach((language) => {
