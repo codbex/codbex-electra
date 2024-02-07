@@ -935,8 +935,10 @@
                         "length": 0,
                         "primaryKey": true,
                         "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
-                        "name": "MANIFACTURER_ID"
+                        "name": "MANUFACTURER_ID"
                     },
                     {
                         "type": "VARCHAR",
@@ -944,7 +946,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "MANIFACTURER_NAME"
+                        "name": "MANUFACTURER_NAME"
                     },
                     {
                         "type": "VARCHAR",
@@ -952,7 +954,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "MANIFACTURER_IMAGE"
+                        "name": "MANUFACTURER_IMAGE"
                     }
                 ]
             },
@@ -2133,7 +2135,7 @@
                 "constraintName": "Product_Manufacturer",
                 "columns": "PRODUCT_MANUFACTURER",
                 "referencedTable": "CODBEX_MANUFACTURER",
-                "referencedColumns": "MANIFACTURER_ID"
+                "referencedColumns": "MANUFACTURER_ID"
             },
             {
                 "name": "Product_ProductStatus",

@@ -4,7 +4,7 @@
       uri: cron:TriggerProductAttributesReplication
       id: trigger-product-attributes-replication-cron
       parameters:
-        schedule: 4 * * ? * *
+        schedule: 7 * * ? * *
       description: Trigger Product Attributes Replication
       steps:
         - log:

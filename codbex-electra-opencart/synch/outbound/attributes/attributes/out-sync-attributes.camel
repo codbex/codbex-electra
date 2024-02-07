@@ -4,7 +4,7 @@
       uri: cron:TriggerAttributesReplication
       id: trigger-attributes-replication-cron
       parameters:
-        schedule: 4 * * ? * *
+        schedule: 5 * * ? * *
       description: Trigger Attributes Replication
       steps:
         - log:

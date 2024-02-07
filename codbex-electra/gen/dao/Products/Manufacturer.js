@@ -8,19 +8,19 @@ let dao = daoApi.create({
 	properties: [
 		{
 			name: "Id",
-			column: "MANIFACTURER_ID",
+			column: "MANUFACTURER_ID",
 			type: "INTEGER",
 			id: true,
 			autoIncrement: true,
 		},
  		{
 			name: "Name",
-			column: "MANIFACTURER_NAME",
+			column: "MANUFACTURER_NAME",
 			type: "VARCHAR",
 		},
  		{
 			name: "Image",
-			column: "MANIFACTURER_IMAGE",
+			column: "MANUFACTURER_IMAGE",
 			type: "VARCHAR",
 		}
 ]});
@@ -41,7 +41,7 @@ export const create = (entity) => {
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "MANIFACTURER_ID",
+			column: "MANUFACTURER_ID",
 			value: id
 		}
 	});
@@ -56,7 +56,7 @@ export const update = (entity) => {
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "MANIFACTURER_ID",
+			column: "MANUFACTURER_ID",
 			value: entity.Id
 		}
 	});
@@ -71,7 +71,7 @@ export const remove = (id) => {
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "MANIFACTURER_ID",
+			column: "MANUFACTURER_ID",
 			value: id
 		}
 	});
