@@ -13,28 +13,27 @@ let dao = daoApi.create({
 			id: true,
 			autoIncrement: true,
 		},
- {
-			name: "Name",
-			column: "PRODUCTATTRIBUTE_NAME",
-			type: "INTEGER",
-		},
- {
-			name: "Text",
-			column: "PRODUCTATTRIBUTE_TEXT",
-			type: "VARCHAR",
-		},
- {
+ 		{
 			name: "Product",
 			column: "PRODUCTATTRIBUTE_PRODUCT",
 			type: "INTEGER",
 		},
- {
+ 		{
+			name: "Attribute",
+			column: "PRODUCTATTRIBUTE_ATTRIBUTE",
+			type: "INTEGER",
+		},
+ 		{
 			name: "Language",
 			column: "PRODUCTATTRIBUTE_LANGUAGE",
 			type: "INTEGER",
+		},
+ 		{
+			name: "Text",
+			column: "PRODUCTATTRIBUTE_TEXT",
+			type: "VARCHAR",
 		}
-]
-});
+]});
 
 export const list = (settings) => {
 	return dao.list(settings);
@@ -101,7 +100,7 @@ export const count = (Product) => {
 }
 
 export const customDataCount = () => {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PRODUCTATTRIBUTE"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__PRODUCTATTRIBUTE"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

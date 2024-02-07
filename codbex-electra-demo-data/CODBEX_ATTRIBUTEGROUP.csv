@@ -1,7 +1,3 @@
-ATTRIBUTEGROUP_ID,ATTRIBUTEGROUP_NAME,ATTRIBUTEGROUP_LANGUAGE
-3,Memory,1
-4,Technical,1
-5,Motherboard,1
-6,Processor,1
-7,Телефони eMAG,1
-8,eMAG карти памет,1
+ATTRIBUTEGROUP_ID,ATTRIBUTEGROUP_NAME
+1,Memory Cards
+2,Phones

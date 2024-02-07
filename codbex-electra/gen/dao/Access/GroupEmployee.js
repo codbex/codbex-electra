@@ -13,28 +13,27 @@ let dao = daoApi.create({
 			id: true,
 			autoIncrement: true,
 		},
- {
+ 		{
 			name: "Employee",
 			column: "GROUPEMPLOYEE_EMPLOYEE",
 			type: "INTEGER",
 		},
- {
+ 		{
 			name: "Group",
 			column: "GROUPEMPLOYEE_GROUP",
 			type: "INTEGER",
 		},
- {
+ 		{
 			name: "UpdatedBy",
 			column: "GROUPEMPLOYEE_UPDATEDBY",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "DateModified",
 			column: "GROUPEMPLOYEE_DATEMODIFIED",
 			type: "TIMESTAMP",
 		}
-]
-});
+]});
 
 export const list = (settings) => {
 	return dao.list(settings);
@@ -97,7 +96,7 @@ export const count = () => {
 }
 
 export const customDataCount = () => {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_GROUPEMPLOYEE"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__GROUPEMPLOYEE"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

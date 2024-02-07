@@ -1,0 +1,15 @@
+ATTRIBUTETRANSLATIONN_ID,ATTRIBUTETRANSLATION_ATTRIBUTE,ATTRIBUTETRANSLATION_LANGUAGE,ATTRIBUTETRANSLATION_TEXT
+1,1,1,Capacity
+2,1,2,Kapazität
+3,2,1,Standard UHS
+4,2,2,Standard UHS
+5,3,1,Class
+6,3,2,Klasse
+7,4,1,Package content
+8,4,2,Paket inhalt
+9,5,1,Operating system
+10,5,2,Betriebssystem
+11,6,1,Screen size
+12,6,2,Bildschirmgröße
+13,7,1,Storage
+14,7,2,Lagerung

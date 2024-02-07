@@ -1,0 +1,79 @@
+- route:
+    id: attribute-groups-out-sync-route
+    from:
+      uri: cron:TriggerAttributeGroupsReplication
+      id: trigger-attribute-groups-replication-cron
+      parameters:
+        schedule: 0 * * ? * *
+      description: Trigger Attribute Groups Replication
+      steps:
+        - log:
+            message: Replicating attribute groups to OpenCart DB...
+            id: log-about-to-start-attribute-groups-replication
+            logName: OpenCartAttributeGroupsReplication
+            loggingLevel: INFO
+        - setProperty:
+            name: resource
+            id: set-js-attribute-groups-1
+            expression:
+              constant:
+                expression: >-
+                  codbex-electra-opencart/synch/outbound/get-all-relevant-stores.mjs
+                id: constant-attribute-groups-8de2
+            description: Set JS file
+        - to:
+            uri: class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+            id: get-all-relevant-stores
+            description: Get all relevant stores
+        - split:
+            id: split-to-single-store
+            expression:
+              simple:
+                expression: ${body}
+                id: simple-attribute-groups-333
+            description: Split to single store
+            steps:
+              - setProperty:
+                  name: resource
+                  id: set-js-attribute-groups-2
+                  expression:
+                    constant:
+                      expression: >-
+                        codbex-electra-opencart/synch/outbound/attributes/get-all-attribute-groups.mjs
+                      id: constant-attribute-groups-eb12
+                  description: Set JS file
+              - to:
+                  uri: >-
+                    class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+                  id: get-all-attribute-groups
+                  description: Get all attribute groups
+              - split:
+                  id: split-to-single-attribute-group
+                  expression:
+                    simple:
+                      expression: ${body}
+                      id: simple-attribute-groups-b984
+                  description: Split to single attribute group
+                  steps:
+                    - setProperty:
+                        name: resource
+                        id: set-js-attribute-groups-3
+                        expression:
+                          constant:
+                            expression: >-
+                              codbex-electra-opencart/synch/outbound/attributes/merge-attribute-group-to-open-cart.mjs
+                            id: constant-attribute-groups-a0bf
+                        description: Set JS file
+                    - to:
+                        uri: >-
+                          class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+                        id: merge-attribute-group-to-oc
+                        description: Merge attribute group to OpenCart
+        - log:
+            message: >-
+              Successfully replicated attribute groups to all enabled OpenCart
+              stores
+            id: log-attribute-groups-replication-completed
+            logName: OpenCartAttributeGroupsReplication
+            loggingLevel: INFO
+    description: Sync attribute groups to OpenCarts

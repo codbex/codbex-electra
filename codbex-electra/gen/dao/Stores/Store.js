@@ -14,31 +14,30 @@ let dao = daoApi.create({
 			id: true,
 			autoIncrement: true,
 		},
- {
+ 		{
 			name: "Name",
 			column: "STORE_NAME",
 			type: "VARCHAR",
 			required: true
 		},
- {
+ 		{
 			name: "Url",
 			column: "STORE_URL",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Type",
 			column: "STORE_TYPE",
 			type: "INTEGER",
 			required: true
 		},
- {
+ 		{
 			name: "Enabled",
 			column: "STORE_ENABLED",
 			type: "BOOLEAN",
 			required: true
 		}
-]
-});
+]});
 
 export const list = (settings) => {
 	return dao.list(settings).map(function(e) {
@@ -104,7 +103,7 @@ export const count = () => {
 }
 
 export const customDataCount = () => {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_STORE"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__STORE"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

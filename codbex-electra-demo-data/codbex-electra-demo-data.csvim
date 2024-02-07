@@ -78,9 +78,9 @@
       "version": "1.0"
     },
     {
-      "table": "CODBEX_ATTRIBUTEDESCRIPTION",
+      "table": "CODBEX_SALESORDERPAYMENT",
       "schema": "PUBLIC",
-      "file": "/codbex-electra-demo-data/CODBEX_ATTRIBUTEDESCRIPTION.csv",
+      "file": "/codbex-electra-demo-data/CODBEX_SALESORDERPAYMENT.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
@@ -89,9 +89,9 @@
       "version": "1.0"
     },
     {
-      "table": "CODBEX_SALESORDERPAYMENT",
+      "table": "CODBEX_ATTRIBUTEGROUPTRANSLATION",
       "schema": "PUBLIC",
-      "file": "/codbex-electra-demo-data/CODBEX_SALESORDERPAYMENT.csv",
+      "file": "/codbex-electra-demo-data/CODBEX_ATTRIBUTEGROUPTRANSLATION.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
@@ -180,6 +180,17 @@
       "table": "CODBEX_ORDERSTATUS",
       "schema": "PUBLIC",
       "file": "/codbex-electra-demo-data/CODBEX_ORDERSTATUS.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    },
+    {
+      "table": "CODBEX_ATTRIBUTETRANSLATION",
+      "schema": "PUBLIC",
+      "file": "/codbex-electra-demo-data/CODBEX_ATTRIBUTETRANSLATION.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",

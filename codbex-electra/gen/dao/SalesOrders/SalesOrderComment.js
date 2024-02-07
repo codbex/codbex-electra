@@ -13,28 +13,27 @@ let dao = daoApi.create({
 			id: true,
 			autoIncrement: true,
 		},
- {
+ 		{
 			name: "Text",
 			column: "SALESORDERCOMMENT_TEXT",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "CreatedBy",
 			column: "SALESORDERCOMMENT_CREATEDBY",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "CreatedAt",
 			column: "SALESORDERCOMMENT_CREATEDAT",
 			type: "TIMESTAMP",
 		},
- {
+ 		{
 			name: "SalesOrder",
 			column: "SALESORDERCOMMENT_SALESORDER",
 			type: "INTEGER",
 		}
-]
-});
+]});
 
 export const list = (settings) => {
 	return dao.list(settings);
@@ -105,7 +104,7 @@ export const count = (SalesOrder) => {
 }
 
 export const customDataCount = () => {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDERCOMMENT"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__SALESORDERCOMMENT"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

@@ -14,14 +14,13 @@ let dao = daoApi.create({
 			autoIncrement: true,
 			required: true
 		},
- {
+ 		{
 			name: "Name",
 			column: "STORETYPE_NAME",
 			type: "VARCHAR",
 			required: true
 		}
-]
-});
+]});
 
 export const list = (settings) => {
 	return dao.list(settings);
@@ -80,7 +79,7 @@ export const count = () => {
 }
 
 export const customDataCount = () => {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_STORETYPE"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__STORETYPE"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

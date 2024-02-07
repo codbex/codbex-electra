@@ -13,78 +13,77 @@ let dao = daoApi.create({
 			id: true,
 			autoIncrement: true,
 		},
- {
+ 		{
 			name: "Zone",
 			column: "SALESORDERPAYMENT_ZONE",
 			type: "INTEGER",
 		},
- {
+ 		{
 			name: "FirstName",
 			column: "SALESORDERPAYMENT_FIRSTNAME",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "LastName",
 			column: "SALESORDERPAYMENT_LASTNAME",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Company",
 			column: "SALESORDERPAYMENT_COMPANY",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Address1",
 			column: "SALESORDERPAYMENT_ADDRESS1",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Address2",
 			column: "SALESORDERPAYMENT_ADDRESS2",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Country",
 			column: "SALESORDERPAYMENT_COUNTRY",
 			type: "INTEGER",
 		},
- {
+ 		{
 			name: "City",
 			column: "SALESORDERPAYMENT_CITY",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Postcode",
 			column: "SALESORDERPAYMENT_POSTCODE",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Method",
 			column: "SALESORDERPAYMENT_METHOD",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Code",
 			column: "SALESORDERPAYMENT_CODE",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "AddressFormat",
 			column: "SALESORDERPAYMENT_ADDRESSFORMAT",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "CustomField",
 			column: "SALESORDERPAYMENT_CUSTOMFIELD",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "SalesOrder",
 			column: "SALESORDERPAYMENT_SALESORDER",
 			type: "INTEGER",
 		}
-]
-});
+]});
 
 export const list = (settings) => {
 	return dao.list(settings);
@@ -151,7 +150,7 @@ export const count = (SalesOrder) => {
 }
 
 export const customDataCount = () => {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDERPAYMENT"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__SALESORDERPAYMENT"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

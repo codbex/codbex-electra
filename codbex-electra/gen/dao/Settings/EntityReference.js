@@ -14,44 +14,43 @@ let dao = daoApi.create({
 			autoIncrement: true,
 			required: true
 		},
- {
+ 		{
 			name: "EntityName",
 			column: "ENTITY_NAME",
 			type: "VARCHAR",
 			required: true
 		},
- {
+ 		{
 			name: "EntityIntegerId",
 			column: "ENTITY_INTEGER_ID",
 			type: "BIGINT",
 		},
- {
+ 		{
 			name: "EntityStringId",
 			column: "ENTITY_STRING_ID",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "ReferenceIntegerId",
 			column: "REFERENCE_INTEGER_ID",
 			type: "BIGINT",
 		},
- {
+ 		{
 			name: "ReferenceStringId",
 			column: "REFERENCE_STRING_ID",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "ScopeIntegerId",
 			column: "SCOPE_INTEGER_ID",
 			type: "BIGINT",
 		},
- {
+ 		{
 			name: "ScopeStringId",
 			column: "SCOPE_STRING_ID",
 			type: "VARCHAR",
 		}
-]
-});
+]});
 
 export const list = (settings) => {
 	return dao.list(settings);
@@ -110,7 +109,7 @@ export const count = () => {
 }
 
 export const customDataCount = () => {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_ENTITYREFERENCE"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__ENTITYREFERENCE"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

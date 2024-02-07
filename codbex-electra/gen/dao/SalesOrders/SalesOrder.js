@@ -13,78 +13,77 @@ let dao = daoApi.create({
 			id: true,
 			autoIncrement: true,
 		},
- {
+ 		{
 			name: "Total",
 			column: "SALESORDER_TOTAL",
 			type: "DECIMAL",
 		},
- {
+ 		{
 			name: "Currency",
 			column: "SALESORDER_CURRENCY",
 			type: "INTEGER",
 		},
- {
+ 		{
 			name: "Status",
 			column: "SALESORDER_STATUS",
 			type: "INTEGER",
 		},
- {
+ 		{
 			name: "Store",
 			column: "SALESORDER_STORE",
 			type: "INTEGER",
 		},
- {
+ 		{
 			name: "Customer",
 			column: "SALESORDER_CUSTOMER",
 			type: "INTEGER",
 		},
- {
+ 		{
 			name: "DateAdded",
 			column: "SALESORDER_DATEADDED",
 			type: "TIMESTAMP",
 		},
- {
+ 		{
 			name: "DateModified",
 			column: "SALESORDER_DATEMODIFIED",
 			type: "TIMESTAMP",
 		},
- {
+ 		{
 			name: "UpdatedBy",
 			column: "SALESORDER_UPDATEDBY",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Tracking",
 			column: "SALESORDER_TRACKING",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Comment",
 			column: "SALESORDER_COMMENT",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "InvoiceNumber",
 			column: "SALESORDER_INVOICENUMBER",
 			type: "INTEGER",
 		},
- {
+ 		{
 			name: "InvoicePrefix",
 			column: "SALESORDER_INVOICEPREFIX",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Language",
 			column: "SALESORDER_LANGUAGE",
 			type: "INTEGER",
 		},
- {
+ 		{
 			name: "AcceptLanguage",
 			column: "SALESORDER_ACCEPTLANGUAGE",
 			type: "VARCHAR",
 		}
-]
-});
+]});
 
 export const list = (settings) => {
 	return dao.list(settings);
@@ -147,7 +146,7 @@ export const count = () => {
 }
 
 export const customDataCount = () => {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDER"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__SALESORDER"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

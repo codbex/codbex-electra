@@ -7,7 +7,7 @@ const viewData = {
     id: "Attribute",
     label: "Attribute",
     factory: "frame",
-    region: "center",
+    region: "left",
     link: "/services/web/codbex-electra/gen/ui/Products/Attribute/index.html",
     perspectiveName: "Products"
 };

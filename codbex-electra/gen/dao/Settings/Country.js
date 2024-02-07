@@ -14,33 +14,32 @@ let dao = daoApi.create({
 			id: true,
 			autoIncrement: true,
 		},
- {
+ 		{
 			name: "Name",
 			column: "COUNTRY_NAME",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Status",
 			column: "COUNTRY_STATUS",
 			type: "INTEGER",
 		},
- {
+ 		{
 			name: "IsoCode2",
 			column: "COUNTRY_ISOCODE2",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "IsoCode3",
 			column: "COUNTRY_ISOCODE3",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "PostcodeRequired",
 			column: "COUNTRY_POSTCODEREQUIRED",
 			type: "BOOLEAN",
 		}
-]
-});
+]});
 
 export const list = (settings) => {
 	return dao.list(settings).map(function(e) {
@@ -106,7 +105,7 @@ export const count = () => {
 }
 
 export const customDataCount = () => {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_COUNTRY"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__COUNTRY"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

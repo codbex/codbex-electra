@@ -13,28 +13,27 @@ let dao = daoApi.create({
 			id: true,
 			autoIncrement: true,
 		},
- {
+ 		{
 			name: "Country",
 			column: "ZONE_COUNTRY",
 			type: "INTEGER",
 		},
- {
+ 		{
 			name: "Name",
 			column: "ZONE_NAME",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Status",
 			column: "ZONE_STATUS",
 			type: "INTEGER",
 		},
- {
+ 		{
 			name: "Code",
 			column: "ZONE_CODE",
 			type: "VARCHAR",
 		}
-]
-});
+]});
 
 export const list = (settings) => {
 	return dao.list(settings);
@@ -93,7 +92,7 @@ export const count = () => {
 }
 
 export const customDataCount = () => {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_ZONE"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__ZONE"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

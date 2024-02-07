@@ -13,83 +13,82 @@ let dao = daoApi.create({
 			id: true,
 			autoIncrement: true,
 		},
- {
+ 		{
 			name: "Zone",
 			column: "SALESORDERSHIPPING_ZONE",
 			type: "INTEGER",
 		},
- {
+ 		{
 			name: "FirstName",
 			column: "SALESORDERSHIPPING_FIRSTNAME",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "LastName",
 			column: "SALESORDERSHIPPING_LASTNAME",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Company",
 			column: "SALESORDERSHIPPING_COMPANY",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Address1",
 			column: "SALESORDERSHIPPING_ADDRESS1",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Address2",
 			column: "SALESORDERSHIPPING_ADDRESS2",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Country",
 			column: "SALESORDERSHIPPING_COUNTRY",
 			type: "INTEGER",
 		},
- {
+ 		{
 			name: "City",
 			column: "SALESORDERSHIPPING_CITY",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Postcode",
 			column: "SALESORDERSHIPPING_POSTCODE",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Method",
 			column: "SALESORDERSHIPPING_METHOD",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Code",
 			column: "SALESORDERSHIPPING_CODE",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "UpdatedBy",
 			column: "SALESORDERSHIPPING_UPDATEDBY",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "AddressFormat",
 			column: "SALESORDERSHIPPING_ADDRESSFORMAT",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "CustomField",
 			column: "SALESORDERSHIPPING_CUSTOMFIELD",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "SalesOrder",
 			column: "SALESORDERSHIPPING_SALESORDER",
 			type: "INTEGER",
 		}
-]
-});
+]});
 
 export const list = (settings) => {
 	return dao.list(settings);
@@ -158,7 +157,7 @@ export const count = (SalesOrder) => {
 }
 
 export const customDataCount = () => {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDERSHIPPING"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__SALESORDERSHIPPING"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

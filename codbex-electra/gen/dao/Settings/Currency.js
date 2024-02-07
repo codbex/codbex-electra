@@ -13,48 +13,47 @@ let dao = daoApi.create({
 			id: true,
 			autoIncrement: true,
 		},
- {
+ 		{
 			name: "Title",
 			column: "CURRENCY_TITLE",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Status",
 			column: "CURRENCY_STATUS",
 			type: "INTEGER",
 		},
- {
+ 		{
 			name: "Code",
 			column: "CURRENCY_CODE",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "SymbolLeft",
 			column: "CURRENCY_SYMBOLLEFT",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "SymbolRight",
 			column: "CURRENCY_SYMBOLRIGHT",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "DecimalPlace",
 			column: "CURRENCY_DECIMALPLACE",
 			type: "CHAR",
 		},
- {
+ 		{
 			name: "Value",
 			column: "CURRENCY_VALUE",
 			type: "DOUBLE",
 		},
- {
+ 		{
 			name: "DateModified",
 			column: "CURRENCY_DATEMODIFIED",
 			type: "TIMESTAMP",
 		}
-]
-});
+]});
 
 export const list = (settings) => {
 	return dao.list(settings);
@@ -115,7 +114,7 @@ export const count = () => {
 }
 
 export const customDataCount = () => {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_CURRENCY"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__CURRENCY"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

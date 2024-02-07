@@ -13,48 +13,47 @@ let dao = daoApi.create({
 			id: true,
 			autoIncrement: true,
 		},
- {
+ 		{
 			name: "Product",
 			column: "ORDERITEM_PRODUCT",
 			type: "INTEGER",
 		},
- {
+ 		{
 			name: "SalesOrder",
 			column: "ORDERITEM_SALESORDER",
 			type: "INTEGER",
 		},
- {
+ 		{
 			name: "Name",
 			column: "ORDERITEM_NAME",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Model",
 			column: "ORDERITEM_MODEL",
 			type: "VARCHAR",
 		},
- {
+ 		{
 			name: "Quantity",
 			column: "ORDERITEM_QUANTITY",
 			type: "INTEGER",
 		},
- {
+ 		{
 			name: "Price",
 			column: "ORDERITEM_PRICE",
 			type: "DECIMAL",
 		},
- {
+ 		{
 			name: "Total",
 			column: "ORDERITEM_TOTAL",
 			type: "DECIMAL",
 		},
- {
+ 		{
 			name: "Tax",
 			column: "ORDERITEM_TAX",
 			type: "DECIMAL",
 		}
-]
-});
+]});
 
 export const list = (settings) => {
 	return dao.list(settings);
@@ -121,7 +120,7 @@ export const count = (SalesOrder) => {
 }
 
 export const customDataCount = () => {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDERITEM"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__SALESORDERITEM"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;
