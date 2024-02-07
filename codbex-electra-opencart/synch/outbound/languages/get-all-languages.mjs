@@ -1,4 +1,4 @@
-import * as languagesDAO from "/codbex-electra/gen/dao/Settings/Language";
+import * as languageDAO from "/codbex-electra/gen/dao/Settings/Language";
 import { getLogger } from "/codbex-electra/util/logger-util.mjs";
 
 const logger = getLogger(import.meta.url);
@@ -6,7 +6,7 @@ const logger = getLogger(import.meta.url);
 export function onMessage(message) {
     const store = message.getBody();
 
-    const languages = languagesDAO.list();
+    const languages = languageDAO.list();
     logger.info("Found [{}] languages which must be replicated to store [{}]", languages.length, store.name);
 
     const languageEntries = [];
