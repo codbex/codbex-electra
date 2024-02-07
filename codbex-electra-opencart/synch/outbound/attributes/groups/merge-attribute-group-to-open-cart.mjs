@@ -11,7 +11,7 @@ export function onMessage(message) {
 
     const attributeGroup = attributeGroupEntry.attributeGroup;
     const store = attributeGroupEntry.store;
-    let attributeGroupReference = entityReferenceDAO.getStoreAttributeGroup(store.id, attributeGroup.Id);
+    const attributeGroupReference = entityReferenceDAO.getStoreAttributeGroup(store.id, attributeGroup.Id);
 
     const ocAttributeGroupDAO = new OpenCartAttributeGroupDAO(store.dataSourceName);
 

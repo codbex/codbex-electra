@@ -4,7 +4,7 @@
       uri: cron:TriggerAttributeGroupsReplication
       id: trigger-attribute-groups-replication-cron
       parameters:
-        schedule: 5 * * ? * *
+        schedule: 3 * * ? * *
       description: Trigger Attribute Groups Replication
       steps:
         - log:

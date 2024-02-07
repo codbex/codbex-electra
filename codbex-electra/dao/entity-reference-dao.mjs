@@ -4,6 +4,7 @@ import { getLogger } from "/codbex-electra/util/logger-util.mjs";
 const logger = getLogger(import.meta.url);
 
 const LANGUAGE_ENTITY = "Language";
+const ATTRIBUTE_ENTITY = "Attribute";
 const ATTRIBUTE_GROUP_ENTITY = "AttributeGroup";
 const ATTRIBUTE_GROUP_TRANSLATION_ENTITY = "AttributeGroupTranslation";
 const PRODUCT_ENTITY = "Product";
@@ -13,11 +14,16 @@ export function create(entityReference) {
     return generatedEntityReferenceDAO.create(entityReference);
 };
 
-export function createAttributeGroupReference(storeId, entityAttributeGroup, referenceAttributeGroup) {
-    return createReference(storeId, ATTRIBUTE_GROUP_ENTITY, entityAttributeGroup, referenceAttributeGroup);
+export function createAttributeReference(storeId, entityAttributeId, referenceAttributeId) {
+    return createReference(storeId, ATTRIBUTE_ENTITY, entityAttributeId, referenceAttributeId);
 };
-export function createAttributeGroupTranslationReference(storeId, entityAttributeGroupTranslation, referenceAttributeGroupTranslation) {
-    return createReference(storeId, ATTRIBUTE_GROUP_TRANSLATION_ENTITY, entityAttributeGroupTranslation, referenceAttributeGroupTranslation);
+
+export function createAttributeGroupReference(storeId, entityAttributeGroupId, referenceAttributeGroupId) {
+    return createReference(storeId, ATTRIBUTE_GROUP_ENTITY, entityAttributeGroupId, referenceAttributeGroupId);
+};
+
+export function createAttributeGroupTranslationReference(storeId, entityAttributeGroupTranslationId, referenceAttributeGroupTranslationId) {
+    return createReference(storeId, ATTRIBUTE_GROUP_TRANSLATION_ENTITY, entityAttributeGroupTranslationId, referenceAttributeGroupTranslationId);
 };
 
 export function createLanguageReference(storeId, entityLanguageId, referenceLanguageId) {
@@ -52,6 +58,10 @@ export function getByScopeIntegerIdAndEntityName(scopeIntegerId, entityName) {
         EntityName: entityName
     };
     return generatedEntityReferenceDAO.list(querySettings);
+};
+
+export function getStoreAttribute(storeId, attributeId) {
+    return getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, ATTRIBUTE_ENTITY, attributeId);
 };
 
 export function getStoreAttributeGroup(storeId, attributeGroupId) {

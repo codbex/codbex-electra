@@ -1,0 +1,77 @@
+- route:
+    id: attributes-out-sync-route
+    from:
+      uri: cron:TriggerAttributesReplication
+      id: trigger-attributes-replication-cron
+      parameters:
+        schedule: 4 * * ? * *
+      description: Trigger Attributes Replication
+      steps:
+        - log:
+            message: Replicating attributes to OpenCart DB...
+            id: log-about-to-start-attributes-replication
+            logName: OpenCartAttributesReplication
+            loggingLevel: INFO
+        - setProperty:
+            name: resource
+            id: set-js-attributes-1
+            expression:
+              constant:
+                expression: >-
+                  codbex-electra-opencart/synch/outbound/get-all-relevant-stores.mjs
+                id: constant-attributes-8de2
+            description: Set JS file
+        - to:
+            uri: class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+            id: get-all-relevant-stores
+            description: Get all relevant stores
+        - split:
+            id: split-to-single-store
+            expression:
+              simple:
+                expression: ${body}
+                id: simple-attributes-333
+            description: Split to single store
+            steps:
+              - setProperty:
+                  name: resource
+                  id: set-js-attributes-2
+                  expression:
+                    constant:
+                      expression: >-
+                        codbex-electra-opencart/synch/outbound/attributes/attributes/get-all-attributes.mjs
+                      id: constant-attributes-eb12
+                  description: Set JS file
+              - to:
+                  uri: >-
+                    class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+                  id: get-all-attributes
+                  description: Get all attributes
+              - split:
+                  id: split-to-single-attribute
+                  expression:
+                    simple:
+                      expression: ${body}
+                      id: simple-attributes-b984
+                  description: Split to single attribute
+                  steps:
+                    - setProperty:
+                        name: resource
+                        id: set-js-attributes-3
+                        expression:
+                          constant:
+                            expression: >-
+                              codbex-electra-opencart/synch/outbound/attributes/attributes/merge-attribute-to-open-cart.mjs
+                            id: constant-attributes-a0bf
+                        description: Set JS file
+                    - to:
+                        uri: >-
+                          class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+                        id: merge-attribute-to-oc
+                        description: Merge attribute to OpenCart
+        - log:
+            message: Successfully replicated attributes to all enabled OpenCart stores
+            id: log-attributes-replication-completed
+            logName: OpenCartAttributesReplication
+            loggingLevel: INFO
+    description: Sync attributes to OpenCarts
