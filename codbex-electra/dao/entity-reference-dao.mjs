@@ -4,11 +4,20 @@ import { getLogger } from "/codbex-electra/util/logger-util.mjs";
 const logger = getLogger(import.meta.url);
 
 const LANGUAGE_ENTITY = "Language";
+const ATTRIBUTE_GROUP_ENTITY = "AttributeGroup";
+const ATTRIBUTE_GROUP_TRANSLATION_ENTITY = "AttributeGroupTranslation";
 const PRODUCT_ENTITY = "Product";
 const PRODUCT_DESCRIPTION_ENTITY = "ProductDescription";
 
 export function create(entityReference) {
     return generatedEntityReferenceDAO.create(entityReference);
+};
+
+export function createAttributeGroupReference(storeId, entityAttributeGroup, referenceAttributeGroup) {
+    return createReference(storeId, ATTRIBUTE_GROUP_ENTITY, entityAttributeGroup, referenceAttributeGroup);
+};
+export function createAttributeGroupTranslationReference(storeId, entityAttributeGroupTranslation, referenceAttributeGroupTranslation) {
+    return createReference(storeId, ATTRIBUTE_GROUP_TRANSLATION_ENTITY, entityAttributeGroupTranslation, referenceAttributeGroupTranslation);
 };
 
 export function createLanguageReference(storeId, entityLanguageId, referenceLanguageId) {
@@ -43,6 +52,14 @@ export function getByScopeIntegerIdAndEntityName(scopeIntegerId, entityName) {
         EntityName: entityName
     };
     return generatedEntityReferenceDAO.list(querySettings);
+};
+
+export function getStoreAttributeGroup(storeId, attributeGroupId) {
+    return getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, ATTRIBUTE_GROUP_ENTITY, attributeGroupId);
+};
+
+export function getStoreAttributeGroupDescription(storeId, attributeGroupTranslationId) {
+    return getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, ATTRIBUTE_GROUP_TRANSLATION_ENTITY, attributeGroupTranslationId);
 };
 
 export function getStoreLanguageReference(storeId, languageId) {

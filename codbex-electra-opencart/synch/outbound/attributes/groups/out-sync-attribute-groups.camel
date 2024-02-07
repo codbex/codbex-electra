@@ -4,7 +4,7 @@
       uri: cron:TriggerAttributeGroupsReplication
       id: trigger-attribute-groups-replication-cron
       parameters:
-        schedule: 0 * * ? * *
+        schedule: 0/10 * * ? * *
       description: Trigger Attribute Groups Replication
       steps:
         - log:
@@ -39,7 +39,7 @@
                   expression:
                     constant:
                       expression: >-
-                        codbex-electra-opencart/synch/outbound/attributes/get-all-attribute-groups.mjs
+                        codbex-electra-opencart/synch/outbound/attributes/groups/get-all-attribute-groups.mjs
                       id: constant-attribute-groups-eb12
                   description: Set JS file
               - to:
@@ -61,7 +61,7 @@
                         expression:
                           constant:
                             expression: >-
-                              codbex-electra-opencart/synch/outbound/attributes/merge-attribute-group-to-open-cart.mjs
+                              codbex-electra-opencart/synch/outbound/attributes/groups/merge-attribute-group-to-open-cart.mjs
                             id: constant-attribute-groups-a0bf
                         description: Set JS file
                     - to:
