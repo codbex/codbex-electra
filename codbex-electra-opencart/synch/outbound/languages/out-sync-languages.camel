@@ -39,14 +39,14 @@
                   expression:
                     constant:
                       expression: >-
-                        codbex-electra-opencart/synch/outbound/languages/get-all-languages.mjs
+                        codbex-electra-opencart/synch/outbound/languages/get-all-enabled-languages.mjs
                       id: constant-languages-eb12
                   description: Set JS file
               - to:
                   uri: >-
                     class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
-                  id: get-all-languages
-                  description: Get all languages
+                  id: get-all-enabled-languages
+                  description: Get all enabled languages
               - split:
                   id: split-to-single-language
                   expression:
