@@ -14,18 +14,12 @@ export function onMessage(message) {
     const storeId = productEntry.store.id;
     productDescriptions.forEach((productDescription) => {
         const productReference = productEntry.reference;
-        const descriptionReference = entityReferenceDAO.getStoreProductDescriptionReference(storeId, productDescription.Id);
 
-        const ocProductDescription = createOpenCartProductDescription(storeId, productDescription, productReference, descriptionReference);
+        const ocProductDescription = createOpenCartProductDescription(storeId, productDescription, productReference);
 
         const dataSourceName = productEntry.store.dataSourceName;
         const ocProductDescriptionDAO = new OpenCartProductDescriptionDAO(dataSourceName);
         ocProductDescriptionDAO.upsert(ocProductDescription);
-
-        if (!descriptionReference) {
-            entityReferenceDAO.createProductDescriptionReference(storeId, productDescription.Id, ocProductDescription.productId);
-        }
-
     });
     return message;
 }
@@ -37,20 +31,18 @@ function getProductDescriptions(productId) {
     return productDescriptionDAO.list(querySettings);
 }
 
-function createOpenCartProductDescription(storeId, productDescription, productReference, descriptionReference) {
+function createOpenCartProductDescription(storeId, productDescription, productReference) {
+    if (!productReference || !productReference.ReferenceIntegerId) {
+        throwError(`Missing product reference id: ${productReference ? JSON.stringify(productReference) : null}`);
+    }
+    const id = productReference.ReferenceIntegerId;
+
     const languageReference = entityReferenceDAO.getStoreLanguageReference(storeId, productDescription.Language);
     if (!languageReference) {
         throwError(`Missing language reference for language with id ${productDescription.Language}`);
     }
     const languageId = languageReference.ReferenceIntegerId;
 
-    let productReferenceId;
-    if (productReference && productReference.ReferenceIntegerId) {
-        productReferenceId = productReference.ReferenceIntegerId;
-    } else {
-        throwError(`Missing product reference id: ${productReference ? JSON.stringify(productReference) : null}`);
-    }
-    const id = descriptionReference && descriptionReference.ReferenceIntegerId ? descriptionReference.ReferenceIntegerId : productReferenceId;
 
     return {
         "productId": id,

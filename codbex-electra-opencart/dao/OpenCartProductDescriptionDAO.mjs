@@ -1,4 +1,4 @@
-import { dao as daoApi } from "@dirigible/db";
+import { dao as daoApi, update } from "@dirigible/db";
 
 const CONFIG = {
 	table: "oc_product_description",
@@ -47,13 +47,16 @@ const CONFIG = {
 		}
 	]
 };
+const UPDATE_STATEMENT = "UPDATE `oc_product_description` SET `name` = ?, `description` = ?, `tag` = ?, `meta_title` = ?, `meta_description` = ?, `meta_keyword` = ? WHERE (`product_id`=? AND `language_id` = ?)";
 
 const LOGGER_NAME = "OpenCartProductDescriptionDAO";
 
 export class OpenCartProductDescriptionDAO {
+	dataSourceName;
 	openCartDAO;
 
 	constructor(dataSourceName) {
+		this.dataSourceName = dataSourceName;
 		this.openCartDAO = daoApi.create(CONFIG, LOGGER_NAME, dataSourceName);
 	}
 
@@ -70,7 +73,11 @@ export class OpenCartProductDescriptionDAO {
 	}
 
 	update(productDescription) {
-		return this.openCartDAO.update(productDescription);
+		const params = [productDescription.name, productDescription.description, productDescription.tag,
+		productDescription.metaTitle, productDescription.metaDescription, productDescription.metaKeyword,
+		productDescription.productId, productDescription.languageId
+		];
+		return update.execute(UPDATE_STATEMENT, params, this.dataSourceName);
 	}
 
 	upsert(productDescription) {
