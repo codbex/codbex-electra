@@ -1,0 +1,79 @@
+- route:
+    id: product-attributes-out-sync-route
+    from:
+      uri: cron:TriggerProductAttributesReplication
+      id: trigger-product-attributes-replication-cron
+      parameters:
+        schedule: '*/10 * * ? * *'
+      description: Trigger Product Attributes Replication
+      steps:
+        - log:
+            message: Replicating product attributes to OpenCart DB...
+            id: log-about-to-start-product-attributes-replication
+            logName: OpenCartProductAttributesReplication
+            loggingLevel: INFO
+        - setProperty:
+            name: resource
+            id: set-js-product-attributes-1
+            expression:
+              constant:
+                expression: >-
+                  codbex-electra-opencart/synch/outbound/get-all-relevant-stores.mjs
+                id: constant-product-attributes-01
+            description: Set JS file
+        - to:
+            uri: class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+            id: get-all-relevant-stores
+            description: Get all relevant stores
+        - split:
+            id: split-to-single-store
+            expression:
+              simple:
+                expression: ${body}
+                id: simple-333
+            description: Split to single store
+            steps:
+              - setProperty:
+                  name: resource
+                  id: set-js-product-attributes-2
+                  expression:
+                    constant:
+                      expression: >-
+                        codbex-electra-opencart/synch/outbound/products/get-store-products.mjs
+                      id: constant-product-attributes-02
+                  description: Set JS file
+              - to:
+                  uri: >-
+                    class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+                  id: get-all-store-products
+                  description: Get all store products
+              - split:
+                  id: split-to-single-product
+                  expression:
+                    simple:
+                      expression: ${body}
+                      id: simple-b984
+                  description: Split to single product
+                  steps:
+                    - setProperty:
+                        name: resource
+                        id: set-js-product-attributes-3
+                        expression:
+                          constant:
+                            expression: >-
+                              codbex-electra-opencart/synch/outbound/products/attributes/merge-product-attribute-to-open-cart.mjs
+                            id: constant-product-attributes-03
+                        description: Set JS file
+                    - to:
+                        uri: >-
+                          class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+                        id: merge-product-description-to-oc
+                        description: Merge product attribute to OpenCart
+        - log:
+            message: >-
+              Successfully replicated product attributes to all enabled OpenCart
+              stores
+            id: log-product-attributes-replication-completed
+            logName: OpenCartProductAttributesReplication
+            loggingLevel: INFO
+    description: Sync product attributes to OpenCarts

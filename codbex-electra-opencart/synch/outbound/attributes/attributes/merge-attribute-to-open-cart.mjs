@@ -30,7 +30,6 @@ export function onMessage(message) {
     const ocAttributeDescriptionDAO = new OpenCartAttributeDescriptionDAO(store.dataSourceName);
     translations.forEach(translation => {
         const ocAttributeDescription = createOpenCartAttributeDescription(store.id, translation, ocAttributeId);
-        console.log("Will upsert attribute description " + JSON.stringify(ocAttributeDescription));
         ocAttributeDescriptionDAO.upsert(ocAttributeDescription);
     });
 
