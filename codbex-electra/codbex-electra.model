@@ -161,7 +161,7 @@
                     }
                 ],
                 "caption": "Manage entity Currency",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_CURRENCY\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}CURRENCY\"",
                 "dataName": "CURRENCY",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -462,7 +462,7 @@
                     }
                 ],
                 "caption": "Manage entity Order",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_SALESORDER\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SALESORDER\"",
                 "dataName": "SALESORDER",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -571,7 +571,7 @@
                     }
                 ],
                 "caption": "Manage entity Store",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_STORE\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}STORE\"",
                 "dataName": "STORE",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -792,7 +792,7 @@
                     }
                 ],
                 "caption": "Manage entity Customer",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_CUSTOMER\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}CUSTOMER\"",
                 "dataName": "CUSTOMER",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -918,7 +918,7 @@
                     }
                 ],
                 "caption": "Manage entity Country",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_COUNTRY\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}COUNTRY\"",
                 "dataName": "COUNTRY",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -969,7 +969,7 @@
                     }
                 ],
                 "caption": "Manage entity CountryStatus",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_COUNTRYSTATUS\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}COUNTRYSTATUS\"",
                 "dataName": "COUNTRYSTATUS",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -1083,7 +1083,7 @@
                     }
                 ],
                 "caption": "Manage entity Zone",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_ZONE\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}ZONE\"",
                 "dataName": "ZONE",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -1134,7 +1134,7 @@
                     }
                 ],
                 "caption": "Manage entity ZoneStatus",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_ZONESTATUS\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}ZONESTATUS\"",
                 "dataName": "ZONESTATUS",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -1187,7 +1187,7 @@
                     }
                 ],
                 "caption": "Manage entity OrderStatus",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_ORDERSTATUS\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}ORDERSTATUS\"",
                 "dataName": "ORDERSTATUS",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -1296,7 +1296,7 @@
                     }
                 ],
                 "caption": "Manage entity Language",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_LANGUAGE\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}LANGUAGE\"",
                 "dataName": "LANGUAGE",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -1349,7 +1349,7 @@
                     }
                 ],
                 "caption": "Manage entity LanguageStatus",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_LANGUAGESTATUS\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}LANGUAGESTATUS\"",
                 "dataName": "LANGUAGESTATUS",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -1404,7 +1404,7 @@
                     }
                 ],
                 "caption": "Manage entity CustomerStatus",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_CUSTOMERSTATUS\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}CUSTOMERSTATUS\"",
                 "dataName": "CUSTOMERSTATUS",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -1586,7 +1586,7 @@
                     }
                 ],
                 "caption": "Manage entity OrderItem",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_SALESORDERITEM\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SALESORDERITEM\"",
                 "dataName": "SALESORDERITEM",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -2079,7 +2079,7 @@
                     }
                 ],
                 "caption": "Manage entity Product",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PRODUCT\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PRODUCT\"",
                 "dataName": "PRODUCT",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -2154,7 +2154,7 @@
                     }
                 ],
                 "caption": "Manage entity StockStatus",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_STOCKSTATUS\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}STOCKSTATUS\"",
                 "dataName": "STOCKSTATUS",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -2226,7 +2226,7 @@
                     }
                 ],
                 "caption": "Manage entity Manufacturer",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_MANUFACTURER\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}MANUFACTURER\"",
                 "dataName": "MANUFACTURER",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -2277,7 +2277,7 @@
                     }
                 ],
                 "caption": "Manage entity ProductStatus",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PRODUCTSTATUS\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PRODUCTSTATUS\"",
                 "dataName": "PRODUCTSTATUS",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -2454,7 +2454,7 @@
                     }
                 ],
                 "caption": "Manage entity Employee",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_EMPLOYEE\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}EMPLOYEE\"",
                 "dataName": "EMPLOYEE",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -2505,7 +2505,7 @@
                     }
                 ],
                 "caption": "Manage entity EmployeeStatus",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_EMPLOYEESTATUS\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}EMPLOYEESTATUS\"",
                 "dataName": "EMPLOYEESTATUS",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -2792,7 +2792,7 @@
                     }
                 ],
                 "caption": "Manage entity SalesOrderPayment",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_SALESORDERPAYMENT\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SALESORDERPAYMENT\"",
                 "dataName": "SALESORDERPAYMENT",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -3096,7 +3096,7 @@
                     }
                 ],
                 "caption": "Manage entity SalesOrderShipping",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_SALESORDERSHIPPING\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SALESORDERSHIPPING\"",
                 "dataName": "SALESORDERSHIPPING",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -3149,7 +3149,7 @@
                     }
                 ],
                 "caption": "Manage entity CurrencyStatus",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_CURRENCYSTATUS\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}CURRENCYSTATUS\"",
                 "dataName": "CURRENCYSTATUS",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -3238,7 +3238,7 @@
                     }
                 ],
                 "caption": "Manage entity Group",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_GROUP\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}GROUP\"",
                 "dataName": "GROUP",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -3315,7 +3315,7 @@
                     }
                 ],
                 "caption": "Manage entity Attribute",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_ATTRIBUTE\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}ATTRIBUTE\"",
                 "dataName": "ATTRIBUTE",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -3436,7 +3436,7 @@
                     }
                 ],
                 "caption": "Manage entity ProductAttribute",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PRODUCTATTRIBUTE\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PRODUCTATTRIBUTE\"",
                 "dataName": "PRODUCTATTRIBUTE",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -3489,7 +3489,7 @@
                     }
                 ],
                 "caption": "Manage entity AttributeGroup",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_ATTRIBUTEGROUP\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}ATTRIBUTEGROUP\"",
                 "dataName": "ATTRIBUTEGROUP",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -3600,7 +3600,7 @@
                     }
                 ],
                 "caption": "Manage entity SalesOrderComment",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_SALESORDERCOMMENT\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SALESORDERCOMMENT\"",
                 "dataName": "SALESORDERCOMMENT",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -3699,7 +3699,7 @@
                     }
                 ],
                 "caption": "Manage entity AttributeDescription",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_ATTRIBUTETRANSLATION\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}ATTRIBUTETRANSLATION\"",
                 "dataName": "ATTRIBUTETRANSLATION",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -3885,7 +3885,7 @@
                     }
                 ],
                 "caption": "Manage entity ProductDescription",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PRODUCTDESCRIPTION\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PRODUCTDESCRIPTION\"",
                 "dataName": "PRODUCTDESCRIPTION",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -3940,7 +3940,7 @@
                     }
                 ],
                 "caption": "Manage entity Permission",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PERMISSION\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PERMISSION\"",
                 "dataName": "PERMISSION",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -4054,7 +4054,7 @@
                     }
                 ],
                 "caption": "Manage entity GroupEmployee",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_GROUPEMPLOYEE\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}GROUPEMPLOYEE\"",
                 "dataName": "GROUPEMPLOYEE",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -4168,7 +4168,7 @@
                     }
                 ],
                 "caption": "Manage entity GroupPermission",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_GROUPPERMISSION\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}GROUPPERMISSION\"",
                 "dataName": "GROUPPERMISSION",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -4325,7 +4325,7 @@
                     }
                 ],
                 "caption": "Manage entity EntityReference",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_ENTITYREFERENCE\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}ENTITYREFERENCE\"",
                 "dataName": "ENTITYREFERENCE",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -4426,7 +4426,7 @@
                     }
                 ],
                 "caption": "Manage entity StoreConfiguration",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_STORECONFIGURATION\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}STORECONFIGURATION\"",
                 "dataName": "STORECONFIGURATION",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -4479,7 +4479,7 @@
                     }
                 ],
                 "caption": "Manage entity StoreConfigurationProperty",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_STORECONFIGURATIONPROPERTY\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}STORECONFIGURATIONPROPERTY\"",
                 "dataName": "STORECONFIGURATIONPROPERTY",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -4534,7 +4534,7 @@
                     }
                 ],
                 "caption": "Manage entity StoreType",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_STORETYPE\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}STORETYPE\"",
                 "dataName": "STORETYPE",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -4618,7 +4618,7 @@
                     }
                 ],
                 "caption": "Manage entity ProductToStore",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PRODUCTTOSTORE\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PRODUCTTOSTORE\"",
                 "dataName": "PRODUCTTOSTORE",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -4719,7 +4719,7 @@
                     }
                 ],
                 "caption": "Manage entity AttributeGroupDescription",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_ATTRIBUTEGROUPTRANSLATION\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}ATTRIBUTEGROUPTRANSLATION\"",
                 "dataName": "ATTRIBUTEGROUPTRANSLATION",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",

@@ -475,7 +475,7 @@
         }
       ],
       "caption": "Manage entity Currency",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__CURRENCY\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_CURRENCY\"",
       "dataName": "CURRENCY",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -839,7 +839,7 @@
         }
       ],
       "caption": "Manage entity Order",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__SALESORDER\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_SALESORDER\"",
       "dataName": "SALESORDER",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -1294,7 +1294,7 @@
         }
       ],
       "caption": "Manage entity Store",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__STORE\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_STORE\"",
       "dataName": "STORE",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -1659,7 +1659,7 @@
         }
       ],
       "caption": "Manage entity Customer",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__CUSTOMER\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_CUSTOMER\"",
       "dataName": "CUSTOMER",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -2047,7 +2047,7 @@
         }
       ],
       "caption": "Manage entity Country",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__COUNTRY\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_COUNTRY\"",
       "dataName": "COUNTRY",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -2111,7 +2111,7 @@
         }
       ],
       "caption": "Manage entity CountryStatus",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__COUNTRYSTATUS\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_COUNTRYSTATUS\"",
       "dataName": "COUNTRYSTATUS",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -2248,7 +2248,7 @@
         }
       ],
       "caption": "Manage entity Zone",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__ZONE\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_ZONE\"",
       "dataName": "ZONE",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -2312,7 +2312,7 @@
         }
       ],
       "caption": "Manage entity ZoneStatus",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__ZONESTATUS\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_ZONESTATUS\"",
       "dataName": "ZONESTATUS",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -2377,7 +2377,7 @@
         }
       ],
       "caption": "Manage entity OrderStatus",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__ORDERSTATUS\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_ORDERSTATUS\"",
       "dataName": "ORDERSTATUS",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -2511,7 +2511,7 @@
         }
       ],
       "caption": "Manage entity Language",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__LANGUAGE\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_LANGUAGE\"",
       "dataName": "LANGUAGE",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -2577,7 +2577,7 @@
         }
       ],
       "caption": "Manage entity LanguageStatus",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__LANGUAGESTATUS\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_LANGUAGESTATUS\"",
       "dataName": "LANGUAGESTATUS",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -2644,7 +2644,7 @@
         }
       ],
       "caption": "Manage entity CustomerStatus",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__CUSTOMERSTATUS\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_CUSTOMERSTATUS\"",
       "dataName": "CUSTOMERSTATUS",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -2861,7 +2861,7 @@
         }
       ],
       "caption": "Manage entity OrderItem",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__SALESORDERITEM\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_SALESORDERITEM\"",
       "dataName": "SALESORDERITEM",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -3465,7 +3465,7 @@
         }
       ],
       "caption": "Manage entity Product",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__PRODUCT\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_PRODUCT\"",
       "dataName": "PRODUCT",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -4119,7 +4119,7 @@
         }
       ],
       "caption": "Manage entity StockStatus",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__STOCKSTATUS\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_STOCKSTATUS\"",
       "dataName": "STOCKSTATUS",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -4209,7 +4209,7 @@
         }
       ],
       "caption": "Manage entity Manufacturer",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__MANUFACTURER\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_MANUFACTURER\"",
       "dataName": "MANUFACTURER",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -4272,7 +4272,7 @@
         }
       ],
       "caption": "Manage entity ProductStatus",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__PRODUCTSTATUS\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_PRODUCTSTATUS\"",
       "dataName": "PRODUCTSTATUS",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -4493,7 +4493,7 @@
         }
       ],
       "caption": "Manage entity Employee",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__EMPLOYEE\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_EMPLOYEE\"",
       "dataName": "EMPLOYEE",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -4558,7 +4558,7 @@
         }
       ],
       "caption": "Manage entity EmployeeStatus",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__EMPLOYEESTATUS\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_EMPLOYEESTATUS\"",
       "dataName": "EMPLOYEESTATUS",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -4916,7 +4916,7 @@
         }
       ],
       "caption": "Manage entity SalesOrderPayment",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__SALESORDERPAYMENT\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_SALESORDERPAYMENT\"",
       "dataName": "SALESORDERPAYMENT",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -5299,7 +5299,7 @@
         }
       ],
       "caption": "Manage entity SalesOrderShipping",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__SALESORDERSHIPPING\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_SALESORDERSHIPPING\"",
       "dataName": "SALESORDERSHIPPING",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -5367,7 +5367,7 @@
         }
       ],
       "caption": "Manage entity CurrencyStatus",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__CURRENCYSTATUS\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_CURRENCYSTATUS\"",
       "dataName": "CURRENCYSTATUS",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -5477,7 +5477,7 @@
         }
       ],
       "caption": "Manage entity Group",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__GROUP\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_GROUP\"",
       "dataName": "GROUP",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -5570,7 +5570,7 @@
         }
       ],
       "caption": "Manage entity Attribute",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__ATTRIBUTE\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_ATTRIBUTE\"",
       "dataName": "ATTRIBUTE",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -5766,7 +5766,7 @@
         }
       ],
       "caption": "Manage entity ProductAttribute",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__PRODUCTATTRIBUTE\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_PRODUCTATTRIBUTE\"",
       "dataName": "PRODUCTATTRIBUTE",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -5834,7 +5834,7 @@
         }
       ],
       "caption": "Manage entity AttributeGroup",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__ATTRIBUTEGROUP\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_ATTRIBUTEGROUP\"",
       "dataName": "ATTRIBUTEGROUP",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -5994,7 +5994,7 @@
         }
       ],
       "caption": "Manage entity SalesOrderComment",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__SALESORDERCOMMENT\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_SALESORDERCOMMENT\"",
       "dataName": "SALESORDERCOMMENT",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -6114,7 +6114,7 @@
         }
       ],
       "caption": "Manage entity AttributeDescription",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__ATTRIBUTETRANSLATION\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_ATTRIBUTETRANSLATION\"",
       "dataName": "ATTRIBUTETRANSLATION",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -6346,7 +6346,7 @@
         }
       ],
       "caption": "Manage entity ProductDescription",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__PRODUCTDESCRIPTION\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_PRODUCTDESCRIPTION\"",
       "dataName": "PRODUCTDESCRIPTION",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -6416,7 +6416,7 @@
         }
       ],
       "caption": "Manage entity Permission",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__PERMISSION\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_PERMISSION\"",
       "dataName": "PERMISSION",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -6552,7 +6552,7 @@
         }
       ],
       "caption": "Manage entity GroupEmployee",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__GROUPEMPLOYEE\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_GROUPEMPLOYEE\"",
       "dataName": "GROUPEMPLOYEE",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -6690,7 +6690,7 @@
         }
       ],
       "caption": "Manage entity GroupPermission",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__GROUPPERMISSION\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_GROUPPERMISSION\"",
       "dataName": "GROUPPERMISSION",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -6885,7 +6885,7 @@
         }
       ],
       "caption": "Manage entity EntityReference",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__ENTITYREFERENCE\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_ENTITYREFERENCE\"",
       "dataName": "ENTITYREFERENCE",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -7004,7 +7004,7 @@
         }
       ],
       "caption": "Manage entity StoreConfiguration",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__STORECONFIGURATION\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_STORECONFIGURATION\"",
       "dataName": "STORECONFIGURATION",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -7072,7 +7072,7 @@
         }
       ],
       "caption": "Manage entity StoreConfigurationProperty",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__STORECONFIGURATIONPROPERTY\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_STORECONFIGURATIONPROPERTY\"",
       "dataName": "STORECONFIGURATIONPROPERTY",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -7139,7 +7139,7 @@
         }
       ],
       "caption": "Manage entity StoreType",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__STORETYPE\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_STORETYPE\"",
       "dataName": "STORETYPE",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -7236,7 +7236,7 @@
         }
       ],
       "caption": "Manage entity ProductToStore",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__PRODUCTTOSTORE\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_PRODUCTTOSTORE\"",
       "dataName": "PRODUCTTOSTORE",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -7358,7 +7358,7 @@
         }
       ],
       "caption": "Manage entity AttributeGroupDescription",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__ATTRIBUTEGROUPTRANSLATION\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_ATTRIBUTEGROUPTRANSLATION\"",
       "dataName": "ATTRIBUTEGROUPTRANSLATION",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",

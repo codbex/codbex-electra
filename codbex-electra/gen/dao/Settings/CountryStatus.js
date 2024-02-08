@@ -77,7 +77,7 @@ export const count = () => {
 }
 
 export const customDataCount = () => {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__COUNTRYSTATUS"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_COUNTRYSTATUS"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

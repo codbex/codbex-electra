@@ -13,7 +13,7 @@ const CONFIG = {
 		{
 			"name": "languageId",
 			"column": "language_id",
-			"type": "INTEGER"
+			"type": "INTEGER",
 		},
 		{
 			"name": "name",
