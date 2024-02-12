@@ -17,7 +17,7 @@ export function onMessage(message: any) {
     const dataSourceName = productEntry.store.dataSourceName;
     const ocProductDAO = new OpenCartProductDAO(dataSourceName);
 
-    const ocProduct = createOpenCartProduct(product, productReference, ocProductDAO);
+    const ocProduct = createOpenCartProduct(product, productReference, ocProductDAO, productEntry.store.id);
     const ocProductId = ocProductDAO.upsert(ocProduct);
 
     if (!productReference) {
@@ -39,10 +39,12 @@ function getProduct(productId: number): ProductEntity {
     return product!;
 }
 
-function createOpenCartProduct(product: ProductEntity, productReference: EntityReferenceEntity, ocProductDAO: OpenCartProductDAO): OpenCartProductCreateEntity | OpenCartProductUpdateEntity {
+function createOpenCartProduct(product: ProductEntity, productReference: EntityReferenceEntity, ocProductDAO: OpenCartProductDAO, storeId: number): OpenCartProductCreateEntity | OpenCartProductUpdateEntity {
+    const manufacturerId = getOpenCartManufacturerId(storeId, product.Manufacturer);
     if (productReference) {
         const ocProduct = ocProductDAO.findById(productReference.ReferenceIntegerId!);
         const viewed = ocProduct ? ocProduct.viewed : 0;
+
         return {
             product_id: productReference.ReferenceIntegerId,
             model: product.Model,
@@ -56,7 +58,7 @@ function createOpenCartProduct(product: ProductEntity, productReference: EntityR
             quantity: product.Quantity,
             stock_status_id: product.StockStatus,
             image: product.Image,
-            manufacturer_id: product.Manufacturer,
+            manufacturer_id: manufacturerId,
             shipping: product.Shipping,
             price: product.Price,
             points: product.Points,
@@ -90,7 +92,7 @@ function createOpenCartProduct(product: ProductEntity, productReference: EntityR
             quantity: product.Quantity,
             stock_status_id: product.StockStatus,
             image: product.Image,
-            manufacturer_id: product.Manufacturer,
+            manufacturer_id: manufacturerId,
             shipping: product.Shipping,
             price: product.Price,
             points: product.Points,
@@ -110,6 +112,14 @@ function createOpenCartProduct(product: ProductEntity, productReference: EntityR
             date_modified: product.DateModified
         };
     }
+}
+function getOpenCartManufacturerId(storeId: number, manufacturerId: number): number {
+    const entityReferenceDAO = new EntityReferenceDAO();
+    const manufacturerRef = entityReferenceDAO.getStoreManufacturer(storeId, manufacturerId);
+    if (!manufacturerRef || !manufacturerRef.ReferenceIntegerId) {
+        throwError(`Missing reference for manufacturer with id [${manufacturerId}] for store [${storeId}]`);
+    }
+    return manufacturerRef!.ReferenceIntegerId!;
 }
 
 function throwError(errorMessage: string) {

@@ -1,25 +1,25 @@
 - route:
-    id: products-out-sync-route
+    id: manufacturers-out-sync-route
     from:
-      uri: cron:TriggerProductsReplication
-      id: trigger-products-replication-cron
+      uri: cron:TriggerManufacturersReplication
+      id: trigger-manufacturers-replication-cron
       parameters:
-        schedule: 3 * * ? * *
-      description: Trigger Products Replication
+        schedule: 0 * * ? * *
+      description: Trigger Manufacturers Replication
       steps:
         - log:
-            message: Replicating products to OpenCart DB...
-            id: log-about-to-start-products-replication
-            logName: OpenCartProductsReplication
+            message: Replicating manufacturers to OpenCart DB...
+            id: log-about-to-start-manufacturers-replication
+            logName: OpenCartManufacturersReplication
             loggingLevel: INFO
         - setProperty:
             name: resource
-            id: set-js-products-1
+            id: set-js-manufacturers-1
             expression:
               constant:
                 expression: >-
                   codbex-electra-opencart/synch/outbound/get-all-relevant-stores.ts
-                id: constant-8de2
+                id: constant-manufacturer-8de2
             description: Set JS file
         - to:
             uri: class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
@@ -35,43 +35,45 @@
             steps:
               - setProperty:
                   name: resource
-                  id: set-js-products-2
+                  id: set-js-manufacturers-2
                   expression:
                     constant:
                       expression: >-
-                        codbex-electra-opencart/synch/outbound/products/get-store-products.ts
-                      id: constant-eb12
+                        codbex-electra-opencart/synch/outbound/products/manufacturers/get-all-relevant-manufacturers.ts
+                      id: constant-manufacturer-eb12
                   description: Set JS file
               - to:
                   uri: >-
                     class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
-                  id: get-all-store-products
-                  description: Get all store products
+                  id: get-all-store-manufacturers
+                  description: Get all store manufacturers
               - split:
-                  id: split-to-single-product
+                  id: split-to-single-manufacturer
                   expression:
                     simple:
                       expression: ${body}
                       id: simple-b984
-                  description: Split to single product
+                  description: Split to single manufacturer
                   steps:
                     - setProperty:
                         name: resource
-                        id: set-js-products-3
+                        id: set-js-manufacturers-3
                         expression:
                           constant:
                             expression: >-
-                              codbex-electra-opencart/synch/outbound/products/products/merge-product-to-open-cart.ts
-                            id: constant-a0bf
+                              codbex-electra-opencart/synch/outbound/products/manufacturers/merge-manufacturer-to-open-cart.ts
+                            id: constant-manufacturer-a0bf
                         description: Set JS file
                     - to:
                         uri: >-
                           class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
-                        id: merge-product-to-oc
-                        description: Merge product to OpenCart
+                        id: merge-manufacturer-to-oc
+                        description: Merge manufacturer to OpenCart
         - log:
-            message: Successfully replicated products to all enabled OpenCart stores
-            id: log-products-replication-completed
-            logName: OpenCartProductsReplication
+            message: >-
+              Successfully replicated manufacturers to all enabled OpenCart
+              stores
+            id: log-manufacturers-replication-completed
+            logName: OpenCartManufacturersReplication
             loggingLevel: INFO
-    description: Sync products to OpenCarts
+    description: Sync manufacturers to OpenCarts

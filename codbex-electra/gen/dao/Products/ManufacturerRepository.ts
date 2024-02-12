@@ -5,12 +5,12 @@ import { dao as daoApi } from "sdk/db";
 
 export interface ManufacturerEntity {
     readonly Id: number;
-    Name?: string;
+    Name: string;
     Image?: string;
 }
 
 export interface ManufacturerCreateEntity {
-    readonly Name?: string;
+    readonly Name: string;
     readonly Image?: string;
 }
 
@@ -90,6 +90,7 @@ export class ManufacturerRepository {
                 name: "Name",
                 column: "MANUFACTURER_NAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Image",

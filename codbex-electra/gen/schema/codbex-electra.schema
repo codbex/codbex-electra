@@ -917,7 +917,6 @@
                         "length": 64,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "MANUFACTURER_NAME"
                     },
                     {

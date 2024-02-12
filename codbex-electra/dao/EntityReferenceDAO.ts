@@ -8,6 +8,7 @@ export class EntityReferenceDAO {
     private static readonly ATTRIBUTE_ENTITY = "Attribute";
     private static readonly ATTRIBUTE_GROUP_ENTITY = "AttributeGroup";
     private static readonly ATTRIBUTE_GROUP_TRANSLATION_ENTITY = "AttributeGroupTranslation";
+    private static readonly MANUFACTURER_ENTITY = "Manufacturer";
     private static readonly PRODUCT_ENTITY = "Product";
     private static readonly PRODUCT_DESCRIPTION_ENTITY = "ProductDescription";
 
@@ -46,6 +47,9 @@ export class EntityReferenceDAO {
         return this.createReference(storeId, EntityReferenceDAO.PRODUCT_ENTITY, entityProductId, referenceProductId);
     }
 
+    public createManufacturerReference(storeId: number, entityManufacturerId: number, referenceManufacturerId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.MANUFACTURER_ENTITY, entityManufacturerId, referenceManufacturerId);
+    }
     public createReference(scopeIntegerId: number, entityName: string, entityIntegerId: number, referenceIntegerId: number) {
         const entityReference: EntityReferenceCreateEntity = {
             EntityName: entityName,
@@ -70,6 +74,10 @@ export class EntityReferenceDAO {
             }
         };
         return this.generatedDAO.findAll(querySettings);
+    }
+
+    public getStoreManufacturer(storeId: number, manufacturerId: number) {
+        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.MANUFACTURER_ENTITY, manufacturerId);
     }
 
     public getStoreAttribute(storeId: number, attributeId: number) {
