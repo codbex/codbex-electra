@@ -3,7 +3,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-electra.Products.ProductToStore';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/Products/ProductToStore.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Products/ProductToStoreService.ts";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 

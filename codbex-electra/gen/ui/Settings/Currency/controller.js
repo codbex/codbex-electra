@@ -3,7 +3,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-electra.Settings.Currency';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/Settings/Currency.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Settings/CurrencyService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -88,7 +88,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsStatus = [];
 
-		$http.get("/services/js/codbex-electra/gen/api/Settings/CurrencyStatus.js").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Settings/CurrencyStatusService.ts").then(function (response) {
 			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,

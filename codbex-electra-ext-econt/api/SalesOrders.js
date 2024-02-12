@@ -1,7 +1,7 @@
 import * as http from "/codbex-electra/gen/api/utils/http";
-import { rs } from '@dirigible/http'
-import { configurations } from '@dirigible/core'
-import { logging } from '@dirigible/log'
+import { rs } from 'sdk/http'
+import { configurations } from 'sdk/core'
+import { logging } from 'sdk/log'
 
 const logger = logging.getLogger("api.SalesOrders.js");
 

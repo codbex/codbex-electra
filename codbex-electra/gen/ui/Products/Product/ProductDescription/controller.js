@@ -3,7 +3,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-electra.Products.ProductDescription';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/Products/ProductDescription.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Products/ProductDescriptionService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -166,7 +166,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsProduct = [];
 		$scope.optionsLanguage = [];
 
-		$http.get("/services/js/codbex-electra/gen/api/Products/Product.js").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Products/ProductService.ts").then(function (response) {
 			$scope.optionsProduct = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -175,7 +175,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-electra/gen/api/Settings/Language.js").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Settings/LanguageService.ts").then(function (response) {
 			$scope.optionsLanguage = response.data.map(e => {
 				return {
 					value: e.Id,

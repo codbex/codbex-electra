@@ -3,7 +3,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-electra.Products.ProductToStore';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/Products/ProductToStore.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Products/ProductToStoreService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -166,7 +166,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsProduct = [];
 		$scope.optionsStore = [];
 
-		$http.get("/services/js/codbex-electra/gen/api/Products/Product.js").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Products/ProductService.ts").then(function (response) {
 			$scope.optionsProduct = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -175,7 +175,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-electra/gen/api/Stores/Store.js").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Stores/StoreService.ts").then(function (response) {
 			$scope.optionsStore = response.data.map(e => {
 				return {
 					value: e.Id,

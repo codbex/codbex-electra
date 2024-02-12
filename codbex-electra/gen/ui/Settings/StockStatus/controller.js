@@ -3,7 +3,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-electra.Settings.StockStatus';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/Settings/StockStatus.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Settings/StockStatusService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -81,7 +81,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsLanguage = [];
 
-		$http.get("/services/js/codbex-electra/gen/api/Settings/Language.js").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Settings/LanguageService.ts").then(function (response) {
 			$scope.optionsLanguage = response.data.map(e => {
 				return {
 					value: e.Id,

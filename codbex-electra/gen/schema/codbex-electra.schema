@@ -515,6 +515,8 @@
                         "length": 0,
                         "primaryKey": true,
                         "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "LANGUAGE_ID"
                     },
@@ -523,7 +525,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "LANGUAGE_NAME"
                     },
                     {
@@ -531,7 +532,6 @@
                         "length": 5,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "LANGUAGE_CODE"
                     },
                     {
@@ -539,7 +539,6 @@
                         "length": 255,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "LANGUAGE_LOCALE"
                     },
                     {
@@ -547,7 +546,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "LANGUAGE_STATUS"
                     }
                 ]
@@ -691,7 +689,6 @@
                         "length": 64,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_MODEL"
                     },
                     {
@@ -699,7 +696,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_MANUFACTURER"
                     },
                     {
@@ -707,7 +703,6 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_STATUS"
                     },
                     {
@@ -715,7 +710,6 @@
                         "length": 4,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_QUANTITY"
                     },
                     {
@@ -723,7 +717,6 @@
                         "length": 19,
                         "precision": "15",
                         "scale": "4",
-                        "nullable": true,
                         "name": "PRODUCT_PRICE"
                     },
                     {
@@ -731,7 +724,6 @@
                         "length": 255,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_IMAGE"
                     },
                     {
@@ -739,7 +731,6 @@
                         "length": 64,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_SKU"
                     },
                     {
@@ -747,7 +738,6 @@
                         "length": 12,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_UPC"
                     },
                     {
@@ -755,7 +745,6 @@
                         "length": 14,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_EAN"
                     },
                     {
@@ -763,7 +752,6 @@
                         "length": 13,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_JAN"
                     },
                     {
@@ -771,7 +759,6 @@
                         "length": 17,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_ISBN"
                     },
                     {
@@ -779,7 +766,6 @@
                         "length": 64,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_MPN"
                     },
                     {
@@ -787,7 +773,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_DATEAVAILABLE"
                     },
                     {
@@ -795,7 +780,6 @@
                         "length": 23,
                         "precision": "15",
                         "scale": "8",
-                        "nullable": true,
                         "name": "PRODUCT_WEIGHT"
                     },
                     {
@@ -803,7 +787,6 @@
                         "length": 23,
                         "precision": "15",
                         "scale": "8",
-                        "nullable": true,
                         "name": "PRODUCT_LENGTH"
                     },
                     {
@@ -811,7 +794,6 @@
                         "length": 23,
                         "precision": "15",
                         "scale": "8",
-                        "nullable": true,
                         "name": "PRODUCT_WIDTH"
                     },
                     {
@@ -819,7 +801,6 @@
                         "length": 23,
                         "precision": "15",
                         "scale": "8",
-                        "nullable": true,
                         "name": "PRODUCT_HEIGHT"
                     },
                     {
@@ -827,7 +808,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_DATEADDED"
                     },
                     {
@@ -835,7 +815,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_DATEMODIFIED"
                     },
                     {
@@ -843,7 +822,6 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_UPDATEDBY"
                     },
                     {
@@ -851,7 +829,6 @@
                         "length": 8,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_POINTS"
                     },
                     {
@@ -859,7 +836,6 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_SHIPPING"
                     },
                     {
@@ -867,7 +843,6 @@
                         "length": 128,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_LOCATION"
                     },
                     {
@@ -875,7 +850,6 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_SUBTRACT"
                     },
                     {
@@ -883,7 +857,6 @@
                         "length": 11,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_MINIMUM"
                     },
                     {
@@ -891,7 +864,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_STOCKSTATUS"
                     }
                 ]
@@ -1439,7 +1411,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCTATTRIBUTE_PRODUCT"
                     },
                     {
@@ -1447,7 +1418,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCTATTRIBUTE_ATTRIBUTE"
                     },
                     {
@@ -1455,7 +1425,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCTATTRIBUTE_LANGUAGE"
                     },
                     {
@@ -1463,7 +1432,6 @@
                         "length": 2000,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCTATTRIBUTE_TEXT"
                     }
                 ]
@@ -1549,7 +1517,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ATTRIBUTETRANSLATIONN_ID"
+                        "name": "ATTRIBUTETRANSLATION_ID"
                     },
                     {
                         "type": "INTEGER",
@@ -1593,7 +1561,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCTDESCRIPTION_PRODUCT"
                     },
                     {
@@ -1601,7 +1568,6 @@
                         "length": 255,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCTDESCRIPTION_NAME"
                     },
                     {
@@ -1609,7 +1575,6 @@
                         "length": 65535,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCTDESCRIPTION_DESCRIPTION"
                     },
                     {
@@ -1617,7 +1582,6 @@
                         "length": 2000,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCTDESCRIPTION_TAG"
                     },
                     {
@@ -1625,7 +1589,6 @@
                         "length": 255,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCTDESCRIPTION_METATITLE"
                     },
                     {
@@ -1633,7 +1596,6 @@
                         "length": 255,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCTDESCRIPTION_METADESCRIPTION"
                     },
                     {
@@ -1641,7 +1603,6 @@
                         "length": 255,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCTDESCRIPTION_METAKEYWORD"
                     },
                     {
@@ -1649,7 +1610,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCTDESCRIPTION_LANGUAGE"
                     }
                 ]
@@ -2399,5 +2359,6 @@
                 "referencedColumns": "LANGUAGE_ID"
             }
         ]
-    }
+    },
+    "datasource": "DefaultDB"
 }

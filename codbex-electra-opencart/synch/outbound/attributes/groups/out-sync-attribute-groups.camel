@@ -18,7 +18,7 @@
             expression:
               constant:
                 expression: >-
-                  codbex-electra-opencart/synch/outbound/get-all-relevant-stores.mjs
+                  codbex-electra-opencart/synch/outbound/get-all-relevant-stores.ts
                 id: constant-attribute-groups-8de2
             description: Set JS file
         - to:
@@ -39,7 +39,7 @@
                   expression:
                     constant:
                       expression: >-
-                        codbex-electra-opencart/synch/outbound/attributes/groups/get-all-attribute-groups.mjs
+                        codbex-electra-opencart/synch/outbound/attributes/groups/get-all-attribute-groups.ts
                       id: constant-attribute-groups-eb12
                   description: Set JS file
               - to:
@@ -61,7 +61,7 @@
                         expression:
                           constant:
                             expression: >-
-                              codbex-electra-opencart/synch/outbound/attributes/groups/merge-attribute-group-to-open-cart.mjs
+                              codbex-electra-opencart/synch/outbound/attributes/groups/merge-attribute-group-to-open-cart.ts
                             id: constant-attribute-groups-a0bf
                         description: Set JS file
                     - to:

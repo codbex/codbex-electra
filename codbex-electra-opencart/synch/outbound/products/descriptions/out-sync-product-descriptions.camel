@@ -18,7 +18,7 @@
             expression:
               constant:
                 expression: >-
-                  codbex-electra-opencart/synch/outbound/get-all-relevant-stores.mjs
+                  codbex-electra-opencart/synch/outbound/get-all-relevant-stores.ts
                 id: constant-product-descriptions-01
             description: Set JS file
         - to:
@@ -39,7 +39,7 @@
                   expression:
                     constant:
                       expression: >-
-                        codbex-electra-opencart/synch/outbound/products/get-store-products.mjs
+                        codbex-electra-opencart/synch/outbound/products/get-store-products.ts
                       id: constant-product-descriptions-02
                   description: Set JS file
               - to:
@@ -61,7 +61,7 @@
                         expression:
                           constant:
                             expression: >-
-                              codbex-electra-opencart/synch/outbound/products/descriptions/merge-product-description-to-open-cart.mjs
+                              codbex-electra-opencart/synch/outbound/products/descriptions/merge-product-description-to-open-cart.ts
                             id: constant-product-descriptions-03
                         description: Set JS file
                     - to:

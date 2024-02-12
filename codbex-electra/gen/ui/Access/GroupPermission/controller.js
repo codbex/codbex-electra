@@ -3,7 +3,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-electra.Access.GroupPermission';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/Access/GroupPermission.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Access/GroupPermissionService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -147,7 +147,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsGroup = [];
 		$scope.optionsPermission = [];
 
-		$http.get("/services/js/codbex-electra/gen/api/Access/Group.js").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Access/GroupService.ts").then(function (response) {
 			$scope.optionsGroup = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -156,7 +156,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-electra/gen/api/Access/Permission.js").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Access/PermissionService.ts").then(function (response) {
 			$scope.optionsPermission = response.data.map(e => {
 				return {
 					value: e.Id,

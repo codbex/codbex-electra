@@ -3,7 +3,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-electra.SalesOrders.SalesOrderPayment';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/SalesOrders/SalesOrderPayment.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/SalesOrders/SalesOrderPaymentService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -166,7 +166,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsZone = [];
 		$scope.optionsCountry = [];
 
-		$http.get("/services/js/codbex-electra/gen/api/Settings/Zone.js").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Settings/ZoneService.ts").then(function (response) {
 			$scope.optionsZone = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -175,7 +175,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-electra/gen/api/Settings/Country.js").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Settings/CountryService.ts").then(function (response) {
 			$scope.optionsCountry = response.data.map(e => {
 				return {
 					value: e.Id,

@@ -3,7 +3,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-electra.Products.Attribute';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/Products/Attribute.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Products/AttributeService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -145,7 +145,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsGroup = [];
 
-		$http.get("/services/js/codbex-electra/gen/api/Products/AttributeGroup.js").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Products/AttributeGroupService.ts").then(function (response) {
 			$scope.optionsGroup = response.data.map(e => {
 				return {
 					value: e.Id,

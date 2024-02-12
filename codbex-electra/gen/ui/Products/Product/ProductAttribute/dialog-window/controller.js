@@ -3,7 +3,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-electra.Products.ProductAttribute';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/Products/ProductAttribute.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Products/ProductAttributeService.ts";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 
@@ -24,6 +24,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if ($scope.action === "create") {
 					// Set Errors for required fields only
 					$scope.formErrors = {
+						Attribute: true,
+						Language: true,
+						Text: true,
 
 					};
 				}

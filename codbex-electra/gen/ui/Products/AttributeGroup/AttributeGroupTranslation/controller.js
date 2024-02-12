@@ -3,7 +3,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-electra.Products.AttributeGroupTranslation';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/Products/AttributeGroupTranslation.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Products/AttributeGroupTranslationService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -166,7 +166,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsAttributeGroup = [];
 		$scope.optionsLanguage = [];
 
-		$http.get("/services/js/codbex-electra/gen/api/Products/AttributeGroup.js").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Products/AttributeGroupService.ts").then(function (response) {
 			$scope.optionsAttributeGroup = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -175,7 +175,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-electra/gen/api/Settings/Language.js").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Settings/LanguageService.ts").then(function (response) {
 			$scope.optionsLanguage = response.data.map(e => {
 				return {
 					value: e.Id,

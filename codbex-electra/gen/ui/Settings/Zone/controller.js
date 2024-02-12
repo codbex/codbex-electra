@@ -3,7 +3,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-electra.Settings.Zone';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/Settings/Zone.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Settings/ZoneService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -83,7 +83,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsCountry = [];
 		$scope.optionsStatus = [];
 
-		$http.get("/services/js/codbex-electra/gen/api/Settings/Country.js").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Settings/CountryService.ts").then(function (response) {
 			$scope.optionsCountry = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -92,7 +92,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-electra/gen/api/Settings/ZoneStatus.js").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Settings/ZoneStatusService.ts").then(function (response) {
 			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,

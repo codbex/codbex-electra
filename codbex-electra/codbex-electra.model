@@ -16,6 +16,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -33,6 +34,7 @@
                         "name": "Title",
                         "widgetIsMajor": "true",
                         "widgetLength": "32",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -52,6 +54,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Currency_CurrencyStatus",
                         "relationshipEntityName": "CurrencyStatus",
@@ -72,6 +75,7 @@
                         "name": "Code",
                         "widgetIsMajor": "true",
                         "widgetLength": "3",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -89,6 +93,7 @@
                         "name": "SymbolLeft",
                         "widgetIsMajor": "true",
                         "widgetLength": "12",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -106,6 +111,7 @@
                         "name": "SymbolRight",
                         "widgetIsMajor": "true",
                         "widgetLength": "12",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -123,6 +129,7 @@
                         "name": "DecimalPlace",
                         "widgetIsMajor": "true",
                         "widgetLength": "1",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -140,6 +147,7 @@
                         "name": "Value",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -157,6 +165,7 @@
                         "name": "DateModified",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DATETIME-LOCAL"
                     }
                 ],
@@ -195,6 +204,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -212,6 +222,7 @@
                         "name": "Total",
                         "widgetIsMajor": "true",
                         "widgetLength": "19",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -231,6 +242,7 @@
                         "widgetDropDownValue": "Code",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_Currency",
                         "relationshipEntityName": "Currency",
@@ -253,6 +265,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_OrderStatus",
                         "relationshipEntityName": "OrderStatus",
@@ -275,6 +288,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_Store",
                         "relationshipEntityName": "Store",
@@ -297,6 +311,7 @@
                         "widgetDropDownValue": "Email",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_Customer",
                         "relationshipEntityName": "Customer",
@@ -317,6 +332,7 @@
                         "name": "DateAdded",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DATETIME-LOCAL"
                     },
                     {
@@ -334,6 +350,7 @@
                         "name": "DateModified",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DATETIME-LOCAL"
                     },
                     {
@@ -351,6 +368,7 @@
                         "name": "UpdatedBy",
                         "widgetIsMajor": "true",
                         "widgetLength": "96",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -368,6 +386,7 @@
                         "name": "Tracking",
                         "widgetIsMajor": "true",
                         "widgetLength": "255",
+                        "widgetSize": "",
                         "widgetType": "URL"
                     },
                     {
@@ -385,6 +404,7 @@
                         "name": "Comment",
                         "widgetIsMajor": "true",
                         "widgetLength": "2000",
+                        "widgetSize": "",
                         "widgetType": "TEXTAREA"
                     },
                     {
@@ -402,6 +422,7 @@
                         "name": "InvoiceNumber",
                         "widgetIsMajor": "true",
                         "widgetLength": "11",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -419,6 +440,7 @@
                         "name": "InvoicePrefix",
                         "widgetIsMajor": "true",
                         "widgetLength": "26",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -438,6 +460,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_Language",
                         "relationshipEntityName": "Language",
@@ -458,6 +481,7 @@
                         "name": "AcceptLanguage",
                         "widgetIsMajor": "true",
                         "widgetLength": "255",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -494,6 +518,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -511,6 +536,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "256",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -528,6 +554,7 @@
                         "name": "Url",
                         "widgetIsMajor": "true",
                         "widgetLength": "255",
+                        "widgetSize": "",
                         "widgetType": "URL"
                     },
                     {
@@ -547,6 +574,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Store_StoreType",
                         "relationshipEntityName": "StoreType",
@@ -567,6 +595,7 @@
                         "name": "Enabled",
                         "widgetIsMajor": "true",
                         "widgetLength": "1",
+                        "widgetSize": "",
                         "widgetType": "CHECKBOX"
                     }
                 ],
@@ -603,6 +632,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -620,6 +650,7 @@
                         "name": "Email",
                         "widgetIsMajor": "true",
                         "widgetLength": "96",
+                        "widgetSize": "",
                         "widgetType": "EMAIL"
                     },
                     {
@@ -637,6 +668,7 @@
                         "name": "FirstName",
                         "widgetIsMajor": "true",
                         "widgetLength": "32",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -654,6 +686,7 @@
                         "name": "LastName",
                         "widgetIsMajor": "true",
                         "widgetLength": "32",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -673,6 +706,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Customer_Store",
                         "relationshipEntityName": "Store",
@@ -695,6 +729,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Customer_CustomerStatus",
                         "relationshipEntityName": "CustomerStatus",
@@ -715,6 +750,7 @@
                         "name": "Telephone",
                         "widgetIsMajor": "true",
                         "widgetLength": "32",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -732,6 +768,7 @@
                         "name": "DateAdded",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DATETIME-LOCAL"
                     },
                     {
@@ -749,6 +786,7 @@
                         "name": "Code",
                         "widgetIsMajor": "true",
                         "widgetLength": "40",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -766,6 +804,7 @@
                         "name": "CustomField",
                         "widgetIsMajor": "true",
                         "widgetLength": "2000",
+                        "widgetSize": "",
                         "widgetType": "TEXTAREA"
                     },
                     {
@@ -785,6 +824,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Customer_Language",
                         "relationshipEntityName": "Language",
@@ -824,6 +864,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -841,6 +882,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "128",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -860,6 +902,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Country_CountryStatus",
                         "relationshipEntityName": "CountryStatus",
@@ -880,6 +923,7 @@
                         "name": "IsoCode2",
                         "widgetIsMajor": "true",
                         "widgetLength": "2",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -897,6 +941,7 @@
                         "name": "IsoCode3",
                         "widgetIsMajor": "true",
                         "widgetLength": "3",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -914,6 +959,7 @@
                         "name": "PostcodeRequired",
                         "widgetIsMajor": "true",
                         "widgetLength": "1",
+                        "widgetSize": "",
                         "widgetType": "CHECKBOX"
                     }
                 ],
@@ -950,6 +996,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -965,6 +1012,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -1001,6 +1049,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1020,6 +1069,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Zone_Country",
                         "relationshipEntityName": "Country",
@@ -1040,6 +1090,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "128",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1059,6 +1110,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Zone_ZoneStatus",
                         "relationshipEntityName": "ZoneStatus",
@@ -1079,6 +1131,7 @@
                         "name": "Code",
                         "widgetIsMajor": "true",
                         "widgetLength": "32",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -1115,6 +1168,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1130,6 +1184,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -1166,6 +1221,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1183,6 +1239,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "32",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -1212,13 +1269,16 @@
                         "dataLength": "0",
                         "dataName": "LANGUAGE_ID",
                         "dataNullable": "true",
+                        "dataPrecision": "NaN",
                         "dataPrimaryKey": "true",
+                        "dataScale": "NaN",
                         "dataType": "INTEGER",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1226,7 +1286,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "32",
                         "dataName": "LANGUAGE_NAME",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -1236,6 +1296,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "32",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1243,7 +1304,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "5",
                         "dataName": "LANGUAGE_CODE",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -1253,6 +1314,7 @@
                         "name": "Code",
                         "widgetIsMajor": "true",
                         "widgetLength": "5",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1260,7 +1322,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "LANGUAGE_LOCALE",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -1270,6 +1332,7 @@
                         "name": "Locale",
                         "widgetIsMajor": "true",
                         "widgetLength": "255",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1277,7 +1340,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "LANGUAGE_STATUS",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -1289,6 +1352,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Language_LanguageStatus",
                         "relationshipEntityName": "LanguageStatus",
@@ -1328,6 +1392,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1345,6 +1410,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -1381,6 +1447,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1400,6 +1467,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -1436,6 +1504,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1455,6 +1524,7 @@
                         "widgetDropDownValue": "Model",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrderItem_Product",
                         "relationshipEntityName": "Product",
@@ -1478,6 +1548,7 @@
                         "relationshipType": "COMPOSITION",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "SalesOrder",
                         "relationshipEntityPerspectiveName": "SalesOrders"
@@ -1497,6 +1568,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "255",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1514,6 +1586,7 @@
                         "name": "Model",
                         "widgetIsMajor": "true",
                         "widgetLength": "64",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1531,6 +1604,7 @@
                         "name": "Quantity",
                         "widgetIsMajor": "true",
                         "widgetLength": "4",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -1548,6 +1622,7 @@
                         "name": "Price",
                         "widgetIsMajor": "true",
                         "widgetLength": "19",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -1565,6 +1640,7 @@
                         "name": "Total",
                         "widgetIsMajor": "true",
                         "widgetLength": "19",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -1582,6 +1658,7 @@
                         "name": "Tax",
                         "widgetIsMajor": "true",
                         "widgetLength": "19",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     }
                 ],
@@ -1618,6 +1695,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1625,7 +1703,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "64",
                         "dataName": "PRODUCT_MODEL",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -1635,6 +1713,7 @@
                         "name": "Model",
                         "widgetIsMajor": "true",
                         "widgetLength": "64",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1642,7 +1721,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "PRODUCT_MANUFACTURER",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -1654,6 +1733,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Product_Manufacturer",
                         "relationshipEntityName": "Manufacturer",
@@ -1664,7 +1744,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "1",
                         "dataName": "PRODUCT_STATUS",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -1676,6 +1756,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "1",
+                        "widgetSize": "",
                         "widgetType": "CHECKBOX",
                         "relationshipName": "Product_ProductStatus",
                         "relationshipEntityName": "ProductStatus",
@@ -1686,7 +1767,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "4",
                         "dataName": "PRODUCT_QUANTITY",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -1696,6 +1777,7 @@
                         "name": "Quantity",
                         "widgetIsMajor": "true",
                         "widgetLength": "4",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -1703,7 +1785,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "19",
                         "dataName": "PRODUCT_PRICE",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "15",
                         "dataPrimaryKey": "false",
                         "dataScale": "4",
@@ -1713,6 +1795,7 @@
                         "name": "Price",
                         "widgetIsMajor": "true",
                         "widgetLength": "19",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -1720,7 +1803,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "PRODUCT_IMAGE",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -1730,6 +1813,7 @@
                         "name": "Image",
                         "widgetIsMajor": "true",
                         "widgetLength": "255",
+                        "widgetSize": "",
                         "widgetType": "URL"
                     },
                     {
@@ -1737,7 +1821,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "64",
                         "dataName": "PRODUCT_SKU",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -1747,6 +1831,7 @@
                         "name": "SKU",
                         "widgetIsMajor": "true",
                         "widgetLength": "64",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1754,7 +1839,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "12",
                         "dataName": "PRODUCT_UPC",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -1764,6 +1849,7 @@
                         "name": "UPC",
                         "widgetIsMajor": "true",
                         "widgetLength": "12",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1771,7 +1857,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "14",
                         "dataName": "PRODUCT_EAN",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -1781,6 +1867,7 @@
                         "name": "EAN",
                         "widgetIsMajor": "true",
                         "widgetLength": "14",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1788,7 +1875,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "13",
                         "dataName": "PRODUCT_JAN",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -1798,6 +1885,7 @@
                         "name": "JAN",
                         "widgetIsMajor": "true",
                         "widgetLength": "13",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1805,7 +1893,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "17",
                         "dataName": "PRODUCT_ISBN",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -1815,6 +1903,7 @@
                         "name": "ISBN",
                         "widgetIsMajor": "true",
                         "widgetLength": "17",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1822,7 +1911,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "64",
                         "dataName": "PRODUCT_MPN",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -1832,6 +1921,7 @@
                         "name": "MPN",
                         "widgetIsMajor": "true",
                         "widgetLength": "64",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1839,7 +1929,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "PRODUCT_DATEAVAILABLE",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -1849,6 +1939,7 @@
                         "name": "DateAvailable",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DATE"
                     },
                     {
@@ -1856,7 +1947,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "23",
                         "dataName": "PRODUCT_WEIGHT",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "15",
                         "dataPrimaryKey": "false",
                         "dataScale": "8",
@@ -1866,6 +1957,7 @@
                         "name": "Weight",
                         "widgetIsMajor": "true",
                         "widgetLength": "23",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -1873,7 +1965,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "23",
                         "dataName": "PRODUCT_LENGTH",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "15",
                         "dataPrimaryKey": "false",
                         "dataScale": "8",
@@ -1883,6 +1975,7 @@
                         "name": "Length",
                         "widgetIsMajor": "true",
                         "widgetLength": "23",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -1890,7 +1983,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "23",
                         "dataName": "PRODUCT_WIDTH",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "15",
                         "dataPrimaryKey": "false",
                         "dataScale": "8",
@@ -1900,6 +1993,7 @@
                         "name": "Width",
                         "widgetIsMajor": "true",
                         "widgetLength": "23",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -1907,7 +2001,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "23",
                         "dataName": "PRODUCT_HEIGHT",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "15",
                         "dataPrimaryKey": "false",
                         "dataScale": "8",
@@ -1917,6 +2011,7 @@
                         "name": "Height",
                         "widgetIsMajor": "true",
                         "widgetLength": "23",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -1924,7 +2019,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "PRODUCT_DATEADDED",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -1934,6 +2029,7 @@
                         "name": "DateAdded",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DATETIME-LOCAL"
                     },
                     {
@@ -1941,7 +2037,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "PRODUCT_DATEMODIFIED",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -1951,6 +2047,7 @@
                         "name": "DateModified",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DATETIME-LOCAL"
                     },
                     {
@@ -1958,7 +2055,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "96",
                         "dataName": "PRODUCT_UPDATEDBY",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -1968,6 +2065,7 @@
                         "name": "UpdatedBy",
                         "widgetIsMajor": "true",
                         "widgetLength": "96",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1975,7 +2073,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "8",
                         "dataName": "PRODUCT_POINTS",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -1985,6 +2083,7 @@
                         "name": "Points",
                         "widgetIsMajor": "true",
                         "widgetLength": "8",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -1992,7 +2091,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "1",
                         "dataName": "PRODUCT_SHIPPING",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -2002,6 +2101,7 @@
                         "name": "Shipping",
                         "widgetIsMajor": "true",
                         "widgetLength": "1",
+                        "widgetSize": "",
                         "widgetType": "CHECKBOX"
                     },
                     {
@@ -2009,7 +2109,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "128",
                         "dataName": "PRODUCT_LOCATION",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -2019,6 +2119,7 @@
                         "name": "Location",
                         "widgetIsMajor": "true",
                         "widgetLength": "128",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2026,7 +2127,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "1",
                         "dataName": "PRODUCT_SUBTRACT",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -2036,6 +2137,7 @@
                         "name": "Subtract",
                         "widgetIsMajor": "true",
                         "widgetLength": "1",
+                        "widgetSize": "",
                         "widgetType": "CHECKBOX"
                     },
                     {
@@ -2043,7 +2145,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "11",
                         "dataName": "PRODUCT_MINIMUM",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -2053,6 +2155,7 @@
                         "name": "Minimum",
                         "widgetIsMajor": "true",
                         "widgetLength": "11",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -2060,7 +2163,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "PRODUCT_STOCKSTATUS",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -2072,6 +2175,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Product_StockStatus",
                         "relationshipEntityName": "StockStatus",
@@ -2111,6 +2215,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2130,6 +2235,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "StockStatus_Language",
                         "relationshipEntityName": "Language",
@@ -2150,6 +2256,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "32",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -2188,6 +2295,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2205,6 +2313,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2222,6 +2331,7 @@
                         "name": "Image",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -2258,6 +2368,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2273,6 +2384,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -2309,6 +2421,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2326,6 +2439,7 @@
                         "name": "FirstName",
                         "widgetIsMajor": "true",
                         "widgetLength": "32",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2343,6 +2457,7 @@
                         "name": "LastName",
                         "widgetIsMajor": "true",
                         "widgetLength": "32",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2360,6 +2475,7 @@
                         "name": "Email",
                         "widgetIsMajor": "true",
                         "widgetLength": "96",
+                        "widgetSize": "",
                         "widgetType": "EMAIL"
                     },
                     {
@@ -2379,6 +2495,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Employee_EmployeeStatus",
                         "relationshipEntityName": "EmployeeStatus",
@@ -2399,6 +2516,7 @@
                         "name": "Image",
                         "widgetIsMajor": "true",
                         "widgetLength": "255",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2416,6 +2534,7 @@
                         "name": "Code",
                         "widgetIsMajor": "true",
                         "widgetLength": "40",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2433,6 +2552,7 @@
                         "name": "UpdatedBy",
                         "widgetIsMajor": "true",
                         "widgetLength": "96",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2450,6 +2570,7 @@
                         "name": "DateModified",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DATETIME-LOCAL"
                     }
                 ],
@@ -2486,6 +2607,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2501,6 +2623,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -2537,6 +2660,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2556,6 +2680,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrderPayment_Zone",
                         "relationshipEntityName": "Zone",
@@ -2576,6 +2701,7 @@
                         "name": "FirstName",
                         "widgetIsMajor": "true",
                         "widgetLength": "32",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2593,6 +2719,7 @@
                         "name": "LastName",
                         "widgetIsMajor": "true",
                         "widgetLength": "32",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2610,6 +2737,7 @@
                         "name": "Company",
                         "widgetIsMajor": "true",
                         "widgetLength": "60",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2627,6 +2755,7 @@
                         "name": "Address1",
                         "widgetIsMajor": "true",
                         "widgetLength": "128",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2644,6 +2773,7 @@
                         "name": "Address2",
                         "widgetIsMajor": "true",
                         "widgetLength": "128",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2663,6 +2793,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrderPayment_Country",
                         "relationshipEntityName": "Country",
@@ -2683,6 +2814,7 @@
                         "name": "City",
                         "widgetIsMajor": "true",
                         "widgetLength": "128",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2700,6 +2832,7 @@
                         "name": "Postcode",
                         "widgetIsMajor": "true",
                         "widgetLength": "10",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2717,6 +2850,7 @@
                         "name": "Method",
                         "widgetIsMajor": "true",
                         "widgetLength": "128",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2734,6 +2868,7 @@
                         "name": "Code",
                         "widgetIsMajor": "true",
                         "widgetLength": "128",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2751,6 +2886,7 @@
                         "name": "AddressFormat",
                         "widgetIsMajor": "true",
                         "widgetLength": "2000",
+                        "widgetSize": "",
                         "widgetType": "TEXTAREA"
                     },
                     {
@@ -2768,6 +2904,7 @@
                         "name": "CustomField",
                         "widgetIsMajor": "true",
                         "widgetLength": "2000",
+                        "widgetSize": "",
                         "widgetType": "TEXTAREA"
                     },
                     {
@@ -2786,6 +2923,7 @@
                         "relationshipType": "COMPOSITION",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "SalesOrder",
                         "relationshipEntityPerspectiveName": "SalesOrders"
@@ -2824,6 +2962,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2843,6 +2982,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrderShipping_Zone",
                         "relationshipEntityName": "Zone",
@@ -2863,6 +3003,7 @@
                         "name": "FirstName",
                         "widgetIsMajor": "true",
                         "widgetLength": "32",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2880,6 +3021,7 @@
                         "name": "LastName",
                         "widgetIsMajor": "true",
                         "widgetLength": "32",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2897,6 +3039,7 @@
                         "name": "Company",
                         "widgetIsMajor": "true",
                         "widgetLength": "40",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2914,6 +3057,7 @@
                         "name": "Address1",
                         "widgetIsMajor": "true",
                         "widgetLength": "128",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2931,6 +3075,7 @@
                         "name": "Address2",
                         "widgetIsMajor": "true",
                         "widgetLength": "128",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2950,6 +3095,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrderShipping_Country",
                         "relationshipEntityName": "Country",
@@ -2970,6 +3116,7 @@
                         "name": "City",
                         "widgetIsMajor": "true",
                         "widgetLength": "128",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -2987,6 +3134,7 @@
                         "name": "Postcode",
                         "widgetIsMajor": "true",
                         "widgetLength": "10",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3004,6 +3152,7 @@
                         "name": "Method",
                         "widgetIsMajor": "true",
                         "widgetLength": "128",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3021,6 +3170,7 @@
                         "name": "Code",
                         "widgetIsMajor": "true",
                         "widgetLength": "128",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3038,6 +3188,7 @@
                         "name": "UpdatedBy",
                         "widgetIsMajor": "true",
                         "widgetLength": "96",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3055,6 +3206,7 @@
                         "name": "AddressFormat",
                         "widgetIsMajor": "true",
                         "widgetLength": "2000",
+                        "widgetSize": "",
                         "widgetType": "TEXTAREA"
                     },
                     {
@@ -3072,6 +3224,7 @@
                         "name": "CustomField",
                         "widgetIsMajor": "true",
                         "widgetLength": "2000",
+                        "widgetSize": "",
                         "widgetType": "TEXTAREA"
                     },
                     {
@@ -3090,6 +3243,7 @@
                         "relationshipType": "COMPOSITION",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "SalesOrder",
                         "relationshipEntityPerspectiveName": "SalesOrders"
@@ -3128,6 +3282,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3145,6 +3300,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -3183,6 +3339,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3200,6 +3357,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "64",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3217,6 +3375,7 @@
                         "name": "UpdatedBy",
                         "widgetIsMajor": "true",
                         "widgetLength": "96",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3234,6 +3393,7 @@
                         "name": "DateModified",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DATETIME-LOCAL"
                     }
                 ],
@@ -3270,6 +3430,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3292,6 +3453,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "AttributeGroup",
                         "relationshipEntityPerspectiveName": "Products"
@@ -3311,6 +3473,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "64",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -3347,6 +3510,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3354,7 +3518,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "PRODUCTATTRIBUTE_PRODUCT",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -3369,6 +3533,7 @@
                         "widgetDropDownValue": "Model",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "Product",
                         "relationshipEntityPerspectiveName": "Products"
@@ -3378,7 +3543,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "PRODUCTATTRIBUTE_ATTRIBUTE",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -3390,6 +3555,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "ProductAttribute_Attribute",
                         "relationshipEntityName": "Attribute",
@@ -3400,7 +3566,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "PRODUCTATTRIBUTE_LANGUAGE",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -3412,6 +3578,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "ProductAttribute_Language",
                         "relationshipEntityName": "Language",
@@ -3422,7 +3589,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "2000",
                         "dataName": "PRODUCTATTRIBUTE_TEXT",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -3432,6 +3599,7 @@
                         "name": "Text",
                         "widgetIsMajor": "true",
                         "widgetLength": "2000",
+                        "widgetSize": "",
                         "widgetType": "TEXTAREA"
                     }
                 ],
@@ -3468,6 +3636,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3485,6 +3654,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "64",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -3523,6 +3693,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3540,6 +3711,7 @@
                         "name": "Text",
                         "widgetIsMajor": "true",
                         "widgetLength": "2000",
+                        "widgetSize": "",
                         "widgetType": "TEXTAREA"
                     },
                     {
@@ -3557,6 +3729,7 @@
                         "name": "CreatedBy",
                         "widgetIsMajor": "true",
                         "widgetLength": "96",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3574,6 +3747,7 @@
                         "name": "CreatedAt",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DATETIME-LOCAL"
                     },
                     {
@@ -3594,6 +3768,7 @@
                         "relationshipType": "COMPOSITION",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "SalesOrder",
                         "relationshipEntityPerspectiveName": "SalesOrders"
@@ -3623,7 +3798,7 @@
                         "calculatedPropertyExpression": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
-                        "dataName": "ATTRIBUTETRANSLATIONN_ID",
+                        "dataName": "ATTRIBUTETRANSLATION_ID",
                         "dataNullable": "true",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "true",
@@ -3634,6 +3809,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3654,6 +3830,7 @@
                         "relationshipType": "COMPOSITION",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "Attribute",
                         "relationshipEntityPerspectiveName": "Products"
@@ -3675,6 +3852,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "AttributeTranslation_Language",
                         "relationshipEntityName": "Language",
@@ -3695,6 +3873,7 @@
                         "name": "Text",
                         "widgetIsMajor": "true",
                         "widgetLength": "64",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -3733,6 +3912,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3740,7 +3920,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "PRODUCTDESCRIPTION_PRODUCT",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -3755,6 +3935,7 @@
                         "widgetDropDownValue": "Model",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "Product",
                         "relationshipEntityPerspectiveName": "Products"
@@ -3764,7 +3945,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "PRODUCTDESCRIPTION_NAME",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -3774,6 +3955,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "255",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3781,7 +3963,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "65535",
                         "dataName": "PRODUCTDESCRIPTION_DESCRIPTION",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -3791,6 +3973,7 @@
                         "name": "Description",
                         "widgetIsMajor": "true",
                         "widgetLength": "65535",
+                        "widgetSize": "",
                         "widgetType": "TEXTAREA"
                     },
                     {
@@ -3798,7 +3981,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "2000",
                         "dataName": "PRODUCTDESCRIPTION_TAG",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -3808,6 +3991,7 @@
                         "name": "Tag",
                         "widgetIsMajor": "true",
                         "widgetLength": "2000",
+                        "widgetSize": "",
                         "widgetType": "TEXTAREA"
                     },
                     {
@@ -3815,7 +3999,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "PRODUCTDESCRIPTION_METATITLE",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -3825,6 +4009,7 @@
                         "name": "MetaTitle",
                         "widgetIsMajor": "true",
                         "widgetLength": "255",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3832,7 +4017,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "PRODUCTDESCRIPTION_METADESCRIPTION",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -3842,6 +4027,7 @@
                         "name": "MetaDescription",
                         "widgetIsMajor": "true",
                         "widgetLength": "255",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3849,7 +4035,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "PRODUCTDESCRIPTION_METAKEYWORD",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -3859,6 +4045,7 @@
                         "name": "MetaKeyword",
                         "widgetIsMajor": "true",
                         "widgetLength": "255",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3866,7 +4053,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "PRODUCTDESCRIPTION_LANGUAGE",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -3878,6 +4065,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "ProductDescription_Language",
                         "relationshipEntityName": "Language",
@@ -3919,6 +4107,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3936,6 +4125,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "64",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -3972,6 +4162,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -3991,6 +4182,7 @@
                         "widgetDropDownValue": "Email",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "GroupEmployee_Employee",
                         "relationshipEntityName": "Employee",
@@ -4013,6 +4205,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "GroupEmployee_Group",
                         "relationshipEntityName": "Group",
@@ -4033,6 +4226,7 @@
                         "name": "UpdatedBy",
                         "widgetIsMajor": "true",
                         "widgetLength": "96",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -4050,6 +4244,7 @@
                         "name": "DateModified",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DATETIME-LOCAL"
                     }
                 ],
@@ -4086,6 +4281,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -4105,6 +4301,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "GroupPermission_Group",
                         "relationshipEntityName": "Group",
@@ -4127,6 +4324,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "GroupPermission_Permission",
                         "relationshipEntityName": "Permission",
@@ -4147,6 +4345,7 @@
                         "name": "UpdatedBy",
                         "widgetIsMajor": "true",
                         "widgetLength": "96",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -4164,6 +4363,7 @@
                         "name": "DateModified",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DATETIME-LOCAL"
                     }
                 ],
@@ -4202,6 +4402,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -4219,6 +4420,7 @@
                         "name": "EntityName",
                         "widgetIsMajor": "true",
                         "widgetLength": "64",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -4236,6 +4438,7 @@
                         "name": "EntityIntegerId",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -4253,6 +4456,7 @@
                         "name": "EntityStringId",
                         "widgetIsMajor": "true",
                         "widgetLength": "64",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -4270,6 +4474,7 @@
                         "name": "ReferenceIntegerId",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -4287,6 +4492,7 @@
                         "name": "ReferenceStringId",
                         "widgetIsMajor": "true",
                         "widgetLength": "64",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -4304,6 +4510,7 @@
                         "name": "ScopeIntegerId",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -4321,6 +4528,7 @@
                         "name": "ScopeStringId",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -4359,6 +4567,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -4381,6 +4590,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "Store",
                         "relationshipEntityPerspectiveName": "Stores"
@@ -4402,6 +4612,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "StoreConfiguration_StoreConfigurationProperty",
                         "relationshipEntityName": "StoreConfigurationProperty",
@@ -4422,6 +4633,7 @@
                         "name": "Value",
                         "widgetIsMajor": "true",
                         "widgetLength": "64",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -4458,6 +4670,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -4475,6 +4688,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "32",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -4513,6 +4727,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -4530,6 +4745,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "32",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -4568,6 +4784,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -4590,6 +4807,7 @@
                         "widgetDropDownValue": "Model",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "Product",
                         "relationshipEntityPerspectiveName": "Products"
@@ -4611,6 +4829,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "ProductToStore_Store",
                         "relationshipEntityName": "Store",
@@ -4652,6 +4871,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -4674,6 +4894,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "AttributeGroup",
                         "relationshipEntityPerspectiveName": "Products"
@@ -4695,6 +4916,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "AttributeGroupTranslation_Language",
                         "relationshipEntityName": "Language",
@@ -4715,6 +4937,7 @@
                         "name": "Text",
                         "widgetIsMajor": "true",
                         "widgetLength": "64",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],

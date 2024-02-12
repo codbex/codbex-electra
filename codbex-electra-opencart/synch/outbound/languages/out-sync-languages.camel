@@ -18,7 +18,7 @@
             expression:
               constant:
                 expression: >-
-                  codbex-electra-opencart/synch/outbound/get-all-relevant-stores.mjs
+                  codbex-electra-opencart/synch/outbound/get-all-relevant-stores.ts
                 id: constant-languages-8de2
             description: Set JS file
         - to:
@@ -39,7 +39,7 @@
                   expression:
                     constant:
                       expression: >-
-                        codbex-electra-opencart/synch/outbound/languages/get-all-enabled-languages.mjs
+                        codbex-electra-opencart/synch/outbound/languages/get-all-enabled-languages.ts
                       id: constant-languages-eb12
                   description: Set JS file
               - to:
@@ -61,7 +61,7 @@
                         expression:
                           constant:
                             expression: >-
-                              codbex-electra-opencart/synch/outbound/languages/merge-language-to-open-cart.mjs
+                              codbex-electra-opencart/synch/outbound/languages/merge-language-to-open-cart.ts
                             id: constant-languages-a0bf
                         description: Set JS file
                     - to:

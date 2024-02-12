@@ -21,9 +21,9 @@
                 <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container fd-form-group">
                     <fd-form-item class="fd-row fd-form-item">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idAttribute" dg-required="false" dg-colon="true">Attribute</fd-form-label>
+                        	<fd-form-label for="idAttribute" dg-required="true" dg-colon="true">Attribute</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--8">
+                        <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idAttribute"
 	                            name="Attribute"
 	                            state="{{ formErrors.Attribute ? 'error' : '' }}"
@@ -38,9 +38,9 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row fd-form-item">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idLanguage" dg-required="false" dg-colon="true">Language</fd-form-label>
+                        	<fd-form-label for="idLanguage" dg-required="true" dg-colon="true">Language</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--8">
+                        <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idLanguage"
 	                            name="Language"
 	                            state="{{ formErrors.Language ? 'error' : '' }}"
@@ -55,13 +55,13 @@
                     </fd-form-item>
 					<fd-form-item class="fd-row fd-form-item">
 						<div class="fd-col fd-col-md--2">
-							<fd-form-label for="idText" dg-required="false" dg-colon="true">Text</fd-form-label>
+							<fd-form-label for="idText" dg-required="true" dg-colon="true">Text</fd-form-label>
 						</div>
-						<div class="fd-col fd-col-md--8">
+						<div class="fd-col  fd-col-md--8 ">
 							<fd-textarea id="idText"
 								name="Text"
 								state="{{ formErrors.Text ? 'error' : '' }}"
-								ng-required="false"
+								ng-required="true"
 								ng-change="isValid(formFieldset['Text'].$valid, 'Text')"
 								ng-model="entity.Text"
 	                            ng-readonly="action === 'select'"
