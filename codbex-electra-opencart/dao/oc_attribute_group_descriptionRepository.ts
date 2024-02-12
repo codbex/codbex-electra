@@ -1,7 +1,5 @@
 import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { dao as daoApi, update } from "sdk/db";
 
 export interface oc_attribute_group_descriptionEntity {
     readonly attribute_group_id: number;
@@ -71,11 +69,12 @@ interface oc_attribute_group_descriptionEntityEvent {
         name: string;
         column: string;
         value: number;
-        value: number;
     }
 }
 
 export class oc_attribute_group_descriptionRepository {
+
+    private static readonly UPDATE_STATEMENT = "UPDATE `oc_attribute_group_description` SET `name` = ? WHERE (`attribute_group_id`=? AND `language_id` = ?)";
 
     private static readonly DEFINITION = {
         table: "oc_attribute_group_description",
@@ -85,7 +84,7 @@ export class oc_attribute_group_descriptionRepository {
                 column: "attribute_group_id",
                 type: "INT",
                 id: true,
-                autoIncrement: true,
+                autoIncrement: false,
                 required: true
             },
             {
@@ -93,7 +92,7 @@ export class oc_attribute_group_descriptionRepository {
                 column: "language_id",
                 type: "INT",
                 id: true,
-                autoIncrement: true,
+                autoIncrement: false,
                 required: true
             },
             {
@@ -106,8 +105,10 @@ export class oc_attribute_group_descriptionRepository {
     };
 
     private readonly dao;
+    private readonly dataSourceName;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource: string) {
+        this.dataSourceName = dataSource;
         this.dao = daoApi.create(oc_attribute_group_descriptionRepository.DEFINITION, null, dataSource);
     }
 
@@ -116,80 +117,39 @@ export class oc_attribute_group_descriptionRepository {
     }
 
     public findById(id: number): oc_attribute_group_descriptionEntity | undefined {
-    public findById(id: number): oc_attribute_group_descriptionEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }
 
     public create(entity: oc_attribute_group_descriptionCreateEntity): number {
-    public create(entity: oc_attribute_group_descriptionCreateEntity): number {
-        const id = this.dao.insert(entity);
-        this.triggerEvent({
-            operation: "create",
-            table: "oc_attribute_group_description",
-            entity: entity,
-            key: {
-                name: "attribute_group_id",
-                column: "attribute_group_id",
-                value: id
-                name: "language_id",
-                column: "language_id",
-                value: id
-            }
-        });
-        return id;
+        return this.dao.insert(entity);
     }
 
-    public update(entity: oc_attribute_group_descriptionUpdateEntity): void {
-        this.dao.update(entity);
-        this.triggerEvent({
-            operation: "update",
-            table: "oc_attribute_group_description",
-            entity: entity,
-            key: {
-                name: "attribute_group_id",
-                column: "attribute_group_id",
-                value: entity.attribute_group_id
-                name: "language_id",
-                column: "language_id",
-                value: entity.language_id
-            }
-        });
+    public update(entity: oc_attribute_group_descriptionUpdateEntity): number {
+        const params = [entity.name, entity.attribute_group_id, entity.language_id];
+        return update.execute(oc_attribute_group_descriptionRepository.UPDATE_STATEMENT, params, this.dataSourceName);
     }
 
     public upsert(entity: oc_attribute_group_descriptionCreateEntity | oc_attribute_group_descriptionUpdateEntity): number {
-    public upsert(entity: oc_attribute_group_descriptionCreateEntity | oc_attribute_group_descriptionUpdateEntity): number {
-        const id = (entity as oc_attribute_group_descriptionUpdateEntity).attribute_group_idlanguage_id;
-        if (!id) {
-            return this.create(entity);
-        }
+        const querySettings = {
+            $filter: {
+                equals: {
+                    attribute_group_id: entity.attribute_group_id,
+                    language_id: entity.language_id
 
-        const existingEntity = this.findById(id);
-        if (existingEntity) {
-            this.update(entity as oc_attribute_group_descriptionUpdateEntity);
-            return id;
+                }
+            }
+        };
+        const entries = this.findAll(querySettings);
+        if (entries.length > 0) {
+            this.update(entity);
         } else {
-            return this.create(entity);
+            this.create(entity);
         }
     }
 
     public deleteById(id: number): void {
-    public deleteById(id: number): void {
-        const entity = this.dao.find(id);
         this.dao.remove(id);
-        this.triggerEvent({
-            operation: "delete",
-            table: "oc_attribute_group_description",
-            entity: entity,
-            key: {
-                name: "attribute_group_id",
-                column: "attribute_group_id",
-                value: id
-                name: "language_id",
-                column: "language_id",
-                value: id
-            }
-        });
     }
 
     public count(): number {
@@ -208,15 +168,4 @@ export class oc_attribute_group_descriptionRepository {
         return 0;
     }
 
-    private async triggerEvent(data: oc_attribute_group_descriptionEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("DemoStoreOpenCartDB/oc_attribute_group_description/oc_attribute_group_description", ["trigger"]);
-        triggerExtensions.forEach(triggerExtension => {
-            try {
-                triggerExtension.trigger(data);
-            } catch (error) {
-                console.error(error);
-            }            
-        });
-        producer.queue("DemoStoreOpenCartDB/oc_attribute_group_description/oc_attribute_group_description").send(JSON.stringify(data));
-    }
 }

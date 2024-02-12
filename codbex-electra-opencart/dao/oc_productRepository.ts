@@ -1,8 +1,6 @@
 import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
-import { EntityUtils } from "../utils/EntityUtils";
+import { EntityUtils } from "./EntityUtils";
 
 export interface oc_productEntity {
     readonly product_id: number;
@@ -337,7 +335,7 @@ export class oc_productRepository {
                 column: "product_id",
                 type: "INT",
                 id: true,
-                autoIncrement: true,
+                autoIncrement: false,
                 required: true
             },
             {
@@ -524,7 +522,7 @@ export class oc_productRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource: string) {
         this.dao = daoApi.create(oc_productRepository.DEFINITION, null, dataSource);
     }
 
@@ -552,18 +550,10 @@ export class oc_productRepository {
         EntityUtils.setLocalDate(entity, "date_available");
         EntityUtils.setBoolean(entity, "subtract");
         EntityUtils.setBoolean(entity, "status");
-        const id = this.dao.insert(entity);
-        this.triggerEvent({
-            operation: "create",
-            table: "oc_product",
-            entity: entity,
-            key: {
-                name: "product_id",
-                column: "product_id",
-                value: id
-            }
-        });
-        return id;
+        if (!entity.viewed) {
+            entity.viewed = 0;
+        }
+        return this.dao.insert(entity);
     }
 
     public update(entity: oc_productUpdateEntity): void {
@@ -572,16 +562,6 @@ export class oc_productRepository {
         EntityUtils.setBoolean(entity, "subtract");
         EntityUtils.setBoolean(entity, "status");
         this.dao.update(entity);
-        this.triggerEvent({
-            operation: "update",
-            table: "oc_product",
-            entity: entity,
-            key: {
-                name: "product_id",
-                column: "product_id",
-                value: entity.product_id
-            }
-        });
     }
 
     public upsert(entity: oc_productCreateEntity | oc_productUpdateEntity): number {
@@ -600,18 +580,7 @@ export class oc_productRepository {
     }
 
     public deleteById(id: number): void {
-        const entity = this.dao.find(id);
         this.dao.remove(id);
-        this.triggerEvent({
-            operation: "delete",
-            table: "oc_product",
-            entity: entity,
-            key: {
-                name: "product_id",
-                column: "product_id",
-                value: id
-            }
-        });
     }
 
     public count(): number {
@@ -628,17 +597,5 @@ export class oc_productRepository {
             }
         }
         return 0;
-    }
-
-    private async triggerEvent(data: oc_productEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("DemoStoreOpenCartDB/oc_product/oc_product", ["trigger"]);
-        triggerExtensions.forEach(triggerExtension => {
-            try {
-                triggerExtension.trigger(data);
-            } catch (error) {
-                console.error(error);
-            }            
-        });
-        producer.queue("DemoStoreOpenCartDB/oc_product/oc_product").send(JSON.stringify(data));
     }
 }
