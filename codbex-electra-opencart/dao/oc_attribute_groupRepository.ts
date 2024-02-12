@@ -1,4 +1,6 @@
 import { query } from "sdk/db";
+import { producer } from "sdk/messaging";
+import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
 
 export interface oc_attribute_groupEntity {
@@ -73,7 +75,7 @@ export class oc_attribute_groupRepository {
                 column: "attribute_group_id",
                 type: "INT",
                 id: true,
-                autoIncrement: false,
+                autoIncrement: true,
                 required: true
             },
             {
@@ -87,7 +89,7 @@ export class oc_attribute_groupRepository {
 
     private readonly dao;
 
-    constructor(dataSource: string) {
+    constructor(dataSource?: string) {
         this.dao = daoApi.create(oc_attribute_groupRepository.DEFINITION, null, dataSource);
     }
 
@@ -101,11 +103,32 @@ export class oc_attribute_groupRepository {
     }
 
     public create(entity: oc_attribute_groupCreateEntity): number {
-        return this.dao.insert(entity);
+        const id = this.dao.insert(entity);
+        this.triggerEvent({
+            operation: "create",
+            table: "oc_attribute_group",
+            entity: entity,
+            key: {
+                name: "attribute_group_id",
+                column: "attribute_group_id",
+                value: id
+            }
+        });
+        return id;
     }
 
     public update(entity: oc_attribute_groupUpdateEntity): void {
         this.dao.update(entity);
+        this.triggerEvent({
+            operation: "update",
+            table: "oc_attribute_group",
+            entity: entity,
+            key: {
+                name: "attribute_group_id",
+                column: "attribute_group_id",
+                value: entity.attribute_group_id
+            }
+        });
     }
 
     public upsert(entity: oc_attribute_groupCreateEntity | oc_attribute_groupUpdateEntity): number {
@@ -124,7 +147,18 @@ export class oc_attribute_groupRepository {
     }
 
     public deleteById(id: number): void {
+        const entity = this.dao.find(id);
         this.dao.remove(id);
+        this.triggerEvent({
+            operation: "delete",
+            table: "oc_attribute_group",
+            entity: entity,
+            key: {
+                name: "attribute_group_id",
+                column: "attribute_group_id",
+                value: id
+            }
+        });
     }
 
     public count(): number {
@@ -143,4 +177,15 @@ export class oc_attribute_groupRepository {
         return 0;
     }
 
+    private async triggerEvent(data: oc_attribute_groupEntityEvent) {
+        const triggerExtensions = await extensions.loadExtensionModules("DemoStoreOpenCartDB/oc_attribute_group/oc_attribute_group", ["trigger"]);
+        triggerExtensions.forEach(triggerExtension => {
+            try {
+                triggerExtension.trigger(data);
+            } catch (error) {
+                console.error(error);
+            }            
+        });
+        producer.queue("DemoStoreOpenCartDB/oc_attribute_group/oc_attribute_group").send(JSON.stringify(data));
+    }
 }

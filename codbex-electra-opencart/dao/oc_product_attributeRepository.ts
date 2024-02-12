@@ -1,5 +1,7 @@
 import { query } from "sdk/db";
-import { dao as daoApi, update } from "sdk/db";
+import { producer } from "sdk/messaging";
+import { extensions } from "sdk/extensions";
+import { dao as daoApi } from "sdk/db";
 
 export interface oc_product_attributeEntity {
     readonly product_id: number;
@@ -78,12 +80,12 @@ interface oc_product_attributeEntityEvent {
         name: string;
         column: string;
         value: number;
+        value: number;
+        value: number;
     }
 }
 
 export class oc_product_attributeRepository {
-
-    private static readonly UPDATE_STATEMENT = "UPDATE `oc_product_attribute` SET `text` = ? WHERE (`product_id`=? AND `language_id`=? AND `attribute_id`=?)";
 
     private static readonly DEFINITION = {
         table: "oc_product_attribute",
@@ -93,7 +95,7 @@ export class oc_product_attributeRepository {
                 column: "product_id",
                 type: "INT",
                 id: true,
-                autoIncrement: false,
+                autoIncrement: true,
                 required: true
             },
             {
@@ -101,7 +103,7 @@ export class oc_product_attributeRepository {
                 column: "attribute_id",
                 type: "INT",
                 id: true,
-                autoIncrement: false,
+                autoIncrement: true,
                 required: true
             },
             {
@@ -109,7 +111,7 @@ export class oc_product_attributeRepository {
                 column: "language_id",
                 type: "INT",
                 id: true,
-                autoIncrement: false,
+                autoIncrement: true,
                 required: true
             },
             {
@@ -122,11 +124,8 @@ export class oc_product_attributeRepository {
     };
 
     private readonly dao;
-    private readonly dataSourceName;
 
-
-    constructor(dataSource: string) {
-        this.dataSourceName = dataSource;
+    constructor(dataSource?: string) {
         this.dao = daoApi.create(oc_product_attributeRepository.DEFINITION, null, dataSource);
     }
 
@@ -135,39 +134,93 @@ export class oc_product_attributeRepository {
     }
 
     public findById(id: number): oc_product_attributeEntity | undefined {
+    public findById(id: number): oc_product_attributeEntity | undefined {
+    public findById(id: number): oc_product_attributeEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }
 
     public create(entity: oc_product_attributeCreateEntity): number {
-        return this.dao.insert(entity);
+    public create(entity: oc_product_attributeCreateEntity): number {
+    public create(entity: oc_product_attributeCreateEntity): number {
+        const id = this.dao.insert(entity);
+        this.triggerEvent({
+            operation: "create",
+            table: "oc_product_attribute",
+            entity: entity,
+            key: {
+                name: "product_id",
+                column: "product_id",
+                value: id
+                name: "attribute_id",
+                column: "attribute_id",
+                value: id
+                name: "language_id",
+                column: "language_id",
+                value: id
+            }
+        });
+        return id;
     }
 
-    public update(entity: oc_product_attributeUpdateEntity): number {
-        const params = [entity.text, entity.product_id, entity.language_id, entity.attribute_id];
-        return update.execute(oc_product_attributeRepository.UPDATE_STATEMENT, params, this.dataSourceName);
+    public update(entity: oc_product_attributeUpdateEntity): void {
+        this.dao.update(entity);
+        this.triggerEvent({
+            operation: "update",
+            table: "oc_product_attribute",
+            entity: entity,
+            key: {
+                name: "product_id",
+                column: "product_id",
+                value: entity.product_id
+                name: "attribute_id",
+                column: "attribute_id",
+                value: entity.attribute_id
+                name: "language_id",
+                column: "language_id",
+                value: entity.language_id
+            }
+        });
     }
 
     public upsert(entity: oc_product_attributeCreateEntity | oc_product_attributeUpdateEntity): number {
-        const querySettings = {
-            $filter: {
-                equals: {
-                    product_id: entity.product_id,
-                    language_id: entity.language_id,
-                    attribute_id: entity.attribute_id
-                }
-            }
-        };
-        const entries = this.findAll(querySettings);
-        if (entries.length > 0) {
-            this.update(entity);
+    public upsert(entity: oc_product_attributeCreateEntity | oc_product_attributeUpdateEntity): number {
+    public upsert(entity: oc_product_attributeCreateEntity | oc_product_attributeUpdateEntity): number {
+        const id = (entity as oc_product_attributeUpdateEntity).product_idattribute_idlanguage_id;
+        if (!id) {
+            return this.create(entity);
+        }
+
+        const existingEntity = this.findById(id);
+        if (existingEntity) {
+            this.update(entity as oc_product_attributeUpdateEntity);
+            return id;
         } else {
-            this.create(entity);
+            return this.create(entity);
         }
     }
 
     public deleteById(id: number): void {
+    public deleteById(id: number): void {
+    public deleteById(id: number): void {
+        const entity = this.dao.find(id);
         this.dao.remove(id);
+        this.triggerEvent({
+            operation: "delete",
+            table: "oc_product_attribute",
+            entity: entity,
+            key: {
+                name: "product_id",
+                column: "product_id",
+                value: id
+                name: "attribute_id",
+                column: "attribute_id",
+                value: id
+                name: "language_id",
+                column: "language_id",
+                value: id
+            }
+        });
     }
 
     public count(): number {
@@ -186,4 +239,15 @@ export class oc_product_attributeRepository {
         return 0;
     }
 
+    private async triggerEvent(data: oc_product_attributeEntityEvent) {
+        const triggerExtensions = await extensions.loadExtensionModules("DemoStoreOpenCartDB/oc_product_attribute/oc_product_attribute", ["trigger"]);
+        triggerExtensions.forEach(triggerExtension => {
+            try {
+                triggerExtension.trigger(data);
+            } catch (error) {
+                console.error(error);
+            }            
+        });
+        producer.queue("DemoStoreOpenCartDB/oc_product_attribute/oc_product_attribute").send(JSON.stringify(data));
+    }
 }

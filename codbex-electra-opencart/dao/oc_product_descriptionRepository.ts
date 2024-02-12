@@ -1,5 +1,7 @@
 import { query } from "sdk/db";
-import { dao as daoApi, update } from "sdk/db";
+import { producer } from "sdk/messaging";
+import { extensions } from "sdk/extensions";
+import { dao as daoApi } from "sdk/db";
 
 export interface oc_product_descriptionEntity {
     readonly product_id: number;
@@ -114,12 +116,11 @@ interface oc_product_descriptionEntityEvent {
         name: string;
         column: string;
         value: number;
+        value: number;
     }
 }
 
 export class oc_product_descriptionRepository {
-
-    private static readonly UPDATE_STATEMENT = "UPDATE `oc_product_description` SET `name` = ?, `description` = ?, `tag` = ?, `meta_title` = ?, `meta_description` = ?, `meta_keyword` = ? WHERE (`product_id`=? AND `language_id` = ?)";
 
     private static readonly DEFINITION = {
         table: "oc_product_description",
@@ -129,7 +130,7 @@ export class oc_product_descriptionRepository {
                 column: "product_id",
                 type: "INT",
                 id: true,
-                autoIncrement: false,
+                autoIncrement: true,
                 required: true
             },
             {
@@ -137,7 +138,7 @@ export class oc_product_descriptionRepository {
                 column: "language_id",
                 type: "INT",
                 id: true,
-                autoIncrement: false,
+                autoIncrement: true,
                 required: true
             },
             {
@@ -180,10 +181,8 @@ export class oc_product_descriptionRepository {
     };
 
     private readonly dao;
-    private readonly dataSourceName;
 
-    constructor(dataSource: string) {
-        this.dataSourceName = dataSource;
+    constructor(dataSource?: string) {
         this.dao = daoApi.create(oc_product_descriptionRepository.DEFINITION, null, dataSource);
     }
 
@@ -192,41 +191,80 @@ export class oc_product_descriptionRepository {
     }
 
     public findById(id: number): oc_product_descriptionEntity | undefined {
+    public findById(id: number): oc_product_descriptionEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }
 
     public create(entity: oc_product_descriptionCreateEntity): number {
-        return this.dao.insert(entity);
+    public create(entity: oc_product_descriptionCreateEntity): number {
+        const id = this.dao.insert(entity);
+        this.triggerEvent({
+            operation: "create",
+            table: "oc_product_description",
+            entity: entity,
+            key: {
+                name: "product_id",
+                column: "product_id",
+                value: id
+                name: "language_id",
+                column: "language_id",
+                value: id
+            }
+        });
+        return id;
     }
 
-    public update(entity: oc_product_descriptionUpdateEntity): number {
-        const params = [entity.name, entity.description, entity.tag,
-        entity.meta_title, entity.meta_description, entity.meta_keyword,
-        entity.product_id, entity.language_id
-        ];
-        return update.execute(oc_product_descriptionRepository.UPDATE_STATEMENT, params, this.dataSourceName);
+    public update(entity: oc_product_descriptionUpdateEntity): void {
+        this.dao.update(entity);
+        this.triggerEvent({
+            operation: "update",
+            table: "oc_product_description",
+            entity: entity,
+            key: {
+                name: "product_id",
+                column: "product_id",
+                value: entity.product_id
+                name: "language_id",
+                column: "language_id",
+                value: entity.language_id
+            }
+        });
     }
 
     public upsert(entity: oc_product_descriptionCreateEntity | oc_product_descriptionUpdateEntity): number {
-        const querySettings = {
-            $filter: {
-                equals: {
-                    product_id: entity.product_id,
-                    language_id: entity.language_id
-                }
-            }
-        };
-        const entries = this.findAll(querySettings);
-        if (entries.length > 0) {
-            this.update(entity);
+    public upsert(entity: oc_product_descriptionCreateEntity | oc_product_descriptionUpdateEntity): number {
+        const id = (entity as oc_product_descriptionUpdateEntity).product_idlanguage_id;
+        if (!id) {
+            return this.create(entity);
+        }
+
+        const existingEntity = this.findById(id);
+        if (existingEntity) {
+            this.update(entity as oc_product_descriptionUpdateEntity);
+            return id;
         } else {
-            this.create(entity);
+            return this.create(entity);
         }
     }
 
     public deleteById(id: number): void {
+    public deleteById(id: number): void {
+        const entity = this.dao.find(id);
         this.dao.remove(id);
+        this.triggerEvent({
+            operation: "delete",
+            table: "oc_product_description",
+            entity: entity,
+            key: {
+                name: "product_id",
+                column: "product_id",
+                value: id
+                name: "language_id",
+                column: "language_id",
+                value: id
+            }
+        });
     }
 
     public count(): number {
@@ -245,4 +283,15 @@ export class oc_product_descriptionRepository {
         return 0;
     }
 
+    private async triggerEvent(data: oc_product_descriptionEntityEvent) {
+        const triggerExtensions = await extensions.loadExtensionModules("DemoStoreOpenCartDB/oc_product_description/oc_product_description", ["trigger"]);
+        triggerExtensions.forEach(triggerExtension => {
+            try {
+                triggerExtension.trigger(data);
+            } catch (error) {
+                console.error(error);
+            }            
+        });
+        producer.queue("DemoStoreOpenCartDB/oc_product_description/oc_product_description").send(JSON.stringify(data));
+    }
 }

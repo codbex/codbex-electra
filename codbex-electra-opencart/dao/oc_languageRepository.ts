@@ -1,6 +1,8 @@
 import { query } from "sdk/db";
+import { producer } from "sdk/messaging";
+import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
-import { EntityUtils } from "./EntityUtils";
+import { EntityUtils } from "../utils/EntityUtils";
 
 export interface oc_languageEntity {
     readonly language_id: number;
@@ -128,7 +130,7 @@ export class oc_languageRepository {
                 column: "language_id",
                 type: "INT",
                 id: true,
-                autoIncrement: false,
+                autoIncrement: true,
                 required: true
             },
             {
@@ -178,7 +180,7 @@ export class oc_languageRepository {
 
     private readonly dao;
 
-    constructor(dataSource: string) {
+    constructor(dataSource?: string) {
         this.dao = daoApi.create(oc_languageRepository.DEFINITION, null, dataSource);
     }
 
@@ -197,12 +199,33 @@ export class oc_languageRepository {
 
     public create(entity: oc_languageCreateEntity): number {
         EntityUtils.setBoolean(entity, "status");
-        return this.dao.insert(entity);
+        const id = this.dao.insert(entity);
+        this.triggerEvent({
+            operation: "create",
+            table: "oc_language",
+            entity: entity,
+            key: {
+                name: "language_id",
+                column: "language_id",
+                value: id
+            }
+        });
+        return id;
     }
 
     public update(entity: oc_languageUpdateEntity): void {
         EntityUtils.setBoolean(entity, "status");
         this.dao.update(entity);
+        this.triggerEvent({
+            operation: "update",
+            table: "oc_language",
+            entity: entity,
+            key: {
+                name: "language_id",
+                column: "language_id",
+                value: entity.language_id
+            }
+        });
     }
 
     public upsert(entity: oc_languageCreateEntity | oc_languageUpdateEntity): number {
@@ -221,7 +244,18 @@ export class oc_languageRepository {
     }
 
     public deleteById(id: number): void {
+        const entity = this.dao.find(id);
         this.dao.remove(id);
+        this.triggerEvent({
+            operation: "delete",
+            table: "oc_language",
+            entity: entity,
+            key: {
+                name: "language_id",
+                column: "language_id",
+                value: id
+            }
+        });
     }
 
     public count(): number {
@@ -240,4 +274,15 @@ export class oc_languageRepository {
         return 0;
     }
 
+    private async triggerEvent(data: oc_languageEntityEvent) {
+        const triggerExtensions = await extensions.loadExtensionModules("DemoStoreOpenCartDB/oc_language/oc_language", ["trigger"]);
+        triggerExtensions.forEach(triggerExtension => {
+            try {
+                triggerExtension.trigger(data);
+            } catch (error) {
+                console.error(error);
+            }            
+        });
+        producer.queue("DemoStoreOpenCartDB/oc_language/oc_language").send(JSON.stringify(data));
+    }
 }

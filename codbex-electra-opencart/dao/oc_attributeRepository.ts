@@ -1,4 +1,6 @@
 import { query } from "sdk/db";
+import { producer } from "sdk/messaging";
+import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
 
 export interface oc_attributeEntity {
@@ -82,7 +84,7 @@ export class oc_attributeRepository {
                 column: "attribute_id",
                 type: "INT",
                 id: true,
-                autoIncrement: false,
+                autoIncrement: true,
                 required: true
             },
             {
@@ -102,7 +104,7 @@ export class oc_attributeRepository {
 
     private readonly dao;
 
-    constructor(dataSource: string) {
+    constructor(dataSource?: string) {
         this.dao = daoApi.create(oc_attributeRepository.DEFINITION, null, dataSource);
     }
 
@@ -116,11 +118,32 @@ export class oc_attributeRepository {
     }
 
     public create(entity: oc_attributeCreateEntity): number {
-        return this.dao.insert(entity);
+        const id = this.dao.insert(entity);
+        this.triggerEvent({
+            operation: "create",
+            table: "oc_attribute",
+            entity: entity,
+            key: {
+                name: "attribute_id",
+                column: "attribute_id",
+                value: id
+            }
+        });
+        return id;
     }
 
     public update(entity: oc_attributeUpdateEntity): void {
         this.dao.update(entity);
+        this.triggerEvent({
+            operation: "update",
+            table: "oc_attribute",
+            entity: entity,
+            key: {
+                name: "attribute_id",
+                column: "attribute_id",
+                value: entity.attribute_id
+            }
+        });
     }
 
     public upsert(entity: oc_attributeCreateEntity | oc_attributeUpdateEntity): number {
@@ -139,7 +162,18 @@ export class oc_attributeRepository {
     }
 
     public deleteById(id: number): void {
+        const entity = this.dao.find(id);
         this.dao.remove(id);
+        this.triggerEvent({
+            operation: "delete",
+            table: "oc_attribute",
+            entity: entity,
+            key: {
+                name: "attribute_id",
+                column: "attribute_id",
+                value: id
+            }
+        });
     }
 
     public count(): number {
@@ -158,4 +192,15 @@ export class oc_attributeRepository {
         return 0;
     }
 
+    private async triggerEvent(data: oc_attributeEntityEvent) {
+        const triggerExtensions = await extensions.loadExtensionModules("DemoStoreOpenCartDB/oc_attribute/oc_attribute", ["trigger"]);
+        triggerExtensions.forEach(triggerExtension => {
+            try {
+                triggerExtension.trigger(data);
+            } catch (error) {
+                console.error(error);
+            }            
+        });
+        producer.queue("DemoStoreOpenCartDB/oc_attribute/oc_attribute").send(JSON.stringify(data));
+    }
 }
