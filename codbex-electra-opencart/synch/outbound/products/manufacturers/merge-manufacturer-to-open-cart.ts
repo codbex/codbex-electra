@@ -8,19 +8,18 @@ const logger = getLogger(import.meta.url);
 
 export function onMessage(message: any) {
     const manufacturerEntry = message.getBody();
-
-    const storeId = manufacturerEntry.store.id;
-    const manufacturerId = manufacturerEntry.manufacturerId;
-
-    const manufacturer = getManufacturer(manufacturerId);
+    const manufacturerId: number = manufacturerEntry.manufacturerId;
+    const store = manufacturerEntry.store;
+    const storeId: number = store.id;
+    const dataSourceName: string = store.dataSourceName;
 
     const entityReferenceDAO = new EntityReferenceDAO();
-    const manufacturerReference = entityReferenceDAO.getStoreManufacturer(storeId, manufacturerId);
-    const ocManufacturer = createOpenCartManufacturer(manufacturer, manufacturerReference);
-
-    const dataSourceName = manufacturerEntry.store.dataSourceName;
     const ocManufacturerDAO = new OpenCartManufacturerDAO(dataSourceName);
 
+    const manufacturer = getManufacturer(manufacturerId);
+    const manufacturerReference = entityReferenceDAO.getStoreManufacturer(storeId, manufacturerId);
+
+    const ocManufacturer = createOpenCartManufacturer(manufacturer, manufacturerReference);
     const ocManufacturerId = ocManufacturerDAO.upsert(ocManufacturer);
 
     if (!manufacturerReference) {

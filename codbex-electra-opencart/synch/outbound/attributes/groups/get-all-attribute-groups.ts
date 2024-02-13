@@ -7,6 +7,7 @@ export function onMessage(message: any) {
     const store = message.getBody();
 
     const attributeGroupDAO = new AttributeGroupDAO();
+
     const attributeGroups = attributeGroupDAO.findAll();
     logger.info("Found [{}] attribute groups which must be replicated to store [{}]", attributeGroups.length, store.name);
 

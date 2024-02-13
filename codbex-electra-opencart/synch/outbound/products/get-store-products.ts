@@ -1,5 +1,4 @@
 import { getLogger } from "../../../../codbex-electra/util/LoggerUtil";
-import { EntityReferenceDAO } from "../../../../codbex-electra/dao/EntityReferenceDAO";
 import { ProductToStoreRepository as ProductToStoreDAO } from "../../../../codbex-electra/gen/dao/Products/ProductToStoreRepository";
 
 const logger = getLogger(import.meta.url);
@@ -7,19 +6,14 @@ const logger = getLogger(import.meta.url);
 export function onMessage(message: any) {
     const store = message.getBody();
 
-    const productToStoreEntries = getProductToStoreEntries(store.id);
-    logger.info("Found [{}] products which must be replicated to store [{}]", productToStoreEntries.length, store.name);
-
-    const productReferences = getStoreProductReferences(store.id);
+    const productIds = getStoreProductIds(store.id);
+    logger.info("Found [{}] products which are linked for store [{}]", productIds.size, store.name);
 
     const productEntries: any[] = [];
-    productToStoreEntries.forEach((pts) => {
-        const productId = pts.Product;
-        const reference = productReferences.get(productId);
+    productIds.forEach((productId) => {
         const productEntry = {
-            productId: pts.Product,
+            productId: productId,
             store: store,
-            reference: reference
         }
         productEntries.push(productEntry);
     });
@@ -28,7 +22,7 @@ export function onMessage(message: any) {
     return message;
 }
 
-function getProductToStoreEntries(storeId: number) {
+function getStoreProductIds(storeId: number) {
     const productToStoreDAO = new ProductToStoreDAO();
     const querySettings = {
         $filter: {
@@ -38,18 +32,10 @@ function getProductToStoreEntries(storeId: number) {
         }
     };
 
-    return productToStoreDAO.findAll(querySettings);
+    const entries = productToStoreDAO.findAll(querySettings);
+
+    const productIds = new Set<number>();
+    entries.forEach(e => productIds.add(e.Product));
+
+    return productIds;
 }
-
-function getStoreProductReferences(storeId: number) {
-    const entityReferenceDAO = new EntityReferenceDAO();
-    const productReferences = entityReferenceDAO.getStoreProductReferences(storeId);
-
-    const mappings = new Map();
-
-    productReferences.forEach((ref) => {
-        mappings.set(ref.EntityIntegerId, ref);
-    });
-
-    return mappings;
-} 

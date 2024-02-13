@@ -8,18 +8,20 @@ const logger = getLogger(import.meta.url);
 
 export function onMessage(message: any) {
     const productEntry = message.getBody();
+    const productId: number = productEntry.productId;
+    const store = productEntry.store;
+    const storeId: number = store.id;
+    const dataSourceName: string = store.dataSourceName;
 
-    const productId = productEntry.productId;
+    const entityReferenceDAO = new EntityReferenceDAO();
+    const ocProductDescriptionDAO = new OpenCartProductDescriptionDAO(dataSourceName);
+
     const productDescriptions = getProductDescriptions(productId);
+    const productReference = entityReferenceDAO.getStoreProduct(storeId, productId);
 
-    const storeId = productEntry.store.id;
     productDescriptions.forEach((productDescription) => {
-        const productReference = productEntry.reference;
-
         const ocProductDescription = createOpenCartProductDescription(storeId, productDescription, productReference);
 
-        const dataSourceName = productEntry.store.dataSourceName;
-        const ocProductDescriptionDAO = new OpenCartProductDescriptionDAO(dataSourceName);
         ocProductDescriptionDAO.upsert(ocProductDescription);
     });
     return message;
@@ -37,11 +39,11 @@ function getProductDescriptions(productId: number) {
     return productDescriptionDAO.findAll(querySettings);
 }
 
-function createOpenCartProductDescription(storeId: number, productDescription: ProductDescriptionEntity, productReference: EntityReferenceEntity): OpenCartProductDesceiptionCreateEntity | OpenCartProductDescriptionUpdateEntity {
+function createOpenCartProductDescription(storeId: number, productDescription: ProductDescriptionEntity, productReference: EntityReferenceEntity | null): OpenCartProductDesceiptionCreateEntity | OpenCartProductDescriptionUpdateEntity {
     if (!productReference || !productReference.ReferenceIntegerId) {
         throwError(`Missing product reference id: ${productReference ? JSON.stringify(productReference) : null}`);
     }
-    const id = productReference.ReferenceIntegerId;
+    const id = productReference!.ReferenceIntegerId;
     const languageId = getLanguageReference(storeId, productDescription.Language);
 
 

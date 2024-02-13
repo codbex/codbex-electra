@@ -10,32 +10,34 @@ const logger = getLogger(import.meta.url);
 
 export function onMessage(message: any) {
     const attributeEntry = message.getBody();
-
     const attribute: AttributeEntity = attributeEntry.attribute;
     const store = attributeEntry.store;
+    const storeId: number = store.id;
+    const dataSourceName: string = store.dataSourceName;
+
     const entityReferenceDAO = new EntityReferenceDAO();
-    const attributeReference = entityReferenceDAO.getStoreAttribute(store.id, attribute.Id);
+    const ocAttributeDAO = new OpenCartAttributeDAO(dataSourceName);
+    const attributeTranslationDAO = new AttributeTranslationDAO();
+    const ocAttributeDescriptionDAO = new OpenCartAttributeDescriptionDAO(dataSourceName);
 
-    const ocAttributeDAO = new OpenCartAttributeDAO(store.dataSourceName);
+    const attributeReference = entityReferenceDAO.getStoreAttribute(storeId, attribute.Id);
 
-    const ocAttribute = createOpenCartAttribute(store.id, attribute, attributeReference);
+    const ocAttribute = createOpenCartAttribute(storeId, attribute, attributeReference);
     const ocAttributeId = ocAttributeDAO.upsert(ocAttribute);
 
     if (!attributeReference) {
-        entityReferenceDAO.createAttributeReference(store.id, attribute.Id, ocAttributeId);
+        entityReferenceDAO.createAttributeReference(storeId, attribute.Id, ocAttributeId);
     }
 
     const querySettings = {
         $filter: {
             equals: {
                 Attribute: attribute.Id
-            };
+            }
         }
     };
-    const attributeTranslationDAO = new AttributeTranslationDAO();
     const translations = attributeTranslationDAO.findAll(querySettings);
 
-    const ocAttributeDescriptionDAO = new OpenCartAttributeDescriptionDAO(store.dataSourceName);
     translations.forEach(translation => {
         const ocAttributeDescription = createOpenCartAttributeDescription(store.id, translation, ocAttributeId);
         ocAttributeDescriptionDAO.upsert(ocAttributeDescription);
@@ -64,7 +66,6 @@ function createOpenCartAttribute(storeId: number, attribute: AttributeEntity, at
             sort_order: 1
         };
     }
-
 }
 
 function createOpenCartAttributeDescription(storeId: number, attributeTranslation: AttributeTranslationEntity, ocAttributeId: number): OpenCartAttributeDescriptionUpdateEntity {

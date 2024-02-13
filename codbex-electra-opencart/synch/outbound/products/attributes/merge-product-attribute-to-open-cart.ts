@@ -8,17 +8,19 @@ const logger = getLogger(import.meta.url);
 
 export function onMessage(message: any) {
     const productEntry = message.getBody();
+    const productId: number = productEntry.productId;
+    const store = productEntry.store;
+    const storeId: number = store.id;
+    const dataSourceName: string = store.dataSourceName;
 
-    const productId = productEntry.productId;
+    const entityReferenceDAO = new EntityReferenceDAO();
+
     const productAttributes = getProductAttributes(productId);
+    const productReference = entityReferenceDAO.getStoreProduct(storeId, productId);
 
-    const storeId = productEntry.store.id;
     productAttributes.forEach((productAttribute) => {
-        const productReference = productEntry.reference;
-
         const ocProductAttribute = createOpenCartProductAttribute(storeId, productAttribute, productReference);
 
-        const dataSourceName = productEntry.store.dataSourceName;
         const ocProductAttributeDAO = new OpenCartProductAttributeDAO(dataSourceName);
         ocProductAttributeDAO.upsert(ocProductAttribute);
     });
@@ -37,7 +39,7 @@ function getProductAttributes(productId: number) {
     return productAttributeDAO.findAll(querySettings);
 }
 
-function createOpenCartProductAttribute(storeId: number, productAttribute: ProductAttributeEntity, productReference: EntityReferenceEntity): OpenCartProductAttributeCreateEntity | OpenCartProductAttributeUpdateEntity {
+function createOpenCartProductAttribute(storeId: number, productAttribute: ProductAttributeEntity, productReference: EntityReferenceEntity | null): OpenCartProductAttributeCreateEntity | OpenCartProductAttributeUpdateEntity {
     if (!productReference || !productReference.ReferenceIntegerId) {
         throwError(`Missing product reference id: ${productReference ? JSON.stringify(productReference) : null}`);
     }

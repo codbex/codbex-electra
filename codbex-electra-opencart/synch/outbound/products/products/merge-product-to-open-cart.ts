@@ -8,22 +8,20 @@ const logger = getLogger(import.meta.url);
 
 export function onMessage(message: any) {
     const productEntry = message.getBody();
-
+    const dataSourceName = productEntry.store.dataSourceName;
     const productId = productEntry.productId;
-    const productReference = productEntry.reference;
+    const storeId = productEntry.store.id;
+
+    const entityReferenceDAO = new EntityReferenceDAO();
+    const ocProductDAO = new OpenCartProductDAO(dataSourceName);
 
     const product = getProduct(productId);
-
-    const dataSourceName = productEntry.store.dataSourceName;
-    const ocProductDAO = new OpenCartProductDAO(dataSourceName);
+    const productReference = entityReferenceDAO.getStoreProduct(storeId, productId);
 
     const ocProduct = createOpenCartProduct(product, productReference, ocProductDAO, productEntry.store.id);
     const ocProductId = ocProductDAO.upsert(ocProduct);
 
     if (!productReference) {
-        const storeId = productEntry.store.id;
-
-        const entityReferenceDAO = new EntityReferenceDAO();
         entityReferenceDAO.createProductReference(storeId, productId, ocProductId);
     }
 
@@ -39,7 +37,7 @@ function getProduct(productId: number): ProductEntity {
     return product!;
 }
 
-function createOpenCartProduct(product: ProductEntity, productReference: EntityReferenceEntity, ocProductDAO: OpenCartProductDAO, storeId: number): OpenCartProductCreateEntity | OpenCartProductUpdateEntity {
+function createOpenCartProduct(product: ProductEntity, productReference: EntityReferenceEntity | null, ocProductDAO: OpenCartProductDAO, storeId: number): OpenCartProductCreateEntity | OpenCartProductUpdateEntity {
     const manufacturerId = getOpenCartManufacturerId(storeId, product.Manufacturer);
     if (productReference) {
         const ocProduct = ocProductDAO.findById(productReference.ReferenceIntegerId!);

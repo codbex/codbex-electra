@@ -9,23 +9,25 @@ const logger = getLogger(import.meta.url);
 
 export function onMessage(message: any) {
     const attributeGroupEntry = message.getBody();
-
     const attributeGroup = attributeGroupEntry.attributeGroup;
     const store = attributeGroupEntry.store;
+    const storeId: number = store.id;
+    const dataSourceName: string = store.dataSourceName;
 
-    const entityReferenceDAO = new EntityReferenceDAO(); ''
-    const attributeGroupReference = entityReferenceDAO.getStoreAttributeGroup(store.id, attributeGroup.Id);
+    const entityReferenceDAO = new EntityReferenceDAO();
+    const ocAttributeGroupDAO = new OpenCartAttributeGroupDAO(dataSourceName);
+    const attributeGroupTranslationDAO = new AttributeGroupTranslationDAO();
+    const ocAttributeGroupDescriptionDAO = new OpenCartAttributeGroupDescriptionDAO(store.dataSourceName);
 
-    const ocAttributeGroupDAO = new OpenCartAttributeGroupDAO(store.dataSourceName);
+    const attributeGroupReference = entityReferenceDAO.getStoreAttributeGroup(storeId, attributeGroup.Id);
 
     const ocAttributeGroup = createOpenCartAttributeGroup(attributeGroupReference);
     const ocAttributeGroupId = ocAttributeGroupDAO.upsert(ocAttributeGroup);
 
     if (!attributeGroupReference) {
-        entityReferenceDAO.createAttributeGroupReference(store.id, attributeGroup.Id, ocAttributeGroupId);
+        entityReferenceDAO.createAttributeGroupReference(storeId, attributeGroup.Id, ocAttributeGroupId);
     }
 
-    const attributeGroupTranslationDAO = new AttributeGroupTranslationDAO();
     const querySettings = {
         $filter: {
             equals: {
@@ -33,12 +35,10 @@ export function onMessage(message: any) {
             }
         }
     };
-
     const translations = attributeGroupTranslationDAO.findAll(querySettings);
 
-    const ocAttributeGroupDescriptionDAO = new OpenCartAttributeGroupDescriptionDAO(store.dataSourceName);
     translations.forEach(translation => {
-        const ocAttributeGroupDescription = createOpenCartAttributeGroupDescription(store.id, translation, ocAttributeGroupId);
+        const ocAttributeGroupDescription = createOpenCartAttributeGroupDescription(storeId, translation, ocAttributeGroupId);
         ocAttributeGroupDescriptionDAO.upsert(ocAttributeGroupDescription);
     });
 

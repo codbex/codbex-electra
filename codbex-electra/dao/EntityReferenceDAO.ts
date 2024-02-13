@@ -60,20 +60,8 @@ export class EntityReferenceDAO {
         return this.generatedDAO.create(entityReference);
     }
 
-    public getStoreProductReferences(storeId: number) {
-        return this.getByScopeIntegerIdAndEntityName(storeId, EntityReferenceDAO.PRODUCT_ENTITY);
-    }
-
-    public getByScopeIntegerIdAndEntityName(scopeIntegerId: number, entityName: string) {
-        const querySettings: EntityReferenceEntityOptions = {
-            $filter: {
-                equals: {
-                    ScopeIntegerId: scopeIntegerId,
-                    EntityName: entityName
-                }
-            }
-        };
-        return this.generatedDAO.findAll(querySettings);
+    public getStoreProduct(storeId: number, productId: number) {
+        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.PRODUCT_ENTITY, productId);
     }
 
     public getStoreManufacturer(storeId: number, manufacturerId: number) {

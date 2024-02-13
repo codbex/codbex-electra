@@ -6,6 +6,8 @@ const logger = getLogger(import.meta.url);
 export function onMessage(message: any) {
     const store = message.getBody();
 
+    const languageDAO = new LanguageRepository();
+
     const querySettings = {
         $filter: {
             equals: {
@@ -13,7 +15,6 @@ export function onMessage(message: any) {
             }
         }
     };
-    const languageDAO = new LanguageRepository();
     const languages = languageDAO.findAll(querySettings);
     logger.info("Found [{}] ENABLED languages which must be replicated to store [{}]", languages.length, store.name);
 

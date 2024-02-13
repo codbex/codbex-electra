@@ -4,21 +4,22 @@ import { LanguageEntity } from "../../../../codbex-electra/gen/dao/Settings/Lang
 import { EntityReferenceEntity } from "../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
 
 export function onMessage(message: any) {
-    const entityReferenceDAO = new EntityReferenceDAO();
-
     const languageEntry = message.getBody();
-
     const language: LanguageEntity = languageEntry.language;
     const store = languageEntry.store;
-    const languageReference = entityReferenceDAO.getStoreLanguageReference(store.id, language.Id);
+    const storeId: number = store.id;
+    const dataSourceName: string = store.dataSourceName;
 
-    const ocLanguageDAO = new OpenCartLanguageDAO(store.dataSourceName);
+    const entityReferenceDAO = new EntityReferenceDAO();
+    const ocLanguageDAO = new OpenCartLanguageDAO(dataSourceName);
+
+    const languageReference = entityReferenceDAO.getStoreLanguageReference(storeId, language.Id);
 
     const ocLanguage = createOpenCartLanguage(language, languageReference);
     const ocLanguageId = ocLanguageDAO.upsert(ocLanguage);
 
     if (!languageReference) {
-        entityReferenceDAO.createLanguageReference(store.id, language.Id, ocLanguageId);
+        entityReferenceDAO.createLanguageReference(storeId, language.Id, ocLanguageId);
     }
 
     return message;
@@ -28,7 +29,7 @@ function createOpenCartLanguage(language: LanguageEntity, languageReference: Ent
     const image = "gb.png";
     const directory = "english";
     const sortOrder = 1;
-    const status = language.Status === 1 ? true : false;
+    const status = language.Status === 1;
 
     if (languageReference) {
         return {
