@@ -1944,6 +1944,148 @@
                 ]
             },
             {
+                "name": "CODBEX_CATEGORY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "CATEGORY_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORY_NAME"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "length": 1,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORY_STATUS"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CATEGORY_IMAGE"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORY_DATEADDED"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CATEGORY_DATEMODIFIED"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_PRODUCTTOCATEGORY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "PRODUCTTOCATEGORY_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "PRODUCTTOCATEGORY_CATEGORY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "PRODUCTTOCATEGORY_PRODUCT"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_CATEGORYTRANSLATION",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "CATEGORYTRANSLATION_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORYTRANSLATION_CATEGORY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORYTRANSLATION_LANGUAGE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORYTRANSLATION_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 2000,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORYTRANSLATION_DESCRIPTION"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORYTRANSLATION_METATITLE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORYTRANSLATION_METADESCRIPTION"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORYTRANSLATION_METAKEYWORD"
+                    }
+                ]
+            },
+            {
                 "name": "Currency_CurrencyStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_CURRENCY",
@@ -2354,6 +2496,42 @@
                 "table": "CODBEX_ATTRIBUTEGROUPTRANSLATION",
                 "constraintName": "AttributeGroupTranslation_Language",
                 "columns": "ATTRIBUTEGROUPTRANSLATION_LANGUAGE",
+                "referencedTable": "CODBEX_LANGUAGE",
+                "referencedColumns": "LANGUAGE_ID"
+            },
+            {
+                "name": "ProductToCategory_Category",
+                "type": "foreignKey",
+                "table": "CODBEX_PRODUCTTOCATEGORY",
+                "constraintName": "ProductToCategory_Category",
+                "columns": "PRODUCTTOCATEGORY_CATEGORY",
+                "referencedTable": "CODBEX_CATEGORY",
+                "referencedColumns": "CATEGORY_ID"
+            },
+            {
+                "name": "ProductToCategory_Product",
+                "type": "foreignKey",
+                "table": "CODBEX_PRODUCTTOCATEGORY",
+                "constraintName": "ProductToCategory_Product",
+                "columns": "PRODUCTTOCATEGORY_PRODUCT",
+                "referencedTable": "CODBEX_PRODUCT",
+                "referencedColumns": "PRODUCT_ID"
+            },
+            {
+                "name": "CategoryTranslation_Category",
+                "type": "foreignKey",
+                "table": "CODBEX_CATEGORYTRANSLATION",
+                "constraintName": "CategoryTranslation_Category",
+                "columns": "CATEGORYTRANSLATION_CATEGORY",
+                "referencedTable": "CODBEX_CATEGORY",
+                "referencedColumns": "CATEGORY_ID"
+            },
+            {
+                "name": "CategoryTranslation_Language",
+                "type": "foreignKey",
+                "table": "CODBEX_CATEGORYTRANSLATION",
+                "constraintName": "CategoryTranslation_Language",
+                "columns": "CATEGORYTRANSLATION_LANGUAGE",
                 "referencedTable": "CODBEX_LANGUAGE",
                 "referencedColumns": "LANGUAGE_ID"
             }

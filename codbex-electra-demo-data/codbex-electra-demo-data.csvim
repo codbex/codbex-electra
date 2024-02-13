@@ -133,6 +133,17 @@
       "version": "1.0"
     },
     {
+      "table": "CODBEX_CATEGORYTRANSLATION",
+      "schema": "PUBLIC",
+      "file": "/codbex-electra-demo-data/CODBEX_CATEGORYTRANSLATION.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    },
+    {
       "table": "CODBEX_SALESORDERCOMMENT",
       "schema": "PUBLIC",
       "file": "/codbex-electra-demo-data/CODBEX_SALESORDERCOMMENT.csv",
@@ -210,6 +221,17 @@
       "version": "1.0"
     },
     {
+      "table": "CODBEX_CATEGORY",
+      "schema": "PUBLIC",
+      "file": "/codbex-electra-demo-data/CODBEX_CATEGORY.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    },
+    {
       "table": "CODBEX_STOCKSTATUS",
       "schema": "PUBLIC",
       "file": "/codbex-electra-demo-data/CODBEX_STOCKSTATUS.csv",
@@ -235,6 +257,17 @@
       "table": "CODBEX_PRODUCT",
       "schema": "PUBLIC",
       "file": "/codbex-electra-demo-data/CODBEX_PRODUCT.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    },
+    {
+      "table": "CODBEX_PRODUCTTOCATEGORY",
+      "schema": "PUBLIC",
+      "file": "/codbex-electra-demo-data/CODBEX_PRODUCTTOCATEGORY.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
