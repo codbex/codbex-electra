@@ -145,6 +145,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsGroup = [];
 
+
 		$http.get("/services/ts/codbex-electra/gen/api/Products/AttributeGroupService.ts").then(function (response) {
 			$scope.optionsGroup = response.data.map(e => {
 				return {
@@ -153,6 +154,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsGroupValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsGroup.length; i++) {
 				if ($scope.optionsGroup[i].value === optionKey) {

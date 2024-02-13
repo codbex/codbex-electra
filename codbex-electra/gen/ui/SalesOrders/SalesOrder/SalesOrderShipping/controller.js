@@ -166,6 +166,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsZone = [];
 		$scope.optionsCountry = [];
 
+
 		$http.get("/services/ts/codbex-electra/gen/api/Settings/ZoneService.ts").then(function (response) {
 			$scope.optionsZone = response.data.map(e => {
 				return {
@@ -183,6 +184,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsZoneValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsZone.length; i++) {
 				if ($scope.optionsZone[i].value === optionKey) {

@@ -145,6 +145,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsType = [];
 
+
 		$http.get("/services/ts/codbex-electra/gen/api/Stores/StoreTypeService.ts").then(function (response) {
 			$scope.optionsType = response.data.map(e => {
 				return {
@@ -153,6 +154,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsTypeValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsType.length; i++) {
 				if ($scope.optionsType[i].value === optionKey) {

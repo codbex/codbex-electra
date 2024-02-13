@@ -171,6 +171,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsCustomer = [];
 		$scope.optionsLanguage = [];
 
+
 		$http.get("/services/ts/codbex-electra/gen/api/Settings/CurrencyService.ts").then(function (response) {
 			$scope.optionsCurrency = response.data.map(e => {
 				return {
@@ -215,6 +216,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsCurrencyValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsCurrency.length; i++) {
 				if ($scope.optionsCurrency[i].value === optionKey) {

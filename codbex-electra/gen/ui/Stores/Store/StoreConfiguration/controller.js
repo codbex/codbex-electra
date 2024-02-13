@@ -166,6 +166,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsStore = [];
 		$scope.optionsProperty = [];
 
+
 		$http.get("/services/ts/codbex-electra/gen/api/Stores/StoreService.ts").then(function (response) {
 			$scope.optionsStore = response.data.map(e => {
 				return {
@@ -183,6 +184,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsStoreValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsStore.length; i++) {
 				if ($scope.optionsStore[i].value === optionKey) {

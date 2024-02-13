@@ -162,6 +162,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsLanguage = [];
 
+
 		$http.get("/services/ts/codbex-electra/gen/api/Settings/LanguageService.ts").then(function (response) {
 			$scope.optionsLanguage = response.data.map(e => {
 				return {
@@ -170,6 +171,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsLanguageValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsLanguage.length; i++) {
 				if ($scope.optionsLanguage[i].value === optionKey) {

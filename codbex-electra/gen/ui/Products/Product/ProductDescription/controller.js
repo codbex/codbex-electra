@@ -166,6 +166,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsProduct = [];
 		$scope.optionsLanguage = [];
 
+
 		$http.get("/services/ts/codbex-electra/gen/api/Products/ProductService.ts").then(function (response) {
 			$scope.optionsProduct = response.data.map(e => {
 				return {
@@ -183,6 +184,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsProductValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsProduct.length; i++) {
 				if ($scope.optionsProduct[i].value === optionKey) {

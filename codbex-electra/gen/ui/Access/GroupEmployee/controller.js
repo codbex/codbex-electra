@@ -147,6 +147,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsEmployee = [];
 		$scope.optionsGroup = [];
 
+
 		$http.get("/services/ts/codbex-electra/gen/api/Access/EmployeeService.ts").then(function (response) {
 			$scope.optionsEmployee = response.data.map(e => {
 				return {
@@ -164,6 +165,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsEmployeeValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsEmployee.length; i++) {
 				if ($scope.optionsEmployee[i].value === optionKey) {

@@ -162,6 +162,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsManufacturer = [];
 		$scope.optionsStockStatus = [];
 
+
 		$http.get("/services/ts/codbex-electra/gen/api/Products/ManufacturerService.ts").then(function (response) {
 			$scope.optionsManufacturer = response.data.map(e => {
 				return {
@@ -179,6 +180,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsManufacturerValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsManufacturer.length; i++) {
 				if ($scope.optionsManufacturer[i].value === optionKey) {

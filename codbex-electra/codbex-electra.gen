@@ -296,6 +296,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -319,6 +320,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Title",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -349,6 +351,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Status",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/CurrencyStatusService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -372,6 +375,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Code",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -397,6 +401,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "SymbolLeft",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -422,6 +427,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "SymbolRight",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -447,6 +453,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "DecimalPlace",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -472,6 +479,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Value",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "double",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -495,6 +503,7 @@
           "widgetType": "DATETIME-LOCAL",
           "dataNotNull": false,
           "widgetLabel": "DateModified",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "timestamp",
           "dataTypeTypescript": "Date",
           "isDateType": true,
@@ -518,6 +527,7 @@
       "title": "Currency",
       "tooltip": "Currency",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -546,6 +556,7 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -569,6 +580,7 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Total",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "double",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -597,6 +609,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Currency",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/CurrencyService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -625,6 +638,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Status",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/OrderStatusService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -653,6 +667,7 @@
           "relationshipEntityPerspectiveName": "Stores",
           "dataNotNull": false,
           "widgetLabel": "Store",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Stores/StoreService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -681,6 +696,7 @@
           "relationshipEntityPerspectiveName": "Customers",
           "dataNotNull": false,
           "widgetLabel": "Customer",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Customers/CustomerService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -704,6 +720,7 @@
           "widgetType": "DATETIME-LOCAL",
           "dataNotNull": false,
           "widgetLabel": "DateAdded",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "timestamp",
           "dataTypeTypescript": "Date",
           "isDateType": true,
@@ -728,6 +745,7 @@
           "widgetType": "DATETIME-LOCAL",
           "dataNotNull": false,
           "widgetLabel": "DateModified",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "timestamp",
           "dataTypeTypescript": "Date",
           "isDateType": true,
@@ -752,6 +770,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "UpdatedBy",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -777,6 +796,7 @@
           "widgetType": "URL",
           "dataNotNull": false,
           "widgetLabel": "Tracking",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -802,6 +822,7 @@
           "widgetType": "TEXTAREA",
           "dataNotNull": false,
           "widgetLabel": "Comment",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -827,6 +848,7 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "InvoiceNumber",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -850,6 +872,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "InvoicePrefix",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -880,6 +903,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Language",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/LanguageService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -903,6 +927,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "AcceptLanguage",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -927,6 +952,7 @@
       "title": "SalesOrder",
       "tooltip": "SalesOrder",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -951,6 +977,7 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Total",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "double",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -980,6 +1007,7 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Currency",
+            "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/CurrencyService.ts\"",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -1008,6 +1036,7 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Status",
+            "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/OrderStatusService.ts\"",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -1036,6 +1065,7 @@
             "relationshipEntityPerspectiveName": "Stores",
             "dataNotNull": false,
             "widgetLabel": "Store",
+            "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Stores/StoreService.ts\"",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -1064,6 +1094,7 @@
             "relationshipEntityPerspectiveName": "Customers",
             "dataNotNull": false,
             "widgetLabel": "Customer",
+            "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Customers/CustomerService.ts\"",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -1087,6 +1118,7 @@
             "widgetType": "DATETIME-LOCAL",
             "dataNotNull": false,
             "widgetLabel": "DateAdded",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "timestamp",
             "dataTypeTypescript": "Date",
             "isDateType": true,
@@ -1111,6 +1143,7 @@
             "widgetType": "DATETIME-LOCAL",
             "dataNotNull": false,
             "widgetLabel": "DateModified",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "timestamp",
             "dataTypeTypescript": "Date",
             "isDateType": true,
@@ -1135,6 +1168,7 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": false,
             "widgetLabel": "UpdatedBy",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -1160,6 +1194,7 @@
             "widgetType": "URL",
             "dataNotNull": false,
             "widgetLabel": "Tracking",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -1185,6 +1220,7 @@
             "widgetType": "TEXTAREA",
             "dataNotNull": false,
             "widgetLabel": "Comment",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -1210,6 +1246,7 @@
             "widgetType": "NUMBER",
             "dataNotNull": false,
             "widgetLabel": "InvoiceNumber",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -1233,6 +1270,7 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": false,
             "widgetLabel": "InvoicePrefix",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -1263,6 +1301,7 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Language",
+            "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/LanguageService.ts\"",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -1286,6 +1325,7 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": false,
             "widgetLabel": "AcceptLanguage",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -1316,6 +1356,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -1339,6 +1380,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1364,6 +1406,7 @@
           "widgetType": "URL",
           "dataNotNull": false,
           "widgetLabel": "Url",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1394,6 +1437,7 @@
           "relationshipEntityPerspectiveName": "Stores",
           "dataNotNull": true,
           "widgetLabel": "Type",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Stores/StoreTypeService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -1417,6 +1461,7 @@
           "widgetType": "CHECKBOX",
           "dataNotNull": true,
           "widgetLabel": "Enabled",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "boolean",
           "dataTypeTypescript": "boolean",
           "inputRule": ""
@@ -1439,6 +1484,7 @@
       "title": "Store",
       "tooltip": "Store",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -1463,6 +1509,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1489,6 +1536,7 @@
             "widgetType": "URL",
             "dataNotNull": false,
             "widgetLabel": "Url",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -1519,6 +1567,7 @@
             "relationshipEntityPerspectiveName": "Stores",
             "dataNotNull": true,
             "widgetLabel": "Type",
+            "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Stores/StoreTypeService.ts\"",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -1542,6 +1591,7 @@
             "widgetType": "CHECKBOX",
             "dataNotNull": true,
             "widgetLabel": "Enabled",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "boolean",
             "dataTypeTypescript": "boolean",
             "inputRule": ""
@@ -1569,6 +1619,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -1592,6 +1643,7 @@
           "widgetType": "EMAIL",
           "dataNotNull": false,
           "widgetLabel": "Email",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1617,6 +1669,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "FirstName",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1642,6 +1695,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "LastName",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1672,6 +1726,7 @@
           "relationshipEntityPerspectiveName": "Stores",
           "dataNotNull": false,
           "widgetLabel": "Store",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Stores/StoreService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -1700,6 +1755,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Status",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/CustomerStatusService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -1723,6 +1779,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Telephone",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1748,6 +1805,7 @@
           "widgetType": "DATETIME-LOCAL",
           "dataNotNull": false,
           "widgetLabel": "DateAdded",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "timestamp",
           "dataTypeTypescript": "Date",
           "isDateType": true,
@@ -1772,6 +1830,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Code",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1797,6 +1856,7 @@
           "widgetType": "TEXTAREA",
           "dataNotNull": false,
           "widgetLabel": "CustomField",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1827,6 +1887,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Language",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/LanguageService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -1849,6 +1910,7 @@
       "title": "Customer",
       "tooltip": "Customer",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -1873,6 +1935,7 @@
           "widgetType": "EMAIL",
           "dataNotNull": false,
           "widgetLabel": "Email",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1899,6 +1962,7 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": false,
             "widgetLabel": "FirstName",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -1924,6 +1988,7 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": false,
             "widgetLabel": "LastName",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -1954,6 +2019,7 @@
             "relationshipEntityPerspectiveName": "Stores",
             "dataNotNull": false,
             "widgetLabel": "Store",
+            "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Stores/StoreService.ts\"",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -1982,6 +2048,7 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Status",
+            "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/CustomerStatusService.ts\"",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -2005,6 +2072,7 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": false,
             "widgetLabel": "Telephone",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -2030,6 +2098,7 @@
             "widgetType": "DATETIME-LOCAL",
             "dataNotNull": false,
             "widgetLabel": "DateAdded",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "timestamp",
             "dataTypeTypescript": "Date",
             "isDateType": true,
@@ -2054,6 +2123,7 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": false,
             "widgetLabel": "Code",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -2079,6 +2149,7 @@
             "widgetType": "TEXTAREA",
             "dataNotNull": false,
             "widgetLabel": "CustomField",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -2109,6 +2180,7 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Language",
+            "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/LanguageService.ts\"",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -2137,6 +2209,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -2160,6 +2233,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -2190,6 +2264,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Status",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/CountryStatusService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -2213,6 +2288,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "IsoCode2",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -2238,6 +2314,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "IsoCode3",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -2263,6 +2340,7 @@
           "widgetType": "CHECKBOX",
           "dataNotNull": false,
           "widgetLabel": "PostcodeRequired",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "boolean",
           "dataTypeTypescript": "boolean",
           "inputRule": ""
@@ -2285,6 +2363,7 @@
       "title": "Country",
       "tooltip": "Country",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -2310,6 +2389,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -2331,6 +2411,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -2355,6 +2436,7 @@
       "title": "CountryStatus",
       "tooltip": "CountryStatus",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -2379,6 +2461,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -2407,6 +2490,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Country",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/CountryService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -2430,6 +2514,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -2460,6 +2545,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Status",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/ZoneStatusService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -2483,6 +2569,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Code",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -2507,6 +2594,7 @@
       "title": "Zone",
       "tooltip": "Zone",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -2532,6 +2620,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -2553,6 +2642,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -2577,6 +2667,7 @@
       "title": "ZoneStatus",
       "tooltip": "ZoneStatus",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -2601,6 +2692,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -2624,6 +2716,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -2648,6 +2741,7 @@
       "title": "OrderStatus",
       "tooltip": "OrderStatus",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -2674,6 +2768,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -2697,6 +2792,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -2722,6 +2818,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Code",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -2747,6 +2844,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Locale",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -2777,6 +2875,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": true,
           "widgetLabel": "Status",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/LanguageStatusService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -2799,6 +2898,7 @@
       "title": "Language",
       "tooltip": "Language",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -2824,6 +2924,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -2847,6 +2948,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -2871,6 +2973,7 @@
       "title": "LanguageStatus",
       "tooltip": "LanguageStatus",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -2895,6 +2998,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -2920,6 +3024,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -2944,6 +3049,7 @@
       "title": "CustomerStatus",
       "tooltip": "CustomerStatus",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -2968,6 +3074,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -2996,6 +3103,7 @@
           "relationshipEntityPerspectiveName": "Products",
           "dataNotNull": false,
           "widgetLabel": "Product",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Products/ProductService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -3024,6 +3132,7 @@
           "relationshipEntityPerspectiveName": "SalesOrders",
           "dataNotNull": false,
           "widgetLabel": "SalesOrder",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -3047,6 +3156,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -3072,6 +3182,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Model",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -3097,6 +3208,7 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Quantity",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -3120,6 +3232,7 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Price",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "double",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -3143,6 +3256,7 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Total",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "double",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -3166,6 +3280,7 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Tax",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "double",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -3188,6 +3303,7 @@
       "title": "SalesOrderItem",
       "tooltip": "SalesOrderItem",
       "type": "DEPENDENT",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -3215,6 +3331,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -3238,6 +3355,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Model",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -3268,6 +3386,7 @@
           "relationshipEntityPerspectiveName": "Products",
           "dataNotNull": true,
           "widgetLabel": "Manufacturer",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Products/ManufacturerService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -3296,6 +3415,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": true,
           "widgetLabel": "Status",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "boolean",
           "dataTypeTypescript": "boolean",
           "inputRule": ""
@@ -3319,6 +3439,7 @@
           "widgetType": "NUMBER",
           "dataNotNull": true,
           "widgetLabel": "Quantity",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -3342,6 +3463,7 @@
           "widgetType": "NUMBER",
           "dataNotNull": true,
           "widgetLabel": "Price",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "double",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -3365,6 +3487,7 @@
           "widgetType": "URL",
           "dataNotNull": true,
           "widgetLabel": "Image",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -3390,6 +3513,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "SKU",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -3415,6 +3539,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "UPC",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -3440,6 +3565,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "EAN",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -3465,6 +3591,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "JAN",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -3490,6 +3617,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "ISBN",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -3515,6 +3643,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "MPN",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -3540,6 +3669,7 @@
           "widgetType": "DATE",
           "dataNotNull": true,
           "widgetLabel": "DateAvailable",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "date",
           "dataTypeTypescript": "Date",
           "isDateType": true,
@@ -3564,6 +3694,7 @@
           "widgetType": "NUMBER",
           "dataNotNull": true,
           "widgetLabel": "Weight",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "double",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -3587,6 +3718,7 @@
           "widgetType": "NUMBER",
           "dataNotNull": true,
           "widgetLabel": "Length",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "double",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -3610,6 +3742,7 @@
           "widgetType": "NUMBER",
           "dataNotNull": true,
           "widgetLabel": "Width",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "double",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -3633,6 +3766,7 @@
           "widgetType": "NUMBER",
           "dataNotNull": true,
           "widgetLabel": "Height",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "double",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -3656,6 +3790,7 @@
           "widgetType": "DATETIME-LOCAL",
           "dataNotNull": true,
           "widgetLabel": "DateAdded",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "timestamp",
           "dataTypeTypescript": "Date",
           "isDateType": true,
@@ -3680,6 +3815,7 @@
           "widgetType": "DATETIME-LOCAL",
           "dataNotNull": true,
           "widgetLabel": "DateModified",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "timestamp",
           "dataTypeTypescript": "Date",
           "isDateType": true,
@@ -3704,6 +3840,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "UpdatedBy",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -3729,6 +3866,7 @@
           "widgetType": "NUMBER",
           "dataNotNull": true,
           "widgetLabel": "Points",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -3752,6 +3890,7 @@
           "widgetType": "CHECKBOX",
           "dataNotNull": true,
           "widgetLabel": "Shipping",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "boolean",
           "dataTypeTypescript": "boolean",
           "inputRule": ""
@@ -3775,6 +3914,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Location",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -3800,6 +3940,7 @@
           "widgetType": "CHECKBOX",
           "dataNotNull": true,
           "widgetLabel": "Subtract",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "boolean",
           "dataTypeTypescript": "boolean",
           "inputRule": ""
@@ -3823,6 +3964,7 @@
           "widgetType": "NUMBER",
           "dataNotNull": true,
           "widgetLabel": "Minimum",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -3851,6 +3993,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": true,
           "widgetLabel": "StockStatus",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/StockStatusService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -3873,6 +4016,7 @@
       "title": "Product",
       "tooltip": "Product",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -3897,6 +4041,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Model",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -3928,6 +4073,7 @@
             "relationshipEntityPerspectiveName": "Products",
             "dataNotNull": true,
             "widgetLabel": "Manufacturer",
+            "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Products/ManufacturerService.ts\"",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -3956,6 +4102,7 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": true,
             "widgetLabel": "Status",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "boolean",
             "dataTypeTypescript": "boolean",
             "inputRule": ""
@@ -3979,6 +4126,7 @@
             "widgetType": "NUMBER",
             "dataNotNull": true,
             "widgetLabel": "Quantity",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -4002,6 +4150,7 @@
             "widgetType": "NUMBER",
             "dataNotNull": true,
             "widgetLabel": "Price",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "double",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -4025,6 +4174,7 @@
             "widgetType": "URL",
             "dataNotNull": true,
             "widgetLabel": "Image",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -4050,6 +4200,7 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": true,
             "widgetLabel": "SKU",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -4075,6 +4226,7 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": true,
             "widgetLabel": "UPC",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -4100,6 +4252,7 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": true,
             "widgetLabel": "EAN",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -4125,6 +4278,7 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": true,
             "widgetLabel": "JAN",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -4150,6 +4304,7 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": true,
             "widgetLabel": "ISBN",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -4175,6 +4330,7 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": true,
             "widgetLabel": "MPN",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -4200,6 +4356,7 @@
             "widgetType": "DATE",
             "dataNotNull": true,
             "widgetLabel": "DateAvailable",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "date",
             "dataTypeTypescript": "Date",
             "isDateType": true,
@@ -4224,6 +4381,7 @@
             "widgetType": "NUMBER",
             "dataNotNull": true,
             "widgetLabel": "Weight",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "double",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -4247,6 +4405,7 @@
             "widgetType": "NUMBER",
             "dataNotNull": true,
             "widgetLabel": "Length",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "double",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -4270,6 +4429,7 @@
             "widgetType": "NUMBER",
             "dataNotNull": true,
             "widgetLabel": "Width",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "double",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -4293,6 +4453,7 @@
             "widgetType": "NUMBER",
             "dataNotNull": true,
             "widgetLabel": "Height",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "double",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -4316,6 +4477,7 @@
             "widgetType": "DATETIME-LOCAL",
             "dataNotNull": true,
             "widgetLabel": "DateAdded",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "timestamp",
             "dataTypeTypescript": "Date",
             "isDateType": true,
@@ -4340,6 +4502,7 @@
             "widgetType": "DATETIME-LOCAL",
             "dataNotNull": true,
             "widgetLabel": "DateModified",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "timestamp",
             "dataTypeTypescript": "Date",
             "isDateType": true,
@@ -4364,6 +4527,7 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": true,
             "widgetLabel": "UpdatedBy",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -4389,6 +4553,7 @@
             "widgetType": "NUMBER",
             "dataNotNull": true,
             "widgetLabel": "Points",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -4412,6 +4577,7 @@
             "widgetType": "CHECKBOX",
             "dataNotNull": true,
             "widgetLabel": "Shipping",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "boolean",
             "dataTypeTypescript": "boolean",
             "inputRule": ""
@@ -4435,6 +4601,7 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": true,
             "widgetLabel": "Location",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -4460,6 +4627,7 @@
             "widgetType": "CHECKBOX",
             "dataNotNull": true,
             "widgetLabel": "Subtract",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "boolean",
             "dataTypeTypescript": "boolean",
             "inputRule": ""
@@ -4483,6 +4651,7 @@
             "widgetType": "NUMBER",
             "dataNotNull": true,
             "widgetLabel": "Minimum",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -4511,6 +4680,7 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": true,
             "widgetLabel": "StockStatus",
+            "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/StockStatusService.ts\"",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -4539,6 +4709,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -4567,6 +4738,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Language",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/LanguageService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -4590,6 +4762,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -4614,6 +4787,7 @@
       "title": "StockStatus",
       "tooltip": "StockStatus",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -4641,6 +4815,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -4664,6 +4839,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -4689,6 +4865,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Image",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -4713,6 +4890,7 @@
       "title": "Manufacturer",
       "tooltip": "Manifacturer",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -4737,6 +4915,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -4758,6 +4937,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -4782,6 +4962,7 @@
       "title": "ProductStatus",
       "tooltip": "ProductStatus",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -4806,6 +4987,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -4829,6 +5011,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "FirstName",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -4854,6 +5037,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "LastName",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -4879,6 +5063,7 @@
           "widgetType": "EMAIL",
           "dataNotNull": false,
           "widgetLabel": "Email",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -4909,6 +5094,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Status",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/EmployeeStatusService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -4932,6 +5118,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Image",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -4957,6 +5144,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Code",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -4982,6 +5170,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "UpdatedBy",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5007,6 +5196,7 @@
           "widgetType": "DATETIME-LOCAL",
           "dataNotNull": false,
           "widgetLabel": "DateModified",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "timestamp",
           "dataTypeTypescript": "Date",
           "isDateType": true,
@@ -5030,6 +5220,7 @@
       "title": "Employee",
       "tooltip": "Employee",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -5056,6 +5247,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -5077,6 +5269,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5101,6 +5294,7 @@
       "title": "EmployeeStatus",
       "tooltip": "EmployeeStatus",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -5125,6 +5319,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -5153,6 +5348,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Zone",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/ZoneService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -5176,6 +5372,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "FirstName",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5201,6 +5398,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "LastName",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5226,6 +5424,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Company",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5251,6 +5450,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Address1",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5276,6 +5476,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Address2",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5306,6 +5507,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Country",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/CountryService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -5329,6 +5531,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "City",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5354,6 +5557,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Postcode",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5379,6 +5583,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Method",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5404,6 +5609,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Code",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5429,6 +5635,7 @@
           "widgetType": "TEXTAREA",
           "dataNotNull": false,
           "widgetLabel": "AddressFormat",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5454,6 +5661,7 @@
           "widgetType": "TEXTAREA",
           "dataNotNull": false,
           "widgetLabel": "CustomField",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5482,6 +5690,7 @@
           "relationshipEntityPerspectiveName": "SalesOrders",
           "dataNotNull": false,
           "widgetLabel": "SalesOrder",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -5504,6 +5713,7 @@
       "title": "SalesOrderPayment",
       "tooltip": "SalesOrderPayment",
       "type": "DEPENDENT",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -5531,6 +5741,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -5559,6 +5770,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Zone",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/ZoneService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -5582,6 +5794,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "FirstName",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5607,6 +5820,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "LastName",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5632,6 +5846,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Company",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5657,6 +5872,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Address1",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5682,6 +5898,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Address2",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5712,6 +5929,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Country",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/CountryService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -5735,6 +5953,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "City",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5760,6 +5979,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Postcode",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5785,6 +6005,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Method",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5810,6 +6031,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Code",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5835,6 +6057,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "UpdatedBy",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5860,6 +6083,7 @@
           "widgetType": "TEXTAREA",
           "dataNotNull": false,
           "widgetLabel": "AddressFormat",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5885,6 +6109,7 @@
           "widgetType": "TEXTAREA",
           "dataNotNull": false,
           "widgetLabel": "CustomField",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -5913,6 +6138,7 @@
           "relationshipEntityPerspectiveName": "SalesOrders",
           "dataNotNull": false,
           "widgetLabel": "SalesOrder",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -5935,6 +6161,7 @@
       "title": "SalesOrderShipping",
       "tooltip": "SalesOrderShipping",
       "type": "DEPENDENT",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -5962,6 +6189,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -5985,6 +6213,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -6009,6 +6238,7 @@
       "title": "CurrencyStatus",
       "tooltip": "CurrencyStatus",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -6035,6 +6265,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -6058,6 +6289,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -6083,6 +6315,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "UpdatedBy",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -6108,6 +6341,7 @@
           "widgetType": "DATETIME-LOCAL",
           "dataNotNull": false,
           "widgetLabel": "DateModified",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "timestamp",
           "dataTypeTypescript": "Date",
           "isDateType": true,
@@ -6131,6 +6365,7 @@
       "title": "Group",
       "tooltip": "Group",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -6156,6 +6391,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -6186,6 +6422,7 @@
           "relationshipEntityPerspectiveName": "Products",
           "dataNotNull": true,
           "widgetLabel": "Group",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Products/AttributeGroupService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -6209,6 +6446,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -6233,6 +6471,7 @@
       "title": "Attribute",
       "tooltip": "Attribute",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -6264,6 +6503,7 @@
           "relationshipEntityPerspectiveName": "Products",
           "dataNotNull": true,
           "widgetLabel": "Group",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Products/AttributeGroupService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -6288,6 +6528,7 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": true,
             "widgetLabel": "Name",
+            "widgetDropdownUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -6317,6 +6558,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -6347,6 +6589,7 @@
           "relationshipEntityPerspectiveName": "Products",
           "dataNotNull": true,
           "widgetLabel": "Product",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Products/ProductService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -6375,6 +6618,7 @@
           "relationshipEntityPerspectiveName": "Products",
           "dataNotNull": true,
           "widgetLabel": "Attribute",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Products/AttributeService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -6403,6 +6647,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": true,
           "widgetLabel": "Language",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/LanguageService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -6426,6 +6671,7 @@
           "widgetType": "TEXTAREA",
           "dataNotNull": true,
           "widgetLabel": "Text",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -6450,6 +6696,7 @@
       "title": "ProductAttribute",
       "tooltip": "ProductAttribute",
       "type": "DEPENDENT",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -6477,6 +6724,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -6500,6 +6748,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -6524,6 +6773,7 @@
       "title": "AttributeGroup",
       "tooltip": "AttributeGroup",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -6548,6 +6798,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -6578,6 +6829,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -6601,6 +6853,7 @@
           "widgetType": "TEXTAREA",
           "dataNotNull": false,
           "widgetLabel": "Text",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -6626,6 +6879,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "CreatedBy",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -6651,6 +6905,7 @@
           "widgetType": "DATETIME-LOCAL",
           "dataNotNull": false,
           "widgetLabel": "CreatedAt",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "timestamp",
           "dataTypeTypescript": "Date",
           "isDateType": true,
@@ -6680,6 +6935,7 @@
           "relationshipEntityPerspectiveName": "SalesOrders",
           "dataNotNull": false,
           "widgetLabel": "SalesOrder",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -6702,6 +6958,7 @@
       "title": "SalesOrderComment",
       "tooltip": "SalesOrderComment",
       "type": "DEPENDENT",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -6731,6 +6988,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -6759,6 +7017,7 @@
           "relationshipEntityPerspectiveName": "Products",
           "dataNotNull": true,
           "widgetLabel": "Attribute",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -6787,6 +7046,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": true,
           "widgetLabel": "Language",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/LanguageService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -6810,6 +7070,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Text",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -6834,6 +7095,7 @@
       "title": "AttributeDescription",
       "tooltip": "AttributeDescription",
       "type": "DEPENDENT",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -6863,6 +7125,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -6893,6 +7156,7 @@
           "relationshipEntityPerspectiveName": "Products",
           "dataNotNull": true,
           "widgetLabel": "Product",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Products/ProductService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -6916,6 +7180,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -6941,6 +7206,7 @@
           "widgetType": "TEXTAREA",
           "dataNotNull": true,
           "widgetLabel": "Description",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -6966,6 +7232,7 @@
           "widgetType": "TEXTAREA",
           "dataNotNull": true,
           "widgetLabel": "Tag",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -6991,6 +7258,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "MetaTitle",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -7016,6 +7284,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "MetaDescription",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -7041,6 +7310,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "MetaKeyword",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -7071,6 +7341,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": true,
           "widgetLabel": "Language",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/LanguageService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -7093,6 +7364,7 @@
       "title": "ProductDescription",
       "tooltip": "ProductDescription",
       "type": "DEPENDENT",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -7122,6 +7394,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -7145,6 +7418,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -7169,6 +7443,7 @@
       "title": "Permission",
       "tooltip": "Permission",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -7193,6 +7468,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -7221,6 +7497,7 @@
           "relationshipEntityPerspectiveName": "Access",
           "dataNotNull": false,
           "widgetLabel": "Employee",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Access/EmployeeService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -7249,6 +7526,7 @@
           "relationshipEntityPerspectiveName": "Access",
           "dataNotNull": false,
           "widgetLabel": "Group",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Access/GroupService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -7272,6 +7550,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "UpdatedBy",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -7297,6 +7576,7 @@
           "widgetType": "DATETIME-LOCAL",
           "dataNotNull": false,
           "widgetLabel": "DateModified",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "timestamp",
           "dataTypeTypescript": "Date",
           "isDateType": true,
@@ -7320,6 +7600,7 @@
       "title": "GroupEmployee",
       "tooltip": "GroupEmployee",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -7346,6 +7627,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -7374,6 +7656,7 @@
           "relationshipEntityPerspectiveName": "Access",
           "dataNotNull": false,
           "widgetLabel": "Group",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Access/GroupService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -7402,6 +7685,7 @@
           "relationshipEntityPerspectiveName": "Access",
           "dataNotNull": false,
           "widgetLabel": "Permission",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Access/PermissionService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -7425,6 +7709,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "UpdatedBy",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -7450,6 +7735,7 @@
           "widgetType": "DATETIME-LOCAL",
           "dataNotNull": false,
           "widgetLabel": "DateModified",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "timestamp",
           "dataTypeTypescript": "Date",
           "isDateType": true,
@@ -7473,6 +7759,7 @@
       "title": "GroupPermission",
       "tooltip": "GroupPermission",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -7501,6 +7788,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -7524,6 +7812,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "EntityName",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -7549,6 +7838,7 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "EntityIntegerId",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "long",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -7572,6 +7862,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "EntityStringId",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -7597,6 +7888,7 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "ReferenceIntegerId",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "long",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -7620,6 +7912,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "ReferenceStringId",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -7645,6 +7938,7 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "ScopeIntegerId",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "long",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -7668,6 +7962,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "ScopeStringId",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -7692,6 +7987,7 @@
       "title": "EntityReference",
       "tooltip": "EntityReference",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -7718,6 +8014,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -7748,6 +8045,7 @@
           "relationshipEntityPerspectiveName": "Stores",
           "dataNotNull": true,
           "widgetLabel": "Store",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Stores/StoreService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -7776,6 +8074,7 @@
           "relationshipEntityPerspectiveName": "Stores",
           "dataNotNull": true,
           "widgetLabel": "Property",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Stores/StoreConfigurationPropertyService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -7799,6 +8098,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Value",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -7823,6 +8123,7 @@
       "title": "StoreConfiguration",
       "tooltip": "StoreConfiguration",
       "type": "DEPENDENT",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -7850,6 +8151,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -7873,6 +8175,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -7897,6 +8200,7 @@
       "title": "StoreConfigurationProperty",
       "tooltip": "StoreConfigurationProperty",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -7923,6 +8227,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -7946,6 +8251,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -7970,6 +8276,7 @@
       "title": "StoreType",
       "tooltip": "StoreType",
       "type": "PRIMARY",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -7996,6 +8303,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -8026,6 +8334,7 @@
           "relationshipEntityPerspectiveName": "Products",
           "dataNotNull": true,
           "widgetLabel": "Product",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Products/ProductService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -8054,6 +8363,7 @@
           "relationshipEntityPerspectiveName": "Stores",
           "dataNotNull": true,
           "widgetLabel": "Store",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Stores/StoreService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -8076,6 +8386,7 @@
       "title": "ProductToStore",
       "tooltip": "ProductToStore",
       "type": "DEPENDENT",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
@@ -8105,6 +8416,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -8135,6 +8447,7 @@
           "relationshipEntityPerspectiveName": "Products",
           "dataNotNull": true,
           "widgetLabel": "AttributeGroup",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Products/AttributeGroupService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -8163,6 +8476,7 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": true,
           "widgetLabel": "Language",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/LanguageService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -8186,6 +8500,7 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Text",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -8210,6 +8525,7 @@
       "title": "AttributeGroupDescription",
       "tooltip": "AttributeGroupDescription",
       "type": "DEPENDENT",
+      "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
