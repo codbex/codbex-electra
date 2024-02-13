@@ -44,13 +44,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		resetPagination();
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("codbex-electra.Products.${masterEntity}.entitySelected", function (msg) {
+		messageHub.onDidReceiveMessage("codbex-electra.Products.Product.entitySelected", function (msg) {
 			resetPagination();
 			$scope.selectedMainEntityId = msg.data.selectedMainEntityId;
 			$scope.loadPage($scope.dataPage);
 		}, true);
 
-		messageHub.onDidReceiveMessage("codbex-electra.Products.${masterEntity}.clearDetails", function (msg) {
+		messageHub.onDidReceiveMessage("codbex-electra.Products.Product.clearDetails", function (msg) {
 			$scope.$apply(function () {
 				resetPagination();
 				$scope.selectedMainEntityId = null;
@@ -75,15 +75,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//-----------------Events-------------------//
 
 		$scope.loadPage = function (pageNumber) {
-			let ${masterEntityId} = $scope.selectedMainEntityId;
+			let Product = $scope.selectedMainEntityId;
 			$scope.dataPage = pageNumber;
-			entityApi.count(${masterEntityId}).then(function (response) {
+			entityApi.count(Product).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("ProductToCategory", `Unable to count ProductToCategory: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
-				let query = `${masterEntityId}=${${masterEntityId}}`;
+				let query = `Product=${Product}`;
 				let offset = (pageNumber - 1) * $scope.dataLimit;
 				let limit = $scope.dataLimit;
 				entityApi.filter(query, offset, limit).then(function (response) {
@@ -115,7 +115,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("ProductToCategory-details", {
 				action: "create",
 				entity: {},
-				selectedMainEntityKey: "${masterEntityId}",
+				selectedMainEntityKey: "Product",
 				selectedMainEntityId: $scope.selectedMainEntityId,
 				optionsCategory: $scope.optionsCategory,
 				optionsProduct: $scope.optionsProduct,
@@ -126,7 +126,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("ProductToCategory-details", {
 				action: "update",
 				entity: entity,
-				selectedMainEntityKey: "${masterEntityId}",
+				selectedMainEntityKey: "Product",
 				selectedMainEntityId: $scope.selectedMainEntityId,
 				optionsCategory: $scope.optionsCategory,
 				optionsProduct: $scope.optionsProduct,

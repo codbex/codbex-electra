@@ -9052,13 +9052,15 @@
           "dataUnique": false,
           "isCalculatedProperty": false,
           "name": "Product",
+          "relationshipCardinality": "1_n",
+          "relationshipName": "ProductToCategory_Product",
+          "relationshipType": "COMPOSITION",
           "widgetDropDownKey": "Id",
           "widgetDropDownValue": "Name",
-          "widgetIsMajor": true,
+          "widgetIsMajor": false,
           "widgetLength": "20",
           "widgetSize": "",
           "widgetType": "DROPDOWN",
-          "relationshipName": "ProductToCategory_Product",
           "relationshipEntityName": "Product",
           "relationshipEntityPerspectiveName": "Products",
           "dataNotNull": true,
@@ -9092,7 +9094,9 @@
         "Id"
       ],
       "primaryKeysString": "Id",
-      "hasDropdowns": true
+      "hasDropdowns": true,
+      "masterEntity": "Product",
+      "masterEntityId": "Product"
     },
     {
       "properties": [

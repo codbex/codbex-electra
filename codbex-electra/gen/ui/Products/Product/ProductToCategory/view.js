@@ -8,7 +8,7 @@ const viewData = {
     label: "ProductToCategory",
     factory: "frame",
     region: "bottom",
-    link: "/services/web/codbex-electra/gen/ui/Products/${masterEntity}/ProductToCategory/index.html",
+    link: "/services/web/codbex-electra/gen/ui/Products/Product/ProductToCategory/index.html",
     perspectiveName: "Products"
 };
 

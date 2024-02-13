@@ -5179,13 +5179,15 @@
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
                         "name": "Product",
+                        "relationshipCardinality": "1_n",
+                        "relationshipName": "ProductToCategory_Product",
+                        "relationshipType": "COMPOSITION",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "DROPDOWN",
-                        "relationshipName": "ProductToCategory_Product",
                         "relationshipEntityName": "Product",
                         "relationshipEntityPerspectiveName": "Products"
                     }

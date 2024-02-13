@@ -1,5 +1,5 @@
 {
-    "module": "codbex-electra/gen/ui/Products/${masterEntity}/ProductToCategory/dialog-window/view.js",
+    "module": "codbex-electra/gen/ui/Products/Product/ProductToCategory/dialog-window/view.js",
     "extensionPoint": "codbex-electra-dialog-window",
     "description": "codbex-electra - Application Dialog Window"
 }

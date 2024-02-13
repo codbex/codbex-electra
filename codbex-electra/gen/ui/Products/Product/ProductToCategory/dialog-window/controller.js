@@ -25,7 +25,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					// Set Errors for required fields only
 					$scope.formErrors = {
 						Category: true,
-						Product: true,
 
 					};
 				}

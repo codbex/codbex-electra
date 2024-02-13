@@ -33,12 +33,12 @@ class ProductToCategoryService {
         }
     }
 
-    @Get("/count/:${masterEntityId}")
+    @Get("/count/:Product")
     public count(_: any, ctx: any) {
         try {
-            let ${masterEntityId} = parseInt(ctx.pathParameters.${masterEntityId});
-            ${masterEntityId} = isNaN(${masterEntityId}) ? ctx.pathParameters.${masterEntityId} : ${masterEntityId};
-            return this.repository.count(${masterEntityId});
+            let Product = parseInt(ctx.pathParameters.Product);
+            Product = isNaN(Product) ? ctx.pathParameters.Product : Product;
+            return this.repository.count(Product);
         } catch (error: any) {
             this.handleError(error);
         }

@@ -177,7 +177,8 @@ export class ProductToCategoryRepository {
 
 
 
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PRODUCTTOCATEGORY" WHERE  = ?', []);
+    public count(Product: number): number {
+        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PRODUCTTOCATEGORY" WHERE "PRODUCTTOCATEGORY_PRODUCT" = ?', [Product]);
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
                 return resultSet[0].COUNT;

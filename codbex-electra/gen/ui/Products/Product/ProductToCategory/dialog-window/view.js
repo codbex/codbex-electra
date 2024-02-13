@@ -6,7 +6,7 @@
 const viewData = {
     id: "ProductToCategory-details",
     label: "ProductToCategory",
-    link: "/services/web/codbex-electra/gen/ui/Products/${masterEntity}/ProductToCategory/dialog-window/index.html",
+    link: "/services/web/codbex-electra/gen/ui/Products/Product/ProductToCategory/dialog-window/index.html",
     perspectiveName: "Products"
 };
 
