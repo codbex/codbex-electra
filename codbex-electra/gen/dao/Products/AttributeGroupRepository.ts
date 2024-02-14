@@ -76,6 +76,7 @@ export class AttributeGroupRepository {
                 type: "INTEGER",
                 id: true,
                 autoIncrement: true,
+                required: true
             },
             {
                 name: "Name",

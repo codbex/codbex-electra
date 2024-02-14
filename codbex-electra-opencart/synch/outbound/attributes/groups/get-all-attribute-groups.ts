@@ -1,4 +1,4 @@
-import { AttributeGroupRepository as AttributeGroupDAO, AttributeGroupEntity } from "../../../../../codbex-electra/gen/dao/Products/AttributeGroupRepository";
+import { AttributeGroupRepository as AttributeGroupDAO } from "../../../../../codbex-electra/gen/dao/Products/AttributeGroupRepository";
 import { BaseHandler } from "../../base-handler";
 import { StoreEntry } from "../../get-all-relevant-stores";
 
@@ -13,7 +13,7 @@ export function onMessage(message: any) {
 }
 
 export interface AttributeGroupEntry {
-    readonly attributeGroup: AttributeGroupEntity;
+    readonly attributeGroupId: number;
     readonly store: StoreEntry;
 }
 
@@ -34,7 +34,7 @@ class GetAllAttributeGroupsHandler extends BaseHandler {
         const attributeGroupEntries: AttributeGroupEntry[] = [];
         attributeGroups.forEach((attributeGroup: any) => {
             const attributeGroupEntry = {
-                attributeGroup: attributeGroup,
+                attributeGroupId: attributeGroup.Id,
                 store: this.store
             }
             attributeGroupEntries.push(attributeGroupEntry);

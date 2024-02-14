@@ -94,6 +94,7 @@ export class AttributeTranslationRepository {
                 type: "INTEGER",
                 id: true,
                 autoIncrement: true,
+                required: true
             },
             {
                 name: "Attribute",

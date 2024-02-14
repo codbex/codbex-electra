@@ -112,6 +112,7 @@ export class CategoryRepository {
                 type: "INTEGER",
                 id: true,
                 autoIncrement: true,
+                required: true
             },
             {
                 name: "Name",

@@ -1374,7 +1374,8 @@
                         "length": 0,
                         "primaryKey": true,
                         "identity": true,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "ATTRIBUTE_ID"
                     },
                     {
@@ -1402,7 +1403,8 @@
                         "length": 0,
                         "primaryKey": true,
                         "identity": true,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "PRODUCTATTRIBUTE_ID"
                     },
                     {
@@ -1444,7 +1446,8 @@
                         "length": 0,
                         "primaryKey": true,
                         "identity": true,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "ATTRIBUTEGROUP_ID"
                     },
                     {
@@ -1515,7 +1518,6 @@
                         "identity": true,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ATTRIBUTETRANSLATION_ID"
                     },
                     {
@@ -1952,7 +1954,8 @@
                         "length": 0,
                         "primaryKey": true,
                         "identity": true,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "CATEGORY_ID"
                     },
                     {
@@ -2003,7 +2006,8 @@
                         "length": 0,
                         "primaryKey": true,
                         "identity": true,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "PRODUCTTOCATEGORY_ID"
                     },
                     {

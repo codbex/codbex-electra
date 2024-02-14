@@ -1,6 +1,7 @@
 import { EntityReferenceDAO } from "../../../../codbex-electra/dao/EntityReferenceDAO";
-import { oc_languageRepository as OpenCartLanguageDAO, oc_languageCreateEntity, oc_languageUpdateEntity } from "../../../dao/oc_languageRepository";
 import { EntityReferenceEntity } from "../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
+import { oc_languageRepository as OpenCartLanguageDAO, oc_languageCreateEntity, oc_languageUpdateEntity } from "../../../dao/oc_languageRepository";
+import { LanguageRepository as LanguageDAO } from "../../../../codbex-electra/gen/dao/Settings/LanguageRepository";
 import { BaseHandler } from "../base-handler";
 import { LanguageEntry } from "./get-all-enabled-languages";
 
@@ -26,34 +27,34 @@ class MergeLanguageToOpenCart extends BaseHandler {
     }
 
     handle() {
-        const language = this.languageEntry.language;
+        const languageId = this.languageEntry.languageId;
         const storeId: number = this.languageEntry.store.id;
 
-        const languageReference = this.entityReferenceDAO.getStoreLanguageReference(storeId, language.Id);
+        const languageReference = this.entityReferenceDAO.getStoreLanguageReference(storeId, languageId);
 
         const ocLanguage = this.createOpenCartLanguage(languageReference);
         const ocLanguageId = this.ocLanguageDAO.upsert(ocLanguage);
 
         if (!languageReference) {
-            this.entityReferenceDAO.createLanguageReference(storeId, language.Id, ocLanguageId);
+            this.entityReferenceDAO.createLanguageReference(storeId, languageId, ocLanguageId);
         }
     }
 
-
     private createOpenCartLanguage(languageReference: EntityReferenceEntity | null): oc_languageCreateEntity | oc_languageUpdateEntity {
-        const language = this.languageEntry.language;
+        const languageId = this.languageEntry.languageId;
+        const language = new LanguageDAO().findById(languageId);
 
         const image = "gb.png";
         const directory = "english";
         const sortOrder = 1;
-        const status = language.Status === 1;
+        const status = language!.Status === 1;
 
         if (languageReference) {
             return {
                 language_id: languageReference.ReferenceIntegerId,
-                "name": language.Name,
-                "code": language.Code,
-                "locale": language.Locale,
+                "name": language!.Name,
+                "code": language!.Code,
+                "locale": language!.Locale,
                 "image": image,
                 "directory": directory,
                 "sort_order": sortOrder,
@@ -61,9 +62,9 @@ class MergeLanguageToOpenCart extends BaseHandler {
             };
         } else {
             return {
-                "name": language.Name,
-                "code": language.Code,
-                "locale": language.Locale,
+                "name": language!.Name,
+                "code": language!.Code,
+                "locale": language!.Locale,
                 "image": image,
                 "directory": directory,
                 "sort_order": sortOrder,

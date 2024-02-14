@@ -85,6 +85,7 @@ export class AttributeRepository {
                 type: "INTEGER",
                 id: true,
                 autoIncrement: true,
+                required: true
             },
             {
                 name: "Group",

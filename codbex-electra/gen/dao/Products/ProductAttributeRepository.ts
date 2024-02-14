@@ -103,6 +103,7 @@ export class ProductAttributeRepository {
                 type: "INTEGER",
                 id: true,
                 autoIncrement: true,
+                required: true
             },
             {
                 name: "Product",

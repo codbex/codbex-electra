@@ -34,22 +34,22 @@ class MergeAttributeGroupToOpenCartHandler extends BaseHandler {
     }
 
     handle() {
-        const attributeGroup = this.attributeGroupEntry.attributeGroup;
+        const attributeGroupId = this.attributeGroupEntry.attributeGroupId;
         const storeId = this.attributeGroupEntry.store.id;
 
-        const attributeGroupReference = this.entityReferenceDAO.getStoreAttributeGroup(storeId, attributeGroup.Id);
+        const attributeGroupReference = this.entityReferenceDAO.getStoreAttributeGroup(storeId, attributeGroupId);
 
         const ocAttributeGroup = this.createOpenCartAttributeGroup(attributeGroupReference);
         const ocAttributeGroupId = this.ocAttributeGroupDAO.upsert(ocAttributeGroup);
 
         if (!attributeGroupReference) {
-            this.entityReferenceDAO.createAttributeGroupReference(storeId, attributeGroup.Id, ocAttributeGroupId);
+            this.entityReferenceDAO.createAttributeGroupReference(storeId, attributeGroupId, ocAttributeGroupId);
         }
 
         const querySettings = {
             $filter: {
                 equals: {
-                    AttributeGroup: attributeGroup.Id
+                    AttributeGroup: attributeGroupId
                 }
             }
         };

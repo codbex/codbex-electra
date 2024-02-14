@@ -1,7 +1,7 @@
 import { oc_attributeRepository as OpenCartAttributeDAO, oc_attributeCreateEntity as OpenCartAttributeCreateEntity, oc_attributeUpdateEntity as OpenCartAttributeUpdateEntity } from "../../../../dao/oc_attributeRepository";
 import { oc_attribute_descriptionRepository as OpenCartAttributeDescriptionDAO, oc_attribute_descriptionUpdateEntity as OpenCartAttributeDescriptionUpdateEntity } from "../../../../dao/oc_attribute_descriptionRepository";
 import { AttributeTranslationRepository as AttributeTranslationDAO, AttributeTranslationEntity } from "../../../../../codbex-electra/gen/dao/Products/AttributeTranslationRepository";
-import { AttributeEntity } from "../../../../../codbex-electra/gen/dao/Products/AttributeRepository";
+import { AttributeRepository as AttributeDAO, AttributeEntity } from "../../../../../codbex-electra/gen/dao/Products/AttributeRepository";
 import { EntityReferenceDAO } from "../../../../../codbex-electra/dao/EntityReferenceDAO";
 import { EntityReferenceEntity } from "../../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
 import { AttributeEntry } from "./get-all-attributes";
@@ -19,6 +19,7 @@ export function onMessage(message: any) {
 class MergeAttributeToOpenCartHandler extends BaseHandler {
     private readonly attributeEntry;
     private readonly entityReferenceDAO;
+    private readonly attributeDAO;
     private readonly ocAttributeDAO;
     private readonly attributeTranslationDAO;
     private readonly ocAttributeDescriptionDAO;
@@ -29,28 +30,30 @@ class MergeAttributeToOpenCartHandler extends BaseHandler {
 
         const dataSourceName: string = attributeEntry.store.dataSourceName;
         this.entityReferenceDAO = new EntityReferenceDAO();
+        this.attributeDAO = new AttributeDAO();
         this.ocAttributeDAO = new OpenCartAttributeDAO(dataSourceName);
         this.attributeTranslationDAO = new AttributeTranslationDAO();
         this.ocAttributeDescriptionDAO = new OpenCartAttributeDescriptionDAO(dataSourceName);
     }
 
     handle() {
-        const attribute: AttributeEntity = this.attributeEntry.attribute;
-        const storeId: number = this.attributeEntry.store.id;
+        const storeId = this.attributeEntry.store.id;
+        const attributeId = this.attributeEntry.attributeId;
+        const attribute = this.attributeDAO.findById(attributeId);
 
-        const attributeReference = this.entityReferenceDAO.getStoreAttribute(storeId, attribute.Id);
+        const attributeReference = this.entityReferenceDAO.getStoreAttribute(storeId, attribute!.Id);
 
-        const ocAttribute = this.createOpenCartAttribute(attributeReference);
+        const ocAttribute = this.createOpenCartAttribute(attribute!, attributeReference);
         const ocAttributeId = this.ocAttributeDAO.upsert(ocAttribute);
 
         if (!attributeReference) {
-            this.entityReferenceDAO.createAttributeReference(storeId, attribute.Id, ocAttributeId);
+            this.entityReferenceDAO.createAttributeReference(storeId, attribute!.Id, ocAttributeId);
         }
 
         const querySettings = {
             $filter: {
                 equals: {
-                    Attribute: attribute.Id
+                    Attribute: attribute!.Id
                 }
             }
         };
@@ -63,8 +66,8 @@ class MergeAttributeToOpenCartHandler extends BaseHandler {
     }
 
 
-    private createOpenCartAttribute(attributeReference: EntityReferenceEntity | null): OpenCartAttributeCreateEntity | OpenCartAttributeUpdateEntity {
-        const attributeGroup = this.attributeEntry.attribute.Group;
+    private createOpenCartAttribute(attribute: AttributeEntity, attributeReference: EntityReferenceEntity | null): OpenCartAttributeCreateEntity | OpenCartAttributeUpdateEntity {
+        const attributeGroup = attribute.Group;
         const attributeGroupReference = this.entityReferenceDAO.getStoreAttributeGroup(this.attributeEntry.store.id, attributeGroup);
         if (!attributeGroupReference) {
             this.throwError(`Missing attribute group reference for attribute group with id  ${attributeGroup}`);

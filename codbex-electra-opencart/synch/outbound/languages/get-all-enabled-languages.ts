@@ -1,4 +1,4 @@
-import { LanguageRepository, LanguageEntity } from "../../../../codbex-electra/gen/dao/Settings/LanguageRepository";
+import { LanguageRepository as LanguageDAO } from "../../../../codbex-electra/gen/dao/Settings/LanguageRepository";
 import { StoreEntry } from "../get-all-relevant-stores";
 import { BaseHandler } from "../base-handler";
 
@@ -13,7 +13,7 @@ export function onMessage(message: any) {
 }
 
 export interface LanguageEntry {
-    readonly language: LanguageEntity;
+    readonly languageId: number;
     readonly store: StoreEntry;
 }
 
@@ -24,7 +24,7 @@ class GetStoreProductsHandler extends BaseHandler {
     constructor(store: StoreEntry) {
         super(import.meta.url);
         this.store = store;
-        this.languageDAO = new LanguageRepository();
+        this.languageDAO = new LanguageDAO();
     }
 
     handle() {
@@ -41,7 +41,7 @@ class GetStoreProductsHandler extends BaseHandler {
         const languageEntries: LanguageEntry[] = [];
         languages.forEach((language) => {
             const languageEntry = {
-                language: language,
+                languageId: language.Id,
                 store: this.store
             }
             languageEntries.push(languageEntry);

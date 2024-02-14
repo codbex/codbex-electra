@@ -85,6 +85,7 @@ export class ProductToCategoryRepository {
                 type: "INTEGER",
                 id: true,
                 autoIncrement: true,
+                required: true
             },
             {
                 name: "Category",
