@@ -1,115 +1,106 @@
 import { query } from "sdk/db";
 import { dao as daoApi, update } from "sdk/db";
 
-export interface oc_product_descriptionEntity {
-    readonly product_id: number;
+export interface oc_category_descriptionEntity {
+    readonly category_id: number;
     readonly language_id: number;
     name: string;
     description: string;
-    tag: string;
     meta_title: string;
     meta_description: string;
     meta_keyword: string;
 }
 
-export interface oc_product_descriptionCreateEntity {
+export interface oc_category_descriptionCreateEntity {
     readonly name: string;
     readonly description: string;
-    readonly tag: string;
     readonly meta_title: string;
     readonly meta_description: string;
     readonly meta_keyword: string;
 }
 
-export interface oc_product_descriptionUpdateEntity extends oc_product_descriptionCreateEntity {
-    readonly product_id: number;
+export interface oc_category_descriptionUpdateEntity extends oc_category_descriptionCreateEntity {
+    readonly category_id: number;
     readonly language_id: number;
 }
 
-export interface oc_product_descriptionEntityOptions {
+export interface oc_category_descriptionEntityOptions {
     $filter?: {
         equals?: {
-            product_id?: number | number[];
+            category_id?: number | number[];
             language_id?: number | number[];
             name?: string | string[];
             description?: string | string[];
-            tag?: string | string[];
             meta_title?: string | string[];
             meta_description?: string | string[];
             meta_keyword?: string | string[];
         };
         notEquals?: {
-            product_id?: number | number[];
+            category_id?: number | number[];
             language_id?: number | number[];
             name?: string | string[];
             description?: string | string[];
-            tag?: string | string[];
             meta_title?: string | string[];
             meta_description?: string | string[];
             meta_keyword?: string | string[];
         };
         contains?: {
-            product_id?: number;
+            category_id?: number;
             language_id?: number;
             name?: string;
             description?: string;
-            tag?: string;
             meta_title?: string;
             meta_description?: string;
             meta_keyword?: string;
         };
         greaterThan?: {
-            product_id?: number;
+            category_id?: number;
             language_id?: number;
             name?: string;
             description?: string;
-            tag?: string;
             meta_title?: string;
             meta_description?: string;
             meta_keyword?: string;
         };
         greaterThanOrEqual?: {
-            product_id?: number;
+            category_id?: number;
             language_id?: number;
             name?: string;
             description?: string;
-            tag?: string;
             meta_title?: string;
             meta_description?: string;
             meta_keyword?: string;
         };
         lessThan?: {
-            product_id?: number;
+            category_id?: number;
             language_id?: number;
             name?: string;
             description?: string;
-            tag?: string;
             meta_title?: string;
             meta_description?: string;
             meta_keyword?: string;
         };
         lessThanOrEqual?: {
-            product_id?: number;
+            category_id?: number;
             language_id?: number;
             name?: string;
             description?: string;
-            tag?: string;
             meta_title?: string;
             meta_description?: string;
             meta_keyword?: string;
         };
     },
-    $select?: (keyof oc_product_descriptionEntity)[],
-    $sort?: string | (keyof oc_product_descriptionEntity)[],
+    $select?: (keyof oc_category_descriptionEntity)[],
+    $sort?: string | (keyof oc_category_descriptionEntity)[],
     $order?: 'asc' | 'desc',
     $offset?: number,
     $limit?: number,
 }
 
-interface oc_product_descriptionEntityEvent {
+interface oc_category_descriptionEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
-    readonly entity: Partial<oc_product_descriptionEntity>;
+    readonly entity: Partial<oc_category_descriptionEntity>;
     readonly key: {
         name: string;
         column: string;
@@ -117,16 +108,16 @@ interface oc_product_descriptionEntityEvent {
     }
 }
 
-export class oc_product_descriptionRepository {
+export class oc_category_descriptionRepository {
 
-    private static readonly UPDATE_STATEMENT = "UPDATE `oc_product_description` SET `name` = ?, `description` = ?, `tag` = ?, `meta_title` = ?, `meta_description` = ?, `meta_keyword` = ? WHERE (`product_id`=? AND `language_id` = ?)";
+    private static readonly UPDATE_STATEMENT = "UPDATE `oc_category_description` SET `name` = ?, `description` = ?, `meta_title` = ?, `meta_description` = ?, `meta_keyword` = ? WHERE (`category_id` = ? AND `language_id` = ?)";
 
     private static readonly DEFINITION = {
-        table: "oc_product_description",
+        table: "oc_category_description",
         properties: [
             {
-                name: "product_id",
-                column: "product_id",
+                name: "category_id",
+                column: "category_id",
                 type: "INT",
                 id: true,
                 autoIncrement: false,
@@ -153,12 +144,6 @@ export class oc_product_descriptionRepository {
                 required: true
             },
             {
-                name: "tag",
-                column: "tag",
-                type: "TEXT",
-                required: true
-            },
-            {
                 name: "meta_title",
                 column: "meta_title",
                 type: "VARCHAR",
@@ -179,40 +164,40 @@ export class oc_product_descriptionRepository {
         ]
     };
 
-    private readonly dao;
     private readonly dataSourceName;
+    private readonly dao;
 
     constructor(dataSource: string) {
         this.dataSourceName = dataSource;
-        this.dao = daoApi.create(oc_product_descriptionRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(oc_category_descriptionRepository.DEFINITION, null, dataSource);
     }
 
-    public findAll(options?: oc_product_descriptionEntityOptions): oc_product_descriptionEntity[] {
+    public findAll(options?: oc_category_descriptionEntityOptions): oc_category_descriptionEntity[] {
         return this.dao.list(options);
     }
 
-    public findById(id: number): oc_product_descriptionEntity | undefined {
+    public findById(id: number): oc_category_descriptionEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }
 
-    public create(entity: oc_product_descriptionCreateEntity): number {
+    public create(entity: oc_category_descriptionCreateEntity): number {
         return this.dao.insert(entity);
     }
 
-    public update(entity: oc_product_descriptionUpdateEntity): number {
-        const params = [entity.name, entity.description, entity.tag,
+    public update(entity: oc_category_descriptionUpdateEntity): number {
+        const params = [entity.name, entity.description,
         entity.meta_title, entity.meta_description, entity.meta_keyword,
-        entity.product_id, entity.language_id
+        entity.category_id, entity.language_id
         ];
-        return update.execute(oc_product_descriptionRepository.UPDATE_STATEMENT, params, this.dataSourceName);
+        return update.execute(oc_category_descriptionRepository.UPDATE_STATEMENT, params, this.dataSourceName);
     }
 
-    public upsert(entity: oc_product_descriptionCreateEntity | oc_product_descriptionUpdateEntity): void {
+    public upsert(entity: oc_category_descriptionCreateEntity | oc_category_descriptionUpdateEntity): number {
         const querySettings = {
             $filter: {
                 equals: {
-                    product_id: entity.product_id,
+                    category_id: entity.category_id,
                     language_id: entity.language_id
                 }
             }
@@ -234,7 +219,7 @@ export class oc_product_descriptionRepository {
     }
 
     public customDataCount(): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "oc_product_description"');
+        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "oc_category_description"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
                 return resultSet[0].COUNT;

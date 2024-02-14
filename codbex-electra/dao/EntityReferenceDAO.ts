@@ -4,6 +4,7 @@ import { getLogger } from "../util/LoggerUtil";
 
 export class EntityReferenceDAO {
 
+    private static readonly CATEGORY_ENTITY = "Category";
     private static readonly LANGUAGE_ENTITY = "Language";
     private static readonly ATTRIBUTE_ENTITY = "Attribute";
     private static readonly ATTRIBUTE_GROUP_ENTITY = "AttributeGroup";
@@ -35,6 +36,11 @@ export class EntityReferenceDAO {
         return this.createReference(storeId, EntityReferenceDAO.ATTRIBUTE_GROUP_TRANSLATION_ENTITY, entityAttributeGroupTranslationId, referenceAttributeGroupTranslationId);
     }
 
+
+    public createCategoryReference(storeId: number, entityCategoryId: number, referenceCategoryId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.CATEGORY_ENTITY, entityCategoryId, referenceCategoryId);
+    }
+
     public createLanguageReference(storeId: number, entityLanguageId: number, referenceLanguageId: number) {
         return this.createReference(storeId, EntityReferenceDAO.LANGUAGE_ENTITY, entityLanguageId, referenceLanguageId);
     }
@@ -64,6 +70,10 @@ export class EntityReferenceDAO {
         return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.PRODUCT_ENTITY, productId);
     }
 
+    public getStoreCategory(storeId: number, categoryId: number) {
+        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.CATEGORY_ENTITY, categoryId);
+    }
+
     public getStoreManufacturer(storeId: number, manufacturerId: number) {
         return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.MANUFACTURER_ENTITY, manufacturerId);
     }
@@ -78,6 +88,10 @@ export class EntityReferenceDAO {
 
     public getStoreAttributeGroupDescription(storeId: number, attributeGroupTranslationId: number) {
         return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.ATTRIBUTE_GROUP_TRANSLATION_ENTITY, attributeGroupTranslationId);
+    }
+
+    public getStoreCategoryReference(storeId: number, categoryId: number) {
+        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.CATEGORY_ENTITY, categoryId);
     }
 
     public getStoreLanguageReference(storeId: number, languageId: number) {

@@ -16,6 +16,7 @@ export function onMessage(message: any) {
 class MergeProductAttributeToOpenCartHandler extends BaseHandler {
     private readonly productEntry;
     private readonly entityReferenceDAO;
+    private readonly productAttributeDAO;
     private readonly ocProductAttributeDAO;
 
     constructor(productEntry: ProductEntry) {
@@ -23,6 +24,7 @@ class MergeProductAttributeToOpenCartHandler extends BaseHandler {
         this.productEntry = productEntry;
 
         this.entityReferenceDAO = new EntityReferenceDAO();
+        this.productAttributeDAO = new ProductAttributeDAO();
         this.ocProductAttributeDAO = new OpenCartProductAttributeDAO(productEntry.store.dataSourceName);
     }
 
@@ -37,7 +39,6 @@ class MergeProductAttributeToOpenCartHandler extends BaseHandler {
     }
 
     private getProductAttributes() {
-        const productAttributeDAO = new ProductAttributeDAO();
         const querySettings = {
             $filter: {
                 equals: {
@@ -45,7 +46,7 @@ class MergeProductAttributeToOpenCartHandler extends BaseHandler {
                 }
             }
         };
-        return productAttributeDAO.findAll(querySettings);
+        return this.productAttributeDAO.findAll(querySettings);
     }
 
     private createOpenCartProductAttribute(productAttribute: ProductAttributeEntity, productReference: EntityReferenceEntity | null): OpenCartProductAttributeCreateEntity | OpenCartProductAttributeUpdateEntity {
@@ -67,8 +68,7 @@ class MergeProductAttributeToOpenCartHandler extends BaseHandler {
     }
 
     private getLanguageReference(storeId: number, languageId: number) {
-        const entityReferenceDAO = new EntityReferenceDAO();
-        const languageReference = entityReferenceDAO.getStoreLanguageReference(storeId, languageId);
+        const languageReference = this.entityReferenceDAO.getStoreLanguageReference(storeId, languageId);
         if (!languageReference) {
             this.throwError(`Missing reference for language with id ${languageId}`);
         }
@@ -76,8 +76,7 @@ class MergeProductAttributeToOpenCartHandler extends BaseHandler {
     }
 
     private getAttributeReference(storeId: number, attributeId: number) {
-        const entityReferenceDAO = new EntityReferenceDAO();
-        const attributeReference = entityReferenceDAO.getStoreAttribute(storeId, attributeId);
+        const attributeReference = this.entityReferenceDAO.getStoreAttribute(storeId, attributeId);
         if (!attributeReference) {
             this.throwError(`Missing reference for attribute with id ${attributeId}`);
         }

@@ -17,12 +17,14 @@ export function onMessage(message: any) {
 class MergeProductDescriptionToOpenCartHandler extends BaseHandler {
     private readonly productEntry;
     private readonly entityReferenceDAO;
+    private readonly productDescriptionDAO;
     private readonly ocProductDescriptionDAO;
 
     constructor(productEntry: ProductEntry) {
         super(import.meta.url);
         this.productEntry = productEntry;
         this.entityReferenceDAO = new EntityReferenceDAO();
+        this.productDescriptionDAO = new ProductDescriptionDAO();
         this.ocProductDescriptionDAO = new OpenCartProductDescriptionDAO(productEntry.store.dataSourceName);
 
     }
@@ -39,7 +41,6 @@ class MergeProductDescriptionToOpenCartHandler extends BaseHandler {
     }
 
     private getProductDescriptions() {
-        const productDescriptionDAO = new ProductDescriptionDAO();
         const querySettings = {
             $filter: {
                 equals: {
@@ -47,7 +48,7 @@ class MergeProductDescriptionToOpenCartHandler extends BaseHandler {
                 }
             }
         };
-        return productDescriptionDAO.findAll(querySettings);
+        return this.productDescriptionDAO.findAll(querySettings);
     }
 
     private createOpenCartProductDescription(productDescription: ProductDescriptionEntity, productReference: EntityReferenceEntity | null): OpenCartProductDesceiptionCreateEntity | OpenCartProductDescriptionUpdateEntity {
@@ -71,8 +72,7 @@ class MergeProductDescriptionToOpenCartHandler extends BaseHandler {
     }
 
     private getLanguageReference(languageId: number): number {
-        const entityReferenceDAO = new EntityReferenceDAO();
-        const languageReference = entityReferenceDAO.getStoreLanguageReference(this.productEntry.store.id, languageId);
+        const languageReference = this.entityReferenceDAO.getStoreLanguageReference(this.productEntry.store.id, languageId);
         if (!languageReference) {
             this.throwError(`Missing reference for language with id ${languageId}`);
         }

@@ -17,18 +17,20 @@ export function onMessage(message: any) {
 class MergeLanguageToOpenCart extends BaseHandler {
     private readonly languageEntry;
     private readonly entityReferenceDAO;
+    private readonly languageDAO;
     private readonly ocLanguageDAO;
 
     constructor(languageEntry: LanguageEntry) {
         super(import.meta.url);
         this.languageEntry = languageEntry;
         this.entityReferenceDAO = new EntityReferenceDAO();
+        this.languageDAO = new LanguageDAO();
         this.ocLanguageDAO = new OpenCartLanguageDAO(languageEntry.store.dataSourceName);
     }
 
     handle() {
         const languageId = this.languageEntry.languageId;
-        const storeId: number = this.languageEntry.store.id;
+        const storeId = this.languageEntry.store.id;
 
         const languageReference = this.entityReferenceDAO.getStoreLanguageReference(storeId, languageId);
 
@@ -42,7 +44,7 @@ class MergeLanguageToOpenCart extends BaseHandler {
 
     private createOpenCartLanguage(languageReference: EntityReferenceEntity | null): oc_languageCreateEntity | oc_languageUpdateEntity {
         const languageId = this.languageEntry.languageId;
-        const language = new LanguageDAO().findById(languageId);
+        const language = this.languageDAO.findById(languageId);
 
         const image = "gb.png";
         const directory = "english";

@@ -50,21 +50,13 @@ class MergeAttributeToOpenCartHandler extends BaseHandler {
             this.entityReferenceDAO.createAttributeReference(storeId, attribute!.Id, ocAttributeId);
         }
 
-        const querySettings = {
-            $filter: {
-                equals: {
-                    Attribute: attribute!.Id
-                }
-            }
-        };
-        const translations = this.attributeTranslationDAO.findAll(querySettings);
+        const translations = this.getAttributeTranslations();
 
         translations.forEach(translation => {
             const ocAttributeDescription = this.createOpenCartAttributeDescription(translation, ocAttributeId);
             this.ocAttributeDescriptionDAO.upsert(ocAttributeDescription);
         });
     }
-
 
     private createOpenCartAttribute(attribute: AttributeEntity, attributeReference: EntityReferenceEntity | null): OpenCartAttributeCreateEntity | OpenCartAttributeUpdateEntity {
         const attributeGroup = attribute.Group;
@@ -86,6 +78,17 @@ class MergeAttributeToOpenCartHandler extends BaseHandler {
                 sort_order: 1
             };
         }
+    }
+
+    private getAttributeTranslations() {
+        const querySettings = {
+            $filter: {
+                equals: {
+                    Attribute: this.attributeEntry.attributeId
+                }
+            }
+        };
+        return this.attributeTranslationDAO.findAll(querySettings);
     }
 
     private createOpenCartAttributeDescription(attributeTranslation: AttributeTranslationEntity, ocAttributeId: number): OpenCartAttributeDescriptionUpdateEntity {

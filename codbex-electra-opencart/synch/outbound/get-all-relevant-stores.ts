@@ -1,4 +1,4 @@
-import { StoreRepository } from "../../../codbex-electra/gen/dao/Stores/StoreRepository";
+import { StoreRepository as StoreDAO } from "../../../codbex-electra/gen/dao/Stores/StoreRepository";
 import { StoreTypeRepository as StoreTypeDAO } from "../../../codbex-electra/gen/dao/Stores/StoreTypeRepository";
 import { StoreConfigurationRepository as StoreConfigurationDAO } from "../../../codbex-electra/gen/dao/Stores/StoreConfigurationRepository";
 import { StoreConfigurationPropertyRepository as StoreConfigurationPropertyDAO } from "../../../codbex-electra/gen/dao/Stores/StoreConfigurationPropertyRepository";
@@ -25,12 +25,14 @@ class GetAllRelevantStoresHandler extends BaseHandler {
     private static readonly OPENCART_DATASOURCE_NAME_PROPERTY = "DATASOURCE_NAME";
     private static readonly OPENCART_URL_PROPERTY = "URL";
 
+    private readonly storeDAO;
     private readonly storeConfigurationDAO;
     private readonly storeConfigurationPropertyDAO;
     private readonly storeTypeDAO;
 
     constructor() {
         super(import.meta.url);
+        this.storeDAO = new StoreDAO();
         this.storeConfigurationDAO = new StoreConfigurationDAO();
         this.storeConfigurationPropertyDAO = new StoreConfigurationPropertyDAO();
         this.storeTypeDAO = new StoreTypeDAO();
@@ -70,8 +72,7 @@ class GetAllRelevantStoresHandler extends BaseHandler {
                 }
             }
         };
-        const storeDAO = new StoreRepository();
-        return storeDAO.findAll(querySettings);
+        return this.storeDAO.findAll(querySettings);
     }
 
     private getOpenCartStoreTypeId() {
