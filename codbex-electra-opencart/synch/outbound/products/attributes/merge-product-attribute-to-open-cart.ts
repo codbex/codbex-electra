@@ -43,7 +43,7 @@ function createOpenCartProductAttribute(storeId: number, productAttribute: Produ
     if (!productReference || !productReference.ReferenceIntegerId) {
         throwError(`Missing product reference id: ${productReference ? JSON.stringify(productReference) : null}`);
     }
-    const id = productReference.ReferenceIntegerId;
+    const id = productReference!.ReferenceIntegerId;
     const languageId = getLanguageReference(storeId, productAttribute.Language);
     const attributeId = getAttributeReference(storeId, productAttribute.Attribute);
 
