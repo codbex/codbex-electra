@@ -1,80 +1,92 @@
 import { oc_attribute_groupRepository as OpenCartAttributeGroupDAO, oc_attribute_groupCreateEntity as OpenCartAttributeGroupCreateEntity, oc_attribute_groupUpdateEntity as OpenCartAttributeGroupUpdateEntity } from "../../../../dao/oc_attribute_groupRepository";
 import { oc_attribute_group_descriptionRepository as OpenCartAttributeGroupDescriptionDAO, oc_attribute_group_descriptionCreateEntity as OpenCartAttributeGroupDescriptionCreateEntity, oc_attribute_group_descriptionUpdateEntity as OpenCartAttributeGroupDescriptionUpdateEntity } from "../../../../dao/oc_attribute_group_descriptionRepository";
-import { getLogger } from "../../../../../codbex-electra/util/LoggerUtil";
 import { AttributeGroupTranslationRepository as AttributeGroupTranslationDAO, AttributeGroupTranslationEntity } from "../../../../../codbex-electra/gen/dao/Products/AttributeGroupTranslationRepository";
 import { EntityReferenceDAO } from "../../../../../codbex-electra/dao/EntityReferenceDAO";
 import { EntityReferenceEntity } from "../../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
-
-const logger = getLogger(import.meta.url);
+import { AttributeGroupEntry } from "./get-all-attribute-groups";
+import { BaseHandler } from "../../base-handler";
 
 export function onMessage(message: any) {
-    const attributeGroupEntry = message.getBody();
-    const attributeGroup = attributeGroupEntry.attributeGroup;
-    const store = attributeGroupEntry.store;
-    const storeId: number = store.id;
-    const dataSourceName: string = store.dataSourceName;
+    const attributeGroupEntry: AttributeGroupEntry = message.getBody();
 
-    const entityReferenceDAO = new EntityReferenceDAO();
-    const ocAttributeGroupDAO = new OpenCartAttributeGroupDAO(dataSourceName);
-    const attributeGroupTranslationDAO = new AttributeGroupTranslationDAO();
-    const ocAttributeGroupDescriptionDAO = new OpenCartAttributeGroupDescriptionDAO(store.dataSourceName);
-
-    const attributeGroupReference = entityReferenceDAO.getStoreAttributeGroup(storeId, attributeGroup.Id);
-
-    const ocAttributeGroup = createOpenCartAttributeGroup(attributeGroupReference);
-    const ocAttributeGroupId = ocAttributeGroupDAO.upsert(ocAttributeGroup);
-
-    if (!attributeGroupReference) {
-        entityReferenceDAO.createAttributeGroupReference(storeId, attributeGroup.Id, ocAttributeGroupId);
-    }
-
-    const querySettings = {
-        $filter: {
-            equals: {
-                AttributeGroup: attributeGroup.Id
-            }
-        }
-    };
-    const translations = attributeGroupTranslationDAO.findAll(querySettings);
-
-    translations.forEach(translation => {
-        const ocAttributeGroupDescription = createOpenCartAttributeGroupDescription(storeId, translation, ocAttributeGroupId);
-        ocAttributeGroupDescriptionDAO.upsert(ocAttributeGroupDescription);
-    });
+    const handler = new MergeAttributeGroupToOpenCartHandler(attributeGroupEntry);
+    handler.handle();
 
     return message;
 }
 
-function createOpenCartAttributeGroup(attributeGroupReference: EntityReferenceEntity | null): OpenCartAttributeGroupCreateEntity | OpenCartAttributeGroupUpdateEntity {
-    if (attributeGroupReference) {
-        return {
-            attribute_group_id: attributeGroupReference.ReferenceIntegerId,
-            sort_order: 1
-        };
-    } else {
-        return {
-            sort_order: 1
-        };
+class MergeAttributeGroupToOpenCartHandler extends BaseHandler {
+    private readonly attributeGroupEntry;
+    private readonly entityReferenceDAO;
+    private readonly ocAttributeGroupDAO;
+    private readonly attributeGroupTranslationDAO;
+    private readonly ocAttributeGroupDescriptionDAO;
 
+    constructor(attributeGroupEntry: AttributeGroupEntry) {
+        super(import.meta.url);
+        this.attributeGroupEntry = attributeGroupEntry;
+
+        const dataSourceName: string = attributeGroupEntry.store.dataSourceName;
+        this.entityReferenceDAO = new EntityReferenceDAO();
+        this.ocAttributeGroupDAO = new OpenCartAttributeGroupDAO(dataSourceName);
+        this.attributeGroupTranslationDAO = new AttributeGroupTranslationDAO();
+        this.ocAttributeGroupDescriptionDAO = new OpenCartAttributeGroupDescriptionDAO(dataSourceName);
     }
-}
 
-function createOpenCartAttributeGroupDescription(storeId: number, attributeGroupTranslation: AttributeGroupTranslationEntity, ocAttributeGroupId: number): OpenCartAttributeGroupDescriptionCreateEntity | OpenCartAttributeGroupDescriptionUpdateEntity {
-    const entityReferenceDAO = new EntityReferenceDAO();
-    const languageReference = entityReferenceDAO.getStoreLanguageReference(storeId, attributeGroupTranslation.Language);
-    if (!languageReference) {
-        throwError(`Missing language reference for language with id ${attributeGroupTranslation.Language}`);
+    handle() {
+        const attributeGroup = this.attributeGroupEntry.attributeGroup;
+        const storeId = this.attributeGroupEntry.store.id;
+
+        const attributeGroupReference = this.entityReferenceDAO.getStoreAttributeGroup(storeId, attributeGroup.Id);
+
+        const ocAttributeGroup = this.createOpenCartAttributeGroup(attributeGroupReference);
+        const ocAttributeGroupId = this.ocAttributeGroupDAO.upsert(ocAttributeGroup);
+
+        if (!attributeGroupReference) {
+            this.entityReferenceDAO.createAttributeGroupReference(storeId, attributeGroup.Id, ocAttributeGroupId);
+        }
+
+        const querySettings = {
+            $filter: {
+                equals: {
+                    AttributeGroup: attributeGroup.Id
+                }
+            }
+        };
+        const translations = this.attributeGroupTranslationDAO.findAll(querySettings);
+
+        translations.forEach(translation => {
+            const ocAttributeGroupDescription = this.createOpenCartAttributeGroupDescription(translation, ocAttributeGroupId);
+            this.ocAttributeGroupDescriptionDAO.upsert(ocAttributeGroupDescription);
+        });
     }
-    const languageId = languageReference!.ReferenceIntegerId;
 
-    return {
-        attribute_group_id: ocAttributeGroupId,
-        language_id: languageId,
-        name: attributeGroupTranslation.Text
-    };
-}
+    private createOpenCartAttributeGroup(attributeGroupReference: EntityReferenceEntity | null): OpenCartAttributeGroupCreateEntity | OpenCartAttributeGroupUpdateEntity {
+        if (attributeGroupReference) {
+            return {
+                attribute_group_id: attributeGroupReference.ReferenceIntegerId,
+                sort_order: 1
+            };
+        } else {
+            return {
+                sort_order: 1
+            };
 
-function throwError(errorMessage: string) {
-    logger.error(errorMessage);
-    throw new Error(errorMessage);
+        }
+    }
+
+    private createOpenCartAttributeGroupDescription(attributeGroupTranslation: AttributeGroupTranslationEntity, ocAttributeGroupId: number): OpenCartAttributeGroupDescriptionCreateEntity | OpenCartAttributeGroupDescriptionUpdateEntity {
+        const languageReference = this.entityReferenceDAO.getStoreLanguageReference(this.attributeGroupEntry.store.id, attributeGroupTranslation.Language);
+        if (!languageReference) {
+            this.throwError(`Missing language reference for language with id ${attributeGroupTranslation.Language}`);
+        }
+        const languageId = languageReference!.ReferenceIntegerId;
+
+        return {
+            attribute_group_id: ocAttributeGroupId,
+            language_id: languageId,
+            name: attributeGroupTranslation.Text
+        };
+    }
+
 }

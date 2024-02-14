@@ -1,41 +1,61 @@
-import { getLogger } from "../../../../codbex-electra/util/LoggerUtil";
 import { ProductToStoreRepository as ProductToStoreDAO } from "../../../../codbex-electra/gen/dao/Products/ProductToStoreRepository";
-
-const logger = getLogger(import.meta.url);
+import { StoreEntry } from "../get-all-relevant-stores";
+import { BaseHandler } from "../base-handler";
 
 export function onMessage(message: any) {
-    const store = message.getBody();
+    const store: StoreEntry = message.getBody();
 
-    const productIds = getStoreProductIds(store.id);
-    logger.info("Found [{}] products which are linked for store [{}]", productIds.size, store.name);
-
-    const productEntries: any[] = [];
-    productIds.forEach((productId) => {
-        const productEntry = {
-            productId: productId,
-            store: store,
-        }
-        productEntries.push(productEntry);
-    });
+    const handler = new GetStoreProductsHandler(store);
+    const productEntries = handler.handle();
 
     message.setBody(productEntries);
     return message;
 }
 
-function getStoreProductIds(storeId: number) {
-    const productToStoreDAO = new ProductToStoreDAO();
-    const querySettings = {
-        $filter: {
-            equals: {
-                Store: storeId
+export interface ProductEntry {
+    readonly productId: number;
+    readonly store: StoreEntry;
+}
+
+class GetStoreProductsHandler extends BaseHandler {
+    private readonly store;
+    private readonly productToStoreDAO;
+
+    constructor(store: StoreEntry) {
+        super(import.meta.url);
+        this.store = store;
+        this.productToStoreDAO = new ProductToStoreDAO();
+    }
+
+    handle() {
+        const productIds = this.getStoreProductIds();
+        this.logger.info("Found [{}] products which are linked for store [{}]", productIds.size, this.store.name);
+
+        const productEntries: ProductEntry[] = [];
+        productIds.forEach((productId) => {
+            const productEntry = {
+                productId: productId,
+                store: this.store,
             }
-        }
-    };
+            productEntries.push(productEntry);
+        });
+        return productEntries;
+    }
 
-    const entries = productToStoreDAO.findAll(querySettings);
+    private getStoreProductIds() {
+        const querySettings = {
+            $filter: {
+                equals: {
+                    Store: this.store.id
+                }
+            }
+        };
 
-    const productIds = new Set<number>();
-    entries.forEach(e => productIds.add(e.Product));
+        const entries = this.productToStoreDAO.findAll(querySettings);
 
-    return productIds;
+        const productIds = new Set<number>();
+        entries.forEach(e => productIds.add(e.Product));
+
+        return productIds;
+    }
 }
