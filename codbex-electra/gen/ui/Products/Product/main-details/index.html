@@ -18,8 +18,8 @@
     <body class="dg-vbox">
         <fd-scrollbar class="dg-full-height">
             <fd-fieldset class="fd-margin--md" ng-form="formFieldset">
-                <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container fd-form-group">
-                    <fd-form-item class="fd-row fd-form-item">
+                <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idModel" dg-required="true" dg-colon="true">Model</fd-form-label>
                         </div>
@@ -42,7 +42,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idManufacturer" dg-required="true" dg-colon="true">Manufacturer</fd-form-label>
                         </div>
@@ -59,20 +59,19 @@
 	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
-                    	<div class="fd-col fd-col-md--2">
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2"></div>
+	                    <div class="fd-col  fd-col-md--8 ">
 	                        <fd-checkbox id="idStatus"
 	                            compact="false"
 	                            ng-required="true"
 	                            ng-disabled="action === 'select'"
 	                            ng-model="entity.Status">
 	                        </fd-checkbox>
-	                    </div>
-	                    <div class="fd-col  fd-col-md--8 ">
                         	<fd-checkbox-label for="idStatus" dg-required="true">Status</fd-checkbox-label>
                         </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idQuantity" dg-required="true" dg-colon="true">Quantity</fd-form-label>
                         </div>
@@ -93,7 +92,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idPrice" dg-required="true" dg-colon="true">Price</fd-form-label>
                         </div>
@@ -114,7 +113,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idImage" dg-required="true" dg-colon="true">Image</fd-form-label>
                         </div>
@@ -137,7 +136,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idSKU" dg-required="true" dg-colon="true">SKU</fd-form-label>
                         </div>
@@ -160,7 +159,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idUPC" dg-required="true" dg-colon="true">UPC</fd-form-label>
                         </div>
@@ -183,7 +182,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idEAN" dg-required="true" dg-colon="true">EAN</fd-form-label>
                         </div>
@@ -206,7 +205,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idJAN" dg-required="true" dg-colon="true">JAN</fd-form-label>
                         </div>
@@ -229,7 +228,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idISBN" dg-required="true" dg-colon="true">ISBN</fd-form-label>
                         </div>
@@ -252,7 +251,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idMPN" dg-required="true" dg-colon="true">MPN</fd-form-label>
                         </div>
@@ -275,7 +274,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idDateAvailable" dg-required="true" dg-colon="true">DateAvailable</fd-form-label>
                         </div>
@@ -294,7 +293,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idWeight" dg-required="true" dg-colon="true">Weight</fd-form-label>
                         </div>
@@ -315,7 +314,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idLength" dg-required="true" dg-colon="true">Length</fd-form-label>
                         </div>
@@ -336,7 +335,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idWidth" dg-required="true" dg-colon="true">Width</fd-form-label>
                         </div>
@@ -357,7 +356,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idHeight" dg-required="true" dg-colon="true">Height</fd-form-label>
                         </div>
@@ -378,7 +377,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idDateAdded" dg-required="true" dg-colon="true">DateAdded</fd-form-label>
                         </div>
@@ -397,7 +396,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idDateModified" dg-required="true" dg-colon="true">DateModified</fd-form-label>
                         </div>
@@ -416,7 +415,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idUpdatedBy" dg-required="true" dg-colon="true">UpdatedBy</fd-form-label>
                         </div>
@@ -439,7 +438,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idPoints" dg-required="true" dg-colon="true">Points</fd-form-label>
                         </div>
@@ -460,20 +459,19 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
-                    	<div class="fd-col fd-col-md--2">
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2"></div>
+	                    <div class="fd-col  fd-col-md--8 ">
 	                        <fd-checkbox id="idShipping"
 	                            compact="false"
 	                            ng-required="true"
 	                            ng-disabled="action === 'select'"
 	                            ng-model="entity.Shipping">
 	                        </fd-checkbox>
-	                    </div>
-	                    <div class="fd-col  fd-col-md--8 ">
                         	<fd-checkbox-label for="idShipping" dg-required="true">Shipping</fd-checkbox-label>
                         </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idLocation" dg-required="true" dg-colon="true">Location</fd-form-label>
                         </div>
@@ -496,20 +494,19 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
-                    	<div class="fd-col fd-col-md--2">
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2"></div>
+	                    <div class="fd-col  fd-col-md--8 ">
 	                        <fd-checkbox id="idSubtract"
 	                            compact="false"
 	                            ng-required="true"
 	                            ng-disabled="action === 'select'"
 	                            ng-model="entity.Subtract">
 	                        </fd-checkbox>
-	                    </div>
-	                    <div class="fd-col  fd-col-md--8 ">
                         	<fd-checkbox-label for="idSubtract" dg-required="true">Subtract</fd-checkbox-label>
                         </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idMinimum" dg-required="true" dg-colon="true">Minimum</fd-form-label>
                         </div>
@@ -530,7 +527,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idStockStatus" dg-required="true" dg-colon="true">StockStatus</fd-form-label>
                         </div>

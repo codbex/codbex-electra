@@ -18,8 +18,8 @@
     <body class="dg-vbox">
         <fd-scrollbar class="dg-full-height">
             <fd-fieldset class="fd-margin--md" ng-form="formFieldset">
-                <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container fd-form-group">
-                    <fd-form-item class="fd-row fd-form-item">
+                <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idZone" dg-required="false" dg-colon="true">Zone</fd-form-label>
                         </div>
@@ -36,7 +36,7 @@
 	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idFirstName" dg-required="false" dg-colon="true">FirstName</fd-form-label>
                         </div>
@@ -59,7 +59,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idLastName" dg-required="false" dg-colon="true">LastName</fd-form-label>
                         </div>
@@ -82,7 +82,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idCompany" dg-required="false" dg-colon="true">Company</fd-form-label>
                         </div>
@@ -105,7 +105,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idAddress1" dg-required="false" dg-colon="true">Address1</fd-form-label>
                         </div>
@@ -128,7 +128,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idAddress2" dg-required="false" dg-colon="true">Address2</fd-form-label>
                         </div>
@@ -151,7 +151,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idCountry" dg-required="false" dg-colon="true">Country</fd-form-label>
                         </div>
@@ -168,7 +168,7 @@
 	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idCity" dg-required="false" dg-colon="true">City</fd-form-label>
                         </div>
@@ -191,7 +191,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idPostcode" dg-required="false" dg-colon="true">Postcode</fd-form-label>
                         </div>
@@ -214,7 +214,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idMethod" dg-required="false" dg-colon="true">Method</fd-form-label>
                         </div>
@@ -237,7 +237,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idCode" dg-required="false" dg-colon="true">Code</fd-form-label>
                         </div>
@@ -260,7 +260,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-					<fd-form-item class="fd-row fd-form-item">
+					<fd-form-item class="fd-row">
 						<div class="fd-col fd-col-md--2">
 							<fd-form-label for="idAddressFormat" dg-required="false" dg-colon="true">AddressFormat</fd-form-label>
 						</div>
@@ -280,7 +280,7 @@
 							<fd-form-message dg-type="error" ng-show="formErrors.AddressFormat">Incorrect Input</fd-form-message>
 						</div>
 					</fd-form-item>
-					<fd-form-item class="fd-row fd-form-item">
+					<fd-form-item class="fd-row">
 						<div class="fd-col fd-col-md--2">
 							<fd-form-label for="idCustomField" dg-required="false" dg-colon="true">CustomField</fd-form-label>
 						</div>
