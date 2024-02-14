@@ -10,7 +10,14 @@ class StoreConfigurationService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
+            let Store = parseInt(ctx.queryParameters.Store);
+            Store = isNaN(Store) ? ctx.queryParameters.Store : Store;
             const options: StoreConfigurationEntityOptions = {
+                $filter: {
+                    equals: {
+                        Store: Store
+                    }
+                },
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
@@ -33,12 +40,28 @@ class StoreConfigurationService {
         }
     }
 
-    @Get("/count/:Store")
-    public count(_: any, ctx: any) {
+    @Get("/count")
+    public count() {
         try {
-            let Store = parseInt(ctx.pathParameters.Store);
-            Store = isNaN(Store) ? ctx.pathParameters.Store : Store;
-            return this.repository.count(Store);
+            return this.repository.count();
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/count")
+    public countWithFilter(filter: any) {
+        try {
+            return this.repository.count(filter);
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/search")
+    public search(filter: any) {
+        try {
+            return this.repository.findAll(filter);
         } catch (error: any) {
             this.handleError(error);
         }

@@ -205,11 +205,11 @@ export class LanguageRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: LanguageEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: LanguageEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_LANGUAGE"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {

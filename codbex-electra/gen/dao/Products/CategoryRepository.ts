@@ -228,11 +228,11 @@ export class CategoryRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: CategoryEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: CategoryEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_CATEGORY"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {

@@ -193,11 +193,11 @@ export class GroupRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: GroupEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: GroupEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_GROUP"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {

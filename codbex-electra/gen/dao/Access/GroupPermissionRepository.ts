@@ -207,11 +207,11 @@ export class GroupPermissionRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: GroupPermissionEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: GroupPermissionEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_GROUPPERMISSION"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {

@@ -10,7 +10,14 @@ class ProductDescriptionService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
+            let Product = parseInt(ctx.queryParameters.Product);
+            Product = isNaN(Product) ? ctx.queryParameters.Product : Product;
             const options: ProductDescriptionEntityOptions = {
+                $filter: {
+                    equals: {
+                        Product: Product
+                    }
+                },
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
@@ -33,12 +40,28 @@ class ProductDescriptionService {
         }
     }
 
-    @Get("/count/:Product")
-    public count(_: any, ctx: any) {
+    @Get("/count")
+    public count() {
         try {
-            let Product = parseInt(ctx.pathParameters.Product);
-            Product = isNaN(Product) ? ctx.pathParameters.Product : Product;
-            return this.repository.count(Product);
+            return this.repository.count();
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/count")
+    public countWithFilter(filter: any) {
+        try {
+            return this.repository.count(filter);
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/search")
+    public search(filter: any) {
+        try {
+            return this.repository.findAll(filter);
         } catch (error: any) {
             this.handleError(error);
         }

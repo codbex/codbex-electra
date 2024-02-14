@@ -2031,7 +2031,8 @@
                         "length": 0,
                         "primaryKey": true,
                         "identity": true,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "CATEGORYTRANSLATION_ID"
                     },
                     {

@@ -347,11 +347,11 @@ export class SalesOrderRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: SalesOrderEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: SalesOrderEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDER"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {

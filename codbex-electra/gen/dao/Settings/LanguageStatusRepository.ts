@@ -159,11 +159,11 @@ export class LanguageStatusRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: LanguageStatusEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: LanguageStatusEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_LANGUAGESTATUS"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {

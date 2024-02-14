@@ -66,29 +66,48 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		});
 
 		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 
 		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			$scope.loadPage($scope.dataPage, $scope.filter);
+		});
+
+		messageHub.onDidReceiveMessage("entitySearch", function (msg) {
+			resetPagination();
+			$scope.filter = msg.data.filter;
+			$scope.filterEntity = msg.data.entity;
+			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 		//-----------------Events-------------------//
 
-		$scope.loadPage = function (pageNumber) {
+		$scope.loadPage = function (pageNumber, filter) {
 			let AttributeGroup = $scope.selectedMainEntityId;
 			$scope.dataPage = pageNumber;
-			entityApi.count(AttributeGroup).then(function (response) {
+			if (!filter && $scope.filter) {
+				filter = $scope.filter;
+			}
+			if (!filter) {
+				filter = {};
+			}
+			if (!filter.$filter) {
+				filter.$filter = {};
+			}
+			if (!filter.$filter.equals) {
+				filter.$filter.equals = {};
+			}
+			filter.$filter.equals.AttributeGroup = AttributeGroup;
+			entityApi.count(filter).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("AttributeGroupTranslation", `Unable to count AttributeGroupTranslation: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
-				let query = `AttributeGroup=${AttributeGroup}`;
-				let offset = (pageNumber - 1) * $scope.dataLimit;
-				let limit = $scope.dataLimit;
-				entityApi.filter(query, offset, limit).then(function (response) {
+				filter.$offset = (pageNumber - 1) * $scope.dataLimit;
+				filter.$limit = $scope.dataLimit;
+				entityApi.search(filter).then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("AttributeGroupTranslation", `Unable to list AttributeGroupTranslation: '${response.message}'`);
+						messageHub.showAlertError("AttributeGroupTranslation", `Unable to list/filter AttributeGroupTranslation: '${response.message}'`);
 						return;
 					}
 					$scope.data = response.data;
@@ -105,6 +124,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("AttributeGroupTranslation-details", {
 				action: "select",
 				entity: entity,
+				optionsAttributeGroup: $scope.optionsAttributeGroup,
+				optionsLanguage: $scope.optionsLanguage,
+			});
+		};
+
+		$scope.openFilter = function (entity) {
+			messageHub.showDialogWindow("AttributeGroupTranslation-filter", {
+				entity: $scope.filterEntity,
 				optionsAttributeGroup: $scope.optionsAttributeGroup,
 				optionsLanguage: $scope.optionsLanguage,
 			});
@@ -155,7 +182,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 							messageHub.showAlertError("AttributeGroupTranslation", `Unable to delete AttributeGroupTranslation: '${response.message}'`);
 							return;
 						}
-						$scope.loadPage($scope.dataPage);
+						$scope.loadPage($scope.dataPage, $scope.filter);
 						messageHub.postMessage("clearDetails");
 					});
 				}

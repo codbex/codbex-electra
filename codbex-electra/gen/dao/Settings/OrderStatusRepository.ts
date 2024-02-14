@@ -159,11 +159,11 @@ export class OrderStatusRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: OrderStatusEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: OrderStatusEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_ORDERSTATUS"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {

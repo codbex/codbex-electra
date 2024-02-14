@@ -10,7 +10,14 @@ class CategoryTranslationService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
+            let Language = parseInt(ctx.queryParameters.Language);
+            Language = isNaN(Language) ? ctx.queryParameters.Language : Language;
             const options: CategoryTranslationEntityOptions = {
+                $filter: {
+                    equals: {
+                        Language: Language
+                    }
+                },
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
@@ -33,12 +40,28 @@ class CategoryTranslationService {
         }
     }
 
-    @Get("/count/:Language")
-    public count(_: any, ctx: any) {
+    @Get("/count")
+    public count() {
         try {
-            let Language = parseInt(ctx.pathParameters.Language);
-            Language = isNaN(Language) ? ctx.pathParameters.Language : Language;
-            return this.repository.count(Language);
+            return this.repository.count();
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/count")
+    public countWithFilter(filter: any) {
+        try {
+            return this.repository.count(filter);
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/search")
+    public search(filter: any) {
+        try {
+            return this.repository.findAll(filter);
         } catch (error: any) {
             this.handleError(error);
         }

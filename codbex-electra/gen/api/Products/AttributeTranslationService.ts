@@ -10,7 +10,14 @@ class AttributeTranslationService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
+            let Attribute = parseInt(ctx.queryParameters.Attribute);
+            Attribute = isNaN(Attribute) ? ctx.queryParameters.Attribute : Attribute;
             const options: AttributeTranslationEntityOptions = {
+                $filter: {
+                    equals: {
+                        Attribute: Attribute
+                    }
+                },
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
@@ -33,12 +40,28 @@ class AttributeTranslationService {
         }
     }
 
-    @Get("/count/:Attribute")
-    public count(_: any, ctx: any) {
+    @Get("/count")
+    public count() {
         try {
-            let Attribute = parseInt(ctx.pathParameters.Attribute);
-            Attribute = isNaN(Attribute) ? ctx.pathParameters.Attribute : Attribute;
-            return this.repository.count(Attribute);
+            return this.repository.count();
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/count")
+    public countWithFilter(filter: any) {
+        try {
+            return this.repository.count(filter);
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/search")
+    public search(filter: any) {
+        try {
+            return this.repository.findAll(filter);
         } catch (error: any) {
             this.handleError(error);
         }

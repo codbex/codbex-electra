@@ -130,6 +130,7 @@ export class CategoryTranslationRepository {
                 type: "INTEGER",
                 id: true,
                 autoIncrement: true,
+                required: true
             },
             {
                 name: "Category",
@@ -250,22 +251,11 @@ export class CategoryTranslationRepository {
         });
     }
 
-
-
-    public count(Category: number): number {
-    public count(Language: number): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_CATEGORYTRANSLATION" WHERE "CATEGORYTRANSLATION_CATEGORY""CATEGORYTRANSLATION_LANGUAGE" = ?', [CategoryLanguage]);
-        if (resultSet !== null && resultSet[0] !== null) {
-            if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
-                return resultSet[0].COUNT;
-            } else if (resultSet[0].count !== undefined && resultSet[0].count !== null) {
-                return resultSet[0].count;
-            }
-        }
-        return 0;
+    public count(options?: CategoryTranslationEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: CategoryTranslationEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_CATEGORYTRANSLATION"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {

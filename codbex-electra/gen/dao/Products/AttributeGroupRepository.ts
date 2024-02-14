@@ -160,11 +160,11 @@ export class AttributeGroupRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: AttributeGroupEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: AttributeGroupEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_ATTRIBUTEGROUP"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {

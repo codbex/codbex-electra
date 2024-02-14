@@ -201,11 +201,11 @@ export class ZoneRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: ZoneEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: ZoneEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_ZONE"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {

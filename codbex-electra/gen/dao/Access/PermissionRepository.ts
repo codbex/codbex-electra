@@ -159,11 +159,11 @@ export class PermissionRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: PermissionEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: PermissionEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PERMISSION"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
