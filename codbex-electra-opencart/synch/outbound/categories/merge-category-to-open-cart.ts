@@ -4,7 +4,8 @@ import { CategoryRepository as CategoryDAO } from "../../../../codbex-electra/ge
 import { oc_categoryRepository as OpenCartCategoryDAO, oc_categoryCreateEntity, oc_categoryUpdateEntity } from "../../../dao/oc_categoryRepository";
 import { CategoryTranslationRepository as CategoryTranslationDAO, CategoryTranslationEntity } from "../../../../codbex-electra/gen/dao/Products/CategoryTranslationRepository";
 import { oc_category_descriptionRepository as OpenCartCategoryDescriptionDAO, oc_category_descriptionUpdateEntity } from "../../../dao/oc_category_descriptionRepository";
-import { oc_category_to_storeRepository as OpenCartCategoryToStore } from "../../../dao/oc_category_to_storeRepository";
+import { oc_category_to_storeRepository as OpenCartCategoryToStoreDAO } from "../../../dao/oc_category_to_storeRepository";
+import { oc_category_pathRepository as OpenCartCategoryPathDAO } from "../../../dao/oc_category_pathRepository";
 import { BaseHandler } from "../base-handler";
 import { CategoryEntry } from "./get-all-categories";
 
@@ -24,7 +25,8 @@ class MergeCategoryToOpenCart extends BaseHandler {
     private readonly ocCategoryDAO;
     private readonly categoryTranslationDAO;
     private readonly ocCategoryDescriptionDAO;
-    private readonly ocCategoryToStore;
+    private readonly ocCategoryToStoreDAO;
+    private readonly ocCategoryPathDAO;
 
     constructor(categoryEntry: CategoryEntry) {
         super(import.meta.url);
@@ -36,7 +38,8 @@ class MergeCategoryToOpenCart extends BaseHandler {
         this.ocCategoryDAO = new OpenCartCategoryDAO(dataSourceName);
         this.categoryTranslationDAO = new CategoryTranslationDAO();
         this.ocCategoryDescriptionDAO = new OpenCartCategoryDescriptionDAO(dataSourceName);
-        this.ocCategoryToStore = new OpenCartCategoryToStore(dataSourceName);
+        this.ocCategoryToStoreDAO = new OpenCartCategoryToStoreDAO(dataSourceName);
+        this.ocCategoryPathDAO = new OpenCartCategoryPathDAO(dataSourceName);
     }
 
     handle() {
@@ -51,13 +54,19 @@ class MergeCategoryToOpenCart extends BaseHandler {
             this.entityReferenceDAO.createCategoryReference(storeId, categoryId, ocCategoryId);
         }
 
+        this.ocCategoryPathDAO.upsert({
+            category_id: ocCategoryId,
+            path_id: ocCategoryId,
+            level: 0
+        });
+
         const translations = this.getCategoryTranslations();
 
         translations.forEach(translation => {
             const ocCategoryDescription = this.createOpenCartCategoryDescription(translation, ocCategoryId);
             this.ocCategoryDescriptionDAO.upsert(ocCategoryDescription);
 
-            this.ocCategoryToStore.upsert({
+            this.ocCategoryToStoreDAO.upsert({
                 category_id: ocCategoryId,
                 store_id: 0
             })
