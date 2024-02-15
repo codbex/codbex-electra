@@ -6,19 +6,19 @@ import { EntityUtils } from "../utils/EntityUtils";
 
 export interface CountryEntity {
     readonly Id: number;
-    Name?: string;
-    Status?: number;
-    IsoCode2?: string;
-    IsoCode3?: string;
-    PostcodeRequired?: boolean;
+    Name: string;
+    Status: number;
+    IsoCode2: string;
+    IsoCode3: string;
+    PostcodeRequired: boolean;
 }
 
 export interface CountryCreateEntity {
-    readonly Name?: string;
-    readonly Status?: number;
-    readonly IsoCode2?: string;
-    readonly IsoCode3?: string;
-    readonly PostcodeRequired?: boolean;
+    readonly Name: string;
+    readonly Status: number;
+    readonly IsoCode2: string;
+    readonly IsoCode3: string;
+    readonly PostcodeRequired: boolean;
 }
 
 export interface CountryUpdateEntity extends CountryCreateEntity {
@@ -118,26 +118,31 @@ export class CountryRepository {
                 name: "Name",
                 column: "COUNTRY_NAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Status",
                 column: "COUNTRY_STATUS",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "IsoCode2",
                 column: "COUNTRY_ISOCODE2",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "IsoCode3",
                 column: "COUNTRY_ISOCODE3",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "PostcodeRequired",
                 column: "COUNTRY_POSTCODEREQUIRED",
                 type: "BOOLEAN",
+                required: true
             }
         ]
     };

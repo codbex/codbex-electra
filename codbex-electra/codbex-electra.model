@@ -4,7 +4,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "CURRENCY_ID",
@@ -20,11 +21,12 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "32",
                         "dataName": "CURRENCY_TITLE",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -38,11 +40,12 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "CURRENCY_STATUS",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -61,11 +64,12 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "3",
                         "dataName": "CURRENCY_CODE",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -79,11 +83,12 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "12",
                         "dataName": "CURRENCY_SYMBOLLEFT",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -97,11 +102,12 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "12",
                         "dataName": "CURRENCY_SYMBOLRIGHT",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -115,11 +121,12 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "1",
                         "dataName": "CURRENCY_DECIMALPLACE",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -133,11 +140,12 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "23",
                         "dataName": "CURRENCY_VALUE",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "15",
                         "dataPrimaryKey": "false",
                         "dataScale": "8",
@@ -151,7 +159,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "Date.now()",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "CURRENCY_DATEMODIFIED",
@@ -191,7 +200,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "SALESORDER_ID",
@@ -209,7 +219,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "19",
                         "dataName": "SALESORDER_TOTAL",
@@ -227,7 +238,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "SALESORDER_CURRENCY",
@@ -250,7 +262,8 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "SALESORDER_STATUS",
@@ -273,7 +286,8 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "SALESORDER_STORE",
@@ -296,7 +310,8 @@
                         "relationshipEntityPerspectiveName": "Stores"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "SALESORDER_CUSTOMER",
@@ -319,7 +334,8 @@
                         "relationshipEntityPerspectiveName": "Customers"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "SALESORDER_DATEADDED",
@@ -337,7 +353,8 @@
                         "widgetType": "DATETIME-LOCAL"
                     },
                     {
-                        "calculatedPropertyExpression": "Date.now()",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "SALESORDER_DATEMODIFIED",
@@ -355,7 +372,8 @@
                         "widgetType": "DATETIME-LOCAL"
                     },
                     {
-                        "calculatedPropertyExpression": "require(\"security/user\").getName()",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "96",
                         "dataName": "SALESORDER_UPDATEDBY",
@@ -373,7 +391,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "SALESORDER_TRACKING",
@@ -391,7 +410,8 @@
                         "widgetType": "URL"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "2000",
                         "dataName": "SALESORDER_COMMENT",
@@ -409,7 +429,8 @@
                         "widgetType": "TEXTAREA"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "11",
                         "dataName": "SALESORDER_INVOICENUMBER",
@@ -427,7 +448,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "26",
                         "dataName": "SALESORDER_INVOICEPREFIX",
@@ -445,7 +467,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "SALESORDER_LANGUAGE",
@@ -468,7 +491,8 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "SALESORDER_ACCEPTLANGUAGE",
@@ -508,7 +532,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "STORE_ID",
@@ -524,7 +549,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "64",
                         "dataName": "STORE_NAME",
@@ -542,7 +568,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "STORE_URL",
@@ -560,7 +587,8 @@
                         "widgetType": "URL"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "STORE_TYPE",
@@ -583,7 +611,8 @@
                         "relationshipEntityPerspectiveName": "Stores"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "1",
                         "dataName": "STORE_ENABLED",
@@ -623,7 +652,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "CUSTOMER_ID",
@@ -639,7 +669,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "96",
                         "dataName": "CUSTOMER_EMAIL",
@@ -657,7 +688,8 @@
                         "widgetType": "EMAIL"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "32",
                         "dataName": "CUSTOMER_FIRSTNAME",
@@ -675,7 +707,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "32",
                         "dataName": "CUSTOMER_LASTNAME",
@@ -693,7 +726,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "CUSTOMER_STORE",
@@ -716,7 +750,8 @@
                         "relationshipEntityPerspectiveName": "Stores"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "CUSTOMER_STATUS",
@@ -739,7 +774,8 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "32",
                         "dataName": "CUSTOMER_TELEPHONE",
@@ -757,7 +793,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "CUSTOMER_DATE_ADDED",
@@ -775,7 +812,8 @@
                         "widgetType": "DATETIME-LOCAL"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "40",
                         "dataName": "CUSTOMER_CODE",
@@ -793,7 +831,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "2000",
                         "dataName": "CUSTOMER_CUSTOMFIELD",
@@ -811,7 +850,8 @@
                         "widgetType": "TEXTAREA"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "CUSTOMER_LANGUAGE",
@@ -856,7 +896,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "COUNTRY_ID",
@@ -872,11 +913,12 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "128",
                         "dataName": "COUNTRY_NAME",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -890,11 +932,12 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "COUNTRY_STATUS",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -913,11 +956,12 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "2",
                         "dataName": "COUNTRY_ISOCODE2",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -931,11 +975,12 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "3",
                         "dataName": "COUNTRY_ISOCODE3",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -949,11 +994,12 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "1",
                         "dataName": "COUNTRY_POSTCODEREQUIRED",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -989,7 +1035,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "COUNTRYSTATUS_ID",
@@ -1005,7 +1052,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "COUNTRYSTATUS_NAME",
@@ -1043,7 +1091,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "ZONE_ID",
@@ -1059,7 +1108,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "ZONE_COUNTRY",
@@ -1082,7 +1132,8 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "128",
                         "dataName": "ZONE_NAME",
@@ -1100,7 +1151,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "ZONE_STATUS",
@@ -1123,7 +1175,8 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "32",
                         "dataName": "ZONE_CODE",
@@ -1163,7 +1216,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "ZONESTATUS_ID",
@@ -1179,7 +1233,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "ZONESTATUS_NAME",
@@ -1217,7 +1272,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "ORDERSTATUS_ID",
@@ -1233,7 +1289,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "32",
                         "dataName": "ORDERSTATUS_NAME",
@@ -1273,7 +1330,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "LANGUAGE_ID",
@@ -1291,7 +1349,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "32",
                         "dataName": "LANGUAGE_NAME",
@@ -1309,7 +1368,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "5",
                         "dataName": "LANGUAGE_CODE",
@@ -1327,7 +1387,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "LANGUAGE_LOCALE",
@@ -1345,7 +1406,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "LANGUAGE_STATUS",
@@ -1390,7 +1452,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "LANGUAGESTATUS_ID",
@@ -1406,7 +1469,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "LANGUAGESTATUS_NAME",
@@ -1446,7 +1510,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "CUSTOMERSTATUS_ID",
@@ -1462,7 +1527,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "CUSTOMERSTATUS_NAME",
@@ -1504,7 +1570,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "ORDERITEM_ID",
@@ -1520,7 +1587,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "ORDERITEM_PRODUCT",
@@ -1543,7 +1611,8 @@
                         "relationshipEntityPerspectiveName": "Products"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "ORDERITEM_SALESORDER",
@@ -1566,7 +1635,8 @@
                         "relationshipEntityPerspectiveName": "SalesOrders"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "ORDERITEM_NAME",
@@ -1584,7 +1654,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "64",
                         "dataName": "ORDERITEM_MODEL",
@@ -1602,7 +1673,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "4",
                         "dataName": "ORDERITEM_QUANTITY",
@@ -1620,7 +1692,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "19",
                         "dataName": "ORDERITEM_PRICE",
@@ -1638,7 +1711,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "19",
                         "dataName": "ORDERITEM_TOTAL",
@@ -1656,7 +1730,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "19",
                         "dataName": "ORDERITEM_TAX",
@@ -1696,7 +1771,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "PRODUCT_ID",
@@ -1712,7 +1788,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "64",
                         "dataName": "PRODUCT_MODEL",
@@ -1730,7 +1807,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "PRODUCT_MANUFACTURER",
@@ -1753,7 +1831,8 @@
                         "relationshipEntityPerspectiveName": "Products"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "1",
                         "dataName": "PRODUCT_STATUS",
@@ -1776,7 +1855,8 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "4",
                         "dataName": "PRODUCT_QUANTITY",
@@ -1794,7 +1874,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "19",
                         "dataName": "PRODUCT_PRICE",
@@ -1812,7 +1893,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "PRODUCT_IMAGE",
@@ -1830,7 +1912,8 @@
                         "widgetType": "URL"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "64",
                         "dataName": "PRODUCT_SKU",
@@ -1848,7 +1931,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "12",
                         "dataName": "PRODUCT_UPC",
@@ -1866,7 +1950,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "14",
                         "dataName": "PRODUCT_EAN",
@@ -1884,7 +1969,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "13",
                         "dataName": "PRODUCT_JAN",
@@ -1902,7 +1988,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "17",
                         "dataName": "PRODUCT_ISBN",
@@ -1920,7 +2007,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "64",
                         "dataName": "PRODUCT_MPN",
@@ -1938,7 +2026,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "PRODUCT_DATEAVAILABLE",
@@ -1956,7 +2045,8 @@
                         "widgetType": "DATE"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "23",
                         "dataName": "PRODUCT_WEIGHT",
@@ -1974,7 +2064,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "23",
                         "dataName": "PRODUCT_LENGTH",
@@ -1992,7 +2083,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "23",
                         "dataName": "PRODUCT_WIDTH",
@@ -2010,7 +2102,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "23",
                         "dataName": "PRODUCT_HEIGHT",
@@ -2028,7 +2121,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "PRODUCT_DATEADDED",
@@ -2046,7 +2140,8 @@
                         "widgetType": "DATETIME-LOCAL"
                     },
                     {
-                        "calculatedPropertyExpression": "Date.now()",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "PRODUCT_DATEMODIFIED",
@@ -2064,7 +2159,8 @@
                         "widgetType": "DATETIME-LOCAL"
                     },
                     {
-                        "calculatedPropertyExpression": "require(\"security/user\").getName()",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "96",
                         "dataName": "PRODUCT_UPDATEDBY",
@@ -2082,7 +2178,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "8",
                         "dataName": "PRODUCT_POINTS",
@@ -2100,7 +2197,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "1",
                         "dataName": "PRODUCT_SHIPPING",
@@ -2118,7 +2216,8 @@
                         "widgetType": "CHECKBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "128",
                         "dataName": "PRODUCT_LOCATION",
@@ -2136,7 +2235,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "1",
                         "dataName": "PRODUCT_SUBTRACT",
@@ -2154,7 +2254,8 @@
                         "widgetType": "CHECKBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "11",
                         "dataName": "PRODUCT_MINIMUM",
@@ -2172,7 +2273,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "PRODUCT_STOCKSTATUS",
@@ -2217,7 +2319,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "STOCKSTATUS_ID",
@@ -2233,7 +2336,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "STOCKSTATUS_LANGUAGE",
@@ -2256,7 +2360,8 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "32",
                         "dataName": "STOCKSTATUS_NAME",
@@ -2296,7 +2401,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "MANUFACTURER_ID",
@@ -2314,7 +2420,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "64",
                         "dataName": "MANUFACTURER_NAME",
@@ -2332,7 +2439,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "MANUFACTURER_IMAGE",
@@ -2372,7 +2480,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "PRODUCTSTATUS_ID",
@@ -2388,7 +2497,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "PRODUCTSTATUS_NAME",
@@ -2426,7 +2536,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "EMPLOYEE_ID",
@@ -2442,7 +2553,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "32",
                         "dataName": "EMPLOYEE_FIRSTNAME",
@@ -2460,7 +2572,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "32",
                         "dataName": "EMPLOYEE_LASTNAME",
@@ -2478,7 +2591,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "96",
                         "dataName": "EMPLOYEE_EMAIL",
@@ -2496,7 +2610,8 @@
                         "widgetType": "EMAIL"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "EMPLOYEE_STATUS",
@@ -2519,7 +2634,8 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "EMPLOYEE_IMAGE",
@@ -2537,7 +2653,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "40",
                         "dataName": "EMPLOYEE_CODE",
@@ -2555,7 +2672,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "require(\"security/user\").getName()",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "96",
                         "dataName": "EMPLOYEE_UPDATEDBY",
@@ -2573,7 +2691,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "Date.now()",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "EMPLOYEE_DATEADDED",
@@ -2613,7 +2732,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "EMPLOYEESTATUS_ID",
@@ -2629,7 +2749,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "EMPLOYEESTATUS_NAME",
@@ -2667,7 +2788,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "SALESORDERPAYMENT_ID",
@@ -2683,7 +2805,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "SALESORDERPAYMENT_ZONE",
@@ -2706,7 +2829,8 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "32",
                         "dataName": "SALESORDERPAYMENT_FIRSTNAME",
@@ -2724,7 +2848,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "32",
                         "dataName": "SALESORDERPAYMENT_LASTNAME",
@@ -2742,7 +2867,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "60",
                         "dataName": "SALESORDERPAYMENT_COMPANY",
@@ -2760,7 +2886,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "128",
                         "dataName": "SALESORDERPAYMENT_ADDRESS1",
@@ -2778,7 +2905,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "128",
                         "dataName": "SALESORDERPAYMENT_ADDRESS2",
@@ -2796,7 +2924,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "SALESORDERPAYMENT_COUNTRY",
@@ -2819,7 +2948,8 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "128",
                         "dataName": "SALESORDERPAYMENT_CITY",
@@ -2837,7 +2967,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "10",
                         "dataName": "SALESORDERPAYMENT_POSTCODE",
@@ -2855,7 +2986,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "128",
                         "dataName": "SALESORDERPAYMENT_METHOD",
@@ -2873,7 +3005,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "128",
                         "dataName": "SALESORDERPAYMENT_CODE",
@@ -2891,7 +3024,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "2000",
                         "dataName": "SALESORDERPAYMENT_ADDRESSFORMAT",
@@ -2909,7 +3043,8 @@
                         "widgetType": "TEXTAREA"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "2000",
                         "dataName": "SALESORDERPAYMENT_CUSTOMFIELD",
@@ -2927,7 +3062,8 @@
                         "widgetType": "TEXTAREA"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "SALESORDERPAYMENT_SALESORDER",
@@ -2970,7 +3106,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "SALESORDERSHIPPING_ID",
@@ -2986,7 +3123,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "SALESORDERSHIPPING_ZONE",
@@ -3009,7 +3147,8 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "32",
                         "dataName": "SALESORDERSHIPPING_FIRSTNAME",
@@ -3027,7 +3166,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "32",
                         "dataName": "SALESORDERSHIPPING_LASTNAME",
@@ -3045,7 +3185,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "40",
                         "dataName": "SALESORDERSHIPPING_COMPANY",
@@ -3063,7 +3204,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "128",
                         "dataName": "SALESORDERSHIPPING_ADDRESS1",
@@ -3081,7 +3223,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "128",
                         "dataName": "SALESORDERSHIPPING_ADDRESS2",
@@ -3099,7 +3242,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "SALESORDERSHIPPING_COUNTRY",
@@ -3122,7 +3266,8 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "128",
                         "dataName": "SALESORDERSHIPPING_CITY",
@@ -3140,7 +3285,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "10",
                         "dataName": "SALESORDERSHIPPING_POSTCODE",
@@ -3158,7 +3304,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "128",
                         "dataName": "SALESORDERSHIPPING_METHOD",
@@ -3176,7 +3323,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "128",
                         "dataName": "SALESORDERSHIPPING_CODE",
@@ -3194,7 +3342,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "require(\"security/user\").getName()",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "96",
                         "dataName": "SALESORDERSHIPPING_UPDATEDBY",
@@ -3212,7 +3361,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "2000",
                         "dataName": "SALESORDERSHIPPING_ADDRESSFORMAT",
@@ -3230,7 +3380,8 @@
                         "widgetType": "TEXTAREA"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "2000",
                         "dataName": "SALESORDERSHIPPING_CUSTOMFIELD",
@@ -3248,7 +3399,8 @@
                         "widgetType": "TEXTAREA"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "SALESORDERSHIPPING_SALESORDER",
@@ -3291,7 +3443,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "CURRENCYSTATUS_ID",
@@ -3307,7 +3460,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "CURRENCYSTATUS_NAME",
@@ -3347,7 +3501,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "GROUP_ID",
@@ -3365,7 +3520,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "64",
                         "dataName": "GROUP_NAME",
@@ -3383,7 +3539,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "require(\"security/user\").getName()",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "96",
                         "dataName": "GROUP_UPDATEDBY",
@@ -3401,7 +3558,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "Date.now()",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "GROUP_DATEMODIFIED",
@@ -3441,7 +3599,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "ATTRIBUTE_ID",
@@ -3459,7 +3618,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "ATTRIBUTE_GROUP",
@@ -3484,7 +3644,8 @@
                         "relationshipEntityPerspectiveName": "Products"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "64",
                         "dataName": "ATTRIBUTE_NAME",
@@ -3524,7 +3685,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "PRODUCTATTRIBUTE_ID",
@@ -3542,7 +3704,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "PRODUCTATTRIBUTE_PRODUCT",
@@ -3567,7 +3730,8 @@
                         "relationshipEntityPerspectiveName": "Products"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "PRODUCTATTRIBUTE_ATTRIBUTE",
@@ -3590,7 +3754,8 @@
                         "relationshipEntityPerspectiveName": "Products"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "PRODUCTATTRIBUTE_LANGUAGE",
@@ -3613,7 +3778,8 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "2000",
                         "dataName": "PRODUCTATTRIBUTE_TEXT",
@@ -3653,7 +3819,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "ATTRIBUTEGROUP_ID",
@@ -3671,7 +3838,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "64",
                         "dataName": "ATTRIBUTEGROUP_NAME",
@@ -3711,7 +3879,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "SALESORDERCOMMENT_ID",
@@ -3729,7 +3898,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "2000",
                         "dataName": "SALESORDERCOMMENT_TEXT",
@@ -3747,7 +3917,8 @@
                         "widgetType": "TEXTAREA"
                     },
                     {
-                        "calculatedPropertyExpression": "require(\"security/user\").getName()",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "96",
                         "dataName": "SALESORDERCOMMENT_CREATEDBY",
@@ -3765,7 +3936,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "Date.now()",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "SALESORDERCOMMENT_CREATEDAT",
@@ -3783,7 +3955,8 @@
                         "widgetType": "DATETIME-LOCAL"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "SALESORDERCOMMENT_SALESORDER",
@@ -3828,7 +4001,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "ATTRIBUTETRANSLATION_ID",
@@ -3846,7 +4020,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "ATTRIBUTETRANSLATION_ATTRIBUTE",
@@ -3869,7 +4044,8 @@
                         "relationshipEntityPerspectiveName": "Products"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "ATTRIBUTETRANSLATION_LANGUAGE",
@@ -3892,7 +4068,8 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "64",
                         "dataName": "ATTRIBUTETRANSLATION_TEXT",
@@ -3932,7 +4109,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "PRODUCTDESCRIPTION_ID",
@@ -3950,7 +4128,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "PRODUCTDESCRIPTION_PRODUCT",
@@ -3975,7 +4154,8 @@
                         "relationshipEntityPerspectiveName": "Products"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "PRODUCTDESCRIPTION_NAME",
@@ -3993,7 +4173,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "65535",
                         "dataName": "PRODUCTDESCRIPTION_DESCRIPTION",
@@ -4011,7 +4192,8 @@
                         "widgetType": "TEXTAREA"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "2000",
                         "dataName": "PRODUCTDESCRIPTION_TAG",
@@ -4029,7 +4211,8 @@
                         "widgetType": "TEXTAREA"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "PRODUCTDESCRIPTION_METATITLE",
@@ -4047,7 +4230,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "PRODUCTDESCRIPTION_METADESCRIPTION",
@@ -4065,7 +4249,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "PRODUCTDESCRIPTION_METAKEYWORD",
@@ -4083,7 +4268,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "PRODUCTDESCRIPTION_LANGUAGE",
@@ -4128,7 +4314,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "PERMISSION_ID",
@@ -4146,7 +4333,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "64",
                         "dataName": "PERMISSION_NAME",
@@ -4186,7 +4374,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "GROUPEMPLOYEE_ID",
@@ -4202,7 +4391,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "GROUPEMPLOYEE_EMPLOYEE",
@@ -4225,7 +4415,8 @@
                         "relationshipEntityPerspectiveName": "Access"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "GROUPEMPLOYEE_GROUP",
@@ -4248,7 +4439,8 @@
                         "relationshipEntityPerspectiveName": "Access"
                     },
                     {
-                        "calculatedPropertyExpression": "require(\"security/user\").getName()",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "96",
                         "dataName": "GROUPEMPLOYEE_UPDATEDBY",
@@ -4266,7 +4458,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "Date.now()",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "GROUPEMPLOYEE_DATEMODIFIED",
@@ -4306,7 +4499,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "GROUPPERMISSION_ID",
@@ -4322,7 +4516,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "GROUPPERMISSION_GROUP",
@@ -4345,7 +4540,8 @@
                         "relationshipEntityPerspectiveName": "Access"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "GROUPPERMISSION_PERMISSION",
@@ -4368,7 +4564,8 @@
                         "relationshipEntityPerspectiveName": "Access"
                     },
                     {
-                        "calculatedPropertyExpression": "require(\"security/user\").getName()",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "96",
                         "dataName": "GROUPPERMISSION_UPDATEDBY",
@@ -4386,7 +4583,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "Date.now()",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "GROUPPERMISSION_DATEMODIFIED",
@@ -4426,7 +4624,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "ID",
@@ -4444,7 +4643,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "64",
                         "dataName": "ENTITY_NAME",
@@ -4462,7 +4662,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "ENTITY_INTEGER_ID",
@@ -4480,7 +4681,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "64",
                         "dataName": "ENTITY_STRING_ID",
@@ -4498,7 +4700,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "REFERENCE_INTEGER_ID",
@@ -4516,7 +4719,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "64",
                         "dataName": "REFERENCE_STRING_ID",
@@ -4534,7 +4738,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "SCOPE_INTEGER_ID",
@@ -4552,7 +4757,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "SCOPE_STRING_ID",
@@ -4592,7 +4798,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "STORECONFIGURATION_ID",
@@ -4610,7 +4817,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "STORECONFIGURATION_STORE",
@@ -4635,7 +4843,8 @@
                         "relationshipEntityPerspectiveName": "Stores"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "STORECONFIGURATION_PROPERTY",
@@ -4658,7 +4867,8 @@
                         "relationshipEntityPerspectiveName": "Stores"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "64",
                         "dataName": "STORECONFIGURATION_VALUE",
@@ -4698,7 +4908,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "STORECONFIGURATIONPROPERTY_ID",
@@ -4714,7 +4925,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "32",
                         "dataName": "STORECONFIGURATIONPROPERTY_NAME",
@@ -4754,7 +4966,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "STORETYPE_ID",
@@ -4772,7 +4985,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "32",
                         "dataName": "STORETYPE_NAME",
@@ -4812,7 +5026,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "PRODUCTTOSTORE_ID",
@@ -4830,7 +5045,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "PRODUCTTOSTORE_PRODUCT",
@@ -4855,7 +5071,8 @@
                         "relationshipEntityPerspectiveName": "Products"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "PRODUCTTOSTORE_STORE",
@@ -4900,7 +5117,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "ATTRIBUTEGROUPTRANSLATION_ID",
@@ -4918,7 +5136,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "ATTRIBUTEGROUPTRANSLATION_ATTRIBUTEGROUP",
@@ -4943,7 +5162,8 @@
                         "relationshipEntityPerspectiveName": "Products"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "ATTRIBUTEGROUPTRANSLATION_LANGUAGE",
@@ -4966,7 +5186,8 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "64",
                         "dataName": "ATTRIBUTEGROUPTRANSLATION_TEXT",
@@ -5006,7 +5227,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "CATEGORY_ID",
@@ -5024,7 +5246,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "CATEGORY_NAME",
@@ -5042,7 +5265,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "1",
                         "dataName": "CATEGORY_STATUS",
@@ -5060,7 +5284,8 @@
                         "widgetType": "CHECKBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "CATEGORY_IMAGE",
@@ -5078,7 +5303,8 @@
                         "widgetType": "URL"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "CATEGORY_DATEADDED",
@@ -5096,7 +5322,8 @@
                         "widgetType": "DATETIME-LOCAL"
                     },
                     {
-                        "calculatedPropertyExpression": "Date.now()",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "CATEGORY_DATEMODIFIED",
@@ -5136,7 +5363,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "PRODUCTTOCATEGORY_ID",
@@ -5154,7 +5382,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "PRODUCTTOCATEGORY_CATEGORY",
@@ -5177,7 +5406,8 @@
                         "relationshipEntityPerspectiveName": "Products"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "PRODUCTTOCATEGORY_PRODUCT",
@@ -5224,7 +5454,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "CATEGORYTRANSLATION_ID",
@@ -5242,7 +5473,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "CATEGORYTRANSLATION_CATEGORY",
@@ -5267,7 +5499,8 @@
                         "relationshipEntityPerspectiveName": "Products"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
                         "dataName": "CATEGORYTRANSLATION_LANGUAGE",
@@ -5292,7 +5525,8 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "CATEGORYTRANSLATION_NAME",
@@ -5310,7 +5544,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "2000",
                         "dataName": "CATEGORYTRANSLATION_DESCRIPTION",
@@ -5328,7 +5563,8 @@
                         "widgetType": "TEXTAREA"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "CATEGORYTRANSLATION_METATITLE",
@@ -5346,7 +5582,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "CATEGORYTRANSLATION_METADESCRIPTION",
@@ -5364,7 +5601,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "255",
                         "dataName": "CATEGORYTRANSLATION_METAKEYWORD",

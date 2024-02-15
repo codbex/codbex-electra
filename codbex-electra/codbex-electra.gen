@@ -388,7 +388,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "CURRENCY_ID",
@@ -410,11 +411,12 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "32",
           "dataName": "CURRENCY_TITLE",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
           "dataScale": "NaN",
@@ -426,7 +428,7 @@
           "widgetLength": "32",
           "widgetSize": "",
           "widgetType": "TEXTBOX",
-          "dataNotNull": false,
+          "dataNotNull": true,
           "widgetLabel": "Title",
           "widgetDropdownUrl": "",
           "dataTypeJava": "string",
@@ -436,11 +438,12 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "CURRENCY_STATUS",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
           "dataScale": "NaN",
@@ -457,7 +460,7 @@
           "relationshipName": "Currency_CurrencyStatus",
           "relationshipEntityName": "CurrencyStatus",
           "relationshipEntityPerspectiveName": "Settings",
-          "dataNotNull": false,
+          "dataNotNull": true,
           "widgetLabel": "Status",
           "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/CurrencyStatusService.ts\"",
           "dataTypeJava": "int",
@@ -465,11 +468,12 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "3",
           "dataName": "CURRENCY_CODE",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
           "dataScale": "NaN",
@@ -481,7 +485,7 @@
           "widgetLength": "3",
           "widgetSize": "",
           "widgetType": "TEXTBOX",
-          "dataNotNull": false,
+          "dataNotNull": true,
           "widgetLabel": "Code",
           "widgetDropdownUrl": "",
           "dataTypeJava": "string",
@@ -491,11 +495,12 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "12",
           "dataName": "CURRENCY_SYMBOLLEFT",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
           "dataScale": "NaN",
@@ -507,7 +512,7 @@
           "widgetLength": "12",
           "widgetSize": "",
           "widgetType": "TEXTBOX",
-          "dataNotNull": false,
+          "dataNotNull": true,
           "widgetLabel": "SymbolLeft",
           "widgetDropdownUrl": "",
           "dataTypeJava": "string",
@@ -517,11 +522,12 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "12",
           "dataName": "CURRENCY_SYMBOLRIGHT",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
           "dataScale": "NaN",
@@ -533,7 +539,7 @@
           "widgetLength": "12",
           "widgetSize": "",
           "widgetType": "TEXTBOX",
-          "dataNotNull": false,
+          "dataNotNull": true,
           "widgetLabel": "SymbolRight",
           "widgetDropdownUrl": "",
           "dataTypeJava": "string",
@@ -543,11 +549,12 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "1",
           "dataName": "CURRENCY_DECIMALPLACE",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
           "dataScale": "NaN",
@@ -559,7 +566,7 @@
           "widgetLength": "1",
           "widgetSize": "",
           "widgetType": "TEXTBOX",
-          "dataNotNull": false,
+          "dataNotNull": true,
           "widgetLabel": "DecimalPlace",
           "widgetDropdownUrl": "",
           "dataTypeJava": "string",
@@ -569,11 +576,12 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "23",
           "dataName": "CURRENCY_VALUE",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataPrecision": "15",
           "dataPrimaryKey": false,
           "dataScale": "8",
@@ -585,7 +593,7 @@
           "widgetLength": "20",
           "widgetSize": "",
           "widgetType": "TEXTBOX",
-          "dataNotNull": false,
+          "dataNotNull": true,
           "widgetLabel": "Value",
           "widgetDropdownUrl": "",
           "dataTypeJava": "double",
@@ -593,7 +601,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "Date.now()",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "CURRENCY_DATEMODIFIED",
@@ -647,7 +656,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "SALESORDER_ID",
@@ -671,7 +681,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "19",
           "dataName": "SALESORDER_TOTAL",
@@ -695,7 +706,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "SALESORDER_CURRENCY",
@@ -724,7 +736,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "SALESORDER_STATUS",
@@ -753,7 +766,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "SALESORDER_STORE",
@@ -782,7 +796,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "SALESORDER_CUSTOMER",
@@ -811,7 +826,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "SALESORDER_DATEADDED",
@@ -836,7 +852,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "Date.now()",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "SALESORDER_DATEMODIFIED",
@@ -861,7 +878,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "require(\"security/user\").getName()",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "96",
           "dataName": "SALESORDER_UPDATEDBY",
@@ -887,7 +905,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "SALESORDER_TRACKING",
@@ -913,7 +932,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "2000",
           "dataName": "SALESORDER_COMMENT",
@@ -939,7 +959,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "11",
           "dataName": "SALESORDER_INVOICENUMBER",
@@ -963,7 +984,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "26",
           "dataName": "SALESORDER_INVOICEPREFIX",
@@ -989,7 +1011,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "SALESORDER_LANGUAGE",
@@ -1018,7 +1041,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "SALESORDER_ACCEPTLANGUAGE",
@@ -1069,7 +1093,8 @@
       "primaryKeysString": "Id",
       "masterProperties": {
         "title": {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "19",
           "dataName": "SALESORDER_TOTAL",
@@ -1094,7 +1119,8 @@
         },
         "properties": [
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "0",
             "dataName": "SALESORDER_CURRENCY",
@@ -1123,7 +1149,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "0",
             "dataName": "SALESORDER_STATUS",
@@ -1152,7 +1179,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "0",
             "dataName": "SALESORDER_STORE",
@@ -1181,7 +1209,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "0",
             "dataName": "SALESORDER_CUSTOMER",
@@ -1210,7 +1239,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "20",
             "dataName": "SALESORDER_DATEADDED",
@@ -1235,7 +1265,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "Date.now()",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "20",
             "dataName": "SALESORDER_DATEMODIFIED",
@@ -1260,7 +1291,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "require(\"security/user\").getName()",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "96",
             "dataName": "SALESORDER_UPDATEDBY",
@@ -1286,7 +1318,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "255",
             "dataName": "SALESORDER_TRACKING",
@@ -1312,7 +1345,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "2000",
             "dataName": "SALESORDER_COMMENT",
@@ -1338,7 +1372,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "11",
             "dataName": "SALESORDER_INVOICENUMBER",
@@ -1362,7 +1397,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "26",
             "dataName": "SALESORDER_INVOICEPREFIX",
@@ -1388,7 +1424,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "0",
             "dataName": "SALESORDER_LANGUAGE",
@@ -1417,7 +1454,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "255",
             "dataName": "SALESORDER_ACCEPTLANGUAGE",
@@ -1450,7 +1488,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "STORE_ID",
@@ -1472,7 +1511,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "64",
           "dataName": "STORE_NAME",
@@ -1498,7 +1538,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "STORE_URL",
@@ -1524,7 +1565,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "STORE_TYPE",
@@ -1553,7 +1595,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "1",
           "dataName": "STORE_ENABLED",
@@ -1602,7 +1645,8 @@
       "primaryKeysString": "Id",
       "masterProperties": {
         "title": {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "64",
           "dataName": "STORE_NAME",
@@ -1629,7 +1673,8 @@
         },
         "properties": [
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "255",
             "dataName": "STORE_URL",
@@ -1655,7 +1700,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "0",
             "dataName": "STORE_TYPE",
@@ -1684,7 +1730,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "1",
             "dataName": "STORE_ENABLED",
@@ -1714,7 +1761,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "CUSTOMER_ID",
@@ -1736,7 +1784,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "96",
           "dataName": "CUSTOMER_EMAIL",
@@ -1762,7 +1811,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "32",
           "dataName": "CUSTOMER_FIRSTNAME",
@@ -1788,7 +1838,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "32",
           "dataName": "CUSTOMER_LASTNAME",
@@ -1814,7 +1865,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "CUSTOMER_STORE",
@@ -1843,7 +1895,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "CUSTOMER_STATUS",
@@ -1872,7 +1925,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "32",
           "dataName": "CUSTOMER_TELEPHONE",
@@ -1898,7 +1952,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "CUSTOMER_DATE_ADDED",
@@ -1923,7 +1978,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "40",
           "dataName": "CUSTOMER_CODE",
@@ -1949,7 +2005,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "2000",
           "dataName": "CUSTOMER_CUSTOMFIELD",
@@ -1975,7 +2032,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "CUSTOMER_LANGUAGE",
@@ -2029,7 +2087,8 @@
       "primaryKeysString": "Id",
       "masterProperties": {
         "title": {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "96",
           "dataName": "CUSTOMER_EMAIL",
@@ -2056,7 +2115,8 @@
         },
         "properties": [
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "32",
             "dataName": "CUSTOMER_FIRSTNAME",
@@ -2082,7 +2142,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "32",
             "dataName": "CUSTOMER_LASTNAME",
@@ -2108,7 +2169,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "0",
             "dataName": "CUSTOMER_STORE",
@@ -2137,7 +2199,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "0",
             "dataName": "CUSTOMER_STATUS",
@@ -2166,7 +2229,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "32",
             "dataName": "CUSTOMER_TELEPHONE",
@@ -2192,7 +2256,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "20",
             "dataName": "CUSTOMER_DATE_ADDED",
@@ -2217,7 +2282,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "40",
             "dataName": "CUSTOMER_CODE",
@@ -2243,7 +2309,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "2000",
             "dataName": "CUSTOMER_CUSTOMFIELD",
@@ -2269,7 +2336,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "0",
             "dataName": "CUSTOMER_LANGUAGE",
@@ -2305,7 +2373,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "COUNTRY_ID",
@@ -2327,11 +2396,12 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "128",
           "dataName": "COUNTRY_NAME",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
           "dataScale": "NaN",
@@ -2343,7 +2413,7 @@
           "widgetLength": "128",
           "widgetSize": "",
           "widgetType": "TEXTBOX",
-          "dataNotNull": false,
+          "dataNotNull": true,
           "widgetLabel": "Name",
           "widgetDropdownUrl": "",
           "dataTypeJava": "string",
@@ -2353,11 +2423,12 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "COUNTRY_STATUS",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
           "dataScale": "NaN",
@@ -2374,7 +2445,7 @@
           "relationshipName": "Country_CountryStatus",
           "relationshipEntityName": "CountryStatus",
           "relationshipEntityPerspectiveName": "Settings",
-          "dataNotNull": false,
+          "dataNotNull": true,
           "widgetLabel": "Status",
           "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/CountryStatusService.ts\"",
           "dataTypeJava": "int",
@@ -2382,11 +2453,12 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "2",
           "dataName": "COUNTRY_ISOCODE2",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
           "dataScale": "NaN",
@@ -2398,7 +2470,7 @@
           "widgetLength": "2",
           "widgetSize": "",
           "widgetType": "TEXTBOX",
-          "dataNotNull": false,
+          "dataNotNull": true,
           "widgetLabel": "IsoCode2",
           "widgetDropdownUrl": "",
           "dataTypeJava": "string",
@@ -2408,11 +2480,12 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "3",
           "dataName": "COUNTRY_ISOCODE3",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
           "dataScale": "NaN",
@@ -2424,7 +2497,7 @@
           "widgetLength": "3",
           "widgetSize": "",
           "widgetType": "TEXTBOX",
-          "dataNotNull": false,
+          "dataNotNull": true,
           "widgetLabel": "IsoCode3",
           "widgetDropdownUrl": "",
           "dataTypeJava": "string",
@@ -2434,11 +2507,12 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "1",
           "dataName": "COUNTRY_POSTCODEREQUIRED",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
           "dataScale": "NaN",
@@ -2450,7 +2524,7 @@
           "widgetLength": "1",
           "widgetSize": "",
           "widgetType": "CHECKBOX",
-          "dataNotNull": false,
+          "dataNotNull": true,
           "widgetLabel": "PostcodeRequired",
           "widgetDropdownUrl": "",
           "dataTypeJava": "boolean",
@@ -2486,7 +2560,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "COUNTRYSTATUS_ID",
@@ -2508,7 +2583,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "COUNTRYSTATUS_NAME",
@@ -2559,7 +2635,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "ZONE_ID",
@@ -2581,7 +2658,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "ZONE_COUNTRY",
@@ -2610,7 +2688,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "128",
           "dataName": "ZONE_NAME",
@@ -2636,7 +2715,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "ZONE_STATUS",
@@ -2665,7 +2745,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "32",
           "dataName": "ZONE_CODE",
@@ -2719,7 +2800,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "ZONESTATUS_ID",
@@ -2741,7 +2823,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "ZONESTATUS_NAME",
@@ -2792,7 +2875,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "ORDERSTATUS_ID",
@@ -2814,7 +2898,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "32",
           "dataName": "ORDERSTATUS_NAME",
@@ -2867,7 +2952,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "LANGUAGE_ID",
@@ -2891,7 +2977,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "32",
           "dataName": "LANGUAGE_NAME",
@@ -2917,7 +3004,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "5",
           "dataName": "LANGUAGE_CODE",
@@ -2943,7 +3031,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "LANGUAGE_LOCALE",
@@ -2969,7 +3058,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "LANGUAGE_STATUS",
@@ -3026,7 +3116,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "LANGUAGESTATUS_ID",
@@ -3048,7 +3139,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "LANGUAGESTATUS_NAME",
@@ -3101,7 +3193,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "CUSTOMERSTATUS_ID",
@@ -3123,7 +3216,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "CUSTOMERSTATUS_NAME",
@@ -3178,7 +3272,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "ORDERITEM_ID",
@@ -3200,7 +3295,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "ORDERITEM_PRODUCT",
@@ -3229,7 +3325,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "ORDERITEM_SALESORDER",
@@ -3258,7 +3355,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "ORDERITEM_NAME",
@@ -3284,7 +3382,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "64",
           "dataName": "ORDERITEM_MODEL",
@@ -3310,7 +3409,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "4",
           "dataName": "ORDERITEM_QUANTITY",
@@ -3334,7 +3434,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "19",
           "dataName": "ORDERITEM_PRICE",
@@ -3358,7 +3459,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "19",
           "dataName": "ORDERITEM_TOTAL",
@@ -3382,7 +3484,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "19",
           "dataName": "ORDERITEM_TAX",
@@ -3436,7 +3539,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "PRODUCT_ID",
@@ -3458,7 +3562,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "64",
           "dataName": "PRODUCT_MODEL",
@@ -3484,7 +3589,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "PRODUCT_MANUFACTURER",
@@ -3513,7 +3619,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "1",
           "dataName": "PRODUCT_STATUS",
@@ -3542,7 +3649,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "4",
           "dataName": "PRODUCT_QUANTITY",
@@ -3566,7 +3674,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "19",
           "dataName": "PRODUCT_PRICE",
@@ -3590,7 +3699,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "PRODUCT_IMAGE",
@@ -3616,7 +3726,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "64",
           "dataName": "PRODUCT_SKU",
@@ -3642,7 +3753,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "12",
           "dataName": "PRODUCT_UPC",
@@ -3668,7 +3780,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "14",
           "dataName": "PRODUCT_EAN",
@@ -3694,7 +3807,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "13",
           "dataName": "PRODUCT_JAN",
@@ -3720,7 +3834,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "17",
           "dataName": "PRODUCT_ISBN",
@@ -3746,7 +3861,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "64",
           "dataName": "PRODUCT_MPN",
@@ -3772,7 +3888,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "PRODUCT_DATEAVAILABLE",
@@ -3797,7 +3914,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "23",
           "dataName": "PRODUCT_WEIGHT",
@@ -3821,7 +3939,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "23",
           "dataName": "PRODUCT_LENGTH",
@@ -3845,7 +3964,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "23",
           "dataName": "PRODUCT_WIDTH",
@@ -3869,7 +3989,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "23",
           "dataName": "PRODUCT_HEIGHT",
@@ -3893,7 +4014,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "PRODUCT_DATEADDED",
@@ -3918,7 +4040,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "Date.now()",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "PRODUCT_DATEMODIFIED",
@@ -3943,7 +4066,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "require(\"security/user\").getName()",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "96",
           "dataName": "PRODUCT_UPDATEDBY",
@@ -3969,7 +4093,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "8",
           "dataName": "PRODUCT_POINTS",
@@ -3993,7 +4118,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "1",
           "dataName": "PRODUCT_SHIPPING",
@@ -4017,7 +4143,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "128",
           "dataName": "PRODUCT_LOCATION",
@@ -4043,7 +4170,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "1",
           "dataName": "PRODUCT_SUBTRACT",
@@ -4067,7 +4195,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "11",
           "dataName": "PRODUCT_MINIMUM",
@@ -4091,7 +4220,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "PRODUCT_STOCKSTATUS",
@@ -4145,7 +4275,8 @@
       "primaryKeysString": "Id",
       "masterProperties": {
         "title": {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "64",
           "dataName": "PRODUCT_MODEL",
@@ -4172,7 +4303,8 @@
         },
         "properties": [
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "0",
             "dataName": "PRODUCT_MANUFACTURER",
@@ -4201,7 +4333,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "1",
             "dataName": "PRODUCT_STATUS",
@@ -4230,7 +4363,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "4",
             "dataName": "PRODUCT_QUANTITY",
@@ -4254,7 +4388,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "19",
             "dataName": "PRODUCT_PRICE",
@@ -4278,7 +4413,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "255",
             "dataName": "PRODUCT_IMAGE",
@@ -4304,7 +4440,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "64",
             "dataName": "PRODUCT_SKU",
@@ -4330,7 +4467,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "12",
             "dataName": "PRODUCT_UPC",
@@ -4356,7 +4494,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "14",
             "dataName": "PRODUCT_EAN",
@@ -4382,7 +4521,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "13",
             "dataName": "PRODUCT_JAN",
@@ -4408,7 +4548,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "17",
             "dataName": "PRODUCT_ISBN",
@@ -4434,7 +4575,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "64",
             "dataName": "PRODUCT_MPN",
@@ -4460,7 +4602,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "20",
             "dataName": "PRODUCT_DATEAVAILABLE",
@@ -4485,7 +4628,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "23",
             "dataName": "PRODUCT_WEIGHT",
@@ -4509,7 +4653,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "23",
             "dataName": "PRODUCT_LENGTH",
@@ -4533,7 +4678,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "23",
             "dataName": "PRODUCT_WIDTH",
@@ -4557,7 +4703,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "23",
             "dataName": "PRODUCT_HEIGHT",
@@ -4581,7 +4728,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "20",
             "dataName": "PRODUCT_DATEADDED",
@@ -4606,7 +4754,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "Date.now()",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "20",
             "dataName": "PRODUCT_DATEMODIFIED",
@@ -4631,7 +4780,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "require(\"security/user\").getName()",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "96",
             "dataName": "PRODUCT_UPDATEDBY",
@@ -4657,7 +4807,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "8",
             "dataName": "PRODUCT_POINTS",
@@ -4681,7 +4832,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "1",
             "dataName": "PRODUCT_SHIPPING",
@@ -4705,7 +4857,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "128",
             "dataName": "PRODUCT_LOCATION",
@@ -4731,7 +4884,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "1",
             "dataName": "PRODUCT_SUBTRACT",
@@ -4755,7 +4909,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "11",
             "dataName": "PRODUCT_MINIMUM",
@@ -4779,7 +4934,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "0",
             "dataName": "PRODUCT_STOCKSTATUS",
@@ -4815,7 +4971,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "STOCKSTATUS_ID",
@@ -4837,7 +4994,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "STOCKSTATUS_LANGUAGE",
@@ -4866,7 +5024,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "32",
           "dataName": "STOCKSTATUS_NAME",
@@ -4920,7 +5079,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "MANUFACTURER_ID",
@@ -4944,7 +5104,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "64",
           "dataName": "MANUFACTURER_NAME",
@@ -4970,7 +5131,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "MANUFACTURER_IMAGE",
@@ -5023,7 +5185,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "PRODUCTSTATUS_ID",
@@ -5045,7 +5208,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "PRODUCTSTATUS_NAME",
@@ -5096,7 +5260,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "EMPLOYEE_ID",
@@ -5118,7 +5283,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "32",
           "dataName": "EMPLOYEE_FIRSTNAME",
@@ -5144,7 +5310,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "32",
           "dataName": "EMPLOYEE_LASTNAME",
@@ -5170,7 +5337,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "96",
           "dataName": "EMPLOYEE_EMAIL",
@@ -5196,7 +5364,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "EMPLOYEE_STATUS",
@@ -5225,7 +5394,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "EMPLOYEE_IMAGE",
@@ -5251,7 +5421,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "40",
           "dataName": "EMPLOYEE_CODE",
@@ -5277,7 +5448,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "require(\"security/user\").getName()",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "96",
           "dataName": "EMPLOYEE_UPDATEDBY",
@@ -5303,7 +5475,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "Date.now()",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "EMPLOYEE_DATEADDED",
@@ -5357,7 +5530,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "EMPLOYEESTATUS_ID",
@@ -5379,7 +5553,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "EMPLOYEESTATUS_NAME",
@@ -5430,7 +5605,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "SALESORDERPAYMENT_ID",
@@ -5452,7 +5628,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "SALESORDERPAYMENT_ZONE",
@@ -5481,7 +5658,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "32",
           "dataName": "SALESORDERPAYMENT_FIRSTNAME",
@@ -5507,7 +5685,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "32",
           "dataName": "SALESORDERPAYMENT_LASTNAME",
@@ -5533,7 +5712,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "60",
           "dataName": "SALESORDERPAYMENT_COMPANY",
@@ -5559,7 +5739,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "128",
           "dataName": "SALESORDERPAYMENT_ADDRESS1",
@@ -5585,7 +5766,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "128",
           "dataName": "SALESORDERPAYMENT_ADDRESS2",
@@ -5611,7 +5793,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "SALESORDERPAYMENT_COUNTRY",
@@ -5640,7 +5823,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "128",
           "dataName": "SALESORDERPAYMENT_CITY",
@@ -5666,7 +5850,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "10",
           "dataName": "SALESORDERPAYMENT_POSTCODE",
@@ -5692,7 +5877,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "128",
           "dataName": "SALESORDERPAYMENT_METHOD",
@@ -5718,7 +5904,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "128",
           "dataName": "SALESORDERPAYMENT_CODE",
@@ -5744,7 +5931,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "2000",
           "dataName": "SALESORDERPAYMENT_ADDRESSFORMAT",
@@ -5770,7 +5958,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "2000",
           "dataName": "SALESORDERPAYMENT_CUSTOMFIELD",
@@ -5796,7 +5985,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "SALESORDERPAYMENT_SALESORDER",
@@ -5853,7 +6043,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "SALESORDERSHIPPING_ID",
@@ -5875,7 +6066,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "SALESORDERSHIPPING_ZONE",
@@ -5904,7 +6096,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "32",
           "dataName": "SALESORDERSHIPPING_FIRSTNAME",
@@ -5930,7 +6123,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "32",
           "dataName": "SALESORDERSHIPPING_LASTNAME",
@@ -5956,7 +6150,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "40",
           "dataName": "SALESORDERSHIPPING_COMPANY",
@@ -5982,7 +6177,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "128",
           "dataName": "SALESORDERSHIPPING_ADDRESS1",
@@ -6008,7 +6204,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "128",
           "dataName": "SALESORDERSHIPPING_ADDRESS2",
@@ -6034,7 +6231,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "SALESORDERSHIPPING_COUNTRY",
@@ -6063,7 +6261,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "128",
           "dataName": "SALESORDERSHIPPING_CITY",
@@ -6089,7 +6288,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "10",
           "dataName": "SALESORDERSHIPPING_POSTCODE",
@@ -6115,7 +6315,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "128",
           "dataName": "SALESORDERSHIPPING_METHOD",
@@ -6141,7 +6342,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "128",
           "dataName": "SALESORDERSHIPPING_CODE",
@@ -6167,7 +6369,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "require(\"security/user\").getName()",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "96",
           "dataName": "SALESORDERSHIPPING_UPDATEDBY",
@@ -6193,7 +6396,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "2000",
           "dataName": "SALESORDERSHIPPING_ADDRESSFORMAT",
@@ -6219,7 +6423,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "2000",
           "dataName": "SALESORDERSHIPPING_CUSTOMFIELD",
@@ -6245,7 +6450,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "SALESORDERSHIPPING_SALESORDER",
@@ -6302,7 +6508,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "CURRENCYSTATUS_ID",
@@ -6324,7 +6531,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "CURRENCYSTATUS_NAME",
@@ -6377,7 +6585,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "GROUP_ID",
@@ -6401,7 +6610,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "64",
           "dataName": "GROUP_NAME",
@@ -6427,7 +6637,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "require(\"security/user\").getName()",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "96",
           "dataName": "GROUP_UPDATEDBY",
@@ -6453,7 +6664,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "Date.now()",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GROUP_DATEMODIFIED",
@@ -6506,7 +6718,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "ATTRIBUTE_ID",
@@ -6530,7 +6743,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "ATTRIBUTE_GROUP",
@@ -6561,7 +6775,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "64",
           "dataName": "ATTRIBUTE_NAME",
@@ -6612,7 +6827,8 @@
       "primaryKeysString": "Id",
       "masterProperties": {
         "title": {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "ATTRIBUTE_GROUP",
@@ -6644,7 +6860,8 @@
         },
         "properties": [
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "64",
             "dataName": "ATTRIBUTE_NAME",
@@ -6676,7 +6893,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "PRODUCTATTRIBUTE_ID",
@@ -6700,7 +6918,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "PRODUCTATTRIBUTE_PRODUCT",
@@ -6731,7 +6950,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "PRODUCTATTRIBUTE_ATTRIBUTE",
@@ -6760,7 +6980,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "PRODUCTATTRIBUTE_LANGUAGE",
@@ -6789,7 +7010,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "2000",
           "dataName": "PRODUCTATTRIBUTE_TEXT",
@@ -6845,7 +7067,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "ATTRIBUTEGROUP_ID",
@@ -6869,7 +7092,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "64",
           "dataName": "ATTRIBUTEGROUP_NAME",
@@ -6920,7 +7144,8 @@
       "primaryKeysString": "Id",
       "masterProperties": {
         "title": {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "64",
           "dataName": "ATTRIBUTEGROUP_NAME",
@@ -6951,7 +7176,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "SALESORDERCOMMENT_ID",
@@ -6975,7 +7201,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "2000",
           "dataName": "SALESORDERCOMMENT_TEXT",
@@ -7001,7 +7228,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "require(\"security/user\").getName()",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "96",
           "dataName": "SALESORDERCOMMENT_CREATEDBY",
@@ -7027,7 +7255,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "Date.now()",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "SALESORDERCOMMENT_CREATEDAT",
@@ -7052,7 +7281,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "SALESORDERCOMMENT_SALESORDER",
@@ -7111,7 +7341,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "ATTRIBUTETRANSLATION_ID",
@@ -7135,7 +7366,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "ATTRIBUTETRANSLATION_ATTRIBUTE",
@@ -7164,7 +7396,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "ATTRIBUTETRANSLATION_LANGUAGE",
@@ -7193,7 +7426,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "64",
           "dataName": "ATTRIBUTETRANSLATION_TEXT",
@@ -7249,7 +7483,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "PRODUCTDESCRIPTION_ID",
@@ -7273,7 +7508,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "PRODUCTDESCRIPTION_PRODUCT",
@@ -7304,7 +7540,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "PRODUCTDESCRIPTION_NAME",
@@ -7330,7 +7567,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "65535",
           "dataName": "PRODUCTDESCRIPTION_DESCRIPTION",
@@ -7356,7 +7594,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "2000",
           "dataName": "PRODUCTDESCRIPTION_TAG",
@@ -7382,7 +7621,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "PRODUCTDESCRIPTION_METATITLE",
@@ -7408,7 +7648,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "PRODUCTDESCRIPTION_METADESCRIPTION",
@@ -7434,7 +7675,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "PRODUCTDESCRIPTION_METAKEYWORD",
@@ -7460,7 +7702,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "PRODUCTDESCRIPTION_LANGUAGE",
@@ -7519,7 +7762,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "PERMISSION_ID",
@@ -7543,7 +7787,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "64",
           "dataName": "PERMISSION_NAME",
@@ -7596,7 +7841,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "GROUPEMPLOYEE_ID",
@@ -7618,7 +7864,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "GROUPEMPLOYEE_EMPLOYEE",
@@ -7647,7 +7894,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "GROUPEMPLOYEE_GROUP",
@@ -7676,7 +7924,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "require(\"security/user\").getName()",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "96",
           "dataName": "GROUPEMPLOYEE_UPDATEDBY",
@@ -7702,7 +7951,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "Date.now()",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GROUPEMPLOYEE_DATEMODIFIED",
@@ -7756,7 +8006,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "GROUPPERMISSION_ID",
@@ -7778,7 +8029,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "GROUPPERMISSION_GROUP",
@@ -7807,7 +8059,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "GROUPPERMISSION_PERMISSION",
@@ -7836,7 +8089,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "require(\"security/user\").getName()",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "96",
           "dataName": "GROUPPERMISSION_UPDATEDBY",
@@ -7862,7 +8116,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "Date.now()",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GROUPPERMISSION_DATEMODIFIED",
@@ -7916,7 +8171,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "ID",
@@ -7940,7 +8196,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "64",
           "dataName": "ENTITY_NAME",
@@ -7966,7 +8223,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "ENTITY_INTEGER_ID",
@@ -7990,7 +8248,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "64",
           "dataName": "ENTITY_STRING_ID",
@@ -8016,7 +8275,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "REFERENCE_INTEGER_ID",
@@ -8040,7 +8300,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "64",
           "dataName": "REFERENCE_STRING_ID",
@@ -8066,7 +8327,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "SCOPE_INTEGER_ID",
@@ -8090,7 +8352,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "SCOPE_STRING_ID",
@@ -8143,7 +8406,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "STORECONFIGURATION_ID",
@@ -8167,7 +8431,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "STORECONFIGURATION_STORE",
@@ -8198,7 +8463,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "STORECONFIGURATION_PROPERTY",
@@ -8227,7 +8493,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "64",
           "dataName": "STORECONFIGURATION_VALUE",
@@ -8283,7 +8550,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "STORECONFIGURATIONPROPERTY_ID",
@@ -8305,7 +8573,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "32",
           "dataName": "STORECONFIGURATIONPROPERTY_NAME",
@@ -8358,7 +8627,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "STORETYPE_ID",
@@ -8382,7 +8652,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "32",
           "dataName": "STORETYPE_NAME",
@@ -8435,7 +8706,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "PRODUCTTOSTORE_ID",
@@ -8459,7 +8731,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "PRODUCTTOSTORE_PRODUCT",
@@ -8490,7 +8763,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "PRODUCTTOSTORE_STORE",
@@ -8549,7 +8823,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "ATTRIBUTEGROUPTRANSLATION_ID",
@@ -8573,7 +8848,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "ATTRIBUTEGROUPTRANSLATION_ATTRIBUTEGROUP",
@@ -8604,7 +8880,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "ATTRIBUTEGROUPTRANSLATION_LANGUAGE",
@@ -8633,7 +8910,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "64",
           "dataName": "ATTRIBUTEGROUPTRANSLATION_TEXT",
@@ -8689,7 +8967,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "CATEGORY_ID",
@@ -8713,7 +8992,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "CATEGORY_NAME",
@@ -8739,7 +9019,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "1",
           "dataName": "CATEGORY_STATUS",
@@ -8763,7 +9044,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "CATEGORY_IMAGE",
@@ -8789,7 +9071,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "CATEGORY_DATEADDED",
@@ -8814,7 +9097,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "Date.now()",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "CATEGORY_DATEMODIFIED",
@@ -8864,7 +9148,8 @@
       "primaryKeysString": "Id",
       "masterProperties": {
         "title": {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "CATEGORY_NAME",
@@ -8891,7 +9176,8 @@
         },
         "properties": [
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "1",
             "dataName": "CATEGORY_STATUS",
@@ -8915,7 +9201,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "255",
             "dataName": "CATEGORY_IMAGE",
@@ -8941,7 +9228,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "20",
             "dataName": "CATEGORY_DATEADDED",
@@ -8966,7 +9254,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "Date.now()",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "20",
             "dataName": "CATEGORY_DATEMODIFIED",
@@ -8997,7 +9286,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "PRODUCTTOCATEGORY_ID",
@@ -9021,7 +9311,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "PRODUCTTOCATEGORY_CATEGORY",
@@ -9050,7 +9341,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "PRODUCTTOCATEGORY_PRODUCT",
@@ -9111,7 +9403,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "CATEGORYTRANSLATION_ID",
@@ -9135,7 +9428,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "CATEGORYTRANSLATION_CATEGORY",
@@ -9166,7 +9460,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "CATEGORYTRANSLATION_LANGUAGE",
@@ -9197,7 +9492,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "CATEGORYTRANSLATION_NAME",
@@ -9223,7 +9519,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "2000",
           "dataName": "CATEGORYTRANSLATION_DESCRIPTION",
@@ -9249,7 +9546,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "CATEGORYTRANSLATION_METATITLE",
@@ -9275,7 +9573,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "CATEGORYTRANSLATION_METADESCRIPTION",
@@ -9301,7 +9600,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "CATEGORYTRANSLATION_METAKEYWORD",

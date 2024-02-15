@@ -18,7 +18,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CURRENCY_TITLE"
                     },
                     {
@@ -26,7 +25,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CURRENCY_STATUS"
                     },
                     {
@@ -34,7 +32,6 @@
                         "length": 3,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CURRENCY_CODE"
                     },
                     {
@@ -42,7 +39,6 @@
                         "length": 12,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CURRENCY_SYMBOLLEFT"
                     },
                     {
@@ -50,7 +46,6 @@
                         "length": 12,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CURRENCY_SYMBOLRIGHT"
                     },
                     {
@@ -58,7 +53,6 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CURRENCY_DECIMALPLACE"
                     },
                     {
@@ -66,7 +60,6 @@
                         "length": 23,
                         "precision": "15",
                         "scale": "8",
-                        "nullable": true,
                         "name": "CURRENCY_VALUE"
                     },
                     {
@@ -361,7 +354,6 @@
                         "length": 128,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "COUNTRY_NAME"
                     },
                     {
@@ -369,7 +361,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "COUNTRY_STATUS"
                     },
                     {
@@ -377,7 +368,6 @@
                         "length": 2,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "COUNTRY_ISOCODE2"
                     },
                     {
@@ -385,7 +375,6 @@
                         "length": 3,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "COUNTRY_ISOCODE3"
                     },
                     {
@@ -393,7 +382,6 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "COUNTRY_POSTCODEREQUIRED"
                     }
                 ]

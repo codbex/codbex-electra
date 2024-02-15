@@ -141,10 +141,6 @@ export class GroupPermissionRepository {
     }
 
     public create(entity: GroupPermissionCreateEntity): number {
-        // @ts-ignore
-        (entity as GroupPermissionEntity).UpdatedBy = require("security/user").getName();
-        // @ts-ignore
-        (entity as GroupPermissionEntity).DateModified = Date.now();
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -160,10 +156,6 @@ export class GroupPermissionRepository {
     }
 
     public update(entity: GroupPermissionUpdateEntity): void {
-        // @ts-ignore
-        (entity as GroupPermissionEntity).UpdatedBy = require("security/user").getName();
-        // @ts-ignore
-        (entity as GroupPermissionEntity).DateModified = Date.now();
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

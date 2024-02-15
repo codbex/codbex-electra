@@ -104,7 +104,7 @@ export class oc_category_pathRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource: string) {
         this.dao = daoApi.create(oc_category_pathRepository.DEFINITION, null, dataSource);
     }
 

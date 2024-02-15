@@ -5,24 +5,24 @@ import { dao as daoApi } from "sdk/db";
 
 export interface CurrencyEntity {
     readonly Id: number;
-    Title?: string;
-    Status?: number;
-    Code?: string;
-    SymbolLeft?: string;
-    SymbolRight?: string;
-    DecimalPlace?: string;
-    Value?: number;
+    Title: string;
+    Status: number;
+    Code: string;
+    SymbolLeft: string;
+    SymbolRight: string;
+    DecimalPlace: string;
+    Value: number;
     DateModified?: Date;
 }
 
 export interface CurrencyCreateEntity {
-    readonly Title?: string;
-    readonly Status?: number;
-    readonly Code?: string;
-    readonly SymbolLeft?: string;
-    readonly SymbolRight?: string;
-    readonly DecimalPlace?: string;
-    readonly Value?: number;
+    readonly Title: string;
+    readonly Status: number;
+    readonly Code: string;
+    readonly SymbolLeft: string;
+    readonly SymbolRight: string;
+    readonly DecimalPlace: string;
+    readonly Value: number;
 }
 
 export interface CurrencyUpdateEntity extends CurrencyCreateEntity {
@@ -143,36 +143,43 @@ export class CurrencyRepository {
                 name: "Title",
                 column: "CURRENCY_TITLE",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Status",
                 column: "CURRENCY_STATUS",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Code",
                 column: "CURRENCY_CODE",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "SymbolLeft",
                 column: "CURRENCY_SYMBOLLEFT",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "SymbolRight",
                 column: "CURRENCY_SYMBOLRIGHT",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "DecimalPlace",
                 column: "CURRENCY_DECIMALPLACE",
                 type: "CHAR",
+                required: true
             },
             {
                 name: "Value",
                 column: "CURRENCY_VALUE",
                 type: "DOUBLE",
+                required: true
             },
             {
                 name: "DateModified",
@@ -198,8 +205,6 @@ export class CurrencyRepository {
     }
 
     public create(entity: CurrencyCreateEntity): number {
-        // @ts-ignore
-        (entity as CurrencyEntity).DateModified = Date.now();
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -215,8 +220,6 @@ export class CurrencyRepository {
     }
 
     public update(entity: CurrencyUpdateEntity): void {
-        // @ts-ignore
-        (entity as CurrencyEntity).DateModified = Date.now();
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

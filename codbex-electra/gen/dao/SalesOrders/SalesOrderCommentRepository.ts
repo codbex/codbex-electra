@@ -141,10 +141,6 @@ export class SalesOrderCommentRepository {
     }
 
     public create(entity: SalesOrderCommentCreateEntity): number {
-        // @ts-ignore
-        (entity as SalesOrderCommentEntity).CreatedBy = require("security/user").getName();
-        // @ts-ignore
-        (entity as SalesOrderCommentEntity).CreatedAt = Date.now();
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -160,10 +156,6 @@ export class SalesOrderCommentRepository {
     }
 
     public update(entity: SalesOrderCommentUpdateEntity): void {
-        // @ts-ignore
-        (entity as SalesOrderCommentEntity).CreatedBy = require("security/user").getName();
-        // @ts-ignore
-        (entity as SalesOrderCommentEntity).CreatedAt = Date.now();
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

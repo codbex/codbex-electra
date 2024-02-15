@@ -197,10 +197,6 @@ export class EmployeeRepository {
     }
 
     public create(entity: EmployeeCreateEntity): number {
-        // @ts-ignore
-        (entity as EmployeeEntity).UpdatedBy = require("security/user").getName();
-        // @ts-ignore
-        (entity as EmployeeEntity).DateModified = Date.now();
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -216,10 +212,6 @@ export class EmployeeRepository {
     }
 
     public update(entity: EmployeeUpdateEntity): void {
-        // @ts-ignore
-        (entity as EmployeeEntity).UpdatedBy = require("security/user").getName();
-        // @ts-ignore
-        (entity as EmployeeEntity).DateModified = Date.now();
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

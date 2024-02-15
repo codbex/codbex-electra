@@ -296,8 +296,6 @@ export class SalesOrderShippingRepository {
     }
 
     public create(entity: SalesOrderShippingCreateEntity): number {
-        // @ts-ignore
-        (entity as SalesOrderShippingEntity).UpdatedBy = require("security/user").getName();
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -313,8 +311,6 @@ export class SalesOrderShippingRepository {
     }
 
     public update(entity: SalesOrderShippingUpdateEntity): void {
-        // @ts-ignore
-        (entity as SalesOrderShippingEntity).UpdatedBy = require("security/user").getName();
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

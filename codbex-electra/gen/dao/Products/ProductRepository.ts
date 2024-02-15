@@ -490,10 +490,6 @@ export class ProductRepository {
         EntityUtils.setLocalDate(entity, "DateAvailable");
         EntityUtils.setBoolean(entity, "Shipping");
         EntityUtils.setBoolean(entity, "Subtract");
-        // @ts-ignore
-        (entity as ProductEntity).DateModified = Date.now();
-        // @ts-ignore
-        (entity as ProductEntity).UpdatedBy = require("security/user").getName();
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -513,10 +509,6 @@ export class ProductRepository {
         // EntityUtils.setLocalDate(entity, "DateAvailable");
         EntityUtils.setBoolean(entity, "Shipping");
         EntityUtils.setBoolean(entity, "Subtract");
-        // @ts-ignore
-        (entity as ProductEntity).DateModified = Date.now();
-        // @ts-ignore
-        (entity as ProductEntity).UpdatedBy = require("security/user").getName();
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

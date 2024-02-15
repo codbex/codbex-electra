@@ -127,10 +127,6 @@ export class GroupRepository {
     }
 
     public create(entity: GroupCreateEntity): number {
-        // @ts-ignore
-        (entity as GroupEntity).UpdatedBy = require("security/user").getName();
-        // @ts-ignore
-        (entity as GroupEntity).DateModified = Date.now();
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -146,10 +142,6 @@ export class GroupRepository {
     }
 
     public update(entity: GroupUpdateEntity): void {
-        // @ts-ignore
-        (entity as GroupEntity).UpdatedBy = require("security/user").getName();
-        // @ts-ignore
-        (entity as GroupEntity).DateModified = Date.now();
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

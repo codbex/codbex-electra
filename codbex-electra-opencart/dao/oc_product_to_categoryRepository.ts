@@ -89,7 +89,7 @@ export class oc_product_to_categoryRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource: string) {
         this.dao = daoApi.create(oc_product_to_categoryRepository.DEFINITION, null, dataSource);
     }
 

@@ -4,6 +4,8 @@ import { getLogger } from "../util/LoggerUtil";
 
 export class EntityReferenceDAO {
 
+    private static readonly CURRENCY_ENTITY = "Currency";
+    private static readonly COUNTRY_ENTITY = "Country";
     private static readonly CATEGORY_ENTITY = "Category";
     private static readonly LANGUAGE_ENTITY = "Language";
     private static readonly ATTRIBUTE_ENTITY = "Attribute";
@@ -36,6 +38,13 @@ export class EntityReferenceDAO {
         return this.createReference(storeId, EntityReferenceDAO.ATTRIBUTE_GROUP_TRANSLATION_ENTITY, entityAttributeGroupTranslationId, referenceAttributeGroupTranslationId);
     }
 
+    public createCurrencyReference(storeId: number, entityCurrencyId: number, referenceCurrencyId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.CURRENCY_ENTITY, entityCurrencyId, referenceCurrencyId);
+    }
+
+    public createCountryReference(storeId: number, entityCountryId: number, referenceCountryId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.COUNTRY_ENTITY, entityCountryId, referenceCountryId);
+    }
 
     public createCategoryReference(storeId: number, entityCategoryId: number, referenceCategoryId: number) {
         return this.createReference(storeId, EntityReferenceDAO.CATEGORY_ENTITY, entityCategoryId, referenceCategoryId);
@@ -68,6 +77,14 @@ export class EntityReferenceDAO {
 
     public getStoreProduct(storeId: number, productId: number) {
         return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.PRODUCT_ENTITY, productId);
+    }
+
+    public getStoreCurrency(storeId: number, currencyId: number) {
+        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.CURRENCY_ENTITY, currencyId);
+    }
+
+    public getStoreCountry(storeId: number, countryId: number) {
+        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.COUNTRY_ENTITY, countryId);
     }
 
     public getStoreCategory(storeId: number, categoryId: number) {

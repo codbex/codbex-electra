@@ -1,25 +1,25 @@
 - route:
-    id: products-out-sync-route
+    id: currencies-out-sync-route
     from:
-      uri: cron:TriggerProductsReplication
-      id: trigger-products-replication-cron
+      uri: cron:TriggerCurrenciesReplication
+      id: trigger-currencies-replication-cron
       parameters:
-        schedule: 4 * * ? * *
-      description: Trigger Products Replication
+        schedule: 0 * * ? * *
+      description: Trigger Currencies Replication
       steps:
         - log:
-            message: Replicating products to OpenCart DB...
-            id: log-about-to-start-products-replication
-            logName: OpenCartProductsReplication
+            message: Replicating currencies to OpenCart DB...
+            id: log-about-to-start-currencies-replication
+            logName: OpenCartCurrenciesReplication
             loggingLevel: INFO
         - setProperty:
             name: resource
-            id: set-js-products-1
+            id: set-js-currencies-1
             expression:
               constant:
                 expression: >-
                   codbex-electra-opencart/synch/outbound/get-all-relevant-stores.ts
-                id: constant-products-8de2
+                id: constant-currencies-8de2
             description: Set JS file
         - to:
             uri: class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
@@ -30,48 +30,48 @@
             expression:
               simple:
                 expression: ${body}
-                id: simple-333
+                id: simple-currencies-333
             description: Split to single store
             steps:
               - setProperty:
                   name: resource
-                  id: set-js-products-2
+                  id: set-js-currencies-2
                   expression:
                     constant:
                       expression: >-
-                        codbex-electra-opencart/synch/outbound/products/get-store-products.ts
-                      id: constant-products-eb12
+                        codbex-electra-opencart/synch/outbound/currencies/get-all-currencies.ts
+                      id: constant-currencies-eb12
                   description: Set JS file
               - to:
                   uri: >-
                     class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
-                  id: get-all-store-products
-                  description: Get all store products
+                  id: get-all-enabled-currencies
+                  description: Get all enabled currencies
               - split:
-                  id: split-to-single-product
+                  id: split-to-single-currency
                   expression:
                     simple:
                       expression: ${body}
-                      id: simple-b984
-                  description: Split to single product
+                      id: simple-currencies-b984
+                  description: Split to single currency
                   steps:
                     - setProperty:
                         name: resource
-                        id: set-js-products-3
+                        id: set-js-currencies-3
                         expression:
                           constant:
                             expression: >-
-                              codbex-electra-opencart/synch/outbound/products/products/merge-product-to-open-cart.ts
-                            id: constant-products-a0bf
+                              codbex-electra-opencart/synch/outbound/currencies/merge-currency-to-open-cart.ts
+                            id: constant-currencies-a0bf
                         description: Set JS file
                     - to:
                         uri: >-
                           class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
-                        id: merge-product-to-oc
-                        description: Merge product to OpenCart
+                        id: merge-currency-to-oc
+                        description: Merge currency to OpenCart
         - log:
-            message: Successfully replicated products to all enabled OpenCart stores
-            id: log-products-replication-completed
-            logName: OpenCartProductsReplication
+            message: Successfully replicated currencies to all enabled OpenCart stores
+            id: log-currencies-replication-completed
+            logName: OpenCartCurrenciesReplication
             loggingLevel: INFO
-    description: Sync products to OpenCarts
+    description: Sync currencies to OpenCarts

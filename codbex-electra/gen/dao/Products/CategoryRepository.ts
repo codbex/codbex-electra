@@ -166,8 +166,6 @@ export class CategoryRepository {
 
     public create(entity: CategoryCreateEntity): number {
         EntityUtils.setBoolean(entity, "Status");
-        // @ts-ignore
-        (entity as CategoryEntity).DateModified = Date.now();
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -184,8 +182,6 @@ export class CategoryRepository {
 
     public update(entity: CategoryUpdateEntity): void {
         EntityUtils.setBoolean(entity, "Status");
-        // @ts-ignore
-        (entity as CategoryEntity).DateModified = Date.now();
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

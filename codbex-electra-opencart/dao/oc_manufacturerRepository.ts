@@ -116,7 +116,7 @@ export class oc_manufacturerRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource: string) {
         this.dao = daoApi.create(oc_manufacturerRepository.DEFINITION, null, dataSource);
     }
 
