@@ -4,7 +4,7 @@
       uri: cron:TriggerCurrenciesReplication
       id: trigger-currencies-replication-cron
       parameters:
-        schedule: 0 * * ? * *
+        schedule: 0 0/30 * ? * *
       description: Trigger Currencies Replication
       steps:
         - log:
