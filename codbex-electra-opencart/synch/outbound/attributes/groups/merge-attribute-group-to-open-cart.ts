@@ -76,17 +76,18 @@ class MergeAttributeGroupToOpenCartHandler extends BaseHandler {
     }
 
     private createOpenCartAttributeGroupDescription(attributeGroupTranslation: AttributeGroupTranslationEntity, ocAttributeGroupId: number): OpenCartAttributeGroupDescriptionCreateEntity | OpenCartAttributeGroupDescriptionUpdateEntity {
-        const languageReference = this.entityReferenceDAO.getStoreLanguageReference(this.attributeGroupEntry.store.id, attributeGroupTranslation.Language);
-        if (!languageReference) {
-            this.throwError(`Missing language reference for language with id ${attributeGroupTranslation.Language}`);
-        }
-        const languageId = languageReference!.ReferenceIntegerId;
+        const languageId = this.getOpenCartLanguageId(attributeGroupTranslation.Language);
 
         return {
             attribute_group_id: ocAttributeGroupId,
             language_id: languageId,
             name: attributeGroupTranslation.Text
         };
+    }
+
+    private getOpenCartLanguageId(languageId: number): number {
+        const languageReference = this.entityReferenceDAO.getRequiredStoreLanguageReference(this.attributeGroupEntry.store.id, languageId);
+        return languageReference!.ReferenceIntegerId!;
     }
 
 }

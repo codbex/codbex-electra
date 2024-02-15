@@ -44,6 +44,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		resetPagination();
 
 		//-----------------Events-------------------//
+		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
+			$scope.loadPage($scope.dataPage, $scope.filter);
+		});
+
+		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
+			$scope.loadPage($scope.dataPage, $scope.filter);
+		});
+
 		messageHub.onDidReceiveMessage("entitySearch", function (msg) {
 			resetPagination();
 			$scope.filter = msg.data.filter;
@@ -106,9 +114,58 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		};
 
+		$scope.createEntity = function () {
+			$scope.selectedEntity = null;
+			messageHub.showDialogWindow("Zone-details", {
+				action: "create",
+				entity: {},
+				optionsCountry: $scope.optionsCountry,
+				optionsStatus: $scope.optionsStatus,
+			}, null, false);
+		};
+
+		$scope.updateEntity = function (entity) {
+			messageHub.showDialogWindow("Zone-details", {
+				action: "update",
+				entity: entity,
+				optionsCountry: $scope.optionsCountry,
+				optionsStatus: $scope.optionsStatus,
+			}, null, false);
+		};
+
+		$scope.deleteEntity = function (entity) {
+			let id = entity.Id;
+			messageHub.showDialogAsync(
+				'Delete Zone?',
+				`Are you sure you want to delete Zone? This action cannot be undone.`,
+				[{
+					id: "delete-btn-yes",
+					type: "emphasized",
+					label: "Yes",
+				},
+				{
+					id: "delete-btn-no",
+					type: "normal",
+					label: "No",
+				}],
+			).then(function (msg) {
+				if (msg.data === "delete-btn-yes") {
+					entityApi.delete(id).then(function (response) {
+						if (response.status != 204) {
+							messageHub.showAlertError("Zone", `Unable to delete Zone: '${response.message}'`);
+							return;
+						}
+						$scope.loadPage($scope.dataPage, $scope.filter);
+						messageHub.postMessage("clearDetails");
+					});
+				}
+			});
+		};
+
 		//----------------Dropdowns-----------------//
 		$scope.optionsCountry = [];
 		$scope.optionsStatus = [];
+
 
 		$http.get("/services/ts/codbex-electra/gen/api/Settings/CountryService.ts").then(function (response) {
 			$scope.optionsCountry = response.data.map(e => {
@@ -127,6 +184,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsCountryValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsCountry.length; i++) {
 				if ($scope.optionsCountry[i].value === optionKey) {

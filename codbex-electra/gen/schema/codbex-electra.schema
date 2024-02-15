@@ -423,7 +423,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ZONE_COUNTRY"
                     },
                     {
@@ -431,7 +430,6 @@
                         "length": 128,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ZONE_NAME"
                     },
                     {
@@ -439,7 +437,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ZONE_STATUS"
                     },
                     {
@@ -447,7 +444,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ZONE_CODE"
                     }
                 ]

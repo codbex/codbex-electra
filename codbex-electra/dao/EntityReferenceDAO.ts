@@ -4,6 +4,7 @@ import { getLogger } from "../util/LoggerUtil";
 
 export class EntityReferenceDAO {
 
+    private static readonly ZONE_ENTITY = "Zone";
     private static readonly CURRENCY_ENTITY = "Currency";
     private static readonly COUNTRY_ENTITY = "Country";
     private static readonly CATEGORY_ENTITY = "Category";
@@ -46,6 +47,10 @@ export class EntityReferenceDAO {
         return this.createReference(storeId, EntityReferenceDAO.COUNTRY_ENTITY, entityCountryId, referenceCountryId);
     }
 
+    public createZoneReference(storeId: number, entityZoneId: number, referenceZoneId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.ZONE_ENTITY, entityZoneId, referenceZoneId);
+    }
+
     public createCategoryReference(storeId: number, entityCategoryId: number, referenceCategoryId: number) {
         return this.createReference(storeId, EntityReferenceDAO.CATEGORY_ENTITY, entityCategoryId, referenceCategoryId);
     }
@@ -79,8 +84,20 @@ export class EntityReferenceDAO {
         return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.PRODUCT_ENTITY, productId);
     }
 
+    public getStoreZone(storeId: number, zoneId: number) {
+        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.ZONE_ENTITY, zoneId);
+    }
+
     public getStoreCurrency(storeId: number, currencyId: number) {
         return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.CURRENCY_ENTITY, currencyId);
+    }
+
+    public getRequiredStoreCountryReference(storeId: number, countryId: number) {
+        const ref = this.getStoreCountry(storeId, countryId);
+        if (!ref) {
+            this.throwError(`Missing reference for country with id [${countryId}] for store [${storeId}]`);
+        }
+        return ref!;
     }
 
     public getStoreCountry(storeId: number, countryId: number) {
@@ -109,6 +126,14 @@ export class EntityReferenceDAO {
 
     public getStoreCategoryReference(storeId: number, categoryId: number) {
         return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.CATEGORY_ENTITY, categoryId);
+    }
+
+    public getRequiredStoreLanguageReference(storeId: number, languageId: number) {
+        const ref = this.getStoreLanguageReference(storeId, languageId);
+        if (!ref) {
+            this.throwError(`Missing reference for language with id [${languageId}] for store [${storeId}]`);
+        }
+        return ref!;
     }
 
     public getStoreLanguageReference(storeId: number, languageId: number) {

@@ -44,6 +44,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		resetPagination();
 
 		//-----------------Events-------------------//
+		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
+			$scope.loadPage($scope.dataPage, $scope.filter);
+		});
+
+		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
+			$scope.loadPage($scope.dataPage, $scope.filter);
+		});
+
 		messageHub.onDidReceiveMessage("entitySearch", function (msg) {
 			resetPagination();
 			$scope.filter = msg.data.filter;
@@ -111,8 +119,55 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		};
 
+		$scope.createEntity = function () {
+			$scope.selectedEntity = null;
+			messageHub.showDialogWindow("Currency-details", {
+				action: "create",
+				entity: {},
+				optionsStatus: $scope.optionsStatus,
+			}, null, false);
+		};
+
+		$scope.updateEntity = function (entity) {
+			messageHub.showDialogWindow("Currency-details", {
+				action: "update",
+				entity: entity,
+				optionsStatus: $scope.optionsStatus,
+			}, null, false);
+		};
+
+		$scope.deleteEntity = function (entity) {
+			let id = entity.Id;
+			messageHub.showDialogAsync(
+				'Delete Currency?',
+				`Are you sure you want to delete Currency? This action cannot be undone.`,
+				[{
+					id: "delete-btn-yes",
+					type: "emphasized",
+					label: "Yes",
+				},
+				{
+					id: "delete-btn-no",
+					type: "normal",
+					label: "No",
+				}],
+			).then(function (msg) {
+				if (msg.data === "delete-btn-yes") {
+					entityApi.delete(id).then(function (response) {
+						if (response.status != 204) {
+							messageHub.showAlertError("Currency", `Unable to delete Currency: '${response.message}'`);
+							return;
+						}
+						$scope.loadPage($scope.dataPage, $scope.filter);
+						messageHub.postMessage("clearDetails");
+					});
+				}
+			});
+		};
+
 		//----------------Dropdowns-----------------//
 		$scope.optionsStatus = [];
+
 
 		$http.get("/services/ts/codbex-electra/gen/api/Settings/CurrencyStatusService.ts").then(function (response) {
 			$scope.optionsStatus = response.data.map(e => {
@@ -122,6 +177,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsStatusValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsStatus.length; i++) {
 				if ($scope.optionsStatus[i].value === optionKey) {

@@ -116,11 +116,7 @@ class MergeCategoryToOpenCart extends BaseHandler {
 
 
     private createOpenCartCategoryDescription(categoryTranslation: CategoryTranslationEntity, ocCategoryId: number): oc_category_descriptionUpdateEntity {
-        const languageReference = this.entityReferenceDAO.getStoreLanguageReference(this.categoryEntry.store.id, categoryTranslation.Language);
-        if (!languageReference) {
-            this.throwError(`Missing language reference for language with id ${categoryTranslation.Language}`);
-        }
-        const languageId = languageReference!.ReferenceIntegerId;
+        const languageId = this.getOpenCartLanguageId(categoryTranslation.Language);
 
         return {
             name: categoryTranslation.Name,
@@ -131,5 +127,10 @@ class MergeCategoryToOpenCart extends BaseHandler {
             category_id: ocCategoryId,
             language_id: languageId!
         };
+    }
+
+    private getOpenCartLanguageId(languageId: number): number {
+        const languageReference = this.entityReferenceDAO.getRequiredStoreLanguageReference(this.categoryEntry.store.id, languageId);
+        return languageReference!.ReferenceIntegerId!;
     }
 }

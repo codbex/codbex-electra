@@ -5,17 +5,17 @@ import { dao as daoApi } from "sdk/db";
 
 export interface ZoneEntity {
     readonly Id: number;
-    Country?: number;
-    Name?: string;
-    Status?: number;
-    Code?: string;
+    Country: number;
+    Name: string;
+    Status: number;
+    Code: string;
 }
 
 export interface ZoneCreateEntity {
-    readonly Country?: number;
-    readonly Name?: string;
-    readonly Status?: number;
-    readonly Code?: string;
+    readonly Country: number;
+    readonly Name: string;
+    readonly Status: number;
+    readonly Code: string;
 }
 
 export interface ZoneUpdateEntity extends ZoneCreateEntity {
@@ -108,21 +108,25 @@ export class ZoneRepository {
                 name: "Country",
                 column: "ZONE_COUNTRY",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Name",
                 column: "ZONE_NAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Status",
                 column: "ZONE_STATUS",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Code",
                 column: "ZONE_CODE",
                 type: "VARCHAR",
+                required: true
             }
         ]
     };

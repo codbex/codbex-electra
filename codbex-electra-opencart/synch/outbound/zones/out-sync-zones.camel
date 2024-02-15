@@ -1,0 +1,77 @@
+- route:
+    id: zones-out-sync-route
+    from:
+      uri: cron:TriggerZonesReplication
+      id: trigger-zones-replication-cron
+      parameters:
+        schedule: 3 * * ? * *
+      description: Trigger Zones Replication
+      steps:
+        - log:
+            message: Replicating zones to OpenCart DB...
+            id: log-about-to-start-zones-replication
+            logName: OpenCartZonesReplication
+            loggingLevel: INFO
+        - setProperty:
+            name: resource
+            id: set-js-zones-1
+            expression:
+              constant:
+                expression: >-
+                  codbex-electra-opencart/synch/outbound/get-all-relevant-stores.ts
+                id: constant-zones-8de2
+            description: Set JS file
+        - to:
+            uri: class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+            id: get-all-relevant-stores
+            description: Get all relevant stores
+        - split:
+            id: split-to-single-store
+            expression:
+              simple:
+                expression: ${body}
+                id: simple-zones-333
+            description: Split to single store
+            steps:
+              - setProperty:
+                  name: resource
+                  id: set-js-zones-2
+                  expression:
+                    constant:
+                      expression: >-
+                        codbex-electra-opencart/synch/outbound/zones/get-all-zones.ts
+                      id: constant-zones-eb12
+                  description: Set JS file
+              - to:
+                  uri: >-
+                    class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+                  id: get-all-enabled-zones
+                  description: Get all enabled zones
+              - split:
+                  id: split-to-single-zone
+                  expression:
+                    simple:
+                      expression: ${body}
+                      id: simple-zones-b984
+                  description: Split to single zone
+                  steps:
+                    - setProperty:
+                        name: resource
+                        id: set-js-zones-3
+                        expression:
+                          constant:
+                            expression: >-
+                              codbex-electra-opencart/synch/outbound/zones/merge-zone-to-open-cart.ts
+                            id: constant-zones-a0bf
+                        description: Set JS file
+                    - to:
+                        uri: >-
+                          class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+                        id: merge-zone-to-oc
+                        description: Merge zone to OpenCart
+        - log:
+            message: Successfully replicated zones to all enabled OpenCart stores
+            id: log-zones-replication-completed
+            logName: OpenCartZonesReplication
+            loggingLevel: INFO
+    description: Sync zones to OpenCarts

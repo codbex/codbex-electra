@@ -44,14 +44,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		resetPagination();
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
-			$scope.loadPage($scope.dataPage, $scope.filter);
-		});
-
-		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
-			$scope.loadPage($scope.dataPage, $scope.filter);
-		});
-
 		messageHub.onDidReceiveMessage("entitySearch", function (msg) {
 			resetPagination();
 			$scope.filter = msg.data.filter;
@@ -107,50 +99,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.openFilter = function (entity) {
 			messageHub.showDialogWindow("EntityReference-filter", {
 				entity: $scope.filterEntity,
-			});
-		};
-
-		$scope.createEntity = function () {
-			$scope.selectedEntity = null;
-			messageHub.showDialogWindow("EntityReference-details", {
-				action: "create",
-				entity: {},
-			}, null, false);
-		};
-
-		$scope.updateEntity = function (entity) {
-			messageHub.showDialogWindow("EntityReference-details", {
-				action: "update",
-				entity: entity,
-			}, null, false);
-		};
-
-		$scope.deleteEntity = function (entity) {
-			let id = entity.Id;
-			messageHub.showDialogAsync(
-				'Delete EntityReference?',
-				`Are you sure you want to delete EntityReference? This action cannot be undone.`,
-				[{
-					id: "delete-btn-yes",
-					type: "emphasized",
-					label: "Yes",
-				},
-				{
-					id: "delete-btn-no",
-					type: "normal",
-					label: "No",
-				}],
-			).then(function (msg) {
-				if (msg.data === "delete-btn-yes") {
-					entityApi.delete(id).then(function (response) {
-						if (response.status != 204) {
-							messageHub.showAlertError("EntityReference", `Unable to delete EntityReference: '${response.message}'`);
-							return;
-						}
-						$scope.loadPage($scope.dataPage, $scope.filter);
-						messageHub.postMessage("clearDetails");
-					});
-				}
 			});
 		};
 

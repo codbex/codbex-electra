@@ -55,9 +55,8 @@ class MergeProductAttributeToOpenCartHandler extends BaseHandler {
         }
         const id = productReference!.ReferenceIntegerId;
 
-        const storeId = this.productEntry.store.id;
-        const languageId = this.getLanguageReference(storeId, productAttribute.Language);
-        const attributeId = this.getAttributeReference(storeId, productAttribute.Attribute);
+        const languageId = this.getOpenCartLanguageId(productAttribute.Language);
+        const attributeId = this.getOpenCartAttributeId(productAttribute.Attribute);
 
         return {
             product_id: id,
@@ -67,16 +66,13 @@ class MergeProductAttributeToOpenCartHandler extends BaseHandler {
         };
     }
 
-    private getLanguageReference(storeId: number, languageId: number) {
-        const languageReference = this.entityReferenceDAO.getStoreLanguageReference(storeId, languageId);
-        if (!languageReference) {
-            this.throwError(`Missing reference for language with id ${languageId}`);
-        }
+    private getOpenCartLanguageId(languageId: number): number {
+        const languageReference = this.entityReferenceDAO.getRequiredStoreLanguageReference(this.productEntry.store.id, languageId);
         return languageReference!.ReferenceIntegerId!;
     }
 
-    private getAttributeReference(storeId: number, attributeId: number) {
-        const attributeReference = this.entityReferenceDAO.getStoreAttribute(storeId, attributeId);
+    private getOpenCartAttributeId(attributeId: number) {
+        const attributeReference = this.entityReferenceDAO.getStoreAttribute(this.productEntry.store.id, attributeId);
         if (!attributeReference) {
             this.throwError(`Missing reference for attribute with id ${attributeId}`);
         }

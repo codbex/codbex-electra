@@ -56,7 +56,7 @@ class MergeProductDescriptionToOpenCartHandler extends BaseHandler {
             this.throwError(`Missing product reference id: ${productReference ? JSON.stringify(productReference) : null}`);
         }
         const id = productReference!.ReferenceIntegerId;
-        const languageId = this.getLanguageReference(productDescription.Language);
+        const languageId = this.getOpenCartLanguageId(productDescription.Language);
 
 
         return {
@@ -71,11 +71,8 @@ class MergeProductDescriptionToOpenCartHandler extends BaseHandler {
         };
     }
 
-    private getLanguageReference(languageId: number): number {
-        const languageReference = this.entityReferenceDAO.getStoreLanguageReference(this.productEntry.store.id, languageId);
-        if (!languageReference) {
-            this.throwError(`Missing reference for language with id ${languageId}`);
-        }
+    private getOpenCartLanguageId(languageId: number): number {
+        const languageReference = this.entityReferenceDAO.getRequiredStoreLanguageReference(this.productEntry.store.id, languageId);
         return languageReference!.ReferenceIntegerId!;
     }
 

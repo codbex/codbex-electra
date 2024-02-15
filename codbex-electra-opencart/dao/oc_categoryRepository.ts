@@ -150,7 +150,7 @@ export class oc_categoryRepository {
                 column: "parent_id",
                 type: "INT",
                 id: true,
-                autoIncrement: true,
+                autoIncrement: false,
                 required: true
             },
             {
