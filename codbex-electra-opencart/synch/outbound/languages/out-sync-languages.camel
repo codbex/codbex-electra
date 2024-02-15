@@ -39,7 +39,7 @@
                   expression:
                     constant:
                       expression: >-
-                        codbex-electra-opencart/synch/outbound/languages/get-all-enabled-languages.ts
+                        codbex-electra-opencart/synch/outbound/languages/get-all-languages.ts
                       id: constant-languages-eb12
                   description: Set JS file
               - to:

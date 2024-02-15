@@ -1,4 +1,4 @@
-import { LanguageRepository as LanguageDAO } from "../../../../codbex-electra/gen/dao/Settings/LanguageRepository";
+import { LanguageRepository as LanguageDAO, LanguageEntityOptions } from "../../../../codbex-electra/gen/dao/Settings/LanguageRepository";
 import { StoreEntry } from "../get-all-relevant-stores";
 import { BaseHandler } from "../base-handler";
 
@@ -28,15 +28,11 @@ class GetStoreProductsHandler extends BaseHandler {
     }
 
     handle() {
-        const querySettings = {
-            $filter: {
-                equals: {
-                    Status: 1
-                }
-            }
+        const querySettings: LanguageEntityOptions = {
+            $select: ["Id"]
         };
         const languages = this.languageDAO.findAll(querySettings);
-        this.logger.info("Found [{}] ENABLED languages which must be replicated to store [{}]", languages.length, this.store.name);
+        this.logger.info("Found [{}] languages which must be replicated to store [{}]", languages.length, this.store.name);
 
         const languageEntries: LanguageEntry[] = [];
         languages.forEach((language) => {

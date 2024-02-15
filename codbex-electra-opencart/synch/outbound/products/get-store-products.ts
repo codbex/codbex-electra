@@ -1,4 +1,4 @@
-import { ProductToStoreRepository as ProductToStoreDAO } from "../../../../codbex-electra/gen/dao/Products/ProductToStoreRepository";
+import { ProductToStoreRepository as ProductToStoreDAO, ProductDescriptionEntityOptions } from "../../../../codbex-electra/gen/dao/Products/ProductToStoreRepository";
 import { StoreEntry } from "../get-all-relevant-stores";
 import { BaseHandler } from "../base-handler";
 
@@ -43,12 +43,13 @@ class GetStoreProductsHandler extends BaseHandler {
     }
 
     private getStoreProductIds() {
-        const querySettings = {
+        const querySettings: ProductDescriptionEntityOptions = {
             $filter: {
                 equals: {
                     Store: this.store.id
                 }
-            }
+            },
+            $select: ["Product"]
         };
 
         const entries = this.productToStoreDAO.findAll(querySettings);

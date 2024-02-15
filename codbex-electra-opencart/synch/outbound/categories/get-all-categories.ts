@@ -1,4 +1,4 @@
-import { CategoryRepository as CategoryDAO } from "../../../../codbex-electra/gen/dao/Products/CategoryRepository";
+import { CategoryRepository as CategoryDAO, CategoryEntityOptions } from "../../../../codbex-electra/gen/dao/Products/CategoryRepository";
 import { StoreEntry } from "../get-all-relevant-stores";
 import { BaseHandler } from "../base-handler";
 
@@ -28,7 +28,10 @@ class GetCategoriesHandler extends BaseHandler {
     }
 
     handle() {
-        const categories = this.categoryDAO.findAll();
+        const querySettings: CategoryEntityOptions = {
+            $select: ["Id"]
+        };
+        const categories = this.categoryDAO.findAll(querySettings);
         this.logger.info("Found [{}] categories which must be replicated to store [{}]", categories.length, this.store.name);
 
         const entries: CategoryEntry[] = [];

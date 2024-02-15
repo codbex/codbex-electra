@@ -6,7 +6,7 @@ import { BaseHandler } from "../../base-handler";
 import { ProductEntry } from "../get-store-products";
 
 export function onMessage(message: any) {
-    const productEntry = message.getBody();
+    const productEntry: ProductEntry = message.getBody();
 
     const handler = new MergeProductDescriptionToOpenCartHandler(productEntry);
     handler.handle();

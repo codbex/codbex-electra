@@ -1,4 +1,4 @@
-import { AttributeRepository as AttributeDAO } from "../../../../../codbex-electra/gen/dao/Products/AttributeRepository";
+import { AttributeRepository as AttributeDAO, AttributeEntityOptions } from "../../../../../codbex-electra/gen/dao/Products/AttributeRepository";
 import { BaseHandler } from "../../base-handler";
 import { StoreEntry } from "../../get-all-relevant-stores";
 
@@ -28,7 +28,10 @@ class GetAllAttributesHandler extends BaseHandler {
     }
 
     handle() {
-        const attributes = this.attributeDAO.findAll();
+        const querySettings: AttributeEntityOptions = {
+            $select: ["Id"]
+        };
+        const attributes = this.attributeDAO.findAll(querySettings);
         this.logger.info("Found [{}] attributes which must be replicated to store [{}]", attributes.length, this.store.name);
 
         const attributeEntries: AttributeEntry[] = [];
