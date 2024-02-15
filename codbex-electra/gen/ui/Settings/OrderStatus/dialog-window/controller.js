@@ -23,11 +23,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.action = params.action;
 				if ($scope.action == "create") {
 					$scope.formErrors = {
+						Language: true,
+						Name: true,
 					};
 				}
 				$scope.entity = params.entity;
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
+				$scope.optionsLanguage = params.optionsLanguage;
 			}
 		}
 

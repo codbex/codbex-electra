@@ -31,7 +31,9 @@
               simple:
                 expression: ${body}
                 id: simple-countries-333
+                trim: true
             description: Split to single store
+            parallelProcessing: false
             steps:
               - setProperty:
                   name: resource

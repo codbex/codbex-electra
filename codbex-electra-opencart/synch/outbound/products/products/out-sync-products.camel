@@ -30,7 +30,7 @@
             expression:
               simple:
                 expression: ${body}
-                id: simple-333
+                id: simple-products-333
             description: Split to single store
             steps:
               - setProperty:
@@ -52,7 +52,7 @@
                   expression:
                     simple:
                       expression: ${body}
-                      id: simple-b984
+                      id: simple-products-b984
                   description: Split to single product
                   steps:
                     - setProperty:

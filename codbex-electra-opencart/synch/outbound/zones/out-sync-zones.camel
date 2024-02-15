@@ -54,6 +54,7 @@
                       expression: ${body}
                       id: simple-zones-b984
                   description: Split to single zone
+                  parallelProcessing: false
                   steps:
                     - setProperty:
                         name: resource

@@ -1,25 +1,25 @@
 - route:
-    id: product-attributes-out-sync-route
+    id: order-statuses-out-sync-route
     from:
-      uri: cron:TriggerProductAttributesReplication
-      id: trigger-product-attributes-replication-cron
+      uri: cron:TriggerOrderStatusesReplication
+      id: trigger-order-statuses-replication-cron
       parameters:
-        schedule: 7 * * ? * *
-      description: Trigger Product Attributes Replication
+        schedule: 3 * * ? * *
+      description: Trigger Order Statuses Replication
       steps:
         - log:
-            message: Replicating product attributes to OpenCart DB...
-            id: log-about-to-start-product-attributes-replication
-            logName: OpenCartProductAttributesReplication
+            message: Replicating order statuses to OpenCart DB...
+            id: log-about-to-start-order-statuses-replication
+            logName: OpenCartOrderStatusesReplication
             loggingLevel: INFO
         - setProperty:
             name: resource
-            id: set-js-product-attributes-1
+            id: set-js-order-statuses-1
             expression:
               constant:
                 expression: >-
                   codbex-electra-opencart/synch/outbound/get-all-relevant-stores.ts
-                id: constant-product-attributes-01
+                id: constant-order-statuses-01
             description: Set JS file
         - to:
             uri: class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
@@ -30,50 +30,50 @@
             expression:
               simple:
                 expression: ${body}
-                id: simple-product-attributes-333
+                id: simple-order-statuses-333
             description: Split to single store
             steps:
               - setProperty:
                   name: resource
-                  id: set-js-product-attributes-2
+                  id: set-js-order-statuses-2
                   expression:
                     constant:
                       expression: >-
-                        codbex-electra-opencart/synch/outbound/products/get-store-products.ts
-                      id: constant-product-attributes-02
+                        codbex-electra-opencart/synch/outbound/orders/statuses/get-all-order-statuses.ts
+                      id: constant-order-statuses-02
                   description: Set JS file
               - to:
                   uri: >-
                     class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
-                  id: get-all-store-products
-                  description: Get all store products
+                  id: get-all-order-statuses
+                  description: Get all order statuses
               - split:
-                  id: split-to-single-product
+                  id: split-to-single-order-status
                   expression:
                     simple:
                       expression: ${body}
-                      id: simple-product-attributes-b984
-                  description: Split to single product
+                      id: simple-b984
+                  description: Split to single order status
                   steps:
                     - setProperty:
                         name: resource
-                        id: set-js-product-attributes-3
+                        id: set-js-order-statuses-3
                         expression:
                           constant:
                             expression: >-
-                              codbex-electra-opencart/synch/outbound/products/attributes/merge-product-attribute-to-open-cart.ts
-                            id: constant-product-attributes-03
+                              codbex-electra-opencart/synch/outbound/orders/statuses/merge-order-status-to-open-cart.ts
+                            id: constant-order-statuses-03
                         description: Set JS file
                     - to:
                         uri: >-
                           class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
-                        id: merge-product-description-to-oc
-                        description: Merge product attribute to OpenCart
+                        id: merge-order-status-to-oc
+                        description: Merge order status to OpenCart
         - log:
             message: >-
-              Successfully replicated product attributes to all enabled OpenCart
+              Successfully replicated order statuses to all enabled OpenCart
               stores
-            id: log-product-attributes-replication-completed
-            logName: OpenCartProductAttributesReplication
+            id: log-order-statuses-replication-completed
+            logName: OpenCartOrderStatusesReplication
             loggingLevel: INFO
-    description: Sync product attributes to OpenCarts
+    description: Sync order statuses to OpenCarts

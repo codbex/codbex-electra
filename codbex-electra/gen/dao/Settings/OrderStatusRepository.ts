@@ -5,11 +5,13 @@ import { dao as daoApi } from "sdk/db";
 
 export interface OrderStatusEntity {
     readonly Id: number;
-    Name?: string;
+    Language: number;
+    Name: string;
 }
 
 export interface OrderStatusCreateEntity {
-    readonly Name?: string;
+    readonly Language: number;
+    readonly Name: string;
 }
 
 export interface OrderStatusUpdateEntity extends OrderStatusCreateEntity {
@@ -20,30 +22,37 @@ export interface OrderStatusEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
+            Language?: number | number[];
             Name?: string | string[];
         };
         notEquals?: {
             Id?: number | number[];
+            Language?: number | number[];
             Name?: string | string[];
         };
         contains?: {
             Id?: number;
+            Language?: number;
             Name?: string;
         };
         greaterThan?: {
             Id?: number;
+            Language?: number;
             Name?: string;
         };
         greaterThanOrEqual?: {
             Id?: number;
+            Language?: number;
             Name?: string;
         };
         lessThan?: {
             Id?: number;
+            Language?: number;
             Name?: string;
         };
         lessThanOrEqual?: {
             Id?: number;
+            Language?: number;
             Name?: string;
         };
     },
@@ -78,9 +87,16 @@ export class OrderStatusRepository {
                 autoIncrement: true,
             },
             {
+                name: "Language",
+                column: "ORDERSTATUS_LANGUAGE",
+                type: "INTEGER",
+                required: true
+            },
+            {
                 name: "Name",
                 column: "ORDERSTATUS_NAME",
                 type: "VARCHAR",
+                required: true
             }
         ]
     };

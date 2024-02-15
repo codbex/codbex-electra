@@ -101,12 +101,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("OrderStatus-details", {
 				action: "select",
 				entity: entity,
+				optionsLanguage: $scope.optionsLanguage,
 			});
 		};
 
 		$scope.openFilter = function (entity) {
 			messageHub.showDialogWindow("OrderStatus-filter", {
 				entity: $scope.filterEntity,
+				optionsLanguage: $scope.optionsLanguage,
 			});
 		};
 
@@ -115,6 +117,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("OrderStatus-details", {
 				action: "create",
 				entity: {},
+				optionsLanguage: $scope.optionsLanguage,
 			}, null, false);
 		};
 
@@ -122,6 +125,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("OrderStatus-details", {
 				action: "update",
 				entity: entity,
+				optionsLanguage: $scope.optionsLanguage,
 			}, null, false);
 		};
 
@@ -153,5 +157,28 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		};
+
+		//----------------Dropdowns-----------------//
+		$scope.optionsLanguage = [];
+
+
+		$http.get("/services/ts/codbex-electra/gen/api/Settings/LanguageService.ts").then(function (response) {
+			$scope.optionsLanguage = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$scope.optionsLanguageValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsLanguage.length; i++) {
+				if ($scope.optionsLanguage[i].value === optionKey) {
+					return $scope.optionsLanguage[i].text;
+				}
+			}
+			return null;
+		};
+		//----------------Dropdowns-----------------//
 
 	}]);

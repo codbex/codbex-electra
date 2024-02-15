@@ -131,6 +131,6 @@ class MergeCategoryToOpenCart extends BaseHandler {
 
     private getOpenCartLanguageId(languageId: number): number {
         const languageReference = this.entityReferenceDAO.getRequiredStoreLanguageReference(this.categoryEntry.store.id, languageId);
-        return languageReference!.ReferenceIntegerId!;
+        return languageReference.ReferenceIntegerId!;
     }
 }

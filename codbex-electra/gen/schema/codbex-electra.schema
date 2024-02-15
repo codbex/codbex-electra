@@ -481,11 +481,17 @@
                         "name": "ORDERSTATUS_ID"
                     },
                     {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "ORDERSTATUS_LANGUAGE"
+                    },
+                    {
                         "type": "VARCHAR",
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ORDERSTATUS_NAME"
                     }
                 ]
@@ -2190,6 +2196,15 @@
                 "columns": "ZONE_STATUS",
                 "referencedTable": "CODBEX_ZONESTATUS",
                 "referencedColumns": "ZONESTATUS_ID"
+            },
+            {
+                "name": "OrderStatus_Language",
+                "type": "foreignKey",
+                "table": "CODBEX_ORDERSTATUS",
+                "constraintName": "OrderStatus_Language",
+                "columns": "ORDERSTATUS_LANGUAGE",
+                "referencedTable": "CODBEX_LANGUAGE",
+                "referencedColumns": "LANGUAGE_ID"
             },
             {
                 "name": "Language_LanguageStatus",

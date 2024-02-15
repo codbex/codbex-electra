@@ -4,6 +4,7 @@ import { getLogger } from "../util/LoggerUtil";
 
 export class EntityReferenceDAO {
 
+    private static readonly ORDER_STATUS_ENTITY = "OrderStatus";
     private static readonly ZONE_ENTITY = "Zone";
     private static readonly CURRENCY_ENTITY = "Currency";
     private static readonly COUNTRY_ENTITY = "Country";
@@ -25,6 +26,10 @@ export class EntityReferenceDAO {
 
     public create(entityReference: EntityReferenceCreateEntity) {
         return this.generatedDAO.create(entityReference);
+    }
+
+    public createOrderStatusReference(storeId: number, entityOrderStatusId: number, referenceOrderStatusId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.ORDER_STATUS_ENTITY, entityOrderStatusId, referenceOrderStatusId);
     }
 
     public createAttributeReference(storeId: number, entityAttributeId: number, referenceAttributeId: number) {
@@ -82,6 +87,10 @@ export class EntityReferenceDAO {
 
     public getStoreProduct(storeId: number, productId: number) {
         return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.PRODUCT_ENTITY, productId);
+    }
+
+    public getStoreOrderStatus(storeId: number, orderStatusId: number) {
+        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.ORDER_STATUS_ENTITY, orderStatusId);
     }
 
     public getStoreZone(storeId: number, zoneId: number) {

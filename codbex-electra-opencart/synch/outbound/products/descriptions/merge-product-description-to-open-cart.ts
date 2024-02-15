@@ -58,7 +58,6 @@ class MergeProductDescriptionToOpenCartHandler extends BaseHandler {
         const id = productReference!.ReferenceIntegerId;
         const languageId = this.getOpenCartLanguageId(productDescription.Language);
 
-
         return {
             product_id: id,
             language_id: languageId,
@@ -73,7 +72,7 @@ class MergeProductDescriptionToOpenCartHandler extends BaseHandler {
 
     private getOpenCartLanguageId(languageId: number): number {
         const languageReference = this.entityReferenceDAO.getRequiredStoreLanguageReference(this.productEntry.store.id, languageId);
-        return languageReference!.ReferenceIntegerId!;
+        return languageReference.ReferenceIntegerId!;
     }
 
 }

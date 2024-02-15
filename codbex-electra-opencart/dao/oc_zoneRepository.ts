@@ -133,7 +133,7 @@ export class oc_zoneRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource: string) {
         this.dao = daoApi.create(oc_zoneRepository.DEFINITION, null, dataSource);
     }
 

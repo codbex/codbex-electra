@@ -5,7 +5,7 @@ import { BaseHandler } from "../base-handler";
 export function onMessage(message: any) {
     const store: StoreEntry = message.getBody();
 
-    const handler = new GetStoreLanguagesHandler(store);
+    const handler = new GetLanguagesHandler(store);
     const languageEntries = handler.handle();
 
     message.setBody(languageEntries);
@@ -17,7 +17,7 @@ export interface LanguageEntry {
     readonly store: StoreEntry;
 }
 
-class GetStoreLanguagesHandler extends BaseHandler {
+class GetLanguagesHandler extends BaseHandler {
     private readonly store;
     private readonly languageDAO;
 

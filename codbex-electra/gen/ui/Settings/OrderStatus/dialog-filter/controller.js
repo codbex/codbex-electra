@@ -17,6 +17,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = params.entity ?? {};
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
+				$scope.optionsLanguage = params.optionsLanguage;
 			}
 		}
 
@@ -53,6 +54,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			};
 			if (entity.Id) {
 				filter.$filter.equals.Id = entity.Id;
+			}
+			if (entity.Language) {
+				filter.$filter.equals.Language = entity.Language;
 			}
 			if (entity.Name) {
 				filter.$filter.contains.Name = entity.Name;

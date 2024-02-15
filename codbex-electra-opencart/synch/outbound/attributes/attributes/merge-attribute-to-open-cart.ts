@@ -103,7 +103,7 @@ class MergeAttributeToOpenCartHandler extends BaseHandler {
 
     private getOpenCartLanguageId(languageId: number): number {
         const languageReference = this.entityReferenceDAO.getRequiredStoreLanguageReference(this.attributeEntry.store.id, languageId);
-        return languageReference!.ReferenceIntegerId!;
+        return languageReference.ReferenceIntegerId!;
     }
 
 }
