@@ -2083,6 +2083,7 @@
                         "isCalculatedProperty": "false",
                         "name": "Weight",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Weight (kg)",
                         "widgetLength": "23",
                         "widgetSize": "",
                         "widgetType": "NUMBER"
@@ -2102,6 +2103,7 @@
                         "isCalculatedProperty": "false",
                         "name": "Length",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Length (cm)",
                         "widgetLength": "23",
                         "widgetSize": "",
                         "widgetType": "NUMBER"
@@ -2121,6 +2123,7 @@
                         "isCalculatedProperty": "false",
                         "name": "Width",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Width (cm)",
                         "widgetLength": "23",
                         "widgetSize": "",
                         "widgetType": "NUMBER"
@@ -2140,6 +2143,7 @@
                         "isCalculatedProperty": "false",
                         "name": "Height",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Height (cm)",
                         "widgetLength": "23",
                         "widgetSize": "",
                         "widgetType": "NUMBER"
