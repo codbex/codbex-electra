@@ -9,14 +9,14 @@ export interface StoreEntity {
     Name: string;
     Url?: string;
     Type: number;
-    Enabled: boolean;
+    Enabled?: boolean;
 }
 
 export interface StoreCreateEntity {
     readonly Name: string;
     readonly Url?: string;
     readonly Type: number;
-    readonly Enabled: boolean;
+    readonly Enabled?: boolean;
 }
 
 export interface StoreUpdateEntity extends StoreCreateEntity {
@@ -126,7 +126,6 @@ export class StoreRepository {
                 name: "Enabled",
                 column: "STORE_ENABLED",
                 type: "BOOLEAN",
-                required: true
             }
         ]
     };

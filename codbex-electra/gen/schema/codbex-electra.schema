@@ -239,6 +239,7 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "STORE_ENABLED"
                     }
                 ]
@@ -382,6 +383,7 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "COUNTRY_POSTCODEREQUIRED"
                     }
                 ]
@@ -828,6 +830,7 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "PRODUCT_SHIPPING"
                     },
                     {
@@ -842,6 +845,7 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "PRODUCT_SUBTRACT"
                     },
                     {

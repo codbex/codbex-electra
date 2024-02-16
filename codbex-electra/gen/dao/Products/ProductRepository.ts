@@ -27,9 +27,9 @@ export interface ProductEntity {
     DateModified?: Date;
     UpdatedBy: string;
     Points: number;
-    Shipping: boolean;
+    Shipping?: boolean;
     Location: string;
-    Subtract: boolean;
+    Subtract?: boolean;
     Minimum: number;
     StockStatus: number;
 }
@@ -53,9 +53,9 @@ export interface ProductCreateEntity {
     readonly Width: number;
     readonly Height: number;
     readonly Points: number;
-    readonly Shipping: boolean;
+    readonly Shipping?: boolean;
     readonly Location: string;
-    readonly Subtract: boolean;
+    readonly Subtract?: boolean;
     readonly Minimum: number;
     readonly StockStatus: number;
 }
@@ -428,7 +428,6 @@ export class ProductRepository {
                 name: "Shipping",
                 column: "PRODUCT_SHIPPING",
                 type: "BOOLEAN",
-                required: true
             },
             {
                 name: "Location",
@@ -440,7 +439,6 @@ export class ProductRepository {
                 name: "Subtract",
                 column: "PRODUCT_SUBTRACT",
                 type: "BOOLEAN",
-                required: true
             },
             {
                 name: "Minimum",

@@ -10,7 +10,7 @@ export interface CountryEntity {
     Status: number;
     IsoCode2: string;
     IsoCode3: string;
-    PostcodeRequired: boolean;
+    PostcodeRequired?: boolean;
 }
 
 export interface CountryCreateEntity {
@@ -18,7 +18,7 @@ export interface CountryCreateEntity {
     readonly Status: number;
     readonly IsoCode2: string;
     readonly IsoCode3: string;
-    readonly PostcodeRequired: boolean;
+    readonly PostcodeRequired?: boolean;
 }
 
 export interface CountryUpdateEntity extends CountryCreateEntity {
@@ -142,7 +142,6 @@ export class CountryRepository {
                 name: "PostcodeRequired",
                 column: "COUNTRY_POSTCODEREQUIRED",
                 type: "BOOLEAN",
-                required: true
             }
         ]
     };
