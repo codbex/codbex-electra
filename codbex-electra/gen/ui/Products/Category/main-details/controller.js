@@ -8,12 +8,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
 		$scope.entity = {};
+		$scope.forms = {
+			details: {},
+		};
 		$scope.formHeaders = {
 			select: "Category Details",
 			create: "Create Category",
 			update: "Update Category"
 		};
-		$scope.formErrors = {};
 		$scope.action = 'select';
 
 		//-----------------Custom Actions-------------------//
@@ -37,7 +39,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
-				$scope.formErrors = {};
 				$scope.action = 'select';
 			});
 		});
@@ -59,12 +60,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.$apply(function () {
 				$scope.entity = {};
 				$scope.action = 'create';
-				// Set Errors for required fields only
-				$scope.formErrors = {
-					Name: true,
-					Status: true,
-					DateAdded: true,
-				};
 			});
 		});
 
@@ -81,17 +76,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 		//-----------------Events-------------------//
-
-		$scope.isValid = function (isValid, property) {
-			$scope.formErrors[property] = !isValid ? true : undefined;
-			for (let next in $scope.formErrors) {
-				if ($scope.formErrors[next] === true) {
-					$scope.isFormValid = false;
-					return;
-				}
-			}
-			$scope.isFormValid = true;
-		};
 
 		$scope.create = function () {
 			entityApi.create($scope.entity).then(function (response) {

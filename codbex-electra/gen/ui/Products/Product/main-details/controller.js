@@ -8,12 +8,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
 		$scope.entity = {};
+		$scope.forms = {
+			details: {},
+		};
 		$scope.formHeaders = {
 			select: "Product Details",
 			create: "Create Product",
 			update: "Update Product"
 		};
-		$scope.formErrors = {};
 		$scope.action = 'select';
 
 		//-----------------Custom Actions-------------------//
@@ -37,7 +39,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
-				$scope.formErrors = {};
 				$scope.optionsManufacturer = [];
 				$scope.optionsStockStatus = [];
 				$scope.action = 'select';
@@ -68,35 +69,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsManufacturer = msg.data.optionsManufacturer;
 				$scope.optionsStockStatus = msg.data.optionsStockStatus;
 				$scope.action = 'create';
-				// Set Errors for required fields only
-				$scope.formErrors = {
-					Model: true,
-					Manufacturer: true,
-					Status: true,
-					Quantity: true,
-					Price: true,
-					Image: true,
-					SKU: true,
-					UPC: true,
-					EAN: true,
-					JAN: true,
-					ISBN: true,
-					MPN: true,
-					DateAvailable: true,
-					Weight: true,
-					Length: true,
-					Width: true,
-					Height: true,
-					DateAdded: true,
-					DateModified: true,
-					UpdatedBy: true,
-					Points: true,
-					Shipping: true,
-					Location: true,
-					Subtract: true,
-					Minimum: true,
-					StockStatus: true,
-				};
 			});
 		});
 
@@ -118,17 +90,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 		//-----------------Events-------------------//
-
-		$scope.isValid = function (isValid, property) {
-			$scope.formErrors[property] = !isValid ? true : undefined;
-			for (let next in $scope.formErrors) {
-				if ($scope.formErrors[next] === true) {
-					$scope.isFormValid = false;
-					return;
-				}
-			}
-			$scope.isFormValid = true;
-		};
 
 		$scope.create = function () {
 			entityApi.create($scope.entity).then(function (response) {

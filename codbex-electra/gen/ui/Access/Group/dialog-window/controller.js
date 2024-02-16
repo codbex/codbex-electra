@@ -8,12 +8,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 
 		$scope.entity = {};
+		$scope.forms = {
+			details: {},
+		};
 		$scope.formHeaders = {
 			select: "Group Details",
 			create: "Create Group",
 			update: "Update Group"
 		};
-		$scope.formErrors = {};
 		$scope.action = 'select';
 
 		if (window != null && window.frameElement != null && window.frameElement.hasAttribute("data-parameters")) {
@@ -21,10 +23,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			if (dataParameters) {
 				let params = JSON.parse(dataParameters);
 				$scope.action = params.action;
-				if ($scope.action == "create") {
-					$scope.formErrors = {
-					};
-				}
 				if (params.entity.DateModified) {
 					params.entity.DateModified = new Date(params.entity.DateModified);
 				}
@@ -33,17 +31,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
 			}
 		}
-
-		$scope.isValid = function (isValid, property) {
-			$scope.formErrors[property] = !isValid ? true : undefined;
-			for (let next in $scope.formErrors) {
-				if ($scope.formErrors[next] === true) {
-					$scope.isFormValid = false;
-					return;
-				}
-			}
-			$scope.isFormValid = true;
-		};
 
 		$scope.create = function () {
 			let entity = $scope.entity;

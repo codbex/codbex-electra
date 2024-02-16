@@ -798,6 +798,7 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "PRODUCT_DATEADDED"
                     },
                     {
@@ -805,6 +806,7 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "PRODUCT_DATEMODIFIED"
                     },
                     {
@@ -1960,6 +1962,7 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "CATEGORY_STATUS"
                     },
                     {
@@ -1975,6 +1978,7 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "CATEGORY_DATEADDED"
                     },
                     {

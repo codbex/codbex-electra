@@ -25,19 +25,18 @@
 		        </fd-button>
             </div>
 
-            <fd-fieldset class="fd-margin--md" ng-form="formFieldset">
+            <fd-fieldset class="fd-margin--md" ng-form="forms.details">
                 <fd-form-group dg-header="EntityReference Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idEntityName" dg-required="true" dg-colon="true">EntityName</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.EntityName ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['EntityName'].$valid }}">
 	                            <fd-input id="idEntityName"
 	                                name="EntityName"
-	                                state="{{ formErrors.EntityName ? 'error' : '' }}"
+	                                state="{{ forms.details['EntityName'].$valid ? '' : 'error' }}"
 									ng-required="true"
-	                                ng-change="isValid(formFieldset['EntityName'].$valid, 'EntityName')"
 	                                ng-model="entity.EntityName"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
@@ -55,20 +54,15 @@
                         	<fd-form-label for="idEntityIntegerId" dg-required="false" dg-colon="true">EntityIntegerId</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.EntityIntegerId ? false : true }}">
-	                            <fd-input id="idEntityIntegerId"
-	                                name="EntityIntegerId"
-	                                state="{{ formErrors.EntityIntegerId ? 'error' : '' }}"
-									ng-required="false"
-	                                ng-change="isValid(formFieldset['EntityIntegerId'].$valid, 'EntityIntegerId')"
-	                                ng-model="entity.EntityIntegerId"
-	                                ng-readonly="action === 'select'"
-	                                type="number"
-	                                placeholder="Enter EntityIntegerId"
-	                                class="right-align">
-	                            </fd-input>
-	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-	                        </fd-form-input-message-group>
+	                        <fd-step-input dg-id="idEntityIntegerId"
+								name="EntityIntegerId"
+								state="{{ forms.details['EntityIntegerId'].$valid ? '' : 'error' }}"
+								dg-required="false"
+								ng-model="entity.EntityIntegerId"
+								is-readonly="action === 'select'"
+								placeholder="Enter EntityIntegerId"
+								>
+							</fd-step-input>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
@@ -76,12 +70,11 @@
                         	<fd-form-label for="idEntityStringId" dg-required="false" dg-colon="true">EntityStringId</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.EntityStringId ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['EntityStringId'].$valid }}">
 	                            <fd-input id="idEntityStringId"
 	                                name="EntityStringId"
-	                                state="{{ formErrors.EntityStringId ? 'error' : '' }}"
+	                                state="{{ forms.details['EntityStringId'].$valid ? '' : 'error' }}"
 									ng-required="false"
-	                                ng-change="isValid(formFieldset['EntityStringId'].$valid, 'EntityStringId')"
 	                                ng-model="entity.EntityStringId"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
@@ -99,20 +92,15 @@
                         	<fd-form-label for="idReferenceIntegerId" dg-required="false" dg-colon="true">ReferenceIntegerId</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.ReferenceIntegerId ? false : true }}">
-	                            <fd-input id="idReferenceIntegerId"
-	                                name="ReferenceIntegerId"
-	                                state="{{ formErrors.ReferenceIntegerId ? 'error' : '' }}"
-									ng-required="false"
-	                                ng-change="isValid(formFieldset['ReferenceIntegerId'].$valid, 'ReferenceIntegerId')"
-	                                ng-model="entity.ReferenceIntegerId"
-	                                ng-readonly="action === 'select'"
-	                                type="number"
-	                                placeholder="Enter ReferenceIntegerId"
-	                                class="right-align">
-	                            </fd-input>
-	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-	                        </fd-form-input-message-group>
+	                        <fd-step-input dg-id="idReferenceIntegerId"
+								name="ReferenceIntegerId"
+								state="{{ forms.details['ReferenceIntegerId'].$valid ? '' : 'error' }}"
+								dg-required="false"
+								ng-model="entity.ReferenceIntegerId"
+								is-readonly="action === 'select'"
+								placeholder="Enter ReferenceIntegerId"
+								>
+							</fd-step-input>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
@@ -120,12 +108,11 @@
                         	<fd-form-label for="idReferenceStringId" dg-required="false" dg-colon="true">ReferenceStringId</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.ReferenceStringId ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['ReferenceStringId'].$valid }}">
 	                            <fd-input id="idReferenceStringId"
 	                                name="ReferenceStringId"
-	                                state="{{ formErrors.ReferenceStringId ? 'error' : '' }}"
+	                                state="{{ forms.details['ReferenceStringId'].$valid ? '' : 'error' }}"
 									ng-required="false"
-	                                ng-change="isValid(formFieldset['ReferenceStringId'].$valid, 'ReferenceStringId')"
 	                                ng-model="entity.ReferenceStringId"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
@@ -143,20 +130,15 @@
                         	<fd-form-label for="idScopeIntegerId" dg-required="false" dg-colon="true">ScopeIntegerId</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.ScopeIntegerId ? false : true }}">
-	                            <fd-input id="idScopeIntegerId"
-	                                name="ScopeIntegerId"
-	                                state="{{ formErrors.ScopeIntegerId ? 'error' : '' }}"
-									ng-required="false"
-	                                ng-change="isValid(formFieldset['ScopeIntegerId'].$valid, 'ScopeIntegerId')"
-	                                ng-model="entity.ScopeIntegerId"
-	                                ng-readonly="action === 'select'"
-	                                type="number"
-	                                placeholder="Enter ScopeIntegerId"
-	                                class="right-align">
-	                            </fd-input>
-	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-	                        </fd-form-input-message-group>
+	                        <fd-step-input dg-id="idScopeIntegerId"
+								name="ScopeIntegerId"
+								state="{{ forms.details['ScopeIntegerId'].$valid ? '' : 'error' }}"
+								dg-required="false"
+								ng-model="entity.ScopeIntegerId"
+								is-readonly="action === 'select'"
+								placeholder="Enter ScopeIntegerId"
+								>
+							</fd-step-input>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
@@ -164,12 +146,11 @@
                         	<fd-form-label for="idScopeStringId" dg-required="false" dg-colon="true">ScopeStringId</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.ScopeStringId ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['ScopeStringId'].$valid }}">
 	                            <fd-input id="idScopeStringId"
 	                                name="ScopeStringId"
-	                                state="{{ formErrors.ScopeStringId ? 'error' : '' }}"
+	                                state="{{ forms.details['ScopeStringId'].$valid ? '' : 'error' }}"
 									ng-required="false"
-	                                ng-change="isValid(formFieldset['ScopeStringId'].$valid, 'ScopeStringId')"
 	                                ng-model="entity.ScopeStringId"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"

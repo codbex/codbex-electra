@@ -7,17 +7,16 @@ import { EntityUtils } from "../utils/EntityUtils";
 export interface CategoryEntity {
     readonly Id: number;
     Name: string;
-    Status: boolean;
+    Status?: boolean;
     Image?: string;
-    DateAdded: Date;
+    DateAdded?: Date;
     DateModified?: Date;
 }
 
 export interface CategoryCreateEntity {
     readonly Name: string;
-    readonly Status: boolean;
+    readonly Status?: boolean;
     readonly Image?: string;
-    readonly DateAdded: Date;
 }
 
 export interface CategoryUpdateEntity extends CategoryCreateEntity {
@@ -124,7 +123,6 @@ export class CategoryRepository {
                 name: "Status",
                 column: "CATEGORY_STATUS",
                 type: "BOOLEAN",
-                required: true
             },
             {
                 name: "Image",
@@ -135,7 +133,6 @@ export class CategoryRepository {
                 name: "DateAdded",
                 column: "CATEGORY_DATEADDED",
                 type: "TIMESTAMP",
-                required: true
             },
             {
                 name: "DateModified",
@@ -166,6 +163,10 @@ export class CategoryRepository {
 
     public create(entity: CategoryCreateEntity): number {
         EntityUtils.setBoolean(entity, "Status");
+        // @ts-ignore
+        (entity as CategoryEntity).DateAdded = Date.now();
+        // @ts-ignore
+        (entity as CategoryEntity).DateModified = Date.now();
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -182,6 +183,8 @@ export class CategoryRepository {
 
     public update(entity: CategoryUpdateEntity): void {
         EntityUtils.setBoolean(entity, "Status");
+        // @ts-ignore
+        (entity as CategoryEntity).DateModified = Date.now();
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

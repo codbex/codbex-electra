@@ -25,7 +25,7 @@
 		        </fd-button>
             </div>
 
-            <fd-fieldset class="fd-margin--md" ng-form="formFieldset">
+            <fd-fieldset class="fd-margin--md" ng-form="forms.details">
                 <fd-form-group dg-header="SalesOrderComment Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
 					<fd-form-item class="fd-row">
 						<div class="fd-col fd-col-md--2">
@@ -34,9 +34,8 @@
 						<div class="fd-col fd-col-md--8">
 							<fd-textarea id="idText"
 								name="Text"
-								state="{{ formErrors.Text ? 'error' : '' }}"
+								state="{{ forms.details['Text'].$valid ? '' : 'error' }}"
 								ng-required="false"
-								ng-change="isValid(formFieldset['Text'].$valid, 'Text')"
 								ng-model="entity.Text"
 	                            ng-readonly="action === 'select'"
 								ng-minlength="0.0 || 0"
@@ -44,7 +43,7 @@
 								dg-input-rules="{ patterns: [''] }"
 								placeholder="Enter Text">
 							</fd-textarea>
-							<fd-form-message dg-type="error" ng-show="formErrors.Text">Incorrect Input</fd-form-message>
+							<fd-form-message dg-type="error" ng-show="!forms.details['Text'].$valid">Incorrect Input</fd-form-message>
 						</div>
 					</fd-form-item>
                     <fd-form-item class="fd-row">
@@ -52,12 +51,11 @@
                         	<fd-form-label for="idCreatedBy" dg-required="false" dg-colon="true">CreatedBy</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.CreatedBy ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['CreatedBy'].$valid }}">
 	                            <fd-input id="idCreatedBy"
 	                                name="CreatedBy"
-	                                state="{{ formErrors.CreatedBy ? 'error' : '' }}"
+	                                state="{{ forms.details['CreatedBy'].$valid ? '' : 'error' }}"
 									ng-required="false"
-	                                ng-change="isValid(formFieldset['CreatedBy'].$valid, 'CreatedBy')"
 	                                ng-model="entity.CreatedBy"
 	                                ng-readonly="true"
 	                                ng-minlength="0.0 || 0"
@@ -75,12 +73,11 @@
                         	<fd-form-label for="idCreatedAtFrom" dg-required="false" dg-colon="true">From CreatedAt</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--2">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.CreatedAt ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['CreatedAt'].$valid }}">
 	                            <fd-input id="idCreatedAtFrom"
 	                                name="CreatedAt"
-	                                state="{{ formErrors.CreatedAt ? 'error' : '' }}"
+	                                state="{{ forms.details['CreatedAt'].$valid ? '' : 'error' }}"
 									ng-required="false"
-	                                ng-change="isValid(formFieldset['CreatedAt'].$valid, 'CreatedAt')"
 	                                ng-model="entity.CreatedAtFrom"
 	                                ng-readonly="true"
 	                                type="datetime-local">
@@ -92,12 +89,11 @@
                         	<fd-form-label for="idCreatedAtTo" dg-required="false" dg-colon="true">To CreatedAt</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--2">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.CreatedAt ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['CreatedAt'].$valid }}">
 	                            <fd-input id="idCreatedAtTo"
 	                                name="CreatedAt"
-	                                state="{{ formErrors.CreatedAt ? 'error' : '' }}"
+	                                state="{{ forms.details['CreatedAt'].$valid ? '' : 'error' }}"
 									ng-required="false"
-	                                ng-change="isValid(formFieldset['CreatedAt'].$valid, 'CreatedAt')"
 	                                ng-model="entity.CreatedAtTo"
 	                                ng-readonly="true"
 	                                type="datetime-local">
@@ -111,12 +107,11 @@
                         	<fd-form-label for="idSalesOrder" dg-required="false" dg-colon="true">SalesOrder</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.SalesOrder ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['SalesOrder'].$valid }}">
 	                            <fd-input id="idSalesOrder"
 	                                name="SalesOrder"
-	                                state="{{ formErrors.SalesOrder ? 'error' : '' }}"
+	                                state="{{ forms.details['SalesOrder'].$valid ? '' : 'error' }}"
 									ng-required="false"
-	                                ng-change="isValid(formFieldset['SalesOrder'].$valid, 'SalesOrder')"
 	                                ng-model="entity.SalesOrder"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="${property.minLength} || 0"

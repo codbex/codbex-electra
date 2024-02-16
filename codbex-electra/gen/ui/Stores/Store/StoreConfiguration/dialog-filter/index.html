@@ -25,7 +25,7 @@
 		        </fd-button>
             </div>
 
-            <fd-fieldset class="fd-margin--md" ng-form="formFieldset">
+            <fd-fieldset class="fd-margin--md" ng-form="forms.details">
                 <fd-form-group dg-header="StoreConfiguration Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
@@ -34,9 +34,8 @@
                         <div class="fd-col fd-col-md--8">
 	                        <fd-combobox-input id="idStore"
 	                            name="Store"
-	                            state="{{ formErrors.Store ? 'error' : '' }}"
+	                            state="{{ forms.details['Store'].$valid ? '' : 'error' }}"
 	                            ng-required="true"
-	                            ng-change="isValid(formFieldset['Store'].$valid, 'Store')"
 	                            ng-model="entity.Store"
 	                            dropdown-items="optionsStore"
 	                            dg-placeholder="Search Store ...">
@@ -50,9 +49,8 @@
                         <div class="fd-col fd-col-md--8">
 	                        <fd-combobox-input id="idProperty"
 	                            name="Property"
-	                            state="{{ formErrors.Property ? 'error' : '' }}"
+	                            state="{{ forms.details['Property'].$valid ? '' : 'error' }}"
 	                            ng-required="true"
-	                            ng-change="isValid(formFieldset['Property'].$valid, 'Property')"
 	                            ng-model="entity.Property"
 	                            dropdown-items="optionsProperty"
 	                            dg-placeholder="Search Property ...">
@@ -64,12 +62,11 @@
                         	<fd-form-label for="idValue" dg-required="true" dg-colon="true">Value</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.Value ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Value'].$valid }}">
 	                            <fd-input id="idValue"
 	                                name="Value"
-	                                state="{{ formErrors.Value ? 'error' : '' }}"
+	                                state="{{ forms.details['Value'].$valid ? '' : 'error' }}"
 									ng-required="true"
-	                                ng-change="isValid(formFieldset['Value'].$valid, 'Value')"
 	                                ng-model="entity.Value"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"

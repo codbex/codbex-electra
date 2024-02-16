@@ -24,7 +24,6 @@ export interface CustomerCreateEntity {
     readonly Store?: number;
     readonly Status?: number;
     readonly Telephone?: string;
-    readonly DateAdded?: Date;
     readonly Code?: string;
     readonly CustomField?: string;
     readonly Language?: number;
@@ -227,6 +226,8 @@ export class CustomerRepository {
     }
 
     public create(entity: CustomerCreateEntity): number {
+        // @ts-ignore
+        (entity as CustomerEntity).DateAdded = Date.now();
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",

@@ -205,6 +205,8 @@ export class CurrencyRepository {
     }
 
     public create(entity: CurrencyCreateEntity): number {
+        // @ts-ignore
+        (entity as CurrencyEntity).DateModified = Date.now();
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -220,6 +222,8 @@ export class CurrencyRepository {
     }
 
     public update(entity: CurrencyUpdateEntity): void {
+        // @ts-ignore
+        (entity as CurrencyEntity).DateModified = Date.now();
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

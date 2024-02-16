@@ -17,7 +17,7 @@
 
     <body class="dg-vbox">
         <fd-scrollbar class="dg-full-height">
-            <fd-fieldset class="fd-margin--md" ng-form="formFieldset">
+            <fd-fieldset class="fd-margin--md" ng-form="forms.details">
                 <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
@@ -26,9 +26,8 @@
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idLanguage"
 	                            name="Language"
-	                            state="{{ formErrors.Language ? 'error' : '' }}"
+	                            state="{{ forms.details['Language'].$valid ? '' : 'error' }}"
 	                            ng-required="true"
-	                            ng-change="isValid(formFieldset['Language'].$valid, 'Language')"
 	                            ng-model="entity.Language"
 	                            dg-disabled="action === 'select'"
 	                            dropdown-items="optionsLanguage"
@@ -41,12 +40,11 @@
                         	<fd-form-label for="idText" dg-required="true" dg-colon="true">Text</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.Text ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Text'].$valid }}">
 	                            <fd-input id="idText"
 	                                name="Text"
-	                                state="{{ formErrors.Text ? 'error' : '' }}"
+	                                state="{{ forms.details['Text'].$valid ? '' : 'error' }}"
 									ng-required="true"
-	                                ng-change="isValid(formFieldset['Text'].$valid, 'Text')"
 	                                ng-model="entity.Text"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
@@ -67,7 +65,7 @@
             <div class="fd-bar__right">
                 <fd-button class="fd-margin-end--tiny fd-dialog__decisive-button" compact="true" dg-type="emphasized"
                     dg-label="{{action === 'create' ? 'Create' : 'Update'}}"
-                    ng-click="action === 'create' ? create() : update()" state="{{ !isFormValid ? 'disabled' : '' }}">
+                    ng-click="action === 'create' ? create() : update()" state="{{ forms.details.$valid ? '' : 'disabled'  }}">
                 </fd-button>
                 <fd-button class="fd-dialog__decisive-button" compact="true" dg-type="transparent" dg-label="Cancel"
                     ng-click="cancel()"></fd-button>

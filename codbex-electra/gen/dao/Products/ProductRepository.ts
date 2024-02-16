@@ -23,8 +23,8 @@ export interface ProductEntity {
     Length: number;
     Width: number;
     Height: number;
-    DateAdded: Date;
-    DateModified: Date;
+    DateAdded?: Date;
+    DateModified?: Date;
     UpdatedBy: string;
     Points: number;
     Shipping: boolean;
@@ -52,7 +52,6 @@ export interface ProductCreateEntity {
     readonly Length: number;
     readonly Width: number;
     readonly Height: number;
-    readonly DateAdded: Date;
     readonly Points: number;
     readonly Shipping: boolean;
     readonly Location: string;
@@ -407,13 +406,11 @@ export class ProductRepository {
                 name: "DateAdded",
                 column: "PRODUCT_DATEADDED",
                 type: "TIMESTAMP",
-                required: true
             },
             {
                 name: "DateModified",
                 column: "PRODUCT_DATEMODIFIED",
                 type: "TIMESTAMP",
-                required: true
             },
             {
                 name: "UpdatedBy",
@@ -490,6 +487,10 @@ export class ProductRepository {
         EntityUtils.setLocalDate(entity, "DateAvailable");
         EntityUtils.setBoolean(entity, "Shipping");
         EntityUtils.setBoolean(entity, "Subtract");
+        // @ts-ignore
+        (entity as ProductEntity).DateAdded = Date.now();
+        // @ts-ignore
+        (entity as ProductEntity).DateModified = Date.now();
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -509,6 +510,8 @@ export class ProductRepository {
         // EntityUtils.setLocalDate(entity, "DateAvailable");
         EntityUtils.setBoolean(entity, "Shipping");
         EntityUtils.setBoolean(entity, "Subtract");
+        // @ts-ignore
+        (entity as ProductEntity).DateModified = Date.now();
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

@@ -8,12 +8,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 
 		$scope.entity = {};
+		$scope.forms = {
+			details: {},
+		};
 		$scope.formHeaders = {
 			select: "AttributeTranslation Details",
 			create: "Create AttributeTranslation",
 			update: "Update AttributeTranslation"
 		};
-		$scope.formErrors = {};
 		$scope.action = 'select';
 
 		if (window != null && window.frameElement != null && window.frameElement.hasAttribute("data-parameters")) {
@@ -21,14 +23,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			if (dataParameters) {
 				let params = JSON.parse(dataParameters);
 				$scope.action = params.action;
-				if ($scope.action === "create") {
-					// Set Errors for required fields only
-					$scope.formErrors = {
-						Language: true,
-						Text: true,
-
-					};
-				}
 
 				$scope.entity = params.entity;
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
@@ -36,17 +30,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsLanguage = params.optionsLanguage;
 			}
 		}
-
-		$scope.isValid = function (isValid, property) {
-			$scope.formErrors[property] = !isValid ? true : undefined;
-			for (let next in $scope.formErrors) {
-				if ($scope.formErrors[next] === true) {
-					$scope.isFormValid = false;
-					return;
-				}
-			}
-			$scope.isFormValid = true;
-		};
 
 		$scope.create = function () {
 			let entity = $scope.entity;

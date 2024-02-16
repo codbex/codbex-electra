@@ -27,7 +27,6 @@ export interface SalesOrderCreateEntity {
     readonly Status?: number;
     readonly Store?: number;
     readonly Customer?: number;
-    readonly DateAdded?: Date;
     readonly Tracking?: string;
     readonly Comment?: string;
     readonly InvoiceNumber?: number;
@@ -281,6 +280,10 @@ export class SalesOrderRepository {
     }
 
     public create(entity: SalesOrderCreateEntity): number {
+        // @ts-ignore
+        (entity as SalesOrderEntity).DateAdded = Date.now();
+        // @ts-ignore
+        (entity as SalesOrderEntity).DateModified = Date.now();
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -296,6 +299,8 @@ export class SalesOrderRepository {
     }
 
     public update(entity: SalesOrderUpdateEntity): void {
+        // @ts-ignore
+        (entity as SalesOrderEntity).DateModified = Date.now();
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

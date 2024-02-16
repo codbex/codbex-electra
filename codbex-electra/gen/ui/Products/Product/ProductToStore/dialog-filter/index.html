@@ -25,7 +25,7 @@
 		        </fd-button>
             </div>
 
-            <fd-fieldset class="fd-margin--md" ng-form="formFieldset">
+            <fd-fieldset class="fd-margin--md" ng-form="forms.details">
                 <fd-form-group dg-header="ProductToStore Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
@@ -34,9 +34,8 @@
                         <div class="fd-col fd-col-md--8">
 	                        <fd-combobox-input id="idProduct"
 	                            name="Product"
-	                            state="{{ formErrors.Product ? 'error' : '' }}"
+	                            state="{{ forms.details['Product'].$valid ? '' : 'error' }}"
 	                            ng-required="true"
-	                            ng-change="isValid(formFieldset['Product'].$valid, 'Product')"
 	                            ng-model="entity.Product"
 	                            dropdown-items="optionsProduct"
 	                            dg-placeholder="Search Product ...">
@@ -50,9 +49,8 @@
                         <div class="fd-col fd-col-md--8">
 	                        <fd-combobox-input id="idStore"
 	                            name="Store"
-	                            state="{{ formErrors.Store ? 'error' : '' }}"
+	                            state="{{ forms.details['Store'].$valid ? '' : 'error' }}"
 	                            ng-required="true"
-	                            ng-change="isValid(formFieldset['Store'].$valid, 'Store')"
 	                            ng-model="entity.Store"
 	                            dropdown-items="optionsStore"
 	                            dg-placeholder="Search Store ...">

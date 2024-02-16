@@ -25,19 +25,18 @@
 		        </fd-button>
             </div>
 
-            <fd-fieldset class="fd-margin--md" ng-form="formFieldset">
+            <fd-fieldset class="fd-margin--md" ng-form="forms.details">
                 <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idTitle" dg-required="true" dg-colon="true">Title</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.Title ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Title'].$valid }}">
 	                            <fd-input id="idTitle"
 	                                name="Title"
-	                                state="{{ formErrors.Title ? 'error' : '' }}"
+	                                state="{{ forms.details['Title'].$valid ? '' : 'error' }}"
 									ng-required="true"
-	                                ng-change="isValid(formFieldset['Title'].$valid, 'Title')"
 	                                ng-model="entity.Title"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
@@ -57,9 +56,8 @@
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idStatus"
 	                            name="Status"
-	                            state="{{ formErrors.Status ? 'error' : '' }}"
+	                            state="{{ forms.details['Status'].$valid ? '' : 'error' }}"
 	                            ng-required="true"
-	                            ng-change="isValid(formFieldset['Status'].$valid, 'Status')"
 	                            ng-model="entity.Status"
 	                            dg-disabled="action === 'select'"
 	                            dropdown-items="optionsStatus"
@@ -72,12 +70,11 @@
                         	<fd-form-label for="idCode" dg-required="true" dg-colon="true">Code</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.Code ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Code'].$valid }}">
 	                            <fd-input id="idCode"
 	                                name="Code"
-	                                state="{{ formErrors.Code ? 'error' : '' }}"
+	                                state="{{ forms.details['Code'].$valid ? '' : 'error' }}"
 									ng-required="true"
-	                                ng-change="isValid(formFieldset['Code'].$valid, 'Code')"
 	                                ng-model="entity.Code"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
@@ -95,12 +92,11 @@
                         	<fd-form-label for="idSymbolLeft" dg-required="true" dg-colon="true">SymbolLeft</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.SymbolLeft ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['SymbolLeft'].$valid }}">
 	                            <fd-input id="idSymbolLeft"
 	                                name="SymbolLeft"
-	                                state="{{ formErrors.SymbolLeft ? 'error' : '' }}"
+	                                state="{{ forms.details['SymbolLeft'].$valid ? '' : 'error' }}"
 									ng-required="true"
-	                                ng-change="isValid(formFieldset['SymbolLeft'].$valid, 'SymbolLeft')"
 	                                ng-model="entity.SymbolLeft"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
@@ -118,12 +114,11 @@
                         	<fd-form-label for="idSymbolRight" dg-required="true" dg-colon="true">SymbolRight</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.SymbolRight ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['SymbolRight'].$valid }}">
 	                            <fd-input id="idSymbolRight"
 	                                name="SymbolRight"
-	                                state="{{ formErrors.SymbolRight ? 'error' : '' }}"
+	                                state="{{ forms.details['SymbolRight'].$valid ? '' : 'error' }}"
 									ng-required="true"
-	                                ng-change="isValid(formFieldset['SymbolRight'].$valid, 'SymbolRight')"
 	                                ng-model="entity.SymbolRight"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
@@ -141,12 +136,11 @@
                         	<fd-form-label for="idDecimalPlace" dg-required="true" dg-colon="true">DecimalPlace</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.DecimalPlace ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['DecimalPlace'].$valid }}">
 	                            <fd-input id="idDecimalPlace"
 	                                name="DecimalPlace"
-	                                state="{{ formErrors.DecimalPlace ? 'error' : '' }}"
+	                                state="{{ forms.details['DecimalPlace'].$valid ? '' : 'error' }}"
 									ng-required="true"
-	                                ng-change="isValid(formFieldset['DecimalPlace'].$valid, 'DecimalPlace')"
 	                                ng-model="entity.DecimalPlace"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
@@ -164,12 +158,11 @@
                         	<fd-form-label for="idValue" dg-required="true" dg-colon="true">Value</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.Value ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Value'].$valid }}">
 	                            <fd-input id="idValue"
 	                                name="Value"
-	                                state="{{ formErrors.Value ? 'error' : '' }}"
+	                                state="{{ forms.details['Value'].$valid ? '' : 'error' }}"
 									ng-required="true"
-	                                ng-change="isValid(formFieldset['Value'].$valid, 'Value')"
 	                                ng-model="entity.Value"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="${property.minLength} || 0"
@@ -187,12 +180,11 @@
                         	<fd-form-label for="idDateModified" dg-required="false" dg-colon="true">DateModified</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--2 ">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.DateModified ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['DateModified'].$valid }}">
 	                            <fd-input id="idDateModified"
 	                                name="DateModified"
-	                                state="{{ formErrors.DateModified ? 'error' : '' }}"
+	                                state="{{ forms.details['DateModified'].$valid ? '' : 'error' }}"
 									ng-required="false"
-	                                ng-change="isValid(formFieldset['DateModified'].$valid, 'DateModified')"
 	                                ng-model="entity.DateModified"
 	                                ng-readonly="true"
 	                                type="datetime-local">
@@ -201,7 +193,7 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-				</fd-form-group>
+                </fd-form-group>
             </fd-fieldset>
         </fd-scrollbar>
 
@@ -209,7 +201,7 @@
             <div class="fd-bar__right">
                 <fd-button class="fd-margin-end--tiny fd-dialog__decisive-button" compact="true" dg-type="emphasized"
                     dg-label="{{action === 'create' ? 'Create' : 'Update'}}"
-                    ng-click="action === 'create' ? create() : update()" state="{{ !isFormValid ? 'disabled' : '' }}">
+                    ng-click="action === 'create' ? create() : update()" state="{{ forms.details.$valid ? '' : 'disabled'  }}">
                 </fd-button>
                 <fd-button class="fd-dialog__decisive-button" compact="true" dg-type="transparent" dg-label="Cancel"
                     ng-click="cancel()"></fd-button>

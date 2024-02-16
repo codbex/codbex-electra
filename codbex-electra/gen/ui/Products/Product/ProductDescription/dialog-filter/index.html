@@ -25,7 +25,7 @@
 		        </fd-button>
             </div>
 
-            <fd-fieldset class="fd-margin--md" ng-form="formFieldset">
+            <fd-fieldset class="fd-margin--md" ng-form="forms.details">
                 <fd-form-group dg-header="ProductDescription Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
@@ -34,9 +34,8 @@
                         <div class="fd-col fd-col-md--8">
 	                        <fd-combobox-input id="idProduct"
 	                            name="Product"
-	                            state="{{ formErrors.Product ? 'error' : '' }}"
+	                            state="{{ forms.details['Product'].$valid ? '' : 'error' }}"
 	                            ng-required="true"
-	                            ng-change="isValid(formFieldset['Product'].$valid, 'Product')"
 	                            ng-model="entity.Product"
 	                            dropdown-items="optionsProduct"
 	                            dg-placeholder="Search Product ...">
@@ -48,12 +47,11 @@
                         	<fd-form-label for="idName" dg-required="true" dg-colon="true">Name</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.Name ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Name'].$valid }}">
 	                            <fd-input id="idName"
 	                                name="Name"
-	                                state="{{ formErrors.Name ? 'error' : '' }}"
+	                                state="{{ forms.details['Name'].$valid ? '' : 'error' }}"
 									ng-required="true"
-	                                ng-change="isValid(formFieldset['Name'].$valid, 'Name')"
 	                                ng-model="entity.Name"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
@@ -73,9 +71,8 @@
 						<div class="fd-col fd-col-md--8">
 							<fd-textarea id="idDescription"
 								name="Description"
-								state="{{ formErrors.Description ? 'error' : '' }}"
+								state="{{ forms.details['Description'].$valid ? '' : 'error' }}"
 								ng-required="true"
-								ng-change="isValid(formFieldset['Description'].$valid, 'Description')"
 								ng-model="entity.Description"
 	                            ng-readonly="action === 'select'"
 								ng-minlength="0.0 || 0"
@@ -83,7 +80,7 @@
 								dg-input-rules="{ patterns: [''] }"
 								placeholder="Enter Description">
 							</fd-textarea>
-							<fd-form-message dg-type="error" ng-show="formErrors.Description">Incorrect Input</fd-form-message>
+							<fd-form-message dg-type="error" ng-show="!forms.details['Description'].$valid">Incorrect Input</fd-form-message>
 						</div>
 					</fd-form-item>
 					<fd-form-item class="fd-row">
@@ -93,9 +90,8 @@
 						<div class="fd-col fd-col-md--8">
 							<fd-textarea id="idTag"
 								name="Tag"
-								state="{{ formErrors.Tag ? 'error' : '' }}"
+								state="{{ forms.details['Tag'].$valid ? '' : 'error' }}"
 								ng-required="true"
-								ng-change="isValid(formFieldset['Tag'].$valid, 'Tag')"
 								ng-model="entity.Tag"
 	                            ng-readonly="action === 'select'"
 								ng-minlength="0.0 || 0"
@@ -103,7 +99,7 @@
 								dg-input-rules="{ patterns: [''] }"
 								placeholder="Enter Tag">
 							</fd-textarea>
-							<fd-form-message dg-type="error" ng-show="formErrors.Tag">Incorrect Input</fd-form-message>
+							<fd-form-message dg-type="error" ng-show="!forms.details['Tag'].$valid">Incorrect Input</fd-form-message>
 						</div>
 					</fd-form-item>
                     <fd-form-item class="fd-row">
@@ -111,12 +107,11 @@
                         	<fd-form-label for="idMetaTitle" dg-required="true" dg-colon="true">MetaTitle</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.MetaTitle ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['MetaTitle'].$valid }}">
 	                            <fd-input id="idMetaTitle"
 	                                name="MetaTitle"
-	                                state="{{ formErrors.MetaTitle ? 'error' : '' }}"
+	                                state="{{ forms.details['MetaTitle'].$valid ? '' : 'error' }}"
 									ng-required="true"
-	                                ng-change="isValid(formFieldset['MetaTitle'].$valid, 'MetaTitle')"
 	                                ng-model="entity.MetaTitle"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
@@ -134,12 +129,11 @@
                         	<fd-form-label for="idMetaDescription" dg-required="true" dg-colon="true">MetaDescription</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.MetaDescription ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['MetaDescription'].$valid }}">
 	                            <fd-input id="idMetaDescription"
 	                                name="MetaDescription"
-	                                state="{{ formErrors.MetaDescription ? 'error' : '' }}"
+	                                state="{{ forms.details['MetaDescription'].$valid ? '' : 'error' }}"
 									ng-required="true"
-	                                ng-change="isValid(formFieldset['MetaDescription'].$valid, 'MetaDescription')"
 	                                ng-model="entity.MetaDescription"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
@@ -157,12 +151,11 @@
                         	<fd-form-label for="idMetaKeyword" dg-required="true" dg-colon="true">MetaKeyword</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.MetaKeyword ? false : true }}">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['MetaKeyword'].$valid }}">
 	                            <fd-input id="idMetaKeyword"
 	                                name="MetaKeyword"
-	                                state="{{ formErrors.MetaKeyword ? 'error' : '' }}"
+	                                state="{{ forms.details['MetaKeyword'].$valid ? '' : 'error' }}"
 									ng-required="true"
-	                                ng-change="isValid(formFieldset['MetaKeyword'].$valid, 'MetaKeyword')"
 	                                ng-model="entity.MetaKeyword"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
@@ -182,9 +175,8 @@
                         <div class="fd-col fd-col-md--8">
 	                        <fd-combobox-input id="idLanguage"
 	                            name="Language"
-	                            state="{{ formErrors.Language ? 'error' : '' }}"
+	                            state="{{ forms.details['Language'].$valid ? '' : 'error' }}"
 	                            ng-required="true"
-	                            ng-change="isValid(formFieldset['Language'].$valid, 'Language')"
 	                            ng-model="entity.Language"
 	                            dropdown-items="optionsLanguage"
 	                            dg-placeholder="Search Language ...">

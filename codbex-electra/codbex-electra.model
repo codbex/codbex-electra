@@ -159,8 +159,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "",
-                        "calculatedPropertyExpressionUpdate": "",
+                        "calculatedPropertyExpressionCreate": "Date.now()",
+                        "calculatedPropertyExpressionUpdate": "Date.now()",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "CURRENCY_DATEMODIFIED",
@@ -334,7 +334,7 @@
                         "relationshipEntityPerspectiveName": "Customers"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionCreate": "Date.now()",
                         "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
@@ -345,7 +345,7 @@
                         "dataScale": "NaN",
                         "dataType": "TIMESTAMP",
                         "dataUnique": "false",
-                        "isCalculatedProperty": "false",
+                        "isCalculatedProperty": "true",
                         "name": "DateAdded",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
@@ -353,8 +353,8 @@
                         "widgetType": "DATETIME-LOCAL"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "",
-                        "calculatedPropertyExpressionUpdate": "",
+                        "calculatedPropertyExpressionCreate": "Date.now()",
+                        "calculatedPropertyExpressionUpdate": "Date.now()",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "SALESORDER_DATEMODIFIED",
@@ -793,7 +793,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionCreate": "Date.now()",
                         "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
@@ -804,7 +804,7 @@
                         "dataScale": "NaN",
                         "dataType": "TIMESTAMP",
                         "dataUnique": "false",
-                        "isCalculatedProperty": "false",
+                        "isCalculatedProperty": "true",
                         "name": "DateAdded",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
@@ -2145,18 +2145,18 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionCreate": "Date.now()",
                         "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "PRODUCT_DATEADDED",
-                        "dataNullable": "false",
+                        "dataNullable": "true",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
                         "dataType": "TIMESTAMP",
                         "dataUnique": "false",
-                        "isCalculatedProperty": "false",
+                        "isCalculatedProperty": "true",
                         "name": "DateAdded",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
@@ -2164,12 +2164,12 @@
                         "widgetType": "DATETIME-LOCAL"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "",
-                        "calculatedPropertyExpressionUpdate": "",
+                        "calculatedPropertyExpressionCreate": "Date.now()",
+                        "calculatedPropertyExpressionUpdate": "Date.now()",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "PRODUCT_DATEMODIFIED",
-                        "dataNullable": "false",
+                        "dataNullable": "true",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -2715,8 +2715,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "",
-                        "calculatedPropertyExpressionUpdate": "",
+                        "calculatedPropertyExpressionCreate": "Date.now()",
+                        "calculatedPropertyExpressionUpdate": "Date.now()",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "EMPLOYEE_DATEADDED",
@@ -3582,8 +3582,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "",
-                        "calculatedPropertyExpressionUpdate": "",
+                        "calculatedPropertyExpressionCreate": "Date.now()",
+                        "calculatedPropertyExpressionUpdate": "Date.now()",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "GROUP_DATEMODIFIED",
@@ -3941,7 +3941,7 @@
                         "widgetType": "TEXTAREA"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionCreate": "require(\"security/user\").getName()",
                         "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "96",
@@ -3960,7 +3960,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionCreate": "Date.now()",
                         "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
@@ -4482,8 +4482,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "",
-                        "calculatedPropertyExpressionUpdate": "",
+                        "calculatedPropertyExpressionCreate": "Date.now()",
+                        "calculatedPropertyExpressionUpdate": "Date.now()",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "GROUPEMPLOYEE_DATEMODIFIED",
@@ -4607,8 +4607,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "",
-                        "calculatedPropertyExpressionUpdate": "",
+                        "calculatedPropertyExpressionCreate": "Date.now()",
+                        "calculatedPropertyExpressionUpdate": "Date.now()",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "GROUPPERMISSION_DATEMODIFIED",
@@ -5294,7 +5294,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "1",
                         "dataName": "CATEGORY_STATUS",
-                        "dataNullable": "false",
+                        "dataNullable": "true",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -5327,18 +5327,18 @@
                         "widgetType": "URL"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionCreate": "Date.now()",
                         "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "CATEGORY_DATEADDED",
-                        "dataNullable": "false",
+                        "dataNullable": "true",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
                         "dataType": "TIMESTAMP",
                         "dataUnique": "false",
-                        "isCalculatedProperty": "false",
+                        "isCalculatedProperty": "true",
                         "name": "DateAdded",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
@@ -5346,8 +5346,8 @@
                         "widgetType": "DATETIME-LOCAL"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "",
-                        "calculatedPropertyExpressionUpdate": "",
+                        "calculatedPropertyExpressionCreate": "Date.now()",
+                        "calculatedPropertyExpressionUpdate": "Date.now()",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "CATEGORY_DATEMODIFIED",
