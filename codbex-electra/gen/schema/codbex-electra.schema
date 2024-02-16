@@ -695,6 +695,7 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "PRODUCT_STATUS"
                     },
                     {
@@ -816,6 +817,7 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "PRODUCT_UPDATEDBY"
                     },
                     {

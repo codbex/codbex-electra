@@ -372,8 +372,8 @@
                         "widgetType": "DATETIME-LOCAL"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "",
-                        "calculatedPropertyExpressionUpdate": "",
+                        "calculatedPropertyExpressionCreate": "require(\"security/user\").getName()",
+                        "calculatedPropertyExpressionUpdate": "require(\"security/user\").getName()",
                         "dataAutoIncrement": "false",
                         "dataLength": "96",
                         "dataName": "SALESORDER_UPDATEDBY",
@@ -1860,7 +1860,7 @@
                         "dataAutoIncrement": "false",
                         "dataLength": "1",
                         "dataName": "PRODUCT_STATUS",
-                        "dataNullable": "false",
+                        "dataNullable": "true",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
@@ -2183,12 +2183,12 @@
                         "widgetType": "DATETIME-LOCAL"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "",
-                        "calculatedPropertyExpressionUpdate": "",
+                        "calculatedPropertyExpressionCreate": "require(\"security/user\").getName()",
+                        "calculatedPropertyExpressionUpdate": "require(\"security/user\").getName()",
                         "dataAutoIncrement": "false",
                         "dataLength": "96",
                         "dataName": "PRODUCT_UPDATEDBY",
-                        "dataNullable": "false",
+                        "dataNullable": "true",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",

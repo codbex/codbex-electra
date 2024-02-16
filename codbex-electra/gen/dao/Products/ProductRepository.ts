@@ -8,7 +8,7 @@ export interface ProductEntity {
     readonly Id: number;
     Model: string;
     Manufacturer: number;
-    Status: boolean;
+    Status?: boolean;
     Quantity: number;
     Price: number;
     Image: string;
@@ -25,7 +25,7 @@ export interface ProductEntity {
     Height: number;
     DateAdded?: Date;
     DateModified?: Date;
-    UpdatedBy: string;
+    UpdatedBy?: string;
     Points: number;
     Shipping?: boolean;
     Location: string;
@@ -37,7 +37,7 @@ export interface ProductEntity {
 export interface ProductCreateEntity {
     readonly Model: string;
     readonly Manufacturer: number;
-    readonly Status: boolean;
+    readonly Status?: boolean;
     readonly Quantity: number;
     readonly Price: number;
     readonly Image: string;
@@ -316,7 +316,6 @@ export class ProductRepository {
                 name: "Status",
                 column: "PRODUCT_STATUS",
                 type: "BOOLEAN",
-                required: true
             },
             {
                 name: "Quantity",
@@ -416,7 +415,6 @@ export class ProductRepository {
                 name: "UpdatedBy",
                 column: "PRODUCT_UPDATEDBY",
                 type: "VARCHAR",
-                required: true
             },
             {
                 name: "Points",
@@ -489,6 +487,8 @@ export class ProductRepository {
         (entity as ProductEntity).DateAdded = Date.now();
         // @ts-ignore
         (entity as ProductEntity).DateModified = Date.now();
+        // @ts-ignore
+        (entity as ProductEntity).UpdatedBy = require("security/user").getName();
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -510,6 +510,8 @@ export class ProductRepository {
         EntityUtils.setBoolean(entity, "Subtract");
         // @ts-ignore
         (entity as ProductEntity).DateModified = Date.now();
+        // @ts-ignore
+        (entity as ProductEntity).UpdatedBy = require("security/user").getName();
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
