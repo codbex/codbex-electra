@@ -4,7 +4,7 @@
       uri: cron:TriggerOrdersInboundReplication
       id: trigger-orders-in-replication-cron
       parameters:
-        schedule: 10 * * ? * *
+        schedule: 20 * * ? * *
       description: Trigger Orders Inbound Synchronization
       steps:
         - log:

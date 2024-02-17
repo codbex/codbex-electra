@@ -2,16 +2,19 @@ import { query } from "sdk/db";
 import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
+import { EntityUtils } from "../utils/EntityUtils";
 
 export interface OrderStatusEntity {
     readonly Id: number;
     Language: number;
     Name: string;
+    Default?: boolean;
 }
 
 export interface OrderStatusCreateEntity {
     readonly Language: number;
     readonly Name: string;
+    readonly Default?: boolean;
 }
 
 export interface OrderStatusUpdateEntity extends OrderStatusCreateEntity {
@@ -24,36 +27,43 @@ export interface OrderStatusEntityOptions {
             Id?: number | number[];
             Language?: number | number[];
             Name?: string | string[];
+            Default?: boolean | boolean[];
         };
         notEquals?: {
             Id?: number | number[];
             Language?: number | number[];
             Name?: string | string[];
+            Default?: boolean | boolean[];
         };
         contains?: {
             Id?: number;
             Language?: number;
             Name?: string;
+            Default?: boolean;
         };
         greaterThan?: {
             Id?: number;
             Language?: number;
             Name?: string;
+            Default?: boolean;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Language?: number;
             Name?: string;
+            Default?: boolean;
         };
         lessThan?: {
             Id?: number;
             Language?: number;
             Name?: string;
+            Default?: boolean;
         };
         lessThanOrEqual?: {
             Id?: number;
             Language?: number;
             Name?: string;
+            Default?: boolean;
         };
     },
     $select?: (keyof OrderStatusEntity)[],
@@ -97,6 +107,11 @@ export class OrderStatusRepository {
                 column: "ORDERSTATUS_NAME",
                 type: "VARCHAR",
                 required: true
+            },
+            {
+                name: "Default",
+                column: "ORDERSTATUS_DEFAULT",
+                type: "BOOLEAN",
             }
         ]
     };
@@ -108,15 +123,20 @@ export class OrderStatusRepository {
     }
 
     public findAll(options?: OrderStatusEntityOptions): OrderStatusEntity[] {
-        return this.dao.list(options);
+        return this.dao.list(options).map((e: OrderStatusEntity) => {
+            EntityUtils.setBoolean(e, "Default");
+            return e;
+        });
     }
 
     public findById(id: number): OrderStatusEntity | undefined {
         const entity = this.dao.find(id);
+        EntityUtils.setBoolean(entity, "Default");
         return entity ?? undefined;
     }
 
     public create(entity: OrderStatusCreateEntity): number {
+        EntityUtils.setBoolean(entity, "Default");
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -132,6 +152,7 @@ export class OrderStatusRepository {
     }
 
     public update(entity: OrderStatusUpdateEntity): void {
+        EntityUtils.setBoolean(entity, "Default");
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

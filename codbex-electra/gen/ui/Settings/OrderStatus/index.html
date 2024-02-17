@@ -30,6 +30,7 @@
 					<tr fd-table-row>
 						<th fd-table-header-cell>Language</th>
 						<th fd-table-header-cell>Name</th>
+						<th fd-table-header-cell>Default</th>
 						<th fd-table-header-cell></th>
 					</tr>
 				</thead>
@@ -43,6 +44,10 @@
 							{{optionsLanguageValue(next.Language)}}
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Name}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							<fd-checkbox id="idDefault" compact="false" ng-disabled="true" ng-model="next.Default"></fd-checkbox>
+							<fd-checkbox-label for="idDefault" empty="true"></fd-checkbox-label>
+						</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>
 								<fd-popover-control>

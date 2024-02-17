@@ -52,6 +52,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			if (entity.Name) {
 				filter.$filter.contains.Name = entity.Name;
 			}
+			if (entity.Default) {
+				filter.$filter.equals.Default = entity.Default;
+			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,
 				filter: filter
