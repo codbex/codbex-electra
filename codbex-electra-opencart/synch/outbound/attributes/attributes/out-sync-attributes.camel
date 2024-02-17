@@ -4,13 +4,13 @@
       uri: cron:TriggerAttributesReplication
       id: trigger-attributes-replication-cron
       parameters:
-        schedule: 5 * * ? * *
+        schedule: 20 * * ? * *
       description: Trigger Attributes Replication
       steps:
         - log:
             message: Replicating attributes to OpenCart DB...
             id: log-about-to-start-attributes-replication
-            logName: OpenCartAttributesReplication
+            logName: OpenCartAttributesOutboundReplication
             loggingLevel: INFO
         - setProperty:
             name: resource
@@ -18,7 +18,7 @@
             expression:
               constant:
                 expression: >-
-                  codbex-electra-opencart/synch/outbound/get-all-relevant-stores.ts
+                  codbex-electra-opencart/synch/get-all-relevant-stores.ts
                 id: constant-attributes-8de2
             description: Set JS file
         - to:
@@ -72,6 +72,6 @@
         - log:
             message: Successfully replicated attributes to all enabled OpenCart stores
             id: log-attributes-replication-completed
-            logName: OpenCartAttributesReplication
+            logName: OpenCartAttributesOutboundReplication
             loggingLevel: INFO
     description: Sync attributes to OpenCarts

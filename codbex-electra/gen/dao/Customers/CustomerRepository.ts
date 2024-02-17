@@ -5,28 +5,26 @@ import { dao as daoApi } from "sdk/db";
 
 export interface CustomerEntity {
     readonly Id: number;
-    Email?: string;
-    FirstName?: string;
-    LastName?: string;
-    Store?: number;
-    Status?: number;
+    Email: string;
+    FirstName: string;
+    LastName: string;
+    Store: number;
+    Status: number;
     Telephone?: string;
     DateAdded?: Date;
-    Code?: string;
     CustomField?: string;
-    Language?: number;
+    Language: number;
 }
 
 export interface CustomerCreateEntity {
-    readonly Email?: string;
-    readonly FirstName?: string;
-    readonly LastName?: string;
-    readonly Store?: number;
-    readonly Status?: number;
+    readonly Email: string;
+    readonly FirstName: string;
+    readonly LastName: string;
+    readonly Store: number;
+    readonly Status: number;
     readonly Telephone?: string;
-    readonly Code?: string;
     readonly CustomField?: string;
-    readonly Language?: number;
+    readonly Language: number;
 }
 
 export interface CustomerUpdateEntity extends CustomerCreateEntity {
@@ -44,7 +42,6 @@ export interface CustomerEntityOptions {
             Status?: number | number[];
             Telephone?: string | string[];
             DateAdded?: Date | Date[];
-            Code?: string | string[];
             CustomField?: string | string[];
             Language?: number | number[];
         };
@@ -57,7 +54,6 @@ export interface CustomerEntityOptions {
             Status?: number | number[];
             Telephone?: string | string[];
             DateAdded?: Date | Date[];
-            Code?: string | string[];
             CustomField?: string | string[];
             Language?: number | number[];
         };
@@ -70,7 +66,6 @@ export interface CustomerEntityOptions {
             Status?: number;
             Telephone?: string;
             DateAdded?: Date;
-            Code?: string;
             CustomField?: string;
             Language?: number;
         };
@@ -83,7 +78,6 @@ export interface CustomerEntityOptions {
             Status?: number;
             Telephone?: string;
             DateAdded?: Date;
-            Code?: string;
             CustomField?: string;
             Language?: number;
         };
@@ -96,7 +90,6 @@ export interface CustomerEntityOptions {
             Status?: number;
             Telephone?: string;
             DateAdded?: Date;
-            Code?: string;
             CustomField?: string;
             Language?: number;
         };
@@ -109,7 +102,6 @@ export interface CustomerEntityOptions {
             Status?: number;
             Telephone?: string;
             DateAdded?: Date;
-            Code?: string;
             CustomField?: string;
             Language?: number;
         };
@@ -122,7 +114,6 @@ export interface CustomerEntityOptions {
             Status?: number;
             Telephone?: string;
             DateAdded?: Date;
-            Code?: string;
             CustomField?: string;
             Language?: number;
         };
@@ -161,26 +152,31 @@ export class CustomerRepository {
                 name: "Email",
                 column: "CUSTOMER_EMAIL",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "FirstName",
                 column: "CUSTOMER_FIRSTNAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "LastName",
                 column: "CUSTOMER_LASTNAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Store",
                 column: "CUSTOMER_STORE",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Status",
                 column: "CUSTOMER_STATUS",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Telephone",
@@ -193,11 +189,6 @@ export class CustomerRepository {
                 type: "TIMESTAMP",
             },
             {
-                name: "Code",
-                column: "CUSTOMER_CODE",
-                type: "VARCHAR",
-            },
-            {
                 name: "CustomField",
                 column: "CUSTOMER_CUSTOMFIELD",
                 type: "VARCHAR",
@@ -206,6 +197,7 @@ export class CustomerRepository {
                 name: "Language",
                 column: "CUSTOMER_LANGUAGE",
                 type: "INTEGER",
+                required: true
             }
         ]
     };

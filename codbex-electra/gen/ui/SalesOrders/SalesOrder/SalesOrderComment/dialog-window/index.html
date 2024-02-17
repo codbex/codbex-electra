@@ -62,15 +62,55 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idCreatedAt" dg-required="false" dg-colon="true">CreatedAt</fd-form-label>
+                        	<fd-form-label for="idUpdatedBy" dg-required="false" dg-colon="true">UpdatedBy</fd-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['UpdatedBy'].$valid }}">
+	                            <fd-input id="idUpdatedBy"
+	                                name="UpdatedBy"
+	                                state="{{ forms.details['UpdatedBy'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.UpdatedBy"
+	                                ng-readonly="true"
+	                                ng-minlength="0.0 || 0"
+	                                ng-maxlength="96.0 || -1"
+	                                dg-input-rules="{ patterns: [''] }"
+	                                type="text"
+	                                placeholder="Enter UpdatedBy">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idDateAdded" dg-required="false" dg-colon="true">DateAdded</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--2 ">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['CreatedAt'].$valid }}">
-	                            <fd-input id="idCreatedAt"
-	                                name="CreatedAt"
-	                                state="{{ forms.details['CreatedAt'].$valid ? '' : 'error' }}"
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['DateAdded'].$valid }}">
+	                            <fd-input id="idDateAdded"
+	                                name="DateAdded"
+	                                state="{{ forms.details['DateAdded'].$valid ? '' : 'error' }}"
 									ng-required="false"
-	                                ng-model="entity.CreatedAt"
+	                                ng-model="entity.DateAdded"
+	                                ng-readonly="true"
+	                                type="datetime-local">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idDateModified" dg-required="false" dg-colon="true">DateModified</fd-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--2 ">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['DateModified'].$valid }}">
+	                            <fd-input id="idDateModified"
+	                                name="DateModified"
+	                                state="{{ forms.details['DateModified'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.DateModified"
 	                                ng-readonly="true"
 	                                type="datetime-local">
 	                            </fd-input>

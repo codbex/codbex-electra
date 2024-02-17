@@ -1,6 +1,6 @@
 import { CategoryRepository as CategoryDAO, CategoryEntityOptions } from "../../../../codbex-electra/gen/dao/Products/CategoryRepository";
-import { StoreEntry } from "../get-all-relevant-stores";
-import { BaseHandler } from "../base-handler";
+import { StoreEntry } from "../../get-all-relevant-stores";
+import { BaseHandler } from "../../base-handler";
 
 export function onMessage(message: any) {
     const store: StoreEntry = message.getBody();

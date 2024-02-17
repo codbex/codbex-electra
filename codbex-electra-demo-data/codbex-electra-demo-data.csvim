@@ -23,31 +23,9 @@
       "version": "1.0"
     },
     {
-      "table": "CODBEX_SALESORDERSHIPPING",
-      "schema": "PUBLIC",
-      "file": "/codbex-electra-demo-data/CODBEX_SALESORDERSHIPPING.csv",
-      "header": true,
-      "useHeaderNames": true,
-      "delimField": ",",
-      "delimEnclosing": "\"",
-      "distinguishEmptyFromNull": true,
-      "version": "1.0"
-    },
-    {
       "table": "CODBEX_PRODUCTATTRIBUTE",
       "schema": "PUBLIC",
       "file": "/codbex-electra-demo-data/CODBEX_PRODUCTATTRIBUTE.csv",
-      "header": true,
-      "useHeaderNames": true,
-      "delimField": ",",
-      "delimEnclosing": "\"",
-      "distinguishEmptyFromNull": true,
-      "version": "1.0"
-    },
-    {
-      "table": "CODBEX_CUSTOMER",
-      "schema": "PUBLIC",
-      "file": "/codbex-electra-demo-data/CODBEX_CUSTOMER.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
@@ -78,17 +56,6 @@
       "version": "1.0"
     },
     {
-      "table": "CODBEX_SALESORDERPAYMENT",
-      "schema": "PUBLIC",
-      "file": "/codbex-electra-demo-data/CODBEX_SALESORDERPAYMENT.csv",
-      "header": true,
-      "useHeaderNames": true,
-      "delimField": ",",
-      "delimEnclosing": "\"",
-      "distinguishEmptyFromNull": true,
-      "version": "1.0"
-    },
-    {
       "table": "CODBEX_ATTRIBUTEGROUPTRANSLATION",
       "schema": "PUBLIC",
       "file": "/codbex-electra-demo-data/CODBEX_ATTRIBUTEGROUPTRANSLATION.csv",
@@ -111,17 +78,6 @@
       "version": "1.0"
     },
     {
-      "table": "CODBEX_SALESORDERITEM",
-      "schema": "PUBLIC",
-      "file": "/codbex-electra-demo-data/CODBEX_SALESORDERITEM.csv",
-      "header": true,
-      "useHeaderNames": true,
-      "delimField": ",",
-      "delimEnclosing": "\"",
-      "distinguishEmptyFromNull": true,
-      "version": "1.0"
-    },
-    {
       "table": "CODBEX_STORE",
       "schema": "PUBLIC",
       "file": "/codbex-electra-demo-data/CODBEX_STORE.csv",
@@ -136,17 +92,6 @@
       "table": "CODBEX_CATEGORYTRANSLATION",
       "schema": "PUBLIC",
       "file": "/codbex-electra-demo-data/CODBEX_CATEGORYTRANSLATION.csv",
-      "header": true,
-      "useHeaderNames": true,
-      "delimField": ",",
-      "delimEnclosing": "\"",
-      "distinguishEmptyFromNull": true,
-      "version": "1.0"
-    },
-    {
-      "table": "CODBEX_SALESORDERCOMMENT",
-      "schema": "PUBLIC",
-      "file": "/codbex-electra-demo-data/CODBEX_SALESORDERCOMMENT.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
@@ -202,17 +147,6 @@
       "table": "CODBEX_ATTRIBUTETRANSLATION",
       "schema": "PUBLIC",
       "file": "/codbex-electra-demo-data/CODBEX_ATTRIBUTETRANSLATION.csv",
-      "header": true,
-      "useHeaderNames": true,
-      "delimField": ",",
-      "delimEnclosing": "\"",
-      "distinguishEmptyFromNull": true,
-      "version": "1.0"
-    },
-    {
-      "table": "CODBEX_SALESORDER",
-      "schema": "PUBLIC",
-      "file": "/codbex-electra-demo-data/CODBEX_SALESORDER.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",

@@ -4,13 +4,13 @@
       uri: cron:TriggerZonesReplication
       id: trigger-zones-replication-cron
       parameters:
-        schedule: 1 0/30 * ? * *
+        schedule: 10 * * ? * *
       description: Trigger Zones Replication
       steps:
         - log:
             message: Replicating zones to OpenCart DB...
             id: log-about-to-start-zones-replication
-            logName: OpenCartZonesReplication
+            logName: OpenCartZonesOutboundReplication
             loggingLevel: INFO
         - setProperty:
             name: resource
@@ -18,7 +18,7 @@
             expression:
               constant:
                 expression: >-
-                  codbex-electra-opencart/synch/outbound/get-all-relevant-stores.ts
+                  codbex-electra-opencart/synch/get-all-relevant-stores.ts
                 id: constant-zones-8de2
             description: Set JS file
         - to:
@@ -73,6 +73,6 @@
         - log:
             message: Successfully replicated zones to all enabled OpenCart stores
             id: log-zones-replication-completed
-            logName: OpenCartZonesReplication
+            logName: OpenCartZonesOutboundReplication
             loggingLevel: INFO
     description: Sync zones to OpenCarts

@@ -4,13 +4,13 @@
       uri: cron:TriggerCategoriesReplication
       id: trigger-categories-replication-cron
       parameters:
-        schedule: 2 * * ? * *
+        schedule: 10 * * ? * *
       description: Trigger Categories Replication
       steps:
         - log:
             message: Replicating categories to OpenCart DB...
             id: log-about-to-start-categories-replication
-            logName: OpenCartCategoriesReplication
+            logName: OpenCartCategoriesOutboundReplication
             loggingLevel: INFO
         - setProperty:
             name: resource
@@ -18,7 +18,7 @@
             expression:
               constant:
                 expression: >-
-                  codbex-electra-opencart/synch/outbound/get-all-relevant-stores.ts
+                  codbex-electra-opencart/synch/get-all-relevant-stores.ts
                 id: constant-categories-8de2
             description: Set JS file
         - to:
@@ -72,6 +72,6 @@
         - log:
             message: Successfully replicated categories to all enabled OpenCart stores
             id: log-categories-replication-completed
-            logName: OpenCartCategoriesReplication
+            logName: OpenCartCategoriesOutboundReplication
             loggingLevel: INFO
     description: Sync categories to OpenCarts

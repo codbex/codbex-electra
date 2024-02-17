@@ -1,6 +1,6 @@
 import { CurrencyRepository as CurrencyDAO, CurrencyEntityOptions } from "../../../../codbex-electra/gen/dao/Settings/CurrencyRepository";
-import { StoreEntry } from "../get-all-relevant-stores";
-import { BaseHandler } from "../base-handler";
+import { StoreEntry } from "../../get-all-relevant-stores";
+import { BaseHandler } from "../../base-handler";
 
 export function onMessage(message: any) {
     const store: StoreEntry = message.getBody();

@@ -10,7 +10,7 @@
         - log:
             message: Replicating manufacturers to OpenCart DB...
             id: log-about-to-start-manufacturers-replication
-            logName: OpenCartManufacturersReplication
+            logName: OpenCartManufacturersOutboundReplication
             loggingLevel: INFO
         - setProperty:
             name: resource
@@ -18,7 +18,7 @@
             expression:
               constant:
                 expression: >-
-                  codbex-electra-opencart/synch/outbound/get-all-relevant-stores.ts
+                  codbex-electra-opencart/synch/get-all-relevant-stores.ts
                 id: constant-manufacturer-8de2
             description: Set JS file
         - to:
@@ -74,6 +74,6 @@
               Successfully replicated manufacturers to all enabled OpenCart
               stores
             id: log-manufacturers-replication-completed
-            logName: OpenCartManufacturersReplication
+            logName: OpenCartManufacturersOutboundReplication
             loggingLevel: INFO
     description: Sync manufacturers to OpenCarts

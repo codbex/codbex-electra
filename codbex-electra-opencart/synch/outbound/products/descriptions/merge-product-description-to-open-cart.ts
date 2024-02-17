@@ -2,7 +2,7 @@ import { oc_product_descriptionRepository as OpenCartProductDescriptionDAO, oc_p
 import { ProductDescriptionRepository as ProductDescriptionDAO, ProductDescriptionEntity } from "../../../../../codbex-electra/gen/dao/Products/ProductDescriptionRepository";
 import { EntityReferenceDAO } from "../../../../../codbex-electra/dao/EntityReferenceDAO";
 import { EntityReferenceEntity } from "../../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
-import { BaseHandler } from "../../base-handler";
+import { BaseHandler } from "../../../base-handler";
 import { ProductEntry } from "../get-store-products";
 
 export function onMessage(message: any) {
@@ -31,7 +31,7 @@ class MergeProductDescriptionToOpenCartHandler extends BaseHandler {
 
     handle() {
         const productDescriptions = this.getProductDescriptions();
-        const productReference = this.entityReferenceDAO.getStoreProduct(this.productEntry.store.id, this.productEntry.productId);
+        const productReference = this.entityReferenceDAO.getRequiredProductReferenceReferenceByEntityId(this.productEntry.store.id, this.productEntry.productId);
 
         productDescriptions.forEach((productDescription) => {
             const ocProductDescription = this.createOpenCartProductDescription(productDescription, productReference);
@@ -51,11 +51,8 @@ class MergeProductDescriptionToOpenCartHandler extends BaseHandler {
         return this.productDescriptionDAO.findAll(querySettings);
     }
 
-    private createOpenCartProductDescription(productDescription: ProductDescriptionEntity, productReference: EntityReferenceEntity | null): OpenCartProductDesceiptionCreateEntity | OpenCartProductDescriptionUpdateEntity {
-        if (!productReference || !productReference.ReferenceIntegerId) {
-            this.throwError(`Missing product reference id: ${productReference ? JSON.stringify(productReference) : null}`);
-        }
-        const id = productReference!.ReferenceIntegerId;
+    private createOpenCartProductDescription(productDescription: ProductDescriptionEntity, productReference: EntityReferenceEntity): OpenCartProductDesceiptionCreateEntity | OpenCartProductDescriptionUpdateEntity {
+        const id = productReference.ReferenceIntegerId;
         const languageId = this.getOpenCartLanguageId(productDescription.Language);
 
         return {
@@ -71,7 +68,7 @@ class MergeProductDescriptionToOpenCartHandler extends BaseHandler {
     }
 
     private getOpenCartLanguageId(languageId: number): number {
-        const languageReference = this.entityReferenceDAO.getRequiredStoreLanguageReference(this.productEntry.store.id, languageId);
+        const languageReference = this.entityReferenceDAO.getRequiredLanguageReferenceByEntityId(this.productEntry.store.id, languageId);
         return languageReference.ReferenceIntegerId!;
     }
 

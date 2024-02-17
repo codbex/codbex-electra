@@ -7,7 +7,9 @@ export interface SalesOrderCommentEntity {
     readonly Id: number;
     Text?: string;
     CreatedBy?: string;
-    CreatedAt?: Date;
+    UpdatedBy?: string;
+    DateAdded?: Date;
+    DateModified?: Date;
     SalesOrder?: number;
 }
 
@@ -26,49 +28,63 @@ export interface SalesOrderCommentEntityOptions {
             Id?: number | number[];
             Text?: string | string[];
             CreatedBy?: string | string[];
-            CreatedAt?: Date | Date[];
+            UpdatedBy?: string | string[];
+            DateAdded?: Date | Date[];
+            DateModified?: Date | Date[];
             SalesOrder?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
             Text?: string | string[];
             CreatedBy?: string | string[];
-            CreatedAt?: Date | Date[];
+            UpdatedBy?: string | string[];
+            DateAdded?: Date | Date[];
+            DateModified?: Date | Date[];
             SalesOrder?: number | number[];
         };
         contains?: {
             Id?: number;
             Text?: string;
             CreatedBy?: string;
-            CreatedAt?: Date;
+            UpdatedBy?: string;
+            DateAdded?: Date;
+            DateModified?: Date;
             SalesOrder?: number;
         };
         greaterThan?: {
             Id?: number;
             Text?: string;
             CreatedBy?: string;
-            CreatedAt?: Date;
+            UpdatedBy?: string;
+            DateAdded?: Date;
+            DateModified?: Date;
             SalesOrder?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Text?: string;
             CreatedBy?: string;
-            CreatedAt?: Date;
+            UpdatedBy?: string;
+            DateAdded?: Date;
+            DateModified?: Date;
             SalesOrder?: number;
         };
         lessThan?: {
             Id?: number;
             Text?: string;
             CreatedBy?: string;
-            CreatedAt?: Date;
+            UpdatedBy?: string;
+            DateAdded?: Date;
+            DateModified?: Date;
             SalesOrder?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
             Text?: string;
             CreatedBy?: string;
-            CreatedAt?: Date;
+            UpdatedBy?: string;
+            DateAdded?: Date;
+            DateModified?: Date;
             SalesOrder?: number;
         };
     },
@@ -113,8 +129,18 @@ export class SalesOrderCommentRepository {
                 type: "VARCHAR",
             },
             {
-                name: "CreatedAt",
-                column: "SALESORDERCOMMENT_CREATEDAT",
+                name: "UpdatedBy",
+                column: "SALESORDERCOMMENT_UPDATEDBY",
+                type: "VARCHAR",
+            },
+            {
+                name: "DateAdded",
+                column: "SALESORDERCOMMENT_DATEADDED",
+                type: "TIMESTAMP",
+            },
+            {
+                name: "DateModified",
+                column: "SALESORDERCOMMENT_DATEMODIFIED",
                 type: "TIMESTAMP",
             },
             {
@@ -144,7 +170,11 @@ export class SalesOrderCommentRepository {
         // @ts-ignore
         (entity as SalesOrderCommentEntity).CreatedBy = require("security/user").getName();
         // @ts-ignore
-        (entity as SalesOrderCommentEntity).CreatedAt = Date.now();
+        (entity as SalesOrderCommentEntity).UpdatedBy = require("security/user").getName();
+        // @ts-ignore
+        (entity as SalesOrderCommentEntity).DateAdded = Date.now();
+        // @ts-ignore
+        (entity as SalesOrderCommentEntity).DateModified = Date.now();
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -160,6 +190,10 @@ export class SalesOrderCommentRepository {
     }
 
     public update(entity: SalesOrderCommentUpdateEntity): void {
+        // @ts-ignore
+        (entity as SalesOrderCommentEntity).UpdatedBy = require("security/user").getName();
+        // @ts-ignore
+        (entity as SalesOrderCommentEntity).DateModified = Date.now();
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

@@ -1,6 +1,6 @@
 import { ProductToStoreRepository as ProductToStoreDAO, ProductDescriptionEntityOptions } from "../../../../codbex-electra/gen/dao/Products/ProductToStoreRepository";
-import { StoreEntry } from "../get-all-relevant-stores";
-import { BaseHandler } from "../base-handler";
+import { StoreEntry } from "../../get-all-relevant-stores";
+import { BaseHandler } from "../../base-handler";
 
 export function onMessage(message: any) {
     const store: StoreEntry = message.getBody();

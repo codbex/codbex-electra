@@ -2,7 +2,7 @@ import { oc_order_statusRepository as OpenCartOrderStatusDAO, oc_order_statusCre
 import { OrderStatusRepository as OrderStatusDAO } from "../../../../../codbex-electra/gen/dao/Settings/OrderStatusRepository";
 import { EntityReferenceDAO } from "../../../../../codbex-electra/dao/EntityReferenceDAO";
 import { EntityReferenceEntity } from "../../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
-import { BaseHandler } from "../../base-handler";
+import { BaseHandler } from "../../../base-handler";
 import { OrderStatusEntry } from "./get-all-order-statuses";
 
 export function onMessage(message: any) {
@@ -31,7 +31,7 @@ class MergeOrderStatusToOpenCartHandler extends BaseHandler {
     handle() {
         const storeId = this.orderStatusEntry.store.id;
         const orderStatusId = this.orderStatusEntry.orderStatusId;
-        const orderStatusReference = this.entityReferenceDAO.getStoreOrderStatus(storeId, orderStatusId);
+        const orderStatusReference = this.entityReferenceDAO.getOrderStatusReferenceByEntityId(storeId, orderStatusId);
 
         const ocOrderStatus = this.createOpenCartOrderStatus(orderStatusReference);
         const ocOrderStatusId = this.ocOrderStatusDAO.upsert(ocOrderStatus);
@@ -47,7 +47,7 @@ class MergeOrderStatusToOpenCartHandler extends BaseHandler {
 
         if (orderStatusReference) {
             return {
-                order_status_id: orderStatusReference!.ReferenceIntegerId!,
+                order_status_id: orderStatusReference.ReferenceIntegerId!,
                 language_id: languageId,
                 name: orderStatus.Name,
             };
@@ -61,7 +61,7 @@ class MergeOrderStatusToOpenCartHandler extends BaseHandler {
     }
 
     private getOpenCartLanguageId(languageId: number): number {
-        const languageReference = this.entityReferenceDAO.getRequiredStoreLanguageReference(this.orderStatusEntry.store.id, languageId);
+        const languageReference = this.entityReferenceDAO.getRequiredLanguageReferenceByEntityId(this.orderStatusEntry.store.id, languageId);
         return languageReference.ReferenceIntegerId!;
     }
 

@@ -6,7 +6,7 @@ import { CategoryTranslationRepository as CategoryTranslationDAO, CategoryTransl
 import { oc_category_descriptionRepository as OpenCartCategoryDescriptionDAO, oc_category_descriptionUpdateEntity } from "../../../dao/oc_category_descriptionRepository";
 import { oc_category_to_storeRepository as OpenCartCategoryToStoreDAO } from "../../../dao/oc_category_to_storeRepository";
 import { oc_category_pathRepository as OpenCartCategoryPathDAO } from "../../../dao/oc_category_pathRepository";
-import { BaseHandler } from "../base-handler";
+import { BaseHandler } from "../../base-handler";
 import { CategoryEntry } from "./get-all-categories";
 
 export function onMessage(message: any) {
@@ -46,7 +46,7 @@ class MergeCategoryToOpenCart extends BaseHandler {
         const categoryId = this.categoryEntry.categoryId;
         const storeId = this.categoryEntry.store.id;
 
-        const categoryReference = this.entityReferenceDAO.getStoreCategoryReference(storeId, categoryId);
+        const categoryReference = this.entityReferenceDAO.getCategoryReferenceByEntityId(storeId, categoryId);
 
         const ocCategory = this.createOpenCartCategory(categoryReference);
         const ocCategoryId = this.ocCategoryDAO.upsert(ocCategory);
@@ -75,18 +75,18 @@ class MergeCategoryToOpenCart extends BaseHandler {
 
     private createOpenCartCategory(categoryReference: EntityReferenceEntity | null): oc_categoryCreateEntity | oc_categoryUpdateEntity {
         const categoryId = this.categoryEntry.categoryId;
-        const category = this.categoryDAO.findById(categoryId);
+        const category = this.categoryDAO.findById(categoryId)!;
 
         if (categoryReference) {
             return {
-                category_id: categoryReference.ReferenceIntegerId,
-                image: category!.Image,
+                category_id: categoryReference.ReferenceIntegerId!,
+                image: category.Image,
                 top: true,
                 column: 1,
                 sort_order: 0,
-                status: category!.Status,
-                date_added: category!.DateAdded,
-                date_modified: category!.DateModified!,
+                status: category.Status!,
+                date_added: category.DateAdded!,
+                date_modified: category.DateModified!,
                 parent_id: 0
             };
         } else {
@@ -95,9 +95,9 @@ class MergeCategoryToOpenCart extends BaseHandler {
                 top: true,
                 column: 1,
                 sort_order: 0,
-                status: category!.Status,
-                date_added: category!.DateAdded,
-                date_modified: category!.DateModified!,
+                status: category.Status!,
+                date_added: category.DateAdded!,
+                date_modified: category.DateModified!,
                 parent_id: 0
             };
         }
@@ -130,7 +130,7 @@ class MergeCategoryToOpenCart extends BaseHandler {
     }
 
     private getOpenCartLanguageId(languageId: number): number {
-        const languageReference = this.entityReferenceDAO.getRequiredStoreLanguageReference(this.categoryEntry.store.id, languageId);
+        const languageReference = this.entityReferenceDAO.getRequiredLanguageReferenceByEntityId(this.categoryEntry.store.id, languageId);
         return languageReference.ReferenceIntegerId!;
     }
 }

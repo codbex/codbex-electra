@@ -5,7 +5,7 @@ import { ProductRepository as ProductDAO, ProductEntity } from "../../../../../c
 import { ProductToCategoryRepository as ProductToCategoryDAO, ProductToCategoryEntity } from "../../../../../codbex-electra/gen/dao/Products/ProductToCategoryRepository";
 import { EntityReferenceDAO } from "../../../../../codbex-electra/dao/EntityReferenceDAO";
 import { EntityReferenceEntity } from "../../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
-import { BaseHandler } from "../../base-handler";
+import { BaseHandler } from "../../../base-handler";
 import { ProductEntry } from "../get-store-products";
 
 export function onMessage(message: any) {
@@ -44,7 +44,7 @@ class MergeProductToOpenCartHandler extends BaseHandler {
         const storeId = this.productEntry.store.id;
 
         const product = this.getProduct(productId);
-        const productReference = this.entityReferenceDAO.getStoreProduct(storeId, productId);
+        const productReference = this.entityReferenceDAO.getProductReferenceByEntityId(storeId, productId);
 
         const ocProduct = this.createOpenCartProduct(product, productReference);
         const ocProductId = this.ocProductDAO.upsert(ocProduct);
@@ -104,8 +104,8 @@ class MergeProductToOpenCartHandler extends BaseHandler {
                 minimum: product.Minimum,
                 sort_order: 0,
                 status: product.Status,
-                date_added: product.DateAdded,
-                date_modified: product.DateModified,
+                date_added: product.DateAdded!,
+                date_modified: product.DateModified!,
                 viewed: viewed
             };
         } else {
@@ -138,29 +138,23 @@ class MergeProductToOpenCartHandler extends BaseHandler {
                 minimum: product.Minimum,
                 sort_order: 0,
                 status: product.Status,
-                date_added: product.DateAdded,
-                date_modified: product.DateModified
+                date_added: product.DateAdded!,
+                date_modified: product.DateModified!
             };
         }
     }
 
     private getOpenCartManufacturerId(storeId: number, manufacturerId: number): number {
-        const manufacturerRef = this.entityReferenceDAO.getStoreManufacturer(storeId, manufacturerId);
-        if (!manufacturerRef || !manufacturerRef.ReferenceIntegerId) {
-            this.throwError(`Missing reference for manufacturer with id [${manufacturerId}] for store [${storeId}]`);
-        }
-        return manufacturerRef!.ReferenceIntegerId!;
+        const manufacturerRef = this.entityReferenceDAO.getRequiredManufacturerReferenceReferenceByEntityId(storeId, manufacturerId);
+        return manufacturerRef.ReferenceIntegerId!;
     }
 
     private upsertProductCategories(ocProductId: number) {
         const productCategories = this.getProductCategories();
         productCategories.forEach(category => {
-            const categoryRef = this.entityReferenceDAO.getStoreCategory(this.productEntry.store.id, category.Category);
-            if (!categoryRef) {
-                this.throwError(`Missing reference for category with id [${category.Category}]`);
-            }
+            const categoryRef = this.entityReferenceDAO.getRequiredCategoryReferenceReferenceByEntityId(this.productEntry.store.id, category.Category);
             this.ocProductToCategoryDAO.upsert({
-                category_id: categoryRef!.ReferenceIntegerId,
+                category_id: categoryRef.ReferenceIntegerId,
                 product_id: ocProductId
             });
         });

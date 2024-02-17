@@ -1,7 +1,7 @@
-import { StoreRepository as StoreDAO } from "../../../codbex-electra/gen/dao/Stores/StoreRepository";
-import { StoreTypeRepository as StoreTypeDAO } from "../../../codbex-electra/gen/dao/Stores/StoreTypeRepository";
-import { StoreConfigurationRepository as StoreConfigurationDAO } from "../../../codbex-electra/gen/dao/Stores/StoreConfigurationRepository";
-import { StoreConfigurationPropertyRepository as StoreConfigurationPropertyDAO } from "../../../codbex-electra/gen/dao/Stores/StoreConfigurationPropertyRepository";
+import { StoreRepository as StoreDAO } from "../../codbex-electra/gen/dao/Stores/StoreRepository";
+import { StoreTypeRepository as StoreTypeDAO } from "../../codbex-electra/gen/dao/Stores/StoreTypeRepository";
+import { StoreConfigurationRepository as StoreConfigurationDAO } from "../../codbex-electra/gen/dao/Stores/StoreConfigurationRepository";
+import { StoreConfigurationPropertyRepository as StoreConfigurationPropertyDAO } from "../../codbex-electra/gen/dao/Stores/StoreConfigurationPropertyRepository";
 import { BaseHandler } from "./base-handler";
 
 export function onMessage(message: any) {

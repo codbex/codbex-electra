@@ -4,6 +4,7 @@ import { getLogger } from "../util/LoggerUtil";
 
 export class EntityReferenceDAO {
 
+    private static readonly SALES_ORDER_ENTITY = "SalesOrder";
     private static readonly ORDER_STATUS_ENTITY = "OrderStatus";
     private static readonly ZONE_ENTITY = "Zone";
     private static readonly CURRENCY_ENTITY = "Currency";
@@ -15,7 +16,7 @@ export class EntityReferenceDAO {
     private static readonly ATTRIBUTE_GROUP_TRANSLATION_ENTITY = "AttributeGroupTranslation";
     private static readonly MANUFACTURER_ENTITY = "Manufacturer";
     private static readonly PRODUCT_ENTITY = "Product";
-    private static readonly PRODUCT_DESCRIPTION_ENTITY = "ProductDescription";
+    private static readonly CUSTOMER_ENTITY = "Customer";
 
     private readonly logger = getLogger(import.meta.url);
     private readonly generatedDAO;
@@ -24,58 +25,59 @@ export class EntityReferenceDAO {
         this.generatedDAO = new EntityReferenceRepository();
     }
 
-    public create(entityReference: EntityReferenceCreateEntity) {
-        return this.generatedDAO.create(entityReference);
+    public createSalesOrderReference(storeId: number, salesOrderEntityId: number, salesOrderReferenceId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.SALES_ORDER_ENTITY, salesOrderEntityId, salesOrderReferenceId);
     }
 
-    public createOrderStatusReference(storeId: number, entityOrderStatusId: number, referenceOrderStatusId: number) {
-        return this.createReference(storeId, EntityReferenceDAO.ORDER_STATUS_ENTITY, entityOrderStatusId, referenceOrderStatusId);
+    public createCustomerReference(storeId: number, customerEntityId: number, customerReferenceId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.CUSTOMER_ENTITY, customerEntityId, customerReferenceId);
     }
 
-    public createAttributeReference(storeId: number, entityAttributeId: number, referenceAttributeId: number) {
-        return this.createReference(storeId, EntityReferenceDAO.ATTRIBUTE_ENTITY, entityAttributeId, referenceAttributeId);
+    public createOrderStatusReference(storeId: number, orderStatusEntityId: number, orderStatusReferenceId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.ORDER_STATUS_ENTITY, orderStatusEntityId, orderStatusReferenceId);
     }
 
-    public createAttributeGroupReference(storeId: number, entityAttributeGroupId: number, referenceAttributeGroupId: number) {
-        return this.createReference(storeId, EntityReferenceDAO.ATTRIBUTE_GROUP_ENTITY, entityAttributeGroupId, referenceAttributeGroupId);
+    public createAttributeReference(storeId: number, attributeEntityId: number, attributeReferenceId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.ATTRIBUTE_ENTITY, attributeEntityId, attributeReferenceId);
     }
 
-    public createAttributeGroupTranslationReference(storeId: number, entityAttributeGroupTranslationId: number, referenceAttributeGroupTranslationId: number) {
-        return this.createReference(storeId, EntityReferenceDAO.ATTRIBUTE_GROUP_TRANSLATION_ENTITY, entityAttributeGroupTranslationId, referenceAttributeGroupTranslationId);
+    public createAttributeGroupReference(storeId: number, attributeGroupEntityId: number, attributeGroupReferenceId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.ATTRIBUTE_GROUP_ENTITY, attributeGroupEntityId, attributeGroupReferenceId);
     }
 
-    public createCurrencyReference(storeId: number, entityCurrencyId: number, referenceCurrencyId: number) {
-        return this.createReference(storeId, EntityReferenceDAO.CURRENCY_ENTITY, entityCurrencyId, referenceCurrencyId);
+    public createAttributeGroupTranslationReference(storeId: number, attributeGroupTranslationEntityId: number, attributeGroupTranslationReferenceId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.ATTRIBUTE_GROUP_TRANSLATION_ENTITY, attributeGroupTranslationEntityId, attributeGroupTranslationReferenceId);
     }
 
-    public createCountryReference(storeId: number, entityCountryId: number, referenceCountryId: number) {
-        return this.createReference(storeId, EntityReferenceDAO.COUNTRY_ENTITY, entityCountryId, referenceCountryId);
+    public createCurrencyReference(storeId: number, currencyEntityId: number, currencyReferenceId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.CURRENCY_ENTITY, currencyEntityId, currencyReferenceId);
     }
 
-    public createZoneReference(storeId: number, entityZoneId: number, referenceZoneId: number) {
-        return this.createReference(storeId, EntityReferenceDAO.ZONE_ENTITY, entityZoneId, referenceZoneId);
+    public createCountryReference(storeId: number, countryEntityId: number, countryReferenceId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.COUNTRY_ENTITY, countryEntityId, countryReferenceId);
     }
 
-    public createCategoryReference(storeId: number, entityCategoryId: number, referenceCategoryId: number) {
-        return this.createReference(storeId, EntityReferenceDAO.CATEGORY_ENTITY, entityCategoryId, referenceCategoryId);
+    public createZoneReference(storeId: number, zoneEntityId: number, zoneReferenceId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.ZONE_ENTITY, zoneEntityId, zoneReferenceId);
     }
 
-    public createLanguageReference(storeId: number, entityLanguageId: number, referenceLanguageId: number) {
-        return this.createReference(storeId, EntityReferenceDAO.LANGUAGE_ENTITY, entityLanguageId, referenceLanguageId);
+    public createCategoryReference(storeId: number, categoryEntityId: number, categoryReferenceId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.CATEGORY_ENTITY, categoryEntityId, categoryReferenceId);
     }
 
-    public createProductDescriptionReference(storeId: number, entityProductDescriptionId: number, referenceProductDescriptionId: number) {
-        return this.createReference(storeId, EntityReferenceDAO.PRODUCT_DESCRIPTION_ENTITY, entityProductDescriptionId, referenceProductDescriptionId);
+    public createLanguageReference(storeId: number, languageEntityId: number, languageReferenceId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.LANGUAGE_ENTITY, languageEntityId, languageReferenceId);
     }
 
-    public createProductReference(storeId: number, entityProductId: number, referenceProductId: number) {
-        return this.createReference(storeId, EntityReferenceDAO.PRODUCT_ENTITY, entityProductId, referenceProductId);
+    public createProductReference(storeId: number, productEntityId: number, productReferenceId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.PRODUCT_ENTITY, productEntityId, productReferenceId);
     }
 
-    public createManufacturerReference(storeId: number, entityManufacturerId: number, referenceManufacturerId: number) {
-        return this.createReference(storeId, EntityReferenceDAO.MANUFACTURER_ENTITY, entityManufacturerId, referenceManufacturerId);
+    public createManufacturerReference(storeId: number, manufacturerEntityId: number, manufacturerReferenceId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.MANUFACTURER_ENTITY, manufacturerEntityId, manufacturerReferenceId);
     }
-    public createReference(scopeIntegerId: number, entityName: string, entityIntegerId: number, referenceIntegerId: number) {
+
+    private createReference(scopeIntegerId: number, entityName: string, entityIntegerId: number, referenceIntegerId: number) {
         const entityReference: EntityReferenceCreateEntity = {
             EntityName: entityName,
             ScopeIntegerId: scopeIntegerId,
@@ -85,75 +87,95 @@ export class EntityReferenceDAO {
         return this.generatedDAO.create(entityReference);
     }
 
-    public getStoreProduct(storeId: number, productId: number) {
-        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.PRODUCT_ENTITY, productId);
+    public getProductReferenceByEntityId(storeId: number, productEntityId: number) {
+        return this.getReferenceByScopeIdEntityNameAndEntityId(storeId, EntityReferenceDAO.PRODUCT_ENTITY, productEntityId);
     }
 
-    public getStoreOrderStatus(storeId: number, orderStatusId: number) {
-        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.ORDER_STATUS_ENTITY, orderStatusId);
+    public getSalesOrderReferenceByEntityId(storeId: number, salesOrderEntityId: number) {
+        return this.getReferenceByScopeIdEntityNameAndEntityId(storeId, EntityReferenceDAO.SALES_ORDER_ENTITY, salesOrderEntityId);
     }
 
-    public getStoreZone(storeId: number, zoneId: number) {
-        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.ZONE_ENTITY, zoneId);
+    public getOrderStatusReferenceByEntityId(storeId: number, orderStatusEntityId: number) {
+        return this.getReferenceByScopeIdEntityNameAndEntityId(storeId, EntityReferenceDAO.ORDER_STATUS_ENTITY, orderStatusEntityId);
     }
 
-    public getStoreCurrency(storeId: number, currencyId: number) {
-        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.CURRENCY_ENTITY, currencyId);
+    public getZoneReferenceByEntityId(storeId: number, zoneEntityId: number) {
+        return this.getReferenceByScopeIdEntityNameAndEntityId(storeId, EntityReferenceDAO.ZONE_ENTITY, zoneEntityId);
     }
 
-    public getRequiredStoreCountryReference(storeId: number, countryId: number) {
-        const ref = this.getStoreCountry(storeId, countryId);
+    public getCurrencyReferenceByEntityId(storeId: number, currencyEntityId: number) {
+        return this.getReferenceByScopeIdEntityNameAndEntityId(storeId, EntityReferenceDAO.CURRENCY_ENTITY, currencyEntityId);
+    }
+
+    public getCountryReferenceByEntityId(storeId: number, countryEntityId: number) {
+        return this.getReferenceByScopeIdEntityNameAndEntityId(storeId, EntityReferenceDAO.COUNTRY_ENTITY, countryEntityId);
+    }
+
+    public getCategoryReferenceByEntityId(storeId: number, categoryEntityId: number) {
+        return this.getReferenceByScopeIdEntityNameAndEntityId(storeId, EntityReferenceDAO.CATEGORY_ENTITY, categoryEntityId);
+    }
+
+    public getManufacturerReferenceByEntityId(storeId: number, manufactureEntityId: number) {
+        return this.getReferenceByScopeIdEntityNameAndEntityId(storeId, EntityReferenceDAO.MANUFACTURER_ENTITY, manufactureEntityId);
+    }
+
+    public getAttributeReferenceByEntityId(storeId: number, attributeEntityId: number) {
+        return this.getReferenceByScopeIdEntityNameAndEntityId(storeId, EntityReferenceDAO.ATTRIBUTE_ENTITY, attributeEntityId);
+    }
+
+    public getAttributeGroupReferenceByEntityId(storeId: number, attributeGroupEntityId: number) {
+        return this.getReferenceByScopeIdEntityNameAndEntityId(storeId, EntityReferenceDAO.ATTRIBUTE_GROUP_ENTITY, attributeGroupEntityId);
+    }
+
+    public getAttributeGroupDescriptionReferenceByEntityId(storeId: number, attributeGroupTranslationEntityId: number) {
+        return this.getReferenceByScopeIdEntityNameAndEntityId(storeId, EntityReferenceDAO.ATTRIBUTE_GROUP_TRANSLATION_ENTITY, attributeGroupTranslationEntityId);
+    }
+
+    public getLanguageReferenceByEntityId(storeId: number, languageEntityId: number) {
+        return this.getReferenceByScopeIdEntityNameAndEntityId(storeId, EntityReferenceDAO.LANGUAGE_ENTITY, languageEntityId);
+    }
+
+    public getRequiredCurrencyReferenceByEntityId(storeId: number, currencyEntityId: number) {
+        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.CURRENCY_ENTITY, currencyEntityId);
+    }
+
+    public getRequiredCountryReferenceByEntityId(storeId: number, countryEntityId: number) {
+        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.COUNTRY_ENTITY, countryEntityId);
+    }
+
+    public getRequiredAttributeGroupReferenceByEntityId(storeId: number, attributeGroupEntityId: number) {
+        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.ATTRIBUTE_GROUP_ENTITY, attributeGroupEntityId);
+    }
+
+    public getRequiredProductReferenceReferenceByEntityId(storeId: number, productEntityId: number) {
+        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.PRODUCT_ENTITY, productEntityId);
+    }
+
+    public getRequiredAttributeReferenceReferenceByEntityId(storeId: number, attributeEntityId: number) {
+        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.ATTRIBUTE_ENTITY, attributeEntityId);
+    }
+
+    public getRequiredManufacturerReferenceReferenceByEntityId(storeId: number, manufacturerEntityId: number) {
+        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.MANUFACTURER_ENTITY, manufacturerEntityId);
+    }
+
+    public getRequiredCategoryReferenceReferenceByEntityId(storeId: number, categoryEntityId: number) {
+        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.CATEGORY_ENTITY, categoryEntityId);
+    }
+
+    public getRequiredLanguageReferenceByEntityId(storeId: number, languageEntityId: number) {
+        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.LANGUAGE_ENTITY, languageEntityId);
+    }
+
+    private getRequireReferenceByEntityId(scopeId: number, entityName: string, entityId: number) {
+        const ref = this.getReferenceByScopeIdEntityNameAndEntityId(scopeId, entityName, entityId);
         if (!ref) {
-            this.throwError(`Missing reference for country with id [${countryId}] for store [${storeId}]`);
+            this.throwError(`Missing reference for entity [${entityName}] with entity id [${entityId}] in scope [${scopeId}]`);
         }
         return ref!;
     }
 
-    public getStoreCountry(storeId: number, countryId: number) {
-        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.COUNTRY_ENTITY, countryId);
-    }
-
-    public getStoreCategory(storeId: number, categoryId: number) {
-        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.CATEGORY_ENTITY, categoryId);
-    }
-
-    public getStoreManufacturer(storeId: number, manufacturerId: number) {
-        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.MANUFACTURER_ENTITY, manufacturerId);
-    }
-
-    public getStoreAttribute(storeId: number, attributeId: number) {
-        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.ATTRIBUTE_ENTITY, attributeId);
-    }
-
-    public getStoreAttributeGroup(storeId: number, attributeGroupId: number) {
-        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.ATTRIBUTE_GROUP_ENTITY, attributeGroupId);
-    }
-
-    public getStoreAttributeGroupDescription(storeId: number, attributeGroupTranslationId: number) {
-        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.ATTRIBUTE_GROUP_TRANSLATION_ENTITY, attributeGroupTranslationId);
-    }
-
-    public getStoreCategoryReference(storeId: number, categoryId: number) {
-        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.CATEGORY_ENTITY, categoryId);
-    }
-
-    public getRequiredStoreLanguageReference(storeId: number, languageId: number) {
-        const ref = this.getStoreLanguageReference(storeId, languageId);
-        if (!ref) {
-            this.throwError(`Missing reference for language with id [${languageId}] for store [${storeId}]`);
-        }
-        return ref!;
-    }
-
-    public getStoreLanguageReference(storeId: number, languageId: number) {
-        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.LANGUAGE_ENTITY, languageId);
-    }
-
-    public getStoreProductDescriptionReference(storeId: number, productDescriptionId: number) {
-        return this.getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(storeId, EntityReferenceDAO.PRODUCT_DESCRIPTION_ENTITY, productDescriptionId);
-    }
-
-    public getSingleReferenceByScopeIntegerIdEntityNameAndEntityIntegerId(scopeIntegerId: number, entityName: string, entityIntegerId: number) {
+    private getReferenceByScopeIdEntityNameAndEntityId(scopeIntegerId: number, entityName: string, entityIntegerId: number) {
         const references = this.getByScopeIntegerIdEntityNameAndEntityIntegerId(scopeIntegerId, entityName, entityIntegerId);
         if (references.length == 0) {
             return null;
@@ -165,12 +187,7 @@ export class EntityReferenceDAO {
         return references[0];
     }
 
-    private throwError(errorMessage: string) {
-        this.logger.error(errorMessage);
-        throw new Error(errorMessage);
-    }
-
-    public getByScopeIntegerIdEntityNameAndEntityIntegerId(scopeIntegerId: number, entityName: string, entityIntegerId: number) {
+    private getByScopeIntegerIdEntityNameAndEntityIntegerId(scopeIntegerId: number, entityName: string, entityIntegerId: number) {
         const querySettings: EntityReferenceEntityOptions = {
             $filter: {
                 equals: {
@@ -181,6 +198,68 @@ export class EntityReferenceDAO {
             }
         };
         return this.generatedDAO.findAll(querySettings);
+    }
+
+    public getCustomerReferenceByReferenceId(storeId: number, customerReferenceId: number) {
+        return this.getReferenceByScopeIdEntityNameAndReferenceId(storeId, EntityReferenceDAO.CUSTOMER_ENTITY, customerReferenceId);
+    }
+
+    public getOrderReferenceByReferenceId(storeId: number, orderReferenceId: number) {
+        return this.getReferenceByScopeIdEntityNameAndReferenceId(storeId, EntityReferenceDAO.SALES_ORDER_ENTITY, orderReferenceId);
+    }
+
+    public getRequiredLanguageReferenceByReferenceId(storeId: number, languageReferenceId: number) {
+        return this.getRequireReferenceByReferenceId(storeId, EntityReferenceDAO.LANGUAGE_ENTITY, languageReferenceId);
+    }
+
+    public getRequiredCurrencyReferenceByReferenceId(storeId: number, currencyReferenceId: number) {
+        return this.getRequireReferenceByReferenceId(storeId, EntityReferenceDAO.CURRENCY_ENTITY, currencyReferenceId);
+    }
+
+    public getRequiredCustomerReferenceByReferenceId(storeId: number, customerReferenceId: number) {
+        return this.getRequireReferenceByReferenceId(storeId, EntityReferenceDAO.CUSTOMER_ENTITY, customerReferenceId);
+    }
+
+    public getRequiredOrderStatusReferenceByReferenceId(storeId: number, orderStatusReferenceId: number) {
+        return this.getRequireReferenceByReferenceId(storeId, EntityReferenceDAO.ORDER_STATUS_ENTITY, orderStatusReferenceId);
+    }
+
+    private getRequireReferenceByReferenceId(scopeId: number, entityName: string, referenceId: number) {
+        const ref = this.getReferenceByScopeIdEntityNameAndReferenceId(scopeId, entityName, referenceId);
+        if (!ref) {
+            this.throwError(`Missing reference for entity [${entityName}] with reference id [${referenceId}] in scope [${scopeId}]`);
+        }
+        return ref!;
+    }
+
+    private getReferenceByScopeIdEntityNameAndReferenceId(scopeIntegerId: number, entityName: string, referenceId: number) {
+        const references = this.getByScopeIntegerIdEntityNameAndReferenceIntegerId(scopeIntegerId, entityName, referenceId);
+        if (references.length == 0) {
+            return null;
+        }
+
+        if (references.length > 1) {
+            this.throwError(`Found more than one references for scope integer id ${scopeIntegerId}, entity name ${entityName} and reference integer id ${referenceId}`);
+        }
+        return references[0];
+    }
+
+    private getByScopeIntegerIdEntityNameAndReferenceIntegerId(scopeIntegerId: number, entityName: string, referenceIntegerId: number) {
+        const querySettings: EntityReferenceEntityOptions = {
+            $filter: {
+                equals: {
+                    ScopeIntegerId: scopeIntegerId,
+                    EntityName: entityName,
+                    ReferenceIntegerId: referenceIntegerId
+                }
+            }
+        };
+        return this.generatedDAO.findAll(querySettings);
+    }
+
+    private throwError(errorMessage: string) {
+        this.logger.error(errorMessage);
+        throw new Error(errorMessage);
     }
 
 }

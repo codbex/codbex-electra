@@ -2,8 +2,8 @@ import { EntityReferenceDAO } from "../../../../codbex-electra/dao/EntityReferen
 import { EntityReferenceEntity } from "../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
 import { oc_languageRepository as OpenCartLanguageDAO, oc_languageCreateEntity, oc_languageUpdateEntity } from "../../../dao/oc_languageRepository";
 import { LanguageRepository as LanguageDAO } from "../../../../codbex-electra/gen/dao/Settings/LanguageRepository";
-import { BaseHandler } from "../base-handler";
-import { LanguageEntry } from "./get-all-enabled-languages";
+import { BaseHandler } from "../../base-handler";
+import { LanguageEntry } from "./get-all-languages";
 
 export function onMessage(message: any) {
     const languageEntry: LanguageEntry = message.getBody();
@@ -32,7 +32,7 @@ class MergeLanguageToOpenCart extends BaseHandler {
         const languageId = this.languageEntry.languageId;
         const storeId = this.languageEntry.store.id;
 
-        const languageReference = this.entityReferenceDAO.getStoreLanguageReference(storeId, languageId);
+        const languageReference = this.entityReferenceDAO.getLanguageReferenceByEntityId(storeId, languageId);
 
         const ocLanguage = this.createOpenCartLanguage(languageReference);
         const ocLanguageId = this.ocLanguageDAO.upsert(ocLanguage);
@@ -44,7 +44,7 @@ class MergeLanguageToOpenCart extends BaseHandler {
 
     private createOpenCartLanguage(languageReference: EntityReferenceEntity | null): oc_languageCreateEntity | oc_languageUpdateEntity {
         const languageId = this.languageEntry.languageId;
-        const language = this.languageDAO.findById(languageId);
+        const language = this.languageDAO.findById(languageId)!;
 
         const image = "gb.png";
         const directory = "english";
@@ -54,9 +54,9 @@ class MergeLanguageToOpenCart extends BaseHandler {
         if (languageReference) {
             return {
                 language_id: languageReference.ReferenceIntegerId,
-                "name": language!.Name,
-                "code": language!.Code,
-                "locale": language!.Locale,
+                "name": language.Name,
+                "code": language.Code,
+                "locale": language.Locale,
                 "image": image,
                 "directory": directory,
                 "sort_order": sortOrder,
@@ -64,9 +64,9 @@ class MergeLanguageToOpenCart extends BaseHandler {
             };
         } else {
             return {
-                "name": language!.Name,
-                "code": language!.Code,
-                "locale": language!.Locale,
+                "name": language.Name,
+                "code": language.Code,
+                "locale": language.Locale,
                 "image": image,
                 "directory": directory,
                 "sort_order": sortOrder,

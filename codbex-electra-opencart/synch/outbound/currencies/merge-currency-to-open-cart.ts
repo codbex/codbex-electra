@@ -2,7 +2,7 @@ import { EntityReferenceDAO } from "../../../../codbex-electra/dao/EntityReferen
 import { EntityReferenceEntity } from "../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
 import { oc_currencyRepository as OpenCartCurrencyDAO, oc_currencyCreateEntity, oc_currencyUpdateEntity } from "../../../dao/oc_currencyRepository";
 import { CurrencyRepository as CurrencyDAO } from "../../../../codbex-electra/gen/dao/Settings/CurrencyRepository";
-import { BaseHandler } from "../base-handler";
+import { BaseHandler } from "../../base-handler";
 import { CurrencyEntry } from "./get-all-currencies";
 
 export function onMessage(message: any) {
@@ -32,7 +32,7 @@ class MergeCurrencyToOpenCart extends BaseHandler {
         const currencyId = this.currencyEntry.currencyId;
         const storeId = this.currencyEntry.store.id;
 
-        const currencyReference = this.entityReferenceDAO.getStoreCurrency(storeId, currencyId);
+        const currencyReference = this.entityReferenceDAO.getCurrencyReferenceByEntityId(storeId, currencyId);
 
         const ocCurrency = this.createOpenCartCurrency(currencyReference);
         const ocCurrencyId = this.ocCurrencyDAO.upsert(ocCurrency);
@@ -44,30 +44,30 @@ class MergeCurrencyToOpenCart extends BaseHandler {
 
     private createOpenCartCurrency(currencyReference: EntityReferenceEntity | null): oc_currencyCreateEntity | oc_currencyUpdateEntity {
         const currencyId = this.currencyEntry.currencyId;
-        const currency = this.currencyDAO.findById(currencyId);
+        const currency = this.currencyDAO.findById(currencyId)!;
 
         const status = currency!.Status === 1;
         if (currencyReference) {
             return {
-                currency_id: currencyReference!.ReferenceIntegerId!,
+                currency_id: currencyReference!.ReferenceIntegerId,
                 code: currency!.Code,
-                date_modified: currency!.DateModified!,
-                decimal_place: currency!.DecimalPlace,
-                symbol_left: currency!.SymbolLeft,
-                symbol_right: currency!.SymbolRight,
-                title: currency!.Title,
-                value: currency!.Value,
+                date_modified: currency.DateModified!,
+                decimal_place: currency.DecimalPlace,
+                symbol_left: currency.SymbolLeft,
+                symbol_right: currency.SymbolRight,
+                title: currency.Title,
+                value: currency.Value,
                 status: status
             };
         } else {
             return {
-                code: currency!.Code,
-                date_modified: currency!.DateModified!,
-                decimal_place: currency!.DecimalPlace,
-                symbol_left: currency!.SymbolLeft,
-                symbol_right: currency!.SymbolRight,
-                title: currency!.Title,
-                value: currency!.Value,
+                code: currency.Code,
+                date_modified: currency.DateModified!,
+                decimal_place: currency.DecimalPlace,
+                symbol_left: currency.SymbolLeft,
+                symbol_right: currency.SymbolRight,
+                title: currency.Title,
+                value: currency.Value,
                 status: status
             };
         }

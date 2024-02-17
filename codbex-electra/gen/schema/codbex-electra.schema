@@ -91,7 +91,6 @@
                         "length": 19,
                         "precision": "15",
                         "scale": "4",
-                        "nullable": true,
                         "name": "SALESORDER_TOTAL"
                     },
                     {
@@ -99,7 +98,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDER_CURRENCY"
                     },
                     {
@@ -107,7 +105,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDER_STATUS"
                     },
                     {
@@ -115,7 +112,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDER_STORE"
                     },
                     {
@@ -123,7 +119,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDER_CUSTOMER"
                     },
                     {
@@ -187,16 +182,7 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDER_LANGUAGE"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 255,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "SALESORDER_ACCEPTLANGUAGE"
                     }
                 ]
             },
@@ -261,7 +247,6 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CUSTOMER_EMAIL"
                     },
                     {
@@ -269,7 +254,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CUSTOMER_FIRSTNAME"
                     },
                     {
@@ -277,7 +261,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CUSTOMER_LASTNAME"
                     },
                     {
@@ -285,7 +268,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CUSTOMER_STORE"
                     },
                     {
@@ -293,7 +275,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CUSTOMER_STATUS"
                     },
                     {
@@ -314,14 +295,6 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 40,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CUSTOMER_CODE"
-                    },
-                    {
-                        "type": "VARCHAR",
                         "length": 2000,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -333,7 +306,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CUSTOMER_LANGUAGE"
                     }
                 ]
@@ -1488,12 +1460,28 @@
                         "name": "SALESORDERCOMMENT_CREATEDBY"
                     },
                     {
+                        "type": "VARCHAR",
+                        "length": 96,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDERCOMMENT_UPDATEDBY"
+                    },
+                    {
                         "type": "TIMESTAMP",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "SALESORDERCOMMENT_CREATEDAT"
+                        "name": "SALESORDERCOMMENT_DATEADDED"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDERCOMMENT_DATEMODIFIED"
                     },
                     {
                         "type": "INTEGER",

@@ -1,4 +1,4 @@
-import { getLogger } from "../../../codbex-electra/util/LoggerUtil";
+import { getLogger } from "../../codbex-electra/util/LoggerUtil";
 import { Logger } from "sdk/log/logging";
 
 export class BaseHandler {
@@ -10,5 +10,13 @@ export class BaseHandler {
     protected throwError(errorMessage: string) {
         this.logger.error(errorMessage);
         throw new Error(errorMessage);
+    }
+
+    protected getEmptyStringIfMissing(value: string | null | undefined) {
+        return value ? value : "";
+    }
+
+    protected getZeroIfMissing(value: number | null | undefined) {
+        return value ? value : 0;
     }
 }

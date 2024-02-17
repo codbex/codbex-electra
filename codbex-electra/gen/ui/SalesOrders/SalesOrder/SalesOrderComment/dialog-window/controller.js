@@ -24,8 +24,11 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				let params = JSON.parse(dataParameters);
 				$scope.action = params.action;
 
-				if (params.entity.CreatedAt) {
-					params.entity.CreatedAt = new Date(params.entity.CreatedAt);
+				if (params.entity.DateAdded) {
+					params.entity.DateAdded = new Date(params.entity.DateAdded);
+				}
+				if (params.entity.DateModified) {
+					params.entity.DateModified = new Date(params.entity.DateModified);
 				}
 
 				$scope.entity = params.entity;

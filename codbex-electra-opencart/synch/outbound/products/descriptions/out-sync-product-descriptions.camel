@@ -4,13 +4,13 @@
       uri: cron:TriggerProductDescriptionsReplication
       id: trigger-product-descriptions-replication-cron
       parameters:
-        schedule: 5 * * ? * *
+        schedule: 20 * * ? * *
       description: Trigger Product Descriptions Replication
       steps:
         - log:
             message: Replicating product descriptions to OpenCart DB...
             id: log-about-to-start-product-descriptions-replication
-            logName: OpenCartProductDescriptionsReplication
+            logName: OpenCartProductDescriptionsOutboundReplication
             loggingLevel: INFO
         - setProperty:
             name: resource
@@ -18,7 +18,7 @@
             expression:
               constant:
                 expression: >-
-                  codbex-electra-opencart/synch/outbound/get-all-relevant-stores.ts
+                  codbex-electra-opencart/synch/get-all-relevant-stores.ts
                 id: constant-product-descriptions-01
             description: Set JS file
         - to:
@@ -74,6 +74,6 @@
               Successfully replicated product descriptions to all enabled
               OpenCart stores
             id: log-product-descriptions-replication-completed
-            logName: OpenCartProductDescriptionsReplication
+            logName: OpenCartProductDescriptionsOutboundReplication
             loggingLevel: INFO
     description: Sync product descriptions to OpenCarts

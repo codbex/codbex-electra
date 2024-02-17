@@ -1,6 +1,6 @@
 import { ZoneRepository as ZoneDAO, ZoneEntityOptions } from "../../../../codbex-electra/gen/dao/Settings/ZoneRepository";
-import { StoreEntry } from "../get-all-relevant-stores";
-import { BaseHandler } from "../base-handler";
+import { StoreEntry } from "../../get-all-relevant-stores";
+import { BaseHandler } from "../../base-handler";
 
 export function onMessage(message: any) {
     const store: StoreEntry = message.getBody();

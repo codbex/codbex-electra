@@ -112,8 +112,11 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					}
 
 					response.data.forEach(e => {
-						if (e.CreatedAt) {
-							e.CreatedAt = new Date(e.CreatedAt);
+						if (e.DateAdded) {
+							e.DateAdded = new Date(e.DateAdded);
+						}
+						if (e.DateModified) {
+							e.DateModified = new Date(e.DateModified);
 						}
 					});
 

@@ -2,7 +2,7 @@ import { EntityReferenceDAO } from "../../../../codbex-electra/dao/EntityReferen
 import { EntityReferenceEntity } from "../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
 import { oc_countryRepository as OpenCartCountryDAO, oc_countryCreateEntity, oc_countryUpdateEntity } from "../../../dao/oc_countryRepository";
 import { CountryRepository as CountryDAO } from "../../../../codbex-electra/gen/dao/Settings/CountryRepository";
-import { BaseHandler } from "../base-handler";
+import { BaseHandler } from "../../base-handler";
 import { CountryEntry } from "./get-all-countries";
 
 export function onMessage(message: any) {
@@ -32,7 +32,7 @@ class MergeLanguageToOpenCart extends BaseHandler {
         const countryId = this.countryEntry.countryId;
         const storeId = this.countryEntry.store.id;
 
-        const countryReference = this.entityReferenceDAO.getStoreCountry(storeId, countryId);
+        const countryReference = this.entityReferenceDAO.getCountryReferenceByEntityId(storeId, countryId);
 
         const ocCountry = this.createOpenCartCountry(countryReference);
         const ocCountryId = this.ocCountryDAO.upsert(ocCountry);
@@ -44,29 +44,29 @@ class MergeLanguageToOpenCart extends BaseHandler {
 
     private createOpenCartCountry(countryReference: EntityReferenceEntity | null): oc_countryCreateEntity | oc_countryUpdateEntity {
         const countryId = this.countryEntry.countryId;
-        const country = this.countryDAO.findById(countryId);
+        const country = this.countryDAO.findById(countryId)!;
 
         const addressFormat = "";
         const postcodeRequired = false;
 
-        const status = country!.Status === 1;
+        const status = country.Status === 1;
         if (countryReference) {
             return {
-                country_id: countryReference!.ReferenceIntegerId,
+                country_id: countryReference.ReferenceIntegerId,
                 address_format: addressFormat,
                 postcode_required: postcodeRequired,
-                name: country!.Name,
-                iso_code_2: country!.IsoCode2,
-                iso_code_3: country!.IsoCode3,
+                name: country.Name,
+                iso_code_2: country.IsoCode2,
+                iso_code_3: country.IsoCode3,
                 status: status
             };
         } else {
             return {
                 address_format: addressFormat,
                 postcode_required: postcodeRequired,
-                name: country!.Name,
-                iso_code_2: country!.IsoCode2,
-                iso_code_3: country!.IsoCode3,
+                name: country.Name,
+                iso_code_2: country.IsoCode2,
+                iso_code_3: country.IsoCode3,
                 status: status
             };
         }

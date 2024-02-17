@@ -5,7 +5,7 @@ import { AttributeRepository as AttributeDAO, AttributeEntity } from "../../../.
 import { EntityReferenceDAO } from "../../../../../codbex-electra/dao/EntityReferenceDAO";
 import { EntityReferenceEntity } from "../../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
 import { AttributeEntry } from "./get-all-attributes";
-import { BaseHandler } from "../../base-handler";
+import { BaseHandler } from "../../../base-handler";
 
 export function onMessage(message: any) {
     const attributeEntry: AttributeEntry = message.getBody();
@@ -41,7 +41,7 @@ class MergeAttributeToOpenCartHandler extends BaseHandler {
         const attributeId = this.attributeEntry.attributeId;
         const attribute = this.attributeDAO.findById(attributeId);
 
-        const attributeReference = this.entityReferenceDAO.getStoreAttribute(storeId, attribute!.Id);
+        const attributeReference = this.entityReferenceDAO.getAttributeReferenceByEntityId(storeId, attribute!.Id);
 
         const ocAttribute = this.createOpenCartAttribute(attribute!, attributeReference);
         const ocAttributeId = this.ocAttributeDAO.upsert(ocAttribute);
@@ -60,11 +60,8 @@ class MergeAttributeToOpenCartHandler extends BaseHandler {
 
     private createOpenCartAttribute(attribute: AttributeEntity, attributeReference: EntityReferenceEntity | null): OpenCartAttributeCreateEntity | OpenCartAttributeUpdateEntity {
         const attributeGroup = attribute.Group;
-        const attributeGroupReference = this.entityReferenceDAO.getStoreAttributeGroup(this.attributeEntry.store.id, attributeGroup);
-        if (!attributeGroupReference) {
-            this.throwError(`Missing attribute group reference for attribute group with id  ${attributeGroup}`);
-        }
-        const ocAttributeGroupId = attributeGroupReference!.ReferenceIntegerId;
+        const attributeGroupReference = this.entityReferenceDAO.getRequiredAttributeGroupReferenceByEntityId(this.attributeEntry.store.id, attributeGroup);
+        const ocAttributeGroupId = attributeGroupReference.ReferenceIntegerId;
 
         if (attributeReference) {
             return {
@@ -96,13 +93,13 @@ class MergeAttributeToOpenCartHandler extends BaseHandler {
 
         return {
             attribute_id: ocAttributeId,
-            language_id: languageId!,
+            language_id: languageId,
             name: attributeTranslation.Text
         };
     }
 
     private getOpenCartLanguageId(languageId: number): number {
-        const languageReference = this.entityReferenceDAO.getRequiredStoreLanguageReference(this.attributeEntry.store.id, languageId);
+        const languageReference = this.entityReferenceDAO.getRequiredLanguageReferenceByEntityId(this.attributeEntry.store.id, languageId);
         return languageReference.ReferenceIntegerId!;
     }
 

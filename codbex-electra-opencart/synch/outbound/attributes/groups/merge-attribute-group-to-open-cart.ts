@@ -4,7 +4,7 @@ import { AttributeGroupTranslationRepository as AttributeGroupTranslationDAO, At
 import { EntityReferenceDAO } from "../../../../../codbex-electra/dao/EntityReferenceDAO";
 import { EntityReferenceEntity } from "../../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
 import { AttributeGroupEntry } from "./get-all-attribute-groups";
-import { BaseHandler } from "../../base-handler";
+import { BaseHandler } from "../../../base-handler";
 
 export function onMessage(message: any) {
     const attributeGroupEntry: AttributeGroupEntry = message.getBody();
@@ -37,7 +37,7 @@ class MergeAttributeGroupToOpenCartHandler extends BaseHandler {
         const attributeGroupId = this.attributeGroupEntry.attributeGroupId;
         const storeId = this.attributeGroupEntry.store.id;
 
-        const attributeGroupReference = this.entityReferenceDAO.getStoreAttributeGroup(storeId, attributeGroupId);
+        const attributeGroupReference = this.entityReferenceDAO.getAttributeGroupReferenceByEntityId(storeId, attributeGroupId);
 
         const ocAttributeGroup = this.createOpenCartAttributeGroup(attributeGroupReference);
         const ocAttributeGroupId = this.ocAttributeGroupDAO.upsert(ocAttributeGroup);
@@ -86,7 +86,7 @@ class MergeAttributeGroupToOpenCartHandler extends BaseHandler {
     }
 
     private getOpenCartLanguageId(languageId: number): number {
-        const languageReference = this.entityReferenceDAO.getRequiredStoreLanguageReference(this.attributeGroupEntry.store.id, languageId);
+        const languageReference = this.entityReferenceDAO.getRequiredLanguageReferenceByEntityId(this.attributeGroupEntry.store.id, languageId);
         return languageReference.ReferenceIntegerId!;
     }
 

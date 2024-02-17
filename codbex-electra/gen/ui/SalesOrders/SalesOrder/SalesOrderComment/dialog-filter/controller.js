@@ -16,11 +16,17 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			let dataParameters = window.frameElement.getAttribute("data-parameters");
 			if (dataParameters) {
 				let params = JSON.parse(dataParameters);
-				if (params?.entity?.CreatedAtFrom) {
-					params.entity.CreatedAtFrom = new Date(params.entity.CreatedAtFrom);
+				if (params?.entity?.DateAddedFrom) {
+					params.entity.DateAddedFrom = new Date(params.entity.DateAddedFrom);
 				}
-				if (params?.entity?.CreatedAtTo) {
-					params.entity.CreatedAtTo = new Date(params.entity.CreatedAtTo);
+				if (params?.entity?.DateAddedTo) {
+					params.entity.DateAddedTo = new Date(params.entity.DateAddedTo);
+				}
+				if (params?.entity?.DateModifiedFrom) {
+					params.entity.DateModifiedFrom = new Date(params.entity.DateModifiedFrom);
+				}
+				if (params?.entity?.DateModifiedTo) {
+					params.entity.DateModifiedTo = new Date(params.entity.DateModifiedTo);
 				}
 				$scope.entity = params.entity ?? {};
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
@@ -57,11 +63,20 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			if (entity.CreatedBy) {
 				filter.$filter.contains.CreatedBy = entity.CreatedBy;
 			}
-			if (entity.CreatedAtFrom) {
-				filter.$filter.greaterThanOrEqual.CreatedAt = entity.CreatedAtFrom;
+			if (entity.UpdatedBy) {
+				filter.$filter.contains.UpdatedBy = entity.UpdatedBy;
 			}
-			if (entity.CreatedAtTo) {
-				filter.$filter.lessThanOrEqual.CreatedAt = entity.CreatedAtTo;
+			if (entity.DateAddedFrom) {
+				filter.$filter.greaterThanOrEqual.DateAdded = entity.DateAddedFrom;
+			}
+			if (entity.DateAddedTo) {
+				filter.$filter.lessThanOrEqual.DateAdded = entity.DateAddedTo;
+			}
+			if (entity.DateModifiedFrom) {
+				filter.$filter.greaterThanOrEqual.DateModified = entity.DateModifiedFrom;
+			}
+			if (entity.DateModifiedTo) {
+				filter.$filter.lessThanOrEqual.DateModified = entity.DateModifiedTo;
 			}
 			if (entity.SalesOrder) {
 				filter.$filter.equals.SalesOrder = entity.SalesOrder;

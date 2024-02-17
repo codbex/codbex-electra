@@ -3,7 +3,7 @@ import { EntityReferenceDAO } from "../../../../../codbex-electra/dao/EntityRefe
 import { EntityReferenceEntity } from "../../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
 import { ManufacturerRepository as ManufacturerDAO, ManufacturerEntity } from "../../../../../codbex-electra/gen/dao/Products/ManufacturerRepository";
 import { ManufacturerEntry } from "./get-all-relevant-manufacturers";
-import { BaseHandler } from "../../base-handler";
+import { BaseHandler } from "../../../base-handler";
 
 export function onMessage(message: any) {
     const manufacturerEntry: ManufacturerEntry = message.getBody();
@@ -36,7 +36,7 @@ class MergeManufacturerToOpenCartHandler extends BaseHandler {
         const storeId = this.manufacturerEntry.store.id;
 
         const manufacturer = this.getManufacturer();
-        const manufacturerReference = this.entityReferenceDAO.getStoreManufacturer(storeId, manufacturerId);
+        const manufacturerReference = this.entityReferenceDAO.getManufacturerReferenceByEntityId(storeId, manufacturerId);
 
         const ocManufacturer = this.createOpenCartManufacturer(manufacturer, manufacturerReference);
         const ocManufacturerId = this.ocManufacturerDAO.upsert(ocManufacturer);

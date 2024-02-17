@@ -5,11 +5,11 @@ import { dao as daoApi } from "sdk/db";
 
 export interface SalesOrderEntity {
     readonly Id: number;
-    Total?: number;
-    Currency?: number;
-    Status?: number;
-    Store?: number;
-    Customer?: number;
+    Total: number;
+    Currency: number;
+    Status: number;
+    Store: number;
+    Customer: number;
     DateAdded?: Date;
     DateModified?: Date;
     UpdatedBy?: string;
@@ -17,22 +17,20 @@ export interface SalesOrderEntity {
     Comment?: string;
     InvoiceNumber?: number;
     InvoicePrefix?: string;
-    Language?: number;
-    AcceptLanguage?: string;
+    Language: number;
 }
 
 export interface SalesOrderCreateEntity {
-    readonly Total?: number;
-    readonly Currency?: number;
-    readonly Status?: number;
-    readonly Store?: number;
-    readonly Customer?: number;
+    readonly Total: number;
+    readonly Currency: number;
+    readonly Status: number;
+    readonly Store: number;
+    readonly Customer: number;
     readonly Tracking?: string;
     readonly Comment?: string;
     readonly InvoiceNumber?: number;
     readonly InvoicePrefix?: string;
-    readonly Language?: number;
-    readonly AcceptLanguage?: string;
+    readonly Language: number;
 }
 
 export interface SalesOrderUpdateEntity extends SalesOrderCreateEntity {
@@ -56,7 +54,6 @@ export interface SalesOrderEntityOptions {
             InvoiceNumber?: number | number[];
             InvoicePrefix?: string | string[];
             Language?: number | number[];
-            AcceptLanguage?: string | string[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -73,7 +70,6 @@ export interface SalesOrderEntityOptions {
             InvoiceNumber?: number | number[];
             InvoicePrefix?: string | string[];
             Language?: number | number[];
-            AcceptLanguage?: string | string[];
         };
         contains?: {
             Id?: number;
@@ -90,7 +86,6 @@ export interface SalesOrderEntityOptions {
             InvoiceNumber?: number;
             InvoicePrefix?: string;
             Language?: number;
-            AcceptLanguage?: string;
         };
         greaterThan?: {
             Id?: number;
@@ -107,7 +102,6 @@ export interface SalesOrderEntityOptions {
             InvoiceNumber?: number;
             InvoicePrefix?: string;
             Language?: number;
-            AcceptLanguage?: string;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -124,7 +118,6 @@ export interface SalesOrderEntityOptions {
             InvoiceNumber?: number;
             InvoicePrefix?: string;
             Language?: number;
-            AcceptLanguage?: string;
         };
         lessThan?: {
             Id?: number;
@@ -141,7 +134,6 @@ export interface SalesOrderEntityOptions {
             InvoiceNumber?: number;
             InvoicePrefix?: string;
             Language?: number;
-            AcceptLanguage?: string;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -158,7 +150,6 @@ export interface SalesOrderEntityOptions {
             InvoiceNumber?: number;
             InvoicePrefix?: string;
             Language?: number;
-            AcceptLanguage?: string;
         };
     },
     $select?: (keyof SalesOrderEntity)[],
@@ -195,26 +186,31 @@ export class SalesOrderRepository {
                 name: "Total",
                 column: "SALESORDER_TOTAL",
                 type: "DECIMAL",
+                required: true
             },
             {
                 name: "Currency",
                 column: "SALESORDER_CURRENCY",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Status",
                 column: "SALESORDER_STATUS",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Store",
                 column: "SALESORDER_STORE",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Customer",
                 column: "SALESORDER_CUSTOMER",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "DateAdded",
@@ -255,11 +251,7 @@ export class SalesOrderRepository {
                 name: "Language",
                 column: "SALESORDER_LANGUAGE",
                 type: "INTEGER",
-            },
-            {
-                name: "AcceptLanguage",
-                column: "SALESORDER_ACCEPTLANGUAGE",
-                type: "VARCHAR",
+                required: true
             }
         ]
     };

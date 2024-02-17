@@ -2,7 +2,7 @@ import { oc_product_attributeRepository as OpenCartProductAttributeDAO, oc_produ
 import { ProductAttributeRepository as ProductAttributeDAO, ProductAttributeEntity } from "../../../../../codbex-electra/gen/dao/Products/ProductAttributeRepository";
 import { EntityReferenceDAO } from "../../../../../codbex-electra/dao/EntityReferenceDAO";
 import { EntityReferenceEntity } from "../../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
-import { BaseHandler } from "../../base-handler";
+import { BaseHandler } from "../../../base-handler";
 import { ProductEntry } from "../get-store-products";
 
 export function onMessage(message: any) {
@@ -30,7 +30,7 @@ class MergeProductAttributeToOpenCartHandler extends BaseHandler {
 
     handle() {
         const productAttributes = this.getProductAttributes();
-        const productReference = this.entityReferenceDAO.getStoreProduct(this.productEntry.store.id, this.productEntry.productId);
+        const productReference = this.entityReferenceDAO.getRequiredProductReferenceReferenceByEntityId(this.productEntry.store.id, this.productEntry.productId);
 
         productAttributes.forEach((productAttribute) => {
             const ocProductAttribute = this.createOpenCartProductAttribute(productAttribute, productReference);
@@ -49,11 +49,8 @@ class MergeProductAttributeToOpenCartHandler extends BaseHandler {
         return this.productAttributeDAO.findAll(querySettings);
     }
 
-    private createOpenCartProductAttribute(productAttribute: ProductAttributeEntity, productReference: EntityReferenceEntity | null): OpenCartProductAttributeCreateEntity | OpenCartProductAttributeUpdateEntity {
-        if (!productReference || !productReference.ReferenceIntegerId) {
-            this.throwError(`Missing product reference id: ${productReference ? JSON.stringify(productReference) : null}`);
-        }
-        const id = productReference!.ReferenceIntegerId;
+    private createOpenCartProductAttribute(productAttribute: ProductAttributeEntity, productReference: EntityReferenceEntity): OpenCartProductAttributeCreateEntity | OpenCartProductAttributeUpdateEntity {
+        const id = productReference.ReferenceIntegerId;
 
         const languageId = this.getOpenCartLanguageId(productAttribute.Language);
         const attributeId = this.getOpenCartAttributeId(productAttribute.Attribute);
@@ -67,15 +64,12 @@ class MergeProductAttributeToOpenCartHandler extends BaseHandler {
     }
 
     private getOpenCartLanguageId(languageId: number): number {
-        const languageReference = this.entityReferenceDAO.getRequiredStoreLanguageReference(this.productEntry.store.id, languageId);
+        const languageReference = this.entityReferenceDAO.getRequiredLanguageReferenceByEntityId(this.productEntry.store.id, languageId);
         return languageReference.ReferenceIntegerId!;
     }
 
     private getOpenCartAttributeId(attributeId: number) {
-        const attributeReference = this.entityReferenceDAO.getStoreAttribute(this.productEntry.store.id, attributeId);
-        if (!attributeReference) {
-            this.throwError(`Missing reference for attribute with id ${attributeId}`);
-        }
-        return attributeReference!.ReferenceIntegerId!;
+        const attributeReference = this.entityReferenceDAO.getRequiredAttributeReferenceReferenceByEntityId(this.productEntry.store.id, attributeId);
+        return attributeReference.ReferenceIntegerId!;
     }
 }

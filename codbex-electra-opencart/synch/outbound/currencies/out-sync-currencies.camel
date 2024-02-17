@@ -4,13 +4,13 @@
       uri: cron:TriggerCurrenciesReplication
       id: trigger-currencies-replication-cron
       parameters:
-        schedule: 0 0/30 * ? * *
+        schedule: 0 * * ? * *
       description: Trigger Currencies Replication
       steps:
         - log:
             message: Replicating currencies to OpenCart DB...
             id: log-about-to-start-currencies-replication
-            logName: OpenCartCurrenciesReplication
+            logName: OpenCartCurrenciesOutboundReplication
             loggingLevel: INFO
         - setProperty:
             name: resource
@@ -18,7 +18,7 @@
             expression:
               constant:
                 expression: >-
-                  codbex-electra-opencart/synch/outbound/get-all-relevant-stores.ts
+                  codbex-electra-opencart/synch/get-all-relevant-stores.ts
                 id: constant-currencies-8de2
             description: Set JS file
         - to:
@@ -72,6 +72,6 @@
         - log:
             message: Successfully replicated currencies to all enabled OpenCart stores
             id: log-currencies-replication-completed
-            logName: OpenCartCurrenciesReplication
+            logName: OpenCartCurrenciesOutboundReplication
             loggingLevel: INFO
     description: Sync currencies to OpenCarts
