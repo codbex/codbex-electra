@@ -5,25 +5,25 @@ import { dao as daoApi } from "sdk/db";
 
 export interface SalesOrderItemEntity {
     readonly Id: number;
-    Product?: number;
+    Product: number;
     SalesOrder: number;
-    Name?: string;
-    Model?: string;
-    Quantity?: number;
-    Price?: number;
-    Total?: number;
-    Tax?: number;
+    Name: string;
+    Model: string;
+    Quantity: number;
+    Price: number;
+    Total: number;
+    Tax: number;
 }
 
 export interface SalesOrderItemCreateEntity {
-    readonly Product?: number;
+    readonly Product: number;
     readonly SalesOrder: number;
-    readonly Name?: string;
-    readonly Model?: string;
-    readonly Quantity?: number;
-    readonly Price?: number;
-    readonly Total?: number;
-    readonly Tax?: number;
+    readonly Name: string;
+    readonly Model: string;
+    readonly Quantity: number;
+    readonly Price: number;
+    readonly Total: number;
+    readonly Tax: number;
 }
 
 export interface SalesOrderItemUpdateEntity extends SalesOrderItemCreateEntity {
@@ -144,6 +144,7 @@ export class SalesOrderItemRepository {
                 name: "Product",
                 column: "ORDERITEM_PRODUCT",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "SalesOrder",
@@ -155,31 +156,37 @@ export class SalesOrderItemRepository {
                 name: "Name",
                 column: "ORDERITEM_NAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Model",
                 column: "ORDERITEM_MODEL",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Quantity",
                 column: "ORDERITEM_QUANTITY",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Price",
                 column: "ORDERITEM_PRICE",
                 type: "DECIMAL",
+                required: true
             },
             {
                 name: "Total",
                 column: "ORDERITEM_TOTAL",
                 type: "DECIMAL",
+                required: true
             },
             {
                 name: "Tax",
                 column: "ORDERITEM_TAX",
                 type: "DECIMAL",
+                required: true
             }
         ]
     };

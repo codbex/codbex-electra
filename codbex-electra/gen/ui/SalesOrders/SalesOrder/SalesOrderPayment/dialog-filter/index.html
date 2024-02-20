@@ -29,13 +29,13 @@
                 <fd-form-group dg-header="SalesOrderPayment Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idZone" dg-required="false" dg-colon="true">Zone</fd-form-label>
+                        	<fd-form-label for="idZone" dg-required="true" dg-colon="true">Zone</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-combobox-input id="idZone"
 	                            name="Zone"
 	                            state="{{ forms.details['Zone'].$valid ? '' : 'error' }}"
-	                            ng-required="false"
+	                            ng-required="true"
 	                            ng-model="entity.Zone"
 	                            dropdown-items="optionsZone"
 	                            dg-placeholder="Search Zone ...">
@@ -44,14 +44,14 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idFirstName" dg-required="false" dg-colon="true">FirstName</fd-form-label>
+                        	<fd-form-label for="idFirstName" dg-required="true" dg-colon="true">FirstName</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['FirstName'].$valid }}">
 	                            <fd-input id="idFirstName"
 	                                name="FirstName"
 	                                state="{{ forms.details['FirstName'].$valid ? '' : 'error' }}"
-									ng-required="false"
+									ng-required="true"
 	                                ng-model="entity.FirstName"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
@@ -66,14 +66,14 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idLastName" dg-required="false" dg-colon="true">LastName</fd-form-label>
+                        	<fd-form-label for="idLastName" dg-required="true" dg-colon="true">LastName</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['LastName'].$valid }}">
 	                            <fd-input id="idLastName"
 	                                name="LastName"
 	                                state="{{ forms.details['LastName'].$valid ? '' : 'error' }}"
-									ng-required="false"
+									ng-required="true"
 	                                ng-model="entity.LastName"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
@@ -154,13 +154,13 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idCountry" dg-required="false" dg-colon="true">Country</fd-form-label>
+                        	<fd-form-label for="idCountry" dg-required="true" dg-colon="true">Country</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-combobox-input id="idCountry"
 	                            name="Country"
 	                            state="{{ forms.details['Country'].$valid ? '' : 'error' }}"
-	                            ng-required="false"
+	                            ng-required="true"
 	                            ng-model="entity.Country"
 	                            dropdown-items="optionsCountry"
 	                            dg-placeholder="Search Country ...">

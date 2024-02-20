@@ -93,8 +93,8 @@ class MergeCustomerFromOpenCart extends BaseHandler {
 
     private createSalesOrderShippingEntity(ocOrder: oc_orderEntity, salesOrderId: number): SalesOrderShippingCreateEntity {
 
-        const countryId = this.entityReferenceDAO.getRequiredCountryReferenceByReferenceId(this.orderEntry.store.id, ocOrder.shipping_country_id).EntityIntegerId;
-        const zoneId = this.entityReferenceDAO.getRequiredZoneReferenceByReferenceId(this.orderEntry.store.id, ocOrder.shipping_zone_id).EntityIntegerId;
+        const countryId = this.entityReferenceDAO.getRequiredCountryReferenceByReferenceId(this.orderEntry.store.id, ocOrder.shipping_country_id).EntityIntegerId!;
+        const zoneId = this.entityReferenceDAO.getRequiredZoneReferenceByReferenceId(this.orderEntry.store.id, ocOrder.shipping_zone_id).EntityIntegerId!;
         return {
             SalesOrder: salesOrderId,
             Address1: ocOrder.shipping_address_1,
@@ -115,8 +115,8 @@ class MergeCustomerFromOpenCart extends BaseHandler {
 
     private createSalesOrderPaymentEntity(ocOrder: oc_orderEntity, salesOrderId: number): SalesOrderPaymentCreateEntity {
 
-        const countryId = this.entityReferenceDAO.getRequiredCountryReferenceByReferenceId(this.orderEntry.store.id, ocOrder.shipping_country_id).EntityIntegerId;
-        const zoneId = this.entityReferenceDAO.getRequiredZoneReferenceByReferenceId(this.orderEntry.store.id, ocOrder.shipping_zone_id).EntityIntegerId;
+        const countryId = this.entityReferenceDAO.getRequiredCountryReferenceByReferenceId(this.orderEntry.store.id, ocOrder.shipping_country_id).EntityIntegerId!;
+        const zoneId = this.entityReferenceDAO.getRequiredZoneReferenceByReferenceId(this.orderEntry.store.id, ocOrder.shipping_zone_id).EntityIntegerId!;
         return {
             SalesOrder: salesOrderId,
             Address1: ocOrder.payment_address_1,
@@ -157,11 +157,12 @@ class MergeCustomerFromOpenCart extends BaseHandler {
     }
 
     private createSalesOrderItem(ocOrderProduct: oc_order_productEntity, salesOrderId: number): SalesOrderItemCreateEntity {
+        const productId = this.entityReferenceDAO.getRequiredProductReferenceReferenceByReferenceId(this.orderEntry.store.id, ocOrderProduct.product_id).EntityIntegerId!;
         return {
             Model: ocOrderProduct.model,
             Name: ocOrderProduct.name,
             Price: ocOrderProduct.price,
-            Product: ocOrderProduct.product_id,
+            Product: productId,
             Quantity: ocOrderProduct.quantity,
             Tax: ocOrderProduct.tax,
             Total: ocOrderProduct.total,

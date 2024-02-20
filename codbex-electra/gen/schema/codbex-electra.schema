@@ -577,7 +577,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ORDERITEM_PRODUCT"
                     },
                     {
@@ -592,7 +591,6 @@
                         "length": 255,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ORDERITEM_NAME"
                     },
                     {
@@ -600,7 +598,6 @@
                         "length": 64,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ORDERITEM_MODEL"
                     },
                     {
@@ -608,7 +605,6 @@
                         "length": 4,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ORDERITEM_QUANTITY"
                     },
                     {
@@ -616,7 +612,6 @@
                         "length": 19,
                         "precision": "15",
                         "scale": "4",
-                        "nullable": true,
                         "name": "ORDERITEM_PRICE"
                     },
                     {
@@ -624,7 +619,6 @@
                         "length": 19,
                         "precision": "15",
                         "scale": "4",
-                        "nullable": true,
                         "name": "ORDERITEM_TOTAL"
                     },
                     {
@@ -632,7 +626,6 @@
                         "length": 19,
                         "precision": "15",
                         "scale": "4",
-                        "nullable": true,
                         "name": "ORDERITEM_TAX"
                     }
                 ]
@@ -1031,7 +1024,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERPAYMENT_ZONE"
                     },
                     {
@@ -1039,7 +1031,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERPAYMENT_FIRSTNAME"
                     },
                     {
@@ -1047,7 +1038,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERPAYMENT_LASTNAME"
                     },
                     {
@@ -1079,7 +1069,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERPAYMENT_COUNTRY"
                     },
                     {
@@ -1156,7 +1145,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERSHIPPING_ZONE"
                     },
                     {
@@ -1164,7 +1152,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERSHIPPING_FIRSTNAME"
                     },
                     {
@@ -1172,7 +1159,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERSHIPPING_LASTNAME"
                     },
                     {
@@ -1204,7 +1190,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERSHIPPING_COUNTRY"
                     },
                     {

@@ -5,13 +5,13 @@ import { dao as daoApi } from "sdk/db";
 
 export interface SalesOrderShippingEntity {
     readonly Id: number;
-    Zone?: number;
-    FirstName?: string;
-    LastName?: string;
+    Zone: number;
+    FirstName: string;
+    LastName: string;
     Company?: string;
     Address1?: string;
     Address2?: string;
-    Country?: number;
+    Country: number;
     City?: string;
     Postcode?: string;
     Method?: string;
@@ -23,13 +23,13 @@ export interface SalesOrderShippingEntity {
 }
 
 export interface SalesOrderShippingCreateEntity {
-    readonly Zone?: number;
-    readonly FirstName?: string;
-    readonly LastName?: string;
+    readonly Zone: number;
+    readonly FirstName: string;
+    readonly LastName: string;
     readonly Company?: string;
     readonly Address1?: string;
     readonly Address2?: string;
-    readonly Country?: number;
+    readonly Country: number;
     readonly City?: string;
     readonly Postcode?: string;
     readonly Method?: string;
@@ -206,16 +206,19 @@ export class SalesOrderShippingRepository {
                 name: "Zone",
                 column: "SALESORDERSHIPPING_ZONE",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "FirstName",
                 column: "SALESORDERSHIPPING_FIRSTNAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "LastName",
                 column: "SALESORDERSHIPPING_LASTNAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Company",
@@ -236,6 +239,7 @@ export class SalesOrderShippingRepository {
                 name: "Country",
                 column: "SALESORDERSHIPPING_COUNTRY",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "City",

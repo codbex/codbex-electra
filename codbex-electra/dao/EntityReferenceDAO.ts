@@ -96,10 +96,6 @@ export class EntityReferenceDAO {
         return this.getReferenceByScopeIdEntityNameAndEntityId(storeId, EntityReferenceDAO.PRODUCT_ENTITY, productEntityId);
     }
 
-    public getSalesOrderReferenceByEntityId(storeId: number, salesOrderEntityId: number) {
-        return this.getReferenceByScopeIdEntityNameAndEntityId(storeId, EntityReferenceDAO.SALES_ORDER_ENTITY, salesOrderEntityId);
-    }
-
     public getOrderStatusReferenceByEntityId(storeId: number, orderStatusEntityId: number) {
         return this.getReferenceByScopeIdEntityNameAndEntityId(storeId, EntityReferenceDAO.ORDER_STATUS_ENTITY, orderStatusEntityId);
     }
@@ -128,6 +124,10 @@ export class EntityReferenceDAO {
         return this.getReferenceByScopeIdEntityNameAndEntityId(storeId, EntityReferenceDAO.ATTRIBUTE_ENTITY, attributeEntityId);
     }
 
+    public getSalesOrderItemReferenceByEntityId(storeId: number, salesOrderItemEntityId: number) {
+        return this.getReferenceByScopeIdEntityNameAndEntityId(storeId, EntityReferenceDAO.SALES_ORDER_ITEM_ENTITY, salesOrderItemEntityId);
+    }
+
     public getAttributeGroupReferenceByEntityId(storeId: number, attributeGroupEntityId: number) {
         return this.getReferenceByScopeIdEntityNameAndEntityId(storeId, EntityReferenceDAO.ATTRIBUTE_GROUP_ENTITY, attributeGroupEntityId);
     }
@@ -144,12 +144,28 @@ export class EntityReferenceDAO {
         return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.CURRENCY_ENTITY, currencyEntityId);
     }
 
+    public getRequiredOrderStatusReferenceByEntityId(storeId: number, orderStatusEntityId: number) {
+        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.ORDER_STATUS_ENTITY, orderStatusEntityId);
+    }
+
     public getRequiredCountryReferenceByEntityId(storeId: number, countryEntityId: number) {
         return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.COUNTRY_ENTITY, countryEntityId);
     }
 
+    public getRequiredCustomerReferenceByEntityId(storeId: number, customerEntityId: number) {
+        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.CUSTOMER_ENTITY, customerEntityId);
+    }
+
+    public getRequiredZoneReferenceByEntityId(storeId: number, zoneEntityId: number) {
+        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.ZONE_ENTITY, zoneEntityId);
+    }
+
     public getRequiredAttributeGroupReferenceByEntityId(storeId: number, attributeGroupEntityId: number) {
         return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.ATTRIBUTE_GROUP_ENTITY, attributeGroupEntityId);
+    }
+
+    public getRequiredSalesOrderReferenceReferenceByEntityId(storeId: number, salesOrderEntityId: number) {
+        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.SALES_ORDER_ENTITY, salesOrderEntityId);
     }
 
     public getRequiredProductReferenceReferenceByEntityId(storeId: number, productEntityId: number) {
@@ -235,6 +251,10 @@ export class EntityReferenceDAO {
 
     public getRequiredOrderStatusReferenceByReferenceId(storeId: number, orderStatusReferenceId: number) {
         return this.getRequireReferenceByReferenceId(storeId, EntityReferenceDAO.ORDER_STATUS_ENTITY, orderStatusReferenceId);
+    }
+
+    public getRequiredProductReferenceReferenceByReferenceId(storeId: number, productReferenceId: number) {
+        return this.getRequireReferenceByReferenceId(storeId, EntityReferenceDAO.PRODUCT_ENTITY, productReferenceId);
     }
 
     private getRequireReferenceByReferenceId(scopeId: number, entityName: string, referenceId: number) {

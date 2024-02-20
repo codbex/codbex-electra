@@ -1,11 +1,11 @@
 - route:
     id: orders-out-sync-route
     from:
-      uri: cron:TriggerOrdersReplication
-      id: trigger-orders-replication-cron
+      uri: cron:TriggerOrdersOutboundReplication
+      id: trigger-orders-outbound-replication-cron
       parameters:
-        schedule: 20 * * ? * *
-      description: Trigger Orders Replication
+        schedule: 18 * * ? * *
+      description: Trigger Orders outbound Replication
       steps:
         - log:
             message: Replicating orders to OpenCart DB...
@@ -17,8 +17,7 @@
             id: set-js-orders-1
             expression:
               constant:
-                expression: >-
-                  codbex-electra-opencart/synch/get-all-relevant-stores.ts
+                expression: codbex-electra-opencart/synch/get-all-relevant-stores.ts
                 id: constant-orders-8de2
             description: Set JS file
         - to:
@@ -71,7 +70,7 @@
                         description: Merge order to OpenCart
         - log:
             message: Successfully replicated orders to all enabled OpenCart stores
-            id: log-orders-replication-completed
+            id: log-orders-outbound-replication-completed
             logName: OpenCartOrdersOutboundReplication
             loggingLevel: INFO
     description: Sync orders to OpenCarts
