@@ -8,28 +8,28 @@ export interface ProductEntity {
     readonly Id: number;
     Model: string;
     Manufacturer: number;
-    Status?: boolean;
+    Status: boolean;
     Quantity: number;
     Price: number;
-    Image: string;
-    SKU: string;
-    UPC: string;
-    EAN: string;
-    JAN: string;
-    ISBN: string;
-    MPN: string;
+    Image?: string;
+    SKU?: string;
+    UPC?: string;
+    EAN?: string;
+    JAN?: string;
+    ISBN?: string;
+    MPN?: string;
     DateAvailable: Date;
     Weight: number;
     Length: number;
     Width: number;
     Height: number;
-    DateAdded?: Date;
-    DateModified?: Date;
-    UpdatedBy?: string;
+    DateAdded: Date;
+    DateModified: Date;
+    UpdatedBy: string;
     Points: number;
-    Shipping?: boolean;
+    Shipping: boolean;
     Location: string;
-    Subtract?: boolean;
+    Subtract: boolean;
     Minimum: number;
     StockStatus: number;
 }
@@ -37,25 +37,25 @@ export interface ProductEntity {
 export interface ProductCreateEntity {
     readonly Model: string;
     readonly Manufacturer: number;
-    readonly Status?: boolean;
+    readonly Status: boolean;
     readonly Quantity: number;
     readonly Price: number;
-    readonly Image: string;
-    readonly SKU: string;
-    readonly UPC: string;
-    readonly EAN: string;
-    readonly JAN: string;
-    readonly ISBN: string;
-    readonly MPN: string;
+    readonly Image?: string;
+    readonly SKU?: string;
+    readonly UPC?: string;
+    readonly EAN?: string;
+    readonly JAN?: string;
+    readonly ISBN?: string;
+    readonly MPN?: string;
     readonly DateAvailable: Date;
     readonly Weight: number;
     readonly Length: number;
     readonly Width: number;
     readonly Height: number;
     readonly Points: number;
-    readonly Shipping?: boolean;
+    readonly Shipping: boolean;
     readonly Location: string;
-    readonly Subtract?: boolean;
+    readonly Subtract: boolean;
     readonly Minimum: number;
     readonly StockStatus: number;
 }
@@ -316,6 +316,7 @@ export class ProductRepository {
                 name: "Status",
                 column: "PRODUCT_STATUS",
                 type: "BOOLEAN",
+                required: true
             },
             {
                 name: "Quantity",
@@ -333,43 +334,36 @@ export class ProductRepository {
                 name: "Image",
                 column: "PRODUCT_IMAGE",
                 type: "VARCHAR",
-                required: true
             },
             {
                 name: "SKU",
                 column: "PRODUCT_SKU",
                 type: "VARCHAR",
-                required: true
             },
             {
                 name: "UPC",
                 column: "PRODUCT_UPC",
                 type: "VARCHAR",
-                required: true
             },
             {
                 name: "EAN",
                 column: "PRODUCT_EAN",
                 type: "VARCHAR",
-                required: true
             },
             {
                 name: "JAN",
                 column: "PRODUCT_JAN",
                 type: "VARCHAR",
-                required: true
             },
             {
                 name: "ISBN",
                 column: "PRODUCT_ISBN",
                 type: "VARCHAR",
-                required: true
             },
             {
                 name: "MPN",
                 column: "PRODUCT_MPN",
                 type: "VARCHAR",
-                required: true
             },
             {
                 name: "DateAvailable",
@@ -405,16 +399,19 @@ export class ProductRepository {
                 name: "DateAdded",
                 column: "PRODUCT_DATEADDED",
                 type: "TIMESTAMP",
+                required: true
             },
             {
                 name: "DateModified",
                 column: "PRODUCT_DATEMODIFIED",
                 type: "TIMESTAMP",
+                required: true
             },
             {
                 name: "UpdatedBy",
                 column: "PRODUCT_UPDATEDBY",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Points",
@@ -426,6 +423,7 @@ export class ProductRepository {
                 name: "Shipping",
                 column: "PRODUCT_SHIPPING",
                 type: "BOOLEAN",
+                required: true
             },
             {
                 name: "Location",
@@ -437,6 +435,7 @@ export class ProductRepository {
                 name: "Subtract",
                 column: "PRODUCT_SUBTRACT",
                 type: "BOOLEAN",
+                required: true
             },
             {
                 name: "Minimum",

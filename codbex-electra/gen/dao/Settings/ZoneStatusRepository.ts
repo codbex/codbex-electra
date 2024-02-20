@@ -5,11 +5,11 @@ import { dao as daoApi } from "sdk/db";
 
 export interface ZoneStatusEntity {
     readonly Id: number;
-    Name?: string;
+    Name: string;
 }
 
 export interface ZoneStatusCreateEntity {
-    readonly Name?: string;
+    readonly Name: string;
 }
 
 export interface ZoneStatusUpdateEntity extends ZoneStatusCreateEntity {
@@ -81,6 +81,7 @@ export class ZoneStatusRepository {
                 name: "Name",
                 column: "ZONESTATUS_NAME",
                 type: "VARCHAR",
+                required: true
             }
         ]
     };

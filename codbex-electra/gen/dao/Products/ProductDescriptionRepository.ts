@@ -6,24 +6,24 @@ import { dao as daoApi } from "sdk/db";
 export interface ProductDescriptionEntity {
     readonly Id: number;
     Product: number;
+    Language: number;
     Name: string;
     Description: string;
     Tag: string;
     MetaTitle: string;
     MetaDescription: string;
     MetaKeyword: string;
-    Language: number;
 }
 
 export interface ProductDescriptionCreateEntity {
     readonly Product: number;
+    readonly Language: number;
     readonly Name: string;
     readonly Description: string;
     readonly Tag: string;
     readonly MetaTitle: string;
     readonly MetaDescription: string;
     readonly MetaKeyword: string;
-    readonly Language: number;
 }
 
 export interface ProductDescriptionUpdateEntity extends ProductDescriptionCreateEntity {
@@ -35,79 +35,79 @@ export interface ProductDescriptionEntityOptions {
         equals?: {
             Id?: number | number[];
             Product?: number | number[];
+            Language?: number | number[];
             Name?: string | string[];
             Description?: string | string[];
             Tag?: string | string[];
             MetaTitle?: string | string[];
             MetaDescription?: string | string[];
             MetaKeyword?: string | string[];
-            Language?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
             Product?: number | number[];
+            Language?: number | number[];
             Name?: string | string[];
             Description?: string | string[];
             Tag?: string | string[];
             MetaTitle?: string | string[];
             MetaDescription?: string | string[];
             MetaKeyword?: string | string[];
-            Language?: number | number[];
         };
         contains?: {
             Id?: number;
             Product?: number;
+            Language?: number;
             Name?: string;
             Description?: string;
             Tag?: string;
             MetaTitle?: string;
             MetaDescription?: string;
             MetaKeyword?: string;
-            Language?: number;
         };
         greaterThan?: {
             Id?: number;
             Product?: number;
+            Language?: number;
             Name?: string;
             Description?: string;
             Tag?: string;
             MetaTitle?: string;
             MetaDescription?: string;
             MetaKeyword?: string;
-            Language?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Product?: number;
+            Language?: number;
             Name?: string;
             Description?: string;
             Tag?: string;
             MetaTitle?: string;
             MetaDescription?: string;
             MetaKeyword?: string;
-            Language?: number;
         };
         lessThan?: {
             Id?: number;
             Product?: number;
+            Language?: number;
             Name?: string;
             Description?: string;
             Tag?: string;
             MetaTitle?: string;
             MetaDescription?: string;
             MetaKeyword?: string;
-            Language?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
             Product?: number;
+            Language?: number;
             Name?: string;
             Description?: string;
             Tag?: string;
             MetaTitle?: string;
             MetaDescription?: string;
             MetaKeyword?: string;
-            Language?: number;
         };
     },
     $select?: (keyof ProductDescriptionEntity)[],
@@ -147,6 +147,12 @@ export class ProductDescriptionRepository {
                 required: true
             },
             {
+                name: "Language",
+                column: "PRODUCTDESCRIPTION_LANGUAGE",
+                type: "INTEGER",
+                required: true
+            },
+            {
                 name: "Name",
                 column: "PRODUCTDESCRIPTION_NAME",
                 type: "VARCHAR",
@@ -180,12 +186,6 @@ export class ProductDescriptionRepository {
                 name: "MetaKeyword",
                 column: "PRODUCTDESCRIPTION_METAKEYWORD",
                 type: "VARCHAR",
-                required: true
-            },
-            {
-                name: "Language",
-                column: "PRODUCTDESCRIPTION_LANGUAGE",
-                type: "INTEGER",
                 required: true
             }
         ]

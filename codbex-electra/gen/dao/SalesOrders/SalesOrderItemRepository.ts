@@ -6,7 +6,7 @@ import { dao as daoApi } from "sdk/db";
 export interface SalesOrderItemEntity {
     readonly Id: number;
     Product?: number;
-    SalesOrder?: number;
+    SalesOrder: number;
     Name?: string;
     Model?: string;
     Quantity?: number;
@@ -17,7 +17,7 @@ export interface SalesOrderItemEntity {
 
 export interface SalesOrderItemCreateEntity {
     readonly Product?: number;
-    readonly SalesOrder?: number;
+    readonly SalesOrder: number;
     readonly Name?: string;
     readonly Model?: string;
     readonly Quantity?: number;
@@ -149,6 +149,7 @@ export class SalesOrderItemRepository {
                 name: "SalesOrder",
                 column: "ORDERITEM_SALESORDER",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Name",

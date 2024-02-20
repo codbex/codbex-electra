@@ -8,13 +8,13 @@ export interface OrderStatusEntity {
     readonly Id: number;
     Language: number;
     Name: string;
-    Default?: boolean;
+    Default: boolean;
 }
 
 export interface OrderStatusCreateEntity {
     readonly Language: number;
     readonly Name: string;
-    readonly Default?: boolean;
+    readonly Default: boolean;
 }
 
 export interface OrderStatusUpdateEntity extends OrderStatusCreateEntity {
@@ -112,6 +112,7 @@ export class OrderStatusRepository {
                 name: "Default",
                 column: "ORDERSTATUS_DEFAULT",
                 type: "BOOLEAN",
+                required: true
             }
         ]
     };

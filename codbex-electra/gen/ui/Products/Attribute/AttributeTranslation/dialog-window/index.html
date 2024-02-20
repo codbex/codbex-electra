@@ -21,13 +21,13 @@
                 <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idLanguage" dg-required="true" dg-colon="true">Language</fd-form-label>
+                        	<fd-form-label for="idLanguage" dg-required="false" dg-colon="true">Language</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idLanguage"
 	                            name="Language"
 	                            state="{{ forms.details['Language'].$valid ? '' : 'error' }}"
-	                            ng-required="true"
+	                            ng-required="false"
 	                            ng-model="entity.Language"
 	                            dg-disabled="action === 'select'"
 	                            dropdown-items="optionsLanguage"
@@ -37,14 +37,14 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idText" dg-required="true" dg-colon="true">Text</fd-form-label>
+                        	<fd-form-label for="idText" dg-required="false" dg-colon="true">Text</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Text'].$valid }}">
 	                            <fd-input id="idText"
 	                                name="Text"
 	                                state="{{ forms.details['Text'].$valid ? '' : 'error' }}"
-									ng-required="true"
+									ng-required="false"
 	                                ng-model="entity.Text"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"

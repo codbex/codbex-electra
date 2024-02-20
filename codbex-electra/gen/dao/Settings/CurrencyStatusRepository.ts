@@ -5,11 +5,11 @@ import { dao as daoApi } from "sdk/db";
 
 export interface CurrencyStatusEntity {
     readonly Id: number;
-    Name?: string;
+    Name: string;
 }
 
 export interface CurrencyStatusCreateEntity {
-    readonly Name?: string;
+    readonly Name: string;
 }
 
 export interface CurrencyStatusUpdateEntity extends CurrencyStatusCreateEntity {
@@ -81,6 +81,7 @@ export class CurrencyStatusRepository {
                 name: "Name",
                 column: "CURRENCYSTATUS_NAME",
                 type: "VARCHAR",
+                required: true
             }
         ]
     };

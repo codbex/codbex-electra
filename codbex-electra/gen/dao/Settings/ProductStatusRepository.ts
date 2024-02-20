@@ -5,11 +5,11 @@ import { dao as daoApi } from "sdk/db";
 
 export interface ProductStatusEntity {
     readonly Id: number;
-    Name?: string;
+    Name: string;
 }
 
 export interface ProductStatusCreateEntity {
-    readonly Name?: string;
+    readonly Name: string;
 }
 
 export interface ProductStatusUpdateEntity extends ProductStatusCreateEntity {
@@ -81,6 +81,7 @@ export class ProductStatusRepository {
                 name: "Name",
                 column: "PRODUCTSTATUS_NAME",
                 type: "VARCHAR",
+                required: true
             }
         ]
     };

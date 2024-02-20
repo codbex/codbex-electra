@@ -18,7 +18,7 @@ export interface SalesOrderPaymentEntity {
     Code?: string;
     AddressFormat?: string;
     CustomField?: string;
-    SalesOrder?: number;
+    SalesOrder: number;
 }
 
 export interface SalesOrderPaymentCreateEntity {
@@ -35,7 +35,7 @@ export interface SalesOrderPaymentCreateEntity {
     readonly Code?: string;
     readonly AddressFormat?: string;
     readonly CustomField?: string;
-    readonly SalesOrder?: number;
+    readonly SalesOrder: number;
 }
 
 export interface SalesOrderPaymentUpdateEntity extends SalesOrderPaymentCreateEntity {
@@ -263,6 +263,7 @@ export class SalesOrderPaymentRepository {
                 name: "SalesOrder",
                 column: "SALESORDERPAYMENT_SALESORDER",
                 type: "INTEGER",
+                required: true
             }
         ]
     };

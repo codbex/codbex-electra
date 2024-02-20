@@ -29,13 +29,13 @@
                 <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idEmployee" dg-required="false" dg-colon="true">Employee</fd-form-label>
+                        	<fd-form-label for="idEmployee" dg-required="true" dg-colon="true">Employee</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idEmployee"
 	                            name="Employee"
 	                            state="{{ forms.details['Employee'].$valid ? '' : 'error' }}"
-	                            ng-required="false"
+	                            ng-required="true"
 	                            ng-model="entity.Employee"
 	                            dg-disabled="action === 'select'"
 	                            dropdown-items="optionsEmployee"
@@ -45,13 +45,13 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idGroup" dg-required="false" dg-colon="true">Group</fd-form-label>
+                        	<fd-form-label for="idGroup" dg-required="true" dg-colon="true">Group</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idGroup"
 	                            name="Group"
 	                            state="{{ forms.details['Group'].$valid ? '' : 'error' }}"
-	                            ng-required="false"
+	                            ng-required="true"
 	                            ng-model="entity.Group"
 	                            dg-disabled="action === 'select'"
 	                            dropdown-items="optionsGroup"

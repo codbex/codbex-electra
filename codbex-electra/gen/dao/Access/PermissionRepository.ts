@@ -5,11 +5,11 @@ import { dao as daoApi } from "sdk/db";
 
 export interface PermissionEntity {
     readonly Id: number;
-    Name?: string;
+    Name: string;
 }
 
 export interface PermissionCreateEntity {
-    readonly Name?: string;
+    readonly Name: string;
 }
 
 export interface PermissionUpdateEntity extends PermissionCreateEntity {
@@ -81,6 +81,7 @@ export class PermissionRepository {
                 name: "Name",
                 column: "PERMISSION_NAME",
                 type: "VARCHAR",
+                required: true
             }
         ]
     };

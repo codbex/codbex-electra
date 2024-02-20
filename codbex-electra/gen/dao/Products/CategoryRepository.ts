@@ -7,15 +7,15 @@ import { EntityUtils } from "../utils/EntityUtils";
 export interface CategoryEntity {
     readonly Id: number;
     Name: string;
-    Status?: boolean;
+    Status: boolean;
     Image?: string;
-    DateAdded?: Date;
-    DateModified?: Date;
+    DateAdded: Date;
+    DateModified: Date;
 }
 
 export interface CategoryCreateEntity {
     readonly Name: string;
-    readonly Status?: boolean;
+    readonly Status: boolean;
     readonly Image?: string;
 }
 
@@ -123,6 +123,7 @@ export class CategoryRepository {
                 name: "Status",
                 column: "CATEGORY_STATUS",
                 type: "BOOLEAN",
+                required: true
             },
             {
                 name: "Image",
@@ -133,11 +134,13 @@ export class CategoryRepository {
                 name: "DateAdded",
                 column: "CATEGORY_DATEADDED",
                 type: "TIMESTAMP",
+                required: true
             },
             {
                 name: "DateModified",
                 column: "CATEGORY_DATEMODIFIED",
                 type: "TIMESTAMP",
+                required: true
             }
         ]
     };

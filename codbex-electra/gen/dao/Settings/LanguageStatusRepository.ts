@@ -5,11 +5,11 @@ import { dao as daoApi } from "sdk/db";
 
 export interface LanguageStatusEntity {
     readonly Id: number;
-    Name?: string;
+    Name: string;
 }
 
 export interface LanguageStatusCreateEntity {
-    readonly Name?: string;
+    readonly Name: string;
 }
 
 export interface LanguageStatusUpdateEntity extends LanguageStatusCreateEntity {
@@ -81,6 +81,7 @@ export class LanguageStatusRepository {
                 name: "Name",
                 column: "LANGUAGESTATUS_NAME",
                 type: "VARCHAR",
+                required: true
             }
         ]
     };

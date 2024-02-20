@@ -5,15 +5,15 @@ import { dao as daoApi } from "sdk/db";
 
 export interface GroupEmployeeEntity {
     readonly Id: number;
-    Employee?: number;
-    Group?: number;
-    UpdatedBy?: string;
-    DateModified?: Date;
+    Employee: number;
+    Group: number;
+    UpdatedBy: string;
+    DateModified: Date;
 }
 
 export interface GroupEmployeeCreateEntity {
-    readonly Employee?: number;
-    readonly Group?: number;
+    readonly Employee: number;
+    readonly Group: number;
 }
 
 export interface GroupEmployeeUpdateEntity extends GroupEmployeeCreateEntity {
@@ -106,21 +106,25 @@ export class GroupEmployeeRepository {
                 name: "Employee",
                 column: "GROUPEMPLOYEE_EMPLOYEE",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Group",
                 column: "GROUPEMPLOYEE_GROUP",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "UpdatedBy",
                 column: "GROUPEMPLOYEE_UPDATEDBY",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "DateModified",
                 column: "GROUPEMPLOYEE_DATEMODIFIED",
                 type: "TIMESTAMP",
+                required: true
             }
         ]
     };

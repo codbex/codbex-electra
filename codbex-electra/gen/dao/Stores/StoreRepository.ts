@@ -7,16 +7,16 @@ import { EntityUtils } from "../utils/EntityUtils";
 export interface StoreEntity {
     readonly Id: number;
     Name: string;
-    Url?: string;
+    Url: string;
     Type: number;
-    Enabled?: boolean;
+    Enabled: boolean;
 }
 
 export interface StoreCreateEntity {
     readonly Name: string;
-    readonly Url?: string;
+    readonly Url: string;
     readonly Type: number;
-    readonly Enabled?: boolean;
+    readonly Enabled: boolean;
 }
 
 export interface StoreUpdateEntity extends StoreCreateEntity {
@@ -115,6 +115,7 @@ export class StoreRepository {
                 name: "Url",
                 column: "STORE_URL",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Type",
@@ -126,6 +127,7 @@ export class StoreRepository {
                 name: "Enabled",
                 column: "STORE_ENABLED",
                 type: "BOOLEAN",
+                required: true
             }
         ]
     };

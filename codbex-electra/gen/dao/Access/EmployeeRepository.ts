@@ -5,21 +5,21 @@ import { dao as daoApi } from "sdk/db";
 
 export interface EmployeeEntity {
     readonly Id: number;
-    FirstName?: string;
-    LastName?: string;
-    Email?: string;
-    Status?: number;
+    FirstName: string;
+    LastName: string;
+    Email: string;
+    Status: number;
     Image?: string;
     Code?: string;
-    UpdatedBy?: string;
-    DateModified?: Date;
+    UpdatedBy: string;
+    DateModified: Date;
 }
 
 export interface EmployeeCreateEntity {
-    readonly FirstName?: string;
-    readonly LastName?: string;
-    readonly Email?: string;
-    readonly Status?: number;
+    readonly FirstName: string;
+    readonly LastName: string;
+    readonly Email: string;
+    readonly Status: number;
     readonly Image?: string;
     readonly Code?: string;
 }
@@ -142,21 +142,25 @@ export class EmployeeRepository {
                 name: "FirstName",
                 column: "EMPLOYEE_FIRSTNAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "LastName",
                 column: "EMPLOYEE_LASTNAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Email",
                 column: "EMPLOYEE_EMAIL",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Status",
                 column: "EMPLOYEE_STATUS",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Image",
@@ -172,11 +176,13 @@ export class EmployeeRepository {
                 name: "UpdatedBy",
                 column: "EMPLOYEE_UPDATEDBY",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "DateModified",
                 column: "EMPLOYEE_DATEADDED",
                 type: "TIMESTAMP",
+                required: true
             }
         ]
     };

@@ -44,14 +44,14 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idSalesOrder" dg-required="false" dg-colon="true">SalesOrder</fd-form-label>
+                        	<fd-form-label for="idSalesOrder" dg-required="true" dg-colon="true">SalesOrder</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['SalesOrder'].$valid }}">
 	                            <fd-input id="idSalesOrder"
 	                                name="SalesOrder"
 	                                state="{{ forms.details['SalesOrder'].$valid ? '' : 'error' }}"
-									ng-required="false"
+									ng-required="true"
 	                                ng-model="entity.SalesOrder"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="${property.minLength} || 0"

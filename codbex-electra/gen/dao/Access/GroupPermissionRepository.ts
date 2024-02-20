@@ -5,15 +5,15 @@ import { dao as daoApi } from "sdk/db";
 
 export interface GroupPermissionEntity {
     readonly Id: number;
-    Group?: number;
-    Permission?: number;
-    UpdatedBy?: string;
-    DateModified?: Date;
+    Group: number;
+    Permission: number;
+    UpdatedBy: string;
+    DateModified: Date;
 }
 
 export interface GroupPermissionCreateEntity {
-    readonly Group?: number;
-    readonly Permission?: number;
+    readonly Group: number;
+    readonly Permission: number;
 }
 
 export interface GroupPermissionUpdateEntity extends GroupPermissionCreateEntity {
@@ -106,21 +106,25 @@ export class GroupPermissionRepository {
                 name: "Group",
                 column: "GROUPPERMISSION_GROUP",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Permission",
                 column: "GROUPPERMISSION_PERMISSION",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "UpdatedBy",
                 column: "GROUPPERMISSION_UPDATEDBY",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "DateModified",
                 column: "GROUPPERMISSION_DATEMODIFIED",
                 type: "TIMESTAMP",
+                required: true
             }
         ]
     };

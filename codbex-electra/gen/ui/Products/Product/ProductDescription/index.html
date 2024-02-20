@@ -32,13 +32,13 @@
 			<table fd-table display-mode="compact" inner-borders="top" outer-borders="none">
 				<thead fd-table-header sticky="true">
 					<tr fd-table-row>
+						<th fd-table-header-cell>Language</th>
 						<th fd-table-header-cell>Name</th>
 						<th fd-table-header-cell>Description</th>
 						<th fd-table-header-cell>Tag</th>
 						<th fd-table-header-cell>MetaTitle</th>
 						<th fd-table-header-cell>MetaDescription</th>
 						<th fd-table-header-cell>MetaKeyword</th>
-						<th fd-table-header-cell>Language</th>
 						<th fd-table-header-cell></th>
 					</tr>
 				</thead>
@@ -48,15 +48,15 @@
 					</tr>
 					<tr fd-table-row hoverable="true" ng-repeat="next in data"
 						dg-selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							{{optionsLanguageValue(next.Language)}}
+						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Name}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Description}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Tag}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.MetaTitle}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.MetaDescription}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.MetaKeyword}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsLanguageValue(next.Language)}}
-						</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>
 								<fd-popover-control>

@@ -50,6 +50,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			if (entity.Product) {
 				filter.$filter.equals.Product = entity.Product;
 			}
+			if (entity.Language) {
+				filter.$filter.equals.Language = entity.Language;
+			}
 			if (entity.Name) {
 				filter.$filter.contains.Name = entity.Name;
 			}
@@ -67,9 +70,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			if (entity.MetaKeyword) {
 				filter.$filter.contains.MetaKeyword = entity.MetaKeyword;
-			}
-			if (entity.Language) {
-				filter.$filter.equals.Language = entity.Language;
 			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,

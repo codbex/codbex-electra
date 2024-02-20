@@ -10,9 +10,9 @@ export interface SalesOrderEntity {
     Status: number;
     Store: number;
     Customer: number;
-    DateAdded?: Date;
-    DateModified?: Date;
-    UpdatedBy?: string;
+    DateAdded: Date;
+    DateModified: Date;
+    UpdatedBy: string;
     Tracking?: string;
     Comment?: string;
     InvoiceNumber?: number;
@@ -216,16 +216,19 @@ export class SalesOrderRepository {
                 name: "DateAdded",
                 column: "SALESORDER_DATEADDED",
                 type: "TIMESTAMP",
+                required: true
             },
             {
                 name: "DateModified",
                 column: "SALESORDER_DATEMODIFIED",
                 type: "TIMESTAMP",
+                required: true
             },
             {
                 name: "UpdatedBy",
                 column: "SALESORDER_UPDATEDBY",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Tracking",

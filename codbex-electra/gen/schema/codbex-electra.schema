@@ -67,7 +67,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CURRENCY_DATEMODIFIED"
                     }
                 ]
@@ -126,7 +125,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDER_DATEADDED"
                     },
                     {
@@ -134,7 +132,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDER_DATEMODIFIED"
                     },
                     {
@@ -142,7 +139,6 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDER_UPDATEDBY"
                     },
                     {
@@ -210,7 +206,6 @@
                         "length": 255,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "STORE_URL"
                     },
                     {
@@ -225,7 +220,6 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "STORE_ENABLED"
                     }
                 ]
@@ -290,7 +284,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CUSTOMER_DATE_ADDED"
                     },
                     {
@@ -355,7 +348,6 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "COUNTRY_POSTCODEREQUIRED"
                     }
                 ]
@@ -375,7 +367,8 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "COUNTRYSTATUS_NAME"
                     }
                 ]
@@ -437,7 +430,8 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "ZONESTATUS_NAME"
                     }
                 ]
@@ -473,7 +467,6 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ORDERSTATUS_DEFAULT"
                     }
                 ]
@@ -539,7 +532,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "LANGUAGESTATUS_NAME"
                     }
                 ]
@@ -591,7 +583,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ORDERITEM_SALESORDER"
                     },
                     {
@@ -675,7 +666,6 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_STATUS"
                     },
                     {
@@ -697,6 +687,7 @@
                         "length": 255,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "PRODUCT_IMAGE"
                     },
                     {
@@ -704,6 +695,7 @@
                         "length": 64,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "PRODUCT_SKU"
                     },
                     {
@@ -711,6 +703,7 @@
                         "length": 12,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "PRODUCT_UPC"
                     },
                     {
@@ -718,6 +711,7 @@
                         "length": 14,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "PRODUCT_EAN"
                     },
                     {
@@ -725,6 +719,7 @@
                         "length": 13,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "PRODUCT_JAN"
                     },
                     {
@@ -732,6 +727,7 @@
                         "length": 17,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "PRODUCT_ISBN"
                     },
                     {
@@ -739,6 +735,7 @@
                         "length": 64,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "PRODUCT_MPN"
                     },
                     {
@@ -781,7 +778,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_DATEADDED"
                     },
                     {
@@ -789,7 +785,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_DATEMODIFIED"
                     },
                     {
@@ -797,7 +792,6 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_UPDATEDBY"
                     },
                     {
@@ -812,7 +806,6 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_SHIPPING"
                     },
                     {
@@ -827,7 +820,6 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_SUBTRACT"
                     },
                     {
@@ -863,7 +855,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "STOCKSTATUS_LANGUAGE"
                     },
                     {
@@ -871,7 +862,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "STOCKSTATUS_NAME"
                     }
                 ]
@@ -922,7 +912,8 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "PRODUCTSTATUS_NAME"
                     }
                 ]
@@ -944,7 +935,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "EMPLOYEE_FIRSTNAME"
                     },
                     {
@@ -952,7 +942,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "EMPLOYEE_LASTNAME"
                     },
                     {
@@ -960,7 +949,6 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "EMPLOYEE_EMAIL"
                     },
                     {
@@ -968,7 +956,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "EMPLOYEE_STATUS"
                     },
                     {
@@ -992,7 +979,6 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "EMPLOYEE_UPDATEDBY"
                     },
                     {
@@ -1000,7 +986,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "EMPLOYEE_DATEADDED"
                     }
                 ]
@@ -1020,7 +1005,8 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "EMPLOYEESTATUS_NAME"
                     }
                 ]
@@ -1144,7 +1130,8 @@
                     {
                         "type": "INTEGER",
                         "length": 0,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "SALESORDERPAYMENT_SALESORDER"
                     }
                 ]
@@ -1276,7 +1263,8 @@
                     {
                         "type": "INTEGER",
                         "length": 0,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "SALESORDERSHIPPING_SALESORDER"
                     }
                 ]
@@ -1298,7 +1286,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CURRENCYSTATUS_NAME"
                     }
                 ]
@@ -1322,7 +1309,6 @@
                         "length": 64,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUP_NAME"
                     },
                     {
@@ -1330,7 +1316,6 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUP_UPDATEDBY"
                     },
                     {
@@ -1338,7 +1323,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUP_DATEMODIFIED"
                     }
                 ]
@@ -1456,7 +1440,6 @@
                         "length": 2000,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERCOMMENT_TEXT"
                     },
                     {
@@ -1464,7 +1447,6 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERCOMMENT_CREATEDBY"
                     },
                     {
@@ -1472,7 +1454,6 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERCOMMENT_UPDATEDBY"
                     },
                     {
@@ -1480,7 +1461,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERCOMMENT_DATEADDED"
                     },
                     {
@@ -1488,7 +1468,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERCOMMENT_DATEMODIFIED"
                     },
                     {
@@ -1496,7 +1475,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERCOMMENT_SALESORDER"
                     }
                 ]
@@ -1559,6 +1537,13 @@
                         "name": "PRODUCTDESCRIPTION_PRODUCT"
                     },
                     {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "PRODUCTDESCRIPTION_LANGUAGE"
+                    },
+                    {
                         "type": "VARCHAR",
                         "length": 255,
                         "precision": "NaN",
@@ -1599,13 +1584,6 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "name": "PRODUCTDESCRIPTION_METAKEYWORD"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "name": "PRODUCTDESCRIPTION_LANGUAGE"
                     }
                 ]
             },
@@ -1628,7 +1606,6 @@
                         "length": 64,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PERMISSION_NAME"
                     }
                 ]
@@ -1650,7 +1627,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUPEMPLOYEE_EMPLOYEE"
                     },
                     {
@@ -1658,7 +1634,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUPEMPLOYEE_GROUP"
                     },
                     {
@@ -1666,7 +1641,6 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUPEMPLOYEE_UPDATEDBY"
                     },
                     {
@@ -1674,7 +1648,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUPEMPLOYEE_DATEMODIFIED"
                     }
                 ]
@@ -1696,7 +1669,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUPPERMISSION_GROUP"
                     },
                     {
@@ -1704,7 +1676,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUPPERMISSION_PERMISSION"
                     },
                     {
@@ -1712,7 +1683,6 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUPPERMISSION_UPDATEDBY"
                     },
                     {
@@ -1720,7 +1690,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUPPERMISSION_DATEMODIFIED"
                     }
                 ]
@@ -1964,7 +1933,6 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CATEGORY_STATUS"
                     },
                     {
@@ -1980,7 +1948,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CATEGORY_DATEADDED"
                     },
                     {
@@ -1988,7 +1955,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CATEGORY_DATEMODIFIED"
                     }
                 ]

@@ -12,7 +12,7 @@ export interface CurrencyEntity {
     SymbolRight: string;
     DecimalPlace: string;
     Value: number;
-    DateModified?: Date;
+    DateModified: Date;
 }
 
 export interface CurrencyCreateEntity {
@@ -185,6 +185,7 @@ export class CurrencyRepository {
                 name: "DateModified",
                 column: "CURRENCY_DATEMODIFIED",
                 type: "TIMESTAMP",
+                required: true
             }
         ]
     };

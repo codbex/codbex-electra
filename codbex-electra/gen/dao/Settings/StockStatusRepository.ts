@@ -5,13 +5,13 @@ import { dao as daoApi } from "sdk/db";
 
 export interface StockStatusEntity {
     readonly Id: number;
-    Language?: number;
-    Name?: string;
+    Language: number;
+    Name: string;
 }
 
 export interface StockStatusCreateEntity {
-    readonly Language?: number;
-    readonly Name?: string;
+    readonly Language: number;
+    readonly Name: string;
 }
 
 export interface StockStatusUpdateEntity extends StockStatusCreateEntity {
@@ -90,11 +90,13 @@ export class StockStatusRepository {
                 name: "Language",
                 column: "STOCKSTATUS_LANGUAGE",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Name",
                 column: "STOCKSTATUS_NAME",
                 type: "VARCHAR",
+                required: true
             }
         ]
     };

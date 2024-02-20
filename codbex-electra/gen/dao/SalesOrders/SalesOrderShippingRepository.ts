@@ -19,7 +19,7 @@ export interface SalesOrderShippingEntity {
     UpdatedBy?: string;
     AddressFormat?: string;
     CustomField?: string;
-    SalesOrder?: number;
+    SalesOrder: number;
 }
 
 export interface SalesOrderShippingCreateEntity {
@@ -36,7 +36,7 @@ export interface SalesOrderShippingCreateEntity {
     readonly Code?: string;
     readonly AddressFormat?: string;
     readonly CustomField?: string;
-    readonly SalesOrder?: number;
+    readonly SalesOrder: number;
 }
 
 export interface SalesOrderShippingUpdateEntity extends SalesOrderShippingCreateEntity {
@@ -276,6 +276,7 @@ export class SalesOrderShippingRepository {
                 name: "SalesOrder",
                 column: "SALESORDERSHIPPING_SALESORDER",
                 type: "INTEGER",
+                required: true
             }
         ]
     };

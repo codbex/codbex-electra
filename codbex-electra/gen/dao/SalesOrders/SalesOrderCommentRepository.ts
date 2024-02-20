@@ -5,17 +5,17 @@ import { dao as daoApi } from "sdk/db";
 
 export interface SalesOrderCommentEntity {
     readonly Id: number;
-    Text?: string;
-    CreatedBy?: string;
-    UpdatedBy?: string;
-    DateAdded?: Date;
-    DateModified?: Date;
-    SalesOrder?: number;
+    Text: string;
+    CreatedBy: string;
+    UpdatedBy: string;
+    DateAdded: Date;
+    DateModified: Date;
+    SalesOrder: number;
 }
 
 export interface SalesOrderCommentCreateEntity {
-    readonly Text?: string;
-    readonly SalesOrder?: number;
+    readonly Text: string;
+    readonly SalesOrder: number;
 }
 
 export interface SalesOrderCommentUpdateEntity extends SalesOrderCommentCreateEntity {
@@ -122,31 +122,37 @@ export class SalesOrderCommentRepository {
                 name: "Text",
                 column: "SALESORDERCOMMENT_TEXT",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "CreatedBy",
                 column: "SALESORDERCOMMENT_CREATEDBY",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "UpdatedBy",
                 column: "SALESORDERCOMMENT_UPDATEDBY",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "DateAdded",
                 column: "SALESORDERCOMMENT_DATEADDED",
                 type: "TIMESTAMP",
+                required: true
             },
             {
                 name: "DateModified",
                 column: "SALESORDERCOMMENT_DATEMODIFIED",
                 type: "TIMESTAMP",
+                required: true
             },
             {
                 name: "SalesOrder",
                 column: "SALESORDERCOMMENT_SALESORDER",
                 type: "INTEGER",
+                required: true
             }
         ]
     };

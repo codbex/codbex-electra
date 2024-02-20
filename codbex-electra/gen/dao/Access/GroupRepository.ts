@@ -5,13 +5,13 @@ import { dao as daoApi } from "sdk/db";
 
 export interface GroupEntity {
     readonly Id: number;
-    Name?: string;
-    UpdatedBy?: string;
-    DateModified?: Date;
+    Name: string;
+    UpdatedBy: string;
+    DateModified: Date;
 }
 
 export interface GroupCreateEntity {
-    readonly Name?: string;
+    readonly Name: string;
 }
 
 export interface GroupUpdateEntity extends GroupCreateEntity {
@@ -97,16 +97,19 @@ export class GroupRepository {
                 name: "Name",
                 column: "GROUP_NAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "UpdatedBy",
                 column: "GROUP_UPDATEDBY",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "DateModified",
                 column: "GROUP_DATEMODIFIED",
                 type: "TIMESTAMP",
+                required: true
             }
         ]
     };
