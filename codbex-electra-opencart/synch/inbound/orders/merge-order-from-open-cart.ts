@@ -49,7 +49,7 @@ class MergeCustomerFromOpenCart extends BaseHandler {
         const ocOrder = this.ocOrderDAO.findById(ocOrderId)!;
         const orderReference = this.entityReferenceDAO.getOrderReferenceByReferenceId(storeId, ocOrderId);
 
-        if (orderReference) {
+        if (orderReference && this.salesOrderDAO.findById(orderReference.EntityIntegerId!)) {
             // not needed to be recreated - sync only once
             return;
         }
