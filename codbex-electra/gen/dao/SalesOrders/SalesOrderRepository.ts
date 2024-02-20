@@ -10,7 +10,7 @@ export interface SalesOrderEntity {
     Status: number;
     Store: number;
     Customer: number;
-    DateAdded: Date;
+    DateAdded?: Date;
     DateModified: Date;
     UpdatedBy: string;
     Tracking?: string;
@@ -216,7 +216,6 @@ export class SalesOrderRepository {
                 name: "DateAdded",
                 column: "SALESORDER_DATEADDED",
                 type: "TIMESTAMP",
-                required: true
             },
             {
                 name: "DateModified",

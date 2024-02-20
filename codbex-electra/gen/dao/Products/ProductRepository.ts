@@ -23,7 +23,7 @@ export interface ProductEntity {
     Length: number;
     Width: number;
     Height: number;
-    DateAdded: Date;
+    DateAdded?: Date;
     DateModified: Date;
     UpdatedBy: string;
     Points: number;
@@ -399,7 +399,6 @@ export class ProductRepository {
                 name: "DateAdded",
                 column: "PRODUCT_DATEADDED",
                 type: "TIMESTAMP",
-                required: true
             },
             {
                 name: "DateModified",

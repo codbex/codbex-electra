@@ -9,7 +9,7 @@ export interface CategoryEntity {
     Name: string;
     Status: boolean;
     Image?: string;
-    DateAdded: Date;
+    DateAdded?: Date;
     DateModified: Date;
 }
 
@@ -134,7 +134,6 @@ export class CategoryRepository {
                 name: "DateAdded",
                 column: "CATEGORY_DATEADDED",
                 type: "TIMESTAMP",
-                required: true
             },
             {
                 name: "DateModified",

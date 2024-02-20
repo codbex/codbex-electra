@@ -8,7 +8,7 @@ export interface SalesOrderCommentEntity {
     Text: string;
     CreatedBy: string;
     UpdatedBy: string;
-    DateAdded: Date;
+    DateAdded?: Date;
     DateModified: Date;
     SalesOrder: number;
 }
@@ -140,7 +140,6 @@ export class SalesOrderCommentRepository {
                 name: "DateAdded",
                 column: "SALESORDERCOMMENT_DATEADDED",
                 type: "TIMESTAMP",
-                required: true
             },
             {
                 name: "DateModified",

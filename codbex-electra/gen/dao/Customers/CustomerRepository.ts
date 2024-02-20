@@ -11,7 +11,7 @@ export interface CustomerEntity {
     Store: number;
     Status: number;
     Telephone?: string;
-    DateAdded: Date;
+    DateAdded?: Date;
     CustomField?: string;
     Language: number;
 }
@@ -187,7 +187,6 @@ export class CustomerRepository {
                 name: "DateAdded",
                 column: "CUSTOMER_DATE_ADDED",
                 type: "TIMESTAMP",
-                required: true
             },
             {
                 name: "CustomField",

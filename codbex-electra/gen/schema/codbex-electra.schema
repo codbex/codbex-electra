@@ -125,6 +125,7 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "SALESORDER_DATEADDED"
                     },
                     {
@@ -284,6 +285,7 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "CUSTOMER_DATE_ADDED"
                     },
                     {
@@ -778,6 +780,7 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "PRODUCT_DATEADDED"
                     },
                     {
@@ -1461,6 +1464,7 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "SALESORDERCOMMENT_DATEADDED"
                     },
                     {
@@ -1948,6 +1952,7 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "CATEGORY_DATEADDED"
                     },
                     {

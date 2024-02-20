@@ -5,6 +5,7 @@ import { getLogger } from "../util/LoggerUtil";
 export class EntityReferenceDAO {
 
     private static readonly SALES_ORDER_ENTITY = "SalesOrder";
+    private static readonly SALES_ORDER_ITEM_ENTITY = "SalesOrderItem";
     private static readonly ORDER_STATUS_ENTITY = "OrderStatus";
     private static readonly ZONE_ENTITY = "Zone";
     private static readonly CURRENCY_ENTITY = "Currency";
@@ -27,6 +28,10 @@ export class EntityReferenceDAO {
 
     public createSalesOrderReference(storeId: number, salesOrderEntityId: number, salesOrderReferenceId: number) {
         return this.createReference(storeId, EntityReferenceDAO.SALES_ORDER_ENTITY, salesOrderEntityId, salesOrderReferenceId);
+    }
+
+    public createSalesOrderItemReference(storeId: number, salesOrderItemEntityId: number, salesOrderItemReferenceId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.SALES_ORDER_ITEM_ENTITY, salesOrderItemEntityId, salesOrderItemReferenceId);
     }
 
     public createCustomerReference(storeId: number, customerEntityId: number, customerReferenceId: number) {
@@ -218,6 +223,14 @@ export class EntityReferenceDAO {
 
     public getRequiredCustomerReferenceByReferenceId(storeId: number, customerReferenceId: number) {
         return this.getRequireReferenceByReferenceId(storeId, EntityReferenceDAO.CUSTOMER_ENTITY, customerReferenceId);
+    }
+
+    public getRequiredZoneReferenceByReferenceId(storeId: number, zoneReferenceId: number) {
+        return this.getRequireReferenceByReferenceId(storeId, EntityReferenceDAO.ZONE_ENTITY, zoneReferenceId);
+    }
+
+    public getRequiredCountryReferenceByReferenceId(storeId: number, countryReferenceId: number) {
+        return this.getRequireReferenceByReferenceId(storeId, EntityReferenceDAO.COUNTRY_ENTITY, countryReferenceId);
     }
 
     public getRequiredOrderStatusReferenceByReferenceId(storeId: number, orderStatusReferenceId: number) {
