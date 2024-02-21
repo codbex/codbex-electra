@@ -16,6 +16,7 @@ export class StoreConfigDAO {
     private static readonly OPENCART_STORE_TYPE_NAME = "OpenCart";
     private static readonly OPENCART_DATASOURCE_NAME_PROPERTY = "DATASOURCE_NAME";
     private static readonly OPENCART_URL_PROPERTY = "URL";
+    private static readonly ECONT_SHOP_SECRET_PROPERTY = "ECONT_SHOP_SECRET";
 
     private readonly logger;
     private readonly storeDAO;
@@ -29,6 +30,52 @@ export class StoreConfigDAO {
         this.storeConfigurationDAO = new StoreConfigurationDAO();
         this.storeConfigurationPropertyDAO = new StoreConfigurationPropertyDAO();
         this.storeTypeDAO = new StoreTypeDAO();
+    }
+
+    public getStoreEcontShopSecret(storeId: number): string {
+        return this.getStoreConfigPropertyByName(storeId, StoreConfigDAO.ECONT_SHOP_SECRET_PROPERTY);
+    }
+
+    private getStoreConfigPropertyByName(storeId: number, propertyName: string): string {
+        const propertyId = this.getStoreConfigPropertyIdByName(propertyName);
+
+        const querySettings = {
+            $filter: {
+                equals: {
+                    Store: storeId,
+                    Property: propertyId
+                }
+            }
+        };
+        const cfgs = this.storeConfigurationDAO.findAll(querySettings);
+        if (cfgs.length === 0) {
+            this.throwError(`Missing store configurations for property with name [${propertyName}] and store id [${storeId}].`);
+        }
+
+        if (cfgs.length > 1) {
+            this.throwError(`Found more than one store configurations for property with name [${propertyName}] and store id [${storeId}].`);
+        }
+        return cfgs[0].Value;
+
+    }
+    private getStoreConfigPropertyIdByName(propertyName: string) {
+        const querySettings = {
+            $filter: {
+                equals: {
+                    Name: propertyName
+                }
+            }
+        };
+        const cfgProps = this.storeConfigurationPropertyDAO.findAll(querySettings);
+
+        if (cfgProps.length === 0) {
+            this.throwError(`Missing store configuration property with name [${propertyName}].`);
+        }
+
+        if (cfgProps.length > 1) {
+            this.throwError(`Found more than one store configuration properties with name [${propertyName}].`);
+        }
+        return cfgProps[0].Id;
     }
 
     public getEnabledOpenCartStoresConfig() {
