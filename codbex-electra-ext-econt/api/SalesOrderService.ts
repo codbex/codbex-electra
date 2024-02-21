@@ -30,7 +30,7 @@ class SalesOrderService {
 	}
 
 	@Put("/:salesOrderId/updateTrackingNumber")
-	public updateOpenCartOrder(body: any, ctx: any) {
+	public updateOrderTrackingNumber(body: any, ctx: any) {
 		try {
 			const salesOrderId = ctx.pathParameters.salesOrderId;
 
@@ -49,7 +49,7 @@ class SalesOrderService {
 	}
 
 	@Get("/:salesOrderId/shippingLabelURL")
-	public getShippingLabelURL(_: any, ctx: any) {
+	public getOrderShippingLabelURL(_: any, ctx: any) {
 		try {
 			const salesOrderId = ctx.pathParameters.salesOrderId;
 
