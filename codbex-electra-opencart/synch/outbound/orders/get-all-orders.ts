@@ -1,9 +1,9 @@
 import { SalesOrderRepository as SalesOrderDAO, SalesOrderEntityOptions } from "../../../../codbex-electra/gen/dao/SalesOrders/SalesOrderRepository";
-import { StoreEntry } from "../../get-all-relevant-stores";
+import { OpenCartStoreConfig } from "../../../dao/StoreConfigDAO";
 import { BaseHandler } from "../../base-handler";
 
 export function onMessage(message: any) {
-    const store: StoreEntry = message.getBody();
+    const store: OpenCartStoreConfig = message.getBody();
 
     const handler = new GetSalesOrdersHandler(store);
     const orderEntries = handler.handle();
@@ -14,14 +14,14 @@ export function onMessage(message: any) {
 
 export interface OrderEntry {
     readonly orderId: number;
-    readonly store: StoreEntry;
+    readonly store: OpenCartStoreConfig;
 }
 
 class GetSalesOrdersHandler extends BaseHandler {
     private readonly store;
     private readonly orderDAO;
 
-    constructor(store: StoreEntry) {
+    constructor(store: OpenCartStoreConfig) {
         super(import.meta.url);
         this.store = store;
         this.orderDAO = new SalesOrderDAO();

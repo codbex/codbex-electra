@@ -1,9 +1,9 @@
 import { CurrencyRepository as CurrencyDAO, CurrencyEntityOptions } from "../../../../codbex-electra/gen/dao/Settings/CurrencyRepository";
-import { StoreEntry } from "../../get-all-relevant-stores";
+import { OpenCartStoreConfig } from "../../../dao/StoreConfigDAO";
 import { BaseHandler } from "../../base-handler";
 
 export function onMessage(message: any) {
-    const store: StoreEntry = message.getBody();
+    const store: OpenCartStoreConfig = message.getBody();
 
     const handler = new GetStoreCurrenciesHandler(store);
     const currencyEntries = handler.handle();
@@ -14,14 +14,14 @@ export function onMessage(message: any) {
 
 export interface CurrencyEntry {
     readonly currencyId: number;
-    readonly store: StoreEntry;
+    readonly store: OpenCartStoreConfig;
 }
 
 class GetStoreCurrenciesHandler extends BaseHandler {
     private readonly store;
     private readonly currencyDAO;
 
-    constructor(store: StoreEntry) {
+    constructor(store: OpenCartStoreConfig) {
         super(import.meta.url);
         this.store = store;
         this.currencyDAO = new CurrencyDAO();

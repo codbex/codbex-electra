@@ -1,9 +1,9 @@
 import { ZoneRepository as ZoneDAO, ZoneEntityOptions } from "../../../../codbex-electra/gen/dao/Settings/ZoneRepository";
-import { StoreEntry } from "../../get-all-relevant-stores";
+import { OpenCartStoreConfig } from "../../../dao/StoreConfigDAO";
 import { BaseHandler } from "../../base-handler";
 
 export function onMessage(message: any) {
-    const store: StoreEntry = message.getBody();
+    const store: OpenCartStoreConfig = message.getBody();
 
     const handler = new GetStoreZonesHandler(store);
     const zoneEntries = handler.handle();
@@ -14,14 +14,14 @@ export function onMessage(message: any) {
 
 export interface ZoneEntry {
     readonly zoneId: number;
-    readonly store: StoreEntry;
+    readonly store: OpenCartStoreConfig;
 }
 
 class GetStoreZonesHandler extends BaseHandler {
     private readonly store;
     private readonly zoneDAO;
 
-    constructor(store: StoreEntry) {
+    constructor(store: OpenCartStoreConfig) {
         super(import.meta.url);
         this.store = store;
         this.zoneDAO = new ZoneDAO();

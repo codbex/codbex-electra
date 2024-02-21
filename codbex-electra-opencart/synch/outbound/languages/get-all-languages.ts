@@ -1,9 +1,9 @@
 import { LanguageRepository as LanguageDAO, LanguageEntityOptions } from "../../../../codbex-electra/gen/dao/Settings/LanguageRepository";
-import { StoreEntry } from "../../get-all-relevant-stores";
+import { OpenCartStoreConfig } from "../../../dao/StoreConfigDAO";
 import { BaseHandler } from "../../base-handler";
 
 export function onMessage(message: any) {
-    const store: StoreEntry = message.getBody();
+    const store: OpenCartStoreConfig = message.getBody();
 
     const handler = new GetLanguagesHandler(store);
     const languageEntries = handler.handle();
@@ -14,14 +14,14 @@ export function onMessage(message: any) {
 
 export interface LanguageEntry {
     readonly languageId: number;
-    readonly store: StoreEntry;
+    readonly store: OpenCartStoreConfig;
 }
 
 class GetLanguagesHandler extends BaseHandler {
     private readonly store;
     private readonly languageDAO;
 
-    constructor(store: StoreEntry) {
+    constructor(store: OpenCartStoreConfig) {
         super(import.meta.url);
         this.store = store;
         this.languageDAO = new LanguageDAO();

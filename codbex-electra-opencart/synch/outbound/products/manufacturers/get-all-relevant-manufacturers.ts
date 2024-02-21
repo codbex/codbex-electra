@@ -1,10 +1,10 @@
 import { ProductToStoreRepository as ProductToStoreDAO, ProductToStoreEntityOptions } from "../../../../../codbex-electra/gen/dao/Products/ProductToStoreRepository";
 import { ProductRepository as ProductDAO, ProductEntityOptions } from "../../../../../codbex-electra/gen/dao/Products/ProductRepository";
 import { BaseHandler } from "../../../base-handler";
-import { StoreEntry } from "../../../get-all-relevant-stores";
+import { OpenCartStoreConfig } from "../../../../dao/StoreConfigDAO";
 
 export function onMessage(message: any) {
-    const store: StoreEntry = message.getBody();
+    const store: OpenCartStoreConfig = message.getBody();
 
     const handler = new GetAllRelevantManufacturersHandler(store);
     const storeManufacturerEntries = handler.handle();
@@ -15,7 +15,7 @@ export function onMessage(message: any) {
 
 export interface ManufacturerEntry {
     readonly manufacturerId: number;
-    readonly store: StoreEntry;
+    readonly store: OpenCartStoreConfig;
 }
 
 class GetAllRelevantManufacturersHandler extends BaseHandler {
@@ -23,7 +23,7 @@ class GetAllRelevantManufacturersHandler extends BaseHandler {
     private readonly productToStoreDAO;
     private readonly productDAO;
 
-    constructor(store: StoreEntry) {
+    constructor(store: OpenCartStoreConfig) {
         super(import.meta.url);
         this.store = store;
         this.productToStoreDAO = new ProductToStoreDAO();

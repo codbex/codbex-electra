@@ -1,9 +1,9 @@
-import { StoreEntry } from "../../get-all-relevant-stores";
+import { OpenCartStoreConfig } from "../../../dao/StoreConfigDAO";
 import { BaseHandler } from "../../base-handler";
 import { oc_orderRepository as OpenCartOrderDAO, oc_orderEntityOptions } from "../../../dao/oc_orderRepository";
 
 export function onMessage(message: any) {
-    const store: StoreEntry = message.getBody();
+    const store: OpenCartStoreConfig = message.getBody();
 
     const handler = new GetOrdersHandler(store);
     const languageEntries = handler.handle();
@@ -14,14 +14,14 @@ export function onMessage(message: any) {
 
 export interface OrderEntry {
     readonly ocOrderId: number;
-    readonly store: StoreEntry;
+    readonly store: OpenCartStoreConfig;
 }
 
 class GetOrdersHandler extends BaseHandler {
     private readonly store;
     private readonly ocOrderDAO;
 
-    constructor(store: StoreEntry) {
+    constructor(store: OpenCartStoreConfig) {
         super(import.meta.url);
         this.store = store;
         this.ocOrderDAO = new OpenCartOrderDAO(store.dataSourceName);

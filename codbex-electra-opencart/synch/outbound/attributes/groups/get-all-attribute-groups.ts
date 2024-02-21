@@ -1,9 +1,9 @@
 import { AttributeGroupRepository as AttributeGroupDAO, AttributeGroupEntityOptions } from "../../../../../codbex-electra/gen/dao/Products/AttributeGroupRepository";
 import { BaseHandler } from "../../../base-handler";
-import { StoreEntry } from "../../../get-all-relevant-stores";
+import { OpenCartStoreConfig } from "../../../../dao/StoreConfigDAO";
 
 export function onMessage(message: any) {
-    const store: StoreEntry = message.getBody();
+    const store: OpenCartStoreConfig = message.getBody();
 
     const handler = new GetAllAttributeGroupsHandler(store);
     const attributeGroupEntries = handler.handle();
@@ -14,14 +14,14 @@ export function onMessage(message: any) {
 
 export interface AttributeGroupEntry {
     readonly attributeGroupId: number;
-    readonly store: StoreEntry;
+    readonly store: OpenCartStoreConfig;
 }
 
 class GetAllAttributeGroupsHandler extends BaseHandler {
     private readonly store;
     private readonly attributeGroupDAO;
 
-    constructor(store: StoreEntry) {
+    constructor(store: OpenCartStoreConfig) {
         super(import.meta.url);
         this.store = store;
         this.attributeGroupDAO = new AttributeGroupDAO();

@@ -1,9 +1,9 @@
 import { CountryRepository as CountryDAO, CountryEntityOptions } from "../../../../codbex-electra/gen/dao/Settings/CountryRepository";
-import { StoreEntry } from "../../get-all-relevant-stores";
+import { OpenCartStoreConfig } from "../../../dao/StoreConfigDAO";
 import { BaseHandler } from "../../base-handler";
 
 export function onMessage(message: any) {
-    const store: StoreEntry = message.getBody();
+    const store: OpenCartStoreConfig = message.getBody();
 
     const handler = new GetStoreCountriesHandler(store);
     const currencyEntries = handler.handle();
@@ -14,14 +14,14 @@ export function onMessage(message: any) {
 
 export interface CountryEntry {
     readonly countryId: number;
-    readonly store: StoreEntry;
+    readonly store: OpenCartStoreConfig;
 }
 
 class GetStoreCountriesHandler extends BaseHandler {
     private readonly store;
     private readonly countryDAO;
 
-    constructor(store: StoreEntry) {
+    constructor(store: OpenCartStoreConfig) {
         super(import.meta.url);
         this.store = store;
         this.countryDAO = new CountryDAO();
