@@ -2000,7 +2000,7 @@
                         "widgetIsMajor": "true",
                         "widgetLength": "255",
                         "widgetSize": "",
-                        "widgetType": "URL"
+                        "widgetType": "TEXTBOX"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",

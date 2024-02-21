@@ -1,6 +1,8 @@
 MANUFACTURER_ID,MANUFACTURER_NAME,MANUFACTURER_IMAGE
-5,HTC,
-6,Palm,
-8,Apple,
-10,Sony,
-11,SanDisk,
+1,HTC,
+2,Apple,
+3,SanDisk,
+4,Samsung,
+5,"Palm, Inc.",
+6,Pharmavit,
+7,Aquafresh,

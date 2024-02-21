@@ -30,7 +30,6 @@ The following Eclipse Dirigible configurations should be available:
 | ELECTRA_OPENCART_DB_NAME | OpenCart DB name | bitnami_opencart |
 | ELECTRA_OPENCART_DB_USER | OpenCart DB user | bn_opencart |
 | ELECTRA_OPENCART_DB_PASS | OpenCart DB pass | mypass |
-| ELECTRA_OPENCART_URL | URL of the configured OpenCart Instance | https://dev.opencart-demo.eu1.codbex.com |
 | ELECTRA_ECONT_SHOP_SECRET | A secret for your shop in deliver with econt <br> ![Screenshot 2024-01-16 at 10 43 16](https://github.com/codbex/codbex-electra/assets/5058839/fe9607f9-7bae-455a-abad-087374af664f)| 6303036@1vDbAJ6LhPPxb9wFsaDWD32eqw |
 | ELECTRA_ECONT_DELIVERY_URL | URL of the deliver with econt | https://delivery.econt.com |
 
