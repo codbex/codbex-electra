@@ -1,7 +1,7 @@
 import { StoreRepository as StoreDAO } from "../../codbex-electra/gen/dao/Stores/StoreRepository";
 import { StoreTypeRepository as StoreTypeDAO } from "../../codbex-electra/gen/dao/Stores/StoreTypeRepository";
-import { StoreConfigurationRepository as StoreConfigurationDAO } from "../../codbex-electra/gen/dao/Stores/StoreConfigurationRepository";
-import { StoreConfigurationPropertyRepository as StoreConfigurationPropertyDAO } from "../../codbex-electra/gen/dao/Stores/StoreConfigurationPropertyRepository";
+import { StoreConfigurationRepository as StoreConfigurationDAO, StoreConfigurationEntity } from "../../codbex-electra/gen/dao/Stores/StoreConfigurationRepository";
+import { StoreConfigurationPropertyRepository as StoreConfigurationPropertyDAO, StoreConfigurationPropertyEntity } from "../../codbex-electra/gen/dao/Stores/StoreConfigurationPropertyRepository";
 import { getLogger } from "../../codbex-electra/util/LoggerUtil";
 
 export interface OpenCartStoreConfig {
@@ -35,14 +35,18 @@ export class StoreConfigDAO {
         const storeEntities = this.getAllEnabledOpenCartStores();
         this.logger.info("Found [{}] OpenCart stores which are enabled", storeEntities.length);
 
-        const dataSourcePropertyId = this.getStoreConfigPropertyId(StoreConfigDAO.OPENCART_DATASOURCE_NAME_PROPERTY);
-        const urlPropertyId = this.getStoreConfigPropertyId(StoreConfigDAO.OPENCART_URL_PROPERTY);
+        const cfgProps = this.storeConfigurationPropertyDAO.findAll();
+        const dataSourcePropertyId = this.getStoreConfigPropertyId(StoreConfigDAO.OPENCART_DATASOURCE_NAME_PROPERTY, cfgProps);
+        const urlPropertyId = this.getStoreConfigPropertyId(StoreConfigDAO.OPENCART_URL_PROPERTY, cfgProps);
 
         const configs: OpenCartStoreConfig[] = [];
 
         storeEntities.forEach((storeEntity) => {
-            const dataSourceName = this.getStoreConfig(storeEntity.Id, dataSourcePropertyId);
-            const url = this.getStoreConfig(storeEntity.Id, urlPropertyId);
+
+            const storeConfigs = this.getStoreConfigs(storeEntity.Id);
+
+            const dataSourceName = this.getStoreConfig(dataSourcePropertyId, storeConfigs);
+            const url = this.getStoreConfig(urlPropertyId, storeConfigs);
 
             const cfg = {
                 id: storeEntity.Id,
@@ -91,45 +95,31 @@ export class StoreConfigDAO {
         return storeTypes[0].Id;
     }
 
-    private getStoreConfigPropertyId(propertyName: string) {
-        const querySettings = {
-            $filter: {
-                equals: {
-                    Name: propertyName
-                }
-            }
-        };
-        const configProperties = this.storeConfigurationPropertyDAO.findAll(querySettings)
-        if (configProperties.length === 0) {
-            this.throwError(`Missing store configuration property name [${propertyName}]`);
+    private getStoreConfigPropertyId(propertyName: string, cfgProps: StoreConfigurationPropertyEntity[]) {
+        const foundProperty = cfgProps.find(cfgProperty => propertyName === cfgProperty.Name);
+        if (!foundProperty) {
+            this.throwError(`Missing store configuration property name [${propertyName}] in props ${JSON.stringify(cfgProps)}`);
         }
-
-        if (configProperties.length > 1) {
-            this.throwError(`There are [${configProperties.length}] store configuration properties [${propertyName}]`);
-        }
-
-        return configProperties[0].Id;
+        return foundProperty!.Id;
     }
 
-    private getStoreConfig(storeId: number, propertyId: number) {
+    private getStoreConfigs(storeId: number) {
         const querySettings = {
             $filter: {
                 equals: {
-                    Store: storeId,
-                    Property: propertyId
+                    Store: storeId
                 }
             }
         };
-        const configs = this.storeConfigurationDAO.findAll(querySettings)
-        if (configs.length === 0) {
-            this.throwError(`Missing store configuration property with id [${propertyId}] for store [${storeId}]`);
-        }
+        return this.storeConfigurationDAO.findAll(querySettings);
+    }
 
-        if (configs.length > 1) {
-            this.throwError(`There are [${configs.length}] store configuration properties with id [${propertyId}] for store [${storeId}]`);
+    private getStoreConfig(propertyId: number, storeConfigs: StoreConfigurationEntity[]) {
+        const foundPropertyCfg = storeConfigs.find(cfg => propertyId === cfg.Property);
+        if (!foundPropertyCfg) {
+            this.throwError(`Missing store configuration property with id [${propertyId}] in [${JSON.stringify(storeConfigs)}]`);
         }
-
-        return configs[0].Value;
+        return foundPropertyCfg!.Value;
     }
 
     private throwError(errorMessage: string) {
