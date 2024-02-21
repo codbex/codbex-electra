@@ -61,7 +61,7 @@ class SalesOrderService {
 			const store = this.storeDAO.findById(salesOrder.Store)!;
 			const storeType = this.storeTypeDAO.findById(store.Type)!;
 			if (storeType.Name !== 'OpenCart') {
-				HttpUtils.sendResponseBadRequest(`SalesOrder [${salesOrderId}] is from store which is not of type OpenCart. Store type is ${storeType.Name}`);
+				HttpUtils.sendResponseBadRequest(`SalesOrder [${salesOrderId}] is from store which is not of type OpenCart. Store type is [${storeType.Name}]`);
 				return;
 			}
 			const secret = this.storeConfigDAO.getStoreEcontShopSecret(store.Id);
