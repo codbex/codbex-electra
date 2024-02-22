@@ -15,7 +15,6 @@ export class StoreConfigDAO {
 
     private static readonly OPENCART_STORE_TYPE_NAME = "OpenCart";
     private static readonly OPENCART_DATASOURCE_NAME_PROPERTY = "DATASOURCE_NAME";
-    private static readonly OPENCART_URL_PROPERTY = "URL";
     private static readonly ECONT_SHOP_SECRET_PROPERTY = "ECONT_SHOP_SECRET";
 
     private readonly logger;
@@ -84,22 +83,18 @@ export class StoreConfigDAO {
 
         const cfgProps = this.storeConfigurationPropertyDAO.findAll();
         const dataSourcePropertyId = this.getStoreConfigPropertyId(StoreConfigDAO.OPENCART_DATASOURCE_NAME_PROPERTY, cfgProps);
-        const urlPropertyId = this.getStoreConfigPropertyId(StoreConfigDAO.OPENCART_URL_PROPERTY, cfgProps);
 
         const configs: OpenCartStoreConfig[] = [];
 
         storeEntities.forEach((storeEntity) => {
 
             const storeConfigs = this.getStoreConfigs(storeEntity.Id);
-
             const dataSourceName = this.getStoreConfig(dataSourcePropertyId, storeConfigs);
-            const url = this.getStoreConfig(urlPropertyId, storeConfigs);
 
             const cfg = {
                 id: storeEntity.Id,
                 name: storeEntity.Name,
-                dataSourceName: dataSourceName,
-                url: url
+                dataSourceName: dataSourceName
             };
             configs.push(cfg);
         });
