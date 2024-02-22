@@ -162,54 +162,68 @@ In the following table, you can find the dependencies between entities.
 
 ### Launchpad
 ![application](misc/images/user-interface/launchpad.png)
+---
+### Sales Orders
 
-### Management
-
-#### Sales Orders
-
-##### Items
+#### Items
 ![salesorder-items](misc/images/user-interface/sales-order-items.png)
 
-##### Shipping
+#### Shipping
 ![salesorder-shipping](misc/images/user-interface/sales-order-shipping.png)
 
-##### Payment
+#### Payment
 ![salesorder-payment](misc/images/user-interface/sales-order-payment.png)
 
-##### Comments
+#### Comments
 You can add comments to the selected order.
 ![salesorder-comments](misc/images/user-interface/sales-order-comments.png)
 
-##### Print econt shipping label
+#### Print econt shipping label
 You can print an econt shipping label using the `Print Shipping Label` button.
 ![salesorder-econt-label](misc/images/user-interface/sales-order-econt-shipping-label.png)
-
-#### Products
+---
+### Products
 ![products](misc/images/user-interface/products.png)
-
-#### Stores
+---
+### Stores
 ![stores](misc/images/user-interface/stores.png)
+---
+### Customers
+![customers](misc/images/user-interface/customers.png)
+---
+### Access
 
-#### Currencies
-![currencies](misc/images/user-interface/currencies.png)
+#### Groups
+![groups](misc/images/user-interface/groups.png)
 
-#### Employee Groups
-![employeegroups](misc/images/user-interface/teams.png)
+#### Permissions
+![permissions](misc/images/user-interface/permissions.png)
+
+#### Group permissions
+![group-permissions](misc/images/user-interface/group-permissions.png)
 
 #### Employees
 ![employees](misc/images/user-interface/employees.png)
 
-#### Manufacturers
-![manifacturers](misc/images/user-interface/manufacturers.png)
-
-#### Customers/Affiliates
-![customers](misc/images/user-interface/customers.png)
-
-#### Attributes
-![attributes](misc/images/user-interface/attributes.png)
-
-#### Settings
-![settings](misc/images/user-interface/settings.png)
+#### Group assignments
+![group-assignments](misc/images/user-interface/group-assignments.png)
+---
+### Settings
 
 #### Settings launchpad
-![settings-launchpad](misc/images/user-interface/settings-launchpad.png)
+![settings](misc/images/user-interface/settings.png)
+
+#### Countries
+![countries](misc/images/user-interface/countries.png)
+
+#### Zones
+![zones](misc/images/user-interface/zones.png)
+
+#### Languages
+![languages](misc/images/user-interface/languages.png)
+
+#### Currencies
+![currencies](misc/images/user-interface/currencies.png)
+
+#### Order statuses
+![order-statuses](misc/images/user-interface/order-statuses.png)
