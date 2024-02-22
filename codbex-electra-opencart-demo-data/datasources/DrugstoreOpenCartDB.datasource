@@ -1,8 +1,8 @@
 {
     "location": "/codbex-electra-opencart-demo-data/datasources/DrugstoreOpenCartDB.datasource",
-    "name": "BookstoreOpenCartDB",
+    "name": "DrugstoreOpenCartDB",
     "driver": "org.mariadb.jdbc.Driver",
     "url": "jdbc:mariadb://${ELECTRA_DRUGSTORE_DB_HOST}:${ELECTRA_DRUGSTORE_DB_PORT}/${ELECTRA_DRUGSTORE_DB_NAME}",
     "username": "${ELECTRA_DRUGSTORE_DB_USER}",
     "password": "${ELECTRA_DRUGSTORE_DB_PASS}" 
-}
+} 

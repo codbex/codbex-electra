@@ -39,7 +39,7 @@
                   expression:
                     constant:
                       expression: >-
-                        codbex-electra-opencart/synch/outbound/categories/get-all-categories.ts
+                        codbex-electra-opencart/synch/outbound/categories/get-all-store-categories.ts
                       id: constant-categories-eb12
                   description: Set JS file
               - to:

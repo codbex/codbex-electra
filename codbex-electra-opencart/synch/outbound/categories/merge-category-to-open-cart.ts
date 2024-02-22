@@ -7,7 +7,7 @@ import { oc_category_descriptionRepository as OpenCartCategoryDescriptionDAO, oc
 import { oc_category_to_storeRepository as OpenCartCategoryToStoreDAO } from "../../../dao/oc_category_to_storeRepository";
 import { oc_category_pathRepository as OpenCartCategoryPathDAO } from "../../../dao/oc_category_pathRepository";
 import { BaseHandler } from "../../base-handler";
-import { CategoryEntry } from "./get-all-categories";
+import { CategoryEntry } from "./get-all-store-categories";
 
 export function onMessage(message: any) {
     const categoryEntry: CategoryEntry = message.getBody();
