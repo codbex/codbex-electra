@@ -1,0 +1,79 @@
+- route:
+    id: countries-out-sync-route
+    from:
+      uri: cron:TriggerCountriesReplication
+      id: trigger-countries-replication-cron
+      parameters:
+        schedule: 0 * * ? * *
+      description: Trigger Countries Replication
+      steps:
+        - log:
+            message: Replicating countries to OpenCart DB...
+            id: log-about-to-start-countries-replication
+            logName: OpenCartCountriesOutboundReplication
+            loggingLevel: INFO
+        - setProperty:
+            name: resource
+            id: set-js-countries-1
+            expression:
+              constant:
+                expression: >-
+                  codbex-electra-opencart/synch/get-all-relevant-stores.ts
+                id: constant-countries-8de2
+            description: Set JS file
+        - to:
+            uri: class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+            id: get-all-relevant-stores
+            description: Get all relevant stores
+        - split:
+            id: split-to-single-store
+            expression:
+              simple:
+                expression: ${body}
+                id: simple-countries-333
+                trim: true
+            description: Split to single store
+            parallelProcessing: false
+            steps:
+              - setProperty:
+                  name: resource
+                  id: set-js-countries-2
+                  expression:
+                    constant:
+                      expression: >-
+                        codbex-electra-opencart/synch/outbound/countries/get-all-countries.ts
+                      id: constant-countries-eb12
+                  description: Set JS file
+              - to:
+                  uri: >-
+                    class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+                  id: get-all-enabled-countries
+                  description: Get all enabled countries
+              - split:
+                  id: split-to-single-country
+                  expression:
+                    simple:
+                      expression: ${body}
+                      id: simple-countries-b984
+                  description: Split to single country
+                  steps:
+                    - setProperty:
+                        name: resource
+                        id: set-js-countries-3
+                        expression:
+                          constant:
+                            expression: >-
+                              codbex-electra-opencart/synch/outbound/countries/merge-country-to-open-cart.ts
+                            id: constant-countries-a0bf
+                        description: Set JS file
+                    - to:
+                        uri: >-
+                          class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+                        id: merge-country-to-oc
+                        description: Merge country to OpenCart
+        - log:
+            message: Successfully replicated countries to all enabled OpenCart stores
+            id: log-countries-replication-completed
+            logName: OpenCartCountriesOutboundReplication
+            loggingLevel: INFO
+    description: Sync countries to OpenCarts

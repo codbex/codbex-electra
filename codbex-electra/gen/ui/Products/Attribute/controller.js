@@ -3,14 +3,19 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-electra.Products.Attribute';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/Products/Attribute.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Products/AttributeService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
+
+		$scope.dataPage = 1;
+		$scope.dataCount = 0;
+		$scope.dataOffset = 0;
+		$scope.dataLimit = 10;
+		$scope.action = "select";
 
 		//-----------------Custom Actions-------------------//
 		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=codbex-electra-custom-action").then(function (response) {
 			$scope.pageActions = response.data.filter(e => e.perspective === "Products" && e.view === "Attribute" && (e.type === "page" || e.type === undefined));
-			$scope.entityActions = response.data.filter(e => e.perspective === "Products" && e.view === "Attribute" && e.type === "entity");
 		});
 
 		$scope.triggerPageAction = function (actionId) {
@@ -23,52 +28,58 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			}
 		};
-
-		$scope.triggerEntityAction = function (actionId, selectedEntity) {
-			for (const next of $scope.entityActions) {
-				if (next.id === actionId) {
-					messageHub.showDialogWindow("codbex-electra-custom-action", {
-						src: `${next.link}?id=${selectedEntity.Id}`,
-					});
-					break;
-				}
-			}
-		};
 		//-----------------Custom Actions-------------------//
 
-		function resetPagination() {
-			$scope.dataPage = 1;
-			$scope.dataCount = 0;
-			$scope.dataLimit = 20;
+		function refreshData() {
+			$scope.dataReset = true;
+			$scope.dataPage--;
 		}
-		resetPagination();
 
 		//-----------------Events-------------------//
+		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
+			$scope.$apply(function () {
+				$scope.selectedEntity = null;
+				$scope.action = "select";
+			});
+		});
+
 		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			refreshData();
+			$scope.loadPage();
 		});
 
 		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			refreshData();
+			$scope.loadPage();
 		});
 		//-----------------Events-------------------//
 
-		$scope.loadPage = function (pageNumber) {
-			$scope.dataPage = pageNumber;
+		$scope.loadPage = function () {
+			$scope.selectedEntity = null;
 			entityApi.count().then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("Attribute", `Unable to count Attribute: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
-				let offset = (pageNumber - 1) * $scope.dataLimit;
+				$scope.dataPages = Math.ceil($scope.dataCount / $scope.dataLimit);
+				let offset = ($scope.dataPage - 1) * $scope.dataLimit;
 				let limit = $scope.dataLimit;
+				if ($scope.dataReset) {
+					offset = 0;
+					limit = $scope.dataPage * $scope.dataLimit;
+				}
 				entityApi.list(offset, limit).then(function (response) {
 					if (response.status != 200) {
 						messageHub.showAlertError("Attribute", `Unable to list Attribute: '${response.message}'`);
 						return;
 					}
-					$scope.data = response.data;
+					if ($scope.data == null || $scope.dataReset) {
+						$scope.data = [];
+						$scope.dataReset = false;
+					}
+					$scope.data = $scope.data.concat(response.data);
+					$scope.dataPage++;
 				});
 			});
 		};
@@ -76,39 +87,33 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.selectEntity = function (entity) {
 			$scope.selectedEntity = entity;
-		};
-
-		$scope.openDetails = function (entity) {
-			$scope.selectedEntity = entity;
-			messageHub.showDialogWindow("Attribute-details", {
-				action: "select",
+			messageHub.postMessage("entitySelected", {
 				entity: entity,
-				optionsName: $scope.optionsName,
+				selectedMainEntityId: entity.Id,
 				optionsGroup: $scope.optionsGroup,
 			});
 		};
 
 		$scope.createEntity = function () {
 			$scope.selectedEntity = null;
-			messageHub.showDialogWindow("Attribute-details", {
-				action: "create",
+			$scope.action = "create";
+
+			messageHub.postMessage("createEntity", {
 				entity: {},
-				optionsName: $scope.optionsName,
 				optionsGroup: $scope.optionsGroup,
-			}, null, false);
+			});
 		};
 
-		$scope.updateEntity = function (entity) {
-			messageHub.showDialogWindow("Attribute-details", {
-				action: "update",
-				entity: entity,
-				optionsName: $scope.optionsName,
+		$scope.updateEntity = function () {
+			$scope.action = "update";
+			messageHub.postMessage("updateEntity", {
+				entity: $scope.selectedEntity,
 				optionsGroup: $scope.optionsGroup,
-			}, null, false);
+			});
 		};
 
-		$scope.deleteEntity = function (entity) {
-			let id = entity.Id;
+		$scope.deleteEntity = function () {
+			let id = $scope.selectedEntity.Id;
 			messageHub.showDialogAsync(
 				'Delete Attribute?',
 				`Are you sure you want to delete Attribute? This action cannot be undone.`,
@@ -129,6 +134,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 							messageHub.showAlertError("Attribute", `Unable to delete Attribute: '${response.message}'`);
 							return;
 						}
+						refreshData();
 						$scope.loadPage($scope.dataPage);
 						messageHub.postMessage("clearDetails");
 					});
@@ -137,19 +143,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsName = [];
 		$scope.optionsGroup = [];
 
-		$http.get("/services/js/codbex-electra/gen/api/Products/AttributeDescription.js").then(function (response) {
-			$scope.optionsName = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
 
-		$http.get("/services/js/codbex-electra/gen/api/Products/AttributeGroup.js").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Products/AttributeGroupService.ts").then(function (response) {
 			$scope.optionsGroup = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -157,14 +154,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
-		$scope.optionsNameValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsName.length; i++) {
-				if ($scope.optionsName[i].value === optionKey) {
-					return $scope.optionsName[i].text;
-				}
-			}
-			return null;
-		};
+
 		$scope.optionsGroupValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsGroup.length; i++) {
 				if ($scope.optionsGroup[i].value === optionKey) {

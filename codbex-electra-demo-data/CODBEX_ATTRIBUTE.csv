@@ -1,0 +1,8 @@
+ATTRIBUTE_ID,ATTRIBUTE_GROUP,ATTRIBUTE_NAME
+1,1,Capacity
+2,1,Standard UHS
+3,1,Class
+4,1,Package content
+5,2,Operating system
+6,2,Screen size
+7,2,Storage

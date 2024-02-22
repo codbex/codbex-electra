@@ -1,0 +1,125 @@
+{
+  "files": [
+    {
+      "table": "CODBEX_COUNTRYSTATUS",
+      "schema": "PUBLIC",
+      "file": "/codbex-electra-data/CODBEX_COUNTRYSTATUS.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    },
+    {
+      "table": "CODBEX_STORETYPE",
+      "schema": "PUBLIC",
+      "file": "/codbex-electra-data/CODBEX_STORETYPE.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    },
+    {
+      "table": "CODBEX_PERMISSION",
+      "schema": "PUBLIC",
+      "file": "/codbex-electra-data/CODBEX_PERMISSION.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    },
+    {
+      "table": "CODBEX_GROUP",
+      "schema": "PUBLIC",
+      "file": "/codbex-electra-data/CODBEX_GROUP.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    },
+    {
+      "table": "CODBEX_PRODUCTSTATUS",
+      "schema": "PUBLIC",
+      "file": "/codbex-electra-data/CODBEX_PRODUCTSTATUS.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    },
+    {
+      "table": "CODBEX_GROUPPERMISSION",
+      "schema": "PUBLIC",
+      "file": "/codbex-electra-data/CODBEX_GROUPPERMISSION.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    },
+    {
+      "table": "CODBEX_LANGUAGESTATUS",
+      "schema": "PUBLIC",
+      "file": "/codbex-electra-data/CODBEX_LANGUAGESTATUS.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    },
+    {
+      "table": "CODBEX_EMPLOYEESTATUS",
+      "schema": "PUBLIC",
+      "file": "/codbex-electra-data/CODBEX_EMPLOYEESTATUS.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    },
+    {
+      "table": "CODBEX_ZONESTATUS",
+      "schema": "PUBLIC",
+      "file": "/codbex-electra-data/CODBEX_ZONESTATUS.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    },
+    {
+      "table": "CODBEX_CUSTOMERSTATUS",
+      "schema": "PUBLIC",
+      "file": "/codbex-electra-data/CODBEX_CUSTOMERSTATUS.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    },
+    {
+      "table": "CODBEX_CURRENCYSTATUS",
+      "schema": "PUBLIC",
+      "file": "/codbex-electra-data/CODBEX_CURRENCYSTATUS.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    }
+  ]
+}

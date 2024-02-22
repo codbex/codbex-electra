@@ -3,7 +3,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-electra.Settings.Zone';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/Settings/Zone.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Settings/ZoneService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -43,9 +43,29 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		}
 		resetPagination();
 
-		$scope.loadPage = function (pageNumber) {
+		//-----------------Events-------------------//
+		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
+			$scope.loadPage($scope.dataPage, $scope.filter);
+		});
+
+		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
+			$scope.loadPage($scope.dataPage, $scope.filter);
+		});
+
+		messageHub.onDidReceiveMessage("entitySearch", function (msg) {
+			resetPagination();
+			$scope.filter = msg.data.filter;
+			$scope.filterEntity = msg.data.entity;
+			$scope.loadPage($scope.dataPage, $scope.filter);
+		});
+		//-----------------Events-------------------//
+
+		$scope.loadPage = function (pageNumber, filter) {
+			if (!filter && $scope.filter) {
+				filter = $scope.filter;
+			}
 			$scope.dataPage = pageNumber;
-			entityApi.count().then(function (response) {
+			entityApi.count(filter).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("Zone", `Unable to count Zone: '${response.message}'`);
 					return;
@@ -53,16 +73,24 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.dataCount = response.data;
 				let offset = (pageNumber - 1) * $scope.dataLimit;
 				let limit = $scope.dataLimit;
-				entityApi.list(offset, limit).then(function (response) {
+				let request;
+				if (filter) {
+					filter.$offset = offset;
+					filter.$limit = limit;
+					request = entityApi.search(filter);
+				} else {
+					request = entityApi.list(offset, limit);
+				}
+				request.then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("Zone", `Unable to list Zone: '${response.message}'`);
+						messageHub.showAlertError("Zone", `Unable to list/filter Zone: '${response.message}'`);
 						return;
 					}
 					$scope.data = response.data;
 				});
 			});
 		};
-		$scope.loadPage($scope.dataPage);
+		$scope.loadPage($scope.dataPage, $scope.filter);
 
 		$scope.selectEntity = function (entity) {
 			$scope.selectedEntity = entity;
@@ -78,12 +106,68 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		};
 
+		$scope.openFilter = function (entity) {
+			messageHub.showDialogWindow("Zone-filter", {
+				entity: $scope.filterEntity,
+				optionsCountry: $scope.optionsCountry,
+				optionsStatus: $scope.optionsStatus,
+			});
+		};
+
+		$scope.createEntity = function () {
+			$scope.selectedEntity = null;
+			messageHub.showDialogWindow("Zone-details", {
+				action: "create",
+				entity: {},
+				optionsCountry: $scope.optionsCountry,
+				optionsStatus: $scope.optionsStatus,
+			}, null, false);
+		};
+
+		$scope.updateEntity = function (entity) {
+			messageHub.showDialogWindow("Zone-details", {
+				action: "update",
+				entity: entity,
+				optionsCountry: $scope.optionsCountry,
+				optionsStatus: $scope.optionsStatus,
+			}, null, false);
+		};
+
+		$scope.deleteEntity = function (entity) {
+			let id = entity.Id;
+			messageHub.showDialogAsync(
+				'Delete Zone?',
+				`Are you sure you want to delete Zone? This action cannot be undone.`,
+				[{
+					id: "delete-btn-yes",
+					type: "emphasized",
+					label: "Yes",
+				},
+				{
+					id: "delete-btn-no",
+					type: "normal",
+					label: "No",
+				}],
+			).then(function (msg) {
+				if (msg.data === "delete-btn-yes") {
+					entityApi.delete(id).then(function (response) {
+						if (response.status != 204) {
+							messageHub.showAlertError("Zone", `Unable to delete Zone: '${response.message}'`);
+							return;
+						}
+						$scope.loadPage($scope.dataPage, $scope.filter);
+						messageHub.postMessage("clearDetails");
+					});
+				}
+			});
+		};
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsCountry = [];
 		$scope.optionsStatus = [];
 
-		$http.get("/services/js/codbex-electra/gen/api/Settings/Country.js").then(function (response) {
+
+		$http.get("/services/ts/codbex-electra/gen/api/Settings/CountryService.ts").then(function (response) {
 			$scope.optionsCountry = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -92,7 +176,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-electra/gen/api/Settings/ZoneStatus.js").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Settings/ZoneStatusService.ts").then(function (response) {
 			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -100,6 +184,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsCountryValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsCountry.length; i++) {
 				if ($scope.optionsCountry[i].value === optionKey) {

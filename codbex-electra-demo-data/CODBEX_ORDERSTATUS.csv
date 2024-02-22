@@ -1,0 +1,15 @@
+ORDERSTATUS_ID,ORDERSTATUS_NAME,ORDERSTATUS_LANGUAGE,ORDERSTATUS_DEFAULT
+1,Pending,1,true
+2,Processing,1,false
+3,Shipped,1,false
+4,Complete,1,false
+5,Canceled,1,false
+6,Denied,1,false
+7,Canceled Reversal,1,false
+8,Failed,1,false
+9,Refunded,1,false
+10,Reversed,1,false
+11,Chargeback,1,false
+12,Expired,1,false
+13,Processed,1,false
+14,Voided,1,false

@@ -3,7 +3,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-electra.Products.Manufacturer';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/Products/Manufacturer.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Products/ManufacturerService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -43,9 +43,29 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		}
 		resetPagination();
 
-		$scope.loadPage = function (pageNumber) {
+		//-----------------Events-------------------//
+		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
+			$scope.loadPage($scope.dataPage, $scope.filter);
+		});
+
+		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
+			$scope.loadPage($scope.dataPage, $scope.filter);
+		});
+
+		messageHub.onDidReceiveMessage("entitySearch", function (msg) {
+			resetPagination();
+			$scope.filter = msg.data.filter;
+			$scope.filterEntity = msg.data.entity;
+			$scope.loadPage($scope.dataPage, $scope.filter);
+		});
+		//-----------------Events-------------------//
+
+		$scope.loadPage = function (pageNumber, filter) {
+			if (!filter && $scope.filter) {
+				filter = $scope.filter;
+			}
 			$scope.dataPage = pageNumber;
-			entityApi.count().then(function (response) {
+			entityApi.count(filter).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("Manufacturer", `Unable to count Manufacturer: '${response.message}'`);
 					return;
@@ -53,16 +73,24 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.dataCount = response.data;
 				let offset = (pageNumber - 1) * $scope.dataLimit;
 				let limit = $scope.dataLimit;
-				entityApi.list(offset, limit).then(function (response) {
+				let request;
+				if (filter) {
+					filter.$offset = offset;
+					filter.$limit = limit;
+					request = entityApi.search(filter);
+				} else {
+					request = entityApi.list(offset, limit);
+				}
+				request.then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("Manufacturer", `Unable to list Manufacturer: '${response.message}'`);
+						messageHub.showAlertError("Manufacturer", `Unable to list/filter Manufacturer: '${response.message}'`);
 						return;
 					}
 					$scope.data = response.data;
 				});
 			});
 		};
-		$scope.loadPage($scope.dataPage);
+		$scope.loadPage($scope.dataPage, $scope.filter);
 
 		$scope.selectEntity = function (entity) {
 			$scope.selectedEntity = entity;
@@ -76,5 +104,54 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		};
 
+		$scope.openFilter = function (entity) {
+			messageHub.showDialogWindow("Manufacturer-filter", {
+				entity: $scope.filterEntity,
+			});
+		};
+
+		$scope.createEntity = function () {
+			$scope.selectedEntity = null;
+			messageHub.showDialogWindow("Manufacturer-details", {
+				action: "create",
+				entity: {},
+			}, null, false);
+		};
+
+		$scope.updateEntity = function (entity) {
+			messageHub.showDialogWindow("Manufacturer-details", {
+				action: "update",
+				entity: entity,
+			}, null, false);
+		};
+
+		$scope.deleteEntity = function (entity) {
+			let id = entity.Id;
+			messageHub.showDialogAsync(
+				'Delete Manufacturer?',
+				`Are you sure you want to delete Manufacturer? This action cannot be undone.`,
+				[{
+					id: "delete-btn-yes",
+					type: "emphasized",
+					label: "Yes",
+				},
+				{
+					id: "delete-btn-no",
+					type: "normal",
+					label: "No",
+				}],
+			).then(function (msg) {
+				if (msg.data === "delete-btn-yes") {
+					entityApi.delete(id).then(function (response) {
+						if (response.status != 204) {
+							messageHub.showAlertError("Manufacturer", `Unable to delete Manufacturer: '${response.message}'`);
+							return;
+						}
+						$scope.loadPage($scope.dataPage, $scope.filter);
+						messageHub.postMessage("clearDetails");
+					});
+				}
+			});
+		};
 
 	}]);

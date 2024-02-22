@@ -3,7 +3,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-electra.SalesOrders.SalesOrderPayment';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-electra/gen/api/SalesOrders/SalesOrderPayment.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/SalesOrders/SalesOrderPaymentService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -66,29 +66,48 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		});
 
 		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 
 		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			$scope.loadPage($scope.dataPage, $scope.filter);
+		});
+
+		messageHub.onDidReceiveMessage("entitySearch", function (msg) {
+			resetPagination();
+			$scope.filter = msg.data.filter;
+			$scope.filterEntity = msg.data.entity;
+			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 		//-----------------Events-------------------//
 
-		$scope.loadPage = function (pageNumber) {
+		$scope.loadPage = function (pageNumber, filter) {
 			let SalesOrder = $scope.selectedMainEntityId;
 			$scope.dataPage = pageNumber;
-			entityApi.count(SalesOrder).then(function (response) {
+			if (!filter && $scope.filter) {
+				filter = $scope.filter;
+			}
+			if (!filter) {
+				filter = {};
+			}
+			if (!filter.$filter) {
+				filter.$filter = {};
+			}
+			if (!filter.$filter.equals) {
+				filter.$filter.equals = {};
+			}
+			filter.$filter.equals.SalesOrder = SalesOrder;
+			entityApi.count(filter).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("SalesOrderPayment", `Unable to count SalesOrderPayment: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
-				let query = `SalesOrder=${SalesOrder}`;
-				let offset = (pageNumber - 1) * $scope.dataLimit;
-				let limit = $scope.dataLimit;
-				entityApi.filter(query, offset, limit).then(function (response) {
+				filter.$offset = (pageNumber - 1) * $scope.dataLimit;
+				filter.$limit = $scope.dataLimit;
+				entityApi.search(filter).then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("SalesOrderPayment", `Unable to list SalesOrderPayment: '${response.message}'`);
+						messageHub.showAlertError("SalesOrderPayment", `Unable to list/filter SalesOrderPayment: '${response.message}'`);
 						return;
 					}
 					$scope.data = response.data;
@@ -105,6 +124,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("SalesOrderPayment-details", {
 				action: "select",
 				entity: entity,
+				optionsZone: $scope.optionsZone,
+				optionsCountry: $scope.optionsCountry,
+			});
+		};
+
+		$scope.openFilter = function (entity) {
+			messageHub.showDialogWindow("SalesOrderPayment-filter", {
+				entity: $scope.filterEntity,
 				optionsZone: $scope.optionsZone,
 				optionsCountry: $scope.optionsCountry,
 			});
@@ -155,7 +182,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 							messageHub.showAlertError("SalesOrderPayment", `Unable to delete SalesOrderPayment: '${response.message}'`);
 							return;
 						}
-						$scope.loadPage($scope.dataPage);
+						$scope.loadPage($scope.dataPage, $scope.filter);
 						messageHub.postMessage("clearDetails");
 					});
 				}
@@ -166,7 +193,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsZone = [];
 		$scope.optionsCountry = [];
 
-		$http.get("/services/js/codbex-electra/gen/api/Settings/Zone.js").then(function (response) {
+
+		$http.get("/services/ts/codbex-electra/gen/api/Settings/ZoneService.ts").then(function (response) {
 			$scope.optionsZone = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -175,7 +203,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-electra/gen/api/Settings/Country.js").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Settings/CountryService.ts").then(function (response) {
 			$scope.optionsCountry = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -183,6 +211,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsZoneValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsZone.length; i++) {
 				if ($scope.optionsZone[i].value === optionKey) {

@@ -1,0 +1,8 @@
+{
+    "location": "/codbex-electra-opencart-demo-data/datasources/ElectronicsStoreOpenCartDB.datasource",
+    "name": "ElectronicsStoreOpenCartDB",
+    "driver": "org.mariadb.jdbc.Driver",
+    "url": "jdbc:mariadb://${ELECTRA_ELECTRONICS_STORE_DB_HOST}:${ELECTRA_ELECTRONICS_STORE_DB_PORT}/${ELECTRA_ELECTRONICS_STORE_DB_NAME}",
+    "username": "${ELECTRA_ELECTRONICS_STORE_DB_USER}",
+    "password": "${ELECTRA_ELECTRONICS_STORE_DB_PASS}" 
+}

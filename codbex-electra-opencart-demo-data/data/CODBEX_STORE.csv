@@ -1,0 +1,3 @@
+STORE_ID,STORE_NAME,STORE_URL,STORE_TYPE,STORE_ENABLED
+1,Electronics OpenCart Store,https://dev.opencart-dev-01.eu1.codbex.com,1,false
+2,Drugstore OpenCart,https://dev.opencart-dev-02.eu1.codbex.com,1,false

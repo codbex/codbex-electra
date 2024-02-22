@@ -1,6 +1,5 @@
 let angularHttp;
-
-const ECONT_TRACKING_URL = "https://econt.com/services/track-shipment/";
+let salesOrderId;
 
 const app = angular.module('templateApp', []);
 app.controller('templateContoller', function ($scope, $http, $sce) {
@@ -9,43 +8,32 @@ app.controller('templateContoller', function ($scope, $http, $sce) {
 
     const urlString = (window.location.href).toLowerCase();
     const url = new URL(urlString);
-    const salesOrderId = url.searchParams.get("id");
+    salesOrderId = url.searchParams.get("id");
 
-    const labelURL = `/services/js/codbex-electra-ext-econt/api/SalesOrders.js/${salesOrderId}/shippingLabelURL`;
+    const labelURL = `/services/ts/codbex-electra-ext-econt/api/SalesOrderService.ts/${salesOrderId}/shippingLabelURL`;
 
     $http.get(labelURL)
         .then(function (response) {
             $scope.shippingLabelURL = $sce.trustAsResourceUrl(response.data.url);
         });
-
 });
 
 function handleShippingLabelConfirmed(data) {
-    const salesOrderId = parseInt(data.orderData.num);
-    const url = `/services/js/codbex-electra/gen/api/SalesOrders/SalesOrder.js/${salesOrderId}`;
+    const url = `/services/ts/codbex-electra-ext-econt/api/SalesOrderService.ts/${salesOrderId}/updateTrackingNumber`;
 
     const shipmentStatus = data.shipmentStatus;
+    const trackingNumber = shipmentStatus.shipmentNumber;
 
-    angularHttp.get(url)
-        .then(function (response) {
-            const salesOrder = response.data;
+    const body = {
+        trackingNumber: trackingNumber
+    }
 
-            const trackingNumber = shipmentStatus.shipmentNumber;
-            const trackingURL = ECONT_TRACKING_URL + trackingNumber;
-            salesOrder.Tracking = trackingURL;
-            salesOrder.DateModified = Date.now();
-            salesOrder.DateAdded = undefined;
-
-            angularHttp.put(url, salesOrder)
-                .then(function () {
-                    console.log(`Successfully updated sales order with id [${salesOrderId}].`);
-                    parent.parent.location.reload();
-                }, function (response) {
-                    console.error(`Failed to update sales order with id [${salesOrderId}]. Response: ${JSON.stringify(response)}`);
-                });
-
+    angularHttp.put(url, body)
+        .then(function () {
+            console.log(`Successfully updated sales order with id [${salesOrderId}].`);
+            parent.parent.location.reload();
         }, function (response) {
-            console.error(`Failed to get sales order with id [${salesOrderId}]. Response: ${JSON.stringify(response)}`);
+            console.error(`Failed to update sales order with id [${salesOrderId}]. Response: ${JSON.stringify(response)}`);
         });
 };
 

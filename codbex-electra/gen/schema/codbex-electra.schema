@@ -18,7 +18,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CURRENCY_TITLE"
                     },
                     {
@@ -26,7 +25,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CURRENCY_STATUS"
                     },
                     {
@@ -34,7 +32,6 @@
                         "length": 3,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CURRENCY_CODE"
                     },
                     {
@@ -42,7 +39,6 @@
                         "length": 12,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CURRENCY_SYMBOLLEFT"
                     },
                     {
@@ -50,7 +46,6 @@
                         "length": 12,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CURRENCY_SYMBOLRIGHT"
                     },
                     {
@@ -58,7 +53,6 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CURRENCY_DECIMALPLACE"
                     },
                     {
@@ -66,7 +60,6 @@
                         "length": 23,
                         "precision": "15",
                         "scale": "8",
-                        "nullable": true,
                         "name": "CURRENCY_VALUE"
                     },
                     {
@@ -74,7 +67,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CURRENCY_DATEMODIFIED"
                     }
                 ]
@@ -98,7 +90,6 @@
                         "length": 19,
                         "precision": "15",
                         "scale": "4",
-                        "nullable": true,
                         "name": "SALESORDER_TOTAL"
                     },
                     {
@@ -106,7 +97,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDER_CURRENCY"
                     },
                     {
@@ -114,7 +104,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDER_STATUS"
                     },
                     {
@@ -122,7 +111,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDER_STORE"
                     },
                     {
@@ -130,7 +118,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDER_CUSTOMER"
                     },
                     {
@@ -146,7 +133,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDER_DATEMODIFIED"
                     },
                     {
@@ -154,7 +140,6 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDER_UPDATEDBY"
                     },
                     {
@@ -194,16 +179,7 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDER_LANGUAGE"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 255,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "SALESORDER_ACCEPTLANGUAGE"
                     }
                 ]
             },
@@ -224,7 +200,6 @@
                         "length": 64,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "STORE_NAME"
                     },
                     {
@@ -232,8 +207,21 @@
                         "length": 255,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "STORE_URL"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STORE_TYPE"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "length": 1,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STORE_ENABLED"
                     }
                 ]
             },
@@ -254,7 +242,6 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CUSTOMER_EMAIL"
                     },
                     {
@@ -262,7 +249,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CUSTOMER_FIRSTNAME"
                     },
                     {
@@ -270,7 +256,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CUSTOMER_LASTNAME"
                     },
                     {
@@ -278,7 +263,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CUSTOMER_STORE"
                     },
                     {
@@ -286,7 +270,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CUSTOMER_STATUS"
                     },
                     {
@@ -307,14 +290,6 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 40,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CUSTOMER_CODE"
-                    },
-                    {
-                        "type": "VARCHAR",
                         "length": 2000,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -326,7 +301,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CUSTOMER_LANGUAGE"
                     }
                 ]
@@ -348,7 +322,6 @@
                         "length": 128,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "COUNTRY_NAME"
                     },
                     {
@@ -356,7 +329,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "COUNTRY_STATUS"
                     },
                     {
@@ -364,7 +336,6 @@
                         "length": 2,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "COUNTRY_ISOCODE2"
                     },
                     {
@@ -372,7 +343,6 @@
                         "length": 3,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "COUNTRY_ISOCODE3"
                     },
                     {
@@ -380,7 +350,6 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "COUNTRY_POSTCODEREQUIRED"
                     }
                 ]
@@ -400,7 +369,8 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "COUNTRYSTATUS_NAME"
                     }
                 ]
@@ -422,7 +392,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ZONE_COUNTRY"
                     },
                     {
@@ -430,7 +399,6 @@
                         "length": 128,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ZONE_NAME"
                     },
                     {
@@ -438,7 +406,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ZONE_STATUS"
                     },
                     {
@@ -446,7 +413,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ZONE_CODE"
                     }
                 ]
@@ -466,7 +432,8 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "ZONESTATUS_NAME"
                     }
                 ]
@@ -484,12 +451,25 @@
                         "name": "ORDERSTATUS_ID"
                     },
                     {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "ORDERSTATUS_LANGUAGE"
+                    },
+                    {
                         "type": "VARCHAR",
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ORDERSTATUS_NAME"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "length": 1,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "ORDERSTATUS_DEFAULT"
                     }
                 ]
             },
@@ -502,6 +482,8 @@
                         "length": 0,
                         "primaryKey": true,
                         "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "LANGUAGE_ID"
                     },
@@ -510,7 +492,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "LANGUAGE_NAME"
                     },
                     {
@@ -518,7 +499,6 @@
                         "length": 5,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "LANGUAGE_CODE"
                     },
                     {
@@ -526,7 +506,6 @@
                         "length": 255,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "LANGUAGE_LOCALE"
                     },
                     {
@@ -534,7 +513,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "LANGUAGE_STATUS"
                     }
                 ]
@@ -556,7 +534,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "LANGUAGESTATUS_NAME"
                     }
                 ]
@@ -600,7 +577,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ORDERITEM_PRODUCT"
                     },
                     {
@@ -608,7 +584,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ORDERITEM_SALESORDER"
                     },
                     {
@@ -616,7 +591,6 @@
                         "length": 255,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ORDERITEM_NAME"
                     },
                     {
@@ -624,7 +598,6 @@
                         "length": 64,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ORDERITEM_MODEL"
                     },
                     {
@@ -632,7 +605,6 @@
                         "length": 4,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "ORDERITEM_QUANTITY"
                     },
                     {
@@ -640,7 +612,6 @@
                         "length": 19,
                         "precision": "15",
                         "scale": "4",
-                        "nullable": true,
                         "name": "ORDERITEM_PRICE"
                     },
                     {
@@ -648,7 +619,6 @@
                         "length": 19,
                         "precision": "15",
                         "scale": "4",
-                        "nullable": true,
                         "name": "ORDERITEM_TOTAL"
                     },
                     {
@@ -656,7 +626,6 @@
                         "length": 19,
                         "precision": "15",
                         "scale": "4",
-                        "nullable": true,
                         "name": "ORDERITEM_TAX"
                     }
                 ]
@@ -678,7 +647,6 @@
                         "length": 64,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_MODEL"
                     },
                     {
@@ -686,7 +654,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_MANUFACTURER"
                     },
                     {
@@ -694,7 +661,6 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_STATUS"
                     },
                     {
@@ -702,7 +668,6 @@
                         "length": 4,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_QUANTITY"
                     },
                     {
@@ -710,7 +675,6 @@
                         "length": 19,
                         "precision": "15",
                         "scale": "4",
-                        "nullable": true,
                         "name": "PRODUCT_PRICE"
                     },
                     {
@@ -774,7 +738,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_DATEAVAILABLE"
                     },
                     {
@@ -782,7 +745,6 @@
                         "length": 23,
                         "precision": "15",
                         "scale": "8",
-                        "nullable": true,
                         "name": "PRODUCT_WEIGHT"
                     },
                     {
@@ -790,7 +752,6 @@
                         "length": 23,
                         "precision": "15",
                         "scale": "8",
-                        "nullable": true,
                         "name": "PRODUCT_LENGTH"
                     },
                     {
@@ -798,7 +759,6 @@
                         "length": 23,
                         "precision": "15",
                         "scale": "8",
-                        "nullable": true,
                         "name": "PRODUCT_WIDTH"
                     },
                     {
@@ -806,7 +766,6 @@
                         "length": 23,
                         "precision": "15",
                         "scale": "8",
-                        "nullable": true,
                         "name": "PRODUCT_HEIGHT"
                     },
                     {
@@ -822,7 +781,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_DATEMODIFIED"
                     },
                     {
@@ -830,7 +788,6 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_UPDATEDBY"
                     },
                     {
@@ -838,7 +795,6 @@
                         "length": 8,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_POINTS"
                     },
                     {
@@ -846,7 +802,6 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_SHIPPING"
                     },
                     {
@@ -854,7 +809,6 @@
                         "length": 128,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_LOCATION"
                     },
                     {
@@ -862,7 +816,6 @@
                         "length": 1,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_SUBTRACT"
                     },
                     {
@@ -870,7 +823,6 @@
                         "length": 11,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_MINIMUM"
                     },
                     {
@@ -878,7 +830,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCT_STOCKSTATUS"
                     }
                 ]
@@ -900,7 +851,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "STOCKSTATUS_LANGUAGE"
                     },
                     {
@@ -908,7 +858,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "STOCKSTATUS_NAME"
                     }
                 ]
@@ -922,16 +871,17 @@
                         "length": 0,
                         "primaryKey": true,
                         "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
-                        "name": "MANIFACTURER_ID"
+                        "name": "MANUFACTURER_ID"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 64,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
-                        "name": "MANIFACTURER_NAME"
+                        "name": "MANUFACTURER_NAME"
                     },
                     {
                         "type": "VARCHAR",
@@ -939,7 +889,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "MANIFACTURER_IMAGE"
+                        "name": "MANUFACTURER_IMAGE"
                     }
                 ]
             },
@@ -958,7 +908,8 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "PRODUCTSTATUS_NAME"
                     }
                 ]
@@ -980,7 +931,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "EMPLOYEE_FIRSTNAME"
                     },
                     {
@@ -988,7 +938,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "EMPLOYEE_LASTNAME"
                     },
                     {
@@ -996,7 +945,6 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "EMPLOYEE_EMAIL"
                     },
                     {
@@ -1004,7 +952,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "EMPLOYEE_STATUS"
                     },
                     {
@@ -1028,7 +975,6 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "EMPLOYEE_UPDATEDBY"
                     },
                     {
@@ -1036,7 +982,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "EMPLOYEE_DATEADDED"
                     }
                 ]
@@ -1056,7 +1001,8 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "EMPLOYEESTATUS_NAME"
                     }
                 ]
@@ -1078,7 +1024,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERPAYMENT_ZONE"
                     },
                     {
@@ -1086,7 +1031,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERPAYMENT_FIRSTNAME"
                     },
                     {
@@ -1094,7 +1038,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERPAYMENT_LASTNAME"
                     },
                     {
@@ -1126,7 +1069,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERPAYMENT_COUNTRY"
                     },
                     {
@@ -1180,7 +1122,8 @@
                     {
                         "type": "INTEGER",
                         "length": 0,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "SALESORDERPAYMENT_SALESORDER"
                     }
                 ]
@@ -1202,7 +1145,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERSHIPPING_ZONE"
                     },
                     {
@@ -1210,7 +1152,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERSHIPPING_FIRSTNAME"
                     },
                     {
@@ -1218,7 +1159,6 @@
                         "length": 32,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERSHIPPING_LASTNAME"
                     },
                     {
@@ -1250,7 +1190,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERSHIPPING_COUNTRY"
                     },
                     {
@@ -1312,7 +1251,8 @@
                     {
                         "type": "INTEGER",
                         "length": 0,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "SALESORDERSHIPPING_SALESORDER"
                     }
                 ]
@@ -1334,7 +1274,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "CURRENCYSTATUS_NAME"
                     }
                 ]
@@ -1358,7 +1297,6 @@
                         "length": 64,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUP_NAME"
                     },
                     {
@@ -1366,7 +1304,6 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUP_UPDATEDBY"
                     },
                     {
@@ -1374,7 +1311,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUP_DATEMODIFIED"
                     }
                 ]
@@ -1388,7 +1324,8 @@
                         "length": 0,
                         "primaryKey": true,
                         "identity": true,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "ATTRIBUTE_ID"
                     },
                     {
@@ -1396,16 +1333,14 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
-                        "name": "ATTRIBUTE_NAME"
+                        "name": "ATTRIBUTE_GROUP"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
+                        "type": "VARCHAR",
+                        "length": 64,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
-                        "name": "ATTRIBUTE_GROUP"
+                        "name": "ATTRIBUTE_NAME"
                     }
                 ]
             },
@@ -1418,7 +1353,8 @@
                         "length": 0,
                         "primaryKey": true,
                         "identity": true,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "PRODUCTATTRIBUTE_ID"
                     },
                     {
@@ -1426,23 +1362,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCTATTRIBUTE_NAME"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 2000,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCTATTRIBUTE_TEXT"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCTATTRIBUTE_PRODUCT"
                     },
                     {
@@ -1450,8 +1369,21 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
+                        "name": "PRODUCTATTRIBUTE_ATTRIBUTE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "PRODUCTATTRIBUTE_LANGUAGE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 2000,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "PRODUCTATTRIBUTE_TEXT"
                     }
                 ]
             },
@@ -1464,22 +1396,16 @@
                         "length": 0,
                         "primaryKey": true,
                         "identity": true,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "ATTRIBUTEGROUP_ID"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "ATTRIBUTEGROUP_NAME"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
+                        "length": 64,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
-                        "name": "ATTRIBUTEGROUP_LANGUAGE"
+                        "name": "ATTRIBUTEGROUP_NAME"
                     }
                 ]
             },
@@ -1502,7 +1428,6 @@
                         "length": 2000,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERCOMMENT_TEXT"
                     },
                     {
@@ -1510,8 +1435,14 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERCOMMENT_CREATEDBY"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 96,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "SALESORDERCOMMENT_UPDATEDBY"
                     },
                     {
                         "type": "TIMESTAMP",
@@ -1519,20 +1450,26 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "SALESORDERCOMMENT_CREATEDAT"
+                        "name": "SALESORDERCOMMENT_DATEADDED"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "SALESORDERCOMMENT_DATEMODIFIED"
                     },
                     {
                         "type": "INTEGER",
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERCOMMENT_SALESORDER"
                     }
                 ]
             },
             {
-                "name": "CODBEX_ATTRIBUTEDESCRIPTION",
+                "name": "CODBEX_ATTRIBUTETRANSLATION",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -1542,24 +1479,28 @@
                         "identity": true,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
-                        "name": "ATTRIBUTEDESCRIPTION_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 64,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "ATTRIBUTEDESCRIPTION_NAME"
+                        "name": "ATTRIBUTETRANSLATION_ID"
                     },
                     {
                         "type": "INTEGER",
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
-                        "name": "ATTRIBUTEDESCRIPTION_LANGUAGE"
+                        "name": "ATTRIBUTETRANSLATION_ATTRIBUTE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "ATTRIBUTETRANSLATION_LANGUAGE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 64,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "ATTRIBUTETRANSLATION_TEXT"
                     }
                 ]
             },
@@ -1582,15 +1523,20 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCTDESCRIPTION_PRODUCT"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "PRODUCTDESCRIPTION_LANGUAGE"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 255,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCTDESCRIPTION_NAME"
                     },
                     {
@@ -1598,7 +1544,6 @@
                         "length": 65535,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCTDESCRIPTION_DESCRIPTION"
                     },
                     {
@@ -1606,7 +1551,6 @@
                         "length": 2000,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCTDESCRIPTION_TAG"
                     },
                     {
@@ -1614,7 +1558,6 @@
                         "length": 255,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCTDESCRIPTION_METATITLE"
                     },
                     {
@@ -1622,7 +1565,6 @@
                         "length": 255,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCTDESCRIPTION_METADESCRIPTION"
                     },
                     {
@@ -1630,16 +1572,7 @@
                         "length": 255,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PRODUCTDESCRIPTION_METAKEYWORD"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCTDESCRIPTION_LANGUAGE"
                     }
                 ]
             },
@@ -1662,7 +1595,6 @@
                         "length": 64,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PERMISSION_NAME"
                     }
                 ]
@@ -1684,7 +1616,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUPEMPLOYEE_EMPLOYEE"
                     },
                     {
@@ -1692,7 +1623,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUPEMPLOYEE_GROUP"
                     },
                     {
@@ -1700,7 +1630,6 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUPEMPLOYEE_UPDATEDBY"
                     },
                     {
@@ -1708,7 +1637,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUPEMPLOYEE_DATEMODIFIED"
                     }
                 ]
@@ -1730,7 +1658,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUPPERMISSION_GROUP"
                     },
                     {
@@ -1738,7 +1665,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUPPERMISSION_PERMISSION"
                     },
                     {
@@ -1746,7 +1672,6 @@
                         "length": 96,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUPPERMISSION_UPDATEDBY"
                     },
                     {
@@ -1754,8 +1679,366 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GROUPPERMISSION_DATEMODIFIED"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_ENTITYREFERENCE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 64,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "ENTITY_NAME"
+                    },
+                    {
+                        "type": "BIGINT",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "ENTITY_INTEGER_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 64,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "ENTITY_STRING_ID"
+                    },
+                    {
+                        "type": "BIGINT",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "REFERENCE_INTEGER_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 64,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "REFERENCE_STRING_ID"
+                    },
+                    {
+                        "type": "BIGINT",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SCOPE_INTEGER_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SCOPE_STRING_ID"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_STORECONFIGURATION",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STORECONFIGURATION_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STORECONFIGURATION_STORE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STORECONFIGURATION_PROPERTY"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 64,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STORECONFIGURATION_VALUE"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_STORECONFIGURATIONPROPERTY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "STORECONFIGURATIONPROPERTY_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 32,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STORECONFIGURATIONPROPERTY_NAME"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_STORETYPE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STORETYPE_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 32,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STORETYPE_NAME"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_PRODUCTTOSTORE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "PRODUCTTOSTORE_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "PRODUCTTOSTORE_PRODUCT"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "PRODUCTTOSTORE_STORE"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_ATTRIBUTEGROUPTRANSLATION",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "ATTRIBUTEGROUPTRANSLATION_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "ATTRIBUTEGROUPTRANSLATION_ATTRIBUTEGROUP"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "ATTRIBUTEGROUPTRANSLATION_LANGUAGE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 64,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "ATTRIBUTEGROUPTRANSLATION_TEXT"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_CATEGORY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORY_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORY_NAME"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "length": 1,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORY_STATUS"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CATEGORY_IMAGE"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CATEGORY_DATEADDED"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORY_DATEMODIFIED"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_PRODUCTTOCATEGORY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "PRODUCTTOCATEGORY_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "PRODUCTTOCATEGORY_CATEGORY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "PRODUCTTOCATEGORY_PRODUCT"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_CATEGORYTRANSLATION",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORYTRANSLATION_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORYTRANSLATION_CATEGORY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORYTRANSLATION_LANGUAGE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORYTRANSLATION_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 2000,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORYTRANSLATION_DESCRIPTION"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORYTRANSLATION_METATITLE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORYTRANSLATION_METADESCRIPTION"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "CATEGORYTRANSLATION_METAKEYWORD"
                     }
                 ]
             },
@@ -1814,6 +2097,15 @@
                 "referencedColumns": "LANGUAGE_ID"
             },
             {
+                "name": "Store_StoreType",
+                "type": "foreignKey",
+                "table": "CODBEX_STORE",
+                "constraintName": "Store_StoreType",
+                "columns": "STORE_TYPE",
+                "referencedTable": "CODBEX_STORETYPE",
+                "referencedColumns": "STORETYPE_ID"
+            },
+            {
                 "name": "Customer_Store",
                 "type": "foreignKey",
                 "table": "CODBEX_CUSTOMER",
@@ -1868,6 +2160,15 @@
                 "referencedColumns": "ZONESTATUS_ID"
             },
             {
+                "name": "OrderStatus_Language",
+                "type": "foreignKey",
+                "table": "CODBEX_ORDERSTATUS",
+                "constraintName": "OrderStatus_Language",
+                "columns": "ORDERSTATUS_LANGUAGE",
+                "referencedTable": "CODBEX_LANGUAGE",
+                "referencedColumns": "LANGUAGE_ID"
+            },
+            {
                 "name": "Language_LanguageStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_LANGUAGE",
@@ -1901,7 +2202,7 @@
                 "constraintName": "Product_Manufacturer",
                 "columns": "PRODUCT_MANUFACTURER",
                 "referencedTable": "CODBEX_MANUFACTURER",
-                "referencedColumns": "MANIFACTURER_ID"
+                "referencedColumns": "MANUFACTURER_ID"
             },
             {
                 "name": "Product_ProductStatus",
@@ -1994,15 +2295,6 @@
                 "referencedColumns": "SALESORDER_ID"
             },
             {
-                "name": "Attribute_AttributeDescription",
-                "type": "foreignKey",
-                "table": "CODBEX_ATTRIBUTE",
-                "constraintName": "Attribute_AttributeDescription",
-                "columns": "ATTRIBUTE_NAME",
-                "referencedTable": "CODBEX_ATTRIBUTEDESCRIPTION",
-                "referencedColumns": "ATTRIBUTEDESCRIPTION_ID"
-            },
-            {
                 "name": "Attribute_AttributeGroup",
                 "type": "foreignKey",
                 "table": "CODBEX_ATTRIBUTE",
@@ -2010,15 +2302,6 @@
                 "columns": "ATTRIBUTE_GROUP",
                 "referencedTable": "CODBEX_ATTRIBUTEGROUP",
                 "referencedColumns": "ATTRIBUTEGROUP_ID"
-            },
-            {
-                "name": "ProductAttribute_AttributeDescription",
-                "type": "foreignKey",
-                "table": "CODBEX_PRODUCTATTRIBUTE",
-                "constraintName": "ProductAttribute_AttributeDescription",
-                "columns": "PRODUCTATTRIBUTE_NAME",
-                "referencedTable": "CODBEX_ATTRIBUTEDESCRIPTION",
-                "referencedColumns": "ATTRIBUTEDESCRIPTION_ID"
             },
             {
                 "name": "ProductAttribute_Product",
@@ -2030,20 +2313,20 @@
                 "referencedColumns": "PRODUCT_ID"
             },
             {
+                "name": "ProductAttribute_Attribute",
+                "type": "foreignKey",
+                "table": "CODBEX_PRODUCTATTRIBUTE",
+                "constraintName": "ProductAttribute_Attribute",
+                "columns": "PRODUCTATTRIBUTE_ATTRIBUTE",
+                "referencedTable": "CODBEX_ATTRIBUTE",
+                "referencedColumns": "ATTRIBUTE_ID"
+            },
+            {
                 "name": "ProductAttribute_Language",
                 "type": "foreignKey",
                 "table": "CODBEX_PRODUCTATTRIBUTE",
                 "constraintName": "ProductAttribute_Language",
                 "columns": "PRODUCTATTRIBUTE_LANGUAGE",
-                "referencedTable": "CODBEX_LANGUAGE",
-                "referencedColumns": "LANGUAGE_ID"
-            },
-            {
-                "name": "AttributeGroup_Language",
-                "type": "foreignKey",
-                "table": "CODBEX_ATTRIBUTEGROUP",
-                "constraintName": "AttributeGroup_Language",
-                "columns": "ATTRIBUTEGROUP_LANGUAGE",
                 "referencedTable": "CODBEX_LANGUAGE",
                 "referencedColumns": "LANGUAGE_ID"
             },
@@ -2057,11 +2340,20 @@
                 "referencedColumns": "SALESORDER_ID"
             },
             {
-                "name": "AttributeDescription_Language",
+                "name": "AttributeTranslation_Attribute",
                 "type": "foreignKey",
-                "table": "CODBEX_ATTRIBUTEDESCRIPTION",
-                "constraintName": "AttributeDescription_Language",
-                "columns": "ATTRIBUTEDESCRIPTION_LANGUAGE",
+                "table": "CODBEX_ATTRIBUTETRANSLATION",
+                "constraintName": "AttributeTranslation_Attribute",
+                "columns": "ATTRIBUTETRANSLATION_ATTRIBUTE",
+                "referencedTable": "CODBEX_ATTRIBUTE",
+                "referencedColumns": "ATTRIBUTE_ID"
+            },
+            {
+                "name": "AttributeTranslation_Language",
+                "type": "foreignKey",
+                "table": "CODBEX_ATTRIBUTETRANSLATION",
+                "constraintName": "AttributeTranslation_Language",
+                "columns": "ATTRIBUTETRANSLATION_LANGUAGE",
                 "referencedTable": "CODBEX_LANGUAGE",
                 "referencedColumns": "LANGUAGE_ID"
             },
@@ -2118,7 +2410,98 @@
                 "columns": "GROUPPERMISSION_PERMISSION",
                 "referencedTable": "CODBEX_PERMISSION",
                 "referencedColumns": "PERMISSION_ID"
+            },
+            {
+                "name": "StoreConfiguration_Store",
+                "type": "foreignKey",
+                "table": "CODBEX_STORECONFIGURATION",
+                "constraintName": "StoreConfiguration_Store",
+                "columns": "STORECONFIGURATION_STORE",
+                "referencedTable": "CODBEX_STORE",
+                "referencedColumns": "STORE_ID"
+            },
+            {
+                "name": "StoreConfiguration_StoreConfigurationProperty",
+                "type": "foreignKey",
+                "table": "CODBEX_STORECONFIGURATION",
+                "constraintName": "StoreConfiguration_StoreConfigurationProperty",
+                "columns": "STORECONFIGURATION_PROPERTY",
+                "referencedTable": "CODBEX_STORECONFIGURATIONPROPERTY",
+                "referencedColumns": "STORECONFIGURATIONPROPERTY_ID"
+            },
+            {
+                "name": "ProductToStore_Product",
+                "type": "foreignKey",
+                "table": "CODBEX_PRODUCTTOSTORE",
+                "constraintName": "ProductToStore_Product",
+                "columns": "PRODUCTTOSTORE_PRODUCT",
+                "referencedTable": "CODBEX_PRODUCT",
+                "referencedColumns": "PRODUCT_ID"
+            },
+            {
+                "name": "ProductToStore_Store",
+                "type": "foreignKey",
+                "table": "CODBEX_PRODUCTTOSTORE",
+                "constraintName": "ProductToStore_Store",
+                "columns": "PRODUCTTOSTORE_STORE",
+                "referencedTable": "CODBEX_STORE",
+                "referencedColumns": "STORE_ID"
+            },
+            {
+                "name": "AttributeGroupTranslation_AttributeGroup",
+                "type": "foreignKey",
+                "table": "CODBEX_ATTRIBUTEGROUPTRANSLATION",
+                "constraintName": "AttributeGroupTranslation_AttributeGroup",
+                "columns": "ATTRIBUTEGROUPTRANSLATION_ATTRIBUTEGROUP",
+                "referencedTable": "CODBEX_ATTRIBUTEGROUP",
+                "referencedColumns": "ATTRIBUTEGROUP_ID"
+            },
+            {
+                "name": "AttributeGroupTranslation_Language",
+                "type": "foreignKey",
+                "table": "CODBEX_ATTRIBUTEGROUPTRANSLATION",
+                "constraintName": "AttributeGroupTranslation_Language",
+                "columns": "ATTRIBUTEGROUPTRANSLATION_LANGUAGE",
+                "referencedTable": "CODBEX_LANGUAGE",
+                "referencedColumns": "LANGUAGE_ID"
+            },
+            {
+                "name": "ProductToCategory_Category",
+                "type": "foreignKey",
+                "table": "CODBEX_PRODUCTTOCATEGORY",
+                "constraintName": "ProductToCategory_Category",
+                "columns": "PRODUCTTOCATEGORY_CATEGORY",
+                "referencedTable": "CODBEX_CATEGORY",
+                "referencedColumns": "CATEGORY_ID"
+            },
+            {
+                "name": "ProductToCategory_Product",
+                "type": "foreignKey",
+                "table": "CODBEX_PRODUCTTOCATEGORY",
+                "constraintName": "ProductToCategory_Product",
+                "columns": "PRODUCTTOCATEGORY_PRODUCT",
+                "referencedTable": "CODBEX_PRODUCT",
+                "referencedColumns": "PRODUCT_ID"
+            },
+            {
+                "name": "CategoryTranslation_Category",
+                "type": "foreignKey",
+                "table": "CODBEX_CATEGORYTRANSLATION",
+                "constraintName": "CategoryTranslation_Category",
+                "columns": "CATEGORYTRANSLATION_CATEGORY",
+                "referencedTable": "CODBEX_CATEGORY",
+                "referencedColumns": "CATEGORY_ID"
+            },
+            {
+                "name": "CategoryTranslation_Language",
+                "type": "foreignKey",
+                "table": "CODBEX_CATEGORYTRANSLATION",
+                "constraintName": "CategoryTranslation_Language",
+                "columns": "CATEGORYTRANSLATION_LANGUAGE",
+                "referencedTable": "CODBEX_LANGUAGE",
+                "referencedColumns": "LANGUAGE_ID"
             }
         ]
-    }
+    },
+    "datasource": "DefaultDB"
 }

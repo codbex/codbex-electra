@@ -1,0 +1,5 @@
+STORECONFIGURATION_ID,STORECONFIGURATION_STORE,STORECONFIGURATION_PROPERTY,STORECONFIGURATION_VALUE
+1,1,1,ElectronicsStoreOpenCartDB
+2,1,2,<electronics-store-opencart-econt-secret>
+3,2,1,DrugstoreOpenCartDB
+4,2,2,<drugstore-opencart-econt-secret>

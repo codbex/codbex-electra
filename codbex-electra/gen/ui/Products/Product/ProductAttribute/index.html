@@ -22,16 +22,19 @@
 
 		<fd-toolbar has-title="true" ng-hide="data == null">
 			<fd-toolbar-title>Items ({{dataCount}})</fd-toolbar-title>
+			<fd-button compact="true" dg-type="transparent" dg-label="Filter" ng-click="openFilter()"></fd-button>
 			<fd-button ng-repeat="action in pageActions" compact="true" dg-type="transparent" dg-label="{{action.label}}" ng-click="triggerPageAction(action.id)"></fd-button>
 			<fd-toolbar-spacer></fd-toolbar-spacer>
+			<fd-button compact="true" dg-type="transparent" dg-label="Create" ng-click="createEntity()"
+				state="{{selectedMainEntityId == null ? 'disabled' : ''}}"></fd-button>
 		</fd-toolbar>
 		<fd-scrollbar class="dg-full-height" ng-hide="data == null">
 			<table fd-table display-mode="compact" inner-borders="top" outer-borders="none">
 				<thead fd-table-header sticky="true">
 					<tr fd-table-row>
-						<th fd-table-header-cell>Name</th>
-						<th fd-table-header-cell>Text</th>
+						<th fd-table-header-cell>Attribute</th>
 						<th fd-table-header-cell>Language</th>
+						<th fd-table-header-cell>Text</th>
 						<th fd-table-header-cell></th>
 					</tr>
 				</thead>
@@ -42,12 +45,12 @@
 					<tr fd-table-row hoverable="true" ng-repeat="next in data"
 						dg-selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsNameValue(next.Name)}}
+							{{optionsAttributeValue(next.Attribute)}}
 						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Text}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsLanguageValue(next.Language)}}
 						</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Text}}</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>
 								<fd-popover-control>
@@ -59,6 +62,8 @@
 									<fd-menu aria-label="Table Row Menu" no-backdrop="true" no-shadow="true">
 										<fd-menu-item ng-repeat="action in entityActions" title="{{action.label}}" ng-click="triggerEntityAction(action.id, next)"></fd-menu-item>
 										<fd-menu-item title="View Details" ng-click="openDetails(next)"></fd-menu-item>
+										<fd-menu-item title="Edit" ng-click="updateEntity(next)"></fd-menu-item>
+										<fd-menu-item title="Delete" ng-click="deleteEntity(next)"></fd-menu-item>
 									</fd-menu>
 								</fd-popover-body>
 							</fd-popover>
