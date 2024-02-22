@@ -180,6 +180,7 @@ You can add comments to the selected order.
 
 #### Print econt shipping label
 You can print an econt shipping label using the `Print Shipping Label` button.
+
 ![salesorder-econt-label](misc/images/user-interface/sales-order-econt-shipping-label.png)
 ---
 ### Products
