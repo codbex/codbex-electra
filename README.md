@@ -25,12 +25,6 @@ The following Eclipse Dirigible configurations should be available:
 | Name | Description | Example value |
 |--|--|--|
 | DIRIGIBLE_HOME_URL | Electra home URL | /services/web/codbex-electra/gen/index.html |
-| ELECTRA_OPENCART_DB_HOST | OpenCart DB host | localhost |
-| ELECTRA_OPENCART_DB_PORT | OpenCart DB port | 3306 |
-| ELECTRA_OPENCART_DB_NAME | OpenCart DB name | bitnami_opencart |
-| ELECTRA_OPENCART_DB_USER | OpenCart DB user | bn_opencart |
-| ELECTRA_OPENCART_DB_PASS | OpenCart DB pass | mypass |
-| ELECTRA_ECONT_SHOP_SECRET | A secret for your shop in deliver with econt <br> ![Screenshot 2024-01-16 at 10 43 16](https://github.com/codbex/codbex-electra/assets/5058839/fe9607f9-7bae-455a-abad-087374af664f)| 6303036@1vDbAJ6LhPPxb9wFsaDWD32eqw |
 | ELECTRA_ECONT_DELIVERY_URL | URL of the deliver with econt | https://delivery.econt.com |
 
 [Here](https://www.dirigible.io/help/setup/setup-environment-variables/) is described how you can provide Dirigible configurations.
@@ -50,6 +44,35 @@ To deploy and run the Electra, you have to follow the steps described bellow.
 
 - After a few seconds, the Electra should be available on the following path `/services/web/codbex-electra/gen/index.html`. If the Dirigible is hosted on `localhost`, the URL will be  [http://localhost:8080/services/web/codbex-electra/gen/index.html](http://localhost:8080/services/web/codbex-electra/gen/index.html)
 
+- To configure a new OpenCart store you have to
+    - Create a new Store entry
+    - Create new `.datasource` file
+    - Add store configurations via UI for
+        - store datasource
+        - econt shop secret <br>
+          ![Screenshot 2024-01-16 at 10 43 16](https://github.com/codbex/codbex-electra/assets/5058839/fe9607f9-7bae-455a-abad-087374af664f)
+- You can use the predefined demo stores. To configure them, follow the steps bellow
+    - Configure corresponding data sources using the predefined env variables
+        ```
+            export ELECTRA_ELECTRONICS_STORE_DB_HOST='localhost'
+            export ELECTRA_ELECTRONICS_STORE_DB_PORT='3001'
+            export ELECTRA_ELECTRONICS_STORE_DB_NAME='bitnami_opencart'
+            export ELECTRA_ELECTRONICS_STORE_DB_USER='bn_opencart'
+            export ELECTRA_ELECTRONICS_STORE_DB_PASS='<db_pass>'
+
+            export ELECTRA_DRUGSTORE_DB_HOST='localhost'
+            export ELECTRA_DRUGSTORE_DB_PORT='3002'
+            export ELECTRA_DRUGSTORE_DB_NAME='bitnami_opencart'
+            export ELECTRA_DRUGSTORE_DB_USER='bn_opencart'
+            export ELECTRA_DRUGSTORE_DB_PASS='<db_pass>'
+        ```
+    - Configiure econt shop secrets from the Electra UI
+       ![configure-econt-shop-secret](misc/images/configure-econt-shop-secret.png)
+    - To enable the synchronization between Electra and OpenCart, stores must be enabled from the UI. Only the enabled stores are part of the synchronization.
+        ![enabled-store](misc/images/enabled-store.png)
+
+**Note:** you can use the preconfigured OpenCart dev systems which are described [here](https://github.com/codbex/awesome-stuff/blob/main/opencart/README.md#dev-systems)
+
 ## Architecture
 
 ### Design overview
@@ -61,46 +84,80 @@ To deploy and run the Electra, you have to follow the steps described bellow.
 ### Data synchronization
 
 #### Inbound synchronization - data replication from OpenCart to Electra
-Since OpenCart UI is used by the shop customers to purchase goods, create account and so on, and the products are managed (added, updated, deleted) in the OpenCart admin UI, we have to replicate data from OpenCart to Electra DB. This is done by synchronizers implemented as `*.camel` files which are located [here](codbex-electra-opencart/synch/inbound/).<br>
+Since OpenCart UI is used by the shop customers to purchase goods and create accounts, we have to replicate data from OpenCart to Electra DB. This is done by inbound synchronizers implemented as `*.camel` files which are located [here](codbex-electra-opencart/synch/inbound/).<br>
 
-In the following table you can find more details about tables mapping.
+In the following table you can find more details about the tables mapping.
 
-| OpenCart Table | Electra Table | Synch frequency | Details | Example execution |
-|--|--|--|--|--|
-| oc_customer | CODBEX_CUSTOMER | every minute | [here](codbex-electra-opencart/synch/inbound/sync-customers.camel) | 12:00:01<br>12:01:01<br>12:02:01 |
-| oc_manufacturer | CODBEX_MANUFACTURER | every minute | [here](codbex-electra-opencart/synch/inbound/sync-manufacturers.camel) | 12:00:02<br>12:01:02<br>12:02:02 |
-| oc_attribute_group_description | CODBEX_ATTRIBUTEGROUP | every minute | [here](codbex-electra-opencart/synch/inbound/sync-attribute-groups.camel) | 12:00:03<br>12:01:03<br>12:02:03 |
-| oc_attribute_description | CODBEX_ATTRIBUTEDESCRIPTION | every minute | [here](codbex-electra-opencart/synch/inbound/sync-attribute-descriptions.camel) | 12:00:04<br>12:01:04<br>12:02:04 |
-| oc_attribute | CODBEX_ATTRIBUTE | every minute | [here](codbex-electra-opencart/synch/inbound/sync-attributes.camel) | 12:00:05<br>12:01:05<br>12:02:05 |
-| oc_product_description | CODBEX_PRODUCTDESCRIPTION | every minute | [here](codbex-electra-opencart/synch/inbound/sync-product-descriptions.camel) | 12:00:05<br>12:01:05<br>12:02:05 |
-| oc_product_attribute | CODBEX_PRODUCTATTRIBUTE | every minute | [here](codbex-electra-opencart/synch/inbound/sync-product-attributes.camel) | 12:00:06<br>12:01:06<br>12:02:06 |
-| oc_product | CODBEX_PRODUCT | every minute | [here](codbex-electra-opencart/synch/inbound/sync-products.camel) | 12:00:07<br>12:01:07<br>12:02:07 |
-| oc_order_product | CODBEX_SALESORDERITEM | every minute | [here](codbex-electra-opencart/synch/inbound/sync-order-items.camel) | 12:00:08<br>12:01:08<br>12:02:08 |
-| oc_order | CODBEX_SALESORDERPAYMENT | every minute | [here](codbex-electra-opencart/synch/inbound/sync-orders.camel) | 12:00:09<br>12:01:09<br>12:02:09 |
-| oc_order | CODBEX_SALESORDERSHIPPING | every minute | [here](codbex-electra-opencart/synch/inbound/sync-orders.camel) | 12:00:09<br>12:01:09<br>12:02:09 |
-| oc_order | CODBEX_SALESORDER | every minute | [here](codbex-electra-opencart/synch/inbound/sync-orders.camel) | 12:00:09<br>12:01:09<br>12:02:09 |
-| oc_store | CODBEX_STORE | hourly | [here](codbex-electra-opencart/synch/inbound/sync-stores.camel) | 12:30:01<br>13:30:01<br>14:30:01 |
-| oc_language | CODBEX_LANGUAGE | hourly | [here](codbex-electra-opencart/synch/inbound/sync-languages.camel) | 12:30:02<br>13:30:02<br>14:30:02 |
-| oc_country | CODBEX_COUNTRY | hourly | [here](codbex-electra-opencart/synch/inbound/sync-countries.camel) | 12:30:03<br>13:30:03<br>14:30:03 |
-| oc_currency | CODBEX_CURRENCY | hourly | [here](codbex-electra-opencart/synch/inbound/sync-currencies.camel) | 12:30:04<br>13:30:04<br>14:30:04 |
-| oc_zone | CODBEX_ZONE | hourly | [here](codbex-electra-opencart/synch/inbound/sync-zones.camel) | 12:30:05<br>13:30:05<br>14:30:05 |
-| oc_stock_status | CODBEX_STOCKSTATUS | hourly | [here](codbex-electra-opencart/synch/inbound/sync-stock-statuses.camel) | 12:30:06<br>13:30:06<br>14:30:06 |
-| oc_order_status | CODBEX_SALESORDERITEM | hourly | [here](codbex-electra-opencart/synch/inbound/sync-order-status.camel) | 12:30:07<br>13:30:07<br>14:30:07 |
+| OpenCart Table | Electra Table | Synch frequency | cron |
+|--|--|--|--|
+| oc_customer | CODBEX_CUSTOMER | every minute | `10 * * ? * *` |
+| oc_order | CODBEX_SALESORDERPAYMENT | every minute | `20 * * ? * *` |
+| oc_order | CODBEX_SALESORDERSHIPPING | every minute | `20 * * ? * *` |
+| oc_order | CODBEX_SALESORDER | every minute | `20 * * ? * *` |
+| oc_order_product | CODBEX_SALESORDERITEM | every minute | `20 * * ? * *` |
+
+To check the example execution times of the cron, you can use [this site](http://www.cronmaker.com/).
 
 OpenCart DB model could be found [here](https://github.com/opencart/opencart/blob/3.0.3.8/upload/install/opencart.sql).
 
 #### Outbound synchronization - data replication from Electra to OpenCart
-Some of the actions which are made in the Electra, must be applied to the OpenCart DB as well. This is done by listeners implemented as `*.listener` files which are located [here](codbex-electra-opencart/synch/outbound/).<br>
+All actions over Electra entities are replicated to the OpenCart DB. This is done by outbound synchronizers implemented as `*.camel` files which are located [here](codbex-electra-opencart/synch/outbound/).<br>
 
 In the following table you can find more details about the actions which have effect in the OpenCart DB as well.
 
-| Electra entity| Action | OpenCart table | Affected Columns | Details |
-|--|--|--|--|--|
-| Product | update | oc_product | quantity <br /> stock_status_id <br /> status <br /> date_modified | [here](codbex-electra-opencart/synch/outbound/product-handler.mjs)
-| SalesOrder | update | oc_order | invoice_no <br /> invoice_prefix <br /> store_id <br /> customer_id <br /> comment <br /> total <br /> order_status_id <br /> tracking, language_id <br /> currency_id <br /> accept_language <br /> date_modified | [here](codbex-electra-opencart/synch/outbound/sales-order-handler.mjs)
-| SalesOrder | delete | oc_order | n/a | [here](codbex-electra-opencart/synch/outbound/sales-order-handler.mjs)
-| SalesOrderItem | delete | oc_order_product | n/a | [here](codbex-electra-opencart/synch/outbound/sales-order-item-handler.mjs)
-| SalesOrderShipping | update | oc_order | shipping_firstname <br /> shipping_lastname <br /> shipping_company <br /> shipping_address_1 <br /> shipping_address_2 <br /> shipping_city <br /> shipping_postcode <br /> shipping_country_id <br /> shipping_zone_id <br /> shipping_address_format <br /> shipping_custom_field <br /> shipping_method <br /> shipping_code <br /> date_modified | [here](codbex-electra-opencart/synch/outbound/sales-order-shipping-handler.mjs)
+In the following table you can find more details about the tables mapping.
+
+| Electra Table | OpenCart Table | Synch frequency | cron |
+|--|--|--|--|
+| CODBEX_ATTRIBUTETRANSLATION | oc_attribute_description | every minute | `20 * * ? * *` |
+| CODBEX_ATTRIBUTEGROUPTRANSLATION | oc_attribute_group_description | every minute | `10 * * ? * *` |
+| CODBEX_ATTRIBUTEGROUP | oc_attribute_group | every minute | `10 * * ? * *` |
+| CODBEX_ATTRIBUTE | oc_attribute | every minute | `20 * * ? * *` |
+| CODBEX_CATEGORYTRANSLATION | oc_category_description | every minute | `10 * * ? * *` |
+| n/a | oc_category_path | every minute | `10 * * ? * *` |
+| n/a | oc_category_to_store | every minute | `10 * * ? * *` |
+| CODBEX_CATEGORY | oc_category | every minute | `10 * * ? * *` |
+| CODBEX_COUNTRY | oc_country | every minute | `0 * * ? * *` |
+| CODBEX_CURRENCY | oc_currency | every minute | `0 * * ? * *` |
+| CODBEX_LANGUAGE | oc_language | every minute | `0 * * ? * *` |
+| CODBEX_MANUFACTURER | oc_manufacturer | every minute | `0 * * ? * *` |
+| CODBEX_SALESORDERITEM | oc_order_product | every minute | `18 * * ? * *` |
+| CODBEX_ORDERSTATUS | oc_order_status | every minute | `10 * * ? * *` |
+| CODBEX_SALESORDER | oc_order | every minute | `18 * * ? * *` |
+| CODBEX_PRODUCTATTRIBUTE | oc_product_attribute | every minute | `40 * * ? * *` |
+| CODBEX_PRODUCTDESCRIPTION | oc_product_description | every minute | `20 * * ? * *` |
+| CODBEX_PRODUCTTOCATEGORY | oc_product_to_category | every minute | `20 * * ? * *` |
+| n/a | oc_product_to_store | every minute | `20 * * ? * *` |
+| CODBEX_PRODUCT | oc_product | every minute | `20 * * ? * *` |
+| n/a | oc_setting | every minute | `10 * * ? * *` |
+| CODBEX_ZONE | oc_zone | every minute | `10 * * ? * *` |
+
+To check the example execution times of the cron, you can use [this site](http://www.cronmaker.com/).
+
+##### OpenCart tables dependencies
+Some of the tables require another tables entries to be replicated first because they have reference to them.
+In the following table, you can find the dependencies between entities.
+
+| Table | Depends on | Sync phase |
+|--|--|--|
+| oc_language | nothing | 1 |
+| oc_currency | nothing | 1 |
+| oc_country | nothing | 1 |
+| oc_manufacturer | nothing | 1 |
+| oc_customer | oc_language | 2 |
+| oc_zone | oc_country | 2 |
+| oc_order_status | oc_language | 2 |
+| oc_category | nothing | 2 |
+| oc_category_description | oc_language, oc_category | 2 |
+| oc_attribute_group | nothing | 2 |
+| oc_attribute_group_description | oc_language, oc_attribute_group | 2 |
+| oc_order | oc_customer, oc_country, oc_zone, oc_order_status, oc_language, oc_currency | 3 |
+| oc_product | oc_manufacturer, oc_category | 3 |
+| oc_product_description | oc_language, oc_product | 3 |
+| oc_attribute | oc_attribute_group | 3 |
+| oc_attribute_description | oc_language, oc_attribute | 3 |
+| oc_product_attribute | oc_language, oc_product, oc_attribute | 4 |
+| oc_order_product | oc_order, oc_product | 4 |
 
 ## User interface
 
