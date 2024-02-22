@@ -13,9 +13,7 @@ e-Commerce Backoffice Management
 - [User interface](#user-interface)
 
 ## Demo instance
-You can try the Electra [here](https://dev.electra.eu1.codbex.com).<br>
-It is conifgured to use a [demo OpenCart instance](https://dev.opencart-demo.eu1.codbex.com).<br>
-Details about the configured OpenCart instance could be found [here](https://github.com/codbex/awesome-stuff/tree/main/opencart#opencart-303-8).
+THIS SECTION IS **UNDER MAINTENANCE!**
 
 ## Build and Run
 
@@ -136,7 +134,7 @@ To check the example execution times of the cron, you can use [this site](http:/
 Some of the tables require another tables entries to be replicated first because they have reference to them. 
 This may lead to exceptions during the outbound synchronization when the replication is started for the first time.
 For example, if the zone out sync is running (which depends on countries) but the countries are not replicated yet, you will see exceptions in the logs. This will automatically recover, once the countries out sync is completed.
- 
+
 In the following table, you can find the dependencies between entities.
 
 | Table | Depends on | Sync phase |
