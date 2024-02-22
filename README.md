@@ -51,7 +51,7 @@ To deploy and run the Electra, you have to follow the steps described bellow.
         - store datasource
         - econt shop secret <br>
           ![Screenshot 2024-01-16 at 10 43 16](https://github.com/codbex/codbex-electra/assets/5058839/fe9607f9-7bae-455a-abad-087374af664f)
-- You can use the predefined [dev stores](https://github.com/codbex/awesome-stuff/tree/main/opencart#dev-systems). To configure them, follow the steps bellow
+- You can use the configured Electra demo stores. To configure them, follow the steps bellow
     - Configure corresponding data sources using the predefined env variables
         ```
             export ELECTRA_ELECTRONICS_STORE_DB_HOST='localhost'
@@ -66,12 +66,12 @@ To deploy and run the Electra, you have to follow the steps described bellow.
             export ELECTRA_DRUGSTORE_DB_USER='bn_opencart'
             export ELECTRA_DRUGSTORE_DB_PASS='<db_pass>'
         ```
-    - Configiure econt shop secrets from the Electra UI
+    - Configure econt shop secrets from the Electra UI
        ![configure-econt-shop-secret](misc/images/configure-econt-shop-secret.png)
     - To enable the synchronization between Electra and OpenCart, stores must be enabled from the UI. Only the enabled stores are part of the synchronization.
         ![enabled-store](misc/images/enabled-store.png)
 
-**Note:** you can use the preconfigured OpenCart dev systems which are described [here](https://github.com/codbex/awesome-stuff/blob/main/opencart/README.md#dev-systems)
+**Note:** you can use the configured OpenCart dev systems which are described [here](https://github.com/codbex/awesome-stuff/blob/main/opencart/README.md#dev-systems)
 
 ## Architecture
 
@@ -103,8 +103,6 @@ OpenCart DB model could be found [here](https://github.com/opencart/opencart/blo
 #### Outbound synchronization - data replication from Electra to OpenCart
 All actions over Electra entities are replicated to the OpenCart DB. This is done by outbound synchronizers implemented as `*.camel` files which are located [here](codbex-electra-opencart/synch/outbound/).<br>
 
-In the following table you can find more details about the actions which have effect in the OpenCart DB as well.
-
 In the following table you can find more details about the tables mapping.
 
 | Electra Table | OpenCart Table | Synch frequency | cron |
@@ -135,7 +133,10 @@ In the following table you can find more details about the tables mapping.
 To check the example execution times of the cron, you can use [this site](http://www.cronmaker.com/).
 
 ##### OpenCart tables dependencies
-Some of the tables require another tables entries to be replicated first because they have reference to them.
+Some of the tables require another tables entries to be replicated first because they have reference to them. 
+This may lead to exceptions during the outbound synchronization when the replication is started for the first time.
+For example, if the zone out sync is running (which depends on countries) but the countries are not replicated yet, you will see exceptions in the logs. This will automatically recover, once the countries out sync is completed.
+ 
 In the following table, you can find the dependencies between entities.
 
 | Table | Depends on | Sync phase |
