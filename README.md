@@ -51,7 +51,7 @@ To deploy and run the Electra, you have to follow the steps described bellow.
         - store datasource
         - econt shop secret <br>
           ![Screenshot 2024-01-16 at 10 43 16](https://github.com/codbex/codbex-electra/assets/5058839/fe9607f9-7bae-455a-abad-087374af664f)
-- You can use the predefined demo stores. To configure them, follow the steps bellow
+- You can use the predefined [dev stores](https://github.com/codbex/awesome-stuff/tree/main/opencart#dev-systems). To configure them, follow the steps bellow
     - Configure corresponding data sources using the predefined env variables
         ```
             export ELECTRA_ELECTRONICS_STORE_DB_HOST='localhost'
