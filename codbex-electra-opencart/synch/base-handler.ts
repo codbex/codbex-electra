@@ -1,5 +1,4 @@
 import { getLogger } from "../../codbex-electra/util/LoggerUtil";
-import { Logger } from "sdk/log/logging";
 
 export class BaseHandler {
     protected readonly logger;

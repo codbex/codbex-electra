@@ -89,14 +89,14 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idSymbolLeft" dg-required="true" dg-colon="true">SymbolLeft</fd-form-label>
+                        	<fd-form-label for="idSymbolLeft" dg-required="false" dg-colon="true">SymbolLeft</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['SymbolLeft'].$valid }}">
 	                            <fd-input id="idSymbolLeft"
 	                                name="SymbolLeft"
 	                                state="{{ forms.details['SymbolLeft'].$valid ? '' : 'error' }}"
-									ng-required="true"
+									ng-required="false"
 	                                ng-model="entity.SymbolLeft"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
@@ -111,14 +111,14 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idSymbolRight" dg-required="true" dg-colon="true">SymbolRight</fd-form-label>
+                        	<fd-form-label for="idSymbolRight" dg-required="false" dg-colon="true">SymbolRight</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['SymbolRight'].$valid }}">
 	                            <fd-input id="idSymbolRight"
 	                                name="SymbolRight"
 	                                state="{{ forms.details['SymbolRight'].$valid ? '' : 'error' }}"
-									ng-required="true"
+									ng-required="false"
 	                                ng-model="entity.SymbolRight"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"

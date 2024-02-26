@@ -8,8 +8,8 @@ export interface CurrencyEntity {
     Title: string;
     Status: number;
     Code: string;
-    SymbolLeft: string;
-    SymbolRight: string;
+    SymbolLeft?: string;
+    SymbolRight?: string;
     DecimalPlace: string;
     Value: number;
     DateModified: Date;
@@ -19,8 +19,8 @@ export interface CurrencyCreateEntity {
     readonly Title: string;
     readonly Status: number;
     readonly Code: string;
-    readonly SymbolLeft: string;
-    readonly SymbolRight: string;
+    readonly SymbolLeft?: string;
+    readonly SymbolRight?: string;
     readonly DecimalPlace: string;
     readonly Value: number;
 }
@@ -161,13 +161,11 @@ export class CurrencyRepository {
                 name: "SymbolLeft",
                 column: "CURRENCY_SYMBOLLEFT",
                 type: "VARCHAR",
-                required: true
             },
             {
                 name: "SymbolRight",
                 column: "CURRENCY_SYMBOLRIGHT",
                 type: "VARCHAR",
-                required: true
             },
             {
                 name: "DecimalPlace",

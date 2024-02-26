@@ -53,8 +53,8 @@ class MergeCurrencyToOpenCart extends BaseHandler {
                 code: currency!.Code,
                 date_modified: currency.DateModified!,
                 decimal_place: currency.DecimalPlace,
-                symbol_left: currency.SymbolLeft,
-                symbol_right: currency.SymbolRight,
+                symbol_left: this.getEmptyStringIfMissing(currency.SymbolLeft),
+                symbol_right: this.getEmptyStringIfMissing(currency.SymbolRight),
                 title: currency.Title,
                 value: currency.Value,
                 status: status
@@ -64,8 +64,8 @@ class MergeCurrencyToOpenCart extends BaseHandler {
                 code: currency.Code,
                 date_modified: currency.DateModified!,
                 decimal_place: currency.DecimalPlace,
-                symbol_left: currency.SymbolLeft,
-                symbol_right: currency.SymbolRight,
+                symbol_left: this.getEmptyStringIfMissing(currency.SymbolLeft),
+                symbol_right: this.getEmptyStringIfMissing(currency.SymbolRight),
                 title: currency.Title,
                 value: currency.Value,
                 status: status

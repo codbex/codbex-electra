@@ -39,6 +39,7 @@
                         "length": 12,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "CURRENCY_SYMBOLLEFT"
                     },
                     {
@@ -46,6 +47,7 @@
                         "length": 12,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "CURRENCY_SYMBOLRIGHT"
                     },
                     {
