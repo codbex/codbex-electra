@@ -1,0 +1,79 @@
+- route:
+    id: stock-statuses-out-sync-route
+    from:
+      uri: cron:TriggerStockStatusesReplication
+      id: trigger-stock-statuses-replication-cron
+      parameters:
+        schedule: 10 * * ? * *   
+      description: Trigger Stock Statuses Replication
+      steps:
+        - log:
+            message: Replicating stock statuses to OpenCart DB...
+            id: log-about-to-start-stock-statuses-replication
+            logName: OpenCartStockStatusesOutboundReplication
+            loggingLevel: INFO
+        - setProperty:
+            name: resource
+            id: set-js-stock-statuses-1
+            expression:
+              constant:
+                expression: >-
+                  codbex-electra-opencart/synch/get-all-relevant-stores.ts
+                id: constant-stock-statuses-01
+            description: Set JS file
+        - to:
+            uri: class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+            id: get-all-relevant-stores
+            description: Get all relevant stores
+        - split:
+            id: split-to-single-store
+            expression:
+              simple:
+                expression: ${body}
+                id: simple-stock-statuses-333
+            description: Split to single store
+            steps:
+              - setProperty:
+                  name: resource
+                  id: set-js-stock-statuses-2
+                  expression:
+                    constant:
+                      expression: >-
+                        codbex-electra-opencart/synch/outbound/stock-statuses/get-all-stock-statuses.ts
+                      id: constant-stock-statuses-02
+                  description: Set JS file
+              - to:
+                  uri: >-
+                    class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+                  id: get-all-stock-statuses
+                  description: Get all stock statuses
+              - split:
+                  id: split-to-single-stock-status
+                  expression:
+                    simple:
+                      expression: ${body}
+                      id: simple-b984-stock-statuses
+                  description: Split to single stock status
+                  steps:
+                    - setProperty:
+                        name: resource
+                        id: set-js-stock-statuses-3
+                        expression:
+                          constant:
+                            expression: >-
+                              codbex-electra-opencart/synch/outbound/stock-statuses/merge-stock-status-to-open-cart.ts
+                            id: constant-stock-statuses-03
+                        description: Set JS file
+                    - to:
+                        uri: >-
+                          class:org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+                        id: merge-stock-status-to-oc
+                        description: Merge stock status to OpenCart
+        - log:
+            message: >-
+              Successfully replicated stock statuses to all enabled OpenCart
+              stores
+            id: log-stock-statuses-replication-completed
+            logName: OpenCartStockStatusesOutboundReplication
+            loggingLevel: INFO
+    description: Sync stock statuses to OpenCarts

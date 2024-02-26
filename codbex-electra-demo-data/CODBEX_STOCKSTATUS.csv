@@ -1,5 +1,5 @@
 STOCKSTATUS_ID,STOCKSTATUS_LANGUAGE,STOCKSTATUS_NAME
-5,1,Out Of Stock
-6,1,2-3 Days
-7,1,In Stock
-8,1,Pre-Order
+1,1,Out Of Stock
+2,1,2-3 Days
+3,1,In Stock
+4,1,Pre-Order

@@ -2,7 +2,7 @@ import { oc_productRepository as OpenCartProductDAO, oc_productCreateEntity as O
 import { oc_product_to_storeRepository as OpenCartProductToStoreDAO } from "../../../../dao/oc_product_to_storeRepository";
 import { oc_product_to_categoryRepository as OpenCartProductToCategoryDAO } from "../../../../dao/oc_product_to_categoryRepository";
 import { ProductRepository as ProductDAO, ProductEntity } from "../../../../../codbex-electra/gen/dao/Products/ProductRepository";
-import { ProductToCategoryRepository as ProductToCategoryDAO, ProductToCategoryEntity } from "../../../../../codbex-electra/gen/dao/Products/ProductToCategoryRepository";
+import { ProductToCategoryRepository as ProductToCategoryDAO } from "../../../../../codbex-electra/gen/dao/Products/ProductToCategoryRepository";
 import { EntityReferenceDAO } from "../../../../../codbex-electra/dao/EntityReferenceDAO";
 import { EntityReferenceEntity } from "../../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
 import { BaseHandler } from "../../../base-handler";
@@ -70,25 +70,26 @@ class MergeProductToOpenCartHandler extends BaseHandler {
     }
 
     private createOpenCartProduct(product: ProductEntity, productReference: EntityReferenceEntity | null): OpenCartProductCreateEntity | OpenCartProductUpdateEntity {
-        const manufacturerId = this.getOpenCartManufacturerId(this.productEntry.store.id, product.Manufacturer);
+        const ocManufacturerId = this.getOpenCartManufacturerId(this.productEntry.store.id, product.Manufacturer);
+        const ocStockStatusId = this.getOpenCartStockStatusId(this.productEntry.store.id, product.StockStatus);
         if (productReference) {
             const ocProduct = this.ocProductDAO.findById(productReference.ReferenceIntegerId!);
             const viewed = ocProduct ? ocProduct.viewed : 0;
 
             return {
-                product_id: productReference.ReferenceIntegerId,
+                product_id: productReference.ReferenceIntegerId!,
                 model: product.Model,
-                sku: product.SKU,
-                upc: product.UPC,
-                ean: product.EAN,
-                jan: product.JAN,
-                isbn: product.ISBN,
-                mpn: product.MPN,
+                sku: this.getEmptyStringIfMissing(product.SKU),
+                upc: this.getEmptyStringIfMissing(product.UPC),
+                ean: this.getEmptyStringIfMissing(product.EAN),
+                jan: this.getEmptyStringIfMissing(product.JAN),
+                isbn: this.getEmptyStringIfMissing(product.ISBN),
+                mpn: this.getEmptyStringIfMissing(product.MPN),
                 location: product.Location,
                 quantity: product.Quantity,
-                stock_status_id: product.StockStatus,
+                stock_status_id: ocStockStatusId,
                 image: product.Image,
-                manufacturer_id: manufacturerId,
+                manufacturer_id: ocManufacturerId,
                 shipping: product.Shipping,
                 price: product.Price,
                 points: product.Points,
@@ -112,17 +113,17 @@ class MergeProductToOpenCartHandler extends BaseHandler {
             return {
                 viewed: 0,
                 model: product.Model,
-                sku: product.SKU,
-                upc: product.UPC,
-                ean: product.EAN,
-                jan: product.JAN,
-                isbn: product.ISBN,
-                mpn: product.MPN,
+                sku: this.getEmptyStringIfMissing(product.SKU),
+                upc: this.getEmptyStringIfMissing(product.UPC),
+                ean: this.getEmptyStringIfMissing(product.EAN),
+                jan: this.getEmptyStringIfMissing(product.JAN),
+                isbn: this.getEmptyStringIfMissing(product.ISBN),
+                mpn: this.getEmptyStringIfMissing(product.MPN),
                 location: product.Location,
                 quantity: product.Quantity,
-                stock_status_id: product.StockStatus,
+                stock_status_id: ocStockStatusId,
                 image: product.Image,
-                manufacturer_id: manufacturerId,
+                manufacturer_id: ocManufacturerId,
                 shipping: product.Shipping,
                 price: product.Price,
                 points: product.Points,
@@ -145,8 +146,14 @@ class MergeProductToOpenCartHandler extends BaseHandler {
     }
 
     private getOpenCartManufacturerId(storeId: number, manufacturerId: number): number {
-        const manufacturerRef = this.entityReferenceDAO.getRequiredManufacturerReferenceReferenceByEntityId(storeId, manufacturerId);
-        return manufacturerRef.ReferenceIntegerId!;
+        const ref = this.entityReferenceDAO.getRequiredManufacturerReferenceReferenceByEntityId(storeId, manufacturerId);
+        return ref.ReferenceIntegerId!;
+    }
+
+
+    private getOpenCartStockStatusId(storeId: number, stockStatusId: number): number {
+        const ref = this.entityReferenceDAO.getRequiredStockStatusReferenceReferenceByEntityId(storeId, stockStatusId);
+        return ref.ReferenceIntegerId!;
     }
 
     private upsertProductCategories(ocProductId: number) {

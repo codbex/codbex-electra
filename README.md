@@ -120,6 +120,7 @@ In the following table you can find more details about the tables mapping.
 | CODBEX_SALESORDERITEM | oc_order_product | every minute | `18 * * ? * *` |
 | CODBEX_ORDERSTATUS | oc_order_status | every minute | `10 * * ? * *` |
 | CODBEX_SALESORDER | oc_order | every minute | `18 * * ? * *` |
+| CODBEX_STOCKSTATUS | oc_stock_status | every minute | `10 * * ? * *` |
 | CODBEX_PRODUCTATTRIBUTE | oc_product_attribute | every minute | `40 * * ? * *` |
 | CODBEX_PRODUCTDESCRIPTION | oc_product_description | every minute | `20 * * ? * *` |
 | CODBEX_PRODUCTTOCATEGORY | oc_product_to_category | every minute | `20 * * ? * *` |
@@ -146,12 +147,13 @@ In the following table, you can find the dependencies between entities.
 | oc_customer | oc_language | 2 |
 | oc_zone | oc_country | 2 |
 | oc_order_status | oc_language | 2 |
+| oc_stock_status | oc_language | 2 |
 | oc_category | nothing | 2 |
 | oc_category_description | oc_language, oc_category | 2 |
 | oc_attribute_group | nothing | 2 |
 | oc_attribute_group_description | oc_language, oc_attribute_group | 2 |
 | oc_order | oc_customer, oc_country, oc_zone, oc_order_status, oc_language, oc_currency | 3 |
-| oc_product | oc_manufacturer, oc_category | 3 |
+| oc_product | oc_manufacturer, oc_category, oc_stock_status | 3 |
 | oc_product_description | oc_language, oc_product | 3 |
 | oc_attribute | oc_attribute_group | 3 |
 | oc_attribute_description | oc_language, oc_attribute | 3 |

@@ -7,6 +7,7 @@ export class EntityReferenceDAO {
     private static readonly SALES_ORDER_ENTITY = "SalesOrder";
     private static readonly SALES_ORDER_ITEM_ENTITY = "SalesOrderItem";
     private static readonly ORDER_STATUS_ENTITY = "OrderStatus";
+    private static readonly STOCK_STATUS_ENTITY = "StockStatus";
     private static readonly ZONE_ENTITY = "Zone";
     private static readonly CURRENCY_ENTITY = "Currency";
     private static readonly COUNTRY_ENTITY = "Country";
@@ -69,6 +70,9 @@ export class EntityReferenceDAO {
     public createCategoryReference(storeId: number, categoryEntityId: number, categoryReferenceId: number) {
         return this.createReference(storeId, EntityReferenceDAO.CATEGORY_ENTITY, categoryEntityId, categoryReferenceId);
     }
+    public createStockStatusReference(storeId: number, stockStatusEntityId: number, stockStatusReferenceId: number) {
+        return this.createReference(storeId, EntityReferenceDAO.STOCK_STATUS_ENTITY, stockStatusEntityId, stockStatusReferenceId);
+    }
 
     public createLanguageReference(storeId: number, languageEntityId: number, languageReferenceId: number) {
         return this.createReference(storeId, EntityReferenceDAO.LANGUAGE_ENTITY, languageEntityId, languageReferenceId);
@@ -106,6 +110,9 @@ export class EntityReferenceDAO {
 
     public getCurrencyReferenceByEntityId(storeId: number, currencyEntityId: number) {
         return this.getReferenceByScopeIdEntityNameAndEntityId(storeId, EntityReferenceDAO.CURRENCY_ENTITY, currencyEntityId);
+    }
+    public getStockStatusReferenceByEntityId(storeId: number, stockStatusEntityId: number) {
+        return this.getReferenceByScopeIdEntityNameAndEntityId(storeId, EntityReferenceDAO.STOCK_STATUS_ENTITY, stockStatusEntityId);
     }
 
     public getCountryReferenceByEntityId(storeId: number, countryEntityId: number) {
@@ -158,6 +165,9 @@ export class EntityReferenceDAO {
 
     public getRequiredZoneReferenceByEntityId(storeId: number, zoneEntityId: number) {
         return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.ZONE_ENTITY, zoneEntityId);
+    }
+    public getRequiredStockStatusReferenceReferenceByEntityId(storeId: number, stockStatusEntityId: number) {
+        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.STOCK_STATUS_ENTITY, stockStatusEntityId);
     }
 
     public getRequiredAttributeGroupReferenceByEntityId(storeId: number, attributeGroupEntityId: number) {
