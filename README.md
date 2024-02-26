@@ -13,7 +13,14 @@ e-Commerce Backoffice Management
 - [User interface](#user-interface)
 
 ## Demo instance
-THIS SECTION IS **UNDER MAINTENANCE!**
+You can try the Electra [here](https://dev.electra.eu1.codbex.com).<br>
+It is configured to use the following OpenCart demo instances:
+- [Electronics](https://dev.opencart-trial-01.eu1.codbex.com)
+- [Drugstore](https://dev.opencart-trial-02.eu1.codbex.com)
+
+Details about the configured OpenCart instances could be found [here](https://github.com/codbex/awesome-stuff/tree/main/opencart#trial-systems).
+
+You can create a new shop user in each store, make some orders, check and modify them in Electra. In addition, you can print an Econt shipping labels for the orders.
 
 ## Build and Run
 
