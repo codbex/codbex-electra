@@ -4,7 +4,7 @@
       uri: cron:TriggerStockStatusesReplication
       id: trigger-stock-statuses-replication-cron
       parameters:
-        schedule: 0 1/15 * ? * *
+        schedule: 10 * * ? * *   
       description: Trigger Stock Statuses Replication
       steps:
         - log:
@@ -17,7 +17,8 @@
             id: set-js-stock-statuses-1
             expression:
               constant:
-                expression: codbex-electra-opencart/synch/get-all-relevant-stores.ts
+                expression: >-
+                  codbex-electra-opencart/synch/get-all-relevant-stores.ts
                 id: constant-stock-statuses-01
             description: Set JS file
         - to:

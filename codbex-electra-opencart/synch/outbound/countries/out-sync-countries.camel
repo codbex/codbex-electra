@@ -4,7 +4,7 @@
       uri: cron:TriggerCountriesReplication
       id: trigger-countries-replication-cron
       parameters:
-        schedule: 0 0/15 * ? * *
+        schedule: 0 * * ? * *
       description: Trigger Countries Replication
       steps:
         - log:
@@ -17,7 +17,8 @@
             id: set-js-countries-1
             expression:
               constant:
-                expression: codbex-electra-opencart/synch/get-all-relevant-stores.ts
+                expression: >-
+                  codbex-electra-opencart/synch/get-all-relevant-stores.ts
                 id: constant-countries-8de2
             description: Set JS file
         - to:
