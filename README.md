@@ -113,21 +113,21 @@ In the following table you can find more details about the tables mapping.
 | n/a | oc_category_path | every minute | `10 * * ? * *` |
 | n/a | oc_category_to_store | every minute | `10 * * ? * *` |
 | CODBEX_CATEGORY | oc_category | every minute | `10 * * ? * *` |
-| CODBEX_COUNTRY | oc_country | every minute | `0 * * ? * *` |
-| CODBEX_CURRENCY | oc_currency | every minute | `0 * * ? * *` |
-| CODBEX_LANGUAGE | oc_language | every minute | `0 * * ? * *` |
+| CODBEX_COUNTRY | oc_country | every 15 minutes | `0 0/15 * ? * *` |
+| CODBEX_CURRENCY | oc_currency | every 15 minutes | `0 0/15 * ? * *` |
+| CODBEX_LANGUAGE | oc_language | every 15 minutes | `0 0/15 * ? * *` |
 | CODBEX_MANUFACTURER | oc_manufacturer | every minute | `0 * * ? * *` |
 | CODBEX_SALESORDERITEM | oc_order_product | every minute | `18 * * ? * *` |
-| CODBEX_ORDERSTATUS | oc_order_status | every minute | `10 * * ? * *` |
+| CODBEX_ORDERSTATUS | oc_order_status | every 15 minutes | `0 1/15 * ? * *` |
 | CODBEX_SALESORDER | oc_order | every minute | `18 * * ? * *` |
-| CODBEX_STOCKSTATUS | oc_stock_status | every minute | `10 * * ? * *` |
+| CODBEX_STOCKSTATUS | oc_stock_status | every 15 minutes | `0 1/15 * ? * *` |
 | CODBEX_PRODUCTATTRIBUTE | oc_product_attribute | every minute | `40 * * ? * *` |
 | CODBEX_PRODUCTDESCRIPTION | oc_product_description | every minute | `20 * * ? * *` |
 | CODBEX_PRODUCTTOCATEGORY | oc_product_to_category | every minute | `20 * * ? * *` |
 | n/a | oc_product_to_store | every minute | `20 * * ? * *` |
 | CODBEX_PRODUCT | oc_product | every minute | `20 * * ? * *` |
 | n/a | oc_setting | every minute | `10 * * ? * *` |
-| CODBEX_ZONE | oc_zone | every minute | `10 * * ? * *` |
+| CODBEX_ZONE | oc_zone | every 15 minutes | `0 1/15 * ? * *` |
 
 To check the example execution times of the cron, you can use [this site](http://www.cronmaker.com/).
 

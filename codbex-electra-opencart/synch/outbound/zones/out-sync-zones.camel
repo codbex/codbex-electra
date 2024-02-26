@@ -4,7 +4,7 @@
       uri: cron:TriggerZonesReplication
       id: trigger-zones-replication-cron
       parameters:
-        schedule: 10 * * ? * *
+        schedule: 0 1/15 * ? * *
       description: Trigger Zones Replication
       steps:
         - log:
@@ -17,8 +17,7 @@
             id: set-js-zones-1
             expression:
               constant:
-                expression: >-
-                  codbex-electra-opencart/synch/get-all-relevant-stores.ts
+                expression: codbex-electra-opencart/synch/get-all-relevant-stores.ts
                 id: constant-zones-8de2
             description: Set JS file
         - to:
