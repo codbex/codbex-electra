@@ -2,9 +2,12 @@ import { query } from "sdk/db";
 import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
+// custom imports
+import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
 export interface SalesOrderEntity {
     readonly Id: number;
+    Number?: string;
     Total: number;
     Currency: number;
     Status: number;
@@ -41,6 +44,7 @@ export interface SalesOrderEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
+            Number?: string | string[];
             Total?: number | number[];
             Currency?: number | number[];
             Status?: number | number[];
@@ -57,6 +61,7 @@ export interface SalesOrderEntityOptions {
         };
         notEquals?: {
             Id?: number | number[];
+            Number?: string | string[];
             Total?: number | number[];
             Currency?: number | number[];
             Status?: number | number[];
@@ -73,6 +78,7 @@ export interface SalesOrderEntityOptions {
         };
         contains?: {
             Id?: number;
+            Number?: string;
             Total?: number;
             Currency?: number;
             Status?: number;
@@ -89,6 +95,7 @@ export interface SalesOrderEntityOptions {
         };
         greaterThan?: {
             Id?: number;
+            Number?: string;
             Total?: number;
             Currency?: number;
             Status?: number;
@@ -105,6 +112,7 @@ export interface SalesOrderEntityOptions {
         };
         greaterThanOrEqual?: {
             Id?: number;
+            Number?: string;
             Total?: number;
             Currency?: number;
             Status?: number;
@@ -121,6 +129,7 @@ export interface SalesOrderEntityOptions {
         };
         lessThan?: {
             Id?: number;
+            Number?: string;
             Total?: number;
             Currency?: number;
             Status?: number;
@@ -137,6 +146,7 @@ export interface SalesOrderEntityOptions {
         };
         lessThanOrEqual?: {
             Id?: number;
+            Number?: string;
             Total?: number;
             Currency?: number;
             Status?: number;
@@ -181,6 +191,11 @@ export class SalesOrderRepository {
                 type: "INTEGER",
                 id: true,
                 autoIncrement: true,
+            },
+            {
+                name: "Number",
+                column: "SALESORDER_NUMBER",
+                type: "VARCHAR",
             },
             {
                 name: "Total",
@@ -274,6 +289,8 @@ export class SalesOrderRepository {
     }
 
     public create(entity: SalesOrderCreateEntity): number {
+        // @ts-ignore
+        (entity as SalesOrderEntity).Number = new NumberGeneratorService().generate(16);
         // @ts-ignore
         (entity as SalesOrderEntity).DateAdded = Date.now();
         // @ts-ignore

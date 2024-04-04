@@ -3,6 +3,8 @@ import { Extensions } from "sdk/extensions"
 import { SalesOrderRepository, SalesOrderEntityOptions } from "../../dao/SalesOrders/SalesOrderRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+// custom imports
+import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
 const validationModules = await Extensions.loadExtensionModules("codbex-electra-SalesOrders-SalesOrder", ["validate"]);
 
@@ -119,6 +121,9 @@ class SalesOrderService {
     }
 
     private validateEntity(entity: any): void {
+        if (entity.Number?.length > 20) {
+            throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
+        }
         if (entity.Total === null || entity.Total === undefined) {
             throw new ValidationError(`The 'Total' property is required, provide a valid value`);
         }
