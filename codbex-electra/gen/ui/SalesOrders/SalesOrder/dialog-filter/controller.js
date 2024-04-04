@@ -62,6 +62,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			if (entity.Id) {
 				filter.$filter.equals.Id = entity.Id;
 			}
+			if (entity.Number) {
+				filter.$filter.contains.Number = entity.Number;
+			}
 			if (entity.Total) {
 				filter.$filter.equals.Total = entity.Total;
 			}

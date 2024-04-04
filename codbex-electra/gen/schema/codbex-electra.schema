@@ -88,6 +88,14 @@
                         "name": "SALESORDER_ID"
                     },
                     {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDER_NUMBER"
+                    },
+                    {
                         "type": "DECIMAL",
                         "length": 19,
                         "precision": "15",
