@@ -7,7 +7,7 @@ const viewData = {
     id: "ProductToCategory-filter",
     label: "ProductToCategory Filter",
     link: "/services/web/codbex-electra/gen/ui/Products/Product/ProductToCategory/dialog-filter/index.html",
-    perspectiveName: "Products"
+    perspectiveName: "Products",
 };
 
 if (typeof exports !== 'undefined') {

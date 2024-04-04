@@ -104,7 +104,7 @@ export class ProductToStoreRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(ProductToStoreRepository.DEFINITION, null, dataSource);
     }
 
@@ -180,7 +180,7 @@ export class ProductToStoreRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: ProductToStoreEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PRODUCTTOSTORE"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -193,7 +193,7 @@ export class ProductToStoreRepository {
     }
 
     private async triggerEvent(data: ProductToStoreEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Products/ProductToStore", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Products-ProductToStore", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -201,6 +201,6 @@ export class ProductToStoreRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-electra/Products/ProductToStore").send(JSON.stringify(data));
+        producer.topic("codbex-electra-Products-ProductToStore").send(JSON.stringify(data));
     }
 }

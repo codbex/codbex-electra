@@ -7,7 +7,7 @@ const viewData = {
     id: "SalesOrderComment-filter",
     label: "SalesOrderComment Filter",
     link: "/services/web/codbex-electra/gen/ui/SalesOrders/SalesOrder/SalesOrderComment/dialog-filter/index.html",
-    perspectiveName: "SalesOrders"
+    perspectiveName: "SalesOrders",
 };
 
 if (typeof exports !== 'undefined') {

@@ -7,7 +7,7 @@ const viewData = {
     id: "LanguageStatus-details",
     label: "LanguageStatus",
     link: "/services/web/codbex-electra/gen/ui/Settings/LanguageStatus/dialog-window/index.html",
-    perspectiveName: "Settings"
+    perspectiveName: "Settings",
 };
 
 if (typeof exports !== 'undefined') {

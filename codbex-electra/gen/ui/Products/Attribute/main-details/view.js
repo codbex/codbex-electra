@@ -9,7 +9,7 @@ const viewData = {
     factory: "frame",
     region: "center",
     link: "/services/web/codbex-electra/gen/ui/Products/Attribute/main-details/index.html",
-    perspectiveName: "Products"
+    perspectiveName: "Products",
 };
 
 if (typeof exports !== 'undefined') {

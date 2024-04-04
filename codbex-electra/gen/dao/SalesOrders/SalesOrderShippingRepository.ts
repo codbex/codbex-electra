@@ -287,7 +287,7 @@ export class SalesOrderShippingRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(SalesOrderShippingRepository.DEFINITION, null, dataSource);
     }
 
@@ -363,7 +363,7 @@ export class SalesOrderShippingRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: SalesOrderShippingEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDERSHIPPING"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -376,7 +376,7 @@ export class SalesOrderShippingRepository {
     }
 
     private async triggerEvent(data: SalesOrderShippingEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/SalesOrders/SalesOrderShipping", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-SalesOrders-SalesOrderShipping", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -384,6 +384,6 @@ export class SalesOrderShippingRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-electra/SalesOrders/SalesOrderShipping").send(JSON.stringify(data));
+        producer.topic("codbex-electra-SalesOrders-SalesOrderShipping").send(JSON.stringify(data));
     }
 }

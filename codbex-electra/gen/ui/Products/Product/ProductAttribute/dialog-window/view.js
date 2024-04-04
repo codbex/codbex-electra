@@ -7,7 +7,7 @@ const viewData = {
     id: "ProductAttribute-details",
     label: "ProductAttribute",
     link: "/services/web/codbex-electra/gen/ui/Products/Product/ProductAttribute/dialog-window/index.html",
-    perspectiveName: "Products"
+    perspectiveName: "Products",
 };
 
 if (typeof exports !== 'undefined') {

@@ -7,7 +7,7 @@ const viewData = {
     id: "ZoneStatus-filter",
     label: "ZoneStatus Filter",
     link: "/services/web/codbex-electra/gen/ui/Settings/ZoneStatus/dialog-filter/index.html",
-    perspectiveName: "Settings"
+    perspectiveName: "Settings",
 };
 
 if (typeof exports !== 'undefined') {

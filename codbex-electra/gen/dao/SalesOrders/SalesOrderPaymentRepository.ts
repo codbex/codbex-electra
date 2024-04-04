@@ -274,7 +274,7 @@ export class SalesOrderPaymentRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(SalesOrderPaymentRepository.DEFINITION, null, dataSource);
     }
 
@@ -350,7 +350,7 @@ export class SalesOrderPaymentRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: SalesOrderPaymentEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDERPAYMENT"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -363,7 +363,7 @@ export class SalesOrderPaymentRepository {
     }
 
     private async triggerEvent(data: SalesOrderPaymentEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/SalesOrders/SalesOrderPayment", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-SalesOrders-SalesOrderPayment", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -371,6 +371,6 @@ export class SalesOrderPaymentRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-electra/SalesOrders/SalesOrderPayment").send(JSON.stringify(data));
+        producer.topic("codbex-electra-SalesOrders-SalesOrderPayment").send(JSON.stringify(data));
     }
 }

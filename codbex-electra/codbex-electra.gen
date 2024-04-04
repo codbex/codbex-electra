@@ -4,6 +4,7 @@
   "brandUrl": "https://www.codbex.com/",
   "title": "Electra",
   "description": "Warehouse Management Application",
+  "dataSource": "DefaultDB",
   "projectName": "codbex-electra",
   "workspaceName": "workspace",
   "filePath": "codbex-electra.model",
@@ -29,7 +30,8 @@
       "name": "Settings",
       "label": "Settings",
       "order": "1000",
-      "icon": "/services/web/resources/unicons/wrench.svg"
+      "icon": "/services/web/resources/unicons/wrench.svg",
+      "role": ""
     },
     "SalesOrders": {
       "views": [
@@ -52,12 +54,17 @@
         "SalesOrder-details",
         "SalesOrder-details",
         "SalesOrder-details",
+        "SalesOrder-details",
+        "SalesOrder-details",
+        "SalesOrder-details",
+        "SalesOrder-details",
         "SalesOrder-details"
       ],
       "name": "SalesOrders",
       "label": "SalesOrders",
       "order": "200",
-      "icon": "/services/web/resources/unicons/bill.svg"
+      "icon": "/services/web/resources/unicons/bill.svg",
+      "role": ""
     },
     "Stores": {
       "views": [
@@ -79,16 +86,25 @@
         "Store-details",
         "Store-details",
         "Store-details",
+        "Store-details",
+        "Store-details",
+        "Store-details",
+        "Store-details",
         "Store-details"
       ],
       "name": "Stores",
       "label": "Stores",
       "order": "500",
-      "icon": "/services/web/resources/unicons/store.svg"
+      "icon": "/services/web/resources/unicons/store.svg",
+      "role": ""
     },
     "Customers": {
       "views": [
         "Customer",
+        "Customer-details",
+        "Customer-details",
+        "Customer-details",
+        "Customer-details",
         "Customer-details",
         "Customer-details",
         "Customer-details",
@@ -108,7 +124,8 @@
       "name": "Customers",
       "label": "Customers",
       "order": "300",
-      "icon": "/services/web/resources/unicons/users-alt.svg"
+      "icon": "/services/web/resources/unicons/users-alt.svg",
+      "role": ""
     },
     "Products": {
       "views": [
@@ -363,12 +380,77 @@
         "Product-details",
         "Attribute-details",
         "AttributeGroup-details",
+        "Category-details",
+        "Product-details",
+        "Attribute-details",
+        "AttributeGroup-details",
+        "Category-details",
+        "Product-details",
+        "Attribute-details",
+        "AttributeGroup-details",
+        "Category-details",
+        "Product-details",
+        "Attribute-details",
+        "AttributeGroup-details",
+        "Category-details",
+        "Product-details",
+        "Attribute-details",
+        "AttributeGroup-details",
+        "Category-details",
+        "Product-details",
+        "Attribute-details",
+        "AttributeGroup-details",
+        "Category-details",
+        "Product-details",
+        "Attribute-details",
+        "AttributeGroup-details",
+        "Category-details",
+        "Product-details",
+        "Attribute-details",
+        "AttributeGroup-details",
+        "Category-details",
+        "Product-details",
+        "Attribute-details",
+        "AttributeGroup-details",
+        "Category-details",
+        "Product-details",
+        "Attribute-details",
+        "AttributeGroup-details",
+        "Category-details",
+        "Product-details",
+        "Attribute-details",
+        "AttributeGroup-details",
+        "Category-details",
+        "Product-details",
+        "Attribute-details",
+        "AttributeGroup-details",
+        "Category-details",
+        "Product-details",
+        "Attribute-details",
+        "AttributeGroup-details",
+        "Category-details",
+        "Product-details",
+        "Attribute-details",
+        "AttributeGroup-details",
+        "Category-details",
+        "Product-details",
+        "Attribute-details",
+        "AttributeGroup-details",
+        "Category-details",
+        "Product-details",
+        "Attribute-details",
+        "AttributeGroup-details",
+        "Category-details",
+        "Product-details",
+        "Attribute-details",
+        "AttributeGroup-details",
         "Category-details"
       ],
       "name": "Products",
       "label": "Products",
       "order": "400",
-      "icon": "/services/web/resources/unicons/box.svg"
+      "icon": "/services/web/resources/unicons/box.svg",
+      "role": ""
     },
     "Access": {
       "views": [
@@ -381,7 +463,8 @@
       "name": "Access",
       "label": "Access",
       "order": "600",
-      "icon": "/services/web/resources/unicons/lock.svg"
+      "icon": "/services/web/resources/unicons/lock.svg",
+      "role": ""
     }
   },
   "models": [
@@ -651,9 +734,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
       "perspectiveName": "Settings",
       "perspectiveOrder": "1000",
+      "perspectiveRole": "",
       "title": "Currency",
       "tooltip": "Currency",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -1079,9 +1164,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
       "perspectiveName": "SalesOrders",
       "perspectiveOrder": "200",
+      "perspectiveRole": "",
       "title": "SalesOrder",
       "tooltip": "SalesOrder",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -1622,9 +1709,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/store.svg",
       "perspectiveName": "Stores",
       "perspectiveOrder": "500",
+      "perspectiveRole": "",
       "title": "Store",
       "tooltip": "Store",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -2051,9 +2140,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/users-alt.svg",
       "perspectiveName": "Customers",
       "perspectiveOrder": "300",
+      "perspectiveRole": "",
       "title": "Customer",
       "tooltip": "Customer",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -2509,9 +2600,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
       "perspectiveName": "Settings",
       "perspectiveOrder": "1000",
+      "perspectiveRole": "",
       "title": "Country",
       "tooltip": "Country",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -2589,9 +2682,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
       "perspectiveName": "Settings",
       "perspectiveOrder": "1000",
+      "perspectiveRole": "",
       "title": "CountryStatus",
       "tooltip": "CountryStatus",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -2758,9 +2853,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
       "perspectiveName": "Settings",
       "perspectiveOrder": "1000",
+      "perspectiveRole": "",
       "title": "Zone",
       "tooltip": "Zone",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -2838,9 +2935,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
       "perspectiveName": "Settings",
       "perspectiveOrder": "1000",
+      "perspectiveRole": "",
       "title": "ZoneStatus",
       "tooltip": "ZoneStatus",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -2974,9 +3073,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
       "perspectiveName": "Settings",
       "perspectiveOrder": "1000",
+      "perspectiveRole": "",
       "title": "OrderStatus",
       "tooltip": "OrderStatus",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -3143,9 +3244,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
       "perspectiveName": "Settings",
       "perspectiveOrder": "1000",
+      "perspectiveRole": "",
       "title": "Language",
       "tooltip": "Language",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -3223,9 +3326,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
       "perspectiveName": "Settings",
       "perspectiveOrder": "1000",
+      "perspectiveRole": "",
       "title": "LanguageStatus",
       "tooltip": "LanguageStatus",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -3304,9 +3409,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
       "perspectiveName": "Settings",
       "perspectiveOrder": "1000",
+      "perspectiveRole": "",
       "title": "CustomerStatus",
       "tooltip": "CustomerStatus",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -3577,9 +3684,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
       "perspectiveName": "SalesOrders",
       "perspectiveOrder": "200",
+      "perspectiveRole": "",
       "title": "SalesOrderItem",
       "tooltip": "SalesOrderItem",
       "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -4345,9 +4454,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/box.svg",
       "perspectiveName": "Products",
       "perspectiveOrder": "400",
+      "perspectiveRole": "",
       "title": "Product",
       "tooltip": "Product",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -5175,9 +5286,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
       "perspectiveName": "Settings",
       "perspectiveOrder": "1000",
+      "perspectiveRole": "",
       "title": "StockStatus",
       "tooltip": "StockStatus",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -5285,9 +5398,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/box.svg",
       "perspectiveName": "Products",
       "perspectiveOrder": "400",
+      "perspectiveRole": "",
       "title": "Manufacturer",
       "tooltip": "Manifacturer",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -5364,9 +5479,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
       "perspectiveName": "Settings",
       "perspectiveOrder": "1000",
+      "perspectiveRole": "",
       "title": "ProductStatus",
       "tooltip": "ProductStatus",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -5641,9 +5758,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
       "perspectiveName": "Access",
       "perspectiveOrder": "600",
+      "perspectiveRole": "",
       "title": "Employee",
       "tooltip": "Employee",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -5722,9 +5841,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
       "perspectiveName": "Settings",
       "perspectiveOrder": "1000",
+      "perspectiveRole": "",
       "title": "EmployeeStatus",
       "tooltip": "EmployeeStatus",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -6174,9 +6295,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
       "perspectiveName": "SalesOrders",
       "perspectiveOrder": "200",
+      "perspectiveRole": "",
       "title": "SalesOrderPayment",
       "tooltip": "SalesOrderPayment",
       "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -6657,9 +6780,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
       "perspectiveName": "SalesOrders",
       "perspectiveOrder": "200",
+      "perspectiveRole": "",
       "title": "SalesOrderShipping",
       "tooltip": "SalesOrderShipping",
       "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -6739,9 +6864,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
       "perspectiveName": "Settings",
       "perspectiveOrder": "1000",
+      "perspectiveRole": "",
       "title": "CurrencyStatus",
       "tooltip": "CurrencyStatus",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -6875,9 +7002,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
       "perspectiveName": "Access",
       "perspectiveOrder": "600",
+      "perspectiveRole": "",
       "title": "Group",
       "tooltip": "Group",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -6990,9 +7119,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/box.svg",
       "perspectiveName": "Products",
       "perspectiveOrder": "400",
+      "perspectiveRole": "",
       "title": "Attribute",
       "tooltip": "Attribute",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -7232,9 +7363,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/box.svg",
       "perspectiveName": "Products",
       "perspectiveOrder": "400",
+      "perspectiveRole": "",
       "title": "ProductAttribute",
       "tooltip": "ProductAttribute",
       "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -7316,9 +7449,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/box.svg",
       "perspectiveName": "Products",
       "perspectiveOrder": "400",
+      "perspectiveRole": "",
       "title": "AttributeGroup",
       "tooltip": "AttributeGroup",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -7569,9 +7704,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
       "perspectiveName": "SalesOrders",
       "perspectiveOrder": "200",
+      "perspectiveRole": "",
       "title": "SalesOrderComment",
       "tooltip": "SalesOrderComment",
       "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -7715,9 +7852,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/box.svg",
       "perspectiveName": "Products",
       "perspectiveOrder": "400",
+      "perspectiveRole": "",
       "title": "AttributeDescription",
       "tooltip": "AttributeDescription",
       "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -8003,9 +8142,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/box.svg",
       "perspectiveName": "Products",
       "perspectiveOrder": "400",
+      "perspectiveRole": "",
       "title": "ProductDescription",
       "tooltip": "ProductDescription",
       "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -8087,9 +8228,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
       "perspectiveName": "Access",
       "perspectiveOrder": "600",
+      "perspectiveRole": "",
       "title": "Permission",
       "tooltip": "Permission",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -8255,9 +8398,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
       "perspectiveName": "Access",
       "perspectiveOrder": "600",
+      "perspectiveRole": "",
       "title": "GroupEmployee",
       "tooltip": "GroupEmployee",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -8425,9 +8570,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
       "perspectiveName": "Access",
       "perspectiveOrder": "600",
+      "perspectiveRole": "",
       "title": "GroupPermission",
       "tooltip": "GroupPermission",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -8670,9 +8817,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
       "perspectiveName": "Settings",
       "perspectiveOrder": "1000",
+      "perspectiveRole": "",
       "title": "EntityReference",
       "tooltip": "EntityReference",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -8815,9 +8964,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/store.svg",
       "perspectiveName": "Stores",
       "perspectiveOrder": "500",
+      "perspectiveRole": "",
       "title": "StoreConfiguration",
       "tooltip": "StoreConfiguration",
       "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -8897,9 +9048,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/store.svg",
       "perspectiveName": "Stores",
       "perspectiveOrder": "500",
+      "perspectiveRole": "",
       "title": "StoreConfigurationProperty",
       "tooltip": "StoreConfigurationProperty",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -8978,9 +9131,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/store.svg",
       "perspectiveName": "Stores",
       "perspectiveOrder": "500",
+      "perspectiveRole": "",
       "title": "StoreType",
       "tooltip": "StoreType",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -9095,9 +9250,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/box.svg",
       "perspectiveName": "Products",
       "perspectiveOrder": "400",
+      "perspectiveRole": "",
       "title": "ProductToStore",
       "tooltip": "ProductToStore",
       "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -9243,9 +9400,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/box.svg",
       "perspectiveName": "Products",
       "perspectiveOrder": "400",
+      "perspectiveRole": "",
       "title": "AttributeGroupDescription",
       "tooltip": "AttributeGroupDescription",
       "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -9435,9 +9594,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/box.svg",
       "perspectiveName": "Products",
       "perspectiveOrder": "400",
+      "perspectiveRole": "",
       "title": "Category",
       "tooltip": "Category",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -9693,9 +9854,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/box.svg",
       "perspectiveName": "Products",
       "perspectiveOrder": "400",
+      "perspectiveRole": "",
       "title": "ProductToCategory",
       "tooltip": "ProductToCategory",
       "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -9955,9 +10118,11 @@
       "perspectiveIcon": "/services/web/resources/unicons/box.svg",
       "perspectiveName": "Products",
       "perspectiveOrder": "400",
+      "perspectiveRole": "",
       "title": "CategoryTranslation",
       "tooltip": "CategoryTranslation",
       "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"

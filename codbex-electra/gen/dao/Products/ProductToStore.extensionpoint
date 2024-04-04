@@ -1,1 +1,4 @@
-{"location":"codbex-electra/gen/dao/Products/ProductToStore.extensionpoint","name":"codbex-electra/Products/ProductToStore","description":"Extension Point for codbex-electra Products ProductToStore"}
+{
+    "name": "codbex-electra-Products-ProductToStore",
+    "description": "Extension Point for the codbex-electra-Products-ProductToStore entity"
+}

@@ -88,7 +88,7 @@ export class LanguageStatusRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(LanguageStatusRepository.DEFINITION, null, dataSource);
     }
 
@@ -164,7 +164,7 @@ export class LanguageStatusRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: LanguageStatusEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_LANGUAGESTATUS"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -177,7 +177,7 @@ export class LanguageStatusRepository {
     }
 
     private async triggerEvent(data: LanguageStatusEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Settings/LanguageStatus", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Settings-LanguageStatus", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -185,6 +185,6 @@ export class LanguageStatusRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-electra/Settings/LanguageStatus").send(JSON.stringify(data));
+        producer.topic("codbex-electra-Settings-LanguageStatus").send(JSON.stringify(data));
     }
 }

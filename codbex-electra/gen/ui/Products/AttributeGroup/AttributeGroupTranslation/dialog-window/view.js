@@ -7,7 +7,7 @@ const viewData = {
     id: "AttributeGroupTranslation-details",
     label: "AttributeGroupTranslation",
     link: "/services/web/codbex-electra/gen/ui/Products/AttributeGroup/AttributeGroupTranslation/dialog-window/index.html",
-    perspectiveName: "Products"
+    perspectiveName: "Products",
 };
 
 if (typeof exports !== 'undefined') {

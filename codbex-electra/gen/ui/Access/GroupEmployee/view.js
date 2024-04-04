@@ -9,7 +9,7 @@ const viewData = {
     factory: "frame",
     region: "center",
     link: "/services/web/codbex-electra/gen/ui/Access/GroupEmployee/index.html",
-    perspectiveName: "Access"
+    perspectiveName: "Access",
 };
 
 if (typeof exports !== 'undefined') {

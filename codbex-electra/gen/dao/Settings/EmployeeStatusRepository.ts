@@ -88,7 +88,7 @@ export class EmployeeStatusRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(EmployeeStatusRepository.DEFINITION, null, dataSource);
     }
 
@@ -164,7 +164,7 @@ export class EmployeeStatusRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: EmployeeStatusEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_EMPLOYEESTATUS"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -177,7 +177,7 @@ export class EmployeeStatusRepository {
     }
 
     private async triggerEvent(data: EmployeeStatusEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Settings/EmployeeStatus", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Settings-EmployeeStatus", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -185,6 +185,6 @@ export class EmployeeStatusRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-electra/Settings/EmployeeStatus").send(JSON.stringify(data));
+        producer.topic("codbex-electra-Settings-EmployeeStatus").send(JSON.stringify(data));
     }
 }

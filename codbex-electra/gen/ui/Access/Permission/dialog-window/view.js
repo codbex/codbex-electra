@@ -7,7 +7,7 @@ const viewData = {
     id: "Permission-details",
     label: "Permission",
     link: "/services/web/codbex-electra/gen/ui/Access/Permission/dialog-window/index.html",
-    perspectiveName: "Access"
+    perspectiveName: "Access",
 };
 
 if (typeof exports !== 'undefined') {

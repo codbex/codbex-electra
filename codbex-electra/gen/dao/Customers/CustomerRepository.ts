@@ -204,7 +204,7 @@ export class CustomerRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(CustomerRepository.DEFINITION, null, dataSource);
     }
 
@@ -282,7 +282,7 @@ export class CustomerRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: CustomerEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_CUSTOMER"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -295,7 +295,7 @@ export class CustomerRepository {
     }
 
     private async triggerEvent(data: CustomerEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Customers/Customer", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Customers-Customer", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -303,6 +303,6 @@ export class CustomerRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-electra/Customers/Customer").send(JSON.stringify(data));
+        producer.topic("codbex-electra-Customers-Customer").send(JSON.stringify(data));
     }
 }

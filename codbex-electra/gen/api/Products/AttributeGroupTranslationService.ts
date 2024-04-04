@@ -1,6 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { AttributeGroupTranslationRepository, AttributeGroupTranslationEntityOptions } from "../../dao/Products/AttributeGroupTranslationRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-electra-Products-AttributeGroupTranslation", ["validate"]);
 
 @Controller
 class AttributeGroupTranslationService {
@@ -31,6 +35,7 @@ class AttributeGroupTranslationService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-electra/gen/api/Products/AttributeGroupTranslationService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -73,7 +78,7 @@ class AttributeGroupTranslationService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("AttributeGroupTranslation not found");
             }
@@ -86,6 +91,7 @@ class AttributeGroupTranslationService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -118,4 +124,23 @@ class AttributeGroupTranslationService {
             HttpUtils.sendInternalServerError(error.message);
         }
     }
+
+    private validateEntity(entity: any): void {
+        if (entity.AttributeGroup === null || entity.AttributeGroup === undefined) {
+            throw new ValidationError(`The 'AttributeGroup' property is required, provide a valid value`);
+        }
+        if (entity.Language === null || entity.Language === undefined) {
+            throw new ValidationError(`The 'Language' property is required, provide a valid value`);
+        }
+        if (entity.Text === null || entity.Text === undefined) {
+            throw new ValidationError(`The 'Text' property is required, provide a valid value`);
+        }
+        if (entity.Text?.length > 64) {
+            throw new ValidationError(`The 'Text' exceeds the maximum length of [64] characters`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
+        }
+    }
+
 }

@@ -89,7 +89,7 @@ export class AttributeGroupRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(AttributeGroupRepository.DEFINITION, null, dataSource);
     }
 
@@ -165,7 +165,7 @@ export class AttributeGroupRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: AttributeGroupEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_ATTRIBUTEGROUP"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -178,7 +178,7 @@ export class AttributeGroupRepository {
     }
 
     private async triggerEvent(data: AttributeGroupEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Products/AttributeGroup", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Products-AttributeGroup", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -186,6 +186,6 @@ export class AttributeGroupRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-electra/Products/AttributeGroup").send(JSON.stringify(data));
+        producer.topic("codbex-electra-Products-AttributeGroup").send(JSON.stringify(data));
     }
 }

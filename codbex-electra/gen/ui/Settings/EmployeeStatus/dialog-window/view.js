@@ -7,7 +7,7 @@ const viewData = {
     id: "EmployeeStatus-details",
     label: "EmployeeStatus",
     link: "/services/web/codbex-electra/gen/ui/Settings/EmployeeStatus/dialog-window/index.html",
-    perspectiveName: "Settings"
+    perspectiveName: "Settings",
 };
 
 if (typeof exports !== 'undefined') {

@@ -1,1 +1,4 @@
-{"location":"codbex-electra/gen/dao/Settings/Zone.extensionpoint","name":"codbex-electra/Settings/Zone","description":"Extension Point for codbex-electra Settings Zone"}
+{
+    "name": "codbex-electra-Settings-Zone",
+    "description": "Extension Point for the codbex-electra-Settings-Zone entity"
+}

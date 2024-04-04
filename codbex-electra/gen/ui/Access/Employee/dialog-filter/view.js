@@ -7,7 +7,7 @@ const viewData = {
     id: "Employee-filter",
     label: "Employee Filter",
     link: "/services/web/codbex-electra/gen/ui/Access/Employee/dialog-filter/index.html",
-    perspectiveName: "Access"
+    perspectiveName: "Access",
 };
 
 if (typeof exports !== 'undefined') {

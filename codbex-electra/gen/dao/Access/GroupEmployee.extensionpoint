@@ -1,1 +1,4 @@
-{"location":"codbex-electra/gen/dao/Access/GroupEmployee.extensionpoint","name":"codbex-electra/Access/GroupEmployee","description":"Extension Point for codbex-electra Access GroupEmployee"}
+{
+    "name": "codbex-electra-Access-GroupEmployee",
+    "description": "Extension Point for the codbex-electra-Access-GroupEmployee entity"
+}

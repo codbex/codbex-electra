@@ -131,7 +131,7 @@ export class GroupPermissionRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(GroupPermissionRepository.DEFINITION, null, dataSource);
     }
 
@@ -211,7 +211,7 @@ export class GroupPermissionRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: GroupPermissionEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_GROUPPERMISSION"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -224,7 +224,7 @@ export class GroupPermissionRepository {
     }
 
     private async triggerEvent(data: GroupPermissionEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Access/GroupPermission", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Access-GroupPermission", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -232,6 +232,6 @@ export class GroupPermissionRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-electra/Access/GroupPermission").send(JSON.stringify(data));
+        producer.topic("codbex-electra-Access-GroupPermission").send(JSON.stringify(data));
     }
 }

@@ -1,6 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { StoreConfigurationRepository, StoreConfigurationEntityOptions } from "../../dao/Stores/StoreConfigurationRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-electra-Stores-StoreConfiguration", ["validate"]);
 
 @Controller
 class StoreConfigurationService {
@@ -31,6 +35,7 @@ class StoreConfigurationService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-electra/gen/api/Stores/StoreConfigurationService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -73,7 +78,7 @@ class StoreConfigurationService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("StoreConfiguration not found");
             }
@@ -86,6 +91,7 @@ class StoreConfigurationService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -118,4 +124,23 @@ class StoreConfigurationService {
             HttpUtils.sendInternalServerError(error.message);
         }
     }
+
+    private validateEntity(entity: any): void {
+        if (entity.Store === null || entity.Store === undefined) {
+            throw new ValidationError(`The 'Store' property is required, provide a valid value`);
+        }
+        if (entity.Property === null || entity.Property === undefined) {
+            throw new ValidationError(`The 'Property' property is required, provide a valid value`);
+        }
+        if (entity.Value === null || entity.Value === undefined) {
+            throw new ValidationError(`The 'Value' property is required, provide a valid value`);
+        }
+        if (entity.Value?.length > 64) {
+            throw new ValidationError(`The 'Value' exceeds the maximum length of [64] characters`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
+        }
+    }
+
 }

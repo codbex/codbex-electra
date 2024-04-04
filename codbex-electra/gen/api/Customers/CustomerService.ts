@@ -1,6 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { CustomerRepository, CustomerEntityOptions } from "../../dao/Customers/CustomerRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-electra-Customers-Customer", ["validate"]);
 
 @Controller
 class CustomerService {
@@ -24,6 +28,7 @@ class CustomerService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-electra/gen/api/Customers/CustomerService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -66,7 +71,7 @@ class CustomerService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("Customer not found");
             }
@@ -79,6 +84,7 @@ class CustomerService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -111,4 +117,44 @@ class CustomerService {
             HttpUtils.sendInternalServerError(error.message);
         }
     }
+
+    private validateEntity(entity: any): void {
+        if (entity.Email === null || entity.Email === undefined) {
+            throw new ValidationError(`The 'Email' property is required, provide a valid value`);
+        }
+        if (entity.Email?.length > 96) {
+            throw new ValidationError(`The 'Email' exceeds the maximum length of [96] characters`);
+        }
+        if (entity.FirstName === null || entity.FirstName === undefined) {
+            throw new ValidationError(`The 'FirstName' property is required, provide a valid value`);
+        }
+        if (entity.FirstName?.length > 32) {
+            throw new ValidationError(`The 'FirstName' exceeds the maximum length of [32] characters`);
+        }
+        if (entity.LastName === null || entity.LastName === undefined) {
+            throw new ValidationError(`The 'LastName' property is required, provide a valid value`);
+        }
+        if (entity.LastName?.length > 32) {
+            throw new ValidationError(`The 'LastName' exceeds the maximum length of [32] characters`);
+        }
+        if (entity.Store === null || entity.Store === undefined) {
+            throw new ValidationError(`The 'Store' property is required, provide a valid value`);
+        }
+        if (entity.Status === null || entity.Status === undefined) {
+            throw new ValidationError(`The 'Status' property is required, provide a valid value`);
+        }
+        if (entity.Telephone?.length > 32) {
+            throw new ValidationError(`The 'Telephone' exceeds the maximum length of [32] characters`);
+        }
+        if (entity.CustomField?.length > 2000) {
+            throw new ValidationError(`The 'CustomField' exceeds the maximum length of [2000] characters`);
+        }
+        if (entity.Language === null || entity.Language === undefined) {
+            throw new ValidationError(`The 'Language' property is required, provide a valid value`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
+        }
+    }
+
 }

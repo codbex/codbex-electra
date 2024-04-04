@@ -12,6 +12,6 @@ exports.getTile = function () {
         // icon: "file-o",
         location: "/services/web/codbex-electra/gen/ui/Access/index.html",
         order: "500",
-        groupOrder: "600"
+        groupOrder: "600",
     };
 };

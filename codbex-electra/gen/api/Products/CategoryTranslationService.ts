@@ -1,6 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { CategoryTranslationRepository, CategoryTranslationEntityOptions } from "../../dao/Products/CategoryTranslationRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-electra-Products-CategoryTranslation", ["validate"]);
 
 @Controller
 class CategoryTranslationService {
@@ -31,6 +35,7 @@ class CategoryTranslationService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-electra/gen/api/Products/CategoryTranslationService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -73,7 +78,7 @@ class CategoryTranslationService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("CategoryTranslation not found");
             }
@@ -86,6 +91,7 @@ class CategoryTranslationService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -118,4 +124,47 @@ class CategoryTranslationService {
             HttpUtils.sendInternalServerError(error.message);
         }
     }
+
+    private validateEntity(entity: any): void {
+        if (entity.Category === null || entity.Category === undefined) {
+            throw new ValidationError(`The 'Category' property is required, provide a valid value`);
+        }
+        if (entity.Language === null || entity.Language === undefined) {
+            throw new ValidationError(`The 'Language' property is required, provide a valid value`);
+        }
+        if (entity.Name === null || entity.Name === undefined) {
+            throw new ValidationError(`The 'Name' property is required, provide a valid value`);
+        }
+        if (entity.Name?.length > 255) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [255] characters`);
+        }
+        if (entity.Description === null || entity.Description === undefined) {
+            throw new ValidationError(`The 'Description' property is required, provide a valid value`);
+        }
+        if (entity.Description?.length > 2000) {
+            throw new ValidationError(`The 'Description' exceeds the maximum length of [2000] characters`);
+        }
+        if (entity.MetaTitle === null || entity.MetaTitle === undefined) {
+            throw new ValidationError(`The 'MetaTitle' property is required, provide a valid value`);
+        }
+        if (entity.MetaTitle?.length > 255) {
+            throw new ValidationError(`The 'MetaTitle' exceeds the maximum length of [255] characters`);
+        }
+        if (entity.MetaDescription === null || entity.MetaDescription === undefined) {
+            throw new ValidationError(`The 'MetaDescription' property is required, provide a valid value`);
+        }
+        if (entity.MetaDescription?.length > 255) {
+            throw new ValidationError(`The 'MetaDescription' exceeds the maximum length of [255] characters`);
+        }
+        if (entity.MetaKeyword === null || entity.MetaKeyword === undefined) {
+            throw new ValidationError(`The 'MetaKeyword' property is required, provide a valid value`);
+        }
+        if (entity.MetaKeyword?.length > 255) {
+            throw new ValidationError(`The 'MetaKeyword' exceeds the maximum length of [255] characters`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
+        }
+    }
+
 }

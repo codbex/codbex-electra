@@ -29,28 +29,12 @@
                 <fd-form-group dg-header="ProductAttribute Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idProduct" dg-required="true" dg-colon="true">Product</fd-form-label>
-                        </div>
-                        <div class="fd-col fd-col-md--8">
-	                        <fd-combobox-input id="idProduct"
-	                            name="Product"
-	                            state="{{ forms.details['Product'].$valid ? '' : 'error' }}"
-	                            ng-required="true"
-	                            ng-model="entity.Product"
-	                            dropdown-items="optionsProduct"
-	                            dg-placeholder="Search Product ...">
-	                        </fd-combobox-input>
-	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idAttribute" dg-required="true" dg-colon="true">Attribute</fd-form-label>
+                        	<fd-form-label for="idAttribute" dg-colon="true">Attribute</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-combobox-input id="idAttribute"
 	                            name="Attribute"
 	                            state="{{ forms.details['Attribute'].$valid ? '' : 'error' }}"
-	                            ng-required="true"
 	                            ng-model="entity.Attribute"
 	                            dropdown-items="optionsAttribute"
 	                            dg-placeholder="Search Attribute ...">
@@ -59,13 +43,12 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idLanguage" dg-required="true" dg-colon="true">Language</fd-form-label>
+                        	<fd-form-label for="idLanguage" dg-colon="true">Language</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-combobox-input id="idLanguage"
 	                            name="Language"
 	                            state="{{ forms.details['Language'].$valid ? '' : 'error' }}"
-	                            ng-required="true"
 	                            ng-model="entity.Language"
 	                            dropdown-items="optionsLanguage"
 	                            dg-placeholder="Search Language ...">
@@ -74,18 +57,15 @@
                     </fd-form-item>
 					<fd-form-item class="fd-row">
 						<div class="fd-col fd-col-md--2">
-							<fd-form-label for="idText" dg-required="true" dg-colon="true">Text</fd-form-label>
+							<fd-form-label for="idText" dg-colon="true">Text</fd-form-label>
 						</div>
 						<div class="fd-col fd-col-md--8">
 							<fd-textarea id="idText"
 								name="Text"
 								state="{{ forms.details['Text'].$valid ? '' : 'error' }}"
-								ng-required="true"
 								ng-model="entity.Text"
-	                            ng-readonly="action === 'select'"
 								ng-minlength="0.0 || 0"
 								ng-maxlength="2000.0 || -1"
-								dg-input-rules="{ patterns: [''] }"
 								placeholder="Enter Text">
 							</fd-textarea>
 							<fd-form-message dg-type="error" ng-show="!forms.details['Text'].$valid">Incorrect Input</fd-form-message>

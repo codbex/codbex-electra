@@ -190,7 +190,7 @@ export class CurrencyRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(CurrencyRepository.DEFINITION, null, dataSource);
     }
 
@@ -270,7 +270,7 @@ export class CurrencyRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: CurrencyEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_CURRENCY"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -283,7 +283,7 @@ export class CurrencyRepository {
     }
 
     private async triggerEvent(data: CurrencyEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Settings/Currency", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Settings-Currency", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -291,6 +291,6 @@ export class CurrencyRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-electra/Settings/Currency").send(JSON.stringify(data));
+        producer.topic("codbex-electra-Settings-Currency").send(JSON.stringify(data));
     }
 }

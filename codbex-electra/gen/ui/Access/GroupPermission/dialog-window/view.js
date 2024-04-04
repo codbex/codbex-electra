@@ -7,7 +7,7 @@ const viewData = {
     id: "GroupPermission-details",
     label: "GroupPermission",
     link: "/services/web/codbex-electra/gen/ui/Access/GroupPermission/dialog-window/index.html",
-    perspectiveName: "Access"
+    perspectiveName: "Access",
 };
 
 if (typeof exports !== 'undefined') {

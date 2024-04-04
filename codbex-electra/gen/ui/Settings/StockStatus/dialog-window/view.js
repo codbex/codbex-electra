@@ -7,7 +7,7 @@ const viewData = {
     id: "StockStatus-details",
     label: "StockStatus",
     link: "/services/web/codbex-electra/gen/ui/Settings/StockStatus/dialog-window/index.html",
-    perspectiveName: "Settings"
+    perspectiveName: "Settings",
 };
 
 if (typeof exports !== 'undefined') {

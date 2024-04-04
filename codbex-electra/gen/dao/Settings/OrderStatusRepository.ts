@@ -119,7 +119,7 @@ export class OrderStatusRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(OrderStatusRepository.DEFINITION, null, dataSource);
     }
 
@@ -201,7 +201,7 @@ export class OrderStatusRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: OrderStatusEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_ORDERSTATUS"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -214,7 +214,7 @@ export class OrderStatusRepository {
     }
 
     private async triggerEvent(data: OrderStatusEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Settings/OrderStatus", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Settings-OrderStatus", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -222,6 +222,6 @@ export class OrderStatusRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-electra/Settings/OrderStatus").send(JSON.stringify(data));
+        producer.topic("codbex-electra-Settings-OrderStatus").send(JSON.stringify(data));
     }
 }

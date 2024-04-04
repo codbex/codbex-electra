@@ -7,7 +7,7 @@ const viewData = {
     id: "StoreConfigurationProperty-filter",
     label: "StoreConfigurationProperty Filter",
     link: "/services/web/codbex-electra/gen/ui/Stores/StoreConfigurationProperty/dialog-filter/index.html",
-    perspectiveName: "Stores"
+    perspectiveName: "Stores",
 };
 
 if (typeof exports !== 'undefined') {

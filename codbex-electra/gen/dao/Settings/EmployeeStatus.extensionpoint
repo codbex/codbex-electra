@@ -1,1 +1,4 @@
-{"location":"codbex-electra/gen/dao/Settings/EmployeeStatus.extensionpoint","name":"codbex-electra/Settings/EmployeeStatus","description":"Extension Point for codbex-electra Settings EmployeeStatus"}
+{
+    "name": "codbex-electra-Settings-EmployeeStatus",
+    "description": "Extension Point for the codbex-electra-Settings-EmployeeStatus entity"
+}
