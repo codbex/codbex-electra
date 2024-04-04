@@ -124,17 +124,17 @@ class SalesOrderService {
         if (entity.Number?.length > 20) {
             throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
         }
+        if (entity.Store === null || entity.Store === undefined) {
+            throw new ValidationError(`The 'Store' property is required, provide a valid value`);
+        }
+        if (entity.Status === null || entity.Status === undefined) {
+            throw new ValidationError(`The 'Status' property is required, provide a valid value`);
+        }
         if (entity.Total === null || entity.Total === undefined) {
             throw new ValidationError(`The 'Total' property is required, provide a valid value`);
         }
         if (entity.Currency === null || entity.Currency === undefined) {
             throw new ValidationError(`The 'Currency' property is required, provide a valid value`);
-        }
-        if (entity.Status === null || entity.Status === undefined) {
-            throw new ValidationError(`The 'Status' property is required, provide a valid value`);
-        }
-        if (entity.Store === null || entity.Store === undefined) {
-            throw new ValidationError(`The 'Store' property is required, provide a valid value`);
         }
         if (entity.Customer === null || entity.Customer === undefined) {
             throw new ValidationError(`The 'Customer' property is required, provide a valid value`);

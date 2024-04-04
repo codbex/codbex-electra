@@ -7,11 +7,11 @@ import { NumberGeneratorService } from "/codbex-number-generator/service/generat
 
 export interface SalesOrderEntity {
     readonly Id: number;
-    Number?: string;
+    Number: string;
+    Store: number;
+    Status: number;
     Total: number;
     Currency: number;
-    Status: number;
-    Store: number;
     Customer: number;
     DateAdded?: Date;
     DateModified: Date;
@@ -24,10 +24,10 @@ export interface SalesOrderEntity {
 }
 
 export interface SalesOrderCreateEntity {
+    readonly Store: number;
+    readonly Status: number;
     readonly Total: number;
     readonly Currency: number;
-    readonly Status: number;
-    readonly Store: number;
     readonly Customer: number;
     readonly Tracking?: string;
     readonly Comment?: string;
@@ -45,10 +45,10 @@ export interface SalesOrderEntityOptions {
         equals?: {
             Id?: number | number[];
             Number?: string | string[];
+            Store?: number | number[];
+            Status?: number | number[];
             Total?: number | number[];
             Currency?: number | number[];
-            Status?: number | number[];
-            Store?: number | number[];
             Customer?: number | number[];
             DateAdded?: Date | Date[];
             DateModified?: Date | Date[];
@@ -62,10 +62,10 @@ export interface SalesOrderEntityOptions {
         notEquals?: {
             Id?: number | number[];
             Number?: string | string[];
+            Store?: number | number[];
+            Status?: number | number[];
             Total?: number | number[];
             Currency?: number | number[];
-            Status?: number | number[];
-            Store?: number | number[];
             Customer?: number | number[];
             DateAdded?: Date | Date[];
             DateModified?: Date | Date[];
@@ -79,10 +79,10 @@ export interface SalesOrderEntityOptions {
         contains?: {
             Id?: number;
             Number?: string;
+            Store?: number;
+            Status?: number;
             Total?: number;
             Currency?: number;
-            Status?: number;
-            Store?: number;
             Customer?: number;
             DateAdded?: Date;
             DateModified?: Date;
@@ -96,10 +96,10 @@ export interface SalesOrderEntityOptions {
         greaterThan?: {
             Id?: number;
             Number?: string;
+            Store?: number;
+            Status?: number;
             Total?: number;
             Currency?: number;
-            Status?: number;
-            Store?: number;
             Customer?: number;
             DateAdded?: Date;
             DateModified?: Date;
@@ -113,10 +113,10 @@ export interface SalesOrderEntityOptions {
         greaterThanOrEqual?: {
             Id?: number;
             Number?: string;
+            Store?: number;
+            Status?: number;
             Total?: number;
             Currency?: number;
-            Status?: number;
-            Store?: number;
             Customer?: number;
             DateAdded?: Date;
             DateModified?: Date;
@@ -130,10 +130,10 @@ export interface SalesOrderEntityOptions {
         lessThan?: {
             Id?: number;
             Number?: string;
+            Store?: number;
+            Status?: number;
             Total?: number;
             Currency?: number;
-            Status?: number;
-            Store?: number;
             Customer?: number;
             DateAdded?: Date;
             DateModified?: Date;
@@ -147,10 +147,10 @@ export interface SalesOrderEntityOptions {
         lessThanOrEqual?: {
             Id?: number;
             Number?: string;
+            Store?: number;
+            Status?: number;
             Total?: number;
             Currency?: number;
-            Status?: number;
-            Store?: number;
             Customer?: number;
             DateAdded?: Date;
             DateModified?: Date;
@@ -196,16 +196,11 @@ export class SalesOrderRepository {
                 name: "Number",
                 column: "SALESORDER_NUMBER",
                 type: "VARCHAR",
-            },
-            {
-                name: "Total",
-                column: "SALESORDER_TOTAL",
-                type: "DECIMAL",
                 required: true
             },
             {
-                name: "Currency",
-                column: "SALESORDER_CURRENCY",
+                name: "Store",
+                column: "SALESORDER_STORE",
                 type: "INTEGER",
                 required: true
             },
@@ -216,8 +211,14 @@ export class SalesOrderRepository {
                 required: true
             },
             {
-                name: "Store",
-                column: "SALESORDER_STORE",
+                name: "Total",
+                column: "SALESORDER_TOTAL",
+                type: "DECIMAL",
+                required: true
+            },
+            {
+                name: "Currency",
+                column: "SALESORDER_CURRENCY",
                 type: "INTEGER",
                 required: true
             },
@@ -290,7 +291,7 @@ export class SalesOrderRepository {
 
     public create(entity: SalesOrderCreateEntity): number {
         // @ts-ignore
-        (entity as SalesOrderEntity).Number = new NumberGeneratorService().generate(16);
+        (entity as SalesOrderEntity).Number = new NumberGeneratorService().generate(4);
         // @ts-ignore
         (entity as SalesOrderEntity).DateAdded = Date.now();
         // @ts-ignore
