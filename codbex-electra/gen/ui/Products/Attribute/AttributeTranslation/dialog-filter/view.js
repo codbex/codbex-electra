@@ -7,7 +7,7 @@ const viewData = {
     id: "AttributeTranslation-filter",
     label: "AttributeTranslation Filter",
     link: "/services/web/codbex-electra/gen/ui/Products/Attribute/AttributeTranslation/dialog-filter/index.html",
-    perspectiveName: "Products"
+    perspectiveName: "Products",
 };
 
 if (typeof exports !== 'undefined') {

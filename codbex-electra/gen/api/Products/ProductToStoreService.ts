@@ -1,6 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { ProductToStoreRepository, ProductToStoreEntityOptions } from "../../dao/Products/ProductToStoreRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-electra-Products-ProductToStore", ["validate"]);
 
 @Controller
 class ProductToStoreService {
@@ -31,6 +35,7 @@ class ProductToStoreService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-electra/gen/api/Products/ProductToStoreService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -73,7 +78,7 @@ class ProductToStoreService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("ProductToStore not found");
             }
@@ -86,6 +91,7 @@ class ProductToStoreService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -118,4 +124,17 @@ class ProductToStoreService {
             HttpUtils.sendInternalServerError(error.message);
         }
     }
+
+    private validateEntity(entity: any): void {
+        if (entity.Product === null || entity.Product === undefined) {
+            throw new ValidationError(`The 'Product' property is required, provide a valid value`);
+        }
+        if (entity.Store === null || entity.Store === undefined) {
+            throw new ValidationError(`The 'Store' property is required, provide a valid value`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
+        }
+    }
+
 }

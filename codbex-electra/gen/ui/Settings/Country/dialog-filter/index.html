@@ -29,19 +29,16 @@
                 <fd-form-group dg-header="Country Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idName" dg-required="true" dg-colon="true">Name</fd-form-label>
+                        	<fd-form-label for="idName" dg-colon="true">Name</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Name'].$valid }}">
 	                            <fd-input id="idName"
 	                                name="Name"
 	                                state="{{ forms.details['Name'].$valid ? '' : 'error' }}"
-									ng-required="true"
 	                                ng-model="entity.Name"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="128.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Name">
 	                            </fd-input>
@@ -51,13 +48,12 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idStatus" dg-required="true" dg-colon="true">Status</fd-form-label>
+                        	<fd-form-label for="idStatus" dg-colon="true">Status</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-combobox-input id="idStatus"
 	                            name="Status"
 	                            state="{{ forms.details['Status'].$valid ? '' : 'error' }}"
-	                            ng-required="true"
 	                            ng-model="entity.Status"
 	                            dropdown-items="optionsStatus"
 	                            dg-placeholder="Search Status ...">
@@ -66,19 +62,16 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idIsoCode2" dg-required="true" dg-colon="true">IsoCode2</fd-form-label>
+                        	<fd-form-label for="idIsoCode2" dg-colon="true">IsoCode2</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['IsoCode2'].$valid }}">
 	                            <fd-input id="idIsoCode2"
 	                                name="IsoCode2"
 	                                state="{{ forms.details['IsoCode2'].$valid ? '' : 'error' }}"
-									ng-required="true"
 	                                ng-model="entity.IsoCode2"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="2.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter IsoCode2">
 	                            </fd-input>
@@ -88,19 +81,16 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idIsoCode3" dg-required="true" dg-colon="true">IsoCode3</fd-form-label>
+                        	<fd-form-label for="idIsoCode3" dg-colon="true">IsoCode3</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['IsoCode3'].$valid }}">
 	                            <fd-input id="idIsoCode3"
 	                                name="IsoCode3"
 	                                state="{{ forms.details['IsoCode3'].$valid ? '' : 'error' }}"
-									ng-required="true"
 	                                ng-model="entity.IsoCode3"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="3.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter IsoCode3">
 	                            </fd-input>
@@ -113,10 +103,9 @@
 	                    <div class="fd-col fd-col-md--8">
 							<fd-checkbox id="idPostcodeRequired"
 	                            compact="false"
-	                            ng-required="false"
 								ng-model="entity.PostcodeRequired">
 	                        </fd-checkbox>
-                        	<fd-checkbox-label for="idPostcodeRequired" dg-required="false">PostcodeRequired</fd-checkbox-label>
+                        	<fd-checkbox-label for="idPostcodeRequired">PostcodeRequired</fd-checkbox-label>
                         </div>
                     </fd-form-item>
                 </fd-form-group>

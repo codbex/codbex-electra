@@ -7,7 +7,7 @@ const viewData = {
     id: "ZoneStatus-details",
     label: "ZoneStatus",
     link: "/services/web/codbex-electra/gen/ui/Settings/ZoneStatus/dialog-window/index.html",
-    perspectiveName: "Settings"
+    perspectiveName: "Settings",
 };
 
 if (typeof exports !== 'undefined') {

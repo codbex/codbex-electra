@@ -119,7 +119,7 @@ export class AttributeTranslationRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(AttributeTranslationRepository.DEFINITION, null, dataSource);
     }
 
@@ -195,7 +195,7 @@ export class AttributeTranslationRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: AttributeTranslationEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_ATTRIBUTETRANSLATION"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -208,7 +208,7 @@ export class AttributeTranslationRepository {
     }
 
     private async triggerEvent(data: AttributeTranslationEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Products/AttributeTranslation", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Products-AttributeTranslation", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -216,6 +216,6 @@ export class AttributeTranslationRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-electra/Products/AttributeTranslation").send(JSON.stringify(data));
+        producer.topic("codbex-electra-Products-AttributeTranslation").send(JSON.stringify(data));
     }
 }

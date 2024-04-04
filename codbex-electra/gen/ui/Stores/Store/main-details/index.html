@@ -37,7 +37,7 @@
 	                                type="text"
 	                                placeholder="Enter Name">
 	                            </fd-input>
-	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                            <fd-form-message dg-type="error">The value doesn't match the required pattern ''</fd-form-message>
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
@@ -45,7 +45,10 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idUrl" dg-required="true" dg-colon="true">Url</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--8 ">
+                        <div ng-show="action === 'select'" style="margin: 4px 0px; padding: 0px 10px" class="fd-col  fd-col-md--8 ">
+							<a href="{{entity.Url}}" target="_blank" class="fd-link">{{entity.Url}}</a>
+						</div>
+                        <div ng-show="action !== 'select'" class="fd-col  fd-col-md--8 ">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Url'].$valid }}">
 	                            <fd-input id="idUrl"
 	                                name="Url"
@@ -59,7 +62,7 @@
 	                                type="url"
 	                                placeholder="Enter Url">
 	                            </fd-input>
-	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                            <fd-form-message dg-type="error">The value doesn't match the required pattern ''</fd-form-message>
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>

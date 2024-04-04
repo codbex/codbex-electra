@@ -7,7 +7,7 @@ const viewData = {
     id: "Country-details",
     label: "Country",
     link: "/services/web/codbex-electra/gen/ui/Settings/Country/dialog-window/index.html",
-    perspectiveName: "Settings"
+    perspectiveName: "Settings",
 };
 
 if (typeof exports !== 'undefined') {

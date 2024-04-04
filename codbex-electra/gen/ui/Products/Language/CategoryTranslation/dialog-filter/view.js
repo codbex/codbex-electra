@@ -7,7 +7,7 @@ const viewData = {
     id: "CategoryTranslation-filter",
     label: "CategoryTranslation Filter",
     link: "/services/web/codbex-electra/gen/ui/Products/Language/CategoryTranslation/dialog-filter/index.html",
-    perspectiveName: "Products"
+    perspectiveName: "Products",
 };
 
 if (typeof exports !== 'undefined') {

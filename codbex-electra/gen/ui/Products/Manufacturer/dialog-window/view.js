@@ -7,7 +7,7 @@ const viewData = {
     id: "Manufacturer-details",
     label: "Manufacturer",
     link: "/services/web/codbex-electra/gen/ui/Products/Manufacturer/dialog-window/index.html",
-    perspectiveName: "Products"
+    perspectiveName: "Products",
 };
 
 if (typeof exports !== 'undefined') {

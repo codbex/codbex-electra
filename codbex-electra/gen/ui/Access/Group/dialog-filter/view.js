@@ -7,7 +7,7 @@ const viewData = {
     id: "Group-filter",
     label: "Group Filter",
     link: "/services/web/codbex-electra/gen/ui/Access/Group/dialog-filter/index.html",
-    perspectiveName: "Access"
+    perspectiveName: "Access",
 };
 
 if (typeof exports !== 'undefined') {

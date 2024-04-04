@@ -1,1 +1,4 @@
-{"location":"codbex-electra/gen/dao/Settings/CountryStatus.extensionpoint","name":"codbex-electra/Settings/CountryStatus","description":"Extension Point for codbex-electra Settings CountryStatus"}
+{
+    "name": "codbex-electra-Settings-CountryStatus",
+    "description": "Extension Point for the codbex-electra-Settings-CountryStatus entity"
+}

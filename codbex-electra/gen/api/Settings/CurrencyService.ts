@@ -1,6 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { CurrencyRepository, CurrencyEntityOptions } from "../../dao/Settings/CurrencyRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-electra-Settings-Currency", ["validate"]);
 
 @Controller
 class CurrencyService {
@@ -24,6 +28,7 @@ class CurrencyService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-electra/gen/api/Settings/CurrencyService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -66,7 +71,7 @@ class CurrencyService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("Currency not found");
             }
@@ -79,6 +84,7 @@ class CurrencyService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -111,4 +117,41 @@ class CurrencyService {
             HttpUtils.sendInternalServerError(error.message);
         }
     }
+
+    private validateEntity(entity: any): void {
+        if (entity.Title === null || entity.Title === undefined) {
+            throw new ValidationError(`The 'Title' property is required, provide a valid value`);
+        }
+        if (entity.Title?.length > 32) {
+            throw new ValidationError(`The 'Title' exceeds the maximum length of [32] characters`);
+        }
+        if (entity.Status === null || entity.Status === undefined) {
+            throw new ValidationError(`The 'Status' property is required, provide a valid value`);
+        }
+        if (entity.Code === null || entity.Code === undefined) {
+            throw new ValidationError(`The 'Code' property is required, provide a valid value`);
+        }
+        if (entity.Code?.length > 3) {
+            throw new ValidationError(`The 'Code' exceeds the maximum length of [3] characters`);
+        }
+        if (entity.SymbolLeft?.length > 12) {
+            throw new ValidationError(`The 'SymbolLeft' exceeds the maximum length of [12] characters`);
+        }
+        if (entity.SymbolRight?.length > 12) {
+            throw new ValidationError(`The 'SymbolRight' exceeds the maximum length of [12] characters`);
+        }
+        if (entity.DecimalPlace === null || entity.DecimalPlace === undefined) {
+            throw new ValidationError(`The 'DecimalPlace' property is required, provide a valid value`);
+        }
+        if (entity.DecimalPlace?.length > 1) {
+            throw new ValidationError(`The 'DecimalPlace' exceeds the maximum length of [1] characters`);
+        }
+        if (entity.Value === null || entity.Value === undefined) {
+            throw new ValidationError(`The 'Value' property is required, provide a valid value`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
+        }
+    }
+
 }

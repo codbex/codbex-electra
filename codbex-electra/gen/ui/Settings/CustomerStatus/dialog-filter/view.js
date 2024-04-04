@@ -7,7 +7,7 @@ const viewData = {
     id: "CustomerStatus-filter",
     label: "CustomerStatus Filter",
     link: "/services/web/codbex-electra/gen/ui/Settings/CustomerStatus/dialog-filter/index.html",
-    perspectiveName: "Settings"
+    perspectiveName: "Settings",
 };
 
 if (typeof exports !== 'undefined') {

@@ -1,1 +1,4 @@
-{"location":"codbex-electra/gen/dao/Settings/Language.extensionpoint","name":"codbex-electra/Settings/Language","description":"Extension Point for codbex-electra Settings Language"}
+{
+    "name": "codbex-electra-Settings-Language",
+    "description": "Extension Point for the codbex-electra-Settings-Language entity"
+}

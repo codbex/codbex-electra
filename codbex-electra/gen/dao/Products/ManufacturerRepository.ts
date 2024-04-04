@@ -102,7 +102,7 @@ export class ManufacturerRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(ManufacturerRepository.DEFINITION, null, dataSource);
     }
 
@@ -178,7 +178,7 @@ export class ManufacturerRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: ManufacturerEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_MANUFACTURER"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -191,7 +191,7 @@ export class ManufacturerRepository {
     }
 
     private async triggerEvent(data: ManufacturerEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Products/Manufacturer", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Products-Manufacturer", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -199,6 +199,6 @@ export class ManufacturerRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-electra/Products/Manufacturer").send(JSON.stringify(data));
+        producer.topic("codbex-electra-Products-Manufacturer").send(JSON.stringify(data));
     }
 }

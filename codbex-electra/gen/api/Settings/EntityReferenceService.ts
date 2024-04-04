@@ -1,6 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { EntityReferenceRepository, EntityReferenceEntityOptions } from "../../dao/Settings/EntityReferenceRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-electra-Settings-EntityReference", ["validate"]);
 
 @Controller
 class EntityReferenceService {
@@ -24,6 +28,7 @@ class EntityReferenceService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-electra/gen/api/Settings/EntityReferenceService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -66,7 +71,7 @@ class EntityReferenceService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("EntityReference not found");
             }
@@ -79,6 +84,7 @@ class EntityReferenceService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -111,4 +117,26 @@ class EntityReferenceService {
             HttpUtils.sendInternalServerError(error.message);
         }
     }
+
+    private validateEntity(entity: any): void {
+        if (entity.EntityName === null || entity.EntityName === undefined) {
+            throw new ValidationError(`The 'EntityName' property is required, provide a valid value`);
+        }
+        if (entity.EntityName?.length > 64) {
+            throw new ValidationError(`The 'EntityName' exceeds the maximum length of [64] characters`);
+        }
+        if (entity.EntityStringId?.length > 64) {
+            throw new ValidationError(`The 'EntityStringId' exceeds the maximum length of [64] characters`);
+        }
+        if (entity.ReferenceStringId?.length > 64) {
+            throw new ValidationError(`The 'ReferenceStringId' exceeds the maximum length of [64] characters`);
+        }
+        if (entity.ScopeStringId?.length > 20) {
+            throw new ValidationError(`The 'ScopeStringId' exceeds the maximum length of [20] characters`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
+        }
+    }
+
 }

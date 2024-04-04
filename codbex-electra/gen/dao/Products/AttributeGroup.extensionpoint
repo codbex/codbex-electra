@@ -1,1 +1,4 @@
-{"location":"codbex-electra/gen/dao/Products/AttributeGroup.extensionpoint","name":"codbex-electra/Products/AttributeGroup","description":"Extension Point for codbex-electra Products AttributeGroup"}
+{
+    "name": "codbex-electra-Products-AttributeGroup",
+    "description": "Extension Point for the codbex-electra-Products-AttributeGroup entity"
+}

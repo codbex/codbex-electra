@@ -29,13 +29,12 @@
                 <fd-form-group dg-header="GroupEmployee Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idEmployee" dg-required="true" dg-colon="true">Employee</fd-form-label>
+                        	<fd-form-label for="idEmployee" dg-colon="true">Employee</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-combobox-input id="idEmployee"
 	                            name="Employee"
 	                            state="{{ forms.details['Employee'].$valid ? '' : 'error' }}"
-	                            ng-required="true"
 	                            ng-model="entity.Employee"
 	                            dropdown-items="optionsEmployee"
 	                            dg-placeholder="Search Employee ...">
@@ -44,13 +43,12 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idGroup" dg-required="true" dg-colon="true">Group</fd-form-label>
+                        	<fd-form-label for="idGroup" dg-colon="true">Group</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-combobox-input id="idGroup"
 	                            name="Group"
 	                            state="{{ forms.details['Group'].$valid ? '' : 'error' }}"
-	                            ng-required="true"
 	                            ng-model="entity.Group"
 	                            dropdown-items="optionsGroup"
 	                            dg-placeholder="Search Group ...">
@@ -59,19 +57,16 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idUpdatedBy" dg-required="false" dg-colon="true">UpdatedBy</fd-form-label>
+                        	<fd-form-label for="idUpdatedBy" dg-colon="true">UpdatedBy</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['UpdatedBy'].$valid }}">
 	                            <fd-input id="idUpdatedBy"
 	                                name="UpdatedBy"
 	                                state="{{ forms.details['UpdatedBy'].$valid ? '' : 'error' }}"
-									ng-required="false"
 	                                ng-model="entity.UpdatedBy"
-	                                ng-readonly="true"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="96.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter UpdatedBy">
 	                            </fd-input>
@@ -81,32 +76,28 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idDateModifiedFrom" dg-required="false" dg-colon="true">From DateModified</fd-form-label>
+                        	<fd-form-label for="idDateModifiedFrom" dg-colon="true">From DateModified</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--2">
+                        <div class="fd-col fd-col-md--3">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['DateModified'].$valid }}">
 	                            <fd-input id="idDateModifiedFrom"
 	                                name="DateModified"
 	                                state="{{ forms.details['DateModified'].$valid ? '' : 'error' }}"
-									ng-required="false"
 	                                ng-model="entity.DateModifiedFrom"
-	                                ng-readonly="true"
 	                                type="datetime-local">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
 	                        </fd-form-input-message-group>
 	                    </div>
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idDateModifiedTo" dg-required="false" dg-colon="true">To DateModified</fd-form-label>
+                        	<fd-form-label for="idDateModifiedTo" dg-colon="true">To DateModified</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--2">
+                        <div class="fd-col fd-col-md--3">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['DateModified'].$valid }}">
 	                            <fd-input id="idDateModifiedTo"
 	                                name="DateModified"
 	                                state="{{ forms.details['DateModified'].$valid ? '' : 'error' }}"
-									ng-required="false"
 	                                ng-model="entity.DateModifiedTo"
-	                                ng-readonly="true"
 	                                type="datetime-local">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>

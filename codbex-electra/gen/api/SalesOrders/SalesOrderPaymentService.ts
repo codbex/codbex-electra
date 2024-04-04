@@ -1,6 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { SalesOrderPaymentRepository, SalesOrderPaymentEntityOptions } from "../../dao/SalesOrders/SalesOrderPaymentRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-electra-SalesOrders-SalesOrderPayment", ["validate"]);
 
 @Controller
 class SalesOrderPaymentService {
@@ -31,6 +35,7 @@ class SalesOrderPaymentService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-electra/gen/api/SalesOrders/SalesOrderPaymentService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -73,7 +78,7 @@ class SalesOrderPaymentService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("SalesOrderPayment not found");
             }
@@ -86,6 +91,7 @@ class SalesOrderPaymentService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -118,4 +124,59 @@ class SalesOrderPaymentService {
             HttpUtils.sendInternalServerError(error.message);
         }
     }
+
+    private validateEntity(entity: any): void {
+        if (entity.Zone === null || entity.Zone === undefined) {
+            throw new ValidationError(`The 'Zone' property is required, provide a valid value`);
+        }
+        if (entity.FirstName === null || entity.FirstName === undefined) {
+            throw new ValidationError(`The 'FirstName' property is required, provide a valid value`);
+        }
+        if (entity.FirstName?.length > 32) {
+            throw new ValidationError(`The 'FirstName' exceeds the maximum length of [32] characters`);
+        }
+        if (entity.LastName === null || entity.LastName === undefined) {
+            throw new ValidationError(`The 'LastName' property is required, provide a valid value`);
+        }
+        if (entity.LastName?.length > 32) {
+            throw new ValidationError(`The 'LastName' exceeds the maximum length of [32] characters`);
+        }
+        if (entity.Company?.length > 60) {
+            throw new ValidationError(`The 'Company' exceeds the maximum length of [60] characters`);
+        }
+        if (entity.Address1?.length > 128) {
+            throw new ValidationError(`The 'Address1' exceeds the maximum length of [128] characters`);
+        }
+        if (entity.Address2?.length > 128) {
+            throw new ValidationError(`The 'Address2' exceeds the maximum length of [128] characters`);
+        }
+        if (entity.Country === null || entity.Country === undefined) {
+            throw new ValidationError(`The 'Country' property is required, provide a valid value`);
+        }
+        if (entity.City?.length > 128) {
+            throw new ValidationError(`The 'City' exceeds the maximum length of [128] characters`);
+        }
+        if (entity.Postcode?.length > 10) {
+            throw new ValidationError(`The 'Postcode' exceeds the maximum length of [10] characters`);
+        }
+        if (entity.Method?.length > 128) {
+            throw new ValidationError(`The 'Method' exceeds the maximum length of [128] characters`);
+        }
+        if (entity.Code?.length > 128) {
+            throw new ValidationError(`The 'Code' exceeds the maximum length of [128] characters`);
+        }
+        if (entity.AddressFormat?.length > 2000) {
+            throw new ValidationError(`The 'AddressFormat' exceeds the maximum length of [2000] characters`);
+        }
+        if (entity.CustomField?.length > 2000) {
+            throw new ValidationError(`The 'CustomField' exceeds the maximum length of [2000] characters`);
+        }
+        if (entity.SalesOrder === null || entity.SalesOrder === undefined) {
+            throw new ValidationError(`The 'SalesOrder' property is required, provide a valid value`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
+        }
+    }
+
 }

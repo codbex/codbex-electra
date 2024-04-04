@@ -1,6 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { GroupPermissionRepository, GroupPermissionEntityOptions } from "../../dao/Access/GroupPermissionRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-electra-Access-GroupPermission", ["validate"]);
 
 @Controller
 class GroupPermissionService {
@@ -24,6 +28,7 @@ class GroupPermissionService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-electra/gen/api/Access/GroupPermissionService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -66,7 +71,7 @@ class GroupPermissionService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("GroupPermission not found");
             }
@@ -79,6 +84,7 @@ class GroupPermissionService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -111,4 +117,20 @@ class GroupPermissionService {
             HttpUtils.sendInternalServerError(error.message);
         }
     }
+
+    private validateEntity(entity: any): void {
+        if (entity.Group === null || entity.Group === undefined) {
+            throw new ValidationError(`The 'Group' property is required, provide a valid value`);
+        }
+        if (entity.Permission === null || entity.Permission === undefined) {
+            throw new ValidationError(`The 'Permission' property is required, provide a valid value`);
+        }
+        if (entity.UpdatedBy?.length > 96) {
+            throw new ValidationError(`The 'UpdatedBy' exceeds the maximum length of [96] characters`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
+        }
+    }
+
 }

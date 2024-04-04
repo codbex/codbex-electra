@@ -179,7 +179,7 @@ export class CategoryTranslationRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(CategoryTranslationRepository.DEFINITION, null, dataSource);
     }
 
@@ -255,7 +255,7 @@ export class CategoryTranslationRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: CategoryTranslationEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_CATEGORYTRANSLATION"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -268,7 +268,7 @@ export class CategoryTranslationRepository {
     }
 
     private async triggerEvent(data: CategoryTranslationEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Products/CategoryTranslation", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Products-CategoryTranslation", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -276,6 +276,6 @@ export class CategoryTranslationRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-electra/Products/CategoryTranslation").send(JSON.stringify(data));
+        producer.topic("codbex-electra-Products-CategoryTranslation").send(JSON.stringify(data));
     }
 }

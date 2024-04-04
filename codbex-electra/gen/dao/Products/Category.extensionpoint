@@ -1,1 +1,4 @@
-{"location":"codbex-electra/gen/dao/Products/Category.extensionpoint","name":"codbex-electra/Products/Category","description":"Extension Point for codbex-electra Products Category"}
+{
+    "name": "codbex-electra-Products-Category",
+    "description": "Extension Point for the codbex-electra-Products-Category entity"
+}

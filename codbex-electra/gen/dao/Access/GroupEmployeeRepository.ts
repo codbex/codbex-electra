@@ -131,7 +131,7 @@ export class GroupEmployeeRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(GroupEmployeeRepository.DEFINITION, null, dataSource);
     }
 
@@ -211,7 +211,7 @@ export class GroupEmployeeRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: GroupEmployeeEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_GROUPEMPLOYEE"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -224,7 +224,7 @@ export class GroupEmployeeRepository {
     }
 
     private async triggerEvent(data: GroupEmployeeEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Access/GroupEmployee", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Access-GroupEmployee", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -232,6 +232,6 @@ export class GroupEmployeeRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-electra/Access/GroupEmployee").send(JSON.stringify(data));
+        producer.topic("codbex-electra-Access-GroupEmployee").send(JSON.stringify(data));
     }
 }

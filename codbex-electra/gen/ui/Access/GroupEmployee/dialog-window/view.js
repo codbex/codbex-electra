@@ -7,7 +7,7 @@ const viewData = {
     id: "GroupEmployee-details",
     label: "GroupEmployee",
     link: "/services/web/codbex-electra/gen/ui/Access/GroupEmployee/dialog-window/index.html",
-    perspectiveName: "Access"
+    perspectiveName: "Access",
 };
 
 if (typeof exports !== 'undefined') {

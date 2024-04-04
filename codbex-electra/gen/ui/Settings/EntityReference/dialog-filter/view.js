@@ -7,7 +7,7 @@ const viewData = {
     id: "EntityReference-filter",
     label: "EntityReference Filter",
     link: "/services/web/codbex-electra/gen/ui/Settings/EntityReference/dialog-filter/index.html",
-    perspectiveName: "Settings"
+    perspectiveName: "Settings",
 };
 
 if (typeof exports !== 'undefined') {

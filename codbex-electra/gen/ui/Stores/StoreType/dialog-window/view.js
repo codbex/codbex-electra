@@ -7,7 +7,7 @@ const viewData = {
     id: "StoreType-details",
     label: "StoreType",
     link: "/services/web/codbex-electra/gen/ui/Stores/StoreType/dialog-window/index.html",
-    perspectiveName: "Stores"
+    perspectiveName: "Stores",
 };
 
 if (typeof exports !== 'undefined') {

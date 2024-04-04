@@ -116,7 +116,7 @@ export class GroupRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(GroupRepository.DEFINITION, null, dataSource);
     }
 
@@ -196,7 +196,7 @@ export class GroupRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: GroupEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_GROUP"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -209,7 +209,7 @@ export class GroupRepository {
     }
 
     private async triggerEvent(data: GroupEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Access/Group", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Access-Group", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -217,6 +217,6 @@ export class GroupRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-electra/Access/Group").send(JSON.stringify(data));
+        producer.topic("codbex-electra-Access-Group").send(JSON.stringify(data));
     }
 }

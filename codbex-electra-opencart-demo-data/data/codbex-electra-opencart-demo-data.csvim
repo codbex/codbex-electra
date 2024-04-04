@@ -9,7 +9,8 @@
             "delimField": ",",
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
-            "version": "1.0"
+            "version": "1.0",
+            "upsert": false
         },
         {
             "table": "CODBEX_STORE",
@@ -20,7 +21,8 @@
             "delimField": ",",
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
-            "version": "1.0"
+            "version": "1.0",
+            "upsert": false
         },
         {
             "table": "CODBEX_PRODUCTTOSTORE",
@@ -31,7 +33,8 @@
             "delimField": ",",
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
-            "version": "1.0"
+            "version": "1.0",
+            "upsert": false
         }
     ]
 }

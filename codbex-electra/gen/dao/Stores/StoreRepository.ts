@@ -134,7 +134,7 @@ export class StoreRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(StoreRepository.DEFINITION, null, dataSource);
     }
 
@@ -216,7 +216,7 @@ export class StoreRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: StoreEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_STORE"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -229,7 +229,7 @@ export class StoreRepository {
     }
 
     private async triggerEvent(data: StoreEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Stores/Store", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Stores-Store", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -237,6 +237,6 @@ export class StoreRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-electra/Stores/Store").send(JSON.stringify(data));
+        producer.topic("codbex-electra-Stores-Store").send(JSON.stringify(data));
     }
 }

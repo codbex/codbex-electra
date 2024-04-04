@@ -88,7 +88,7 @@ export class ZoneStatusRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(ZoneStatusRepository.DEFINITION, null, dataSource);
     }
 
@@ -164,7 +164,7 @@ export class ZoneStatusRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: ZoneStatusEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_ZONESTATUS"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -177,7 +177,7 @@ export class ZoneStatusRepository {
     }
 
     private async triggerEvent(data: ZoneStatusEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Settings/ZoneStatus", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Settings-ZoneStatus", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -185,6 +185,6 @@ export class ZoneStatusRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-electra/Settings/ZoneStatus").send(JSON.stringify(data));
+        producer.topic("codbex-electra-Settings-ZoneStatus").send(JSON.stringify(data));
     }
 }

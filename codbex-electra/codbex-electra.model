@@ -202,6 +202,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
                 "perspectiveOrder": "1000",
+                "perspectiveRole": "",
                 "title": "Currency",
                 "tooltip": "Currency",
                 "type": "PRIMARY"
@@ -529,6 +530,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
                 "perspectiveName": "SalesOrders",
                 "perspectiveOrder": "200",
+                "perspectiveRole": "",
                 "title": "SalesOrder",
                 "tooltip": "SalesOrder",
                 "type": "PRIMARY"
@@ -654,6 +656,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/store.svg",
                 "perspectiveName": "Stores",
                 "perspectiveOrder": "500",
+                "perspectiveRole": "",
                 "title": "Store",
                 "tooltip": "Store",
                 "type": "PRIMARY"
@@ -889,6 +892,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/users-alt.svg",
                 "perspectiveName": "Customers",
                 "perspectiveOrder": "300",
+                "perspectiveRole": "",
                 "title": "Customer",
                 "tooltip": "Customer",
                 "type": "PRIMARY"
@@ -1034,6 +1038,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
                 "perspectiveOrder": "1000",
+                "perspectiveRole": "",
                 "title": "Country",
                 "tooltip": "Country",
                 "type": "PRIMARY"
@@ -1094,6 +1099,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
                 "perspectiveOrder": "1000",
+                "perspectiveRole": "",
                 "title": "CountryStatus",
                 "tooltip": "CountryStatus",
                 "type": "PRIMARY"
@@ -1224,6 +1230,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
                 "perspectiveOrder": "1000",
+                "perspectiveRole": "",
                 "title": "Zone",
                 "tooltip": "Zone",
                 "type": "PRIMARY"
@@ -1284,6 +1291,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
                 "perspectiveOrder": "1000",
+                "perspectiveRole": "",
                 "title": "ZoneStatus",
                 "tooltip": "ZoneStatus",
                 "type": "PRIMARY"
@@ -1389,6 +1397,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
                 "perspectiveOrder": "1000",
+                "perspectiveRole": "",
                 "title": "OrderStatus",
                 "tooltip": "OrderStatus",
                 "type": "PRIMARY"
@@ -1516,6 +1525,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
                 "perspectiveOrder": "1000",
+                "perspectiveRole": "",
                 "title": "Language",
                 "tooltip": "Language",
                 "type": "PRIMARY"
@@ -1576,6 +1586,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
                 "perspectiveOrder": "1000",
+                "perspectiveRole": "",
                 "title": "LanguageStatus",
                 "tooltip": "LanguageStatus",
                 "type": "PRIMARY"
@@ -1638,6 +1649,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
                 "perspectiveOrder": "1000",
+                "perspectiveRole": "",
                 "title": "CustomerStatus",
                 "tooltip": "CustomerStatus",
                 "type": "PRIMARY"
@@ -1848,6 +1860,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
                 "perspectiveName": "SalesOrders",
                 "perspectiveOrder": "200",
+                "perspectiveRole": "",
                 "title": "SalesOrderItem",
                 "tooltip": "SalesOrderItem",
                 "type": "DEPENDENT"
@@ -2427,6 +2440,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
                 "perspectiveOrder": "400",
+                "perspectiveRole": "",
                 "title": "Product",
                 "tooltip": "Product",
                 "type": "PRIMARY"
@@ -2512,6 +2526,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
                 "perspectiveOrder": "1000",
+                "perspectiveRole": "",
                 "title": "StockStatus",
                 "tooltip": "StockStatus",
                 "type": "PRIMARY"
@@ -2594,6 +2609,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
                 "perspectiveOrder": "400",
+                "perspectiveRole": "",
                 "title": "Manufacturer",
                 "tooltip": "Manifacturer",
                 "type": "PRIMARY"
@@ -2654,6 +2670,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
                 "perspectiveOrder": "1000",
+                "perspectiveRole": "",
                 "title": "ProductStatus",
                 "tooltip": "ProductStatus",
                 "type": "PRIMARY"
@@ -2859,6 +2876,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
                 "perspectiveName": "Access",
                 "perspectiveOrder": "600",
+                "perspectiveRole": "",
                 "title": "Employee",
                 "tooltip": "Employee",
                 "type": "PRIMARY"
@@ -2919,6 +2937,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
                 "perspectiveOrder": "1000",
+                "perspectiveRole": "",
                 "title": "EmployeeStatus",
                 "tooltip": "EmployeeStatus",
                 "type": "PRIMARY"
@@ -3254,6 +3273,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
                 "perspectiveName": "SalesOrders",
                 "perspectiveOrder": "200",
+                "perspectiveRole": "",
                 "title": "SalesOrderPayment",
                 "tooltip": "SalesOrderPayment",
                 "type": "DEPENDENT"
@@ -3609,6 +3629,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
                 "perspectiveName": "SalesOrders",
                 "perspectiveOrder": "200",
+                "perspectiveRole": "",
                 "title": "SalesOrderShipping",
                 "tooltip": "SalesOrderShipping",
                 "type": "DEPENDENT"
@@ -3669,6 +3690,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
                 "perspectiveOrder": "1000",
+                "perspectiveRole": "",
                 "title": "CurrencyStatus",
                 "tooltip": "CurrencyStatus",
                 "type": "PRIMARY"
@@ -3771,6 +3793,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
                 "perspectiveName": "Access",
                 "perspectiveOrder": "600",
+                "perspectiveRole": "",
                 "title": "Group",
                 "tooltip": "Group",
                 "type": "PRIMARY"
@@ -3860,6 +3883,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
                 "perspectiveOrder": "400",
+                "perspectiveRole": "",
                 "title": "Attribute",
                 "tooltip": "Attribute",
                 "type": "PRIMARY"
@@ -3999,6 +4023,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
                 "perspectiveOrder": "400",
+                "perspectiveRole": "",
                 "title": "ProductAttribute",
                 "tooltip": "ProductAttribute",
                 "type": "DEPENDENT"
@@ -4061,6 +4086,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
                 "perspectiveOrder": "400",
+                "perspectiveRole": "",
                 "title": "AttributeGroup",
                 "tooltip": "AttributeGroup",
                 "type": "PRIMARY"
@@ -4228,6 +4254,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
                 "perspectiveName": "SalesOrders",
                 "perspectiveOrder": "200",
+                "perspectiveRole": "",
                 "title": "SalesOrderComment",
                 "tooltip": "SalesOrderComment",
                 "type": "DEPENDENT"
@@ -4340,6 +4367,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
                 "perspectiveOrder": "400",
+                "perspectiveRole": "",
                 "title": "AttributeDescription",
                 "tooltip": "AttributeDescription",
                 "type": "DEPENDENT"
@@ -4554,6 +4582,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
                 "perspectiveOrder": "400",
+                "perspectiveRole": "",
                 "title": "ProductDescription",
                 "tooltip": "ProductDescription",
                 "type": "DEPENDENT"
@@ -4616,6 +4645,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
                 "perspectiveName": "Access",
                 "perspectiveOrder": "600",
+                "perspectiveRole": "",
                 "title": "Permission",
                 "tooltip": "Permission",
                 "type": "PRIMARY"
@@ -4746,6 +4776,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
                 "perspectiveName": "Access",
                 "perspectiveOrder": "600",
+                "perspectiveRole": "",
                 "title": "GroupEmployee",
                 "tooltip": "GroupEmployee",
                 "type": "PRIMARY"
@@ -4876,6 +4907,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
                 "perspectiveName": "Access",
                 "perspectiveOrder": "600",
+                "perspectiveRole": "",
                 "title": "GroupPermission",
                 "tooltip": "GroupPermission",
                 "type": "PRIMARY"
@@ -5058,6 +5090,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
                 "perspectiveOrder": "1000",
+                "perspectiveRole": "",
                 "title": "EntityReference",
                 "tooltip": "EntityReference",
                 "type": "PRIMARY"
@@ -5172,6 +5205,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/store.svg",
                 "perspectiveName": "Stores",
                 "perspectiveOrder": "500",
+                "perspectiveRole": "",
                 "title": "StoreConfiguration",
                 "tooltip": "StoreConfiguration",
                 "type": "DEPENDENT"
@@ -5232,6 +5266,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/store.svg",
                 "perspectiveName": "Stores",
                 "perspectiveOrder": "500",
+                "perspectiveRole": "",
                 "title": "StoreConfigurationProperty",
                 "tooltip": "StoreConfigurationProperty",
                 "type": "PRIMARY"
@@ -5294,6 +5329,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/store.svg",
                 "perspectiveName": "Stores",
                 "perspectiveOrder": "500",
+                "perspectiveRole": "",
                 "title": "StoreType",
                 "tooltip": "StoreType",
                 "type": "PRIMARY"
@@ -5388,6 +5424,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
                 "perspectiveOrder": "400",
+                "perspectiveRole": "",
                 "title": "ProductToStore",
                 "tooltip": "ProductToStore",
                 "type": "DEPENDENT"
@@ -5502,6 +5539,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
                 "perspectiveOrder": "400",
+                "perspectiveRole": "",
                 "title": "AttributeGroupDescription",
                 "tooltip": "AttributeGroupDescription",
                 "type": "DEPENDENT"
@@ -5644,6 +5682,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
                 "perspectiveOrder": "400",
+                "perspectiveRole": "",
                 "title": "Category",
                 "tooltip": "Category",
                 "type": "PRIMARY"
@@ -5738,6 +5777,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
                 "perspectiveOrder": "400",
+                "perspectiveRole": "",
                 "title": "ProductToCategory",
                 "tooltip": "ProductToCategory",
                 "type": "DEPENDENT"
@@ -5934,6 +5974,7 @@
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
                 "perspectiveOrder": "400",
+                "perspectiveRole": "",
                 "title": "CategoryTranslation",
                 "tooltip": "CategoryTranslation",
                 "type": "DEPENDENT"
@@ -5944,37 +5985,43 @@
                 "name": "SalesOrders",
                 "label": "salesorders",
                 "icon": "/services/web/resources/unicons/bill.svg",
-                "order": "200"
+                "order": "200",
+                "role": {}
             },
             {
                 "name": "Products",
                 "label": "products",
                 "icon": "/services/web/resources/unicons/box.svg",
-                "order": "400"
+                "order": "400",
+                "role": {}
             },
             {
                 "name": "Settings",
                 "label": "settings",
                 "icon": "/services/web/resources/unicons/wrench.svg",
-                "order": "1000"
+                "order": "1000",
+                "role": {}
             },
             {
                 "name": "Customers",
                 "label": "customers",
                 "icon": "/services/web/resources/unicons/users-alt.svg",
-                "order": "300"
+                "order": "300",
+                "role": {}
             },
             {
                 "name": "Access",
                 "label": "access",
                 "icon": "/services/web/resources/unicons/lock.svg",
-                "order": "600"
+                "order": "600",
+                "role": {}
             },
             {
                 "name": "Stores",
                 "label": "stores",
                 "icon": "/services/web/resources/unicons/store.svg",
-                "order": "500"
+                "order": "500",
+                "role": {}
             }
         ],
         "navigations": []

@@ -1,6 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { SalesOrderItemRepository, SalesOrderItemEntityOptions } from "../../dao/SalesOrders/SalesOrderItemRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-electra-SalesOrders-SalesOrderItem", ["validate"]);
 
 @Controller
 class SalesOrderItemService {
@@ -31,6 +35,7 @@ class SalesOrderItemService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-electra/gen/api/SalesOrders/SalesOrderItemService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -73,7 +78,7 @@ class SalesOrderItemService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("SalesOrderItem not found");
             }
@@ -86,6 +91,7 @@ class SalesOrderItemService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -118,4 +124,41 @@ class SalesOrderItemService {
             HttpUtils.sendInternalServerError(error.message);
         }
     }
+
+    private validateEntity(entity: any): void {
+        if (entity.Product === null || entity.Product === undefined) {
+            throw new ValidationError(`The 'Product' property is required, provide a valid value`);
+        }
+        if (entity.SalesOrder === null || entity.SalesOrder === undefined) {
+            throw new ValidationError(`The 'SalesOrder' property is required, provide a valid value`);
+        }
+        if (entity.Name === null || entity.Name === undefined) {
+            throw new ValidationError(`The 'Name' property is required, provide a valid value`);
+        }
+        if (entity.Name?.length > 255) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [255] characters`);
+        }
+        if (entity.Model === null || entity.Model === undefined) {
+            throw new ValidationError(`The 'Model' property is required, provide a valid value`);
+        }
+        if (entity.Model?.length > 64) {
+            throw new ValidationError(`The 'Model' exceeds the maximum length of [64] characters`);
+        }
+        if (entity.Quantity === null || entity.Quantity === undefined) {
+            throw new ValidationError(`The 'Quantity' property is required, provide a valid value`);
+        }
+        if (entity.Price === null || entity.Price === undefined) {
+            throw new ValidationError(`The 'Price' property is required, provide a valid value`);
+        }
+        if (entity.Total === null || entity.Total === undefined) {
+            throw new ValidationError(`The 'Total' property is required, provide a valid value`);
+        }
+        if (entity.Tax === null || entity.Tax === undefined) {
+            throw new ValidationError(`The 'Tax' property is required, provide a valid value`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
+        }
+    }
+
 }

@@ -193,7 +193,7 @@ export class ProductDescriptionRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(ProductDescriptionRepository.DEFINITION, null, dataSource);
     }
 
@@ -269,7 +269,7 @@ export class ProductDescriptionRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: ProductDescriptionEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PRODUCTDESCRIPTION"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -282,7 +282,7 @@ export class ProductDescriptionRepository {
     }
 
     private async triggerEvent(data: ProductDescriptionEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Products/ProductDescription", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Products-ProductDescription", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -290,6 +290,6 @@ export class ProductDescriptionRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-electra/Products/ProductDescription").send(JSON.stringify(data));
+        producer.topic("codbex-electra-Products-ProductDescription").send(JSON.stringify(data));
     }
 }

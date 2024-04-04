@@ -1,1 +1,4 @@
-{"location":"codbex-electra/gen/dao/Settings/ProductStatus.extensionpoint","name":"codbex-electra/Settings/ProductStatus","description":"Extension Point for codbex-electra Settings ProductStatus"}
+{
+    "name": "codbex-electra-Settings-ProductStatus",
+    "description": "Extension Point for the codbex-electra-Settings-ProductStatus entity"
+}

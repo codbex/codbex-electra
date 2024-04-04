@@ -88,7 +88,7 @@ export class StoreConfigurationPropertyRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(StoreConfigurationPropertyRepository.DEFINITION, null, dataSource);
     }
 
@@ -164,7 +164,7 @@ export class StoreConfigurationPropertyRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: StoreConfigurationPropertyEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_STORECONFIGURATIONPROPERTY"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -177,7 +177,7 @@ export class StoreConfigurationPropertyRepository {
     }
 
     private async triggerEvent(data: StoreConfigurationPropertyEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Stores/StoreConfigurationProperty", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Stores-StoreConfigurationProperty", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -185,6 +185,6 @@ export class StoreConfigurationPropertyRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-electra/Stores/StoreConfigurationProperty").send(JSON.stringify(data));
+        producer.topic("codbex-electra-Stores-StoreConfigurationProperty").send(JSON.stringify(data));
     }
 }

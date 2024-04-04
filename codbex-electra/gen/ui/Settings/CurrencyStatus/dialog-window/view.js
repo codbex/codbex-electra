@@ -7,7 +7,7 @@ const viewData = {
     id: "CurrencyStatus-details",
     label: "CurrencyStatus",
     link: "/services/web/codbex-electra/gen/ui/Settings/CurrencyStatus/dialog-window/index.html",
-    perspectiveName: "Settings"
+    perspectiveName: "Settings",
 };
 
 if (typeof exports !== 'undefined') {

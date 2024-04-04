@@ -146,7 +146,7 @@ export class CategoryRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(CategoryRepository.DEFINITION, null, dataSource);
     }
 
@@ -234,7 +234,7 @@ export class CategoryRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: CategoryEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_CATEGORY"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -247,7 +247,7 @@ export class CategoryRepository {
     }
 
     private async triggerEvent(data: CategoryEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra/Products/Category", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Products-Category", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -255,6 +255,6 @@ export class CategoryRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-electra/Products/Category").send(JSON.stringify(data));
+        producer.topic("codbex-electra-Products-Category").send(JSON.stringify(data));
     }
 }

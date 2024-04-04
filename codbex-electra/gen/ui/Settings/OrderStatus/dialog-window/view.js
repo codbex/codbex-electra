@@ -7,7 +7,7 @@ const viewData = {
     id: "OrderStatus-details",
     label: "OrderStatus",
     link: "/services/web/codbex-electra/gen/ui/Settings/OrderStatus/dialog-window/index.html",
-    perspectiveName: "Settings"
+    perspectiveName: "Settings",
 };
 
 if (typeof exports !== 'undefined') {
