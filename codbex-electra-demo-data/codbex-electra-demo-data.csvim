@@ -9,7 +9,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_GROUPEMPLOYEE",
@@ -20,7 +21,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_PRODUCTATTRIBUTE",
@@ -31,7 +33,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_CURRENCY",
@@ -42,7 +45,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_LANGUAGE",
@@ -53,7 +57,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_ATTRIBUTEGROUPTRANSLATION",
@@ -64,7 +69,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_MANUFACTURER",
@@ -75,7 +81,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_STORE",
@@ -86,7 +93,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_CATEGORYTRANSLATION",
@@ -97,7 +105,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_COUNTRY",
@@ -108,7 +117,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_PRODUCTDESCRIPTION",
@@ -119,7 +129,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_ATTRIBUTEGROUP",
@@ -130,7 +141,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_ORDERSTATUS",
@@ -141,7 +153,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_ATTRIBUTETRANSLATION",
@@ -152,7 +165,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_CATEGORY",
@@ -163,7 +177,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_STOCKSTATUS",
@@ -174,7 +189,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_ATTRIBUTE",
@@ -185,7 +201,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_PRODUCT",
@@ -196,7 +213,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_PRODUCTTOCATEGORY",
@@ -207,7 +225,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_ZONE",
@@ -218,7 +237,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     }
   ]
 }
