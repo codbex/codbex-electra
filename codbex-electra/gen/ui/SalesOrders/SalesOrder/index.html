@@ -50,10 +50,10 @@
 						<fd-list-content
 							item-title="{{next.Number}}">
 							<fd-list-byline dg-align="left">
+								{{optionsStoreValue(next.Store)}} |
+								{{optionsStatusValue(next.Status)}} |
 								{{next.Total}} |
 								{{optionsCurrencyValue(next.Currency)}} |
-								{{optionsStatusValue(next.Status)}} |
-								{{optionsStoreValue(next.Store)}} |
 								{{optionsCustomerValue(next.Customer)}} |
 								{{next.DateAdded | date: "dd/MMM/yyyy HH:MM"}} |
 								{{next.DateModified | date: "dd/MMM/yyyy HH:MM"}} |

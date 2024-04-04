@@ -31,9 +31,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = params.entity ?? {};
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
-				$scope.optionsCurrency = params.optionsCurrency;
-				$scope.optionsStatus = params.optionsStatus;
 				$scope.optionsStore = params.optionsStore;
+				$scope.optionsStatus = params.optionsStatus;
+				$scope.optionsCurrency = params.optionsCurrency;
 				$scope.optionsCustomer = params.optionsCustomer;
 				$scope.optionsLanguage = params.optionsLanguage;
 			}
@@ -65,17 +65,17 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			if (entity.Number) {
 				filter.$filter.contains.Number = entity.Number;
 			}
+			if (entity.Store) {
+				filter.$filter.equals.Store = entity.Store;
+			}
+			if (entity.Status) {
+				filter.$filter.equals.Status = entity.Status;
+			}
 			if (entity.Total) {
 				filter.$filter.equals.Total = entity.Total;
 			}
 			if (entity.Currency) {
 				filter.$filter.equals.Currency = entity.Currency;
-			}
-			if (entity.Status) {
-				filter.$filter.equals.Status = entity.Status;
-			}
-			if (entity.Store) {
-				filter.$filter.equals.Store = entity.Store;
 			}
 			if (entity.Customer) {
 				filter.$filter.equals.Customer = entity.Customer;
