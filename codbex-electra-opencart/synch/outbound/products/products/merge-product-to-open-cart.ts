@@ -6,7 +6,7 @@ import { ProductToCategoryRepository as ProductToCategoryDAO } from "codbex-elec
 import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
 import { EntityReferenceEntity } from "codbex-electra/gen/dao/Settings/EntityReferenceRepository";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
-import { ProductEntry } from "../get-store-products";
+import { ProductEntry } from "codbex-electra-opencart/synch/outbound/products/get-store-products";
 
 export function onMessage(message: any) {
     const productEntry: ProductEntry = message.getBody();

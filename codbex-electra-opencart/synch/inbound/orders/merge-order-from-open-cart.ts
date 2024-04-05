@@ -6,7 +6,7 @@ import { SalesOrderPaymentRepository as SalesOrderPaymentDAO, SalesOrderPaymentC
 import { oc_orderRepository as OpenCartOrderDAO, oc_orderEntity } from "codbex-electra-opencart/dao/oc_orderRepository";
 import { oc_order_productRepository as OpenCartOrderProductDAO, oc_order_productEntity, oc_order_productEntityOptions } from "codbex-electra-opencart/dao/oc_order_productRepository";
 
-import { BaseHandler } from "../../base-handler";
+import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { OrderEntry } from "./get-all-orders";
 
 export function onMessage(message: any) {
