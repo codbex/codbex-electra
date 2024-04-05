@@ -1,8 +1,8 @@
-import { oc_product_descriptionRepository as OpenCartProductDescriptionDAO, oc_product_descriptionCreateEntity as OpenCartProductDesceiptionCreateEntity, oc_product_descriptionUpdateEntity as OpenCartProductDescriptionUpdateEntity } from "../../../../dao/oc_product_descriptionRepository";
-import { ProductDescriptionRepository as ProductDescriptionDAO, ProductDescriptionEntity } from "../../../../../codbex-electra/gen/dao/Products/ProductDescriptionRepository";
-import { EntityReferenceDAO } from "../../../../../codbex-electra/dao/EntityReferenceDAO";
-import { EntityReferenceEntity } from "../../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
-import { BaseHandler } from "../../../base-handler";
+import { oc_product_descriptionRepository as OpenCartProductDescriptionDAO, oc_product_descriptionCreateEntity as OpenCartProductDesceiptionCreateEntity, oc_product_descriptionUpdateEntity as OpenCartProductDescriptionUpdateEntity } from "codbex-electra-opencart/dao/oc_product_descriptionRepository";
+import { ProductDescriptionRepository as ProductDescriptionDAO, ProductDescriptionEntity } from "codbex-electra/gen/dao/Products/ProductDescriptionRepository";
+import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
+import { EntityReferenceEntity } from "codbex-electra/gen/dao/Settings/EntityReferenceRepository";
+import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { ProductEntry } from "../get-store-products";
 
 export function onMessage(message: any) {

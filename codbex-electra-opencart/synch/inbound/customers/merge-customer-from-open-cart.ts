@@ -1,8 +1,8 @@
-import { EntityReferenceDAO } from "../../../../codbex-electra/dao/EntityReferenceDAO";
-import { EntityReferenceEntity } from "../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
-import { CustomerRepository as CustomerDAO, CustomerCreateEntity, CustomerUpdateEntity } from "../../../../codbex-electra/gen/dao/Customers/CustomerRepository";
-import { oc_customerRepository as OpenCartCustomerDAO, oc_customerEntity } from "../../../dao/oc_customerRepository";
-import { BaseHandler } from "../../base-handler";
+import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
+import { EntityReferenceEntity } from "codbex-electra/gen/dao/Settings/EntityReferenceRepository";
+import { CustomerRepository as CustomerDAO, CustomerCreateEntity, CustomerUpdateEntity } from "codbex-electra/gen/dao/Customers/CustomerRepository";
+import { oc_customerRepository as OpenCartCustomerDAO, oc_customerEntity } from "codbex-electra-opencart/dao/oc_customerRepository";
+import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { CustomerEntry } from "./get-all-customers";
 
 export function onMessage(message: any) {
