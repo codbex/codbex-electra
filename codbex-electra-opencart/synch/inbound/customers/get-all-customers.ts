@@ -1,5 +1,5 @@
 import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
-import { BaseHandler } from "codbex-electra-opencart/base-handler";
+import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { oc_customerRepository as OpenCartCustomerDAO, oc_customerEntityOptions } from "codbex-electra-opencart/dao/oc_customerRepository";
 
 export function onMessage(message: any) {
