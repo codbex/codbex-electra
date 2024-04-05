@@ -1,6 +1,6 @@
-import { ZoneRepository as ZoneDAO, ZoneEntityOptions } from "../../../../codbex-electra/gen/dao/Settings/ZoneRepository";
-import { OpenCartStoreConfig } from "../../../dao/StoreConfigDAO";
-import { BaseHandler } from "../../base-handler";
+import { ZoneRepository as ZoneDAO, ZoneEntityOptions } from "codbex-electra/gen/dao/Settings/ZoneRepository";
+import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
+import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 
 export function onMessage(message: any) {
     const store: OpenCartStoreConfig = message.getBody();

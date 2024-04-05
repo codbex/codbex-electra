@@ -1,7 +1,7 @@
-import { ProductToStoreRepository as ProductToStoreDAO, ProductToStoreEntityOptions } from "../../../../../codbex-electra/gen/dao/Products/ProductToStoreRepository";
-import { ProductRepository as ProductDAO, ProductEntityOptions } from "../../../../../codbex-electra/gen/dao/Products/ProductRepository";
-import { BaseHandler } from "../../../base-handler";
-import { OpenCartStoreConfig } from "../../../../dao/StoreConfigDAO";
+import { ProductToStoreRepository as ProductToStoreDAO, ProductToStoreEntityOptions } from "codbex-electra/gen/dao/Products/ProductToStoreRepository";
+import { ProductRepository as ProductDAO, ProductEntityOptions } from "codbex-electra/gen/dao/Products/ProductRepository";
+import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
+import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
 
 export function onMessage(message: any) {
     const store: OpenCartStoreConfig = message.getBody();

@@ -1,12 +1,12 @@
-import { EntityReferenceDAO } from "../../../../codbex-electra/dao/EntityReferenceDAO";
-import { SalesOrderRepository as SalesOrderDAO, SalesOrderCreateEntity } from "../../../../codbex-electra/gen/dao/SalesOrders/SalesOrderRepository";
-import { SalesOrderItemRepository as SalesOrderItemDAO, SalesOrderItemCreateEntity } from "../../../../codbex-electra/gen/dao/SalesOrders/SalesOrderItemRepository";
-import { SalesOrderShippingRepository as SalesOrderShippingDAO, SalesOrderShippingCreateEntity } from "../../../../codbex-electra/gen/dao/SalesOrders/SalesOrderShippingRepository";
-import { SalesOrderPaymentRepository as SalesOrderPaymentDAO, SalesOrderPaymentCreateEntity } from "../../../../codbex-electra/gen/dao/SalesOrders/SalesOrderPaymentRepository";
-import { oc_orderRepository as OpenCartOrderDAO, oc_orderEntity } from "../../../dao/oc_orderRepository";
-import { oc_order_productRepository as OpenCartOrderProductDAO, oc_order_productEntity, oc_order_productEntityOptions } from "../../../dao/oc_order_productRepository";
+import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
+import { SalesOrderRepository as SalesOrderDAO, SalesOrderCreateEntity } from "codbex-electra/gen/dao/SalesOrders/SalesOrderRepository";
+import { SalesOrderItemRepository as SalesOrderItemDAO, SalesOrderItemCreateEntity } from "codbex-electra/gen/dao/SalesOrders/SalesOrderItemRepository";
+import { SalesOrderShippingRepository as SalesOrderShippingDAO, SalesOrderShippingCreateEntity } from "codbex-electra/gen/dao/SalesOrders/SalesOrderShippingRepository";
+import { SalesOrderPaymentRepository as SalesOrderPaymentDAO, SalesOrderPaymentCreateEntity } from "codbex-electra/gen/dao/SalesOrders/SalesOrderPaymentRepository";
+import { oc_orderRepository as OpenCartOrderDAO, oc_orderEntity } from "codbex-electra-opencart/dao/oc_orderRepository";
+import { oc_order_productRepository as OpenCartOrderProductDAO, oc_order_productEntity, oc_order_productEntityOptions } from "codbex-electra-opencart/dao/oc_order_productRepository";
 
-import { BaseHandler } from "../../base-handler";
+import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { OrderEntry } from "./get-all-orders";
 
 export function onMessage(message: any) {

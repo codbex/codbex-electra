@@ -1,10 +1,10 @@
-import { oc_order_statusRepository as OpenCartOrderStatusDAO, oc_order_statusCreateEntity as OpenCartProductAttributeCreateEntity, oc_order_statusUpdateEntity as OpenCartProductAttributeUpdateEntity } from "../../../../dao/oc_order_statusRepository";
-import { OrderStatusRepository as OrderStatusDAO, OrderStatusEntity } from "../../../../../codbex-electra/gen/dao/Settings/OrderStatusRepository";
-import { EntityReferenceDAO } from "../../../../../codbex-electra/dao/EntityReferenceDAO";
-import { EntityReferenceEntity } from "../../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
-import { BaseHandler } from "../../../base-handler";
+import { oc_order_statusRepository as OpenCartOrderStatusDAO, oc_order_statusCreateEntity as OpenCartProductAttributeCreateEntity, oc_order_statusUpdateEntity as OpenCartProductAttributeUpdateEntity } from "codbex-electra-opencart/dao/oc_order_statusRepository";
+import { OrderStatusRepository as OrderStatusDAO, OrderStatusEntity } from "codbex-electra/gen/dao/Settings/OrderStatusRepository";
+import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
+import { EntityReferenceEntity } from "codbex-electra/gen/dao/Settings/EntityReferenceRepository";
+import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { OrderStatusEntry } from "./get-all-order-statuses";
-import { oc_settingRepository as OpenCartSettingDAO } from "../../../../dao/oc_settingRepository";
+import { oc_settingRepository as OpenCartSettingDAO } from "codbex-electra-opencart/dao/oc_settingRepository";
 
 export function onMessage(message: any) {
     const orderStatusEntry: OrderStatusEntry = message.getBody();

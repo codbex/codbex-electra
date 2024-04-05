@@ -1,5 +1,5 @@
-import { OpenCartStoreConfig } from "../../../dao/StoreConfigDAO";
-import { BaseHandler } from "../../base-handler";
+import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
+import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { query } from "sdk/db";
 
 export function onMessage(message: any) {

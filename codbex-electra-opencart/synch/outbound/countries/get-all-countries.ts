@@ -1,6 +1,6 @@
-import { CountryRepository as CountryDAO, CountryEntityOptions } from "../../../../codbex-electra/gen/dao/Settings/CountryRepository";
-import { OpenCartStoreConfig } from "../../../dao/StoreConfigDAO";
-import { BaseHandler } from "../../base-handler";
+import { CountryRepository as CountryDAO, CountryEntityOptions } from "codbex-electra/gen/dao/Settings/CountryRepository";
+import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
+import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 
 export function onMessage(message: any) {
     const store: OpenCartStoreConfig = message.getBody();

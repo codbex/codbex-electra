@@ -1,9 +1,9 @@
-import { oc_manufacturerRepository as OpenCartManufacturerDAO, oc_manufacturerCreateEntity as OpenCartManufacturerCreateEntity, oc_manufacturerUpdateEntity as OpenCartManufacturerUpdateEntity } from "../../../../dao/oc_manufacturerRepository";
-import { EntityReferenceDAO } from "../../../../../codbex-electra/dao/EntityReferenceDAO";
-import { EntityReferenceEntity } from "../../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
-import { ManufacturerRepository as ManufacturerDAO, ManufacturerEntity } from "../../../../../codbex-electra/gen/dao/Products/ManufacturerRepository";
+import { oc_manufacturerRepository as OpenCartManufacturerDAO, oc_manufacturerCreateEntity as OpenCartManufacturerCreateEntity, oc_manufacturerUpdateEntity as OpenCartManufacturerUpdateEntity } from "codbex-electra-opencart/dao/oc_manufacturerRepository";
+import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
+import { EntityReferenceEntity } from "codbex-electra/gen/dao/Settings/EntityReferenceRepository";
+import { ManufacturerRepository as ManufacturerDAO, ManufacturerEntity } from "codbex-electra/gen/dao/Products/ManufacturerRepository";
 import { ManufacturerEntry } from "./get-all-relevant-manufacturers";
-import { BaseHandler } from "../../../base-handler";
+import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 
 export function onMessage(message: any) {
     const manufacturerEntry: ManufacturerEntry = message.getBody();
