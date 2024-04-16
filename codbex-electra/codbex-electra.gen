@@ -71,8 +71,6 @@
       "views": [
         "Store",
         "StoreConfiguration",
-        "StoreConfigurationProperty",
-        "StoreType",
         "Store-details",
         "Store-details",
         "Store-details",
@@ -242,6 +240,26 @@
       "name": "Attribute groups",
       "label": "Attribute groups",
       "order": "405",
+      "icon": "/services/web/resources/unicons/question.svg",
+      "role": ""
+    },
+    "Store configurations": {
+      "views": [
+        "StoreConfigurationProperty"
+      ],
+      "name": "Store configurations",
+      "label": "Store configurations",
+      "order": "497",
+      "icon": "/services/web/resources/unicons/question.svg",
+      "role": ""
+    },
+    "Store types": {
+      "views": [
+        "StoreType"
+      ],
+      "name": "Store types",
+      "label": "Store types",
+      "order": "495",
       "icon": "/services/web/resources/unicons/question.svg",
       "role": ""
     },
@@ -1525,10 +1543,10 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "Store_StoreType",
           "relationshipEntityName": "StoreType",
-          "relationshipEntityPerspectiveName": "Stores",
+          "relationshipEntityPerspectiveName": "Store types",
           "dataNotNull": true,
           "widgetLabel": "Type",
-          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Stores/StoreTypeService.ts\"",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Store types/StoreTypeService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -1666,10 +1684,10 @@
             "widgetType": "DROPDOWN",
             "relationshipName": "Store_StoreType",
             "relationshipEntityName": "StoreType",
-            "relationshipEntityPerspectiveName": "Stores",
+            "relationshipEntityPerspectiveName": "Store types",
             "dataNotNull": true,
             "widgetLabel": "Type",
-            "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Stores/StoreTypeService.ts\"",
+            "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Store types/StoreTypeService.ts\"",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -8778,10 +8796,10 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "StoreConfiguration_StoreConfigurationProperty",
           "relationshipEntityName": "StoreConfigurationProperty",
-          "relationshipEntityPerspectiveName": "Stores",
+          "relationshipEntityPerspectiveName": "Store configurations",
           "dataNotNull": true,
           "widgetLabel": "Property",
-          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Stores/StoreConfigurationPropertyService.ts\"",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Store configurations/StoreConfigurationPropertyService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -8911,9 +8929,9 @@
       "menuLabel": "StoreConfigurationProperty",
       "name": "StoreConfigurationProperty",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/store.svg",
-      "perspectiveName": "Stores",
-      "perspectiveOrder": "500",
+      "perspectiveIcon": "/services/web/resources/unicons/question.svg",
+      "perspectiveName": "Store configurations",
+      "perspectiveOrder": "497",
       "perspectiveRole": "",
       "title": "StoreConfigurationProperty",
       "tooltip": "StoreConfigurationProperty",
@@ -8994,9 +9012,9 @@
       "menuLabel": "StoreType",
       "name": "StoreType",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/store.svg",
-      "perspectiveName": "Stores",
-      "perspectiveOrder": "500",
+      "perspectiveIcon": "/services/web/resources/unicons/question.svg",
+      "perspectiveName": "Store types",
+      "perspectiveOrder": "495",
       "perspectiveRole": "",
       "title": "StoreType",
       "tooltip": "StoreType",

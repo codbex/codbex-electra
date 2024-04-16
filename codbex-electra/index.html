@@ -62,7 +62,7 @@
                         <!-- Attributes -->
                         <fd-list-navigation-item ng-init="attributesExpanded = false" expandable="true"
                             ng-click="attributesExpanded = !attributesExpanded" is-expanded="attributesExpanded">
-                            <fd-list-navigation-item-icon glyph="sap-icon--activities">
+                            <fd-list-navigation-item-icon glyph="sap-icon--list">
                             </fd-list-navigation-item-icon>
                             <span fd-list-navigation-item-text>Attributes</span>
                             <fd-list-navigation-item-arrow aria-label="expand submenu" is-expanded="attributesExpanded">
@@ -97,6 +97,24 @@
                                     <span fd-list-navigation-item-text>Products</span>
                                 </fd-list-navigation-item>
                             </fd-list>
+                        </fd-list-navigation-item>
+
+                        <!-- Stores -->
+                        <fd-list-navigation-group-header>Stores</fd-list-navigation-group-header>
+                        <fd-list-navigation-item ng-click="switchView('store-types')">
+                            <fd-list-navigation-item-icon glyph="sap-icon--list">
+                            </fd-list-navigation-item-icon>
+                            <span fd-list-navigation-item-text>Types</span>
+                        </fd-list-navigation-item>
+                        <fd-list-navigation-item ng-click="switchView('store-configurations')">
+                            <fd-list-navigation-item-icon glyph="sap-icon--action-settings">
+                            </fd-list-navigation-item-icon>
+                            <span fd-list-navigation-item-text>Store configs</span>
+                        </fd-list-navigation-item>
+                        <fd-list-navigation-item ng-click="switchView('stores')">
+                            <fd-list-navigation-item-icon glyph="sap-icon--retail-store">
+                            </fd-list-navigation-item-icon>
+                            <span fd-list-navigation-item-text>Stores</span>
                         </fd-list-navigation-item>
 
                         <!-- People -->
@@ -221,24 +239,40 @@
             <embedded-view class="dg-fill-parent" view-id="codbex-electra-sales-orders" dg-type="subview"
                 ng-show="currentViewId === 'sales-orders'">
             </embedded-view>
+
             <embedded-view class="dg-fill-parent" view-id="codbex-electra-customers" dg-type="subview"
                 ng-show="currentViewId === 'customers'">
             </embedded-view>
+
             <embedded-view class="dg-fill-parent" view-id="codbex-electra-manufacturers" dg-type="subview"
                 ng-show="currentViewId === 'manufacturers'">
             </embedded-view>
+
             <embedded-view class="dg-fill-parent" view-id="codbex-electra-product-attribute-groups" dg-type="subview"
                 ng-show="currentViewId === 'product-attribute-groups'">
             </embedded-view>
             <embedded-view class="dg-fill-parent" view-id="codbex-electra-product-attributes" dg-type="subview"
                 ng-show="currentViewId === 'product-attributes'">
             </embedded-view>
+
             <embedded-view class="dg-fill-parent" view-id="codbex-electra-product-categories" dg-type="subview"
                 ng-show="currentViewId === 'product-categories'">
             </embedded-view>
             <embedded-view class="dg-fill-parent" view-id="codbex-electra-products" dg-type="subview"
                 ng-show="currentViewId === 'products'">
             </embedded-view>
+
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-store-types" dg-type="subview"
+                ng-show="currentViewId === 'store-types'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-store-configurations" dg-type="subview"
+                ng-show="currentViewId === 'store-configurations'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-stores" dg-type="subview"
+                ng-show="currentViewId === 'stores'">
+            </embedded-view>
+
+
         </div>
 
         <ide-dialogs></ide-dialogs>

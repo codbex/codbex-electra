@@ -1,0 +1,5 @@
+{
+    "module": "codbex-electra/services/store-types.js",
+    "extensionPoint": "ide-subview",
+    "description": "Store Types Subview"
+}

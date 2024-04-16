@@ -639,7 +639,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Store_StoreType",
                         "relationshipEntityName": "StoreType",
-                        "relationshipEntityPerspectiveName": "Stores"
+                        "relationshipEntityPerspectiveName": "Store types"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -5188,7 +5188,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "StoreConfiguration_StoreConfigurationProperty",
                         "relationshipEntityName": "StoreConfigurationProperty",
-                        "relationshipEntityPerspectiveName": "Stores"
+                        "relationshipEntityPerspectiveName": "Store configurations"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -5284,9 +5284,9 @@
                 "menuLabel": "StoreConfigurationProperty",
                 "name": "StoreConfigurationProperty",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/store.svg",
-                "perspectiveName": "Stores",
-                "perspectiveOrder": "500",
+                "perspectiveIcon": "/services/web/resources/unicons/question.svg",
+                "perspectiveName": "Store configurations",
+                "perspectiveOrder": "497",
                 "perspectiveRole": "",
                 "title": "StoreConfigurationProperty",
                 "tooltip": "StoreConfigurationProperty",
@@ -5347,9 +5347,9 @@
                 "menuLabel": "StoreType",
                 "name": "StoreType",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/store.svg",
-                "perspectiveName": "Stores",
-                "perspectiveOrder": "500",
+                "perspectiveIcon": "/services/web/resources/unicons/question.svg",
+                "perspectiveName": "Store types",
+                "perspectiveOrder": "495",
                 "perspectiveRole": "",
                 "title": "StoreType",
                 "tooltip": "StoreType",
@@ -6070,6 +6070,20 @@
                 "label": "product categories",
                 "icon": "/services/web/resources/unicons/question.svg",
                 "order": "410",
+                "role": {}
+            },
+            {
+                "name": "Store types",
+                "label": "store types",
+                "icon": "/services/web/resources/unicons/question.svg",
+                "order": "495",
+                "role": {}
+            },
+            {
+                "name": "Store configurations",
+                "label": "store configurations",
+                "icon": "/services/web/resources/unicons/question.svg",
+                "order": "497",
                 "role": {}
             }
         ],
