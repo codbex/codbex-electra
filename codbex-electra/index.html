@@ -117,23 +117,38 @@
                             <span fd-list-navigation-item-text>Stores</span>
                         </fd-list-navigation-item>
 
-                        <!-- People -->
-                        <fd-list-navigation-group-header>People</fd-list-navigation-group-header>
-                        <fd-list-navigation-item ng-init="peopleExpanded = false" expandable="true"
-                            ng-click="peopleExpanded = !peopleExpanded" is-expanded="peopleExpanded">
+                        <!-- Security -->
+                        <fd-list-navigation-group-header>Security</fd-list-navigation-group-header>
+                        <fd-list-navigation-item ng-init="accessExpanded = false" expandable="true"
+                            ng-click="accessExpanded = !accessExpanded" is-expanded="accessExpanded">
                             <fd-list-navigation-item-icon glyph="sap-icon--folder">
                             </fd-list-navigation-item-icon>
-                            <span fd-list-navigation-item-text>Employees</span>
-                            <fd-list-navigation-item-arrow aria-label="expand submenu" is-expanded="peopleExpanded">
+                            <span fd-list-navigation-item-text>Access</span>
+                            <fd-list-navigation-item-arrow aria-label="expand submenu" is-expanded="accessExpanded">
                             </fd-list-navigation-item-arrow>
                             <fd-list>
-                                <fd-list-navigation-item ng-click="switchView('organisations', $event)">
-                                    <span fd-list-navigation-item-text>Organisations</span>
+                                <fd-list-navigation-item ng-click="switchView('groups', $event)">
+                                    <span fd-list-navigation-item-text>Groups</span>
+                                </fd-list-navigation-item>
+                            </fd-list>
+                            <fd-list>
+                                <fd-list-navigation-item ng-click="switchView('permissions', $event)">
+                                    <span fd-list-navigation-item-text>Permissions</span>
+                                </fd-list-navigation-item>
+                            </fd-list>
+                            <fd-list>
+                                <fd-list-navigation-item ng-click="switchView('group-permissions', $event)">
+                                    <span fd-list-navigation-item-text>Group permissions</span>
                                 </fd-list-navigation-item>
                             </fd-list>
                             <fd-list>
                                 <fd-list-navigation-item ng-click="switchView('employees', $event)">
                                     <span fd-list-navigation-item-text>Employees</span>
+                                </fd-list-navigation-item>
+                            </fd-list>
+                            <fd-list>
+                                <fd-list-navigation-item ng-click="switchView('group-employees', $event)">
+                                    <span fd-list-navigation-item-text>Group employees</span>
                                 </fd-list-navigation-item>
                             </fd-list>
                         </fd-list-navigation-item>
@@ -270,6 +285,22 @@
             </embedded-view>
             <embedded-view class="dg-fill-parent" view-id="codbex-electra-stores" dg-type="subview"
                 ng-show="currentViewId === 'stores'">
+            </embedded-view>
+
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-groups" dg-type="subview"
+                ng-show="currentViewId === 'groups'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-permissions" dg-type="subview"
+                ng-show="currentViewId === 'permissions'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-group-permissions" dg-type="subview"
+                ng-show="currentViewId === 'group-permissions'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-employees" dg-type="subview"
+                ng-show="currentViewId === 'employees'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-group-employees" dg-type="subview"
+                ng-show="currentViewId === 'group-employees'">
             </embedded-view>
 
 

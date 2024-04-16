@@ -2895,8 +2895,8 @@
                 "name": "Employee",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
-                "perspectiveName": "Access",
-                "perspectiveOrder": "600",
+                "perspectiveName": "Employees",
+                "perspectiveOrder": "612",
                 "perspectiveRole": "",
                 "title": "Employee",
                 "tooltip": "Employee",
@@ -3812,7 +3812,7 @@
                 "name": "Group",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
-                "perspectiveName": "Access",
+                "perspectiveName": "Groups",
                 "perspectiveOrder": "600",
                 "perspectiveRole": "",
                 "title": "Group",
@@ -4664,8 +4664,8 @@
                 "name": "Permission",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
-                "perspectiveName": "Access",
-                "perspectiveOrder": "600",
+                "perspectiveName": "Permissions",
+                "perspectiveOrder": "604",
                 "perspectiveRole": "",
                 "title": "Permission",
                 "tooltip": "Permission",
@@ -4714,7 +4714,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "GroupEmployee_Employee",
                         "relationshipEntityName": "Employee",
-                        "relationshipEntityPerspectiveName": "Access"
+                        "relationshipEntityPerspectiveName": "Employees"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -4739,7 +4739,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "GroupEmployee_Group",
                         "relationshipEntityName": "Group",
-                        "relationshipEntityPerspectiveName": "Access"
+                        "relationshipEntityPerspectiveName": "Groups"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -4795,8 +4795,8 @@
                 "name": "GroupEmployee",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
-                "perspectiveName": "Access",
-                "perspectiveOrder": "600",
+                "perspectiveName": "Group employees",
+                "perspectiveOrder": "616",
                 "perspectiveRole": "",
                 "title": "GroupEmployee",
                 "tooltip": "GroupEmployee",
@@ -4845,7 +4845,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "GroupPermission_Group",
                         "relationshipEntityName": "Group",
-                        "relationshipEntityPerspectiveName": "Access"
+                        "relationshipEntityPerspectiveName": "Groups"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -4870,7 +4870,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "GroupPermission_Permission",
                         "relationshipEntityName": "Permission",
-                        "relationshipEntityPerspectiveName": "Access"
+                        "relationshipEntityPerspectiveName": "Permissions"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -4926,8 +4926,8 @@
                 "name": "GroupPermission",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
-                "perspectiveName": "Access",
-                "perspectiveOrder": "600",
+                "perspectiveName": "Group permissions",
+                "perspectiveOrder": "608",
                 "perspectiveRole": "",
                 "title": "GroupPermission",
                 "tooltip": "GroupPermission",
@@ -6031,8 +6031,8 @@
                 "role": {}
             },
             {
-                "name": "Access",
-                "label": "access",
+                "name": "Groups",
+                "label": "groups",
                 "icon": "/services/web/resources/unicons/lock.svg",
                 "order": "600",
                 "role": {}
@@ -6084,6 +6084,34 @@
                 "label": "store configurations",
                 "icon": "/services/web/resources/unicons/question.svg",
                 "order": "497",
+                "role": {}
+            },
+            {
+                "name": "Permissions",
+                "label": "permissions",
+                "icon": "/services/web/resources/unicons/lock.svg",
+                "order": "604",
+                "role": {}
+            },
+            {
+                "name": "Group permissions",
+                "label": "group permissions",
+                "icon": "/services/web/resources/unicons/lock.svg",
+                "order": "608",
+                "role": {}
+            },
+            {
+                "name": "Employees",
+                "label": "employees",
+                "icon": "/services/web/resources/unicons/lock.svg",
+                "order": "612",
+                "role": {}
+            },
+            {
+                "name": "Group employees",
+                "label": "group employees",
+                "icon": "/services/web/resources/unicons/lock.svg",
+                "order": "616",
                 "role": {}
             }
         ],

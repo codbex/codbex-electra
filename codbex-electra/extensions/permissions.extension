@@ -1,0 +1,5 @@
+{
+    "module": "codbex-electra/services/permissions.js",
+    "extensionPoint": "ide-subview",
+    "description": "Permissions Subview"
+}
