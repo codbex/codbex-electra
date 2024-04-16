@@ -1,15 +1,15 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-electra.Products.ProductToCategory';
+		messageHubProvider.eventIdPrefix = 'codbex-electra.Product Categories.CategoryTranslation';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Products/ProductToCategoryService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Product Categories/CategoryTranslationService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', 'Extensions', function ($scope, $http, messageHub, entityApi, Extensions) {
 		//-----------------Custom Actions-------------------//
 		Extensions.get('dialogWindow', 'codbex-electra-custom-action').then(function (response) {
-			$scope.pageActions = response.filter(e => e.perspective === "Products" && e.view === "ProductToCategory" && (e.type === "page" || e.type === undefined));
-			$scope.entityActions = response.filter(e => e.perspective === "Products" && e.view === "ProductToCategory" && e.type === "entity");
+			$scope.pageActions = response.filter(e => e.perspective === "Product Categories" && e.view === "CategoryTranslation" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.filter(e => e.perspective === "Product Categories" && e.view === "CategoryTranslation" && e.type === "entity");
 		});
 
 		$scope.triggerPageAction = function (action) {
@@ -43,13 +43,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		resetPagination();
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("codbex-electra.Products.Product.entitySelected", function (msg) {
+		messageHub.onDidReceiveMessage("codbex-electra.Product Categories.Language.entitySelected", function (msg) {
 			resetPagination();
 			$scope.selectedMainEntityId = msg.data.selectedMainEntityId;
 			$scope.loadPage($scope.dataPage);
 		}, true);
 
-		messageHub.onDidReceiveMessage("codbex-electra.Products.Product.clearDetails", function (msg) {
+		messageHub.onDidReceiveMessage("codbex-electra.Product Categories.Language.clearDetails", function (msg) {
 			$scope.$apply(function () {
 				resetPagination();
 				$scope.selectedMainEntityId = null;
@@ -81,7 +81,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//-----------------Events-------------------//
 
 		$scope.loadPage = function (pageNumber, filter) {
-			let Product = $scope.selectedMainEntityId;
+			let Language = $scope.selectedMainEntityId;
 			$scope.dataPage = pageNumber;
 			if (!filter && $scope.filter) {
 				filter = $scope.filter;
@@ -95,10 +95,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			if (!filter.$filter.equals) {
 				filter.$filter.equals = {};
 			}
-			filter.$filter.equals.Product = Product;
+			filter.$filter.equals.Language = Language;
 			entityApi.count(filter).then(function (response) {
 				if (response.status != 200) {
-					messageHub.showAlertError("ProductToCategory", `Unable to count ProductToCategory: '${response.message}'`);
+					messageHub.showAlertError("CategoryTranslation", `Unable to count CategoryTranslation: '${response.message}'`);
 					return;
 				}
 				if (response.data) {
@@ -108,7 +108,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				filter.$limit = $scope.dataLimit;
 				entityApi.search(filter).then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("ProductToCategory", `Unable to list/filter ProductToCategory: '${response.message}'`);
+						messageHub.showAlertError("CategoryTranslation", `Unable to list/filter CategoryTranslation: '${response.message}'`);
 						return;
 					}
 					$scope.data = response.data;
@@ -122,50 +122,50 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.openDetails = function (entity) {
 			$scope.selectedEntity = entity;
-			messageHub.showDialogWindow("ProductToCategory-details", {
+			messageHub.showDialogWindow("CategoryTranslation-details", {
 				action: "select",
 				entity: entity,
 				optionsCategory: $scope.optionsCategory,
-				optionsProduct: $scope.optionsProduct,
+				optionsLanguage: $scope.optionsLanguage,
 			});
 		};
 
 		$scope.openFilter = function (entity) {
-			messageHub.showDialogWindow("ProductToCategory-filter", {
+			messageHub.showDialogWindow("CategoryTranslation-filter", {
 				entity: $scope.filterEntity,
 				optionsCategory: $scope.optionsCategory,
-				optionsProduct: $scope.optionsProduct,
+				optionsLanguage: $scope.optionsLanguage,
 			});
 		};
 
 		$scope.createEntity = function () {
 			$scope.selectedEntity = null;
-			messageHub.showDialogWindow("ProductToCategory-details", {
+			messageHub.showDialogWindow("CategoryTranslation-details", {
 				action: "create",
 				entity: {},
-				selectedMainEntityKey: "Product",
+				selectedMainEntityKey: "Language",
 				selectedMainEntityId: $scope.selectedMainEntityId,
 				optionsCategory: $scope.optionsCategory,
-				optionsProduct: $scope.optionsProduct,
+				optionsLanguage: $scope.optionsLanguage,
 			}, null, false);
 		};
 
 		$scope.updateEntity = function (entity) {
-			messageHub.showDialogWindow("ProductToCategory-details", {
+			messageHub.showDialogWindow("CategoryTranslation-details", {
 				action: "update",
 				entity: entity,
-				selectedMainEntityKey: "Product",
+				selectedMainEntityKey: "Language",
 				selectedMainEntityId: $scope.selectedMainEntityId,
 				optionsCategory: $scope.optionsCategory,
-				optionsProduct: $scope.optionsProduct,
+				optionsLanguage: $scope.optionsLanguage,
 			}, null, false);
 		};
 
 		$scope.deleteEntity = function (entity) {
 			let id = entity.Id;
 			messageHub.showDialogAsync(
-				'Delete ProductToCategory?',
-				`Are you sure you want to delete ProductToCategory? This action cannot be undone.`,
+				'Delete CategoryTranslation?',
+				`Are you sure you want to delete CategoryTranslation? This action cannot be undone.`,
 				[{
 					id: "delete-btn-yes",
 					type: "emphasized",
@@ -180,7 +180,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (msg.data === "delete-btn-yes") {
 					entityApi.delete(id).then(function (response) {
 						if (response.status != 204) {
-							messageHub.showAlertError("ProductToCategory", `Unable to delete ProductToCategory: '${response.message}'`);
+							messageHub.showAlertError("CategoryTranslation", `Unable to delete CategoryTranslation: '${response.message}'`);
 							return;
 						}
 						$scope.loadPage($scope.dataPage, $scope.filter);
@@ -192,7 +192,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsCategory = [];
-		$scope.optionsProduct = [];
+		$scope.optionsLanguage = [];
 
 
 		$http.get("/services/ts/codbex-electra/gen/api/Product Categories/CategoryService.ts").then(function (response) {
@@ -204,8 +204,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-electra/gen/api/Products/ProductService.ts").then(function (response) {
-			$scope.optionsProduct = response.data.map(e => {
+		$http.get("/services/ts/codbex-electra/gen/api/Settings/LanguageService.ts").then(function (response) {
+			$scope.optionsLanguage = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -221,10 +221,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsProductValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsProduct.length; i++) {
-				if ($scope.optionsProduct[i].value === optionKey) {
-					return $scope.optionsProduct[i].text;
+		$scope.optionsLanguageValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsLanguage.length; i++) {
+				if ($scope.optionsLanguage[i].value === optionKey) {
+					return $scope.optionsLanguage[i].text;
 				}
 			}
 			return null;

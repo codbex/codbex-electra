@@ -88,7 +88,7 @@
                             <fd-list-navigation-item-arrow aria-label="expand submenu" is-expanded="productExpanded">
                             </fd-list-navigation-item-arrow>
                             <fd-list>
-                                <fd-list-navigation-item ng-click="switchView('categories', $event)">
+                                <fd-list-navigation-item ng-click="switchView('product-categories', $event)">
                                     <span fd-list-navigation-item-text>Categories</span>
                                 </fd-list-navigation-item>
                             </fd-list>
@@ -232,6 +232,12 @@
             </embedded-view>
             <embedded-view class="dg-fill-parent" view-id="codbex-electra-product-attributes" dg-type="subview"
                 ng-show="currentViewId === 'product-attributes'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-product-categories" dg-type="subview"
+                ng-show="currentViewId === 'product-categories'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-products" dg-type="subview"
+                ng-show="currentViewId === 'products'">
             </embedded-view>
         </div>
 

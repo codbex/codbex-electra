@@ -2460,7 +2460,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
-                "perspectiveOrder": "410",
+                "perspectiveOrder": "415",
                 "perspectiveRole": "",
                 "title": "Product",
                 "tooltip": "Product",
@@ -4043,7 +4043,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
-                "perspectiveOrder": "410",
+                "perspectiveOrder": "415",
                 "perspectiveRole": "",
                 "title": "ProductAttribute",
                 "tooltip": "ProductAttribute",
@@ -4602,7 +4602,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
-                "perspectiveOrder": "410",
+                "perspectiveOrder": "415",
                 "perspectiveRole": "",
                 "title": "ProductDescription",
                 "tooltip": "ProductDescription",
@@ -5444,7 +5444,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
-                "perspectiveOrder": "410",
+                "perspectiveOrder": "415",
                 "perspectiveRole": "",
                 "title": "ProductToStore",
                 "tooltip": "ProductToStore",
@@ -5700,8 +5700,8 @@
                 "menuLabel": "Category",
                 "name": "Category",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/box.svg",
-                "perspectiveName": "Products",
+                "perspectiveIcon": "/services/web/resources/unicons/question.svg",
+                "perspectiveName": "Product Categories",
                 "perspectiveOrder": "410",
                 "perspectiveRole": "",
                 "title": "Category",
@@ -5753,7 +5753,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "ProductToCategory_Category",
                         "relationshipEntityName": "Category",
-                        "relationshipEntityPerspectiveName": "Products"
+                        "relationshipEntityPerspectiveName": "Product Categories"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -5797,7 +5797,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
-                "perspectiveOrder": "410",
+                "perspectiveOrder": "415",
                 "perspectiveRole": "",
                 "title": "ProductToCategory",
                 "tooltip": "ProductToCategory",
@@ -5850,7 +5850,7 @@
                         "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "Category",
-                        "relationshipEntityPerspectiveName": "Products"
+                        "relationshipEntityPerspectiveName": "Product Categories"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -5992,8 +5992,8 @@
                 "menuLabel": "CategoryTranslation",
                 "name": "CategoryTranslation",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/box.svg",
-                "perspectiveName": "Products",
+                "perspectiveIcon": "/services/web/resources/unicons/question.svg",
+                "perspectiveName": "Product Categories",
                 "perspectiveOrder": "410",
                 "perspectiveRole": "",
                 "title": "CategoryTranslation",
@@ -6013,7 +6013,7 @@
                 "name": "Products",
                 "label": "products",
                 "icon": "/services/web/resources/unicons/box.svg",
-                "order": "410",
+                "order": "415",
                 "role": {}
             },
             {
@@ -6063,6 +6063,13 @@
                 "label": "attributes",
                 "icon": "/services/web/resources/unicons/question.svg",
                 "order": "407",
+                "role": {}
+            },
+            {
+                "name": "Product Categories",
+                "label": "product categories",
+                "icon": "/services/web/resources/unicons/question.svg",
+                "order": "410",
                 "role": {}
             }
         ],
