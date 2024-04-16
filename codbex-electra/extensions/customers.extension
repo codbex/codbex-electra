@@ -1,0 +1,5 @@
+{
+    "module": "codbex-electra/services/customers.js",
+    "extensionPoint": "ide-subview",
+    "description": "Customers Subview"
+}
