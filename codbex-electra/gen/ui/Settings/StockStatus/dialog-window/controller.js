@@ -1,17 +1,14 @@
 angular.module('page', ["ideUI", "ideView"])
-	.controller('PageController', ['$scope', function ($scope) {
+	.controller('PageController', ['$scope', 'ViewParameters', function ($scope, ViewParameters) {
 
 		$scope.entity = {};
 
-		if (window != null && window.frameElement != null && window.frameElement.hasAttribute("data-parameters")) {
-			let dataParameters = window.frameElement.getAttribute("data-parameters");
-			if (dataParameters) {
-				let params = JSON.parse(dataParameters);
-				$scope.action = "select";;
+		let params = ViewParameters.get();
+		if (Object.keys(params).length) {
+			$scope.action = "select";;
 
-				$scope.entity = params.entity;
-				$scope.optionsLanguage = params.optionsLanguage;
-			}
+			$scope.entity = params.entity;
+			$scope.optionsLanguage = params.optionsLanguage;
 		}
 
 	}]);

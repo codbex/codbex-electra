@@ -1,33 +1,27 @@
-angular.module('page', ["ideUI", "ideView", "entityApi"])
+angular.module('page', ["ideUI", "ideView"])
 	.config(["messageHubProvider", function (messageHubProvider) {
 		messageHubProvider.eventIdPrefix = 'codbex-electra.Access.GroupEmployee';
 	}])
-	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Access/GroupEmployeeService.ts";
-	}])
-	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
+	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', function ($scope, messageHub, ViewParameters) {
 
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
 		};
 
-		if (window != null && window.frameElement != null && window.frameElement.hasAttribute("data-parameters")) {
-			let dataParameters = window.frameElement.getAttribute("data-parameters");
-			if (dataParameters) {
-				let params = JSON.parse(dataParameters);
-				if (params?.entity?.DateModifiedFrom) {
-					params.entity.DateModifiedFrom = new Date(params.entity.DateModifiedFrom);
-				}
-				if (params?.entity?.DateModifiedTo) {
-					params.entity.DateModifiedTo = new Date(params.entity.DateModifiedTo);
-				}
-				$scope.entity = params.entity ?? {};
-				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
-				$scope.selectedMainEntityId = params.selectedMainEntityId;
-				$scope.optionsEmployee = params.optionsEmployee;
-				$scope.optionsGroup = params.optionsGroup;
+		let params = ViewParameters.get();
+		if (Object.keys(params).length) {
+			if (params?.entity?.DateModifiedFrom) {
+				params.entity.DateModifiedFrom = new Date(params.entity.DateModifiedFrom);
 			}
+			if (params?.entity?.DateModifiedTo) {
+				params.entity.DateModifiedTo = new Date(params.entity.DateModifiedTo);
+			}
+			$scope.entity = params.entity ?? {};
+			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
+			$scope.selectedMainEntityId = params.selectedMainEntityId;
+			$scope.optionsEmployee = params.optionsEmployee;
+			$scope.optionsGroup = params.optionsGroup;
 		}
 
 		$scope.filter = function () {

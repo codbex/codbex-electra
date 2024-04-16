@@ -9,6 +9,7 @@
   "workspaceName": "workspace",
   "filePath": "codbex-electra.model",
   "templateId": "template-application-angular/template/template.js",
+  "fileName": "codbex-electra",
   "perspectives": {
     "Settings": {
       "views": [

@@ -1,5 +1,0 @@
-{
-    "module": "codbex-electra/gen/ui/custom-action-dialog/view.js",
-    "extensionPoint": "codbex-electra-dialog-window",
-    "description": "codbex-electra - Custom Action Dialog Window"
-}

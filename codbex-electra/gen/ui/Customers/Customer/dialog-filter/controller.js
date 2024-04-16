@@ -1,34 +1,28 @@
-angular.module('page', ["ideUI", "ideView", "entityApi"])
+angular.module('page', ["ideUI", "ideView"])
 	.config(["messageHubProvider", function (messageHubProvider) {
 		messageHubProvider.eventIdPrefix = 'codbex-electra.Customers.Customer';
 	}])
-	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Customers/CustomerService.ts";
-	}])
-	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
+	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', function ($scope, messageHub, ViewParameters) {
 
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
 		};
 
-		if (window != null && window.frameElement != null && window.frameElement.hasAttribute("data-parameters")) {
-			let dataParameters = window.frameElement.getAttribute("data-parameters");
-			if (dataParameters) {
-				let params = JSON.parse(dataParameters);
-				if (params?.entity?.DateAddedFrom) {
-					params.entity.DateAddedFrom = new Date(params.entity.DateAddedFrom);
-				}
-				if (params?.entity?.DateAddedTo) {
-					params.entity.DateAddedTo = new Date(params.entity.DateAddedTo);
-				}
-				$scope.entity = params.entity ?? {};
-				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
-				$scope.selectedMainEntityId = params.selectedMainEntityId;
-				$scope.optionsStore = params.optionsStore;
-				$scope.optionsStatus = params.optionsStatus;
-				$scope.optionsLanguage = params.optionsLanguage;
+		let params = ViewParameters.get();
+		if (Object.keys(params).length) {
+			if (params?.entity?.DateAddedFrom) {
+				params.entity.DateAddedFrom = new Date(params.entity.DateAddedFrom);
 			}
+			if (params?.entity?.DateAddedTo) {
+				params.entity.DateAddedTo = new Date(params.entity.DateAddedTo);
+			}
+			$scope.entity = params.entity ?? {};
+			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
+			$scope.selectedMainEntityId = params.selectedMainEntityId;
+			$scope.optionsStore = params.optionsStore;
+			$scope.optionsStatus = params.optionsStatus;
+			$scope.optionsLanguage = params.optionsLanguage;
 		}
 
 		$scope.filter = function () {

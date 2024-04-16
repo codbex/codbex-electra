@@ -4,11 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const perspectiveData = {
-	id: "Products",
-	name: "Products",
-	link: "/services/web/codbex-electra/gen/ui/Products/index.html",
-	order: "400",
-	icon: "/services/web/resources/unicons/box.svg",
+	id: 'Products',
+	name: 'Products',
+	link: '/services/web/codbex-electra/gen/ui/Products/index.html',
+	order: 400,
+	icon: '/services/web/resources/unicons/box.svg',
 };
 
 if (typeof exports !== 'undefined') {

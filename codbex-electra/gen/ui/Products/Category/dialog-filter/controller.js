@@ -1,37 +1,31 @@
-angular.module('page', ["ideUI", "ideView", "entityApi"])
+angular.module('page', ["ideUI", "ideView"])
 	.config(["messageHubProvider", function (messageHubProvider) {
 		messageHubProvider.eventIdPrefix = 'codbex-electra.Products.Category';
 	}])
-	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Products/CategoryService.ts";
-	}])
-	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
+	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', function ($scope, messageHub, ViewParameters) {
 
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
 		};
 
-		if (window != null && window.frameElement != null && window.frameElement.hasAttribute("data-parameters")) {
-			let dataParameters = window.frameElement.getAttribute("data-parameters");
-			if (dataParameters) {
-				let params = JSON.parse(dataParameters);
-				if (params?.entity?.DateAddedFrom) {
-					params.entity.DateAddedFrom = new Date(params.entity.DateAddedFrom);
-				}
-				if (params?.entity?.DateAddedTo) {
-					params.entity.DateAddedTo = new Date(params.entity.DateAddedTo);
-				}
-				if (params?.entity?.DateModifiedFrom) {
-					params.entity.DateModifiedFrom = new Date(params.entity.DateModifiedFrom);
-				}
-				if (params?.entity?.DateModifiedTo) {
-					params.entity.DateModifiedTo = new Date(params.entity.DateModifiedTo);
-				}
-				$scope.entity = params.entity ?? {};
-				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
-				$scope.selectedMainEntityId = params.selectedMainEntityId;
+		let params = ViewParameters.get();
+		if (Object.keys(params).length) {
+			if (params?.entity?.DateAddedFrom) {
+				params.entity.DateAddedFrom = new Date(params.entity.DateAddedFrom);
 			}
+			if (params?.entity?.DateAddedTo) {
+				params.entity.DateAddedTo = new Date(params.entity.DateAddedTo);
+			}
+			if (params?.entity?.DateModifiedFrom) {
+				params.entity.DateModifiedFrom = new Date(params.entity.DateModifiedFrom);
+			}
+			if (params?.entity?.DateModifiedTo) {
+				params.entity.DateModifiedTo = new Date(params.entity.DateModifiedTo);
+			}
+			$scope.entity = params.entity ?? {};
+			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
+			$scope.selectedMainEntityId = params.selectedMainEntityId;
 		}
 
 		$scope.filter = function () {

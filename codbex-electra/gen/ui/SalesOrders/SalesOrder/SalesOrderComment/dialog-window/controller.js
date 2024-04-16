@@ -5,7 +5,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/SalesOrders/SalesOrderCommentService.ts";
 	}])
-	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
+	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', 'entityApi', function ($scope, messageHub, ViewParameters, entityApi) {
 
 		$scope.entity = {};
 		$scope.forms = {
@@ -18,23 +18,19 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 		$scope.action = 'select';
 
-		if (window != null && window.frameElement != null && window.frameElement.hasAttribute("data-parameters")) {
-			let dataParameters = window.frameElement.getAttribute("data-parameters");
-			if (dataParameters) {
-				let params = JSON.parse(dataParameters);
-				$scope.action = params.action;
+		let params = ViewParameters.get();
+		if (Object.keys(params).length) {
+			$scope.action = params.action;
 
-				if (params.entity.DateAdded) {
-					params.entity.DateAdded = new Date(params.entity.DateAdded);
-				}
-				if (params.entity.DateModified) {
-					params.entity.DateModified = new Date(params.entity.DateModified);
-				}
-
-				$scope.entity = params.entity;
-				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
-				$scope.selectedMainEntityId = params.selectedMainEntityId;
+			if (params.entity.DateAdded) {
+				params.entity.DateAdded = new Date(params.entity.DateAdded);
 			}
+			if (params.entity.DateModified) {
+				params.entity.DateModified = new Date(params.entity.DateModified);
+			}
+			$scope.entity = params.entity;
+			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
+			$scope.selectedMainEntityId = params.selectedMainEntityId;
 		}
 
 		$scope.create = function () {
