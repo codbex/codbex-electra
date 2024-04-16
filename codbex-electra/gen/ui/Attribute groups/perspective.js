@@ -8,7 +8,7 @@ const perspectiveData = {
 	name: 'Attribute groups',
 	link: '/services/web/codbex-electra/gen/ui/Attribute groups/index.html',
 	order: 405,
-	icon: '/services/web/resources/unicons/question.svg',
+	icon: '/services/web/resources/unicons/box.svg',
 };
 
 if (typeof exports !== 'undefined') {

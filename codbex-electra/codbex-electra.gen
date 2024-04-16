@@ -166,7 +166,7 @@
       "name": "Manufacturers",
       "label": "Manufacturers",
       "order": "400",
-      "icon": "/services/web/resources/unicons/constructor.svg",
+      "icon": "/services/web/resources/unicons/box.svg",
       "role": ""
     },
     "Employees": {
@@ -216,7 +216,7 @@
       "name": "Attributes",
       "label": "Attributes",
       "order": "407",
-      "icon": "/services/web/resources/unicons/question.svg",
+      "icon": "/services/web/resources/unicons/box.svg",
       "role": ""
     },
     "Attribute groups": {
@@ -246,7 +246,7 @@
       "name": "Attribute groups",
       "label": "Attribute groups",
       "order": "405",
-      "icon": "/services/web/resources/unicons/question.svg",
+      "icon": "/services/web/resources/unicons/box.svg",
       "role": ""
     },
     "Permissions": {
@@ -286,7 +286,7 @@
       "name": "Store configurations",
       "label": "Store configurations",
       "order": "497",
-      "icon": "/services/web/resources/unicons/question.svg",
+      "icon": "/services/web/resources/unicons/store.svg",
       "role": ""
     },
     "Store types": {
@@ -296,7 +296,7 @@
       "name": "Store types",
       "label": "Store types",
       "order": "495",
-      "icon": "/services/web/resources/unicons/question.svg",
+      "icon": "/services/web/resources/unicons/store.svg",
       "role": ""
     },
     "Product Categories": {
@@ -326,7 +326,7 @@
       "name": "Product Categories",
       "label": "Product Categories",
       "order": "410",
-      "icon": "/services/web/resources/unicons/question.svg",
+      "icon": "/services/web/resources/unicons/box.svg",
       "role": ""
     }
   },
@@ -5315,7 +5315,7 @@
       "menuLabel": "Manufacturer",
       "name": "Manufacturer",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/constructor.svg",
+      "perspectiveIcon": "/services/web/resources/unicons/box.svg",
       "perspectiveName": "Manufacturers",
       "perspectiveOrder": "400",
       "perspectiveRole": "",
@@ -7036,7 +7036,7 @@
       "menuLabel": "Attribute",
       "name": "Attribute",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/question.svg",
+      "perspectiveIcon": "/services/web/resources/unicons/box.svg",
       "perspectiveName": "Attributes",
       "perspectiveOrder": "407",
       "perspectiveRole": "",
@@ -7366,7 +7366,7 @@
       "menuLabel": "AttributeGroup",
       "name": "AttributeGroup",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/question.svg",
+      "perspectiveIcon": "/services/web/resources/unicons/box.svg",
       "perspectiveName": "Attribute groups",
       "perspectiveOrder": "405",
       "perspectiveRole": "",
@@ -7769,7 +7769,7 @@
       "menuLabel": "AttributeDescription",
       "name": "AttributeTranslation",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/question.svg",
+      "perspectiveIcon": "/services/web/resources/unicons/box.svg",
       "perspectiveName": "Attributes",
       "perspectiveOrder": "407",
       "perspectiveRole": "",
@@ -8965,7 +8965,7 @@
       "menuLabel": "StoreConfigurationProperty",
       "name": "StoreConfigurationProperty",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/question.svg",
+      "perspectiveIcon": "/services/web/resources/unicons/store.svg",
       "perspectiveName": "Store configurations",
       "perspectiveOrder": "497",
       "perspectiveRole": "",
@@ -9048,7 +9048,7 @@
       "menuLabel": "StoreType",
       "name": "StoreType",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/question.svg",
+      "perspectiveIcon": "/services/web/resources/unicons/store.svg",
       "perspectiveName": "Store types",
       "perspectiveOrder": "495",
       "perspectiveRole": "",
@@ -9317,7 +9317,7 @@
       "menuLabel": "AttributeGroupDescription",
       "name": "AttributeGroupTranslation",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/question.svg",
+      "perspectiveIcon": "/services/web/resources/unicons/box.svg",
       "perspectiveName": "Attribute groups",
       "perspectiveOrder": "405",
       "perspectiveRole": "",
@@ -9511,7 +9511,7 @@
       "menuLabel": "Category",
       "name": "Category",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/question.svg",
+      "perspectiveIcon": "/services/web/resources/unicons/box.svg",
       "perspectiveName": "Product Categories",
       "perspectiveOrder": "410",
       "perspectiveRole": "",
@@ -10035,7 +10035,7 @@
       "menuLabel": "CategoryTranslation",
       "name": "CategoryTranslation",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/question.svg",
+      "perspectiveIcon": "/services/web/resources/unicons/box.svg",
       "perspectiveName": "Product Categories",
       "perspectiveOrder": "410",
       "perspectiveRole": "",
