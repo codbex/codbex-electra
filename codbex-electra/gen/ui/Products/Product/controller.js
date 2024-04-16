@@ -202,7 +202,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-electra/gen/api/Settings/StockStatusService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Stock statuses/StockStatusService.ts").then(function (response) {
 			$scope.optionsStockStatus = response.data.map(e => {
 				return {
 					value: e.Id,

@@ -218,7 +218,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-electra/gen/api/Settings/LanguageService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Languages/LanguageService.ts").then(function (response) {
 			$scope.optionsLanguage = response.data.map(e => {
 				return {
 					value: e.Id,

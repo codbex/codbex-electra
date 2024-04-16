@@ -1,5 +1,0 @@
-{
-    "module": "codbex-electra/gen/ui/Settings/Country/dialog-filter/view.js",
-    "extensionPoint": "codbex-electra-dialog-window",
-    "description": "codbex-electra - Application Dialog Window"
-}

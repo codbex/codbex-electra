@@ -200,8 +200,8 @@
                 "name": "Currency",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-                "perspectiveName": "Settings",
-                "perspectiveOrder": "1000",
+                "perspectiveName": "Currencies",
+                "perspectiveOrder": "905",
                 "perspectiveRole": "",
                 "title": "Currency",
                 "tooltip": "Currency",
@@ -297,7 +297,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_OrderStatus",
                         "relationshipEntityName": "OrderStatus",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "Order statuses"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -342,7 +342,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_Currency",
                         "relationshipEntityName": "Currency",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "Currencies"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -532,7 +532,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_Language",
                         "relationshipEntityName": "Language",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "Languages"
                     }
                 ],
                 "caption": "Manage entity Order",
@@ -895,7 +895,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Customer_Language",
                         "relationshipEntityName": "Language",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "Languages"
                     }
                 ],
                 "caption": "Manage entity Customer",
@@ -1057,8 +1057,8 @@
                 "name": "Country",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-                "perspectiveName": "Settings",
-                "perspectiveOrder": "1000",
+                "perspectiveName": "Countries",
+                "perspectiveOrder": "920",
                 "perspectiveRole": "",
                 "title": "Country",
                 "tooltip": "Country",
@@ -1168,7 +1168,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Zone_Country",
                         "relationshipEntityName": "Country",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "Countries"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -1249,8 +1249,8 @@
                 "name": "Zone",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-                "perspectiveName": "Settings",
-                "perspectiveOrder": "1000",
+                "perspectiveName": "Zones",
+                "perspectiveOrder": "925",
                 "perspectiveRole": "",
                 "title": "Zone",
                 "tooltip": "Zone",
@@ -1360,7 +1360,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "OrderStatus_Language",
                         "relationshipEntityName": "Language",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "Languages"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -1416,8 +1416,8 @@
                 "name": "OrderStatus",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-                "perspectiveName": "Settings",
-                "perspectiveOrder": "1000",
+                "perspectiveName": "Order statuses",
+                "perspectiveOrder": "915",
                 "perspectiveRole": "",
                 "title": "OrderStatus",
                 "tooltip": "OrderStatus",
@@ -1544,8 +1544,8 @@
                 "name": "Language",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-                "perspectiveName": "Settings",
-                "perspectiveOrder": "1000",
+                "perspectiveName": "Languages",
+                "perspectiveOrder": "900",
                 "perspectiveRole": "",
                 "title": "Language",
                 "tooltip": "Language",
@@ -2443,7 +2443,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Product_StockStatus",
                         "relationshipEntityName": "StockStatus",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "Stock statuses"
                     }
                 ],
                 "caption": "Manage entity Product",
@@ -2509,7 +2509,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "StockStatus_Language",
                         "relationshipEntityName": "Language",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "Languages"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -2545,8 +2545,8 @@
                 "name": "StockStatus",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-                "perspectiveName": "Settings",
-                "perspectiveOrder": "1000",
+                "perspectiveName": "Stock statuses",
+                "perspectiveOrder": "910",
                 "perspectiveRole": "",
                 "title": "StockStatus",
                 "tooltip": "StockStatus",
@@ -3006,7 +3006,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrderPayment_Zone",
                         "relationshipEntityName": "Zone",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "Zones"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -3131,7 +3131,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrderPayment_Country",
                         "relationshipEntityName": "Country",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "Countries"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -3342,7 +3342,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrderShipping_Zone",
                         "relationshipEntityName": "Zone",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "Zones"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -3467,7 +3467,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrderShipping_Country",
                         "relationshipEntityName": "Country",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "Countries"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -4006,7 +4006,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "ProductAttribute_Language",
                         "relationshipEntityName": "Language",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "Languages"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -4350,7 +4350,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "AttributeTranslation_Language",
                         "relationshipEntityName": "Language",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "Languages"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -4465,7 +4465,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "ProductDescription_Language",
                         "relationshipEntityName": "Language",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "Languages"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -5522,7 +5522,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "AttributeGroupTranslation_Language",
                         "relationshipEntityName": "Language",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "Languages"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -5877,7 +5877,7 @@
                         "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "Language",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "Languages"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -6112,6 +6112,48 @@
                 "label": "group employees",
                 "icon": "/services/web/resources/unicons/lock.svg",
                 "order": "616",
+                "role": {}
+            },
+            {
+                "name": "Languages",
+                "label": "languages",
+                "icon": "/services/web/resources/unicons/wrench.svg",
+                "order": "900",
+                "role": {}
+            },
+            {
+                "name": "Currencies",
+                "label": "currencies",
+                "icon": "/services/web/resources/unicons/wrench.svg",
+                "order": "905",
+                "role": {}
+            },
+            {
+                "name": "Stock statuses",
+                "label": "stock statuses",
+                "icon": "/services/web/resources/unicons/wrench.svg",
+                "order": "910",
+                "role": {}
+            },
+            {
+                "name": "Order statuses",
+                "label": "order statuses",
+                "icon": "/services/web/resources/unicons/wrench.svg",
+                "order": "915",
+                "role": {}
+            },
+            {
+                "name": "Countries",
+                "label": "countries",
+                "icon": "/services/web/resources/unicons/wrench.svg",
+                "order": "920",
+                "role": {}
+            },
+            {
+                "name": "Zones",
+                "label": "zones",
+                "icon": "/services/web/resources/unicons/wrench.svg",
+                "order": "925",
                 "role": {}
             }
         ],

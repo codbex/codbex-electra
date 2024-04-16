@@ -1,0 +1,5 @@
+{
+    "module": "codbex-electra/services/countries.js",
+    "extensionPoint": "ide-subview",
+    "description": "Countries Subview"
+}

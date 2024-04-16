@@ -194,26 +194,42 @@
 
                         <!-- Settings -->
                         <fd-list-navigation-group-header>Settings</fd-list-navigation-group-header>
-                        <fd-list-navigation-item ng-init="partnersExpanded = false" expandable="true"
-                            ng-click="partnersExpanded = !partnersExpanded" is-expanded="partnersExpanded">
-                            <fd-list-navigation-item-icon glyph="sap-icon--folder">
+                        <fd-list-navigation-item ng-init="localisationExpanded = false" expandable="true"
+                            ng-click="localisationExpanded = !localisationExpanded" is-expanded="localisationExpanded">
+                            <fd-list-navigation-item-icon glyph="sap-icon--globe">
                             </fd-list-navigation-item-icon>
-                            <span fd-list-navigation-item-text>Partners</span>
-                            <fd-list-navigation-item-arrow aria-label="expand submenu" is-expanded="partnersExpanded">
+                            <span fd-list-navigation-item-text>Localisation</span>
+                            <fd-list-navigation-item-arrow aria-label="expand submenu"
+                                is-expanded="localisationExpanded">
                             </fd-list-navigation-item-arrow>
                             <fd-list>
-                                <fd-list-navigation-item ng-click="switchView('customers', $event)">
-                                    <span fd-list-navigation-item-text>Customers</span>
+                                <fd-list-navigation-item ng-click="switchView('languages', $event)">
+                                    <span fd-list-navigation-item-text>Languages</span>
                                 </fd-list-navigation-item>
                             </fd-list>
                             <fd-list>
-                                <fd-list-navigation-item ng-click="switchView('suppliers', $event)">
-                                    <span fd-list-navigation-item-text>Suppliers</span>
+                                <fd-list-navigation-item ng-click="switchView('currencies', $event)">
+                                    <span fd-list-navigation-item-text>Currencies</span>
                                 </fd-list-navigation-item>
                             </fd-list>
                             <fd-list>
-                                <fd-list-navigation-item ng-click="switchView('manufacturers', $event)">
-                                    <span fd-list-navigation-item-text>Manufacturers</span>
+                                <fd-list-navigation-item ng-click="switchView('stock-statuses', $event)">
+                                    <span fd-list-navigation-item-text>Stock statuses</span>
+                                </fd-list-navigation-item>
+                            </fd-list>
+                            <fd-list>
+                                <fd-list-navigation-item ng-click="switchView('order-statuses', $event)">
+                                    <span fd-list-navigation-item-text>Order statuses</span>
+                                </fd-list-navigation-item>
+                            </fd-list>
+                            <fd-list>
+                                <fd-list-navigation-item ng-click="switchView('countries', $event)">
+                                    <span fd-list-navigation-item-text>Countries</span>
+                                </fd-list-navigation-item>
+                            </fd-list>
+                            <fd-list>
+                                <fd-list-navigation-item ng-click="switchView('zones', $event)">
+                                    <span fd-list-navigation-item-text>Zones</span>
                                 </fd-list-navigation-item>
                             </fd-list>
                         </fd-list-navigation-item>
@@ -228,29 +244,8 @@
                                 is-expanded="configurationsExpanded">
                             </fd-list-navigation-item-arrow>
                             <fd-list>
-                                <fd-list-navigation-item ng-click="switchView('countries', $event)">
-                                    <span fd-list-navigation-item-text>Countries</span>
-                                </fd-list-navigation-item>
-                                <fd-list-navigation-item ng-click="switchView('cities', $event)">
-                                    <span fd-list-navigation-item-text>Cities</span>
-                                </fd-list-navigation-item>
-                                <fd-list-navigation-item ng-click="switchView('companies', $event)">
-                                    <span fd-list-navigation-item-text>Companies</span>
-                                </fd-list-navigation-item>
-                                <fd-list-navigation-item ng-click="switchView('stores', $event)">
-                                    <span fd-list-navigation-item-text>Stores</span>
-                                </fd-list-navigation-item>
-                                <fd-list-navigation-item ng-click="switchView('currencies', $event)">
-                                    <span fd-list-navigation-item-text>Currencies</span>
-                                </fd-list-navigation-item>
-                                <fd-list-navigation-item ng-click="switchView('dimensions', $event)">
-                                    <span fd-list-navigation-item-text>Dimensions</span>
-                                </fd-list-navigation-item>
-                                <fd-list-navigation-item ng-click="switchView('uoms', $event)">
-                                    <span fd-list-navigation-item-text>Units of Measures</span>
-                                </fd-list-navigation-item>
-                                <fd-list-navigation-item ng-click="switchView('methods', $event)">
-                                    <span fd-list-navigation-item-text>Methods</span>
+                                <fd-list-navigation-item ng-click="switchView('entity-references', $event)">
+                                    <span fd-list-navigation-item-text>Entity references</span>
                                 </fd-list-navigation-item>
                             </fd-list>
                         </fd-list-navigation-item>
@@ -311,6 +306,24 @@
                 ng-show="currentViewId === 'group-employees'">
             </embedded-view>
 
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-languages" dg-type="subview"
+                ng-show="currentViewId === 'languages'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-currencies" dg-type="subview"
+                ng-show="currentViewId === 'currencies'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-stock-statuses" dg-type="subview"
+                ng-show="currentViewId === 'stock-statuses'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-order-statuses" dg-type="subview"
+                ng-show="currentViewId === 'order-statuses'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-countries" dg-type="subview"
+                ng-show="currentViewId === 'countries'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-zones" dg-type="subview"
+                ng-show="currentViewId === 'zones'">
+            </embedded-view>
 
         </div>
 
