@@ -73,7 +73,7 @@
                                 </fd-list-navigation-item>
                             </fd-list>
                             <fd-list>
-                                <fd-list-navigation-item ng-click="switchView('product-attribute', $event)">
+                                <fd-list-navigation-item ng-click="switchView('product-attributes', $event)">
                                     <span fd-list-navigation-item-text>Attributes</span>
                                 </fd-list-navigation-item>
                             </fd-list>
@@ -227,7 +227,12 @@
             <embedded-view class="dg-fill-parent" view-id="codbex-electra-manufacturers" dg-type="subview"
                 ng-show="currentViewId === 'manufacturers'">
             </embedded-view>
-
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-product-attribute-groups" dg-type="subview"
+                ng-show="currentViewId === 'product-attribute-groups'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-product-attributes" dg-type="subview"
+                ng-show="currentViewId === 'product-attributes'">
+            </embedded-view>
         </div>
 
         <ide-dialogs></ide-dialogs>

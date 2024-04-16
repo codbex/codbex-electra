@@ -1,0 +1,5 @@
+{
+    "module": "codbex-electra/services/product-attributes.js",
+    "extensionPoint": "ide-subview",
+    "description": "Attributes Subview"
+}

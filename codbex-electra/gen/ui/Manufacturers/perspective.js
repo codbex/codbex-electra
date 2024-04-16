@@ -7,7 +7,7 @@ const perspectiveData = {
 	id: 'Manufacturers',
 	name: 'Manufacturers',
 	link: '/services/web/codbex-electra/gen/ui/Manufacturers/index.html',
-	order: 399,
+	order: 400,
 	icon: '/services/web/resources/unicons/constructor.svg',
 };
 

@@ -2460,7 +2460,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
-                "perspectiveOrder": "400",
+                "perspectiveOrder": "410",
                 "perspectiveRole": "",
                 "title": "Product",
                 "tooltip": "Product",
@@ -2629,7 +2629,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/constructor.svg",
                 "perspectiveName": "Manufacturers",
-                "perspectiveOrder": "399",
+                "perspectiveOrder": "400",
                 "perspectiveRole": "",
                 "title": "Manufacturer",
                 "tooltip": "Manifacturer",
@@ -3866,7 +3866,7 @@
                         "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "AttributeGroup",
-                        "relationshipEntityPerspectiveName": "Products"
+                        "relationshipEntityPerspectiveName": "Attribute groups"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -3901,9 +3901,9 @@
                 "menuLabel": "Attribute",
                 "name": "Attribute",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/box.svg",
-                "perspectiveName": "Products",
-                "perspectiveOrder": "400",
+                "perspectiveIcon": "/services/web/resources/unicons/question.svg",
+                "perspectiveName": "Attributes",
+                "perspectiveOrder": "407",
                 "perspectiveRole": "",
                 "title": "Attribute",
                 "tooltip": "Attribute",
@@ -3981,7 +3981,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "ProductAttribute_Attribute",
                         "relationshipEntityName": "Attribute",
-                        "relationshipEntityPerspectiveName": "Products"
+                        "relationshipEntityPerspectiveName": "Attributes"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -4043,7 +4043,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
-                "perspectiveOrder": "400",
+                "perspectiveOrder": "410",
                 "perspectiveRole": "",
                 "title": "ProductAttribute",
                 "tooltip": "ProductAttribute",
@@ -4104,9 +4104,9 @@
                 "menuLabel": "AttributeGroup",
                 "name": "AttributeGroup",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/box.svg",
-                "perspectiveName": "Products",
-                "perspectiveOrder": "400",
+                "perspectiveIcon": "/services/web/resources/unicons/question.svg",
+                "perspectiveName": "Attribute groups",
+                "perspectiveOrder": "405",
                 "perspectiveRole": "",
                 "title": "AttributeGroup",
                 "tooltip": "AttributeGroup",
@@ -4325,7 +4325,7 @@
                         "widgetSize": "",
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "Attribute",
-                        "relationshipEntityPerspectiveName": "Products"
+                        "relationshipEntityPerspectiveName": "Attributes"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -4385,9 +4385,9 @@
                 "menuLabel": "AttributeDescription",
                 "name": "AttributeTranslation",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/box.svg",
-                "perspectiveName": "Products",
-                "perspectiveOrder": "400",
+                "perspectiveIcon": "/services/web/resources/unicons/question.svg",
+                "perspectiveName": "Attributes",
+                "perspectiveOrder": "407",
                 "perspectiveRole": "",
                 "title": "AttributeDescription",
                 "tooltip": "AttributeDescription",
@@ -4602,7 +4602,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
-                "perspectiveOrder": "400",
+                "perspectiveOrder": "410",
                 "perspectiveRole": "",
                 "title": "ProductDescription",
                 "tooltip": "ProductDescription",
@@ -5444,7 +5444,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
-                "perspectiveOrder": "400",
+                "perspectiveOrder": "410",
                 "perspectiveRole": "",
                 "title": "ProductToStore",
                 "tooltip": "ProductToStore",
@@ -5497,7 +5497,7 @@
                         "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "AttributeGroup",
-                        "relationshipEntityPerspectiveName": "Products"
+                        "relationshipEntityPerspectiveName": "Attribute groups"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -5557,9 +5557,9 @@
                 "menuLabel": "AttributeGroupDescription",
                 "name": "AttributeGroupTranslation",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/box.svg",
-                "perspectiveName": "Products",
-                "perspectiveOrder": "400",
+                "perspectiveIcon": "/services/web/resources/unicons/question.svg",
+                "perspectiveName": "Attribute groups",
+                "perspectiveOrder": "405",
                 "perspectiveRole": "",
                 "title": "AttributeGroupDescription",
                 "tooltip": "AttributeGroupDescription",
@@ -5702,7 +5702,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
-                "perspectiveOrder": "400",
+                "perspectiveOrder": "410",
                 "perspectiveRole": "",
                 "title": "Category",
                 "tooltip": "Category",
@@ -5797,7 +5797,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
-                "perspectiveOrder": "400",
+                "perspectiveOrder": "410",
                 "perspectiveRole": "",
                 "title": "ProductToCategory",
                 "tooltip": "ProductToCategory",
@@ -5994,7 +5994,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
                 "perspectiveName": "Products",
-                "perspectiveOrder": "400",
+                "perspectiveOrder": "410",
                 "perspectiveRole": "",
                 "title": "CategoryTranslation",
                 "tooltip": "CategoryTranslation",
@@ -6013,7 +6013,7 @@
                 "name": "Products",
                 "label": "products",
                 "icon": "/services/web/resources/unicons/box.svg",
-                "order": "400",
+                "order": "410",
                 "role": {}
             },
             {
@@ -6048,7 +6048,21 @@
                 "name": "Manufacturers",
                 "label": "manufacturers",
                 "icon": "/services/web/resources/unicons/constructor.svg",
-                "order": "399",
+                "order": "400",
+                "role": {}
+            },
+            {
+                "name": "Attribute groups",
+                "label": "attribute groups",
+                "icon": "/services/web/resources/unicons/question.svg",
+                "order": "405",
+                "role": {}
+            },
+            {
+                "name": "Attributes",
+                "label": "attributes",
+                "icon": "/services/web/resources/unicons/question.svg",
+                "order": "407",
                 "role": {}
             }
         ],
