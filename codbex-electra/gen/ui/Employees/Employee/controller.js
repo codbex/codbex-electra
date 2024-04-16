@@ -175,7 +175,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsStatus = [];
 
 
-		$http.get("/services/ts/codbex-electra/gen/api/Settings/EmployeeStatusService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Employee statuses/EmployeeStatusService.ts").then(function (response) {
 			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,

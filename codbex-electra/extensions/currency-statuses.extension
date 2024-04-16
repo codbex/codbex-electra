@@ -1,0 +1,5 @@
+{
+    "module": "codbex-electra/services/currency-statuses.js",
+    "extensionPoint": "ide-subview",
+    "description": "Currency Statuses Subview"
+}

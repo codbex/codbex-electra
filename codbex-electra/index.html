@@ -244,6 +244,42 @@
                                 is-expanded="configurationsExpanded">
                             </fd-list-navigation-item-arrow>
                             <fd-list>
+                                <fd-list-navigation-item ng-click="switchView('language-statuses', $event)">
+                                    <span fd-list-navigation-item-text>Language status</span>
+                                </fd-list-navigation-item>
+                            </fd-list>
+
+                            <fd-list>
+                                <fd-list-navigation-item ng-click="switchView('currency-statuses', $event)">
+                                    <span fd-list-navigation-item-text>Currency status</span>
+                                </fd-list-navigation-item>
+                            </fd-list>
+                            <fd-list>
+                                <fd-list-navigation-item ng-click="switchView('country-statuses', $event)">
+                                    <span fd-list-navigation-item-text>Country status</span>
+                                </fd-list-navigation-item>
+                            </fd-list>
+                            <fd-list>
+                                <fd-list-navigation-item ng-click="switchView('zone-statuses', $event)">
+                                    <span fd-list-navigation-item-text>Zone status</span>
+                                </fd-list-navigation-item>
+                            </fd-list>
+                            <fd-list>
+                                <fd-list-navigation-item ng-click="switchView('customer-statuses', $event)">
+                                    <span fd-list-navigation-item-text>Customer status</span>
+                                </fd-list-navigation-item>
+                            </fd-list>
+                            <fd-list>
+                                <fd-list-navigation-item ng-click="switchView('product-statuses', $event)">
+                                    <span fd-list-navigation-item-text>Product status</span>
+                                </fd-list-navigation-item>
+                            </fd-list>
+                            <fd-list>
+                                <fd-list-navigation-item ng-click="switchView('employee-statuses', $event)">
+                                    <span fd-list-navigation-item-text>Employee status</span>
+                                </fd-list-navigation-item>
+                            </fd-list>
+                            <fd-list>
                                 <fd-list-navigation-item ng-click="switchView('entity-references', $event)">
                                     <span fd-list-navigation-item-text>Entity references</span>
                                 </fd-list-navigation-item>
@@ -323,6 +359,31 @@
             </embedded-view>
             <embedded-view class="dg-fill-parent" view-id="codbex-electra-zones" dg-type="subview"
                 ng-show="currentViewId === 'zones'">
+            </embedded-view>
+
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-language-statuses" dg-type="subview"
+                ng-show="currentViewId === 'language-statuses'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-currency-statuses" dg-type="subview"
+                ng-show="currentViewId === 'currency-statuses'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-country-statuses" dg-type="subview"
+                ng-show="currentViewId === 'country-statuses'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-zone-statuses" dg-type="subview"
+                ng-show="currentViewId === 'zone-statuses'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-customer-statuses" dg-type="subview"
+                ng-show="currentViewId === 'customer-statuses'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-product-statuses" dg-type="subview"
+                ng-show="currentViewId === 'product-statuses'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-employee-statuses" dg-type="subview"
+                ng-show="currentViewId === 'employee-statuses'">
+            </embedded-view>
+            <embedded-view class="dg-fill-parent" view-id="codbex-electra-entity-references" dg-type="subview"
+                ng-show="currentViewId === 'entity-references'">
             </embedded-view>
 
         </div>

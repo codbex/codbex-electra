@@ -123,20 +123,13 @@
       "icon": "/services/web/resources/unicons/wrench.svg",
       "role": ""
     },
-    "Settings": {
+    "Country statuses": {
       "views": [
-        "CountryStatus",
-        "ZoneStatus",
-        "LanguageStatus",
-        "CustomerStatus",
-        "ProductStatus",
-        "EmployeeStatus",
-        "CurrencyStatus",
-        "EntityReference"
+        "CountryStatus"
       ],
-      "name": "Settings",
-      "label": "Settings",
-      "order": "1000",
+      "name": "Country statuses",
+      "label": "Country statuses",
+      "order": "950",
       "icon": "/services/web/resources/unicons/wrench.svg",
       "role": ""
     },
@@ -147,6 +140,16 @@
       "name": "Zones",
       "label": "Zones",
       "order": "925",
+      "icon": "/services/web/resources/unicons/wrench.svg",
+      "role": ""
+    },
+    "Zone statuses": {
+      "views": [
+        "ZoneStatus"
+      ],
+      "name": "Zone statuses",
+      "label": "Zone statuses",
+      "order": "955",
       "icon": "/services/web/resources/unicons/wrench.svg",
       "role": ""
     },
@@ -167,6 +170,26 @@
       "name": "Languages",
       "label": "Languages",
       "order": "900",
+      "icon": "/services/web/resources/unicons/wrench.svg",
+      "role": ""
+    },
+    "Language statuses": {
+      "views": [
+        "LanguageStatus"
+      ],
+      "name": "Language statuses",
+      "label": "Language statuses",
+      "order": "940",
+      "icon": "/services/web/resources/unicons/wrench.svg",
+      "role": ""
+    },
+    "Customer statuses": {
+      "views": [
+        "CustomerStatus"
+      ],
+      "name": "Customer statuses",
+      "label": "Customer statuses",
+      "order": "960",
       "icon": "/services/web/resources/unicons/wrench.svg",
       "role": ""
     },
@@ -223,6 +246,16 @@
       "icon": "/services/web/resources/unicons/box.svg",
       "role": ""
     },
+    "Product statuses": {
+      "views": [
+        "ProductStatus"
+      ],
+      "name": "Product statuses",
+      "label": "Product statuses",
+      "order": "965",
+      "icon": "/services/web/resources/unicons/wrench.svg",
+      "role": ""
+    },
     "Employees": {
       "views": [
         "Employee"
@@ -231,6 +264,26 @@
       "label": "Employees",
       "order": "612",
       "icon": "/services/web/resources/unicons/lock.svg",
+      "role": ""
+    },
+    "Employee statuses": {
+      "views": [
+        "EmployeeStatus"
+      ],
+      "name": "Employee statuses",
+      "label": "Employee statuses",
+      "order": "970",
+      "icon": "/services/web/resources/unicons/wrench.svg",
+      "role": ""
+    },
+    "Currency statuses": {
+      "views": [
+        "CurrencyStatus"
+      ],
+      "name": "Currency statuses",
+      "label": "Currency statuses",
+      "order": "945",
+      "icon": "/services/web/resources/unicons/wrench.svg",
       "role": ""
     },
     "Groups": {
@@ -331,6 +384,16 @@
       "label": "Group permissions",
       "order": "608",
       "icon": "/services/web/resources/unicons/lock.svg",
+      "role": ""
+    },
+    "Entity references": {
+      "views": [
+        "EntityReference"
+      ],
+      "name": "Entity references",
+      "label": "Entity references",
+      "order": "975",
+      "icon": "/services/web/resources/unicons/wrench.svg",
       "role": ""
     },
     "Store configurations": {
@@ -462,10 +525,10 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "Currency_CurrencyStatus",
           "relationshipEntityName": "CurrencyStatus",
-          "relationshipEntityPerspectiveName": "Settings",
+          "relationshipEntityPerspectiveName": "Currency statuses",
           "dataNotNull": true,
           "widgetLabel": "Status",
-          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/CurrencyStatusService.ts\"",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Currency statuses/CurrencyStatusService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -1976,10 +2039,10 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "Customer_CustomerStatus",
           "relationshipEntityName": "CustomerStatus",
-          "relationshipEntityPerspectiveName": "Settings",
+          "relationshipEntityPerspectiveName": "Customer statuses",
           "dataNotNull": true,
           "widgetLabel": "Status",
-          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/CustomerStatusService.ts\"",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Customer statuses/CustomerStatusService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -2264,10 +2327,10 @@
             "widgetType": "DROPDOWN",
             "relationshipName": "Customer_CustomerStatus",
             "relationshipEntityName": "CustomerStatus",
-            "relationshipEntityPerspectiveName": "Settings",
+            "relationshipEntityPerspectiveName": "Customer statuses",
             "dataNotNull": true,
             "widgetLabel": "Status",
-            "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/CustomerStatusService.ts\"",
+            "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Customer statuses/CustomerStatusService.ts\"",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -2468,10 +2531,10 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "Country_CountryStatus",
           "relationshipEntityName": "CountryStatus",
-          "relationshipEntityPerspectiveName": "Settings",
+          "relationshipEntityPerspectiveName": "Country statuses",
           "dataNotNull": true,
           "widgetLabel": "Status",
-          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/CountryStatusService.ts\"",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Country statuses/CountryStatusService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -2654,8 +2717,8 @@
       "name": "CountryStatus",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-      "perspectiveName": "Settings",
-      "perspectiveOrder": "1000",
+      "perspectiveName": "Country statuses",
+      "perspectiveOrder": "950",
       "perspectiveRole": "",
       "title": "CountryStatus",
       "tooltip": "CountryStatus",
@@ -2775,10 +2838,10 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "Zone_ZoneStatus",
           "relationshipEntityName": "ZoneStatus",
-          "relationshipEntityPerspectiveName": "Settings",
+          "relationshipEntityPerspectiveName": "Zone statuses",
           "dataNotNull": true,
           "widgetLabel": "Status",
-          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/ZoneStatusService.ts\"",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Zone statuses/ZoneStatusService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -2907,8 +2970,8 @@
       "name": "ZoneStatus",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-      "perspectiveName": "Settings",
-      "perspectiveOrder": "1000",
+      "perspectiveName": "Zone statuses",
+      "perspectiveOrder": "955",
       "perspectiveRole": "",
       "title": "ZoneStatus",
       "tooltip": "ZoneStatus",
@@ -3194,10 +3257,10 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "Language_LanguageStatus",
           "relationshipEntityName": "LanguageStatus",
-          "relationshipEntityPerspectiveName": "Settings",
+          "relationshipEntityPerspectiveName": "Language statuses",
           "dataNotNull": true,
           "widgetLabel": "Status",
-          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/LanguageStatusService.ts\"",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Language statuses/LanguageStatusService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -3298,8 +3361,8 @@
       "name": "LanguageStatus",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-      "perspectiveName": "Settings",
-      "perspectiveOrder": "1000",
+      "perspectiveName": "Language statuses",
+      "perspectiveOrder": "940",
       "perspectiveRole": "",
       "title": "LanguageStatus",
       "tooltip": "LanguageStatus",
@@ -3381,8 +3444,8 @@
       "name": "CustomerStatus",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-      "perspectiveName": "Settings",
-      "perspectiveOrder": "1000",
+      "perspectiveName": "Customer statuses",
+      "perspectiveOrder": "960",
       "perspectiveRole": "",
       "title": "CustomerStatus",
       "tooltip": "CustomerStatus",
@@ -3780,7 +3843,7 @@
           "widgetType": "CHECKBOX",
           "relationshipName": "Product_ProductStatus",
           "relationshipEntityName": "ProductStatus",
-          "relationshipEntityPerspectiveName": "Settings",
+          "relationshipEntityPerspectiveName": "Product statuses",
           "dataNotNull": true,
           "widgetLabel": "Status",
           "widgetDropdownUrl": "",
@@ -4522,7 +4585,7 @@
             "widgetType": "CHECKBOX",
             "relationshipName": "Product_ProductStatus",
             "relationshipEntityName": "ProductStatus",
-            "relationshipEntityPerspectiveName": "Settings",
+            "relationshipEntityPerspectiveName": "Product statuses",
             "dataNotNull": true,
             "widgetLabel": "Status",
             "widgetDropdownUrl": "",
@@ -5451,8 +5514,8 @@
       "name": "ProductStatus",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-      "perspectiveName": "Settings",
-      "perspectiveOrder": "1000",
+      "perspectiveName": "Product statuses",
+      "perspectiveOrder": "965",
       "perspectiveRole": "",
       "title": "ProductStatus",
       "tooltip": "ProductStatus",
@@ -5597,10 +5660,10 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "Employee_EmployeeStatus",
           "relationshipEntityName": "EmployeeStatus",
-          "relationshipEntityPerspectiveName": "Settings",
+          "relationshipEntityPerspectiveName": "Employee statuses",
           "dataNotNull": true,
           "widgetLabel": "Status",
-          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Settings/EmployeeStatusService.ts\"",
+          "widgetDropdownUrl": "\"/services/ts/codbex-electra/gen/api/Employee statuses/EmployeeStatusService.ts\"",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -5813,8 +5876,8 @@
       "name": "EmployeeStatus",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-      "perspectiveName": "Settings",
-      "perspectiveOrder": "1000",
+      "perspectiveName": "Employee statuses",
+      "perspectiveOrder": "970",
       "perspectiveRole": "",
       "title": "EmployeeStatus",
       "tooltip": "EmployeeStatus",
@@ -6836,8 +6899,8 @@
       "name": "CurrencyStatus",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-      "perspectiveName": "Settings",
-      "perspectiveOrder": "1000",
+      "perspectiveName": "Currency statuses",
+      "perspectiveOrder": "945",
       "perspectiveRole": "",
       "title": "CurrencyStatus",
       "tooltip": "CurrencyStatus",
@@ -8789,8 +8852,8 @@
       "name": "EntityReference",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-      "perspectiveName": "Settings",
-      "perspectiveOrder": "1000",
+      "perspectiveName": "Entity references",
+      "perspectiveOrder": "975",
       "perspectiveRole": "",
       "title": "EntityReference",
       "tooltip": "EntityReference",

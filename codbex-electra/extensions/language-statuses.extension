@@ -1,0 +1,5 @@
+{
+    "module": "codbex-electra/services/language-statuses.js",
+    "extensionPoint": "ide-subview",
+    "description": "Language Statuses Subview"
+}

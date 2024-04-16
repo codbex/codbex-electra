@@ -201,7 +201,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-electra/gen/api/Settings/CustomerStatusService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/Customer statuses/CustomerStatusService.ts").then(function (response) {
 			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,
