@@ -101,20 +101,28 @@
 
                         <!-- Stores -->
                         <fd-list-navigation-group-header>Stores</fd-list-navigation-group-header>
-                        <fd-list-navigation-item ng-click="switchView('store-types')">
-                            <fd-list-navigation-item-icon glyph="sap-icon--list">
-                            </fd-list-navigation-item-icon>
-                            <span fd-list-navigation-item-text>Types</span>
-                        </fd-list-navigation-item>
-                        <fd-list-navigation-item ng-click="switchView('store-configurations')">
-                            <fd-list-navigation-item-icon glyph="sap-icon--action-settings">
-                            </fd-list-navigation-item-icon>
-                            <span fd-list-navigation-item-text>Store configs</span>
-                        </fd-list-navigation-item>
-                        <fd-list-navigation-item ng-click="switchView('stores')">
+                        <fd-list-navigation-item ng-init="storesExpanded = false" expandable="true"
+                            ng-click="storesExpanded = !storesExpanded" is-expanded="storesExpanded">
                             <fd-list-navigation-item-icon glyph="sap-icon--retail-store">
                             </fd-list-navigation-item-icon>
                             <span fd-list-navigation-item-text>Stores</span>
+                            <fd-list-navigation-item-arrow aria-label="expand submenu" is-expanded="storesExpanded">
+                            </fd-list-navigation-item-arrow>
+                            <fd-list>
+                                <fd-list-navigation-item ng-click="switchView('store-types', $event)">
+                                    <span fd-list-navigation-item-text>Types</span>
+                                </fd-list-navigation-item>
+                            </fd-list>
+                            <fd-list>
+                                <fd-list-navigation-item ng-click="switchView('store-configurations', $event)">
+                                    <span fd-list-navigation-item-text>Store configs</span>
+                                </fd-list-navigation-item>
+                            </fd-list>
+                            <fd-list>
+                                <fd-list-navigation-item ng-click="switchView('stores', $event)">
+                                    <span fd-list-navigation-item-text>Stores</span>
+                                </fd-list-navigation-item>
+                            </fd-list>
                         </fd-list-navigation-item>
 
                         <!-- Security -->
