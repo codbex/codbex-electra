@@ -1,10 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { ManufacturerRepository, ManufacturerEntityOptions } from "../../dao/Products/ManufacturerRepository";
+import { ManufacturerRepository, ManufacturerEntityOptions } from "../../dao/Manufacturers/ManufacturerRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-electra-Products-Manufacturer", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-electra-Manufacturers-Manufacturer", ["validate"]);
 
 @Controller
 class ManufacturerService {
@@ -30,7 +30,7 @@ class ManufacturerService {
         try {
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-electra/gen/api/Products/ManufacturerService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-electra/gen/api/Manufacturers/ManufacturerService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {

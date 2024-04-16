@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-electra.Products.Manufacturer';
+		messageHubProvider.eventIdPrefix = 'codbex-electra.Manufacturers.Manufacturer';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Products/ManufacturerService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Manufacturers/ManufacturerService.ts";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', 'Extensions', function ($scope, messageHub, entityApi, Extensions) {
 
@@ -13,8 +13,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//-----------------Custom Actions-------------------//
 		Extensions.get('dialogWindow', 'codbex-electra-custom-action').then(function (response) {
-			$scope.pageActions = response.filter(e => e.perspective === "Products" && e.view === "Manufacturer" && (e.type === "page" || e.type === undefined));
-			$scope.entityActions = response.filter(e => e.perspective === "Products" && e.view === "Manufacturer" && e.type === "entity");
+			$scope.pageActions = response.filter(e => e.perspective === "Manufacturers" && e.view === "Manufacturer" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.filter(e => e.perspective === "Manufacturers" && e.view === "Manufacturer" && e.type === "entity");
 		});
 
 		$scope.triggerPageAction = function (action) {

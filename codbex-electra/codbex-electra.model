@@ -1949,7 +1949,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Product_Manufacturer",
                         "relationshipEntityName": "Manufacturer",
-                        "relationshipEntityPerspectiveName": "Products"
+                        "relationshipEntityPerspectiveName": "Manufacturers"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -2627,9 +2627,9 @@
                 "menuLabel": "Manufacturer",
                 "name": "Manufacturer",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/box.svg",
-                "perspectiveName": "Products",
-                "perspectiveOrder": "400",
+                "perspectiveIcon": "/services/web/resources/unicons/constructor.svg",
+                "perspectiveName": "Manufacturers",
+                "perspectiveOrder": "399",
                 "perspectiveRole": "",
                 "title": "Manufacturer",
                 "tooltip": "Manifacturer",
@@ -6042,6 +6042,13 @@
                 "label": "stores",
                 "icon": "/services/web/resources/unicons/store.svg",
                 "order": "500",
+                "role": {}
+            },
+            {
+                "name": "Manufacturers",
+                "label": "manufacturers",
+                "icon": "/services/web/resources/unicons/constructor.svg",
+                "order": "399",
                 "role": {}
             }
         ],

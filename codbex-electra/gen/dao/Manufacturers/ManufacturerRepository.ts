@@ -191,7 +191,7 @@ export class ManufacturerRepository {
     }
 
     private async triggerEvent(data: ManufacturerEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Products-Manufacturer", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Manufacturers-Manufacturer", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -199,6 +199,6 @@ export class ManufacturerRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-electra-Products-Manufacturer").send(JSON.stringify(data));
+        producer.topic("codbex-electra-Manufacturers-Manufacturer").send(JSON.stringify(data));
     }
 }

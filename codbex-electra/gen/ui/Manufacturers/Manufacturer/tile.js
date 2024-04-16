@@ -5,13 +5,13 @@
  */
 exports.getTile = function () {
     return {
-        group: "Products",
+        group: "Manufacturers",
         name: "Manufacturer",
         caption: "Manage entity Manufacturer",
         tooltip: "Manifacturer",
         // icon: "file-o",
-        location: "/services/web/codbex-electra/gen/ui/Products/index.html",
+        location: "/services/web/codbex-electra/gen/ui/Manufacturers/index.html",
         order: "200",
-        groupOrder: "400",
+        groupOrder: "399",
     };
 };
