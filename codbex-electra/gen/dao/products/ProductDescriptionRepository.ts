@@ -282,7 +282,7 @@ export class ProductDescriptionRepository {
     }
 
     private async triggerEvent(data: ProductDescriptionEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Products-ProductDescription", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-products-ProductDescription", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -290,6 +290,6 @@ export class ProductDescriptionRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-electra-Products-ProductDescription").send(JSON.stringify(data));
+        producer.topic("codbex-electra-products-ProductDescription").send(JSON.stringify(data));
     }
 }

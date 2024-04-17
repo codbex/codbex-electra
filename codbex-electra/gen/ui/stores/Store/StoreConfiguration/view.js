@@ -8,8 +8,8 @@ const viewData = {
     label: "StoreConfiguration",
     factory: "frame",
     region: "bottom",
-    link: "/services/web/codbex-electra/gen/ui/Stores/Store/StoreConfiguration/index.html",
-    perspectiveName: "Stores",
+    link: "/services/web/codbex-electra/gen/ui/stores/Store/StoreConfiguration/index.html",
+    perspectiveName: "stores",
 };
 
 if (typeof exports !== 'undefined') {

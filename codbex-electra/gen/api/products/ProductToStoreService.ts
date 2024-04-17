@@ -1,10 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { ProductToStoreRepository, ProductToStoreEntityOptions } from "../../dao/Products/ProductToStoreRepository";
+import { ProductToStoreRepository, ProductToStoreEntityOptions } from "../../dao/products/ProductToStoreRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-electra-Products-ProductToStore", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-electra-products-ProductToStore", ["validate"]);
 
 @Controller
 class ProductToStoreService {
@@ -37,7 +37,7 @@ class ProductToStoreService {
         try {
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-electra/gen/api/Products/ProductToStoreService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-electra/gen/api/products/ProductToStoreService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {

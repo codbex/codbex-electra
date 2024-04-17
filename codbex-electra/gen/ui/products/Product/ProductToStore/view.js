@@ -8,8 +8,8 @@ const viewData = {
     label: "ProductToStore",
     factory: "frame",
     region: "bottom",
-    link: "/services/web/codbex-electra/gen/ui/Products/Product/ProductToStore/index.html",
-    perspectiveName: "Products",
+    link: "/services/web/codbex-electra/gen/ui/products/Product/ProductToStore/index.html",
+    perspectiveName: "products",
 };
 
 if (typeof exports !== 'undefined') {

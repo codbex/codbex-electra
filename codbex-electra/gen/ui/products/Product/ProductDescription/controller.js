@@ -1,15 +1,15 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-electra.Products.ProductDescription';
+		messageHubProvider.eventIdPrefix = 'codbex-electra.products.ProductDescription';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Products/ProductDescriptionService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/products/ProductDescriptionService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', 'Extensions', function ($scope, $http, messageHub, entityApi, Extensions) {
 		//-----------------Custom Actions-------------------//
 		Extensions.get('dialogWindow', 'codbex-electra-custom-action').then(function (response) {
-			$scope.pageActions = response.filter(e => e.perspective === "Products" && e.view === "ProductDescription" && (e.type === "page" || e.type === undefined));
-			$scope.entityActions = response.filter(e => e.perspective === "Products" && e.view === "ProductDescription" && e.type === "entity");
+			$scope.pageActions = response.filter(e => e.perspective === "products" && e.view === "ProductDescription" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.filter(e => e.perspective === "products" && e.view === "ProductDescription" && e.type === "entity");
 		});
 
 		$scope.triggerPageAction = function (action) {
@@ -43,13 +43,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		resetPagination();
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("codbex-electra.Products.Product.entitySelected", function (msg) {
+		messageHub.onDidReceiveMessage("codbex-electra.products.Product.entitySelected", function (msg) {
 			resetPagination();
 			$scope.selectedMainEntityId = msg.data.selectedMainEntityId;
 			$scope.loadPage($scope.dataPage);
 		}, true);
 
-		messageHub.onDidReceiveMessage("codbex-electra.Products.Product.clearDetails", function (msg) {
+		messageHub.onDidReceiveMessage("codbex-electra.products.Product.clearDetails", function (msg) {
 			$scope.$apply(function () {
 				resetPagination();
 				$scope.selectedMainEntityId = null;

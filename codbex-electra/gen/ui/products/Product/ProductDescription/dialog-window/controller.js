@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-electra.Products.ProductDescription';
+		messageHubProvider.eventIdPrefix = 'codbex-electra.products.ProductDescription';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/Products/ProductDescriptionService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-electra/gen/api/products/ProductDescriptionService.ts";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', 'entityApi', function ($scope, messageHub, ViewParameters, entityApi) {
 

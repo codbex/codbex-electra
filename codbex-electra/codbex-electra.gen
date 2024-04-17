@@ -57,6 +57,7 @@
     "stores": {
       "views": [
         "Store",
+        "StoreConfiguration",
         "Store-details",
         "Store-details",
         "Store-details",
@@ -195,6 +196,10 @@
     "products": {
       "views": [
         "Product",
+        "ProductAttribute",
+        "ProductDescription",
+        "ProductToStore",
+        "ProductToCategory",
         "Product-details",
         "Product-details",
         "Product-details",
@@ -321,19 +326,6 @@
       "icon": "/services/web/resources/unicons/box.svg",
       "role": ""
     },
-    "Products": {
-      "views": [
-        "ProductAttribute",
-        "ProductDescription",
-        "ProductToStore",
-        "ProductToCategory"
-      ],
-      "name": "Products",
-      "label": "Products",
-      "order": "100",
-      "icon": "/services/web/resources/unicons/copy.svg",
-      "role": ""
-    },
     "attribute-groups": {
       "views": [
         "AttributeGroup",
@@ -402,16 +394,6 @@
       "label": "entity-references",
       "order": "975",
       "icon": "/services/web/resources/unicons/wrench.svg",
-      "role": ""
-    },
-    "Stores": {
-      "views": [
-        "StoreConfiguration"
-      ],
-      "name": "Stores",
-      "label": "Stores",
-      "order": "100",
-      "icon": "/services/web/resources/unicons/copy.svg",
       "role": ""
     },
     "store-configurations": {
@@ -7415,9 +7397,9 @@
       "menuLabel": "ProductAttribute",
       "name": "ProductAttribute",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveName": "Products",
-      "perspectiveOrder": "100",
+      "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+      "perspectiveName": "products",
+      "perspectiveOrder": "415",
       "perspectiveRole": "",
       "title": "ProductAttribute",
       "tooltip": "ProductAttribute",
@@ -8194,9 +8176,9 @@
       "menuLabel": "ProductDescription",
       "name": "ProductDescription",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveName": "Products",
-      "perspectiveOrder": "100",
+      "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+      "perspectiveName": "products",
+      "perspectiveOrder": "415",
       "perspectiveRole": "",
       "title": "ProductDescription",
       "tooltip": "ProductDescription",
@@ -9016,9 +8998,9 @@
       "menuLabel": "StoreConfiguration",
       "name": "StoreConfiguration",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveName": "Stores",
-      "perspectiveOrder": "100",
+      "perspectiveIcon": "/services/web/resources/unicons/store.svg",
+      "perspectiveName": "stores",
+      "perspectiveOrder": "500",
       "perspectiveRole": "",
       "title": "StoreConfiguration",
       "tooltip": "StoreConfiguration",
@@ -9302,9 +9284,9 @@
       "menuLabel": "ProductToStore",
       "name": "ProductToStore",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveName": "Products",
-      "perspectiveOrder": "100",
+      "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+      "perspectiveName": "products",
+      "perspectiveOrder": "415",
       "perspectiveRole": "",
       "title": "ProductToStore",
       "tooltip": "ProductToStore",
@@ -9906,9 +9888,9 @@
       "menuLabel": "ProductToCategory",
       "name": "ProductToCategory",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveName": "Products",
-      "perspectiveOrder": "100",
+      "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+      "perspectiveName": "products",
+      "perspectiveOrder": "415",
       "perspectiveRole": "",
       "title": "ProductToCategory",
       "tooltip": "ProductToCategory",

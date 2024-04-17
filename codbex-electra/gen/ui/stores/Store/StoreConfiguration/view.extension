@@ -1,5 +1,5 @@
 {
-    "module": "codbex-electra/gen/ui/Stores/Store/StoreConfiguration/view.js",
+    "module": "codbex-electra/gen/ui/stores/Store/StoreConfiguration/view.js",
     "extensionPoint": "codbex-electra-view",
     "description": "codbex-electra - Application View - Details"
 }

@@ -6,8 +6,8 @@
 const viewData = {
     id: "ProductToStore-details",
     label: "ProductToStore",
-    link: "/services/web/codbex-electra/gen/ui/Products/Product/ProductToStore/dialog-window/index.html",
-    perspectiveName: "Products",
+    link: "/services/web/codbex-electra/gen/ui/products/Product/ProductToStore/dialog-window/index.html",
+    perspectiveName: "products",
 };
 
 if (typeof exports !== 'undefined') {

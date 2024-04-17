@@ -223,7 +223,7 @@ export class ProductAttributeRepository {
     }
 
     private async triggerEvent(data: ProductAttributeEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Products-ProductAttribute", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-products-ProductAttribute", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -231,6 +231,6 @@ export class ProductAttributeRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-electra-Products-ProductAttribute").send(JSON.stringify(data));
+        producer.topic("codbex-electra-products-ProductAttribute").send(JSON.stringify(data));
     }
 }

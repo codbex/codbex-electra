@@ -1,4 +1,4 @@
 {
-    "name": "codbex-electra-Products-ProductToStore",
-    "description": "Extension Point for the codbex-electra-Products-ProductToStore entity"
+    "name": "codbex-electra-products-ProductToStore",
+    "description": "Extension Point for the codbex-electra-products-ProductToStore entity"
 }

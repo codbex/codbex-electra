@@ -1,5 +1,5 @@
 {
-    "module": "codbex-electra/gen/ui/Products/Product/ProductAttribute/dialog-filter/view.js",
+    "module": "codbex-electra/gen/ui/products/Product/ProductAttribute/dialog-filter/view.js",
     "extensionPoint": "codbex-electra-dialog-window",
     "description": "codbex-electra - Application Dialog Window"
 }

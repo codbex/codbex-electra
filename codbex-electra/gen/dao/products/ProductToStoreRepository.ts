@@ -193,7 +193,7 @@ export class ProductToStoreRepository {
     }
 
     private async triggerEvent(data: ProductToStoreEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-Products-ProductToStore", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-products-ProductToStore", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -201,6 +201,6 @@ export class ProductToStoreRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-electra-Products-ProductToStore").send(JSON.stringify(data));
+        producer.topic("codbex-electra-products-ProductToStore").send(JSON.stringify(data));
     }
 }
