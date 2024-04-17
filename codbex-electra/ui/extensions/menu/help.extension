@@ -1,5 +1,0 @@
-{
-    "module": "resources-core/services/menus/help.js",
-    "extensionPoint": "codbex-electra-menu",
-    "description": "Help Menu"
-}
