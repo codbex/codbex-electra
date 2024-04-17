@@ -1,6 +1,6 @@
 import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
 import { EntityReferenceEntity } from "codbex-electra/gen/dao/entity-references/EntityReferenceRepository";
-import { CustomerRepository as CustomerDAO, CustomerCreateEntity, CustomerUpdateEntity } from "codbex-electra/gen/dao/Customers/CustomerRepository";
+import { CustomerRepository as CustomerDAO, CustomerCreateEntity, CustomerUpdateEntity } from "codbex-electra/gen/dao/customers/CustomerRepository";
 import { oc_customerRepository as OpenCartCustomerDAO, oc_customerEntity } from "codbex-electra-opencart/dao/oc_customerRepository";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { CustomerEntry } from "./get-all-customers";
