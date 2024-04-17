@@ -1,4 +1,4 @@
-import { OrderStatusRepository as OrderStatusDAO, OrderStatusEntityOptions } from "codbex-electra/gen/dao/Settings/OrderStatusRepository";
+import { OrderStatusRepository as OrderStatusDAO, OrderStatusEntityOptions } from "codbex-electra/gen/dao/order-statuses/OrderStatusRepository";
 import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 

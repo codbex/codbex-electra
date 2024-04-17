@@ -1,4 +1,4 @@
-import { EntityReferenceRepository, EntityReferenceEntityOptions, EntityReferenceCreateEntity } from "codbex-electra/gen/dao/Settings/EntityReferenceRepository";
+import { EntityReferenceRepository, EntityReferenceEntityOptions, EntityReferenceCreateEntity } from "codbex-electra/gen/dao/entity-references/EntityReferenceRepository";
 
 import { getLogger } from "codbex-electra/util/LoggerUtil";
 

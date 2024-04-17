@@ -1,8 +1,8 @@
 import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
-import { EntityReferenceEntity } from "codbex-electra/gen/dao/Settings/EntityReferenceRepository";
-import { CategoryRepository as CategoryDAO } from "codbex-electra/gen/dao/Products/CategoryRepository";
+import { EntityReferenceEntity } from "codbex-electra/gen/dao/entity-references/EntityReferenceRepository";
+import { CategoryRepository as CategoryDAO } from "codbex-electra/gen/dao/product-categories/CategoryRepository";
 import { oc_categoryRepository as OpenCartCategoryDAO, oc_categoryCreateEntity, oc_categoryUpdateEntity } from "codbex-electra-opencart/dao/oc_categoryRepository";
-import { CategoryTranslationRepository as CategoryTranslationDAO, CategoryTranslationEntity } from "codbex-electra/gen/dao/Products/CategoryTranslationRepository";
+import { CategoryTranslationRepository as CategoryTranslationDAO, CategoryTranslationEntity } from "codbex-electra/gen/dao/product-categories/CategoryTranslationRepository";
 import { oc_category_descriptionRepository as OpenCartCategoryDescriptionDAO, oc_category_descriptionUpdateEntity } from "codbex-electra-opencart/dao/oc_category_descriptionRepository";
 import { oc_category_to_storeRepository as OpenCartCategoryToStoreDAO } from "codbex-electra-opencart/dao/oc_category_to_storeRepository";
 import { oc_category_pathRepository as OpenCartCategoryPathDAO } from "codbex-electra-opencart/dao/oc_category_pathRepository";

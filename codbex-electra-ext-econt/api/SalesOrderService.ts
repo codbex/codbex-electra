@@ -1,7 +1,7 @@
 import { HttpUtils } from "codbex-electra/gen/api/utils/HttpUtils";
-import { SalesOrderRepository as SalesOrderDAO } from "codbex-electra/gen/dao/SalesOrders/SalesOrderRepository";
+import { SalesOrderRepository as SalesOrderDAO } from "codbex-electra/gen/dao/sales-orders/SalesOrderRepository";
 import { StoreRepository as StoreDAO } from "codbex-electra/gen/dao/Stores/StoreRepository";
-import { StoreTypeRepository as StoreTypeDAO } from "codbex-electra/gen/dao/Stores/StoreTypeRepository";
+import { StoreTypeRepository as StoreTypeDAO } from "codbex-electra/gen/dao/store-types/StoreTypeRepository";
 import { StoreConfigDAO } from "codbex-electra-opencart/dao/StoreConfigDAO";
 import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
 

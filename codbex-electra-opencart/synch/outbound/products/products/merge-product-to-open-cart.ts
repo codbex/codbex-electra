@@ -1,10 +1,10 @@
 import { oc_productRepository as OpenCartProductDAO, oc_productCreateEntity as OpenCartProductCreateEntity, oc_productUpdateEntity as OpenCartProductUpdateEntity } from "codbex-electra-opencart/dao/oc_productRepository";
 import { oc_product_to_storeRepository as OpenCartProductToStoreDAO } from "codbex-electra-opencart/dao/oc_product_to_storeRepository";
 import { oc_product_to_categoryRepository as OpenCartProductToCategoryDAO } from "codbex-electra-opencart/dao/oc_product_to_categoryRepository";
-import { ProductRepository as ProductDAO, ProductEntity } from "codbex-electra/gen/dao/Products/ProductRepository";
-import { ProductToCategoryRepository as ProductToCategoryDAO } from "codbex-electra/gen/dao/Products/ProductToCategoryRepository";
+import { ProductRepository as ProductDAO, ProductEntity } from "codbex-electra/gen/dao/products/ProductRepository";
+import { ProductToCategoryRepository as ProductToCategoryDAO } from "codbex-electra/gen/dao/products/ProductToCategoryRepository";
 import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
-import { EntityReferenceEntity } from "codbex-electra/gen/dao/Settings/EntityReferenceRepository";
+import { EntityReferenceEntity } from "codbex-electra/gen/dao/entity-references/EntityReferenceRepository";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { ProductEntry } from "codbex-electra-opencart/synch/outbound/products/get-store-products";
 

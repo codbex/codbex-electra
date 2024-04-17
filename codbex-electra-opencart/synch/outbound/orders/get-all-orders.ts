@@ -1,4 +1,4 @@
-import { SalesOrderRepository as SalesOrderDAO, SalesOrderEntityOptions } from "codbex-electra/gen/dao/SalesOrders/SalesOrderRepository";
+import { SalesOrderRepository as SalesOrderDAO, SalesOrderEntityOptions } from "codbex-electra/gen/dao/sales-orders/SalesOrderRepository";
 import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 

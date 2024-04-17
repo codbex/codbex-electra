@@ -1,7 +1,7 @@
 import { oc_manufacturerRepository as OpenCartManufacturerDAO, oc_manufacturerCreateEntity as OpenCartManufacturerCreateEntity, oc_manufacturerUpdateEntity as OpenCartManufacturerUpdateEntity } from "codbex-electra-opencart/dao/oc_manufacturerRepository";
 import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
-import { EntityReferenceEntity } from "codbex-electra/gen/dao/Settings/EntityReferenceRepository";
-import { ManufacturerRepository as ManufacturerDAO, ManufacturerEntity } from "codbex-electra/gen/dao/Products/ManufacturerRepository";
+import { EntityReferenceEntity } from "codbex-electra/gen/dao/entity-references/EntityReferenceRepository";
+import { ManufacturerRepository as ManufacturerDAO, ManufacturerEntity } from "codbex-electra/gen/dao/manufacturers/ManufacturerRepository";
 import { ManufacturerEntry } from "./get-all-relevant-manufacturers";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 

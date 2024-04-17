@@ -1,9 +1,9 @@
 import { oc_attributeRepository as OpenCartAttributeDAO, oc_attributeCreateEntity as OpenCartAttributeCreateEntity, oc_attributeUpdateEntity as OpenCartAttributeUpdateEntity } from "codbex-electra-opencart/dao/oc_attributeRepository";
 import { oc_attribute_descriptionRepository as OpenCartAttributeDescriptionDAO, oc_attribute_descriptionUpdateEntity as OpenCartAttributeDescriptionUpdateEntity } from "codbex-electra-opencart/dao/oc_attribute_descriptionRepository";
-import { AttributeTranslationRepository as AttributeTranslationDAO, AttributeTranslationEntity } from "codbex-electra/gen/dao/Products/AttributeTranslationRepository";
-import { AttributeRepository as AttributeDAO, AttributeEntity } from "codbex-electra/gen/dao/Products/AttributeRepository";
+import { AttributeTranslationRepository as AttributeTranslationDAO, AttributeTranslationEntity } from "codbex-electra/gen/dao/product-attributes/AttributeTranslationRepository";
+import { AttributeRepository as AttributeDAO, AttributeEntity } from "codbex-electra/gen/dao/product-attributes/AttributeRepository";
 import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
-import { EntityReferenceEntity } from "codbex-electra/gen/dao/Settings/EntityReferenceRepository";
+import { EntityReferenceEntity } from "codbex-electra/gen/dao/entity-references/EntityReferenceRepository";
 import { AttributeEntry } from "./get-all-attributes";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 

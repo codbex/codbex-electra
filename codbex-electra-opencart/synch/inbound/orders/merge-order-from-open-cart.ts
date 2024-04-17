@@ -1,8 +1,8 @@
 import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
-import { SalesOrderRepository as SalesOrderDAO, SalesOrderCreateEntity } from "codbex-electra/gen/dao/SalesOrders/SalesOrderRepository";
-import { SalesOrderItemRepository as SalesOrderItemDAO, SalesOrderItemCreateEntity } from "codbex-electra/gen/dao/SalesOrders/SalesOrderItemRepository";
-import { SalesOrderShippingRepository as SalesOrderShippingDAO, SalesOrderShippingCreateEntity } from "codbex-electra/gen/dao/SalesOrders/SalesOrderShippingRepository";
-import { SalesOrderPaymentRepository as SalesOrderPaymentDAO, SalesOrderPaymentCreateEntity } from "codbex-electra/gen/dao/SalesOrders/SalesOrderPaymentRepository";
+import { SalesOrderRepository as SalesOrderDAO, SalesOrderCreateEntity } from "codbex-electra/gen/dao/sales-orders/SalesOrderRepository";
+import { SalesOrderItemRepository as SalesOrderItemDAO, SalesOrderItemCreateEntity } from "codbex-electra/gen/dao/sales-orders/SalesOrderItemRepository";
+import { SalesOrderShippingRepository as SalesOrderShippingDAO, SalesOrderShippingCreateEntity } from "codbex-electra/gen/dao/sales-orders/SalesOrderShippingRepository";
+import { SalesOrderPaymentRepository as SalesOrderPaymentDAO, SalesOrderPaymentCreateEntity } from "codbex-electra/gen/dao/sales-orders/SalesOrderPaymentRepository";
 import { oc_orderRepository as OpenCartOrderDAO, oc_orderEntity } from "codbex-electra-opencart/dao/oc_orderRepository";
 import { oc_order_productRepository as OpenCartOrderProductDAO, oc_order_productEntity, oc_order_productEntityOptions } from "codbex-electra-opencart/dao/oc_order_productRepository";
 

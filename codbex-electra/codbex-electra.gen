@@ -24,6 +24,10 @@
     "sales-orders": {
       "views": [
         "SalesOrder",
+        "SalesOrderItem",
+        "SalesOrderPayment",
+        "SalesOrderShipping",
+        "SalesOrderComment",
         "SalesOrder-details",
         "SalesOrder-details",
         "SalesOrder-details",
@@ -188,19 +192,6 @@
       "icon": "/services/web/resources/unicons/wrench.svg",
       "role": ""
     },
-    "SalesOrders": {
-      "views": [
-        "SalesOrderItem",
-        "SalesOrderPayment",
-        "SalesOrderShipping",
-        "SalesOrderComment"
-      ],
-      "name": "SalesOrders",
-      "label": "SalesOrders",
-      "order": "100",
-      "icon": "/services/web/resources/unicons/copy.svg",
-      "role": ""
-    },
     "products": {
       "views": [
         "Product",
@@ -303,6 +294,7 @@
     "product-attributes": {
       "views": [
         "Attribute",
+        "AttributeTranslation",
         "Attribute-details",
         "Attribute-details",
         "Attribute-details",
@@ -370,16 +362,6 @@
       "label": "attribute-groups",
       "order": "405",
       "icon": "/services/web/resources/unicons/box.svg",
-      "role": ""
-    },
-    "Attributes": {
-      "views": [
-        "AttributeTranslation"
-      ],
-      "name": "Attributes",
-      "label": "Attributes",
-      "order": "100",
-      "icon": "/services/web/resources/unicons/copy.svg",
       "role": ""
     },
     "permissions": {
@@ -3754,9 +3736,9 @@
       "menuLabel": "SalesOrderItem",
       "name": "SalesOrderItem",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveName": "SalesOrders",
-      "perspectiveOrder": "100",
+      "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
+      "perspectiveName": "sales-orders",
+      "perspectiveOrder": "200",
       "perspectiveRole": "",
       "title": "SalesOrderItem",
       "tooltip": "SalesOrderItem",
@@ -6365,9 +6347,9 @@
       "menuLabel": "SalesOrderPayment",
       "name": "SalesOrderPayment",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveName": "SalesOrders",
-      "perspectiveOrder": "100",
+      "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
+      "perspectiveName": "sales-orders",
+      "perspectiveOrder": "200",
       "perspectiveRole": "",
       "title": "SalesOrderPayment",
       "tooltip": "SalesOrderPayment",
@@ -6850,9 +6832,9 @@
       "menuLabel": "SalesOrderShipping",
       "name": "SalesOrderShipping",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveName": "SalesOrders",
-      "perspectiveOrder": "100",
+      "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
+      "perspectiveName": "sales-orders",
+      "perspectiveOrder": "200",
       "perspectiveRole": "",
       "title": "SalesOrderShipping",
       "tooltip": "SalesOrderShipping",
@@ -7774,9 +7756,9 @@
       "menuLabel": "SalesOrderComment",
       "name": "SalesOrderComment",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveName": "SalesOrders",
-      "perspectiveOrder": "100",
+      "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
+      "perspectiveName": "sales-orders",
+      "perspectiveOrder": "200",
       "perspectiveRole": "",
       "title": "SalesOrderComment",
       "tooltip": "SalesOrderComment",
@@ -7922,9 +7904,9 @@
       "menuLabel": "AttributeDescription",
       "name": "AttributeTranslation",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveName": "Attributes",
-      "perspectiveOrder": "100",
+      "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+      "perspectiveName": "product-attributes",
+      "perspectiveOrder": "407",
       "perspectiveRole": "",
       "title": "AttributeDescription",
       "tooltip": "AttributeDescription",

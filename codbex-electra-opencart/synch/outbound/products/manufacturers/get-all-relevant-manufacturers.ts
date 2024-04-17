@@ -1,5 +1,5 @@
-import { ProductToStoreRepository as ProductToStoreDAO, ProductToStoreEntityOptions } from "codbex-electra/gen/dao/Products/ProductToStoreRepository";
-import { ProductRepository as ProductDAO, ProductEntityOptions } from "codbex-electra/gen/dao/Products/ProductRepository";
+import { ProductToStoreRepository as ProductToStoreDAO, ProductToStoreEntityOptions } from "codbex-electra/gen/dao/products/ProductToStoreRepository";
+import { ProductRepository as ProductDAO, ProductEntityOptions } from "codbex-electra/gen/dao/products/ProductRepository";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
 
