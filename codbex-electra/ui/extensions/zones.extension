@@ -1,0 +1,5 @@
+{
+    "module": "codbex-electra/ui/services/zones.js",
+    "extensionPoint": "ide-subview",
+    "description": "Zones Subview"
+}

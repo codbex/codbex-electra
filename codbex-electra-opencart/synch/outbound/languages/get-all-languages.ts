@@ -1,4 +1,4 @@
-import { LanguageRepository as LanguageDAO, LanguageEntityOptions } from "codbex-electra/gen/dao/Settings/LanguageRepository";
+import { LanguageRepository as LanguageDAO, LanguageEntityOptions } from "codbex-electra/gen/dao/languages/LanguageRepository";
 import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 

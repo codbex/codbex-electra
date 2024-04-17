@@ -29,7 +29,7 @@ The following Eclipse Dirigible configurations should be available:
 
 | Name | Description | Example value |
 |--|--|--|
-| DIRIGIBLE_HOME_URL | Electra home URL | /services/web/codbex-electra/gen/index.html |
+| DIRIGIBLE_HOME_URL | Electra home URL | /services/web/codbex-electra/ui/index.html |
 | ELECTRA_ECONT_DELIVERY_URL | URL of the deliver with econt | https://delivery.econt.com |
 
 [Here](https://www.dirigible.io/help/setup/setup-environment-variables/) is described how you can provide Dirigible configurations.
@@ -47,7 +47,7 @@ To deploy and run the Electra, you have to follow the steps described bellow.
 
     ![publish-all](misc/images/publish-all.png)
 
-- After a few seconds, the Electra should be available on the following path `/services/web/codbex-electra/gen/index.html`. If the Dirigible is hosted on `localhost`, the URL will be  [http://localhost:8080/services/web/codbex-electra/gen/index.html](http://localhost:8080/services/web/codbex-electra/gen/index.html)
+- After a few seconds, the Electra should be available on the following path `/services/web/codbex-electra/ui/index.html`. If the Dirigible is hosted on `localhost`, the URL will be  [http://localhost:8080/services/web/codbex-electra/ui/index.html](http://localhost:8080/services/web/codbex-electra/ui/index.html)
 
 - To configure a new OpenCart store you have to
     - Create a new Store entry

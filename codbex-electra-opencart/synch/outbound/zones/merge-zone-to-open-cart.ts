@@ -1,7 +1,7 @@
 import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
-import { EntityReferenceEntity } from "codbex-electra/gen/dao/Settings/EntityReferenceRepository";
+import { EntityReferenceEntity } from "codbex-electra/gen/dao/entity-references/EntityReferenceRepository";
 import { oc_zoneRepository as OpenCartZoneDAO, oc_zoneCreateEntity, oc_zoneUpdateEntity } from "codbex-electra-opencart/dao/oc_zoneRepository";
-import { ZoneRepository as ZoneDAO } from "codbex-electra/gen/dao/Settings/ZoneRepository";
+import { ZoneRepository as ZoneDAO } from "codbex-electra/gen/dao/zones/ZoneRepository";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { ZoneEntry } from "./get-all-zones";
 

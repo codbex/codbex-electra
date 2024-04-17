@@ -1,4 +1,4 @@
-import { CurrencyRepository as CurrencyDAO, CurrencyEntityOptions } from "codbex-electra/gen/dao/Settings/CurrencyRepository";
+import { CurrencyRepository as CurrencyDAO, CurrencyEntityOptions } from "codbex-electra/gen/dao/currencies/CurrencyRepository";
 import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 

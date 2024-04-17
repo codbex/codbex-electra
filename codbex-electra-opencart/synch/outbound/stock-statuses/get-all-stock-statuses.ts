@@ -1,4 +1,4 @@
-import { StockStatusRepository as StockStatusDAO, StockStatusEntityOptions } from "codbex-electra/gen/dao/Settings/StockStatusRepository";
+import { StockStatusRepository as StockStatusDAO, StockStatusEntityOptions } from "codbex-electra/gen/dao/stock-statuses/StockStatusRepository";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
 

@@ -1,7 +1,7 @@
 import { StoreRepository as StoreDAO } from "codbex-electra/gen/dao/Stores/StoreRepository";
-import { StoreTypeRepository as StoreTypeDAO } from "codbex-electra/gen/dao/Stores/StoreTypeRepository";
-import { StoreConfigurationRepository as StoreConfigurationDAO, StoreConfigurationEntity } from "codbex-electra/gen/dao/Stores/StoreConfigurationRepository";
-import { StoreConfigurationPropertyRepository as StoreConfigurationPropertyDAO, StoreConfigurationPropertyEntity } from "codbex-electra/gen/dao/Stores/StoreConfigurationPropertyRepository";
+import { StoreTypeRepository as StoreTypeDAO } from "codbex-electra/gen/dao/store-types/StoreTypeRepository";
+import { StoreConfigurationRepository as StoreConfigurationDAO, StoreConfigurationEntity } from "codbex-electra/gen/dao/stores/StoreConfigurationRepository";
+import { StoreConfigurationPropertyRepository as StoreConfigurationPropertyDAO, StoreConfigurationPropertyEntity } from "codbex-electra/gen/dao/store-configurations/StoreConfigurationPropertyRepository";
 import { getLogger } from "codbex-electra/util/LoggerUtil";
 
 export interface OpenCartStoreConfig {

@@ -1,4 +1,4 @@
-import { ZoneRepository as ZoneDAO, ZoneEntityOptions } from "codbex-electra/gen/dao/Settings/ZoneRepository";
+import { ZoneRepository as ZoneDAO, ZoneEntityOptions } from "codbex-electra/gen/dao/zones/ZoneRepository";
 import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 

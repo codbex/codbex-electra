@@ -1,4 +1,4 @@
-import { AttributeRepository as AttributeDAO, AttributeEntityOptions } from "codbex-electra/gen/dao/Products/AttributeRepository";
+import { AttributeRepository as AttributeDAO, AttributeEntityOptions } from "codbex-electra/gen/dao/product-attributes/AttributeRepository";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
 

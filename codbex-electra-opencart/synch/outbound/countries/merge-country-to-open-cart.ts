@@ -1,7 +1,7 @@
 import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
-import { EntityReferenceEntity } from "codbex-electra/gen/dao/Settings/EntityReferenceRepository";
+import { EntityReferenceEntity } from "codbex-electra/gen/dao/entity-references/EntityReferenceRepository";
 import { oc_countryRepository as OpenCartCountryDAO, oc_countryCreateEntity, oc_countryUpdateEntity } from "codbex-electra-opencart/dao/oc_countryRepository";
-import { CountryRepository as CountryDAO } from "codbex-electra/gen/dao/Settings/CountryRepository";
+import { CountryRepository as CountryDAO } from "codbex-electra/gen/dao/countries/CountryRepository";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { CountryEntry } from "./get-all-countries";
 

@@ -1,0 +1,5 @@
+{
+    "module": "codbex-electra/ui/services/store-configurations.js",
+    "extensionPoint": "ide-subview",
+    "description": "Store Configurations Subview"
+}

@@ -1,7 +1,7 @@
 import { oc_stock_statusRepository as OpenCartStockStatusDAO, oc_stock_statusCreateEntity as OpenCartStockStatusCreateEntity, oc_stock_statusUpdateEntity as OpenCartStockStatusUpdateEntity } from "codbex-electra-opencart/dao/oc_stock_statusRepository";
-import { StockStatusRepository as StockStatusDAO, StockStatusEntity } from "codbex-electra/gen/dao/Settings/StockStatusRepository";
+import { StockStatusRepository as StockStatusDAO, StockStatusEntity } from "codbex-electra/gen/dao/stock-statuses/StockStatusRepository";
 import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
-import { EntityReferenceEntity } from "codbex-electra/gen/dao/Settings/EntityReferenceRepository";
+import { EntityReferenceEntity } from "codbex-electra/gen/dao/entity-references/EntityReferenceRepository";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { StockStatusEntry } from "./get-all-stock-statuses";
 
