@@ -1,14 +1,13 @@
 let angularHttp;
 let salesOrderId;
 
-const app = angular.module('templateApp', []);
-app.controller('templateContoller', function ($scope, $http, $sce) {
+const app = angular.module('templateApp', ['ideUI', 'ideView']);
+app.controller('templateContoller', ['$scope', '$http', '$sce', 'ViewParameters', function ($scope, $http, $sce, ViewParameters) {
     angularHttp = $http;
     $scope.shippingLabelUrl = $sce.trustAsResourceUrl("about:blank");
 
-    const urlString = (window.location.href).toLowerCase();
-    const url = new URL(urlString);
-    salesOrderId = url.searchParams.get("id");
+    const params = ViewParameters.get();
+    salesOrderId = params.id;
 
     const labelURL = `/services/ts/codbex-electra-ext-econt/api/SalesOrderService.ts/${salesOrderId}/shippingLabelURL`;
 
@@ -16,7 +15,7 @@ app.controller('templateContoller', function ($scope, $http, $sce) {
         .then(function (response) {
             $scope.shippingLabelURL = $sce.trustAsResourceUrl(response.data.url);
         });
-});
+}]);
 
 function handleShippingLabelConfirmed(data) {
     const url = `/services/ts/codbex-electra-ext-econt/api/SalesOrderService.ts/${salesOrderId}/updateTrackingNumber`;
