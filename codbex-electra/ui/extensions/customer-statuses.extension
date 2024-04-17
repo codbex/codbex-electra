@@ -1,5 +1,5 @@
 {
-    "module": "codbex-electra/services/customer-statuses.js",
+    "module": "codbex-electra/ui/services/customer-statuses.js",
     "extensionPoint": "ide-subview",
     "description": "Customer Statuses Subview"
 }

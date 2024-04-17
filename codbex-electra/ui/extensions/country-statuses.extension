@@ -1,5 +1,5 @@
 {
-    "module": "codbex-electra/services/country-statuses.js",
+    "module": "codbex-electra/ui/services/country-statuses.js",
     "extensionPoint": "ide-subview",
     "description": "Country Statuses Subview"
 }

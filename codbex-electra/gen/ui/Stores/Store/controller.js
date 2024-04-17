@@ -175,7 +175,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsType = [];
 
 
-		$http.get("/services/ts/codbex-electra/gen/api/Store types/StoreTypeService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/store-types/StoreTypeService.ts").then(function (response) {
 			$scope.optionsType = response.data.map(e => {
 				return {
 					value: e.Id,

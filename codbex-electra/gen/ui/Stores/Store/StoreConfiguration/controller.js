@@ -204,7 +204,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-electra/gen/api/Store configurations/StoreConfigurationPropertyService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/store-configurations/StoreConfigurationPropertyService.ts").then(function (response) {
 			$scope.optionsProperty = response.data.map(e => {
 				return {
 					value: e.Id,

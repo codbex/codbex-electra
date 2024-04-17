@@ -1,5 +1,5 @@
 {
-    "module": "codbex-electra/services/products.js",
+    "module": "codbex-electra/ui/services/products.js",
     "extensionPoint": "ide-subview",
     "description": "Products Subview"
 }

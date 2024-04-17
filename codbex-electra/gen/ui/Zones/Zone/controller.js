@@ -182,7 +182,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-electra/gen/api/Zone statuses/ZoneStatusService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/zone-statuses/ZoneStatusService.ts").then(function (response) {
 			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,

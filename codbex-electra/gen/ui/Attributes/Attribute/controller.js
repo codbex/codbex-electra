@@ -175,7 +175,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsGroup = [];
 
 
-		$http.get("/services/ts/codbex-electra/gen/api/Attribute groups/AttributeGroupService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/attribute-groups/AttributeGroupService.ts").then(function (response) {
 			$scope.optionsGroup = response.data.map(e => {
 				return {
 					value: e.Id,

@@ -1,5 +1,5 @@
 {
-    "module": "codbex-electra/services/product-attribute-groups.js",
+    "module": "codbex-electra/ui/services/product-attribute-groups.js",
     "extensionPoint": "ide-subview",
     "description": "Attribute Groups Subview"
 }

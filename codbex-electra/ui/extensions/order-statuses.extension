@@ -1,5 +1,5 @@
 {
-    "module": "codbex-electra/services/order-statuses.js",
+    "module": "codbex-electra/ui/services/order-statuses.js",
     "extensionPoint": "ide-subview",
     "description": "Order Statuses Subview"
 }

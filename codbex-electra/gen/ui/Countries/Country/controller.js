@@ -168,7 +168,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsStatus = [];
 
 
-		$http.get("/services/ts/codbex-electra/gen/api/Country statuses/CountryStatusService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/country-statuses/CountryStatusService.ts").then(function (response) {
 			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,

@@ -1,5 +1,5 @@
 {
-    "module": "codbex-electra/services/languages.js",
+    "module": "codbex-electra/ui/services/languages.js",
     "extensionPoint": "ide-subview",
     "description": "Languages Subview"
 }

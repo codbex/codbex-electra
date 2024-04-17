@@ -1,5 +1,5 @@
 {
-    "module": "codbex-electra/services/group-employees.js",
+    "module": "codbex-electra/ui/services/group-employees.js",
     "extensionPoint": "ide-subview",
     "description": "Group Employees Subview"
 }

@@ -1,5 +1,5 @@
 {
-    "module": "codbex-electra/services/product-categories.js",
+    "module": "codbex-electra/ui/services/product-categories.js",
     "extensionPoint": "ide-subview",
     "description": "Product Categories Subview"
 }
