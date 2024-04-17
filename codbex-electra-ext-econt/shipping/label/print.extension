@@ -1,5 +1,5 @@
 {
-    "module": "codbex-electra-ext-econt/shipping/label/print.js",
+    "module": "codbex-electra-ext-econt/shipping/label/services/print.js",
     "extensionPoint": "codbex-electra-custom-action",
     "description": "Print shipping label for SalesOrder"
 }
