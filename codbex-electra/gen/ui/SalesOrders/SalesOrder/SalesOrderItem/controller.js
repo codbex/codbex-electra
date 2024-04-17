@@ -190,7 +190,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsProduct = [];
 
 
-		$http.get("/services/ts/codbex-electra/gen/api/Products/ProductService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/products/ProductService.ts").then(function (response) {
 			$scope.optionsProduct = response.data.map(e => {
 				return {
 					value: e.Id,

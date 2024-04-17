@@ -180,7 +180,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsGroup = [];
 
 
-		$http.get("/services/ts/codbex-electra/gen/api/Employees/EmployeeService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/employees/EmployeeService.ts").then(function (response) {
 			$scope.optionsEmployee = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -189,7 +189,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-electra/gen/api/Groups/GroupService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/groups/GroupService.ts").then(function (response) {
 			$scope.optionsGroup = response.data.map(e => {
 				return {
 					value: e.Id,

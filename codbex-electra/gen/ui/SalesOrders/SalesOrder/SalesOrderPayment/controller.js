@@ -195,7 +195,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsCountry = [];
 
 
-		$http.get("/services/ts/codbex-electra/gen/api/Zones/ZoneService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/zones/ZoneService.ts").then(function (response) {
 			$scope.optionsZone = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -204,7 +204,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-electra/gen/api/Countries/CountryService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-electra/gen/api/countries/CountryService.ts").then(function (response) {
 			$scope.optionsCountry = response.data.map(e => {
 				return {
 					value: e.Id,
