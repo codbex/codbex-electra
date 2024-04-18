@@ -169,9 +169,6 @@ In the following table, you can find the dependencies between entities.
 
 ## User interface
 
-### Launchpad
-![application](misc/images/user-interface/launchpad.png)
----
 ### Sales Orders
 
 #### Items
@@ -192,14 +189,33 @@ You can print an econt shipping label using the `Print Shipping Label` button.
 
 ![salesorder-econt-label](misc/images/user-interface/sales-order-econt-shipping-label.png)
 ---
+### Customers
+![customers](misc/images/user-interface/customers.png)
+---
 ### Products
+
+#### Manufacturers
+![manufacturers](misc/images/user-interface/manufacturers.png)
+
+#### Attributes
+
+##### Attribute groups
+![attribute-groups](misc/images/user-interface/attribute-groups.png)
+
+##### Attributes
+![attributes](misc/images/user-interface/attributes.png)
+
+#### Products
+##### Categories
+![product-categories](misc/images/user-interface/product-categories.png)
+
+##### Products
 ![products](misc/images/user-interface/products.png)
+
 ---
 ### Stores
 ![stores](misc/images/user-interface/stores.png)
----
-### Customers
-![customers](misc/images/user-interface/customers.png)
+
 ---
 ### Access
 
@@ -216,18 +232,11 @@ You can print an econt shipping label using the `Print Shipping Label` button.
 ![employees](misc/images/user-interface/employees.png)
 
 #### Group assignments
-![group-assignments](misc/images/user-interface/group-assignments.png)
+![group-employees](misc/images/user-interface/group-employees.png)
 ---
 ### Settings
 
-#### Settings launchpad
-![settings](misc/images/user-interface/settings.png)
-
-#### Countries
-![countries](misc/images/user-interface/countries.png)
-
-#### Zones
-![zones](misc/images/user-interface/zones.png)
+### Localisation
 
 #### Languages
 ![languages](misc/images/user-interface/languages.png)
@@ -235,5 +244,17 @@ You can print an econt shipping label using the `Print Shipping Label` button.
 #### Currencies
 ![currencies](misc/images/user-interface/currencies.png)
 
+#### Stock statuses
+![stock-statuses](misc/images/user-interface/stock-statuses.png)
+
 #### Order statuses
 ![order-statuses](misc/images/user-interface/order-statuses.png)
+
+#### Countries
+![countries](misc/images/user-interface/countries.png)
+
+#### Zones
+![zones](misc/images/user-interface/zones.png)
+
+### Configurations
+![configurations](misc/images/user-interface/configurations.png)
