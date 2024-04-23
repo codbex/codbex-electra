@@ -1,4 +1,5 @@
 import { Controller, Get } from "sdk/http";
+import { query } from "sdk/db";
 
 @Controller
 class DashboardService {
@@ -9,10 +10,19 @@ class DashboardService {
 
     @Get("/ordersData/newOrders")
     public getNewOrders() {
-
         return {
-            newOrders: 987
+            newOrders: this.getTodaysNewOrders()
         };
+    }
+
+    private getTodaysNewOrders(): number {
+        const sql = `
+            SELECT COUNT(SALESORDER_ID) as ORDERS_COUNT
+            FROM CODBEX_SALESORDER
+            WHERE SALESORDER_DATEADDED > CURRENT_DATE
+        `;
+        const resulSet = query.execute(sql);
+        return resulSet[0].ORDERS_COUNT
     }
 
     @Get("/ordersData/orderStatuses")
@@ -85,9 +95,18 @@ class DashboardService {
 
     @Get("/customersData/newCustomers")
     public getNewCustomers() {
-
         return {
-            newCustomers: 7
+            newCustomers: this.getTodaysNewCustomers()
         };
+    }
+
+    private getTodaysNewCustomers(): number {
+        const sql = `
+            SELECT COUNT(CUSTOMER_ID) as CUSTOMERS_COUNT
+            FROM CODBEX_CUSTOMER
+            WHERE CUSTOMER_DATE_ADDED > CURRENT_DATE
+        `;
+        const resulSet = query.execute(sql);
+        return resulSet[0].CUSTOMERS_COUNT
     }
 }

@@ -117,8 +117,14 @@ dashboard.controller('DashboardController', ['$scope', '$document', '$http', 'me
     $scope.openPerspective = function (perspective) {
         if (perspective === 'sales-orders') {
             messageHub.postMessage('launchpad.switch.perspective', { perspectiveId: 'sales-orders' }, true);
-        } else if (perspective === 'products') {
+        }
+
+        if (perspective === 'products') {
             messageHub.postMessage('launchpad.switch.perspective', { perspectiveId: 'products' }, true);
+        }
+
+        if (perspective === 'customers') {
+            messageHub.postMessage('launchpad.switch.perspective', { perspectiveId: 'customers' }, true);
         }
     };
 
