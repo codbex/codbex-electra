@@ -20,7 +20,7 @@ class DashboardService {
         const orderStatuses = new Array();
         orderStatuses.push({
             name: "Pending",
-            count: 22
+            count: 19
         });
 
         orderStatuses.push({
@@ -71,6 +71,23 @@ class DashboardService {
 
         return {
             outOfStockProducts: 37
+        };
+    }
+
+    @Get("/productsData/soldProducts")
+    public getSoldProducts() {
+
+        return {
+            soldProducts: 54
+        };
+    }
+
+
+    @Get("/customersData/newCustomers")
+    public getNewCustomers() {
+
+        return {
+            newCustomers: 7
         };
     }
 }

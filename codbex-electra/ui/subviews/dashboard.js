@@ -124,18 +124,25 @@ dashboard.controller('DashboardController', ['$scope', '$document', '$http', 'me
 
     $scope.today = new Date();
 
-    const ordersServiceUrl = "/services/ts/codbex-electra/ui/api/DashboardService.ts/ordersData/newOrders";
-    $http.get(ordersServiceUrl)
+    $http.get("/services/ts/codbex-electra/ui/api/DashboardService.ts/ordersData/newOrders")
         .then(function (response) {
             $scope.newOrders = response.data.newOrders;
         });
 
 
-    const productsServiceUrl = "/services/ts/codbex-electra/ui/api/DashboardService.ts/productsData/outOfStockProducts";
-    $http.get(productsServiceUrl)
+    $http.get("/services/ts/codbex-electra/ui/api/DashboardService.ts/productsData/outOfStockProducts")
         .then(function (response) {
             $scope.outOfStockProducts = response.data.outOfStockProducts;
         });
 
+    $http.get("/services/ts/codbex-electra/ui/api/DashboardService.ts/productsData/soldProducts")
+        .then(function (response) {
+            $scope.soldProducts = response.data.soldProducts;
+        });
 
+
+    $http.get("/services/ts/codbex-electra/ui/api/DashboardService.ts/customersData/newCustomers")
+        .then(function (response) {
+            $scope.newCustomers = response.data.newCustomers;
+        });
 }]);
