@@ -56,6 +56,11 @@ class DashboardService {
             ordersCount: 50
         });
 
+        storeOrders.push({
+            storeName: "Store 4",
+            ordersCount: 151
+        });
+
         return {
             storeOrders: storeOrders
         };
