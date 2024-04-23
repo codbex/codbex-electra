@@ -8,43 +8,111 @@ dashboard.controller('DashboardController', ['$scope', '$document', '$http', 'me
     };
 
     angular.element($document[0]).ready(async function () {
-        const productData = await getProductData();
-        // Doughnut Chart Data
-        const doughnutData = {
-            labels: ['Active Products', 'Inactive Products'],
-            datasets: [{
-                data: [productData.ActiveProducts, productData.InactiveProducts],
-                backgroundColor: ['#36a2eb', '#ff6384']
-            }]
-        };
+        initOrderStatusesChart();
+        initOrdersByStoreChart();
 
-        // Doughnut Chart Configuration
-        const doughnutOptions = {
-            responsive: true,
-            maintainAspectRatio: false,
-            legend: {
-                position: 'bottom'
-            },
-            title: {
-                display: true,
-                text: 'Product Status'
-            },
-            animation: {
-                animateScale: true,
-                animateRotate: true
-            }
-        };
-        // Initialize Doughnut Chart
-        const doughnutChartCtx = $document[0].getElementById('doughnutChart').getContext('2d');
-        const doughnutChart = new Chart(doughnutChartCtx, {
-            type: 'doughnut',
-            data: doughnutData,
-            options: doughnutOptions
-        });
         $scope.$apply(function () {
             $scope.state.isBusy = false;
         });
     });
+
+    function initOrderStatusesChart() {
+        const serviceUrl = "/services/ts/codbex-electra/ui/api/DashboardService.ts/ordersData/orderStatuses";
+        $http.get(serviceUrl)
+            .then(function (response) {
+                const orderStatuses = response.data.orderStatuses;
+
+                const labels = new Array();
+                const counts = new Array();
+                orderStatuses.forEach((orderStatusData) => {
+                    labels.push(orderStatusData.name);
+                    counts.push(orderStatusData.count);
+                });
+
+                // Doughnut Chart Data
+                const doughnutData = {
+                    labels: labels,
+                    datasets: [{
+                        data: counts
+                    }]
+                };
+
+                // Doughnut Chart Configuration
+                const doughnutOptions = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: {
+                        position: 'bottom'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Product Status'
+                    },
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true
+                    }
+                };
+
+                // Initialize Doughnut Chart
+                const doughnutChartCtx = $document[0].getElementById('doughnutChartOrderStatuses').getContext('2d');
+
+                new Chart(doughnutChartCtx, {
+                    type: 'doughnut',
+                    data: doughnutData,
+                    options: doughnutOptions
+                });
+            });
+    }
+
+    function initOrdersByStoreChart() {
+        const serviceUrl = "/services/ts/codbex-electra/ui/api/DashboardService.ts/ordersData/ordersByStore";
+        $http.get(serviceUrl)
+            .then(function (response) {
+                const storeOrders = response.data.storeOrders;
+
+                const storeNames = new Array();
+                const ordersCount = new Array();
+                storeOrders.forEach((storeData) => {
+                    storeNames.push(storeData.storeName);
+                    ordersCount.push(storeData.ordersCount);
+                });
+
+                // Doughnut Chart Data
+                const doughnutData = {
+                    labels: storeNames,
+                    datasets: [{
+                        data: ordersCount
+                    }]
+                };
+
+                // Doughnut Chart Configuration
+                const doughnutOptions = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: {
+                        position: 'bottom'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Product Status'
+                    },
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true
+                    }
+                };
+
+                // Initialize Doughnut Chart
+                const doughnutChartCtx = $document[0].getElementById('doughnutChartOrdersByStore').getContext('2d');
+
+                new Chart(doughnutChartCtx, {
+                    type: 'doughnut',
+                    data: doughnutData,
+                    options: doughnutOptions
+                });
+            });
+    }
 
     $scope.openPerspective = function (perspective) {
         if (perspective === 'sales-orders') {
@@ -56,38 +124,18 @@ dashboard.controller('DashboardController', ['$scope', '$document', '$http', 'me
 
     $scope.today = new Date();
 
-    const invoiceServiceUrl = "/services/ts/codbex-electra/ui/api/InvoiceService.ts/invoiceData";
-    $http.get(invoiceServiceUrl)
+    const ordersServiceUrl = "/services/ts/codbex-electra/ui/api/DashboardService.ts/ordersData/newOrders";
+    $http.get(ordersServiceUrl)
         .then(function (response) {
-            $scope.InvoiceData = response.data;
-            calculateGrossProfit();
+            $scope.newOrders = response.data.newOrders;
         });
 
-    const orderServiceUrl = "/services/ts/codbex-electra/ui/api/OrderService.ts/orderData";
-    $http.get(orderServiceUrl)
+
+    const productsServiceUrl = "/services/ts/codbex-electra/ui/api/DashboardService.ts/productsData/outOfStockProducts";
+    $http.get(productsServiceUrl)
         .then(function (response) {
-            $scope.OrderData = response.data;
-            calculateGrossProfit();
+            $scope.outOfStockProducts = response.data.outOfStockProducts;
         });
 
-    const productServiceUrl = "/services/ts/codbex-electra/ui/api/ProductService.ts/productData";
-    $http.get(productServiceUrl)
-        .then(function (response) {
-            $scope.ProductData = response.data;
-        });
 
-    async function getProductData() {
-        try {
-            const response = await $http.get("/services/ts/codbex-electra/ui/api/ProductService.ts/productData");
-            return response.data;
-        } catch (error) {
-            console.error('Error fetching product data:', error);
-        }
-    }
-
-    function calculateGrossProfit() {
-        if ($scope.InvoiceData && $scope.OrderData) {
-            $scope.GrossProfit = (($scope.InvoiceData.SalesInvoiceTotal + $scope.OrderData.SalesOrderTotal) - ($scope.InvoiceData.PurchaseInvoiceTotal + $scope.OrderData.PurchaseOrderTotal)).toFixed(2);
-        }
-    }
 }]);
