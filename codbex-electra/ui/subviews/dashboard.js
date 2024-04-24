@@ -130,9 +130,9 @@ dashboard.controller('DashboardController', ['$scope', '$document', '$http', 'me
 
     $scope.today = new Date();
 
-    $http.get("/services/ts/codbex-electra/ui/api/DashboardService.ts/ordersData/newOrders")
+    $http.get("/services/ts/codbex-electra/ui/api/DashboardService.ts/ordersData/orders")
         .then(function (response) {
-            $scope.newOrders = response.data.newOrders;
+            $scope.orders = response.data.orders;
         });
 
 

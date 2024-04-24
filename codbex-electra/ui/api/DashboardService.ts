@@ -8,14 +8,14 @@ class DashboardService {
     constructor() {
     }
 
-    @Get("/ordersData/newOrders")
-    public getNewOrders() {
+    @Get("/ordersData/orders")
+    public getOrders() {
         return {
-            newOrders: this.getTodaysNewOrders()
+            orders: this.getTodaysOrders()
         };
     }
 
-    private getTodaysNewOrders(): number {
+    private getTodaysOrders(): number {
         const sql = `
             SELECT COUNT(SALESORDER_ID) as ORDERS_COUNT
             FROM CODBEX_SALESORDER
@@ -88,10 +88,21 @@ class DashboardService {
     public getSoldProducts() {
 
         return {
-            soldProducts: 54
+            soldProducts: this.getTodaysSoldItems()
         };
     }
 
+    private getTodaysSoldItems(): number {
+        const sql = `
+            SELECT SUM(i.ORDERITEM_QUANTITY) as SOLD_ITEMS
+            FROM CODBEX_SALESORDER as so
+            INNER JOIN CODBEX_SALESORDERITEM i
+            ON so.SALESORDER_ID = i.ORDERITEM_SALESORDER
+            WHERE so.SALESORDER_DATEADDED > CURRENT_DATE
+        `;
+        const resulSet = query.execute(sql);
+        return resulSet[0].SOLD_ITEMS
+    }
 
     @Get("/customersData/newCustomers")
     public getNewCustomers() {
