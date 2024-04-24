@@ -44,36 +44,69 @@ class DashboardService {
         });
 
         return {
-            orderStatuses: orderStatuses
+            orderStatuses: this.getTodaysOrderStatuses()
         };
+    }
+
+
+    private getTodaysOrderStatuses(): any[] {
+        const sql = `
+            SELECT s.ORDERSTATUS_NAME as STATUS_NAME, so.TOTAL_ORDERS as TOTAL_ORDERS
+            FROM (
+                SELECT so.SALESORDER_STATUS as STATUS_ID, COUNT(SALESORDER_ID) as TOTAL_ORDERS
+                FROM CODBEX_SALESORDER as so
+                WHERE so.SALESORDER_DATEADDED > CURRENT_DATE
+                GROUP BY SALESORDER_STATUS
+            ) as so
+            INNER JOIN CODBEX_ORDERSTATUS as s
+            ON so.STATUS_ID = s.ORDERSTATUS_ID
+
+        `;
+        const resulSet = query.execute(sql);
+
+        const orderStatuses = new Array();
+
+        resulSet.forEach(result => {
+            orderStatuses.push({
+                statusName: result.ORDERSTATUS_NAME,
+                ordersCount: result.TOTAL_ORDERS
+            });
+        });
+
+        return orderStatuses;
     }
 
     @Get("/ordersData/ordersByStore")
     public getOrdersByStore() {
-        const storeOrders = new Array();
-        storeOrders.push({
-            storeName: "Store 1",
-            ordersCount: 77
-        });
-
-        storeOrders.push({
-            storeName: "Store 2",
-            ordersCount: 123
-        });
-
-        storeOrders.push({
-            storeName: "Store 3",
-            ordersCount: 50
-        });
-
-        storeOrders.push({
-            storeName: "Store 4",
-            ordersCount: 151
-        });
-
         return {
-            storeOrders: storeOrders
+            storeOrders: this.getTodaysOrdersByStore()
         };
+    }
+
+    private getTodaysOrdersByStore(): any[] {
+        const sql = `
+            SELECT s.STORE_NAME, o.TOTAL_ORDERS
+            FROM CODBEX_STORE as s
+            INNER JOIN ( 
+                SELECT SALESORDER_STORE as STORE_ID, COUNT(*) as TOTAL_ORDERS
+                FROM CODBEX_SALESORDER as so
+                WHERE so.SALESORDER_DATEADDED > CURRENT_DATE
+                GROUP BY SALESORDER_STORE
+                ) as o
+            on s.STORE_ID = o.STORE_ID
+        `;
+        const resulSet = query.execute(sql);
+
+        const orders = new Array();
+
+        resulSet.forEach(result => {
+            orders.push({
+                storeName: result.STORE_NAME,
+                orders: result.TOTAL_ORDERS
+            });
+        });
+
+        return orders;
     }
 
     @Get("/productsData/outOfStockProducts")

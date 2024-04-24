@@ -25,8 +25,8 @@ dashboard.controller('DashboardController', ['$scope', '$document', '$http', 'me
                 const labels = new Array();
                 const counts = new Array();
                 orderStatuses.forEach((orderStatusData) => {
-                    labels.push(orderStatusData.name);
-                    counts.push(orderStatusData.count);
+                    labels.push(orderStatusData.statusName);
+                    counts.push(orderStatusData.ordersCount);
                 });
 
                 // Doughnut Chart Data
@@ -75,7 +75,7 @@ dashboard.controller('DashboardController', ['$scope', '$document', '$http', 'me
                 const ordersCount = new Array();
                 storeOrders.forEach((storeData) => {
                     storeNames.push(storeData.storeName);
-                    ordersCount.push(storeData.ordersCount);
+                    ordersCount.push(storeData.orders);
                 });
 
                 // Doughnut Chart Data
