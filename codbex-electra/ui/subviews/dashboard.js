@@ -10,6 +10,7 @@ dashboard.controller('DashboardController', ['$scope', '$document', '$http', 'me
     angular.element($document[0]).ready(async function () {
         initOrderStatusesChart();
         initOrdersByStoreChart();
+        initProductWithLowQuantity();
 
         $scope.$apply(function () {
             $scope.state.isBusy = false;
@@ -105,6 +106,55 @@ dashboard.controller('DashboardController', ['$scope', '$document', '$http', 'me
 
                 // Initialize Doughnut Chart
                 const doughnutChartCtx = $document[0].getElementById('doughnutChartOrdersByStore').getContext('2d');
+
+                new Chart(doughnutChartCtx, {
+                    type: 'doughnut',
+                    data: doughnutData,
+                    options: doughnutOptions
+                });
+            });
+    }
+
+    function initProductWithLowQuantity() {
+        const serviceUrl = "/services/ts/codbex-electra/ui/api/DashboardService.ts/productsData/productWithLowQuantity";
+        $http.get(serviceUrl)
+            .then(function (response) {
+                const products = response.data.products;
+
+                const labels = new Array();
+                const counts = new Array();
+                products.forEach((product) => {
+                    labels.push(product.productName);
+                    counts.push(product.quantity);
+                });
+
+                // Doughnut Chart Data
+                const doughnutData = {
+                    labels: labels,
+                    datasets: [{
+                        data: counts
+                    }]
+                };
+
+                // Doughnut Chart Configuration
+                const doughnutOptions = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: {
+                        position: 'bottom'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Product Status'
+                    },
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true
+                    }
+                };
+
+                // Initialize Doughnut Chart
+                const doughnutChartCtx = $document[0].getElementById('doughnutChartProductsLowQuantity').getContext('2d');
 
                 new Chart(doughnutChartCtx, {
                     type: 'doughnut',

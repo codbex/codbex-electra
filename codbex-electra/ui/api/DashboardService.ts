@@ -111,10 +111,37 @@ class DashboardService {
 
     @Get("/productsData/outOfStockProducts")
     public getOutOfStockProducts() {
+        const sql = `
+            SELECT COUNT(PRODUCT_ID) as TOTAL_PRODUCTS
+            FROM CODBEX_PRODUCT as p
+            WHERE PRODUCT_QUANTITY <= 0
+        `;
+        const resulSet = query.execute(sql);
+        return {
+            outOfStockProducts: resulSet[0].TOTAL_PRODUCTS
+        }
+    }
+
+    @Get("/productsData/productWithLowQuantity")
+    public getProductWithLowQuantity() {
+        const sql = `
+            SELECT p.PRODUCT_MODEL as PRODUCT_MODEL, p.PRODUCT_QUANTITY as PRODUCT_QUANTITY
+            FROM CODBEX_PRODUCT as p
+            WHERE PRODUCT_QUANTITY < 30
+        `;
+        const resulSet = query.execute(sql);
+        const products = new Array();
+
+        resulSet.forEach(result => {
+            products.push({
+                productName: result.PRODUCT_MODEL,
+                quantity: result.PRODUCT_QUANTITY
+            });
+        });
 
         return {
-            outOfStockProducts: 37
-        };
+            products: products
+        }
     }
 
     @Get("/productsData/soldProducts")
