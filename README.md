@@ -169,6 +169,9 @@ In the following table, you can find the dependencies between entities.
 
 ## User interface
 
+### Dashboard
+![dashboard](misc/images/user-interface/dashboard.png)
+
 ### Sales Orders
 
 #### Items
