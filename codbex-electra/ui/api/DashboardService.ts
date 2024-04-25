@@ -85,9 +85,9 @@ class DashboardService {
 
     private getTodaysOrdersByStore(): any[] {
         const sql = `
-            SELECT s.STORE_NAME, o.TOTAL_ORDERS
+            SELECT s.STORE_NAME as STORE_NAME, COALESCE(o.TOTAL_ORDERS, 0) as TOTAL_ORDERS
             FROM CODBEX_STORE as s
-            INNER JOIN ( 
+            LEFT JOIN ( 
                 SELECT SALESORDER_STORE as STORE_ID, COUNT(*) as TOTAL_ORDERS
                 FROM CODBEX_SALESORDER as so
                 WHERE so.SALESORDER_DATEADDED > CURRENT_DATE
@@ -154,7 +154,7 @@ class DashboardService {
 
     private getTodaysSoldItems(): number {
         const sql = `
-            SELECT SUM(i.ORDERITEM_QUANTITY) as SOLD_ITEMS
+            SELECT COALESCE(SUM(i.ORDERITEM_QUANTITY), 0) as SOLD_ITEMS
             FROM CODBEX_SALESORDER as so
             INNER JOIN CODBEX_SALESORDERITEM i
             ON so.SALESORDER_ID = i.ORDERITEM_SALESORDER
