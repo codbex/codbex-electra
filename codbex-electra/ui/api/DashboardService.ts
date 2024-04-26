@@ -4,10 +4,6 @@ import { query } from "sdk/db";
 @Controller
 class DashboardService {
 
-
-    constructor() {
-    }
-
     @Get("/ordersData/orders")
     public getOrders() {
         return {
@@ -27,22 +23,6 @@ class DashboardService {
 
     @Get("/ordersData/orderStatuses")
     public getOrdersData() {
-        const orderStatuses = new Array();
-        orderStatuses.push({
-            name: "Pending",
-            count: 19
-        });
-
-        orderStatuses.push({
-            name: "Complete",
-            count: 125
-        });
-
-        orderStatuses.push({
-            name: "Shipped",
-            count: 50
-        });
-
         return {
             orderStatuses: this.getTodaysOrderStatuses()
         };
@@ -51,16 +31,15 @@ class DashboardService {
 
     private getTodaysOrderStatuses(): any[] {
         const sql = `
-            SELECT s.ORDERSTATUS_NAME as STATUS_NAME, so.TOTAL_ORDERS as TOTAL_ORDERS
-            FROM (
+            SELECT s.ORDERSTATUS_NAME as STATUS_NAME, COALESCE(so.TOTAL_ORDERS, 0) as TOTAL_ORDERS
+            FROM CODBEX_ORDERSTATUS as s
+            LEFT JOIN (
                 SELECT so.SALESORDER_STATUS as STATUS_ID, COUNT(SALESORDER_ID) as TOTAL_ORDERS
                 FROM CODBEX_SALESORDER as so
                 WHERE so.SALESORDER_DATEADDED > CURRENT_DATE
                 GROUP BY SALESORDER_STATUS
             ) as so
-            INNER JOIN CODBEX_ORDERSTATUS as s
             ON so.STATUS_ID = s.ORDERSTATUS_ID
-
         `;
         const resulSet = query.execute(sql);
 
