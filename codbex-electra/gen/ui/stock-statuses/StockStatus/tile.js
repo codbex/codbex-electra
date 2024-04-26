@@ -5,7 +5,7 @@
  */
 exports.getTile = function () {
     return {
-        group: "stock-statuses",
+        group: "stock statuses",
         name: "StockStatus",
         caption: "Manage entity StockStatus",
         tooltip: "StockStatus",

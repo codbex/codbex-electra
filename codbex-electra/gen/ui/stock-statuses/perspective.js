@@ -5,7 +5,7 @@
  */
 const perspectiveData = {
 	id: 'stock-statuses',
-	name: 'stock-statuses',
+	name: 'stock statuses',
 	link: '/services/web/codbex-electra/gen/ui/stock-statuses/index.html',
 	order: 910,
 	icon: '/services/web/resources/unicons/wrench.svg',
