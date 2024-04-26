@@ -64,7 +64,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Currency_CurrencyStatus",
                         "relationshipEntityName": "CurrencyStatus",
-                        "relationshipEntityPerspectiveName": "currency-statuses"
+                        "relationshipEntityPerspectiveName": "currency-statuses",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -191,7 +192,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}CURRENCY\"",
                 "dataName": "CURRENCY",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "25",
@@ -200,6 +200,7 @@
                 "name": "Currency",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveLabel": "currencies",
                 "perspectiveName": "currencies",
                 "perspectiveOrder": "905",
                 "perspectiveRole": "",
@@ -272,7 +273,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_Store",
                         "relationshipEntityName": "Store",
-                        "relationshipEntityPerspectiveName": "stores"
+                        "relationshipEntityPerspectiveName": "stores",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -297,7 +299,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_OrderStatus",
                         "relationshipEntityName": "OrderStatus",
-                        "relationshipEntityPerspectiveName": "order-statuses"
+                        "relationshipEntityPerspectiveName": "order-statuses",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -342,7 +345,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_Currency",
                         "relationshipEntityName": "Currency",
-                        "relationshipEntityPerspectiveName": "currencies"
+                        "relationshipEntityPerspectiveName": "currencies",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -367,7 +371,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_Customer",
                         "relationshipEntityName": "Customer",
-                        "relationshipEntityPerspectiveName": "customers"
+                        "relationshipEntityPerspectiveName": "customers",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "Date.now()",
@@ -532,14 +537,14 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_Language",
                         "relationshipEntityName": "Language",
-                        "relationshipEntityPerspectiveName": "languages"
+                        "relationshipEntityPerspectiveName": "languages",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],
                 "caption": "Manage entity Order",
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SALESORDER\"",
                 "dataName": "SALESORDER",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "importsCode": "aW1wb3J0IHsgTnVtYmVyR2VuZXJhdG9yU2VydmljZSB9IGZyb20gIi9jb2RiZXgtbnVtYmVyLWdlbmVyYXRvci9zZXJ2aWNlL2dlbmVyYXRvciI7",
                 "layoutType": "MANAGE_MASTER",
@@ -549,6 +554,7 @@
                 "name": "SalesOrder",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
+                "perspectiveLabel": "salesorders",
                 "perspectiveName": "sales-orders",
                 "perspectiveOrder": "200",
                 "perspectiveRole": "",
@@ -639,7 +645,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Store_StoreType",
                         "relationshipEntityName": "StoreType",
-                        "relationshipEntityPerspectiveName": "store-types"
+                        "relationshipEntityPerspectiveName": "store-types",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -666,7 +673,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}STORE\"",
                 "dataName": "STORE",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_MASTER",
                 "menuIndex": "10",
@@ -675,6 +681,7 @@
                 "name": "Store",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/store.svg",
+                "perspectiveLabel": "stores",
                 "perspectiveName": "stores",
                 "perspectiveOrder": "500",
                 "perspectiveRole": "",
@@ -785,7 +792,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Customer_Store",
                         "relationshipEntityName": "Store",
-                        "relationshipEntityPerspectiveName": "stores"
+                        "relationshipEntityPerspectiveName": "stores",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -810,7 +818,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Customer_CustomerStatus",
                         "relationshipEntityName": "CustomerStatus",
-                        "relationshipEntityPerspectiveName": "customer-statuses"
+                        "relationshipEntityPerspectiveName": "customer-statuses",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -895,14 +904,14 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Customer_Language",
                         "relationshipEntityName": "Language",
-                        "relationshipEntityPerspectiveName": "languages"
+                        "relationshipEntityPerspectiveName": "languages",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],
                 "caption": "Manage entity Customer",
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}CUSTOMER\"",
                 "dataName": "CUSTOMER",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_MASTER",
                 "menuIndex": "100",
@@ -911,6 +920,7 @@
                 "name": "Customer",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/users-alt.svg",
+                "perspectiveLabel": "customers",
                 "perspectiveName": "customers",
                 "perspectiveOrder": "300",
                 "perspectiveRole": "",
@@ -981,7 +991,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Country_CountryStatus",
                         "relationshipEntityName": "CountryStatus",
-                        "relationshipEntityPerspectiveName": "country-statuses"
+                        "relationshipEntityPerspectiveName": "country-statuses",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -1048,7 +1059,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}COUNTRY\"",
                 "dataName": "COUNTRY",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "40",
@@ -1057,6 +1067,7 @@
                 "name": "Country",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveLabel": "countries",
                 "perspectiveName": "countries",
                 "perspectiveOrder": "920",
                 "perspectiveRole": "",
@@ -1109,7 +1120,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}COUNTRYSTATUS\"",
                 "dataName": "COUNTRYSTATUS",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "LIST",
                 "menuIndex": "1000",
@@ -1118,6 +1128,7 @@
                 "name": "CountryStatus",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveLabel": "country-statuses",
                 "perspectiveName": "country-statuses",
                 "perspectiveOrder": "950",
                 "perspectiveRole": "",
@@ -1168,7 +1179,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Zone_Country",
                         "relationshipEntityName": "Country",
-                        "relationshipEntityPerspectiveName": "countries"
+                        "relationshipEntityPerspectiveName": "countries",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -1213,7 +1225,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Zone_ZoneStatus",
                         "relationshipEntityName": "ZoneStatus",
-                        "relationshipEntityPerspectiveName": "zone-statuses"
+                        "relationshipEntityPerspectiveName": "zone-statuses",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -1240,7 +1253,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}ZONE\"",
                 "dataName": "ZONE",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "50",
@@ -1249,6 +1261,7 @@
                 "name": "Zone",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveLabel": "zones",
                 "perspectiveName": "zones",
                 "perspectiveOrder": "925",
                 "perspectiveRole": "",
@@ -1301,7 +1314,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}ZONESTATUS\"",
                 "dataName": "ZONESTATUS",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "LIST",
                 "menuIndex": "1000",
@@ -1310,6 +1322,7 @@
                 "name": "ZoneStatus",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveLabel": "zone-statuses",
                 "perspectiveName": "zone-statuses",
                 "perspectiveOrder": "955",
                 "perspectiveRole": "",
@@ -1360,7 +1373,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "OrderStatus_Language",
                         "relationshipEntityName": "Language",
-                        "relationshipEntityPerspectiveName": "languages"
+                        "relationshipEntityPerspectiveName": "languages",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -1407,7 +1421,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}ORDERSTATUS\"",
                 "dataName": "ORDERSTATUS",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "30",
@@ -1416,6 +1429,7 @@
                 "name": "OrderStatus",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveLabel": "order-statuses",
                 "perspectiveName": "order-statuses",
                 "perspectiveOrder": "915",
                 "perspectiveRole": "",
@@ -1528,14 +1542,14 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Language_LanguageStatus",
                         "relationshipEntityName": "LanguageStatus",
-                        "relationshipEntityPerspectiveName": "language-statuses"
+                        "relationshipEntityPerspectiveName": "language-statuses",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],
                 "caption": "Manage entity Language",
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}LANGUAGE\"",
                 "dataName": "LANGUAGE",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "20",
@@ -1544,6 +1558,7 @@
                 "name": "Language",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveLabel": "languages",
                 "perspectiveName": "languages",
                 "perspectiveOrder": "900",
                 "perspectiveRole": "",
@@ -1596,7 +1611,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}LANGUAGESTATUS\"",
                 "dataName": "LANGUAGESTATUS",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "LIST",
                 "menuIndex": "1000",
@@ -1605,6 +1619,7 @@
                 "name": "LanguageStatus",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveLabel": "language-statuses",
                 "perspectiveName": "language-statuses",
                 "perspectiveOrder": "940",
                 "perspectiveRole": "",
@@ -1659,7 +1674,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}CUSTOMERSTATUS\"",
                 "dataName": "CUSTOMERSTATUS",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "LIST",
                 "menuIndex": "1000",
@@ -1668,6 +1682,7 @@
                 "name": "CustomerStatus",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveLabel": "customer-statuses",
                 "perspectiveName": "customer-statuses",
                 "perspectiveOrder": "960",
                 "perspectiveRole": "",
@@ -1718,7 +1733,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrderItem_Product",
                         "relationshipEntityName": "Product",
-                        "relationshipEntityPerspectiveName": "products"
+                        "relationshipEntityPerspectiveName": "products",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -1743,7 +1759,8 @@
                         "widgetSize": "",
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "SalesOrder",
-                        "relationshipEntityPerspectiveName": "sales-orders"
+                        "relationshipEntityPerspectiveName": "sales-orders",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -1870,7 +1887,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SALESORDERITEM\"",
                 "dataName": "SALESORDERITEM",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_DETAILS",
                 "menuIndex": "100",
@@ -1879,6 +1895,7 @@
                 "name": "SalesOrderItem",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
+                "perspectiveLabel": "salesorders",
                 "perspectiveName": "sales-orders",
                 "perspectiveOrder": "200",
                 "perspectiveRole": "",
@@ -1949,7 +1966,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Product_Manufacturer",
                         "relationshipEntityName": "Manufacturer",
-                        "relationshipEntityPerspectiveName": "manufacturers"
+                        "relationshipEntityPerspectiveName": "manufacturers",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -1974,7 +1992,8 @@
                         "widgetType": "CHECKBOX",
                         "relationshipName": "Product_ProductStatus",
                         "relationshipEntityName": "ProductStatus",
-                        "relationshipEntityPerspectiveName": "product-statuses"
+                        "relationshipEntityPerspectiveName": "product-statuses",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -2443,14 +2462,14 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Product_StockStatus",
                         "relationshipEntityName": "StockStatus",
-                        "relationshipEntityPerspectiveName": "stock-statuses"
+                        "relationshipEntityPerspectiveName": "stock-statuses",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],
                 "caption": "Manage entity Product",
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PRODUCT\"",
                 "dataName": "PRODUCT",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_MASTER",
                 "menuIndex": "100",
@@ -2459,6 +2478,7 @@
                 "name": "Product",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+                "perspectiveLabel": "products",
                 "perspectiveName": "products",
                 "perspectiveOrder": "415",
                 "perspectiveRole": "",
@@ -2509,7 +2529,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "StockStatus_Language",
                         "relationshipEntityName": "Language",
-                        "relationshipEntityPerspectiveName": "languages"
+                        "relationshipEntityPerspectiveName": "languages",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -2536,7 +2557,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}STOCKSTATUS\"",
                 "dataName": "STOCKSTATUS",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "LIST",
                 "menuIndex": "1000",
@@ -2545,6 +2565,7 @@
                 "name": "StockStatus",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveLabel": "stock statuses",
                 "perspectiveName": "stock-statuses",
                 "perspectiveOrder": "910",
                 "perspectiveRole": "",
@@ -2619,7 +2640,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}MANUFACTURER\"",
                 "dataName": "MANUFACTURER",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "200",
@@ -2628,6 +2648,7 @@
                 "name": "Manufacturer",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+                "perspectiveLabel": "manufacturers",
                 "perspectiveName": "manufacturers",
                 "perspectiveOrder": "400",
                 "perspectiveRole": "",
@@ -2680,7 +2701,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PRODUCTSTATUS\"",
                 "dataName": "PRODUCTSTATUS",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "LIST",
                 "menuIndex": "1000",
@@ -2689,6 +2709,7 @@
                 "name": "ProductStatus",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveLabel": "product-statuses",
                 "perspectiveName": "product-statuses",
                 "perspectiveOrder": "965",
                 "perspectiveRole": "",
@@ -2799,7 +2820,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Employee_EmployeeStatus",
                         "relationshipEntityName": "EmployeeStatus",
-                        "relationshipEntityPerspectiveName": "employee-statuses"
+                        "relationshipEntityPerspectiveName": "employee-statuses",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -2886,7 +2908,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}EMPLOYEE\"",
                 "dataName": "EMPLOYEE",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "200",
@@ -2895,6 +2916,7 @@
                 "name": "Employee",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
+                "perspectiveLabel": "employees",
                 "perspectiveName": "employees",
                 "perspectiveOrder": "612",
                 "perspectiveRole": "",
@@ -2947,7 +2969,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}EMPLOYEESTATUS\"",
                 "dataName": "EMPLOYEESTATUS",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "LIST",
                 "menuIndex": "1000",
@@ -2956,6 +2977,7 @@
                 "name": "EmployeeStatus",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveLabel": "employee-statuses",
                 "perspectiveName": "employee-statuses",
                 "perspectiveOrder": "970",
                 "perspectiveRole": "",
@@ -3006,7 +3028,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrderPayment_Zone",
                         "relationshipEntityName": "Zone",
-                        "relationshipEntityPerspectiveName": "zones"
+                        "relationshipEntityPerspectiveName": "zones",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -3131,7 +3154,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrderPayment_Country",
                         "relationshipEntityName": "Country",
-                        "relationshipEntityPerspectiveName": "countries"
+                        "relationshipEntityPerspectiveName": "countries",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -3276,14 +3300,14 @@
                         "widgetSize": "",
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "SalesOrder",
-                        "relationshipEntityPerspectiveName": "sales-orders"
+                        "relationshipEntityPerspectiveName": "sales-orders",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],
                 "caption": "Manage entity SalesOrderPayment",
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SALESORDERPAYMENT\"",
                 "dataName": "SALESORDERPAYMENT",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_DETAILS",
                 "menuIndex": "100",
@@ -3292,6 +3316,7 @@
                 "name": "SalesOrderPayment",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
+                "perspectiveLabel": "salesorders",
                 "perspectiveName": "sales-orders",
                 "perspectiveOrder": "200",
                 "perspectiveRole": "",
@@ -3342,7 +3367,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrderShipping_Zone",
                         "relationshipEntityName": "Zone",
-                        "relationshipEntityPerspectiveName": "zones"
+                        "relationshipEntityPerspectiveName": "zones",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -3467,7 +3493,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrderShipping_Country",
                         "relationshipEntityName": "Country",
-                        "relationshipEntityPerspectiveName": "countries"
+                        "relationshipEntityPerspectiveName": "countries",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -3632,14 +3659,14 @@
                         "widgetSize": "",
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "SalesOrder",
-                        "relationshipEntityPerspectiveName": "sales-orders"
+                        "relationshipEntityPerspectiveName": "sales-orders",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],
                 "caption": "Manage entity SalesOrderShipping",
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SALESORDERSHIPPING\"",
                 "dataName": "SALESORDERSHIPPING",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_DETAILS",
                 "menuIndex": "100",
@@ -3648,6 +3675,7 @@
                 "name": "SalesOrderShipping",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
+                "perspectiveLabel": "salesorders",
                 "perspectiveName": "sales-orders",
                 "perspectiveOrder": "200",
                 "perspectiveRole": "",
@@ -3700,7 +3728,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}CURRENCYSTATUS\"",
                 "dataName": "CURRENCYSTATUS",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "LIST",
                 "menuIndex": "1000",
@@ -3709,6 +3736,7 @@
                 "name": "CurrencyStatus",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveLabel": "currency-statuses",
                 "perspectiveName": "currency-statuses",
                 "perspectiveOrder": "945",
                 "perspectiveRole": "",
@@ -3803,7 +3831,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}GROUP\"",
                 "dataName": "GROUP",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "300",
@@ -3812,6 +3839,7 @@
                 "name": "Group",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
+                "perspectiveLabel": "groups",
                 "perspectiveName": "groups",
                 "perspectiveOrder": "600",
                 "perspectiveRole": "",
@@ -3866,7 +3894,8 @@
                         "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "AttributeGroup",
-                        "relationshipEntityPerspectiveName": "attribute-groups"
+                        "relationshipEntityPerspectiveName": "attribute-groups",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -3893,7 +3922,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}ATTRIBUTE\"",
                 "dataName": "ATTRIBUTE",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_MASTER",
                 "menuIndex": "500",
@@ -3902,6 +3930,7 @@
                 "name": "Attribute",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+                "perspectiveLabel": "product-attributes",
                 "perspectiveName": "product-attributes",
                 "perspectiveOrder": "407",
                 "perspectiveRole": "",
@@ -3956,7 +3985,8 @@
                         "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "Product",
-                        "relationshipEntityPerspectiveName": "products"
+                        "relationshipEntityPerspectiveName": "products",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -3981,7 +4011,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "ProductAttribute_Attribute",
                         "relationshipEntityName": "Attribute",
-                        "relationshipEntityPerspectiveName": "product-attributes"
+                        "relationshipEntityPerspectiveName": "product-attributes",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -4006,7 +4037,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "ProductAttribute_Language",
                         "relationshipEntityName": "Language",
-                        "relationshipEntityPerspectiveName": "languages"
+                        "relationshipEntityPerspectiveName": "languages",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -4033,7 +4065,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PRODUCTATTRIBUTE\"",
                 "dataName": "PRODUCTATTRIBUTE",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_DETAILS",
                 "menuIndex": "100",
@@ -4042,6 +4073,7 @@
                 "name": "ProductAttribute",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+                "perspectiveLabel": "products",
                 "perspectiveName": "products",
                 "perspectiveOrder": "415",
                 "perspectiveRole": "",
@@ -4096,7 +4128,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}ATTRIBUTEGROUP\"",
                 "dataName": "ATTRIBUTEGROUP",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_MASTER",
                 "menuIndex": "300",
@@ -4105,6 +4136,7 @@
                 "name": "AttributeGroup",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+                "perspectiveLabel": "attribute-groups",
                 "perspectiveName": "attribute-groups",
                 "perspectiveOrder": "405",
                 "perspectiveRole": "",
@@ -4257,14 +4289,14 @@
                         "widgetSize": "",
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "SalesOrder",
-                        "relationshipEntityPerspectiveName": "sales-orders"
+                        "relationshipEntityPerspectiveName": "sales-orders",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],
                 "caption": "Manage entity SalesOrderComment",
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SALESORDERCOMMENT\"",
                 "dataName": "SALESORDERCOMMENT",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_DETAILS",
                 "menuIndex": "100",
@@ -4273,6 +4305,7 @@
                 "name": "SalesOrderComment",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
+                "perspectiveLabel": "salesorders",
                 "perspectiveName": "sales-orders",
                 "perspectiveOrder": "200",
                 "perspectiveRole": "",
@@ -4325,7 +4358,8 @@
                         "widgetSize": "",
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "Attribute",
-                        "relationshipEntityPerspectiveName": "product-attributes"
+                        "relationshipEntityPerspectiveName": "product-attributes",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -4350,7 +4384,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "AttributeTranslation_Language",
                         "relationshipEntityName": "Language",
-                        "relationshipEntityPerspectiveName": "languages"
+                        "relationshipEntityPerspectiveName": "languages",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -4377,7 +4412,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}ATTRIBUTETRANSLATION\"",
                 "dataName": "ATTRIBUTETRANSLATION",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_DETAILS",
                 "menuIndex": "400",
@@ -4386,6 +4420,7 @@
                 "name": "AttributeTranslation",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+                "perspectiveLabel": "product-attributes",
                 "perspectiveName": "product-attributes",
                 "perspectiveOrder": "407",
                 "perspectiveRole": "",
@@ -4440,7 +4475,8 @@
                         "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "Product",
-                        "relationshipEntityPerspectiveName": "products"
+                        "relationshipEntityPerspectiveName": "products",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -4465,7 +4501,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "ProductDescription_Language",
                         "relationshipEntityName": "Language",
-                        "relationshipEntityPerspectiveName": "languages"
+                        "relationshipEntityPerspectiveName": "languages",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -4592,7 +4629,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PRODUCTDESCRIPTION\"",
                 "dataName": "PRODUCTDESCRIPTION",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_DETAILS",
                 "menuIndex": "100",
@@ -4601,6 +4637,7 @@
                 "name": "ProductDescription",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+                "perspectiveLabel": "products",
                 "perspectiveName": "products",
                 "perspectiveOrder": "415",
                 "perspectiveRole": "",
@@ -4655,7 +4692,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PERMISSION\"",
                 "dataName": "PERMISSION",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "LIST",
                 "menuIndex": "100",
@@ -4664,6 +4700,7 @@
                 "name": "Permission",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
+                "perspectiveLabel": "permissions",
                 "perspectiveName": "permissions",
                 "perspectiveOrder": "604",
                 "perspectiveRole": "",
@@ -4714,7 +4751,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "GroupEmployee_Employee",
                         "relationshipEntityName": "Employee",
-                        "relationshipEntityPerspectiveName": "employees"
+                        "relationshipEntityPerspectiveName": "employees",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -4739,7 +4777,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "GroupEmployee_Group",
                         "relationshipEntityName": "Group",
-                        "relationshipEntityPerspectiveName": "groups"
+                        "relationshipEntityPerspectiveName": "groups",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "require(\"security/user\").getName()",
@@ -4786,7 +4825,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}GROUPEMPLOYEE\"",
                 "dataName": "GROUPEMPLOYEE",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "400",
@@ -4795,6 +4833,7 @@
                 "name": "GroupEmployee",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
+                "perspectiveLabel": "group-employees",
                 "perspectiveName": "group-employees",
                 "perspectiveOrder": "616",
                 "perspectiveRole": "",
@@ -4845,7 +4884,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "GroupPermission_Group",
                         "relationshipEntityName": "Group",
-                        "relationshipEntityPerspectiveName": "groups"
+                        "relationshipEntityPerspectiveName": "groups",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -4870,7 +4910,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "GroupPermission_Permission",
                         "relationshipEntityName": "Permission",
-                        "relationshipEntityPerspectiveName": "permissions"
+                        "relationshipEntityPerspectiveName": "permissions",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "require(\"security/user\").getName()",
@@ -4917,7 +4958,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}GROUPPERMISSION\"",
                 "dataName": "GROUPPERMISSION",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "500",
@@ -4926,6 +4966,7 @@
                 "name": "GroupPermission",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/lock.svg",
+                "perspectiveLabel": "group-permissions",
                 "perspectiveName": "group-permissions",
                 "perspectiveOrder": "608",
                 "perspectiveRole": "",
@@ -5100,7 +5141,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}ENTITYREFERENCE\"",
                 "dataName": "ENTITYREFERENCE",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "LIST",
                 "menuIndex": "100",
@@ -5109,6 +5149,7 @@
                 "name": "EntityReference",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveLabel": "entity-references",
                 "perspectiveName": "entity-references",
                 "perspectiveOrder": "975",
                 "perspectiveRole": "",
@@ -5163,7 +5204,8 @@
                         "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "Store",
-                        "relationshipEntityPerspectiveName": "stores"
+                        "relationshipEntityPerspectiveName": "stores",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -5188,7 +5230,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "StoreConfiguration_StoreConfigurationProperty",
                         "relationshipEntityName": "StoreConfigurationProperty",
-                        "relationshipEntityPerspectiveName": "store-configurations"
+                        "relationshipEntityPerspectiveName": "store-configurations",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -5215,7 +5258,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}STORECONFIGURATION\"",
                 "dataName": "STORECONFIGURATION",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_DETAILS",
                 "menuIndex": "100",
@@ -5224,6 +5266,7 @@
                 "name": "StoreConfiguration",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/store.svg",
+                "perspectiveLabel": "stores",
                 "perspectiveName": "stores",
                 "perspectiveOrder": "500",
                 "perspectiveRole": "",
@@ -5276,7 +5319,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}STORECONFIGURATIONPROPERTY\"",
                 "dataName": "STORECONFIGURATIONPROPERTY",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "100",
@@ -5285,6 +5327,7 @@
                 "name": "StoreConfigurationProperty",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/store.svg",
+                "perspectiveLabel": "store-configurations",
                 "perspectiveName": "store-configurations",
                 "perspectiveOrder": "497",
                 "perspectiveRole": "",
@@ -5339,7 +5382,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}STORETYPE\"",
                 "dataName": "STORETYPE",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "LIST",
                 "menuIndex": "100",
@@ -5348,6 +5390,7 @@
                 "name": "StoreType",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/store.svg",
+                "perspectiveLabel": "store-types",
                 "perspectiveName": "store-types",
                 "perspectiveOrder": "495",
                 "perspectiveRole": "",
@@ -5402,7 +5445,8 @@
                         "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "Product",
-                        "relationshipEntityPerspectiveName": "products"
+                        "relationshipEntityPerspectiveName": "products",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -5427,14 +5471,14 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "ProductToStore_Store",
                         "relationshipEntityName": "Store",
-                        "relationshipEntityPerspectiveName": "stores"
+                        "relationshipEntityPerspectiveName": "stores",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],
                 "caption": "Manage entity ProductToStore",
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PRODUCTTOSTORE\"",
                 "dataName": "PRODUCTTOSTORE",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_DETAILS",
                 "menuIndex": "100",
@@ -5443,6 +5487,7 @@
                 "name": "ProductToStore",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+                "perspectiveLabel": "products",
                 "perspectiveName": "products",
                 "perspectiveOrder": "415",
                 "perspectiveRole": "",
@@ -5497,7 +5542,8 @@
                         "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "AttributeGroup",
-                        "relationshipEntityPerspectiveName": "attribute-groups"
+                        "relationshipEntityPerspectiveName": "attribute-groups",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -5522,7 +5568,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "AttributeGroupTranslation_Language",
                         "relationshipEntityName": "Language",
-                        "relationshipEntityPerspectiveName": "languages"
+                        "relationshipEntityPerspectiveName": "languages",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -5549,7 +5596,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}ATTRIBUTEGROUPTRANSLATION\"",
                 "dataName": "ATTRIBUTEGROUPTRANSLATION",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_DETAILS",
                 "menuIndex": "100",
@@ -5558,6 +5604,7 @@
                 "name": "AttributeGroupTranslation",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+                "perspectiveLabel": "attribute-groups",
                 "perspectiveName": "attribute-groups",
                 "perspectiveOrder": "405",
                 "perspectiveRole": "",
@@ -5692,7 +5739,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}CATEGORY\"",
                 "dataName": "CATEGORY",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_MASTER",
                 "menuIndex": "100",
@@ -5701,6 +5747,7 @@
                 "name": "Category",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+                "perspectiveLabel": "product-categories",
                 "perspectiveName": "product-categories",
                 "perspectiveOrder": "410",
                 "perspectiveRole": "",
@@ -5753,7 +5800,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "ProductToCategory_Category",
                         "relationshipEntityName": "Category",
-                        "relationshipEntityPerspectiveName": "product-categories"
+                        "relationshipEntityPerspectiveName": "product-categories",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -5780,14 +5828,14 @@
                         "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "Product",
-                        "relationshipEntityPerspectiveName": "products"
+                        "relationshipEntityPerspectiveName": "products",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],
                 "caption": "Manage entity ProductToCategory",
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PRODUCTTOCATEGORY\"",
                 "dataName": "PRODUCTTOCATEGORY",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_DETAILS",
                 "menuIndex": "100",
@@ -5796,6 +5844,7 @@
                 "name": "ProductToCategory",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+                "perspectiveLabel": "products",
                 "perspectiveName": "products",
                 "perspectiveOrder": "415",
                 "perspectiveRole": "",
@@ -5850,7 +5899,8 @@
                         "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "Category",
-                        "relationshipEntityPerspectiveName": "product-categories"
+                        "relationshipEntityPerspectiveName": "product-categories",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -5877,7 +5927,8 @@
                         "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "Language",
-                        "relationshipEntityPerspectiveName": "languages"
+                        "relationshipEntityPerspectiveName": "languages",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -5984,7 +6035,6 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}CATEGORYTRANSLATION\"",
                 "dataName": "CATEGORYTRANSLATION",
                 "dataQuery": "",
-                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_DETAILS",
                 "menuIndex": "100",
@@ -5993,6 +6043,7 @@
                 "name": "CategoryTranslation",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/box.svg",
+                "perspectiveLabel": "product-categories",
                 "perspectiveName": "product-categories",
                 "perspectiveOrder": "410",
                 "perspectiveRole": "",
