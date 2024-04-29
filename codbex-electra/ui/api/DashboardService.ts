@@ -47,7 +47,7 @@ class DashboardService {
 
         resulSet.forEach(result => {
             orderStatuses.push({
-                statusName: result.ORDERSTATUS_NAME,
+                statusName: result.STATUS_NAME,
                 ordersCount: result.TOTAL_ORDERS
             });
         });
