@@ -1,0 +1,5 @@
+{
+    "module": "codbex-electra/ui/services/entity-references.js",
+    "extensionPoint": "ide-subview",
+    "description": "Entity References Subview"
+}

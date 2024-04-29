@@ -1,6 +1,6 @@
-import { ProductToStoreRepository as ProductToStoreDAO, ProductDescriptionEntityOptions } from "../../../../codbex-electra/gen/dao/Products/ProductToStoreRepository";
-import { OpenCartStoreConfig } from "../../../dao/StoreConfigDAO";
-import { BaseHandler } from "../../base-handler";
+import { ProductToStoreRepository as ProductToStoreDAO, ProductToStoreEntityOptions } from "codbex-electra/gen/dao/products/ProductToStoreRepository";
+import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
+import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 
 export function onMessage(message: any) {
     const store: OpenCartStoreConfig = message.getBody();
@@ -43,7 +43,7 @@ class GetStoreProductsHandler extends BaseHandler {
     }
 
     private getStoreProductIds() {
-        const querySettings: ProductDescriptionEntityOptions = {
+        const querySettings: ProductToStoreEntityOptions = {
             $filter: {
                 equals: {
                     Store: this.store.id

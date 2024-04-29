@@ -1,0 +1,5 @@
+{
+    "module": "codbex-electra/ui/services/groups.js",
+    "extensionPoint": "ide-subview",
+    "description": "Groups Subview"
+}

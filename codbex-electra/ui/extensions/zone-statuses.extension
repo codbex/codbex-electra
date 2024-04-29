@@ -1,0 +1,5 @@
+{
+    "module": "codbex-electra/ui/services/zone-statuses.js",
+    "extensionPoint": "ide-subview",
+    "description": "Zone Statuses Subview"
+}

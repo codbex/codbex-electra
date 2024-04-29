@@ -1,6 +1,6 @@
-import { OpenCartStoreConfig } from "../../../dao/StoreConfigDAO";
-import { BaseHandler } from "../../base-handler";
-import { oc_orderRepository as OpenCartOrderDAO, oc_orderEntityOptions } from "../../../dao/oc_orderRepository";
+import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
+import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
+import { oc_orderRepository as OpenCartOrderDAO, oc_orderEntityOptions } from "codbex-electra-opencart/dao/oc_orderRepository";
 
 export function onMessage(message: any) {
     const store: OpenCartStoreConfig = message.getBody();

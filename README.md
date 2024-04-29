@@ -29,7 +29,7 @@ The following Eclipse Dirigible configurations should be available:
 
 | Name | Description | Example value |
 |--|--|--|
-| DIRIGIBLE_HOME_URL | Electra home URL | /services/web/codbex-electra/gen/index.html |
+| DIRIGIBLE_HOME_URL | Electra home URL | /services/web/codbex-electra/ui/index.html |
 | ELECTRA_ECONT_DELIVERY_URL | URL of the deliver with econt | https://delivery.econt.com |
 
 [Here](https://www.dirigible.io/help/setup/setup-environment-variables/) is described how you can provide Dirigible configurations.
@@ -47,7 +47,7 @@ To deploy and run the Electra, you have to follow the steps described bellow.
 
     ![publish-all](misc/images/publish-all.png)
 
-- After a few seconds, the Electra should be available on the following path `/services/web/codbex-electra/gen/index.html`. If the Dirigible is hosted on `localhost`, the URL will be  [http://localhost:8080/services/web/codbex-electra/gen/index.html](http://localhost:8080/services/web/codbex-electra/gen/index.html)
+- After a few seconds, the Electra should be available on the following path `/services/web/codbex-electra/ui/index.html`. If the Dirigible is hosted on `localhost`, the URL will be  [http://localhost:8080/services/web/codbex-electra/ui/index.html](http://localhost:8080/services/web/codbex-electra/ui/index.html)
 
 - To configure a new OpenCart store you have to
     - Create a new Store entry
@@ -169,9 +169,9 @@ In the following table, you can find the dependencies between entities.
 
 ## User interface
 
-### Launchpad
-![application](misc/images/user-interface/launchpad.png)
----
+### Dashboard
+![dashboard](misc/images/user-interface/dashboard.png)
+
 ### Sales Orders
 
 #### Items
@@ -192,14 +192,33 @@ You can print an econt shipping label using the `Print Shipping Label` button.
 
 ![salesorder-econt-label](misc/images/user-interface/sales-order-econt-shipping-label.png)
 ---
+### Customers
+![customers](misc/images/user-interface/customers.png)
+---
 ### Products
+
+#### Manufacturers
+![manufacturers](misc/images/user-interface/manufacturers.png)
+
+#### Attributes
+
+##### Attribute groups
+![attribute-groups](misc/images/user-interface/attribute-groups.png)
+
+##### Attributes
+![attributes](misc/images/user-interface/attributes.png)
+
+#### Products
+##### Categories
+![product-categories](misc/images/user-interface/product-categories.png)
+
+##### Products
 ![products](misc/images/user-interface/products.png)
+
 ---
 ### Stores
 ![stores](misc/images/user-interface/stores.png)
----
-### Customers
-![customers](misc/images/user-interface/customers.png)
+
 ---
 ### Access
 
@@ -216,18 +235,11 @@ You can print an econt shipping label using the `Print Shipping Label` button.
 ![employees](misc/images/user-interface/employees.png)
 
 #### Group assignments
-![group-assignments](misc/images/user-interface/group-assignments.png)
+![group-employees](misc/images/user-interface/group-employees.png)
 ---
 ### Settings
 
-#### Settings launchpad
-![settings](misc/images/user-interface/settings.png)
-
-#### Countries
-![countries](misc/images/user-interface/countries.png)
-
-#### Zones
-![zones](misc/images/user-interface/zones.png)
+### Localisation
 
 #### Languages
 ![languages](misc/images/user-interface/languages.png)
@@ -235,5 +247,17 @@ You can print an econt shipping label using the `Print Shipping Label` button.
 #### Currencies
 ![currencies](misc/images/user-interface/currencies.png)
 
+#### Stock statuses
+![stock-statuses](misc/images/user-interface/stock-statuses.png)
+
 #### Order statuses
 ![order-statuses](misc/images/user-interface/order-statuses.png)
+
+#### Countries
+![countries](misc/images/user-interface/countries.png)
+
+#### Zones
+![zones](misc/images/user-interface/zones.png)
+
+### Configurations
+![configurations](misc/images/user-interface/configurations.png)

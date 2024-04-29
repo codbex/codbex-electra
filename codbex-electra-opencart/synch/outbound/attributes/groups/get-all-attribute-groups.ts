@@ -1,6 +1,6 @@
-import { AttributeGroupRepository as AttributeGroupDAO, AttributeGroupEntityOptions } from "../../../../../codbex-electra/gen/dao/Products/AttributeGroupRepository";
-import { BaseHandler } from "../../../base-handler";
-import { OpenCartStoreConfig } from "../../../../dao/StoreConfigDAO";
+import { AttributeGroupRepository as AttributeGroupDAO, AttributeGroupEntityOptions } from "codbex-electra/gen/dao/attribute-groups/AttributeGroupRepository";
+import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
+import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
 
 export function onMessage(message: any) {
     const store: OpenCartStoreConfig = message.getBody();

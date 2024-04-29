@@ -1,10 +1,10 @@
-import { oc_attribute_groupRepository as OpenCartAttributeGroupDAO, oc_attribute_groupCreateEntity as OpenCartAttributeGroupCreateEntity, oc_attribute_groupUpdateEntity as OpenCartAttributeGroupUpdateEntity } from "../../../../dao/oc_attribute_groupRepository";
-import { oc_attribute_group_descriptionRepository as OpenCartAttributeGroupDescriptionDAO, oc_attribute_group_descriptionCreateEntity as OpenCartAttributeGroupDescriptionCreateEntity, oc_attribute_group_descriptionUpdateEntity as OpenCartAttributeGroupDescriptionUpdateEntity } from "../../../../dao/oc_attribute_group_descriptionRepository";
-import { AttributeGroupTranslationRepository as AttributeGroupTranslationDAO, AttributeGroupTranslationEntity } from "../../../../../codbex-electra/gen/dao/Products/AttributeGroupTranslationRepository";
-import { EntityReferenceDAO } from "../../../../../codbex-electra/dao/EntityReferenceDAO";
-import { EntityReferenceEntity } from "../../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
+import { oc_attribute_groupRepository as OpenCartAttributeGroupDAO, oc_attribute_groupCreateEntity as OpenCartAttributeGroupCreateEntity, oc_attribute_groupUpdateEntity as OpenCartAttributeGroupUpdateEntity } from "codbex-electra-opencart/dao/oc_attribute_groupRepository";
+import { oc_attribute_group_descriptionRepository as OpenCartAttributeGroupDescriptionDAO, oc_attribute_group_descriptionCreateEntity as OpenCartAttributeGroupDescriptionCreateEntity, oc_attribute_group_descriptionUpdateEntity as OpenCartAttributeGroupDescriptionUpdateEntity } from "codbex-electra-opencart/dao/oc_attribute_group_descriptionRepository";
+import { AttributeGroupTranslationRepository as AttributeGroupTranslationDAO, AttributeGroupTranslationEntity } from "codbex-electra/gen/dao/attribute-groups/AttributeGroupTranslationRepository";
+import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
+import { EntityReferenceEntity } from "codbex-electra/gen/dao/entity-references/EntityReferenceRepository";
 import { AttributeGroupEntry } from "./get-all-attribute-groups";
-import { BaseHandler } from "../../../base-handler";
+import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 
 export function onMessage(message: any) {
     const attributeGroupEntry: AttributeGroupEntry = message.getBody();

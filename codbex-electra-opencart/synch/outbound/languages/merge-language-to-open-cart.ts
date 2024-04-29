@@ -1,8 +1,8 @@
-import { EntityReferenceDAO } from "../../../../codbex-electra/dao/EntityReferenceDAO";
-import { EntityReferenceEntity } from "../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
-import { oc_languageRepository as OpenCartLanguageDAO, oc_languageCreateEntity, oc_languageUpdateEntity } from "../../../dao/oc_languageRepository";
-import { LanguageRepository as LanguageDAO } from "../../../../codbex-electra/gen/dao/Settings/LanguageRepository";
-import { BaseHandler } from "../../base-handler";
+import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
+import { EntityReferenceEntity } from "codbex-electra/gen/dao/entity-references/EntityReferenceRepository";
+import { oc_languageRepository as OpenCartLanguageDAO, oc_languageCreateEntity, oc_languageUpdateEntity } from "codbex-electra-opencart/dao/oc_languageRepository";
+import { LanguageRepository as LanguageDAO } from "codbex-electra/gen/dao/languages/LanguageRepository";
+import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { LanguageEntry } from "./get-all-languages";
 
 export function onMessage(message: any) {

@@ -88,6 +88,27 @@
                         "name": "SALESORDER_ID"
                     },
                     {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "SALESORDER_NUMBER"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "SALESORDER_STORE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "SALESORDER_STATUS"
+                    },
+                    {
                         "type": "DECIMAL",
                         "length": 19,
                         "precision": "15",
@@ -100,20 +121,6 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "name": "SALESORDER_CURRENCY"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "name": "SALESORDER_STATUS"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "name": "SALESORDER_STORE"
                     },
                     {
                         "type": "INTEGER",
@@ -2054,13 +2061,13 @@
                 "referencedColumns": "CURRENCYSTATUS_ID"
             },
             {
-                "name": "SalesOrder_Currency",
+                "name": "SalesOrder_Store",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDER",
-                "constraintName": "SalesOrder_Currency",
-                "columns": "SALESORDER_CURRENCY",
-                "referencedTable": "CODBEX_CURRENCY",
-                "referencedColumns": "CURRENCY_ID"
+                "constraintName": "SalesOrder_Store",
+                "columns": "SALESORDER_STORE",
+                "referencedTable": "CODBEX_STORE",
+                "referencedColumns": "STORE_ID"
             },
             {
                 "name": "SalesOrder_OrderStatus",
@@ -2072,13 +2079,13 @@
                 "referencedColumns": "ORDERSTATUS_ID"
             },
             {
-                "name": "SalesOrder_Store",
+                "name": "SalesOrder_Currency",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDER",
-                "constraintName": "SalesOrder_Store",
-                "columns": "SALESORDER_STORE",
-                "referencedTable": "CODBEX_STORE",
-                "referencedColumns": "STORE_ID"
+                "constraintName": "SalesOrder_Currency",
+                "columns": "SALESORDER_CURRENCY",
+                "referencedTable": "CODBEX_CURRENCY",
+                "referencedColumns": "CURRENCY_ID"
             },
             {
                 "name": "SalesOrder_Customer",

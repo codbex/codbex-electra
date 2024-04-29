@@ -9,7 +9,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_STORETYPE",
@@ -20,7 +21,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_PERMISSION",
@@ -31,7 +33,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_GROUP",
@@ -42,7 +45,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_PRODUCTSTATUS",
@@ -53,7 +57,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_GROUPPERMISSION",
@@ -64,7 +69,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_LANGUAGESTATUS",
@@ -75,7 +81,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_EMPLOYEESTATUS",
@@ -86,7 +93,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_ZONESTATUS",
@@ -97,7 +105,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_CUSTOMERSTATUS",
@@ -108,7 +117,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     },
     {
       "table": "CODBEX_CURRENCYSTATUS",
@@ -119,7 +129,8 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": "1.0",
+      "upsert": false
     }
   ]
 }

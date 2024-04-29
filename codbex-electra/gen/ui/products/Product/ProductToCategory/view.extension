@@ -1,0 +1,5 @@
+{
+    "module": "codbex-electra/gen/ui/products/Product/ProductToCategory/view.js",
+    "extensionPoint": "codbex-electra-view",
+    "description": "codbex-electra - Application View - Details"
+}

@@ -1,0 +1,5 @@
+{
+    "module": "codbex-electra/ui/services/group-permissions.js",
+    "extensionPoint": "ide-subview",
+    "description": "Group permissions Subview"
+}

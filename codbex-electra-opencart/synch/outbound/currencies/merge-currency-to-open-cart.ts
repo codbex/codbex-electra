@@ -1,8 +1,8 @@
-import { EntityReferenceDAO } from "../../../../codbex-electra/dao/EntityReferenceDAO";
-import { EntityReferenceEntity } from "../../../../codbex-electra/gen/dao/Settings/EntityReferenceRepository";
-import { oc_currencyRepository as OpenCartCurrencyDAO, oc_currencyCreateEntity, oc_currencyUpdateEntity } from "../../../dao/oc_currencyRepository";
-import { CurrencyRepository as CurrencyDAO } from "../../../../codbex-electra/gen/dao/Settings/CurrencyRepository";
-import { BaseHandler } from "../../base-handler";
+import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
+import { EntityReferenceEntity } from "codbex-electra/gen/dao/entity-references/EntityReferenceRepository";
+import { oc_currencyRepository as OpenCartCurrencyDAO, oc_currencyCreateEntity, oc_currencyUpdateEntity } from "codbex-electra-opencart/dao/oc_currencyRepository";
+import { CurrencyRepository as CurrencyDAO } from "codbex-electra/gen/dao/currencies/CurrencyRepository";
+import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { CurrencyEntry } from "./get-all-currencies";
 
 export function onMessage(message: any) {
