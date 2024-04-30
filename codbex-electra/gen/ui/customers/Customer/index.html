@@ -19,13 +19,6 @@
 		<fd-toolbar has-title="true">
 			<fd-toolbar-title>Items ({{dataCount}})</fd-toolbar-title>
 			<fd-toolbar-spacer></fd-toolbar-spacer>
-			<fd-button compact="true" dg-type="transparent" dg-label="Create"
-				state="{{action == 'update'? 'disabled' : ''}}" ng-click="createEntity()"></fd-button>
-			<fd-button compact="true" dg-type="transparent" dg-label="Edit"
-				state="{{selectedEntity == null ? 'disabled' : ''}}" ng-click="updateEntity()"></fd-button>
-			<fd-button compact="true" dg-type="transparent" dg-label="Delete"
-				state="{{selectedEntity == null || action == 'update'? 'disabled' : ''}}" ng-click="deleteEntity()">
-			</fd-button>
 			<fd-popover>
 				<fd-popover-control>
 					<fd-button compact="true" glyph="sap-icon--overflow" dg-type="transparent"
@@ -46,7 +39,7 @@
 				<fd-list-item ng-repeat="next in data">
 					<fd-list-link navigation-indicator="true" dg-selected="next.Id === selectedEntity.Id"
 						navigated="next.Id === selectedEntity.Id"
-						ng-click="action == 'select' ? selectEntity(next) : ''">
+						ng-click="selectEntity(next)">
 						<fd-list-content
 							item-title="{{next.Email}}">
 							<fd-list-byline dg-align="left">
@@ -67,6 +60,7 @@
 				Load More ...
 			</fd-list-action-item>
 		</fd-scrollbar>
+
 	</body>
 
 </html>

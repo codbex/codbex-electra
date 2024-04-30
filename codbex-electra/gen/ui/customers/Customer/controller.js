@@ -49,16 +49,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
-			refreshData();
-			$scope.loadPage($scope.dataPage, $scope.filter);
-		});
-
-		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
-			refreshData();
-			$scope.loadPage($scope.dataPage, $scope.filter);
-		});
-
 		messageHub.onDidReceiveMessage("entitySearch", function (msg) {
 			resetPagination();
 			$scope.filter = msg.data.filter;
@@ -90,7 +80,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					filter.$offset = 0;
 					filter.$limit = $scope.dataPage * $scope.dataLimit;
 				}
-
 				entityApi.search(filter).then(function (response) {
 					if (response.status != 200) {
 						messageHub.showAlertError("Customer", `Unable to list/filter Customer: '${response.message}'`);
@@ -125,58 +114,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		};
 
-		$scope.createEntity = function () {
-			$scope.selectedEntity = null;
-			$scope.action = "create";
-
-			messageHub.postMessage("createEntity", {
-				entity: {},
-				optionsStore: $scope.optionsStore,
-				optionsStatus: $scope.optionsStatus,
-				optionsLanguage: $scope.optionsLanguage,
-			});
-		};
-
-		$scope.updateEntity = function () {
-			$scope.action = "update";
-			messageHub.postMessage("updateEntity", {
-				entity: $scope.selectedEntity,
-				optionsStore: $scope.optionsStore,
-				optionsStatus: $scope.optionsStatus,
-				optionsLanguage: $scope.optionsLanguage,
-			});
-		};
-
-		$scope.deleteEntity = function () {
-			let id = $scope.selectedEntity.Id;
-			messageHub.showDialogAsync(
-				'Delete Customer?',
-				`Are you sure you want to delete Customer? This action cannot be undone.`,
-				[{
-					id: "delete-btn-yes",
-					type: "emphasized",
-					label: "Yes",
-				},
-				{
-					id: "delete-btn-no",
-					type: "normal",
-					label: "No",
-				}],
-			).then(function (msg) {
-				if (msg.data === "delete-btn-yes") {
-					entityApi.delete(id).then(function (response) {
-						if (response.status != 204) {
-							messageHub.showAlertError("Customer", `Unable to delete Customer: '${response.message}'`);
-							return;
-						}
-						refreshData();
-						$scope.loadPage($scope.dataPage, $scope.filter);
-						messageHub.postMessage("clearDetails");
-					});
-				}
-			});
-		};
-
 		$scope.openFilter = function (entity) {
 			messageHub.showDialogWindow("Customer-filter", {
 				entity: $scope.filterEntity,
@@ -190,7 +127,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsStore = [];
 		$scope.optionsStatus = [];
 		$scope.optionsLanguage = [];
-
 
 		$http.get("/services/ts/codbex-electra/gen/api/stores/StoreService.ts").then(function (response) {
 			$scope.optionsStore = response.data.map(e => {
@@ -218,7 +154,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
-
 		$scope.optionsStoreValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsStore.length; i++) {
 				if ($scope.optionsStore[i].value === optionKey) {
