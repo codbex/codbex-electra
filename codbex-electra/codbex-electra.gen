@@ -2183,7 +2183,7 @@
       "dataName": "CUSTOMER",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
-      "layoutType": "MANAGE_MASTER",
+      "layoutType": "LIST_MASTER",
       "menuIndex": "100",
       "menuKey": "customer",
       "menuLabel": "Customer",
