@@ -37,16 +37,16 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
-			if (entity.Language) {
+			if (entity.Language !== undefined) {
 				filter.$filter.equals.Language = entity.Language;
 			}
 			if (entity.Name) {
 				filter.$filter.contains.Name = entity.Name;
 			}
-			if (entity.Default) {
+			if (entity.Default !== undefined && entity.isDefaultIndeterminate === false) {
 				filter.$filter.equals.Default = entity.Default;
 			}
 			messageHub.postMessage("entitySearch", {

@@ -56,22 +56,22 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
 			if (entity.Model) {
 				filter.$filter.contains.Model = entity.Model;
 			}
-			if (entity.Manufacturer) {
+			if (entity.Manufacturer !== undefined) {
 				filter.$filter.equals.Manufacturer = entity.Manufacturer;
 			}
-			if (entity.Status) {
+			if (entity.Status !== undefined && entity.isStatusIndeterminate === false) {
 				filter.$filter.equals.Status = entity.Status;
 			}
-			if (entity.Quantity) {
+			if (entity.Quantity !== undefined) {
 				filter.$filter.equals.Quantity = entity.Quantity;
 			}
-			if (entity.Price) {
+			if (entity.Price !== undefined) {
 				filter.$filter.equals.Price = entity.Price;
 			}
 			if (entity.Image) {
@@ -101,16 +101,16 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.DateAvailableTo) {
 				filter.$filter.lessThanOrEqual.DateAvailable = entity.DateAvailableTo;
 			}
-			if (entity.Weight) {
+			if (entity.Weight !== undefined) {
 				filter.$filter.equals.Weight = entity.Weight;
 			}
-			if (entity.Length) {
+			if (entity.Length !== undefined) {
 				filter.$filter.equals.Length = entity.Length;
 			}
-			if (entity.Width) {
+			if (entity.Width !== undefined) {
 				filter.$filter.equals.Width = entity.Width;
 			}
-			if (entity.Height) {
+			if (entity.Height !== undefined) {
 				filter.$filter.equals.Height = entity.Height;
 			}
 			if (entity.DateAddedFrom) {
@@ -128,22 +128,22 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.UpdatedBy) {
 				filter.$filter.contains.UpdatedBy = entity.UpdatedBy;
 			}
-			if (entity.Points) {
+			if (entity.Points !== undefined) {
 				filter.$filter.equals.Points = entity.Points;
 			}
-			if (entity.Shipping) {
+			if (entity.Shipping !== undefined && entity.isShippingIndeterminate === false) {
 				filter.$filter.equals.Shipping = entity.Shipping;
 			}
 			if (entity.Location) {
 				filter.$filter.contains.Location = entity.Location;
 			}
-			if (entity.Subtract) {
+			if (entity.Subtract !== undefined && entity.isSubtractIndeterminate === false) {
 				filter.$filter.equals.Subtract = entity.Subtract;
 			}
-			if (entity.Minimum) {
+			if (entity.Minimum !== undefined) {
 				filter.$filter.equals.Minimum = entity.Minimum;
 			}
-			if (entity.StockStatus) {
+			if (entity.StockStatus !== undefined) {
 				filter.$filter.equals.StockStatus = entity.StockStatus;
 			}
 			messageHub.postMessage("entitySearch", {

@@ -37,13 +37,13 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
 			if (entity.Name) {
 				filter.$filter.contains.Name = entity.Name;
 			}
-			if (entity.Status) {
+			if (entity.Status !== undefined) {
 				filter.$filter.equals.Status = entity.Status;
 			}
 			if (entity.IsoCode2) {
@@ -52,7 +52,7 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.IsoCode3) {
 				filter.$filter.contains.IsoCode3 = entity.IsoCode3;
 			}
-			if (entity.PostcodeRequired) {
+			if (entity.PostcodeRequired !== undefined && entity.isPostcodeRequiredIndeterminate === false) {
 				filter.$filter.equals.PostcodeRequired = entity.PostcodeRequired;
 			}
 			messageHub.postMessage("entitySearch", {

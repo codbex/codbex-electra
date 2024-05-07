@@ -48,7 +48,7 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
 			if (entity.Text) {
@@ -72,7 +72,7 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.DateModifiedTo) {
 				filter.$filter.lessThanOrEqual.DateModified = entity.DateModifiedTo;
 			}
-			if (entity.SalesOrder) {
+			if (entity.SalesOrder !== undefined) {
 				filter.$filter.equals.SalesOrder = entity.SalesOrder;
 			}
 			messageHub.postMessage("entitySearch", {
