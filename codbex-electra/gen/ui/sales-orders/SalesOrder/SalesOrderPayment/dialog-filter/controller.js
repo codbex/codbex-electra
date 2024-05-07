@@ -38,10 +38,10 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
-			if (entity.Zone) {
+			if (entity.Zone !== undefined) {
 				filter.$filter.equals.Zone = entity.Zone;
 			}
 			if (entity.FirstName) {
@@ -59,7 +59,7 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Address2) {
 				filter.$filter.contains.Address2 = entity.Address2;
 			}
-			if (entity.Country) {
+			if (entity.Country !== undefined) {
 				filter.$filter.equals.Country = entity.Country;
 			}
 			if (entity.City) {
@@ -80,7 +80,7 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.CustomField) {
 				filter.$filter.contains.CustomField = entity.CustomField;
 			}
-			if (entity.SalesOrder) {
+			if (entity.SalesOrder !== undefined) {
 				filter.$filter.equals.SalesOrder = entity.SalesOrder;
 			}
 			messageHub.postMessage("entitySearch", {

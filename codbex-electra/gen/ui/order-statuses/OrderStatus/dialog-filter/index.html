@@ -65,7 +65,10 @@
 	                    <div class="fd-col fd-col-md--8">
 							<fd-checkbox id="idDefault"
 	                            compact="false"
-								ng-model="entity.Default">
+								ng-init="entity.isDefaultIndeterminate=true"
+								ng-model="entity.Default"
+								dg-indeterminate="entity.isDefaultIndeterminate"
+								ng-click="entity.isDefaultIndeterminate=false">
 	                        </fd-checkbox>
                         	<fd-checkbox-label for="idDefault">Default</fd-checkbox-label>
                         </div>

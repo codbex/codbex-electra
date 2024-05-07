@@ -38,13 +38,13 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
-			if (entity.Product) {
+			if (entity.Product !== undefined) {
 				filter.$filter.equals.Product = entity.Product;
 			}
-			if (entity.Language) {
+			if (entity.Language !== undefined) {
 				filter.$filter.equals.Language = entity.Language;
 			}
 			if (entity.Name) {

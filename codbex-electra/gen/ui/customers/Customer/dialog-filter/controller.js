@@ -45,7 +45,7 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
 			if (entity.Email) {
@@ -57,10 +57,10 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.LastName) {
 				filter.$filter.contains.LastName = entity.LastName;
 			}
-			if (entity.Store) {
+			if (entity.Store !== undefined) {
 				filter.$filter.equals.Store = entity.Store;
 			}
-			if (entity.Status) {
+			if (entity.Status !== undefined) {
 				filter.$filter.equals.Status = entity.Status;
 			}
 			if (entity.Telephone) {
@@ -75,7 +75,7 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.CustomField) {
 				filter.$filter.contains.CustomField = entity.CustomField;
 			}
-			if (entity.Language) {
+			if (entity.Language !== undefined) {
 				filter.$filter.equals.Language = entity.Language;
 			}
 			messageHub.postMessage("entitySearch", {

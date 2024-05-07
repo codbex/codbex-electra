@@ -43,13 +43,13 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
 			if (entity.Title) {
 				filter.$filter.contains.Title = entity.Title;
 			}
-			if (entity.Status) {
+			if (entity.Status !== undefined) {
 				filter.$filter.equals.Status = entity.Status;
 			}
 			if (entity.Code) {
@@ -64,7 +64,7 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.DecimalPlace) {
 				filter.$filter.contains.DecimalPlace = entity.DecimalPlace;
 			}
-			if (entity.Value) {
+			if (entity.Value !== undefined) {
 				filter.$filter.equals.Value = entity.Value;
 			}
 			if (entity.DateModifiedFrom) {

@@ -84,7 +84,10 @@
 	                    <div class="fd-col fd-col-md--8">
 							<fd-checkbox id="idEnabled"
 	                            compact="false"
-								ng-model="entity.Enabled">
+								ng-init="entity.isEnabledIndeterminate=true"
+								ng-model="entity.Enabled"
+								dg-indeterminate="entity.isEnabledIndeterminate"
+								ng-click="entity.isEnabledIndeterminate=false">
 	                        </fd-checkbox>
                         	<fd-checkbox-label for="idEnabled">Enabled</fd-checkbox-label>
                         </div>

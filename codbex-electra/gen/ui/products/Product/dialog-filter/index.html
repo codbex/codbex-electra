@@ -65,7 +65,10 @@
 	                    <div class="fd-col fd-col-md--8">
 							<fd-checkbox id="idStatus"
 	                            compact="false"
-								ng-model="entity.Status">
+								ng-init="entity.isStatusIndeterminate=true"
+								ng-model="entity.Status"
+								dg-indeterminate="entity.isStatusIndeterminate"
+								ng-click="entity.isStatusIndeterminate=false">
 	                        </fd-checkbox>
                         	<fd-checkbox-label for="idStatus">Status</fd-checkbox-label>
                         </div>
@@ -415,7 +418,10 @@
 	                    <div class="fd-col fd-col-md--8">
 							<fd-checkbox id="idShipping"
 	                            compact="false"
-								ng-model="entity.Shipping">
+								ng-init="entity.isShippingIndeterminate=true"
+								ng-model="entity.Shipping"
+								dg-indeterminate="entity.isShippingIndeterminate"
+								ng-click="entity.isShippingIndeterminate=false">
 	                        </fd-checkbox>
                         	<fd-checkbox-label for="idShipping">Shipping</fd-checkbox-label>
                         </div>
@@ -444,7 +450,10 @@
 	                    <div class="fd-col fd-col-md--8">
 							<fd-checkbox id="idSubtract"
 	                            compact="false"
-								ng-model="entity.Subtract">
+								ng-init="entity.isSubtractIndeterminate=true"
+								ng-model="entity.Subtract"
+								dg-indeterminate="entity.isSubtractIndeterminate"
+								ng-click="entity.isSubtractIndeterminate=false">
 	                        </fd-checkbox>
                         	<fd-checkbox-label for="idSubtract">Subtract</fd-checkbox-label>
                         </div>
