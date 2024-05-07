@@ -202,6 +202,7 @@ export class EntityReferenceDAO {
     private getRequiredReferenceByEntityIdUsingCache(scopeIntegerId: number, entityName: string, entityIntegerId: number) {
         const cacheKey = entityName + "###EntityId:" + entityIntegerId;
         if (caches.contains(cacheKey)) {
+            this.logger.debug("Getting [{}] from cache", cacheKey);
             return caches.get(cacheKey);
         }
         const ref = this.getRequiredReferenceByEntityId(scopeIntegerId, entityName, entityIntegerId);
@@ -281,7 +282,7 @@ export class EntityReferenceDAO {
     private getRequireReferenceByReferenceIdUsingCache(scopeId: number, entityName: string, referenceId: number) {
         const cacheKey = entityName + "###ReferenceId:" + referenceId;
         if (caches.contains(cacheKey)) {
-            this.logger.info("Get [{}] from cache", cacheKey);
+            this.logger.debug("Getting [{}] from cache", cacheKey);
             return caches.get(cacheKey);
         }
         const ref = this.getReferenceByScopeIdEntityNameAndReferenceId(scopeId, entityName, referenceId);
