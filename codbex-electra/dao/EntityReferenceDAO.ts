@@ -285,7 +285,7 @@ export class EntityReferenceDAO {
             this.logger.debug("Getting [{}] from cache", cacheKey);
             return caches.get(cacheKey);
         }
-        const ref = this.getReferenceByScopeIdEntityNameAndReferenceId(scopeId, entityName, referenceId);
+        const ref = this.getRequireReferenceByReferenceId(scopeId, entityName, referenceId);
         caches.set(cacheKey, ref);
         return ref;
     }
