@@ -74,6 +74,10 @@ interface OrderStatusEntityEvent {
     }
 }
 
+interface OrderStatusUpdateEntityEvent extends OrderStatusEntityEvent {
+    readonly previousEntity: OrderStatusEntity;
+}
+
 export class OrderStatusRepository {
 
     private static readonly DEFINITION = {
@@ -132,11 +136,13 @@ export class OrderStatusRepository {
     }
 
     public update(entity: OrderStatusUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_ORDERSTATUS",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "ORDERSTATUS_ID",
@@ -191,7 +197,7 @@ export class OrderStatusRepository {
         return 0;
     }
 
-    private async triggerEvent(data: OrderStatusEntityEvent) {
+    private async triggerEvent(data: OrderStatusEntityEvent | OrderStatusUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-order-statuses-OrderStatus", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

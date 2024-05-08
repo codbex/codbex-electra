@@ -90,6 +90,10 @@ interface GroupPermissionEntityEvent {
     }
 }
 
+interface GroupPermissionUpdateEntityEvent extends GroupPermissionEntityEvent {
+    readonly previousEntity: GroupPermissionEntity;
+}
+
 export class GroupPermissionRepository {
 
     private static readonly DEFINITION = {
@@ -168,11 +172,13 @@ export class GroupPermissionRepository {
         (entity as GroupPermissionEntity).UpdatedBy = require("security/user").getName();
         // @ts-ignore
         (entity as GroupPermissionEntity).DateModified = Date.now();
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_GROUPPERMISSION",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "GROUPPERMISSION_ID",
@@ -227,7 +233,7 @@ export class GroupPermissionRepository {
         return 0;
     }
 
-    private async triggerEvent(data: GroupPermissionEntityEvent) {
+    private async triggerEvent(data: GroupPermissionEntityEvent | GroupPermissionUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-group-permissions-GroupPermission", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

@@ -128,6 +128,10 @@ interface ProductDescriptionEntityEvent {
     }
 }
 
+interface ProductDescriptionUpdateEntityEvent extends ProductDescriptionEntityEvent {
+    readonly previousEntity: ProductDescriptionEntity;
+}
+
 export class ProductDescriptionRepository {
 
     private static readonly DEFINITION = {
@@ -222,11 +226,13 @@ export class ProductDescriptionRepository {
     }
 
     public update(entity: ProductDescriptionUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_PRODUCTDESCRIPTION",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "PRODUCTDESCRIPTION_ID",
@@ -281,7 +287,7 @@ export class ProductDescriptionRepository {
         return 0;
     }
 
-    private async triggerEvent(data: ProductDescriptionEntityEvent) {
+    private async triggerEvent(data: ProductDescriptionEntityEvent | ProductDescriptionUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-products-ProductDescription", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

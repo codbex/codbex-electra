@@ -74,6 +74,10 @@ interface StockStatusEntityEvent {
     }
 }
 
+interface StockStatusUpdateEntityEvent extends StockStatusEntityEvent {
+    readonly previousEntity: StockStatusEntity;
+}
+
 export class StockStatusRepository {
 
     private static readonly DEFINITION = {
@@ -132,11 +136,13 @@ export class StockStatusRepository {
     }
 
     public update(entity: StockStatusUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_STOCKSTATUS",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "STOCKSTATUS_ID",
@@ -191,7 +197,7 @@ export class StockStatusRepository {
         return 0;
     }
 
-    private async triggerEvent(data: StockStatusEntityEvent) {
+    private async triggerEvent(data: StockStatusEntityEvent | StockStatusUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-stock-statuses-StockStatus", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

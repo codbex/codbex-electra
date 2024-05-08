@@ -65,6 +65,10 @@ interface AttributeGroupEntityEvent {
     }
 }
 
+interface AttributeGroupUpdateEntityEvent extends AttributeGroupEntityEvent {
+    readonly previousEntity: AttributeGroupEntity;
+}
+
 export class AttributeGroupRepository {
 
     private static readonly DEFINITION = {
@@ -118,11 +122,13 @@ export class AttributeGroupRepository {
     }
 
     public update(entity: AttributeGroupUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_ATTRIBUTEGROUP",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "ATTRIBUTEGROUP_ID",
@@ -177,7 +183,7 @@ export class AttributeGroupRepository {
         return 0;
     }
 
-    private async triggerEvent(data: AttributeGroupEntityEvent) {
+    private async triggerEvent(data: AttributeGroupEntityEvent | AttributeGroupUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-attribute-groups-AttributeGroup", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

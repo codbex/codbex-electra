@@ -92,6 +92,10 @@ interface ZoneEntityEvent {
     }
 }
 
+interface ZoneUpdateEntityEvent extends ZoneEntityEvent {
+    readonly previousEntity: ZoneEntity;
+}
+
 export class ZoneRepository {
 
     private static readonly DEFINITION = {
@@ -162,11 +166,13 @@ export class ZoneRepository {
     }
 
     public update(entity: ZoneUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_ZONE",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "ZONE_ID",
@@ -221,7 +227,7 @@ export class ZoneRepository {
         return 0;
     }
 
-    private async triggerEvent(data: ZoneEntityEvent) {
+    private async triggerEvent(data: ZoneEntityEvent | ZoneUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-zones-Zone", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
