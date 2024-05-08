@@ -1,4 +1,4 @@
-import { EntityReferenceRepository, EntityReferenceEntityOptions, EntityReferenceCreateEntity } from "codbex-electra/gen/dao/entity-references/EntityReferenceRepository";
+import { EntityReferenceRepository, EntityReferenceEntityOptions, EntityReferenceCreateEntity, EntityReferenceEntity } from "codbex-electra/gen/dao/entity-references/EntityReferenceRepository";
 import { caches } from "sdk/cache";
 
 import { getLogger } from "codbex-electra/util/LoggerUtil";
@@ -199,7 +199,7 @@ export class EntityReferenceDAO {
         return this.getRequiredReferenceByEntityIdUsingCache(storeId, EntityReferenceDAO.LANGUAGE_ENTITY, languageEntityId);
     }
 
-    private getRequiredReferenceByEntityIdUsingCache(scopeIntegerId: number, entityName: string, entityIntegerId: number) {
+    private getRequiredReferenceByEntityIdUsingCache(scopeIntegerId: number, entityName: string, entityIntegerId: number): EntityReferenceEntity {
         const cacheKey = entityName + "###EntityId:" + entityIntegerId;
         if (caches.contains(cacheKey)) {
             this.logger.debug("Getting [{}] from cache", cacheKey);
@@ -210,7 +210,7 @@ export class EntityReferenceDAO {
         return ref;
     }
 
-    private getRequiredReferenceByEntityId(scopeId: number, entityName: string, entityId: number) {
+    private getRequiredReferenceByEntityId(scopeId: number, entityName: string, entityId: number): EntityReferenceEntity {
         const ref = this.getReferenceByScopeIdEntityNameAndEntityId(scopeId, entityName, entityId);
         if (!ref) {
             this.throwError(`Missing reference for entity [${entityName}] with entity id [${entityId}] in scope [${scopeId}]`);

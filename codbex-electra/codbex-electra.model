@@ -1395,26 +1395,6 @@
                         "widgetLength": "32",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
-                    },
-                    {
-                        "calculatedPropertyExpressionCreate": "",
-                        "calculatedPropertyExpressionUpdate": "",
-                        "dataAutoIncrement": "false",
-                        "dataLength": "1",
-                        "dataName": "ORDERSTATUS_DEFAULT",
-                        "dataNullable": "false",
-                        "dataPrecision": "NaN",
-                        "dataPrimaryKey": "false",
-                        "dataScale": "NaN",
-                        "dataType": "BOOLEAN",
-                        "dataUnique": "false",
-                        "isCalculatedProperty": "false",
-                        "isRequiredProperty": "false",
-                        "name": "Default",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "1",
-                        "widgetSize": "",
-                        "widgetType": "CHECKBOX"
                     }
                 ],
                 "caption": "Manage entity OrderStatus",

@@ -472,13 +472,6 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "name": "ORDERSTATUS_NAME"
-                    },
-                    {
-                        "type": "BOOLEAN",
-                        "length": 1,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "name": "ORDERSTATUS_DEFAULT"
                     }
                 ]
             },

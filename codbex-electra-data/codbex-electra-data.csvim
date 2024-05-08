@@ -1,6 +1,18 @@
 {
   "files": [
     {
+      "table": "CODBEX_STORECONFIGURATIONPROPERTY",
+      "schema": "PUBLIC",
+      "file": "/codbex-electra-data/CODBEX_STORECONFIGURATIONPROPERTY.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0",
+      "upsert": false
+    },
+    {
       "table": "CODBEX_COUNTRYSTATUS",
       "schema": "PUBLIC",
       "file": "/codbex-electra-data/CODBEX_COUNTRYSTATUS.csv",

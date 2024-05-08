@@ -19095,8 +19095,6 @@ components:
           type: string
           minLength: 0
           maxLength: 32
-        Default:
-          type: boolean
     OrderStatusFilterOptions:
       type: object
       properties:
@@ -19133,12 +19131,6 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 32
-                Default:
-                  oneOf:
-                    - type: boolean
-                    - type: array
-                      items:
-                        type: boolean
             notEquals:
               type: object
               properties:
@@ -19169,12 +19161,6 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 32
-                Default:
-                  oneOf:
-                    - type: boolean
-                    - type: array
-                      items:
-                        type: boolean
             contains:
               type: object
               properties:
@@ -19184,7 +19170,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 32
-                Default:
             greaterThan:
               type: object
               properties:
@@ -19198,7 +19183,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 32
-                Default:
             greaterThanOrEqual:
               type: object
               properties:
@@ -19212,7 +19196,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 32
-                Default:
             lessThan:
               type: object
               properties:
@@ -19226,7 +19209,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 32
-                Default:
             lessThanOrEqual:
               type: object
               properties:
@@ -19240,15 +19222,14 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 32
-                Default:
         $select:
           type: array
-          example: ["Id", "Language", "Name", "Default"]
+          example: ["Id", "Language", "Name"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Language,Name,Default"
+            example: "Id,Language,Name"
         $order:
           type: string
           enum: ["asc", "desc"]

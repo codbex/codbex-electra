@@ -8,7 +8,9 @@
             "useHeaderNames": true,
             "delimField": ",",
             "delimEnclosing": "\"",
-            "distinguishEmptyFromNull": true
+            "distinguishEmptyFromNull": true,
+            "upsert": false,
+            "version": "2.0"
         }
     ]
 }

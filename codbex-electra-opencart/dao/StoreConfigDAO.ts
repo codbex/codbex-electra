@@ -17,6 +17,10 @@ export class StoreConfigDAO {
     private static readonly OPENCART_DATASOURCE_NAME_PROPERTY = "DATASOURCE_NAME";
     private static readonly ECONT_SHOP_SECRET_PROPERTY = "ECONT_SHOP_SECRET";
 
+    private static readonly PROCESSING_ORDER_STATUS_ID_PROPERTY = "PROCESSING_ORDER_STATUS_ID";
+    private static readonly COMPLETE_ORDER_STATUS_ID_PROPERTY = "COMPLETE_ORDER_STATUS_ID";
+    private static readonly FRAUD_ORDER_STATUS_ID_PROPERTY = "FRAUD_ORDER_STATUS_ID";
+
     private readonly logger;
     private readonly storeDAO;
     private readonly storeConfigurationDAO;
@@ -33,6 +37,20 @@ export class StoreConfigDAO {
 
     public getStoreEcontShopSecret(storeId: number): string {
         return this.getStoreConfigPropertyByName(storeId, StoreConfigDAO.ECONT_SHOP_SECRET_PROPERTY);
+    }
+
+    public getStoreProcessingOrderStatusId(storeId: number): number {
+        const value = this.getStoreConfigPropertyByName(storeId, StoreConfigDAO.PROCESSING_ORDER_STATUS_ID_PROPERTY);
+        return Number(value);
+    }
+
+    public getStoreCompleteOrderStatusId(storeId: number): number {
+        const value = this.getStoreConfigPropertyByName(storeId, StoreConfigDAO.COMPLETE_ORDER_STATUS_ID_PROPERTY);
+        return Number(value);
+    }
+    public getStoreFraudOrderStatusId(storeId: number): number {
+        const value = this.getStoreConfigPropertyByName(storeId, StoreConfigDAO.FRAUD_ORDER_STATUS_ID_PROPERTY);
+        return Number(value);
     }
 
     private getStoreConfigPropertyByName(storeId: number, propertyName: string): string {
