@@ -209,6 +209,11 @@ export class oc_settingRepository {
         update.execute(oc_settingRepository.UPDATE_CFG_BY_KEY_STATEMENT, params, this.dataSourceName);
     }
 
+    public updatePaymentCodeOrderStatus(value: number): void {
+        const params = [value, 'payment_cod_order_status_id'];
+        update.execute(oc_settingRepository.UPDATE_CFG_BY_KEY_STATEMENT, params, this.dataSourceName);
+    }
+
     public upsert(entity: oc_settingCreateEntity | oc_settingUpdateEntity): number {
         const id = (entity as oc_settingUpdateEntity).setting_id;
         if (!id) {

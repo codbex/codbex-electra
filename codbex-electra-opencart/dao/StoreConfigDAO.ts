@@ -20,6 +20,7 @@ export class StoreConfigDAO {
     private static readonly PROCESSING_ORDER_STATUS_ID_PROPERTY = "PROCESSING_ORDER_STATUS_ID";
     private static readonly COMPLETE_ORDER_STATUS_ID_PROPERTY = "COMPLETE_ORDER_STATUS_ID";
     private static readonly FRAUD_ORDER_STATUS_ID_PROPERTY = "FRAUD_ORDER_STATUS_ID";
+    private static readonly PENDING_ORDER_STATUS_ID_PROPERTY = "PENDING_ORDER_STATUS_ID";
 
     private readonly logger;
     private readonly storeDAO;
@@ -50,6 +51,10 @@ export class StoreConfigDAO {
     }
     public getStoreFraudOrderStatusId(storeId: number): number {
         const value = this.getStoreConfigPropertyByName(storeId, StoreConfigDAO.FRAUD_ORDER_STATUS_ID_PROPERTY);
+        return Number(value);
+    }
+    public getStorePendingOrderStatusId(storeId: number): number {
+        const value = this.getStoreConfigPropertyByName(storeId, StoreConfigDAO.PENDING_ORDER_STATUS_ID_PROPERTY);
         return Number(value);
     }
 
