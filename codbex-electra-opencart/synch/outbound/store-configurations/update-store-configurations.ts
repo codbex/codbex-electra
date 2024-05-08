@@ -47,7 +47,8 @@ class UpdateStoreConfigurationsHandler extends BaseHandler {
         const ocProcessingStatusId = this.entityReferenceDAO.getRequiredOrderStatusReferenceByEntityId(storeId, processingOrderStatusId).ReferenceIntegerId!;
         this.ocSettingDAO.updateProcessingOrderStatusId(ocProcessingStatusId);
 
-        const paymentCodeOrderStatus = this.storeConfigDAO.getStorePendingOrderStatusId(this.store.id);
-        this.ocSettingDAO.updatePaymentCodeOrderStatus(paymentCodeOrderStatus);
+        const pendingOrderStatusId = this.storeConfigDAO.getStorePendingOrderStatusId(this.store.id);
+        const ocPendingStatusId = this.entityReferenceDAO.getRequiredOrderStatusReferenceByEntityId(storeId, pendingOrderStatusId).ReferenceIntegerId!;
+        this.ocSettingDAO.updatePaymentCodeOrderStatus(ocPendingStatusId);
     }
 }
