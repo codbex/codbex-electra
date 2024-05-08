@@ -4,7 +4,7 @@
       uri: cron:TriggerStoresConfigurationsReplication
       id: trigger-store-configurations-replication-cron
       parameters:
-        schedule: 0 0/15 * ? * *
+        schedule: 30 0/15 * ? * *
       description: Trigger Store Configurations Replication
       steps:
         - log:
