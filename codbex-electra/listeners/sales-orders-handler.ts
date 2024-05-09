@@ -20,8 +20,8 @@ export function onMessage(message: string) {
     const currentEntity = updateEvent.entity;
     const previousEntity = updateEvent.previousEntity;
 
-    const quantitiesUpdater = new QuantitiesUpdater();
-    quantitiesUpdater.updateQuantities(currentEntity, previousEntity);
+    const productsQuantityUpdater = new ProductsQuantityUpdater();
+    productsQuantityUpdater.updateQuantities(currentEntity, previousEntity);
 }
 
 export function onError(error: string) {
@@ -29,7 +29,7 @@ export function onError(error: string) {
 }
 
 
-class QuantitiesUpdater {
+class ProductsQuantityUpdater {
     protected readonly salesOrderItemDAO;
     protected readonly storeConfigDAO;
     protected readonly productDAO;
@@ -62,26 +62,30 @@ class QuantitiesUpdater {
 
     private reduceProductsQuantity(orderId: number) {
         const orderItems = this.getOrderItems(orderId);
-        orderItems.forEach(orderItem => {
-            const orderedQuantity = orderItem.Quantity;
-            const product = this.productDAO.findById(orderItem.Product)!;
-            logger.info("Reducing quantity [{}] with [{}] for product [{}]", product.Quantity, orderedQuantity, product.Id);
-            product.Quantity = product.Quantity - orderedQuantity;
+        orderItems.forEach(this.reduceProductQuantity.bind(this));
+    }
 
-            this.productDAO.update(product);
-        });
+    private reduceProductQuantity(orderItem: SalesOrderItemEntity) {
+        const orderedQuantity = orderItem.Quantity;
+        const product = this.productDAO.findById(orderItem.Product)!;
+        logger.info("Reducing quantity [{}] with [{}] for product [{}]", product.Quantity, orderedQuantity, product.Id);
+        product.Quantity = product.Quantity - orderedQuantity;
+
+        this.productDAO.update(product);
     }
 
     private increaseProductsQuantity(orderId: number) {
         const orderItems = this.getOrderItems(orderId);
-        orderItems.forEach(orderItem => {
-            const orderedQuantity = orderItem.Quantity;
-            const product = this.productDAO.findById(orderItem.Product)!;
-            logger.info("Increasing quantity [{}] with [{}] for product [{}]", product.Quantity, orderedQuantity, product.Id);
-            product.Quantity = product.Quantity + orderedQuantity;
+        orderItems.forEach(this.increaseProductQuantity.bind(this));
+    }
 
-            this.productDAO.update(product);
-        });
+    private increaseProductQuantity(orderItem: SalesOrderItemEntity) {
+        const orderedQuantity = orderItem.Quantity;
+        const product = this.productDAO.findById(orderItem.Product)!;
+        logger.info("Increasing quantity [{}] with [{}] for product [{}]", product.Quantity, orderedQuantity, product.Id);
+        product.Quantity = product.Quantity + orderedQuantity;
+
+        this.productDAO.update(product);
     }
 
     private getOrderItems(orderId: number) {
