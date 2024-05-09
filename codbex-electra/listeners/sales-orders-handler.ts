@@ -13,7 +13,7 @@ function isInstanceOfSalesOrderUpdateEntityEvent(obj: any): obj is SalesOrderUpd
 export function onMessage(message: string) {
     const event: any = JSON.parse(message);
     if (!isInstanceOfSalesOrderUpdateEntityEvent(event)) {
-        logger.info("Event message [{}] is not applicable for this listener", message);
+        logger.debug("Event message [{}] is not applicable for this listener", message);
         return;
     }
     const updateEvent: SalesOrderUpdateEntityEvent = event;
@@ -41,20 +41,20 @@ class ProductsQuantityUpdater {
     }
 
     updateQuantities(currentOrder: Partial<SalesOrderEntity>, previousOrder: SalesOrderEntity) {
-        logger.info("About to update quantities. Current order [{}], Prev order [{}]", currentOrder, previousOrder);
+        logger.debug("About to update quantities. Current order [{}], Prev order [{}]", currentOrder, previousOrder);
 
         const completeOrderStatusId = this.storeConfigDAO.getStoreCompleteOrderStatusId(previousOrder.Store);
 
         const completedOrder = currentOrder.Status === completeOrderStatusId && previousOrder.Status !== completeOrderStatusId;
         if (completedOrder) {
-            logger.info("Order [{}] is completed. Will reduce products quantity", previousOrder.Id);
+            logger.debug("Order [{}] is completed. Will reduce products quantity", previousOrder.Id);
             this.reduceProductsQuantity(previousOrder.Id);
             return;
         }
 
         const reopenedOrder = currentOrder.Status !== completeOrderStatusId && previousOrder.Status == completeOrderStatusId;
         if (reopenedOrder) {
-            logger.info("Order [{}] is reopened. Will increase products quantity", previousOrder.Id);
+            logger.debug("Order [{}] is reopened. Will increase products quantity", previousOrder.Id);
             this.increaseProductsQuantity(previousOrder.Id);
             return;
         }
@@ -68,7 +68,7 @@ class ProductsQuantityUpdater {
     private reduceProductQuantity(orderItem: SalesOrderItemEntity) {
         const orderedQuantity = orderItem.Quantity;
         const product = this.productDAO.findById(orderItem.Product)!;
-        logger.info("Reducing quantity [{}] with [{}] for product [{}]", product.Quantity, orderedQuantity, product.Id);
+        logger.debug("Reducing quantity [{}] with [{}] for product [{}]", product.Quantity, orderedQuantity, product.Id);
         product.Quantity = product.Quantity - orderedQuantity;
 
         this.productDAO.update(product);
@@ -82,7 +82,7 @@ class ProductsQuantityUpdater {
     private increaseProductQuantity(orderItem: SalesOrderItemEntity) {
         const orderedQuantity = orderItem.Quantity;
         const product = this.productDAO.findById(orderItem.Product)!;
-        logger.info("Increasing quantity [{}] with [{}] for product [{}]", product.Quantity, orderedQuantity, product.Id);
+        logger.debug("Increasing quantity [{}] with [{}] for product [{}]", product.Quantity, orderedQuantity, product.Id);
         product.Quantity = product.Quantity + orderedQuantity;
 
         this.productDAO.update(product);
