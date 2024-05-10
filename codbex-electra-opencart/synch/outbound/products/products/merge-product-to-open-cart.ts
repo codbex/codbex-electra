@@ -93,7 +93,7 @@ class MergeProductToOpenCartHandler extends BaseHandler {
                 shipping: product.Shipping,
                 price: product.Price,
                 points: product.Points,
-                tax_class_id: 1,
+                tax_class_id: 9, // tax entities must be added to Electra and used here, 9 is the default id in the OC demo data
                 date_available: product.DateAvailable,
                 weight: product.Weight,
                 weight_class_id: 1, // do we want to support different classes
