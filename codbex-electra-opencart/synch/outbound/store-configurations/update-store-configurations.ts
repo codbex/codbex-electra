@@ -1,8 +1,8 @@
-import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
+import { OpenCartStoreConfig } from "codbex-electra/dao/StoreConfigDAO";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { oc_settingRepository as OpenCartSettingDAO } from "codbex-electra-opencart/dao/oc_settingRepository";
 import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
-import { StoreConfigDAO } from "codbex-electra-opencart/dao/StoreConfigDAO";
+import { StoreConfigDAO } from "codbex-electra/dao/StoreConfigDAO";
 
 export function onMessage(message: any) {
     const store: OpenCartStoreConfig = message.getBody();

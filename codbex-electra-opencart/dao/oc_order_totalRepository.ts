@@ -1,4 +1,4 @@
-import { dao as daoApi } from "sdk/db";
+import { dao as daoApi, update } from "sdk/db";
 
 export interface oc_order_totalEntity {
     readonly order_total_id: number;
@@ -104,6 +104,13 @@ interface oc_order_totalUpdateEntityEvent extends oc_order_totalEntityEvent {
 
 export class oc_order_totalRepository {
 
+    public static readonly TOTAL_CODE = 'total';
+    public static readonly TAX_CODE = 'tax';
+    public static readonly SHIPPING_CODE = 'shipping';
+    public static readonly SUBTOTAL_CODE = 'sub_total';
+
+    private static readonly UPDATE_BY_CODE = "UPDATE `oc_order_total` SET `value` = ? WHERE (`order_id` = ? AND `code`=?)";
+
     private static readonly DEFINITION = {
         table: "oc_order_total",
         properties: [
@@ -148,9 +155,11 @@ export class oc_order_totalRepository {
         ]
     };
 
+    private readonly dataSourceName;
     private readonly dao;
 
     constructor(dataSource: string) {
+        this.dataSourceName = dataSource;
         this.dao = daoApi.create(oc_order_totalRepository.DEFINITION, null, dataSource);
     }
 
@@ -190,5 +199,26 @@ export class oc_order_totalRepository {
         this.dao.remove(id);
     }
 
+    public updateOrderSubTotal(orderId: number, value: number): void {
+        this.updateByCode(orderId, value, oc_order_totalRepository.SUBTOTAL_CODE);
+    }
+
+    public updateOrderShipping(orderId: number, value: number): void {
+        this.updateByCode(orderId, value, oc_order_totalRepository.SHIPPING_CODE);
+    }
+
+    public updateOrderTaxes(orderId: number, value: number): void {
+        this.updateByCode(orderId, value, oc_order_totalRepository.TAX_CODE);
+    }
+
+    public updateOrderTotal(orderId: number, value: number): void {
+        this.updateByCode(orderId, value, oc_order_totalRepository.TOTAL_CODE);
+    }
+
+
+    private updateByCode(orderId: number, value: number, code: string): void {
+        const params = [value, orderId, code];
+        update.execute(oc_order_totalRepository.UPDATE_BY_CODE, params, this.dataSourceName);
+    }
 
 }

@@ -115,15 +115,15 @@ class MergeCustomerFromOpenCart extends BaseHandler {
     }
 
     private getSubTotal(totals: oc_order_totalEntity[]): number {
-        return this.getTotalsSum(totals, 'sub_total');
+        return this.getTotalsSum(totals, OpenCartOrderTotalDAO.SUBTOTAL_CODE);
     }
 
     private getShippings(totals: oc_order_totalEntity[]): number {
-        return this.getTotalsSum(totals, 'shipping');
+        return this.getTotalsSum(totals, OpenCartOrderTotalDAO.SHIPPING_CODE);
     }
 
     private getTaxes(totals: oc_order_totalEntity[]): number {
-        return this.getTotalsSum(totals, 'tax');
+        return this.getTotalsSum(totals, OpenCartOrderTotalDAO.TAX_CODE);
     }
 
     private getTotalsSum(totals: oc_order_totalEntity[], matchingCode: string): number {

@@ -1,7 +1,8 @@
 import { SalesOrderUpdateEntityEvent, SalesOrderEntity } from "codbex-electra/gen/dao/sales-orders/SalesOrderRepository";
 import { SalesOrderItemRepository as SalesOrderItemDAO, SalesOrderItemEntityOptions, SalesOrderItemEntity } from "codbex-electra/gen/dao/sales-orders/SalesOrderItemRepository";
 import { ProductRepository as ProductDAO } from "codbex-electra/gen/dao/products/ProductRepository";
-import { StoreConfigDAO } from "codbex-electra-opencart/dao/StoreConfigDAO";
+import { StoreConfigDAO } from "codbex-electra/dao/StoreConfigDAO";
+
 import { getLogger } from "codbex-electra/util/LoggerUtil";
 
 const logger = getLogger(import.meta.url);
