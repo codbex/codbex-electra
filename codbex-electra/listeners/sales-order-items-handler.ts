@@ -13,11 +13,6 @@ export function onMessage(message: string) {
 export function onError(error: string) {
     // nothing to do here
 }
-enum Operation {
-    CREATE,
-    UPDATE,
-    DELETE
-}
 
 class SalesOrderUpdater extends BaseHandler {
     protected readonly salesOrderItemDAO;
@@ -46,13 +41,11 @@ class SalesOrderUpdater extends BaseHandler {
         let orderTaxes = 0;
 
         orderItems.forEach(orderItem => {
-            const itemSubTotal = orderItem.Quantity * orderItem.Price;
-            subTotal += itemSubTotal;
+            subTotal += orderItem.Total;
 
             // in OpenCart taxes has value for only one item not for the total
-            const itemTax = orderItem.Price * 0.2;
-            const itemTaxes = orderItem.Quantity * itemTax;
-            orderTaxes += itemTaxes;
+            const itemsTaxes = orderItem.Quantity * orderItem.Tax;
+            orderTaxes += itemsTaxes;
         });
 
         salesOrder.SubTotal = subTotal;
@@ -66,7 +59,7 @@ class SalesOrderUpdater extends BaseHandler {
 
     private getOrderItems(orderId: number) {
         const querySettings: SalesOrderItemEntityOptions = {
-            $select: ["Quantity", "Price"],
+            $select: ["Quantity", "Tax", "Total"],
             $filter: {
                 equals: {
                     SalesOrder: orderId
