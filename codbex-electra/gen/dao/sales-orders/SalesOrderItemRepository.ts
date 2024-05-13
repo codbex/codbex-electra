@@ -22,8 +22,6 @@ export interface SalesOrderItemCreateEntity {
     readonly Model: string;
     readonly Quantity: number;
     readonly Price: number;
-    readonly Total: number;
-    readonly Tax: number;
 }
 
 export interface SalesOrderItemUpdateEntity extends SalesOrderItemCreateEntity {
@@ -211,6 +209,10 @@ export class SalesOrderItemRepository {
     }
 
     public create(entity: SalesOrderItemCreateEntity): number {
+        // @ts-ignore
+        (entity as SalesOrderItemEntity).Total = entity["Quantity"] * entity["Price"];
+        // @ts-ignore
+        (entity as SalesOrderItemEntity).Tax = entity["Price"] * 0.2;
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -226,6 +228,10 @@ export class SalesOrderItemRepository {
     }
 
     public update(entity: SalesOrderItemUpdateEntity): void {
+        // @ts-ignore
+        (entity as SalesOrderItemEntity).Total = entity["Quantity"] * entity["Price"];
+        // @ts-ignore
+        (entity as SalesOrderItemEntity).Tax = entity["Price"] * 0.2;
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({

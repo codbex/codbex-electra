@@ -19859,8 +19859,6 @@ components:
         - Model
         - Quantity
         - Price
-        - Total
-        - Tax
       properties:
         Id:
           type: integer
@@ -19888,9 +19886,11 @@ components:
         Total:
           type: number
           format: double
+          readOnly: true
         Tax:
           type: number
           format: double
+          readOnly: true
     SalesOrderItemFilterOptions:
       type: object
       properties:

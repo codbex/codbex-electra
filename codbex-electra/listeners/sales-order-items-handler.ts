@@ -1,30 +1,13 @@
-import { SalesOrderRepository as SalesOrderDAO, SalesOrderEntity } from "codbex-electra/gen/dao/sales-orders/SalesOrderRepository";
-import { SalesOrderItemRepository as SalesOrderItemDAO, SalesOrderItemEntityOptions, SalesOrderItemEntity, SalesOrderItemUpdateEntityEvent, SalesOrderItemEntityEvent } from "codbex-electra/gen/dao/sales-orders/SalesOrderItemRepository";
+import { SalesOrderRepository as SalesOrderDAO } from "codbex-electra/gen/dao/sales-orders/SalesOrderRepository";
+import { SalesOrderItemRepository as SalesOrderItemDAO, SalesOrderItemEntityOptions, SalesOrderItemEntityEvent } from "codbex-electra/gen/dao/sales-orders/SalesOrderItemRepository";
 import { BaseHandler } from "codbex-electra/listeners/base-handler";
-import { getLogger } from "codbex-electra/util/LoggerUtil";
-
-const logger = getLogger(import.meta.url);
 
 export function onMessage(message: string) {
     const event: SalesOrderItemEntityEvent = JSON.parse(message);
 
     const salesOrderUpdater = new SalesOrderUpdater();
-    const operation = event.operation;
+    salesOrderUpdater.update(event);
 
-    switch (operation) {
-        case "create":
-            salesOrderUpdater.update(Operation.CREATE, event);
-            break;
-        case "delete":
-            salesOrderUpdater.update(Operation.DELETE, event);
-            break;
-        case "update":
-            salesOrderUpdater.update(Operation.UPDATE, event);
-            break;
-        default:
-            logger.info("Event message [{}] is not applicable for this listener", message);
-            break;
-    }
 }
 
 export function onError(error: string) {
@@ -46,38 +29,39 @@ class SalesOrderUpdater extends BaseHandler {
         this.salesOrderDAO = new SalesOrderDAO();
     }
 
-    update(operation: Operation, event: SalesOrderItemEntityEvent) {
+    update(event: SalesOrderItemEntityEvent) {
         const salesOrderId = event.entity.SalesOrder;
         if (!salesOrderId) {
             this.throwError("Missing sales order id in event " + JSON.stringify(event));
         }
-        const salesOrder = this.salesOrderDAO.findById(salesOrderId!);
-        this.updateOrderTotal(salesOrder!);
+        const salesOrder = this.salesOrderDAO.findById(salesOrderId!)!;
 
-        // if (operation === Operation.CREATE) {
-        //     logger.info("!!! This is a CREATE. Sales order: {}", salesOrder);
-        // }
-
-        // if (operation === Operation.DELETE) {
-        //     logger.info("!!! This is a DELETE. Sales order: {}", salesOrder);
-        // }
-
-        // if (operation === Operation.UPDATE) {
-        //     logger.info("!!! This is a UPDATE. Sales order: {}", salesOrder);
-        // }
-    }
-
-    private updateOrderTotal(salesOrder: SalesOrderEntity) {
         const orderItems = this.getOrderItems(salesOrder.Id);
 
-        let newTotal = 0;
+        // TODO shipping needs to be recalculated if there is change
+        // a call of order update or create to econt needs to be made to get the new shipping
+        const shipping = salesOrder.Shipping;
+
+        let subTotal = 0;
+        let orderTaxes = 0;
+
         orderItems.forEach(orderItem => {
-            const itemTotal = orderItem.Quantity * orderItem.Price;
-            newTotal += itemTotal;
+            const itemSubTotal = orderItem.Quantity * orderItem.Price;
+            subTotal += itemSubTotal;
+
+            // in OpenCart taxes has value for only one item not for the total
+            const itemTax = orderItem.Price * 0.2;
+            const itemTaxes = orderItem.Quantity * itemTax;
+            orderTaxes += itemTaxes;
         });
 
-        salesOrder.Total = newTotal;
+        salesOrder.SubTotal = subTotal;
+        salesOrder.Tax = orderTaxes;
+        salesOrder.Shipping = shipping;
+        salesOrder.Total = subTotal + orderTaxes + shipping;
+
         this.salesOrderDAO.update(salesOrder);
+
     }
 
     private getOrderItems(orderId: number) {

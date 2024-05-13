@@ -3810,8 +3810,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpressionCreate": "",
-          "calculatedPropertyExpressionUpdate": "",
+          "calculatedPropertyExpressionCreate": "entity[\"Quantity\"] * entity[\"Price\"]",
+          "calculatedPropertyExpressionUpdate": "entity[\"Quantity\"] * entity[\"Price\"]",
           "dataAutoIncrement": false,
           "dataLength": "19",
           "dataName": "ORDERITEM_TOTAL",
@@ -3821,8 +3821,8 @@
           "dataScale": "4",
           "dataType": "DECIMAL",
           "dataUnique": false,
-          "isCalculatedProperty": false,
-          "isRequiredProperty": true,
+          "isCalculatedProperty": true,
+          "isRequiredProperty": false,
           "name": "Total",
           "widgetIsMajor": true,
           "widgetLength": "19",
@@ -3836,8 +3836,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpressionCreate": "",
-          "calculatedPropertyExpressionUpdate": "",
+          "calculatedPropertyExpressionCreate": "entity[\"Price\"] * 0.2",
+          "calculatedPropertyExpressionUpdate": "entity[\"Price\"] * 0.2",
           "dataAutoIncrement": false,
           "dataLength": "19",
           "dataName": "ORDERITEM_TAX",
@@ -3847,8 +3847,8 @@
           "dataScale": "4",
           "dataType": "DECIMAL",
           "dataUnique": false,
-          "isCalculatedProperty": false,
-          "isRequiredProperty": true,
+          "isCalculatedProperty": true,
+          "isRequiredProperty": false,
           "name": "Tax",
           "widgetIsMajor": true,
           "widgetLength": "19",
