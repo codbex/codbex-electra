@@ -133,6 +133,15 @@ class SalesOrderService {
         if (entity.Total === null || entity.Total === undefined) {
             throw new ValidationError(`The 'Total' property is required, provide a valid value`);
         }
+        if (entity.SubTotal === null || entity.SubTotal === undefined) {
+            throw new ValidationError(`The 'SubTotal' property is required, provide a valid value`);
+        }
+        if (entity.Tax === null || entity.Tax === undefined) {
+            throw new ValidationError(`The 'Tax' property is required, provide a valid value`);
+        }
+        if (entity.Shipping === null || entity.Shipping === undefined) {
+            throw new ValidationError(`The 'Shipping' property is required, provide a valid value`);
+        }
         if (entity.Currency === null || entity.Currency === undefined) {
             throw new ValidationError(`The 'Currency' property is required, provide a valid value`);
         }

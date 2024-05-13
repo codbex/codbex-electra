@@ -17101,6 +17101,9 @@ components:
         - Store
         - Status
         - Total
+        - SubTotal
+        - Tax
+        - Shipping
         - Currency
         - Customer
         - Language
@@ -17120,6 +17123,15 @@ components:
           type: integer
           format: int32
         Total:
+          type: number
+          format: double
+        SubTotal:
+          type: number
+          format: double
+        Tax:
+          type: number
+          format: double
+        Shipping:
           type: number
           format: double
         Currency:
@@ -17198,6 +17210,30 @@ components:
                         type: integer
                         format: int32
                 Total:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                SubTotal:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                Tax:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                Shipping:
                   oneOf:
                     - type: number
                       format: double
@@ -17331,6 +17367,30 @@ components:
                       items:
                         type: number
                         format: double
+                SubTotal:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                Tax:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                Shipping:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
                 Currency:
                   oneOf:
                     - type: integer
@@ -17422,6 +17482,9 @@ components:
                 Store:
                 Status:
                 Total:
+                SubTotal:
+                Tax:
+                Shipping:
                 Currency:
                 Customer:
                 DateAdded:
@@ -17461,6 +17524,15 @@ components:
                   type: integer
                   format: int32
                 Total:
+                  type: number
+                  format: double
+                SubTotal:
+                  type: number
+                  format: double
+                Tax:
+                  type: number
+                  format: double
+                Shipping:
                   type: number
                   format: double
                 Currency:
@@ -17512,6 +17584,15 @@ components:
                 Total:
                   type: number
                   format: double
+                SubTotal:
+                  type: number
+                  format: double
+                Tax:
+                  type: number
+                  format: double
+                Shipping:
+                  type: number
+                  format: double
                 Currency:
                   type: integer
                   format: int32
@@ -17559,6 +17640,15 @@ components:
                   type: integer
                   format: int32
                 Total:
+                  type: number
+                  format: double
+                SubTotal:
+                  type: number
+                  format: double
+                Tax:
+                  type: number
+                  format: double
+                Shipping:
                   type: number
                   format: double
                 Currency:
@@ -17610,6 +17700,15 @@ components:
                 Total:
                   type: number
                   format: double
+                SubTotal:
+                  type: number
+                  format: double
+                Tax:
+                  type: number
+                  format: double
+                Shipping:
+                  type: number
+                  format: double
                 Currency:
                   type: integer
                   format: int32
@@ -17642,12 +17741,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Number", "Store", "Status", "Total", "Currency", "Customer", "DateAdded", "DateModified", "UpdatedBy", "Tracking", "Comment", "InvoiceNumber", "InvoicePrefix", "Language"]
+          example: ["Id", "Number", "Store", "Status", "Total", "SubTotal", "Tax", "Shipping", "Currency", "Customer", "DateAdded", "DateModified", "UpdatedBy", "Tracking", "Comment", "InvoiceNumber", "InvoicePrefix", "Language"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Store,Status,Total,Currency,Customer,DateAdded,DateModified,UpdatedBy,Tracking,Comment,InvoiceNumber,InvoicePrefix,Language"
+            example: "Id,Number,Store,Status,Total,SubTotal,Tax,Shipping,Currency,Customer,DateAdded,DateModified,UpdatedBy,Tracking,Comment,InvoiceNumber,InvoicePrefix,Language"
         $order:
           type: string
           enum: ["asc", "desc"]

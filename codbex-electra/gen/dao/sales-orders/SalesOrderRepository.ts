@@ -11,6 +11,9 @@ export interface SalesOrderEntity {
     Store: number;
     Status: number;
     Total: number;
+    SubTotal: number;
+    Tax: number;
+    Shipping: number;
     Currency: number;
     Customer: number;
     DateAdded?: Date;
@@ -27,6 +30,9 @@ export interface SalesOrderCreateEntity {
     readonly Store: number;
     readonly Status: number;
     readonly Total: number;
+    readonly SubTotal: number;
+    readonly Tax: number;
+    readonly Shipping: number;
     readonly Currency: number;
     readonly Customer: number;
     readonly Tracking?: string;
@@ -48,6 +54,9 @@ export interface SalesOrderEntityOptions {
             Store?: number | number[];
             Status?: number | number[];
             Total?: number | number[];
+            SubTotal?: number | number[];
+            Tax?: number | number[];
+            Shipping?: number | number[];
             Currency?: number | number[];
             Customer?: number | number[];
             DateAdded?: Date | Date[];
@@ -65,6 +74,9 @@ export interface SalesOrderEntityOptions {
             Store?: number | number[];
             Status?: number | number[];
             Total?: number | number[];
+            SubTotal?: number | number[];
+            Tax?: number | number[];
+            Shipping?: number | number[];
             Currency?: number | number[];
             Customer?: number | number[];
             DateAdded?: Date | Date[];
@@ -82,6 +94,9 @@ export interface SalesOrderEntityOptions {
             Store?: number;
             Status?: number;
             Total?: number;
+            SubTotal?: number;
+            Tax?: number;
+            Shipping?: number;
             Currency?: number;
             Customer?: number;
             DateAdded?: Date;
@@ -99,6 +114,9 @@ export interface SalesOrderEntityOptions {
             Store?: number;
             Status?: number;
             Total?: number;
+            SubTotal?: number;
+            Tax?: number;
+            Shipping?: number;
             Currency?: number;
             Customer?: number;
             DateAdded?: Date;
@@ -116,6 +134,9 @@ export interface SalesOrderEntityOptions {
             Store?: number;
             Status?: number;
             Total?: number;
+            SubTotal?: number;
+            Tax?: number;
+            Shipping?: number;
             Currency?: number;
             Customer?: number;
             DateAdded?: Date;
@@ -133,6 +154,9 @@ export interface SalesOrderEntityOptions {
             Store?: number;
             Status?: number;
             Total?: number;
+            SubTotal?: number;
+            Tax?: number;
+            Shipping?: number;
             Currency?: number;
             Customer?: number;
             DateAdded?: Date;
@@ -150,6 +174,9 @@ export interface SalesOrderEntityOptions {
             Store?: number;
             Status?: number;
             Total?: number;
+            SubTotal?: number;
+            Tax?: number;
+            Shipping?: number;
             Currency?: number;
             Customer?: number;
             DateAdded?: Date;
@@ -217,6 +244,24 @@ export class SalesOrderRepository {
             {
                 name: "Total",
                 column: "SALESORDER_TOTAL",
+                type: "DECIMAL",
+                required: true
+            },
+            {
+                name: "SubTotal",
+                column: "SALESORDER_SUBTOTAL",
+                type: "DECIMAL",
+                required: true
+            },
+            {
+                name: "Tax",
+                column: "SALESORDER_TAX",
+                type: "DECIMAL",
+                required: true
+            },
+            {
+                name: "Shipping",
+                column: "SALESORDER_SHIPPING",
                 type: "DECIMAL",
                 required: true
             },

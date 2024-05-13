@@ -5,6 +5,7 @@ import { SalesOrderShippingRepository as SalesOrderShippingDAO, SalesOrderShippi
 import { SalesOrderPaymentRepository as SalesOrderPaymentDAO, SalesOrderPaymentCreateEntity } from "codbex-electra/gen/dao/sales-orders/SalesOrderPaymentRepository";
 import { oc_orderRepository as OpenCartOrderDAO, oc_orderEntity } from "codbex-electra-opencart/dao/oc_orderRepository";
 import { oc_order_productRepository as OpenCartOrderProductDAO, oc_order_productEntity, oc_order_productEntityOptions } from "codbex-electra-opencart/dao/oc_order_productRepository";
+import { oc_order_totalRepository as OpenCartOrderTotalDAO, oc_order_totalEntityOptions, oc_order_totalEntity } from "codbex-electra-opencart/dao/oc_order_totalRepository";
 
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { OrderEntry } from "./get-all-orders";
@@ -27,6 +28,7 @@ class MergeCustomerFromOpenCart extends BaseHandler {
     private readonly salesOrderPaymentDAO;
     private readonly ocOrderDAO;
     private readonly ocOrderProductDAO;
+    private readonly openCartOrderTotalDAO;
 
     constructor(orderEntry: OrderEntry) {
         super(import.meta.url);
@@ -40,6 +42,7 @@ class MergeCustomerFromOpenCart extends BaseHandler {
         const dataSourceName = orderEntry.store.dataSourceName;
         this.ocOrderDAO = new OpenCartOrderDAO(dataSourceName);
         this.ocOrderProductDAO = new OpenCartOrderProductDAO(dataSourceName);
+        this.openCartOrderTotalDAO = new OpenCartOrderTotalDAO(dataSourceName);
     }
 
     handle() {
@@ -76,8 +79,17 @@ class MergeCustomerFromOpenCart extends BaseHandler {
         const customerId = this.entityReferenceDAO.getRequiredCustomerReferenceByReferenceId(storeId, ocOrder.customer_id).EntityIntegerId!;
         const orderStatusId = this.entityReferenceDAO.getRequiredOrderStatusReferenceByReferenceId(storeId, ocOrder.order_status_id).EntityIntegerId!;
 
+        const totals = this.getOpenCartOrderTotals(ocOrder.order_id);
+
+        const tax = this.getTaxes(totals);
+        const shipping = this.getShippings(totals);
+        const subTotal = this.getSubTotal(totals);
+
         return {
             Total: ocOrder.total,
+            Tax: tax,
+            Shipping: shipping,
+            SubTotal: subTotal,
             Currency: currencyId,
             Status: orderStatusId,
             Store: storeId,
@@ -87,9 +99,42 @@ class MergeCustomerFromOpenCart extends BaseHandler {
             InvoiceNumber: ocOrder.invoice_no,
             InvoicePrefix: ocOrder.invoice_prefix,
             Language: languageId
-
         };
+    }
 
+    private getOpenCartOrderTotals(orderId: number) {
+        const querySettings: oc_order_totalEntityOptions = {
+            $select: ["code", "value"],
+            $filter: {
+                equals: {
+                    order_id: orderId
+                }
+            }
+        };
+        return this.openCartOrderTotalDAO.findAll(querySettings);
+    }
+
+    private getSubTotal(totals: oc_order_totalEntity[]): number {
+        return this.getTotalsSum(totals, 'sub_total');
+    }
+
+    private getShippings(totals: oc_order_totalEntity[]): number {
+        return this.getTotalsSum(totals, 'shipping');
+    }
+
+    private getTaxes(totals: oc_order_totalEntity[]): number {
+        return this.getTotalsSum(totals, 'tax');
+    }
+
+    private getTotalsSum(totals: oc_order_totalEntity[], matchingCode: string): number {
+        let total = 0;
+
+        totals.forEach(totalEntity => {
+            if (totalEntity.code === matchingCode) {
+                total += totalEntity.value;
+            }
+        });
+        return total;
     }
 
     private createSalesOrderShippingEntity(ocOrder: oc_orderEntity, salesOrderId: number): SalesOrderShippingCreateEntity {
