@@ -1,4 +1,4 @@
-import { StoreConfigDAO } from "codbex-electra-opencart/dao/StoreConfigDAO";
+import { StoreConfigDAO } from "codbex-electra/dao/StoreConfigDAO";
 
 export function onMessage(message: any) {
     const storeConfigDAO = new StoreConfigDAO();

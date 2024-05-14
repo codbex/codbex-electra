@@ -1,4 +1,4 @@
-import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
+import { OpenCartStoreConfig } from "codbex-electra/dao/StoreConfigDAO";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { query } from "sdk/db";
 

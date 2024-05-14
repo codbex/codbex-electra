@@ -119,6 +119,10 @@ interface EntityReferenceEntityEvent {
     }
 }
 
+interface EntityReferenceUpdateEntityEvent extends EntityReferenceEntityEvent {
+    readonly previousEntity: EntityReferenceEntity;
+}
+
 export class EntityReferenceRepository {
 
     private static readonly DEFINITION = {
@@ -202,11 +206,13 @@ export class EntityReferenceRepository {
     }
 
     public update(entity: EntityReferenceUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_ENTITYREFERENCE",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "ID",
@@ -261,7 +267,7 @@ export class EntityReferenceRepository {
         return 0;
     }
 
-    private async triggerEvent(data: EntityReferenceEntityEvent) {
+    private async triggerEvent(data: EntityReferenceEntityEvent | EntityReferenceUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-entity-references-EntityReference", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

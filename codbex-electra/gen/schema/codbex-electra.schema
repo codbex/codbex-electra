@@ -116,6 +116,27 @@
                         "name": "SALESORDER_TOTAL"
                     },
                     {
+                        "type": "DECIMAL",
+                        "length": 20,
+                        "precision": "15",
+                        "scale": "4",
+                        "name": "SALESORDER_SUBTOTAL"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 20,
+                        "precision": "15",
+                        "scale": "4",
+                        "name": "SALESORDER_TAX"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 20,
+                        "precision": "15",
+                        "scale": "4",
+                        "name": "SALESORDER_SHIPPING"
+                    },
+                    {
                         "type": "INTEGER",
                         "length": 0,
                         "precision": "NaN",
@@ -472,13 +493,6 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "name": "ORDERSTATUS_NAME"
-                    },
-                    {
-                        "type": "BOOLEAN",
-                        "length": 1,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "name": "ORDERSTATUS_DEFAULT"
                     }
                 ]
             },

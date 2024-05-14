@@ -74,6 +74,10 @@ interface ProductToStoreEntityEvent {
     }
 }
 
+interface ProductToStoreUpdateEntityEvent extends ProductToStoreEntityEvent {
+    readonly previousEntity: ProductToStoreEntity;
+}
+
 export class ProductToStoreRepository {
 
     private static readonly DEFINITION = {
@@ -133,11 +137,13 @@ export class ProductToStoreRepository {
     }
 
     public update(entity: ProductToStoreUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_PRODUCTTOSTORE",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "PRODUCTTOSTORE_ID",
@@ -192,7 +198,7 @@ export class ProductToStoreRepository {
         return 0;
     }
 
-    private async triggerEvent(data: ProductToStoreEntityEvent) {
+    private async triggerEvent(data: ProductToStoreEntityEvent | ProductToStoreUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-products-ProductToStore", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

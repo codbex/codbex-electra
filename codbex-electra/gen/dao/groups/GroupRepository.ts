@@ -81,6 +81,10 @@ interface GroupEntityEvent {
     }
 }
 
+interface GroupUpdateEntityEvent extends GroupEntityEvent {
+    readonly previousEntity: GroupEntity;
+}
+
 export class GroupRepository {
 
     private static readonly DEFINITION = {
@@ -153,11 +157,13 @@ export class GroupRepository {
         (entity as GroupEntity).UpdatedBy = require("security/user").getName();
         // @ts-ignore
         (entity as GroupEntity).DateModified = Date.now();
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_GROUP",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "GROUP_ID",
@@ -212,7 +218,7 @@ export class GroupRepository {
         return 0;
     }
 
-    private async triggerEvent(data: GroupEntityEvent) {
+    private async triggerEvent(data: GroupEntityEvent | GroupUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-groups-Group", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

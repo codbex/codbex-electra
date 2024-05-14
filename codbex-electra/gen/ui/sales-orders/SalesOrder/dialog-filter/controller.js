@@ -68,6 +68,15 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Total !== undefined) {
 				filter.$filter.equals.Total = entity.Total;
 			}
+			if (entity.SubTotal !== undefined) {
+				filter.$filter.equals.SubTotal = entity.SubTotal;
+			}
+			if (entity.Tax !== undefined) {
+				filter.$filter.equals.Tax = entity.Tax;
+			}
+			if (entity.Shipping !== undefined) {
+				filter.$filter.equals.Shipping = entity.Shipping;
+			}
 			if (entity.Currency !== undefined) {
 				filter.$filter.equals.Currency = entity.Currency;
 			}

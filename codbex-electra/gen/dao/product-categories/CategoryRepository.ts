@@ -100,6 +100,10 @@ interface CategoryEntityEvent {
     }
 }
 
+interface CategoryUpdateEntityEvent extends CategoryEntityEvent {
+    readonly previousEntity: CategoryEntity;
+}
+
 export class CategoryRepository {
 
     private static readonly DEFINITION = {
@@ -187,11 +191,13 @@ export class CategoryRepository {
         EntityUtils.setBoolean(entity, "Status");
         // @ts-ignore
         (entity as CategoryEntity).DateModified = Date.now();
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_CATEGORY",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "CATEGORY_ID",
@@ -246,7 +252,7 @@ export class CategoryRepository {
         return 0;
     }
 
-    private async triggerEvent(data: CategoryEntityEvent) {
+    private async triggerEvent(data: CategoryEntityEvent | CategoryUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-product-categories-Category", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

@@ -22,8 +22,6 @@ export interface SalesOrderItemCreateEntity {
     readonly Model: string;
     readonly Quantity: number;
     readonly Price: number;
-    readonly Total: number;
-    readonly Tax: number;
 }
 
 export interface SalesOrderItemUpdateEntity extends SalesOrderItemCreateEntity {
@@ -128,6 +126,10 @@ interface SalesOrderItemEntityEvent {
     }
 }
 
+interface SalesOrderItemUpdateEntityEvent extends SalesOrderItemEntityEvent {
+    readonly previousEntity: SalesOrderItemEntity;
+}
+
 export class SalesOrderItemRepository {
 
     private static readonly DEFINITION = {
@@ -207,6 +209,10 @@ export class SalesOrderItemRepository {
     }
 
     public create(entity: SalesOrderItemCreateEntity): number {
+        // @ts-ignore
+        (entity as SalesOrderItemEntity).Total = entity["Quantity"] * entity["Price"];
+        // @ts-ignore
+        (entity as SalesOrderItemEntity).Tax = entity["Price"] * 0.2;
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -222,11 +228,17 @@ export class SalesOrderItemRepository {
     }
 
     public update(entity: SalesOrderItemUpdateEntity): void {
+        // @ts-ignore
+        (entity as SalesOrderItemEntity).Total = entity["Quantity"] * entity["Price"];
+        // @ts-ignore
+        (entity as SalesOrderItemEntity).Tax = entity["Price"] * 0.2;
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_SALESORDERITEM",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "ORDERITEM_ID",
@@ -281,7 +293,7 @@ export class SalesOrderItemRepository {
         return 0;
     }
 
-    private async triggerEvent(data: SalesOrderItemEntityEvent) {
+    private async triggerEvent(data: SalesOrderItemEntityEvent | SalesOrderItemUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-sales-orders-SalesOrderItem", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

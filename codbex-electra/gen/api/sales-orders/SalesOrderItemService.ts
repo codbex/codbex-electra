@@ -150,12 +150,6 @@ class SalesOrderItemService {
         if (entity.Price === null || entity.Price === undefined) {
             throw new ValidationError(`The 'Price' property is required, provide a valid value`);
         }
-        if (entity.Total === null || entity.Total === undefined) {
-            throw new ValidationError(`The 'Total' property is required, provide a valid value`);
-        }
-        if (entity.Tax === null || entity.Tax === undefined) {
-            throw new ValidationError(`The 'Tax' property is required, provide a valid value`);
-        }
         for (const next of validationModules) {
             next.validate(entity);
         }

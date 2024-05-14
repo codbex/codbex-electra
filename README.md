@@ -135,6 +135,7 @@ In the following table you can find more details about the tables mapping.
 | CODBEX_PRODUCT | oc_product | every minute | `20 * * ? * *` |
 | n/a | oc_setting | every minute | `10 * * ? * *` |
 | CODBEX_ZONE | oc_zone | every 15 minutes | `0 1/15 * ? * *` |
+| CODBEX_STORECONFIGURATION | oc_setting | every 15 minutes | `0 0/15 * ? * *` |
 
 To check the example execution times of the cron, you can use [this site](http://www.cronmaker.com/).
 

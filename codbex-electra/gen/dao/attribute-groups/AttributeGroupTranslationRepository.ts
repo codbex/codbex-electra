@@ -83,6 +83,10 @@ interface AttributeGroupTranslationEntityEvent {
     }
 }
 
+interface AttributeGroupTranslationUpdateEntityEvent extends AttributeGroupTranslationEntityEvent {
+    readonly previousEntity: AttributeGroupTranslationEntity;
+}
+
 export class AttributeGroupTranslationRepository {
 
     private static readonly DEFINITION = {
@@ -148,11 +152,13 @@ export class AttributeGroupTranslationRepository {
     }
 
     public update(entity: AttributeGroupTranslationUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_ATTRIBUTEGROUPTRANSLATION",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "ATTRIBUTEGROUPTRANSLATION_ID",
@@ -207,7 +213,7 @@ export class AttributeGroupTranslationRepository {
         return 0;
     }
 
-    private async triggerEvent(data: AttributeGroupTranslationEntityEvent) {
+    private async triggerEvent(data: AttributeGroupTranslationEntityEvent | AttributeGroupTranslationUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-attribute-groups-AttributeGroupTranslation", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

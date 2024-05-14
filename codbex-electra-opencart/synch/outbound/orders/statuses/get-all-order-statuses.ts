@@ -1,5 +1,5 @@
 import { OrderStatusRepository as OrderStatusDAO, OrderStatusEntityOptions } from "codbex-electra/gen/dao/order-statuses/OrderStatusRepository";
-import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
+import { OpenCartStoreConfig } from "codbex-electra/dao/StoreConfigDAO";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 
 export function onMessage(message: any) {

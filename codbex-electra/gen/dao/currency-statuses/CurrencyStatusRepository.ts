@@ -65,6 +65,10 @@ interface CurrencyStatusEntityEvent {
     }
 }
 
+interface CurrencyStatusUpdateEntityEvent extends CurrencyStatusEntityEvent {
+    readonly previousEntity: CurrencyStatusEntity;
+}
+
 export class CurrencyStatusRepository {
 
     private static readonly DEFINITION = {
@@ -117,11 +121,13 @@ export class CurrencyStatusRepository {
     }
 
     public update(entity: CurrencyStatusUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_CURRENCYSTATUS",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "CURRENCYSTATUS_ID",
@@ -176,7 +182,7 @@ export class CurrencyStatusRepository {
         return 0;
     }
 
-    private async triggerEvent(data: CurrencyStatusEntityEvent) {
+    private async triggerEvent(data: CurrencyStatusEntityEvent | CurrencyStatusUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-currency-statuses-CurrencyStatus", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

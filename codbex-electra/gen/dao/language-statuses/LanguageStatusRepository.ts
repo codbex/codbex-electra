@@ -65,6 +65,10 @@ interface LanguageStatusEntityEvent {
     }
 }
 
+interface LanguageStatusUpdateEntityEvent extends LanguageStatusEntityEvent {
+    readonly previousEntity: LanguageStatusEntity;
+}
+
 export class LanguageStatusRepository {
 
     private static readonly DEFINITION = {
@@ -117,11 +121,13 @@ export class LanguageStatusRepository {
     }
 
     public update(entity: LanguageStatusUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_LANGUAGESTATUS",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "LANGUAGESTATUS_ID",
@@ -176,7 +182,7 @@ export class LanguageStatusRepository {
         return 0;
     }
 
-    private async triggerEvent(data: LanguageStatusEntityEvent) {
+    private async triggerEvent(data: LanguageStatusEntityEvent | LanguageStatusUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-language-statuses-LanguageStatus", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

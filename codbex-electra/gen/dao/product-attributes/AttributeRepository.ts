@@ -74,6 +74,10 @@ interface AttributeEntityEvent {
     }
 }
 
+interface AttributeUpdateEntityEvent extends AttributeEntityEvent {
+    readonly previousEntity: AttributeEntity;
+}
+
 export class AttributeRepository {
 
     private static readonly DEFINITION = {
@@ -133,11 +137,13 @@ export class AttributeRepository {
     }
 
     public update(entity: AttributeUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_ATTRIBUTE",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "ATTRIBUTE_ID",
@@ -192,7 +198,7 @@ export class AttributeRepository {
         return 0;
     }
 
-    private async triggerEvent(data: AttributeEntityEvent) {
+    private async triggerEvent(data: AttributeEntityEvent | AttributeUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-product-attributes-Attribute", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

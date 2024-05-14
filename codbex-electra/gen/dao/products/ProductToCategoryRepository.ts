@@ -74,6 +74,10 @@ interface ProductToCategoryEntityEvent {
     }
 }
 
+interface ProductToCategoryUpdateEntityEvent extends ProductToCategoryEntityEvent {
+    readonly previousEntity: ProductToCategoryEntity;
+}
+
 export class ProductToCategoryRepository {
 
     private static readonly DEFINITION = {
@@ -133,11 +137,13 @@ export class ProductToCategoryRepository {
     }
 
     public update(entity: ProductToCategoryUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_PRODUCTTOCATEGORY",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "PRODUCTTOCATEGORY_ID",
@@ -192,7 +198,7 @@ export class ProductToCategoryRepository {
         return 0;
     }
 
-    private async triggerEvent(data: ProductToCategoryEntityEvent) {
+    private async triggerEvent(data: ProductToCategoryEntityEvent | ProductToCategoryUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-products-ProductToCategory", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

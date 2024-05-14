@@ -1,0 +1,7 @@
+{
+    "location": "/codbex-electra/listeners/sales-order-items.listener",
+    "name": "codbex-electra-sales-orders-SalesOrderItem",
+    "kind": "T",
+    "handler": "codbex-electra/listeners/sales-order-items-handler.ts",
+    "description": "Sales Order Items events listener"
+}
