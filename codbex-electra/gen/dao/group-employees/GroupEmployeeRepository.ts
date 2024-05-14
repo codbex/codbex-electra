@@ -90,6 +90,10 @@ interface GroupEmployeeEntityEvent {
     }
 }
 
+interface GroupEmployeeUpdateEntityEvent extends GroupEmployeeEntityEvent {
+    readonly previousEntity: GroupEmployeeEntity;
+}
+
 export class GroupEmployeeRepository {
 
     private static readonly DEFINITION = {
@@ -168,11 +172,13 @@ export class GroupEmployeeRepository {
         (entity as GroupEmployeeEntity).UpdatedBy = require("security/user").getName();
         // @ts-ignore
         (entity as GroupEmployeeEntity).DateModified = Date.now();
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_GROUPEMPLOYEE",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "GROUPEMPLOYEE_ID",
@@ -227,7 +233,7 @@ export class GroupEmployeeRepository {
         return 0;
     }
 
-    private async triggerEvent(data: GroupEmployeeEntityEvent) {
+    private async triggerEvent(data: GroupEmployeeEntityEvent | GroupEmployeeUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-group-employees-GroupEmployee", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

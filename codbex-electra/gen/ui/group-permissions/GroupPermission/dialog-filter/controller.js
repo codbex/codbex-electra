@@ -44,13 +44,13 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
-			if (entity.Group) {
+			if (entity.Group !== undefined) {
 				filter.$filter.equals.Group = entity.Group;
 			}
-			if (entity.Permission) {
+			if (entity.Permission !== undefined) {
 				filter.$filter.equals.Permission = entity.Permission;
 			}
 			if (entity.UpdatedBy) {

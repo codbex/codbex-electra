@@ -65,6 +65,10 @@ interface ZoneStatusEntityEvent {
     }
 }
 
+interface ZoneStatusUpdateEntityEvent extends ZoneStatusEntityEvent {
+    readonly previousEntity: ZoneStatusEntity;
+}
+
 export class ZoneStatusRepository {
 
     private static readonly DEFINITION = {
@@ -117,11 +121,13 @@ export class ZoneStatusRepository {
     }
 
     public update(entity: ZoneStatusUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_ZONESTATUS",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "ZONESTATUS_ID",
@@ -176,7 +182,7 @@ export class ZoneStatusRepository {
         return 0;
     }
 
-    private async triggerEvent(data: ZoneStatusEntityEvent) {
+    private async triggerEvent(data: ZoneStatusEntityEvent | ZoneStatusUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-zone-statuses-ZoneStatus", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

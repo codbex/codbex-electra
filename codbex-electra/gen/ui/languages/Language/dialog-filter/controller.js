@@ -37,7 +37,7 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
 			if (entity.Name) {
@@ -49,7 +49,7 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Locale) {
 				filter.$filter.contains.Locale = entity.Locale;
 			}
-			if (entity.Status) {
+			if (entity.Status !== undefined) {
 				filter.$filter.equals.Status = entity.Status;
 			}
 			messageHub.postMessage("entitySearch", {

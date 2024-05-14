@@ -179,13 +179,38 @@ export class oc_settingRepository {
         this.dao.update(entity);
     }
 
-    public updateDefaultOrderStatus(value: number): void {
-        const params = [value, 'payment_cod_order_status_id'];
+    public updateProcessingOrderStatusId(orderStatusId: number): void {
+        const statuses = new Array();
+        statuses.push(orderStatusId.toString());
+
+        const params = [JSON.stringify(statuses), 'config_processing_status'];
+        update.execute(oc_settingRepository.UPDATE_CFG_BY_KEY_STATEMENT, params, this.dataSourceName);
+    }
+
+    public updateCompleteOrderStatusId(orderStatusId: number): void {
+
+        const params = [orderStatusId, 'config_order_status_id'];
+        update.execute(oc_settingRepository.UPDATE_CFG_BY_KEY_STATEMENT, params, this.dataSourceName);
+
+        const statuses = new Array();
+        statuses.push(orderStatusId.toString());
+
+        const params2 = [JSON.stringify(statuses), 'config_complete_status'];
+        update.execute(oc_settingRepository.UPDATE_CFG_BY_KEY_STATEMENT, params2, this.dataSourceName);
+    }
+
+    public updateFraudOrderStatusId(orderStatusId: number): void {
+        const params = [orderStatusId, 'config_fraud_status_id'];
         update.execute(oc_settingRepository.UPDATE_CFG_BY_KEY_STATEMENT, params, this.dataSourceName);
     }
 
     public updateConfigByKey(key: string, value: string): void {
         const params = [value, key];
+        update.execute(oc_settingRepository.UPDATE_CFG_BY_KEY_STATEMENT, params, this.dataSourceName);
+    }
+
+    public updatePaymentCodeOrderStatus(value: number): void {
+        const params = [value, 'payment_cod_order_status_id'];
         update.execute(oc_settingRepository.UPDATE_CFG_BY_KEY_STATEMENT, params, this.dataSourceName);
     }
 

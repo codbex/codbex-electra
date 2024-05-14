@@ -103,7 +103,10 @@
 	                    <div class="fd-col fd-col-md--8">
 							<fd-checkbox id="idPostcodeRequired"
 	                            compact="false"
-								ng-model="entity.PostcodeRequired">
+								ng-init="entity.isPostcodeRequiredIndeterminate=true"
+								ng-model="entity.PostcodeRequired"
+								dg-indeterminate="entity.isPostcodeRequiredIndeterminate"
+								ng-click="entity.isPostcodeRequiredIndeterminate=false">
 	                        </fd-checkbox>
                         	<fd-checkbox-label for="idPostcodeRequired">PostcodeRequired</fd-checkbox-label>
                         </div>

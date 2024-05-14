@@ -74,6 +74,10 @@ interface ManufacturerEntityEvent {
     }
 }
 
+interface ManufacturerUpdateEntityEvent extends ManufacturerEntityEvent {
+    readonly previousEntity: ManufacturerEntity;
+}
+
 export class ManufacturerRepository {
 
     private static readonly DEFINITION = {
@@ -131,11 +135,13 @@ export class ManufacturerRepository {
     }
 
     public update(entity: ManufacturerUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_MANUFACTURER",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "MANUFACTURER_ID",
@@ -190,7 +196,7 @@ export class ManufacturerRepository {
         return 0;
     }
 
-    private async triggerEvent(data: ManufacturerEntityEvent) {
+    private async triggerEvent(data: ManufacturerEntityEvent | ManufacturerUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-manufacturers-Manufacturer", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

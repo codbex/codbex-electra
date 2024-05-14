@@ -126,6 +126,10 @@ interface EmployeeEntityEvent {
     }
 }
 
+interface EmployeeUpdateEntityEvent extends EmployeeEntityEvent {
+    readonly previousEntity: EmployeeEntity;
+}
+
 export class EmployeeRepository {
 
     private static readonly DEFINITION = {
@@ -226,11 +230,13 @@ export class EmployeeRepository {
         (entity as EmployeeEntity).UpdatedBy = require("security/user").getName();
         // @ts-ignore
         (entity as EmployeeEntity).DateModified = Date.now();
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_EMPLOYEE",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "EMPLOYEE_ID",
@@ -285,7 +291,7 @@ export class EmployeeRepository {
         return 0;
     }
 
-    private async triggerEvent(data: EmployeeEntityEvent) {
+    private async triggerEvent(data: EmployeeEntityEvent | EmployeeUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-employees-Employee", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

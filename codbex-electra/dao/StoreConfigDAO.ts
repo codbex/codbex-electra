@@ -17,6 +17,11 @@ export class StoreConfigDAO {
     private static readonly OPENCART_DATASOURCE_NAME_PROPERTY = "DATASOURCE_NAME";
     private static readonly ECONT_SHOP_SECRET_PROPERTY = "ECONT_SHOP_SECRET";
 
+    private static readonly PROCESSING_ORDER_STATUS_ID_PROPERTY = "PROCESSING_ORDER_STATUS_ID";
+    private static readonly COMPLETE_ORDER_STATUS_ID_PROPERTY = "COMPLETE_ORDER_STATUS_ID";
+    private static readonly FRAUD_ORDER_STATUS_ID_PROPERTY = "FRAUD_ORDER_STATUS_ID";
+    private static readonly PENDING_ORDER_STATUS_ID_PROPERTY = "PENDING_ORDER_STATUS_ID";
+
     private readonly logger;
     private readonly storeDAO;
     private readonly storeConfigurationDAO;
@@ -32,10 +37,40 @@ export class StoreConfigDAO {
     }
 
     public getStoreEcontShopSecret(storeId: number): string {
-        return this.getStoreConfigPropertyByName(storeId, StoreConfigDAO.ECONT_SHOP_SECRET_PROPERTY);
+        return this.getRequiredStoreConfigPropertyByName(storeId, StoreConfigDAO.ECONT_SHOP_SECRET_PROPERTY);
     }
 
-    private getStoreConfigPropertyByName(storeId: number, propertyName: string): string {
+    public getStoreProcessingOrderStatusId(storeId: number): number {
+        const value = this.getRequiredStoreConfigPropertyByName(storeId, StoreConfigDAO.PROCESSING_ORDER_STATUS_ID_PROPERTY);
+        return Number(value);
+    }
+
+    public getStoreCompleteOrderStatusId(storeId: number): number {
+        const value = this.getRequiredStoreConfigPropertyByName(storeId, StoreConfigDAO.COMPLETE_ORDER_STATUS_ID_PROPERTY);
+        return Number(value);
+    }
+    public getStoreFraudOrderStatusId(storeId: number): number {
+        const value = this.getRequiredStoreConfigPropertyByName(storeId, StoreConfigDAO.FRAUD_ORDER_STATUS_ID_PROPERTY);
+        return Number(value);
+    }
+    public getStorePendingOrderStatusId(storeId: number): number {
+        const value = this.getRequiredStoreConfigPropertyByName(storeId, StoreConfigDAO.PENDING_ORDER_STATUS_ID_PROPERTY);
+        return Number(value);
+    }
+
+    private getRequiredStoreConfigPropertyByName(storeId: number, propertyName: string): string {
+        const cfg = this.getStoreConfigPropertyByName(storeId, propertyName);
+        if (!cfg) {
+            this.throwError(`Missing store configurations for property with name [${propertyName}] and store id [${storeId}].`);
+        }
+        return cfg!;
+    }
+
+    public getOpenCartDataSourceName(storeId: number): string | undefined {
+        return this.getStoreConfigPropertyByName(storeId, StoreConfigDAO.OPENCART_DATASOURCE_NAME_PROPERTY);
+    }
+
+    private getStoreConfigPropertyByName(storeId: number, propertyName: string): string | undefined {
         const propertyId = this.getStoreConfigPropertyIdByName(propertyName);
 
         const querySettings = {
@@ -48,15 +83,15 @@ export class StoreConfigDAO {
         };
         const cfgs = this.storeConfigurationDAO.findAll(querySettings);
         if (cfgs.length === 0) {
-            this.throwError(`Missing store configurations for property with name [${propertyName}] and store id [${storeId}].`);
+            return undefined;
         }
 
         if (cfgs.length > 1) {
             this.throwError(`Found more than one store configurations for property with name [${propertyName}] and store id [${storeId}].`);
         }
         return cfgs[0].Value;
-
     }
+
     private getStoreConfigPropertyIdByName(propertyName: string) {
         const querySettings = {
             $filter: {

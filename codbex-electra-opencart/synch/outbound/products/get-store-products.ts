@@ -1,5 +1,5 @@
 import { ProductToStoreRepository as ProductToStoreDAO, ProductToStoreEntityOptions } from "codbex-electra/gen/dao/products/ProductToStoreRepository";
-import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
+import { OpenCartStoreConfig } from "codbex-electra/dao/StoreConfigDAO";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 
 export function onMessage(message: any) {

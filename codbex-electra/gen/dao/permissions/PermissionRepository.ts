@@ -65,6 +65,10 @@ interface PermissionEntityEvent {
     }
 }
 
+interface PermissionUpdateEntityEvent extends PermissionEntityEvent {
+    readonly previousEntity: PermissionEntity;
+}
+
 export class PermissionRepository {
 
     private static readonly DEFINITION = {
@@ -117,11 +121,13 @@ export class PermissionRepository {
     }
 
     public update(entity: PermissionUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_PERMISSION",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "PERMISSION_ID",
@@ -176,7 +182,7 @@ export class PermissionRepository {
         return 0;
     }
 
-    private async triggerEvent(data: PermissionEntityEvent) {
+    private async triggerEvent(data: PermissionEntityEvent | PermissionUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-permissions-Permission", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

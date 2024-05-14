@@ -1,6 +1,6 @@
 import { AttributeRepository as AttributeDAO, AttributeEntityOptions } from "codbex-electra/gen/dao/product-attributes/AttributeRepository";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
-import { OpenCartStoreConfig } from "codbex-electra-opencart/dao/StoreConfigDAO";
+import { OpenCartStoreConfig } from "codbex-electra/dao/StoreConfigDAO";
 
 export function onMessage(message: any) {
     const store: OpenCartStoreConfig = message.getBody();

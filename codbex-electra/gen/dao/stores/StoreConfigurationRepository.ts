@@ -83,6 +83,10 @@ interface StoreConfigurationEntityEvent {
     }
 }
 
+interface StoreConfigurationUpdateEntityEvent extends StoreConfigurationEntityEvent {
+    readonly previousEntity: StoreConfigurationEntity;
+}
+
 export class StoreConfigurationRepository {
 
     private static readonly DEFINITION = {
@@ -148,11 +152,13 @@ export class StoreConfigurationRepository {
     }
 
     public update(entity: StoreConfigurationUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_STORECONFIGURATION",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "STORECONFIGURATION_ID",
@@ -207,7 +213,7 @@ export class StoreConfigurationRepository {
         return 0;
     }
 
-    private async triggerEvent(data: StoreConfigurationEntityEvent) {
+    private async triggerEvent(data: StoreConfigurationEntityEvent | StoreConfigurationUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-stores-StoreConfiguration", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

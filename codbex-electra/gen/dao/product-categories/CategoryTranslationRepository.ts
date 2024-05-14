@@ -119,6 +119,10 @@ interface CategoryTranslationEntityEvent {
     }
 }
 
+interface CategoryTranslationUpdateEntityEvent extends CategoryTranslationEntityEvent {
+    readonly previousEntity: CategoryTranslationEntity;
+}
+
 export class CategoryTranslationRepository {
 
     private static readonly DEFINITION = {
@@ -208,11 +212,13 @@ export class CategoryTranslationRepository {
     }
 
     public update(entity: CategoryTranslationUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_CATEGORYTRANSLATION",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "CATEGORYTRANSLATION_ID",
@@ -267,7 +273,7 @@ export class CategoryTranslationRepository {
         return 0;
     }
 
-    private async triggerEvent(data: CategoryTranslationEntityEvent) {
+    private async triggerEvent(data: CategoryTranslationEntityEvent | CategoryTranslationUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-product-categories-CategoryTranslation", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

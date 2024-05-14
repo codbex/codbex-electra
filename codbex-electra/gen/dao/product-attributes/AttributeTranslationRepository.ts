@@ -83,6 +83,10 @@ interface AttributeTranslationEntityEvent {
     }
 }
 
+interface AttributeTranslationUpdateEntityEvent extends AttributeTranslationEntityEvent {
+    readonly previousEntity: AttributeTranslationEntity;
+}
+
 export class AttributeTranslationRepository {
 
     private static readonly DEFINITION = {
@@ -148,11 +152,13 @@ export class AttributeTranslationRepository {
     }
 
     public update(entity: AttributeTranslationUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_ATTRIBUTETRANSLATION",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "ATTRIBUTETRANSLATION_ID",
@@ -207,7 +213,7 @@ export class AttributeTranslationRepository {
         return 0;
     }
 
-    private async triggerEvent(data: AttributeTranslationEntityEvent) {
+    private async triggerEvent(data: AttributeTranslationEntityEvent | AttributeTranslationUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-product-attributes-AttributeTranslation", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

@@ -65,6 +65,10 @@ interface CustomerStatusEntityEvent {
     }
 }
 
+interface CustomerStatusUpdateEntityEvent extends CustomerStatusEntityEvent {
+    readonly previousEntity: CustomerStatusEntity;
+}
+
 export class CustomerStatusRepository {
 
     private static readonly DEFINITION = {
@@ -116,11 +120,13 @@ export class CustomerStatusRepository {
     }
 
     public update(entity: CustomerStatusUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_CUSTOMERSTATUS",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "CUSTOMERSTATUS_ID",
@@ -175,7 +181,7 @@ export class CustomerStatusRepository {
         return 0;
     }
 
-    private async triggerEvent(data: CustomerStatusEntityEvent) {
+    private async triggerEvent(data: CustomerStatusEntityEvent | CustomerStatusUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-customer-statuses-CustomerStatus", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

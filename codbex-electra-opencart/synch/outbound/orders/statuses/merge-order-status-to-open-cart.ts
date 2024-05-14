@@ -4,7 +4,6 @@ import { EntityReferenceDAO } from "codbex-electra/dao/EntityReferenceDAO";
 import { EntityReferenceEntity } from "codbex-electra/gen/dao/entity-references/EntityReferenceRepository";
 import { BaseHandler } from "codbex-electra-opencart/synch/base-handler";
 import { OrderStatusEntry } from "./get-all-order-statuses";
-import { oc_settingRepository as OpenCartSettingDAO } from "codbex-electra-opencart/dao/oc_settingRepository";
 
 export function onMessage(message: any) {
     const orderStatusEntry: OrderStatusEntry = message.getBody();
@@ -19,7 +18,6 @@ class MergeOrderStatusToOpenCartHandler extends BaseHandler {
     private readonly entityReferenceDAO;
     private readonly orderStatusDAO;
     private readonly ocOrderStatusDAO;
-    private readonly ocSettingDAO;
 
     constructor(orderStatusEntry: OrderStatusEntry) {
         super(import.meta.url);
@@ -29,7 +27,6 @@ class MergeOrderStatusToOpenCartHandler extends BaseHandler {
         this.orderStatusDAO = new OrderStatusDAO();
         const dataSourceName = orderStatusEntry.store.dataSourceName;
         this.ocOrderStatusDAO = new OpenCartOrderStatusDAO(dataSourceName);
-        this.ocSettingDAO = new OpenCartSettingDAO(dataSourceName);
     }
 
     handle() {
@@ -40,10 +37,6 @@ class MergeOrderStatusToOpenCartHandler extends BaseHandler {
         const orderStatus = this.orderStatusDAO.findById(this.orderStatusEntry.orderStatusId)!;
         const ocOrderStatus = this.createOpenCartOrderStatus(orderStatus, orderStatusReference);
         const ocOrderStatusId = this.ocOrderStatusDAO.upsert(ocOrderStatus);
-
-        if (orderStatus.Default) {
-            this.ocSettingDAO.updateDefaultOrderStatus(ocOrderStatusId);
-        }
 
         if (!orderStatusReference) {
             this.entityReferenceDAO.createOrderStatusReference(storeId, orderStatusId, ocOrderStatusId);

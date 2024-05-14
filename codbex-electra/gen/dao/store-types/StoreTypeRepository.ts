@@ -65,6 +65,10 @@ interface StoreTypeEntityEvent {
     }
 }
 
+interface StoreTypeUpdateEntityEvent extends StoreTypeEntityEvent {
+    readonly previousEntity: StoreTypeEntity;
+}
+
 export class StoreTypeRepository {
 
     private static readonly DEFINITION = {
@@ -118,11 +122,13 @@ export class StoreTypeRepository {
     }
 
     public update(entity: StoreTypeUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_STORETYPE",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "STORETYPE_ID",
@@ -177,7 +183,7 @@ export class StoreTypeRepository {
         return 0;
     }
 
-    private async triggerEvent(data: StoreTypeEntityEvent) {
+    private async triggerEvent(data: StoreTypeEntityEvent | StoreTypeUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-store-types-StoreType", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

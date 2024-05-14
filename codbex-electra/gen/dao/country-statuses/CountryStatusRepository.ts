@@ -65,6 +65,10 @@ interface CountryStatusEntityEvent {
     }
 }
 
+interface CountryStatusUpdateEntityEvent extends CountryStatusEntityEvent {
+    readonly previousEntity: CountryStatusEntity;
+}
+
 export class CountryStatusRepository {
 
     private static readonly DEFINITION = {
@@ -117,11 +121,13 @@ export class CountryStatusRepository {
     }
 
     public update(entity: CountryStatusUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_COUNTRYSTATUS",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "COUNTRYSTATUS_ID",
@@ -176,7 +182,7 @@ export class CountryStatusRepository {
         return 0;
     }
 
-    private async triggerEvent(data: CountryStatusEntityEvent) {
+    private async triggerEvent(data: CountryStatusEntityEvent | CountryStatusUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-electra-country-statuses-CountryStatus", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

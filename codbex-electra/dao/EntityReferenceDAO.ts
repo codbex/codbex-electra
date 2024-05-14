@@ -1,4 +1,5 @@
-import { EntityReferenceRepository, EntityReferenceEntityOptions, EntityReferenceCreateEntity } from "codbex-electra/gen/dao/entity-references/EntityReferenceRepository";
+import { EntityReferenceRepository, EntityReferenceEntityOptions, EntityReferenceCreateEntity, EntityReferenceEntity } from "codbex-electra/gen/dao/entity-references/EntityReferenceRepository";
+import { caches } from "sdk/cache";
 
 import { getLogger } from "codbex-electra/util/LoggerUtil";
 
@@ -148,57 +149,68 @@ export class EntityReferenceDAO {
     }
 
     public getRequiredCurrencyReferenceByEntityId(storeId: number, currencyEntityId: number) {
-        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.CURRENCY_ENTITY, currencyEntityId);
+        return this.getRequiredReferenceByEntityId(storeId, EntityReferenceDAO.CURRENCY_ENTITY, currencyEntityId);
     }
 
     public getRequiredOrderStatusReferenceByEntityId(storeId: number, orderStatusEntityId: number) {
-        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.ORDER_STATUS_ENTITY, orderStatusEntityId);
+        return this.getRequiredReferenceByEntityIdUsingCache(storeId, EntityReferenceDAO.ORDER_STATUS_ENTITY, orderStatusEntityId);
     }
 
     public getRequiredCountryReferenceByEntityId(storeId: number, countryEntityId: number) {
-        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.COUNTRY_ENTITY, countryEntityId);
+        return this.getRequiredReferenceByEntityIdUsingCache(storeId, EntityReferenceDAO.COUNTRY_ENTITY, countryEntityId);
     }
 
     public getRequiredCustomerReferenceByEntityId(storeId: number, customerEntityId: number) {
-        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.CUSTOMER_ENTITY, customerEntityId);
+        return this.getRequiredReferenceByEntityId(storeId, EntityReferenceDAO.CUSTOMER_ENTITY, customerEntityId);
     }
 
     public getRequiredZoneReferenceByEntityId(storeId: number, zoneEntityId: number) {
-        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.ZONE_ENTITY, zoneEntityId);
+        return this.getRequiredReferenceByEntityId(storeId, EntityReferenceDAO.ZONE_ENTITY, zoneEntityId);
     }
     public getRequiredStockStatusReferenceReferenceByEntityId(storeId: number, stockStatusEntityId: number) {
-        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.STOCK_STATUS_ENTITY, stockStatusEntityId);
+        return this.getRequiredReferenceByEntityId(storeId, EntityReferenceDAO.STOCK_STATUS_ENTITY, stockStatusEntityId);
     }
 
     public getRequiredAttributeGroupReferenceByEntityId(storeId: number, attributeGroupEntityId: number) {
-        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.ATTRIBUTE_GROUP_ENTITY, attributeGroupEntityId);
+        return this.getRequiredReferenceByEntityId(storeId, EntityReferenceDAO.ATTRIBUTE_GROUP_ENTITY, attributeGroupEntityId);
     }
 
     public getRequiredSalesOrderReferenceReferenceByEntityId(storeId: number, salesOrderEntityId: number) {
-        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.SALES_ORDER_ENTITY, salesOrderEntityId);
+        return this.getRequiredReferenceByEntityId(storeId, EntityReferenceDAO.SALES_ORDER_ENTITY, salesOrderEntityId);
     }
 
     public getRequiredProductReferenceReferenceByEntityId(storeId: number, productEntityId: number) {
-        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.PRODUCT_ENTITY, productEntityId);
+        return this.getRequiredReferenceByEntityId(storeId, EntityReferenceDAO.PRODUCT_ENTITY, productEntityId);
     }
 
     public getRequiredAttributeReferenceReferenceByEntityId(storeId: number, attributeEntityId: number) {
-        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.ATTRIBUTE_ENTITY, attributeEntityId);
+        return this.getRequiredReferenceByEntityId(storeId, EntityReferenceDAO.ATTRIBUTE_ENTITY, attributeEntityId);
     }
 
     public getRequiredManufacturerReferenceReferenceByEntityId(storeId: number, manufacturerEntityId: number) {
-        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.MANUFACTURER_ENTITY, manufacturerEntityId);
+        return this.getRequiredReferenceByEntityId(storeId, EntityReferenceDAO.MANUFACTURER_ENTITY, manufacturerEntityId);
     }
 
     public getRequiredCategoryReferenceReferenceByEntityId(storeId: number, categoryEntityId: number) {
-        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.CATEGORY_ENTITY, categoryEntityId);
+        return this.getRequiredReferenceByEntityId(storeId, EntityReferenceDAO.CATEGORY_ENTITY, categoryEntityId);
     }
 
     public getRequiredLanguageReferenceByEntityId(storeId: number, languageEntityId: number) {
-        return this.getRequireReferenceByEntityId(storeId, EntityReferenceDAO.LANGUAGE_ENTITY, languageEntityId);
+        return this.getRequiredReferenceByEntityIdUsingCache(storeId, EntityReferenceDAO.LANGUAGE_ENTITY, languageEntityId);
     }
 
-    private getRequireReferenceByEntityId(scopeId: number, entityName: string, entityId: number) {
+    private getRequiredReferenceByEntityIdUsingCache(scopeIntegerId: number, entityName: string, entityIntegerId: number): EntityReferenceEntity {
+        const cacheKey = "Scope:" + scopeIntegerId + "#" + entityName + "#Ref:" + entityIntegerId;
+        if (caches.contains(cacheKey)) {
+            this.logger.debug("Getting [{}] from cache", cacheKey);
+            return caches.get(cacheKey);
+        }
+        const ref = this.getRequiredReferenceByEntityId(scopeIntegerId, entityName, entityIntegerId);
+        caches.set(cacheKey, ref);
+        return ref;
+    }
+
+    private getRequiredReferenceByEntityId(scopeId: number, entityName: string, entityId: number): EntityReferenceEntity {
         const ref = this.getReferenceByScopeIdEntityNameAndEntityId(scopeId, entityName, entityId);
         if (!ref) {
             this.throwError(`Missing reference for entity [${entityName}] with entity id [${entityId}] in scope [${scopeId}]`);
@@ -240,7 +252,7 @@ export class EntityReferenceDAO {
     }
 
     public getRequiredLanguageReferenceByReferenceId(storeId: number, languageReferenceId: number) {
-        return this.getRequireReferenceByReferenceId(storeId, EntityReferenceDAO.LANGUAGE_ENTITY, languageReferenceId);
+        return this.getRequireReferenceByReferenceIdUsingCache(storeId, EntityReferenceDAO.LANGUAGE_ENTITY, languageReferenceId);
     }
 
     public getRequiredCurrencyReferenceByReferenceId(storeId: number, currencyReferenceId: number) {
@@ -256,15 +268,26 @@ export class EntityReferenceDAO {
     }
 
     public getRequiredCountryReferenceByReferenceId(storeId: number, countryReferenceId: number) {
-        return this.getRequireReferenceByReferenceId(storeId, EntityReferenceDAO.COUNTRY_ENTITY, countryReferenceId);
+        return this.getRequireReferenceByReferenceIdUsingCache(storeId, EntityReferenceDAO.COUNTRY_ENTITY, countryReferenceId);
     }
 
     public getRequiredOrderStatusReferenceByReferenceId(storeId: number, orderStatusReferenceId: number) {
-        return this.getRequireReferenceByReferenceId(storeId, EntityReferenceDAO.ORDER_STATUS_ENTITY, orderStatusReferenceId);
+        return this.getRequireReferenceByReferenceIdUsingCache(storeId, EntityReferenceDAO.ORDER_STATUS_ENTITY, orderStatusReferenceId);
     }
 
     public getRequiredProductReferenceReferenceByReferenceId(storeId: number, productReferenceId: number) {
         return this.getRequireReferenceByReferenceId(storeId, EntityReferenceDAO.PRODUCT_ENTITY, productReferenceId);
+    }
+
+    private getRequireReferenceByReferenceIdUsingCache(scopeId: number, entityName: string, referenceId: number) {
+        const cacheKey = "Scope:" + scopeId + "#" + entityName + "#Ref:" + referenceId;
+        if (caches.contains(cacheKey)) {
+            this.logger.debug("Getting [{}] from cache", cacheKey);
+            return caches.get(cacheKey);
+        }
+        const ref = this.getRequireReferenceByReferenceId(scopeId, entityName, referenceId);
+        caches.set(cacheKey, ref);
+        return ref;
     }
 
     private getRequireReferenceByReferenceId(scopeId: number, entityName: string, referenceId: number) {

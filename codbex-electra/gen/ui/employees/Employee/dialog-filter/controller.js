@@ -43,7 +43,7 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
 			if (entity.FirstName) {
@@ -55,7 +55,7 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Email) {
 				filter.$filter.contains.Email = entity.Email;
 			}
-			if (entity.Status) {
+			if (entity.Status !== undefined) {
 				filter.$filter.equals.Status = entity.Status;
 			}
 			if (entity.Image) {

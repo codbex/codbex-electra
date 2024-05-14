@@ -53,25 +53,34 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
 			if (entity.Number) {
 				filter.$filter.contains.Number = entity.Number;
 			}
-			if (entity.Store) {
+			if (entity.Store !== undefined) {
 				filter.$filter.equals.Store = entity.Store;
 			}
-			if (entity.Status) {
+			if (entity.Status !== undefined) {
 				filter.$filter.equals.Status = entity.Status;
 			}
-			if (entity.Total) {
+			if (entity.Total !== undefined) {
 				filter.$filter.equals.Total = entity.Total;
 			}
-			if (entity.Currency) {
+			if (entity.SubTotal !== undefined) {
+				filter.$filter.equals.SubTotal = entity.SubTotal;
+			}
+			if (entity.Tax !== undefined) {
+				filter.$filter.equals.Tax = entity.Tax;
+			}
+			if (entity.Shipping !== undefined) {
+				filter.$filter.equals.Shipping = entity.Shipping;
+			}
+			if (entity.Currency !== undefined) {
 				filter.$filter.equals.Currency = entity.Currency;
 			}
-			if (entity.Customer) {
+			if (entity.Customer !== undefined) {
 				filter.$filter.equals.Customer = entity.Customer;
 			}
 			if (entity.DateAddedFrom) {
@@ -95,13 +104,13 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Comment) {
 				filter.$filter.contains.Comment = entity.Comment;
 			}
-			if (entity.InvoiceNumber) {
+			if (entity.InvoiceNumber !== undefined) {
 				filter.$filter.equals.InvoiceNumber = entity.InvoiceNumber;
 			}
 			if (entity.InvoicePrefix) {
 				filter.$filter.contains.InvoicePrefix = entity.InvoicePrefix;
 			}
-			if (entity.Language) {
+			if (entity.Language !== undefined) {
 				filter.$filter.equals.Language = entity.Language;
 			}
 			messageHub.postMessage("entitySearch", {

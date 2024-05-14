@@ -36,25 +36,25 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
 			if (entity.EntityName) {
 				filter.$filter.contains.EntityName = entity.EntityName;
 			}
-			if (entity.EntityIntegerId) {
+			if (entity.EntityIntegerId !== undefined) {
 				filter.$filter.equals.EntityIntegerId = entity.EntityIntegerId;
 			}
 			if (entity.EntityStringId) {
 				filter.$filter.contains.EntityStringId = entity.EntityStringId;
 			}
-			if (entity.ReferenceIntegerId) {
+			if (entity.ReferenceIntegerId !== undefined) {
 				filter.$filter.equals.ReferenceIntegerId = entity.ReferenceIntegerId;
 			}
 			if (entity.ReferenceStringId) {
 				filter.$filter.contains.ReferenceStringId = entity.ReferenceStringId;
 			}
-			if (entity.ScopeIntegerId) {
+			if (entity.ScopeIntegerId !== undefined) {
 				filter.$filter.equals.ScopeIntegerId = entity.ScopeIntegerId;
 			}
 			if (entity.ScopeStringId) {

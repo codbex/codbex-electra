@@ -37,13 +37,13 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
-			if (entity.Product) {
+			if (entity.Product !== undefined) {
 				filter.$filter.equals.Product = entity.Product;
 			}
-			if (entity.SalesOrder) {
+			if (entity.SalesOrder !== undefined) {
 				filter.$filter.equals.SalesOrder = entity.SalesOrder;
 			}
 			if (entity.Name) {
@@ -52,16 +52,16 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Model) {
 				filter.$filter.contains.Model = entity.Model;
 			}
-			if (entity.Quantity) {
+			if (entity.Quantity !== undefined) {
 				filter.$filter.equals.Quantity = entity.Quantity;
 			}
-			if (entity.Price) {
+			if (entity.Price !== undefined) {
 				filter.$filter.equals.Price = entity.Price;
 			}
-			if (entity.Total) {
+			if (entity.Total !== undefined) {
 				filter.$filter.equals.Total = entity.Total;
 			}
-			if (entity.Tax) {
+			if (entity.Tax !== undefined) {
 				filter.$filter.equals.Tax = entity.Tax;
 			}
 			messageHub.postMessage("entitySearch", {
