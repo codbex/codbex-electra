@@ -5,4 +5,4 @@ FROM ghcr.io/codbex/codbex-atlas:0.32.0
 
 COPY codbex-electra target/dirigible/repository/root/registry/public/codbex-electra
 
-ENV DIRIGIBLE_HOME_URL=/services/web/codbex-electra/gen/index.html
+ENV DIRIGIBLE_HOME_URL=/services/web/codbex-electra/ui/index.html
