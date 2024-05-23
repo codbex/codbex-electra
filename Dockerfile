@@ -6,3 +6,5 @@ FROM ghcr.io/codbex/codbex-atlas:0.33.0
 COPY codbex-electra target/dirigible/repository/root/registry/public/codbex-electra
 
 ENV DIRIGIBLE_HOME_URL=/services/web/codbex-electra/ui/index.html
+
+EXPOSE 80
